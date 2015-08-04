@@ -23,7 +23,7 @@ var swear_words = [
   "piss", "pussy", ":3",
   "git", "daa", "fap",
   "penis", "foxy", "screw",
-  "anus", /*"fu ",*/ "sex",
+  "anus", "fu ", "sex",
   "anal", "disk", "slut",
   "comeback", "hoe", "shirt",
   "cunt", "stalker", "tofu",
@@ -320,22 +320,13 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 }
 
 function filter_swears_chat() {
-  // workaround for "fu" bug
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
-  var old_msg_reg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var exit_num = old_msg.indexOf(spec_code[0]);
-  var away_num = old_msg.indexOf(spec_code[1]);
-  if (old_msg == "fu") {
-    if (exit_num === 0 || away_num === 0) {
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = "f" + swear_code[1] + "u";
-    }
-    else {
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = "f" + swear_code[0] + "u
-    }
-  }
   for (var i = 0; i < swear_words.length; i++) {
-    // kaff you suck
-    var index_num = old_msg.indexOf(swear_words[i]);
+    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
+    var old_msg_reg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+    var index_num = old_msg.indexOf(swear_words[i]);           
+    
+    var exit_num = old_msg.indexOf(spec_code[0]);
+    var away_num = old_msg.indexOf(spec_code[1]);
     
     var spec_switch = 0;
     if (exit_num === 0 || away_num === 0) {
