@@ -3,10 +3,11 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     1.410633
+// @version     1.410634
 // @grant       none
 // @icon        http://www.mediafire.com/convkey/128d/9818z30v9dujzyyzg.jpg
 // @updateURL   https://openuserjs.org/install/AIMGamesDaler/Swearify.user.js      
+// @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
 ///////FIRST ARRAY IS SWEAR WORDS TO FILTER AND SECOND IS WHAT TO PLACE BETWEEN CHARACTERS
@@ -43,7 +44,8 @@ var swear_code = [
 ///////COLOR CODE FOR 4CHAN GREENTEXT
 var color_code = [
   "[color=#789922]",
-  "[/color]"
+  "[/color]",
+  "[color=#AA0000]"
 ];
 ///////
 
@@ -232,7 +234,24 @@ var emoticon = {
   brilliant: [':brill:', 'http://i59.tinypic.com/28h3dc8.png', 'brilliant'],
   sharkfrog: [':sfrog:', 'http://i60.tinypic.com/zojamb.png', 'shark frog'],
   iduck: [':iduck:', 'http://i60.tinypic.com/zstwzt.png', 'inverted duck'],
-  happen: [':happen:', 'http://i59.tinypic.com/2rzyzjm.jpg', 'happening']
+  happen: [':happen:', 'http://i59.tinypic.com/2rzyzjm.jpg', 'happening'],
+  winner2: [':winner2:', 'http://i.imgur.com/cFwUmzM.gif', 'winner2'],
+  chuck: [':chuck:', 'http://i.imgur.com/DZ2pIWf.gif', 'chuck'],
+  chuck2: [':chuck2:', 'http://i.imgur.com/7WB6Gic.gif', 'chuck2'],
+  DOXXXXXXED: [':DOXXXXXXED:', 'http://i.imgur.com/y7eyps0.png', 'DOXXXXXXED'],
+  toazuka: [':toazuka:', 'http://i.imgur.com/VQ9qxQE.png', 'toazuka'],
+  ttfail: [':ttfail:', 'http://i.imgur.com/eWaObkM.png', 'ttfail'],
+  jew: [':jew:', 'http://i.imgur.com/jowqkg9.gif', 'jew'],
+  //oldjew: [':oldjew:', 'http://i.imgur.com/pz0mxbA.gif', 'oldjew'], //200px
+  ttjew: [':ttjew:', 'http://i.imgur.com/xeYRU5O.gif', 'ttjew'],
+  samefag: [':samefag:', 'http://i.imgur.com/bLXx0AX.gif', 'samefag'],
+  mofo007: [':007mofo:', 'http://i.imgur.com/hr0aB6M.png', '007mofo'],
+  muricaflag: [':muricaflag:', 'http://i.imgur.com/Sy9vZNX.gif', 'muricaflag'],
+  virus: [':virus:', 'http://i.imgur.com/kZYR3oJ.gif', 'virus'],
+  unsettling: [':unsettling:', 'http://i.imgur.com/C5qQpQR.gif', 'unsettling'],
+  lennygif: [':lennygif:', 'http://i.imgur.com/D18PxsO.gif', 'lennygif'],
+  bummer: [':bummer:', 'http://i58.tinypic.com/2zqd92p.png', 'bummer'],
+  damit: [':damit:', 'http://i.imgur.com/JamRIqh.png', 'damit']
   
 };
 ///////
@@ -246,7 +265,18 @@ var maymay = {
   esca: ['that escalated', '[size=20][font=impact]THAT ESCALATED[/font][/size]'],
   fast: ['gottagofast', '[color=green][font=comic sans ms][size=18][i]Gotta Go Fast !!![/i][/size][/font][/color]'],
   minty: ['minty', '[img]http://i60.tinypic.com/2hzkc5y.png[/img][blur][b][color=#98FF98] MINTY[/color][/b][/blur]'],
-  lenny: [':lenny:', '( ͡° ͜ʖ ͡°)']
+  lenny: [':lenny:', '( ͡° ͜ʖ ͡°)'],           //cancer during browser edit (firefox)
+  dongers: [':raise:', 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ'], // cancer
+  hamster: [':hamster:', '(•ω•)'],
+  //do not enable (bad idea)
+  /*
+  startbold: [':startbold:', '[b][img][/b][/img]'],
+  endbold: [':endbold:', '[img][b][/img][/b]'],
+  startitalic: [':startitalic:', '[i][img][/i][/img]'],
+  enditalic: [':enditalic:', '[img][i][/img][/i]'],
+  starts: [':starts:', '[u][img][/u][/img]'],
+  ends: [':ends:', '[img][u][/img][/u]']
+  */
 };
 ///////
 
@@ -435,6 +465,49 @@ function greentext_post() {
     var index_num = msg_ray[i].indexOf(">");
     if (index_num === 0) {
       msg_ray[i] = color_code[0] + msg_ray[i] + color_code[1];
+      if (document.getElementsByTagName("textarea")[1] === undefined) {
+        document.getElementsByTagName("textarea")[0].value = msg_ray.join('<br />');
+      }
+      else {
+        document.getElementsByTagName("textarea")[1].value = msg_ray.join('<br />');
+      }
+    }
+  }
+}
+/////////////////////
+
+///////////////////// MANAGES THE EMULATION OF REDTEXT
+function redtext_chat() {
+  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+  var index_num = old_msg.indexOf("<");
+  if (index_num === 0) {
+    var new_msg = color_code[2] + old_msg + color_code[1];
+    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+  }
+}
+
+function redtext_bchat() {
+  var old_msg = document.getElementById("message").value;
+  var index_num = old_msg.indexOf("<");
+  if (index_num === 0) {
+    var new_msg = color_code[2] + old_msg + color_code[1];
+    document.getElementById("message").value = new_msg;
+  }
+}
+
+function redtext_post() {
+  var old_msg = "";
+  if (document.getElementsByTagName("textarea")[1] === undefined) {
+    old_msg = document.getElementsByTagName("textarea")[0].value;
+  }
+  else {
+    old_msg = document.getElementsByTagName("textarea")[1].value;
+  }
+  var msg_ray = old_msg.split("\n");
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = msg_ray[i].indexOf("<");
+    if (index_num === 0) {
+      msg_ray[i] = color_code[2] + msg_ray[i] + color_code[1];
       if (document.getElementsByTagName("textarea")[1] === undefined) {
         document.getElementsByTagName("textarea")[0].value = msg_ray.join('<br />');
       }
@@ -637,6 +710,7 @@ setInterval(function () { /// Run script in an interval, so we can get updated t
           greentext_chat(); ///
           emoticon_chat(); ///       
           maymay_chat(); /// 
+          redtext_chat();
         }
       };
       edit_css_chat(); /// This is done even when you aren't pressing keys
@@ -649,6 +723,7 @@ setInterval(function () { /// Run script in an interval, so we can get updated t
           greentext_bchat();
           emoticon_bchat();
           maymay_bchat();
+          redtext_bchat();
         }
       };
       edit_css_bchat();
@@ -667,6 +742,7 @@ setInterval(function () { /// Run script in an interval, so we can get updated t
           greentext_post(); ///            
           emoticon_post(); ///
           maymay_post(); ///
+          redtext_post();
         }
       }
     }
