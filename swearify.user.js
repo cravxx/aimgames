@@ -23,7 +23,7 @@ var swear_words = [
   "piss", "pussy", ":3",
   "git", "daa", "fap",
   "penis", "foxy", "screw",
-  "anus", "", "sex",
+  "anus", "fu ", "sex",
   "anal", "disk", "slut",
   "comeback", "hoe", "shirt",
   "cunt", "stalker", "tofu",
