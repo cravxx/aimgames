@@ -267,7 +267,7 @@ var maymay = {
   minty: ['minty', '[img]http://i60.tinypic.com/2hzkc5y.png[/img][blur][b][color=#98FF98] MINTY[/color][/b][/blur]'],
   lenny: [':lenny:', '( ͡° ͜ʖ ͡°)'],           //cancer during browser edit (firefox)
   dongers: [':raise:', 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ'], // cancer
-  hamster: [':hamster:', '(•ω•)'],
+  hamster: [':hamster:', '(•ω•)']
   //do not enable (bad idea)
   /*
   startbold: [':startbold:', '[b][img][/b][/img]'],
