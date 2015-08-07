@@ -2,7 +2,7 @@
 // @name        Alive
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/
-// @version     1.00
+// @version     1.03
 // @grant       none
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
 // ==/UserScript==
