@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        myoot
+// @name        Myoot
 // @description Prevents any stray audio clips from automatically playing on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
