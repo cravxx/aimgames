@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name        myo͞ot
+// @name        myoot
 // @description Prevents any stray audio clips from automatically playing on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
 // @version     1.3
 // @icon        http://www.mediafire.com/convkey/c313/jnx13q9ha6j01w9zg.jpg
-// @updateURL   https://openuserjs.org/install/AIMGamesDaler/myo͞ot.user.js      
+// @updateURL   https://openuserjs.org/install/AIMGamesDaler/myoot.user.js      
 // ==/UserScript==
 
 var audio_players = document.getElementsByTagName("audio");
