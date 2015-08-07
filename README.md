@@ -16,3 +16,8 @@ After installing the script, you will need to refresh any AIM windows.
 
 ## Myoot Features:
 - If you open a thread that contains an audio clip set to auto-play, it will mute it and display an alert box of it's URL
+
+## Alive Features:
+- Fully written in jQuery
+- An overlay that pretends to accomplish something but really doesn't
+- A "scrolling" notification system. This will come in handy once I implement it right...
