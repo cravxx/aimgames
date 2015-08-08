@@ -21,3 +21,7 @@ After installing the script, you will need to refresh any AIM windows.
 - Fully written in jQuery
 - An overlay that pretends to accomplish something but really doesn't
 - A "scrolling" notification system. This will come in handy once I implement it right...
+
+## Charcount Features:
+- Uses Countable.js
+- Displays character count below post box; amount turns red if it's over the limit
