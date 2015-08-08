@@ -271,7 +271,7 @@ var maymay = {
   lenny: [':lenny:', '( ͡° ͜ʖ ͡°)'],           //cancer during browser edit (firefox)
   dongers: [':raise:', 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ'], // cancer
   hamster: [':hamster:', '(•ω•)'],
-  greeneggs: [':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( ͡° ʖ̯ ͡°)[/size]']
+  greeneggs: [':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( ͡° ʖ̯ ͡°)[/size]'] //cancer
   //do not enable (bad idea)
   /*
   startbold: [':startbold:', '[b][img][/b][/img]'],
