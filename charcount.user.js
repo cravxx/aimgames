@@ -2,29 +2,30 @@
 // @name        Charcount
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.0.5
+// @version     1.1
 // @grant       none
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // ==/UserScript==
-
 var cssLabel = "color: grey;font-size: 12px;";
 
 var location = "";
 var refined_loc = "";
 var cssTd = "";
 
-
+////// CODE FOR DEALING WITH OBJECTS
 function values(o) {
   return Object.keys(o).map(function (k) {
     return o[k]
   })
 }
+//////
 
+//////INITIALIZE THIS
 window.onload = function()   {
-  if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW
-    location = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
+  if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW PAGE
+    location = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
     refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
-  }else{
+  }else{ //// QUICK REPLY
     location = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
     cssTd = "padding-top:5px;";
     var new_td = document.createElement("td");
