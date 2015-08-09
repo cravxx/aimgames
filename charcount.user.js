@@ -2,13 +2,14 @@
 // @name        Charcount
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.1
+// @version     1.1.5
 // @grant       none
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
+// @icon        http://i62.tinypic.com/mkg51f.png
 // ==/UserScript==
 var cssLabel = "color: grey;font-size: 12px;";
 
-var location = "";
+var loc = "";
 var refined_loc = "";
 var cssTd = "";
 
@@ -23,13 +24,13 @@ function values(o) {
 //////INITIALIZE THIS
 window.onload = function()   {
   if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW PAGE
-    location = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
+    loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
     refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
   }else{ //// QUICK REPLY
-    location = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
+    loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
     cssTd = "padding-top:5px;";
     var new_td = document.createElement("td");
-    location.appendChild(new_td).style.cssText = cssTd;
+    loc.appendChild(new_td).style.cssText = cssTd;
     refined_loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1].getElementsByTagName("td")[0];
   }    
   var element = document.createElement("label");
@@ -45,7 +46,7 @@ setInterval(function () {
   
   if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
     Countable.once(area, function (counter) {
-      location.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
+      loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
       console.log(values(counter)[4]);
       if(values(counter)[4] > 32000){
         console.log("got here");
