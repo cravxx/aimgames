@@ -2,7 +2,7 @@
 // @name        Charcount
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1
+// @version     1.0.5
 // @grant       none
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // ==/UserScript==
@@ -13,7 +13,6 @@ var location = "";
 var refined_loc = "";
 var cssTd = "";
 
-var preview = false;
 
 function values(o) {
   return Object.keys(o).map(function (k) {
@@ -23,13 +22,11 @@ function values(o) {
 
 window.onload = function()   {
   if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW
-    preview = true;
     location = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
     refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
-  }else{    
+  }else{
     location = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
     cssTd = "padding-top:5px;";
-
     var new_td = document.createElement("td");
     location.appendChild(new_td).style.cssText = cssTd;
     refined_loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1].getElementsByTagName("td")[0];
@@ -39,21 +36,22 @@ window.onload = function()   {
 };
 
 setInterval(function () {      
-  var area = "";  
-  if(!preview){
-    area = document.getElementsByTagName("textarea")[0];
-    area.value = document.getElementsByTagName("textarea")[1].value;
-  }else{
-    area = document.getElementsByTagName("textarea")[0];
+  var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
+  if(!typeof document.getElementsByTagName("textarea")[1] === 'undefined'){    ///if were not in preview window, we need to set some variables differently
+    document.getElementsByTagName("textarea")[0].value = document.getElementsByTagName("textarea")[1].value;
+    area = document.getElementsByTagName("textarea")[0];     
+  }  
+  
+  if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
+    Countable.once(area, function (counter) {
+      location.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
+      console.log(values(counter)[4]);
+      if(values(counter)[4] > 32000){
+        console.log("got here");
+        element.style.cssText += "color:red;";
+      }else if(values(counter)[4] < 32000){
+        element.style.cssText = cssLabel;
+      }
+    });  
   }
-  Countable.once(area, function (counter) {
-    location.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
-    console.log(values(counter)[4]);
-    if(values(counter)[4] > 32000){
-      console.log("got here");
-      element.style.cssText += "color:red;";
-    }else if(values(counter)[4] < 32000){
-      element.style.cssText = cssLabel;
-    }
-  });    
 }, 3000);
