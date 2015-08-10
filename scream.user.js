@@ -26,6 +26,6 @@ function getPageContents(callback,url,params) {
     http.send(params);
 }
 function callback(response) {
-    mymassivepenis = response.getElementById("") // WHAT DO I DO NOW
+    var mymassivepenis = response.getElementById("") // WHAT DO I DO NOW
 }
 getPageContents(callback,'http://aimgames.forummotion.com/profile?mode=editprofile')
