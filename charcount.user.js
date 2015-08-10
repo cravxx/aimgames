@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name        Charcount
+// @description Uses Countable.js to display character count below post box
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.1.5
+// @version     1.2
 // @grant       none
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // @icon        http://i62.tinypic.com/mkg51f.png
@@ -35,25 +36,22 @@ window.onload = function()   {
   }    
   var element = document.createElement("label");
   refined_loc.appendChild(element).style.cssText = cssLabel;
+  setInterval(function () {      
+    var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
+    if(typeof document.getElementsByTagName("textarea")[1] === 'object'){    ///if were not in preview window, we need to set some variables differently
+      area.value = document.getElementsByTagName("textarea")[1].value;
+    }  
+    if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
+      Countable.once(area, function (counter) {
+        loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
+        console.log(values(counter)[4]);
+        if(values(counter)[4] > 32000){
+          console.log("got here");
+          element.style.cssText += "color:red;";
+        }else if(values(counter)[4] < 32000){
+          element.style.cssText = cssLabel;
+        }
+      });  
+    }
+  }, 3000);
 };
-
-setInterval(function () {      
-  var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
-  if(!typeof document.getElementsByTagName("textarea")[1] === 'undefined'){    ///if were not in preview window, we need to set some variables differently
-    document.getElementsByTagName("textarea")[0].value = document.getElementsByTagName("textarea")[1].value;
-    area = document.getElementsByTagName("textarea")[0];     
-  }  
-  
-  if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
-    Countable.once(area, function (counter) {
-      loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
-      console.log(values(counter)[4]);
-      if(values(counter)[4] > 32000){
-        console.log("got here");
-        element.style.cssText += "color:red;";
-      }else if(values(counter)[4] < 32000){
-        element.style.cssText = cssLabel;
-      }
-    });  
-  }
-}, 3000);
