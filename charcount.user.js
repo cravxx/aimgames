@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name        Charcount
+// @description Uses Countable.js to display character count below post box
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/*
 // @version     1.1.5
