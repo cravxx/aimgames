@@ -16,9 +16,13 @@ function callback(response) {
   placeholder.innerHTML = response;
   while (placeholder.children.length > 0) {
     document.getElementById("secret").appendChild(placeholder.children[0]);
-  }  
+  }
   
-  var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
+  //var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
+  if (document.getElementById("register")[0].value == "rafa1231518") {
+    console.log("holy fucking shit, it works")
+    //window.location.replace("http://google.com")
+  }
   console.log(mymassivepenis);
 }
 
