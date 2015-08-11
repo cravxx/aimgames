@@ -1,3 +1,9 @@
+var cssChkbox = "font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;";
+var cssButton = "color:black; padding-right: 3px; margin-left: 3px;";
+var cssMsg = "color:white; margin-right:8px; margin-left:5px;";
+var cssLine = "color:black;";
+var cssChat = "overflow-x: hidden; left:141px;"; /// white-space: nowrap; 
+
 /////////////////////MANAGES THE EDITING OF CSS
 function edit_css_chat() {
   document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4].style.cssText = cssMsg;
