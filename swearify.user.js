@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     1.5.4
+// @version     1.5.5
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @updateURL   https://github.com/HulaSamsquanch/aimgames/raw/master/swearify.user.js      
