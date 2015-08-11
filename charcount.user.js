@@ -3,7 +3,7 @@
 // @description Uses Countable.js to display character count below post box
 // @namespace   greasy_character
 // @include     http://aimgames.forummotion.com/*
-// @version     1.2.1
+// @version     1.2.2
 // @grant       none
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // @icon        http://i62.tinypic.com/mkg51f.png
@@ -48,7 +48,7 @@ window.onload = function()   {
         }
         if(values(counter)[4] > 63500){ ////i dont really know the limit
           element.style.cssText += "color:red;";
-        }else if(values(counter)[4] < 32000){
+        }else if(values(counter)[4] < 63500){
           element.style.cssText = cssLabel;
         }
       });  
