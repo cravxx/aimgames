@@ -1,4 +1,6 @@
 @ECHO OFF &SETLOCAL ENABLEDELAYEDEXPANSION
+REM This script should automatically
+REM increase the version number.
 SET "HFile=file"
 SET "search=// @version"
 
