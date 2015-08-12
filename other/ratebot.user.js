@@ -3,7 +3,7 @@
 // @description Rating bot for BestEverAlbums.com
 // @namespace   kaffeinition@gmail.com
 // @include     http://www.besteveralbums.com/*
-// @version     1.186
+// @version     1.2
 // @grant       none
 // @icon        http://i58.tinypic.com/21cw5lu.png
 // ==/UserScript==
