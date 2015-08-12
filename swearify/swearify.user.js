@@ -3,14 +3,17 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     132
+// @version     1.6.11
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // ==/UserScript==
 
-//////////////////////////////// VERSIONING = COMMIT #
+////////////////////////////////
+//////////////////////////////  VERSIONING: X.X.XX
+//////////////////////////////  DO NOT CHANGE
+////////////////////////////////
 
 var swear_words = [
 "fuck", "shit", "bastard",
@@ -245,8 +248,6 @@ uglypepe: [':upepe:', 'http://i61.tinypic.com/2qiv800.jpg', "ugly pepe"]
 };
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
-var toad = new RegExp(('toa|toad'), "gi");
-
 var maymay = {
 sombre: ['sombre', '[font=monospace][size=14][b][color=red]S[/color] [color=orange]O[/color] [color=yellow]M[/color] [color=blue]B[/color] [color=indigo]R[/color] [color=violet]E[/color][/b][/size][/font]'],
 doors: ['the doors', '[i]the doors[/i]'],
@@ -270,7 +271,8 @@ yes: [':yes:', '[size=6]yes,[/size] yes YES [size=26]YES[/size]'],
 hitler: [':hitler:', '[IMG]http://i.imgur.com/pz0mxbA.gif[/IMG] [size=26][b]ADOLF NITLER CONFIRMED FOR JEW[/b][/size] [IMG]http://i.imgur.com/pz0mxbA.gif[/IMG]'],
 anonymoose: [':anonymoose:', '[b][font=Comic Sans MS][color=#3BED44]A[/color][color=#1137CE]N[/color][color=#6D2645]O[/color][color=#4B20D2]N[/color][color=#C9EE35]Y[/color][color=#BEF7E8]M[/color][color=#66D74E]O[/color][color=#702B82]O[/color][color=#950C47]S[/color][color=#9F65A4]E[/color] [color=#88DA22]W[/color][color=#332E39]E[/color] [color=#ED8A9F]O[/color][color=#86306E]N[/color][color=#4BD338]L[/color][color=#6B6743]Y[/color] [color=#5D1908]S[/color][color=#3764FE]W[/color][color=#19A9D8]A[/color][color=#346143]L[/color][color=#E3A6B6]L[/color][color=#5447A3]O[/color][color=#21032A]W[/color] [color=#6183A4]N[/color][color=#0E4A2B]E[/color][color=#06790B]V[/color][color=#19B543]E[/color][color=#08930B]R[/color] [color=#B5AE1A]S[/color][color=#406842]P[/color][color=#C3F745]I[/color][color=#DC2D64]T[/color][/font][/b]'],
 ripped: [':rip:', '[b][font=Impact][size=20][color=#3BED44]r[/color][color=#1137CE]i[/color][color=#6D2645]p[/color] [color=#C9EE35]i[/color][color=#BEF7E8]n[/color] [color=#702B82]p[/color][color=#950C47]i[/color][color=#9F65A4]e[/color][color=#196650]c[/color][color=#88DA22]e[/color][color=#332E39]s[/color][/size][/font][/b]'],
-toa: [toad, '[img]http://i61.tinypic.com/cmjk6.png[/img]']
+toa: ['toad', '[img]http://i61.tinypic.com/cmjk6.png[/img]']
+
 //do not enable (bad idea) < you're a bad idea
 /*
 startbold: [':startbold:', '[b][img][/b][/img]'],
@@ -764,6 +766,7 @@ function post_page_editor() {
 
 /////////////////////RUNS SCRIPT
 window.onload = function() {  
+    console.log(toad);
   if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
     if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").onkeypress = function (event) { /// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
@@ -845,3 +848,8 @@ window.onload = function() {
     }
   }  
 }
+
+/*
+Exception: missing } after property list
+@Scratchpad/1:276
+*/
