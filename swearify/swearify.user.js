@@ -3,17 +3,14 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     1.6.10
+// @version     132
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // ==/UserScript==
 
-////////////////////////////////
-//////////////////////////////  VERSIONING: X.X.XX
-//////////////////////////////  DO NOT CHANGE
-////////////////////////////////
+//////////////////////////////// VERSIONING = COMMIT #
 
 var swear_words = [
 "fuck", "shit", "bastard",
