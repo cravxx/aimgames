@@ -6,9 +6,9 @@
 // @version     1.6.1
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
-// @updateURL   https://raw.githubusercontent.com/HulaSamsquanch/swearify/master/swearify.user.js
+// @updateURL  https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/swearify.user.js
 // @license     MIT License (Expat); opensource.org/licenses/MIT
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/swearify/master/swearify_data.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/swearify_data.js
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // ==/UserScript==
 
