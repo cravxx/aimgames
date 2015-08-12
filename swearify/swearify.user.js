@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     1.6.11
+// @version     1.6.12
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -245,6 +245,7 @@ ghostpepe: [':gpepe:', 'http://i62.tinypic.com/fkqgr5.png', "ghost pepe"],
 sexypepe: [':spepe:', 'http://i60.tinypic.com/2r5qpkz.jpg', "sexy pepe"],
 straightd: [':sdubs:', 'http://i59.tinypic.com/6od98l.jpg', "straight outta doubles"],
 uglypepe: [':upepe:', 'http://i61.tinypic.com/2qiv800.jpg', "ugly pepe"]
+
 };
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
@@ -272,7 +273,6 @@ hitler: [':hitler:', '[IMG]http://i.imgur.com/pz0mxbA.gif[/IMG] [size=26][b]ADOL
 anonymoose: [':anonymoose:', '[b][font=Comic Sans MS][color=#3BED44]A[/color][color=#1137CE]N[/color][color=#6D2645]O[/color][color=#4B20D2]N[/color][color=#C9EE35]Y[/color][color=#BEF7E8]M[/color][color=#66D74E]O[/color][color=#702B82]O[/color][color=#950C47]S[/color][color=#9F65A4]E[/color] [color=#88DA22]W[/color][color=#332E39]E[/color] [color=#ED8A9F]O[/color][color=#86306E]N[/color][color=#4BD338]L[/color][color=#6B6743]Y[/color] [color=#5D1908]S[/color][color=#3764FE]W[/color][color=#19A9D8]A[/color][color=#346143]L[/color][color=#E3A6B6]L[/color][color=#5447A3]O[/color][color=#21032A]W[/color] [color=#6183A4]N[/color][color=#0E4A2B]E[/color][color=#06790B]V[/color][color=#19B543]E[/color][color=#08930B]R[/color] [color=#B5AE1A]S[/color][color=#406842]P[/color][color=#C3F745]I[/color][color=#DC2D64]T[/color][/font][/b]'],
 ripped: [':rip:', '[b][font=Impact][size=20][color=#3BED44]r[/color][color=#1137CE]i[/color][color=#6D2645]p[/color] [color=#C9EE35]i[/color][color=#BEF7E8]n[/color] [color=#702B82]p[/color][color=#950C47]i[/color][color=#9F65A4]e[/color][color=#196650]c[/color][color=#88DA22]e[/color][color=#332E39]s[/color][/size][/font][/b]'],
 toa: ['toad', '[img]http://i61.tinypic.com/cmjk6.png[/img]']
-
 //do not enable (bad idea) < you're a bad idea
 /*
 startbold: [':startbold:', '[b][img][/b][/img]'],
@@ -766,7 +766,6 @@ function post_page_editor() {
 
 /////////////////////RUNS SCRIPT
 window.onload = function() {  
-    console.log(toad);
   if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
     if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").onkeypress = function (event) { /// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
@@ -848,8 +847,3 @@ window.onload = function() {
     }
   }  
 }
-
-/*
-Exception: missing } after property list
-@Scratchpad/1:276
-*/
