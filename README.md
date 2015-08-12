@@ -1,3 +1,3 @@
 # Scripts for AIM Games
 
-View wiki for more information
+View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more information.
