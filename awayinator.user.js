@@ -3,12 +3,14 @@
 // @namespace   up_and_away
 // @description Makes sure you never go AFK in the chat.
 // @include     http://aimgames.forummotion.com/*
-// @version     1.1
+// @version     1.2
 // @grant       none
 // ==/UserScript==
 
 var where = '';
 var cookie_names = 'username';
+
+var cssChkbox = "margin-right: 5px;";
 
 function setCookie(name, value, days) {
   if (days) {
@@ -33,6 +35,19 @@ function getCookie(c_name) {
   
 //console.log(getCookie(cookie_names));
 window.addEventListener('load', function() {
+  var first_pass = document.getElementById("chatbox_members")
+  var second_pass = first_pass.children;
+
+  var checkbox = document.createElement("input");
+  var checkbox_label = document.createElement("label"); 
+  checkbox.setAttribute("type", "checkbox");
+  checkbox.checked = true; 
+  checkbox_label.innerHTML = "Online";
+  second_pass[0].innerHTML = "";
+  second_pass[0].appendChild(checkbox).style.cssText = cssChkbox;
+  second_pass[0].appendChild(checkbox_label);  
+  /////////////////
+  
   if (document.getElementById("frame_chatbox") != null) {
     where = document.getElementById('frame_chatbox').contentWindow.document.getElementsByClassName('away-users') [0].getElementsByClassName('chatbox-username chatbox-user-username');
     var username = _userdata['username'];
@@ -41,15 +56,17 @@ window.addEventListener('load', function() {
       note = '! ...but something went wrong.';
     } else if(getCookie(cookie_names) === '' || getCookie(cookie_names) === 'blank'){
       setCookie(cookie_names, username, 1);
-      setInterval(function () {
-        for (var i = 0; i < where.length; i++) {
-          if (where[i].innerHTML == getCookie(cookie_names)) {
-            document.getElementById('frame_chatbox') .contentWindow.document.getElementById('message') .value = '.';
-            document.getElementById('frame_chatbox') .contentWindow.chatbox.send();        
-            where = document.getElementById('frame_chatbox') .contentWindow.document.getElementsByClassName('away-users') [0].getElementsByClassName('chatbox-username chatbox-user-username');
+      if(checkbox.checked){
+        setInterval(function () {
+          for (var i = 0; i < where.length; i++) {
+            if (where[i].innerHTML == getCookie(cookie_names)) {
+              document.getElementById('frame_chatbox') .contentWindow.document.getElementById('message') .value = '.';
+              document.getElementById('frame_chatbox') .contentWindow.chatbox.send();        
+              where = document.getElementById('frame_chatbox') .contentWindow.document.getElementsByClassName('away-users') [0].getElementsByClassName('chatbox-username chatbox-user-username');
+            }
           }
-        }
-      }, 100); 
+        }, 100); 
+      }
       note = ' and set a cookie (we\'ll need that later).';
     }
     alert('You visited the main page' + note);
@@ -59,15 +76,17 @@ window.addEventListener('load', function() {
       alert('You need to visit the main page!');
       setCookie(cookie_names, 'blank', 1);
     }else{
-      setInterval(function () {
-        for (var i = 0; i < where.length; i++) {
-          if (where[i].innerHTML == getCookie(cookie_names)) {
-            document.getElementById('message') .value = '.';
-            chatbox.send();
-            where = document.getElementsByClassName('away-users') [0].getElementsByClassName('chatbox-username chatbox-user-username')
+      if(checkbox.checked){
+        setInterval(function () {
+          for (var i = 0; i < where.length; i++) {
+            if (where[i].innerHTML == getCookie(cookie_names)) {
+              document.getElementById('message') .value = '.';
+              chatbox.send();
+              where = document.getElementsByClassName('away-users') [0].getElementsByClassName('chatbox-username chatbox-user-username')
+            }
           }
-        }
-      }, 100); 
+        }, 100); 
+      }
     }
   }else{alert("where the fuck are you");}
 }, false);
