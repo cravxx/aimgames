@@ -7,9 +7,12 @@
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/swearify_data.js
-// @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // ==/UserScript==
+
+////
+////// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/swearify_data.js
+////// @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
+////
 /**
  * Countable is a script to allow for live paragraph-, word- and character-
  * counting on an HTML element.
