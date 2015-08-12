@@ -5,7 +5,6 @@
 // @include http://aimgames.forummotion.com/*
 // @version 0.0.1
 // @grant none
-// @updateURL https://github.com/HulaSamsquanch/aimgames/raw/master/scream.user.js
 // @license MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
