@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name        Chameleon
+// @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
 // @version     1.1
