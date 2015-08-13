@@ -14,6 +14,10 @@ function values(o) {
 }
 //////
 var color_ = {
+  white: [
+    'background-color: rgb(255, 255, 255);',
+    '#ffffff'
+  ],
   red: [
     'background-color: rgb(255, 0, 0);',
     '#ff0000'
