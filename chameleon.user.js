@@ -77,6 +77,16 @@ function setCookie(name, value, days) {
   else var expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
+function getCookie(c_name) {
+var name = c_name + '=';
+var ca = document.cookie.split(';');
+for (var i = 0; i < ca.length; i++) {
+var c = ca[i];
+while (c.charAt(0) == ' ') c = c.substring(1);
+if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+}
+return '';
+}
 var counter = 0;
 setInterval(function () {
   if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
