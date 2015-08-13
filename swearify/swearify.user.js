@@ -369,18 +369,19 @@ function filter_swears_chat() {
     swear_string += begin_end;
     ///////Now we have our own shit string
     console.log(swear_string); ////ok make it work nigga
+    
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-	  var new_msg = old_msg.replace(shit, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
     
+    var new_msg = old_msg.replace(swear_string, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
     
-    
+    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
   
    
 	
 	
 	
-	document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+	
 	/*
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
