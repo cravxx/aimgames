@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   separate namespace
 // @include     http://aimgames.forummotion.com/*                     
-// @version     134
+// @version     135
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -353,7 +353,7 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 }
 
 function filter_swears_chat() {
-	var shit = /([sS]+)([hH]+)([iI]+)([tT]+)/gi
+	var shit = new RegExp((/([sS]+)([hH]+)([iI]+)([tT]+)), "gi");
 	var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
 	var new_msg = old_msg.replace(shit, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
 	
