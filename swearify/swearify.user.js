@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   asshole@your.mom
 // @include     http://aimgames.forummotion.com/*                     
-// @version     145
+// @version     146
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -484,7 +484,7 @@ function filter_swears_chat() {
         break;
     }
     //this should be a switch
-    var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+    //var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
     
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
