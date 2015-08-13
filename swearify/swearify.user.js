@@ -617,6 +617,113 @@ function filter_swears_chat() {
 
 function filter_swears_bchat() {
   for (var i = 0; i < swear_words.length; i++) {
+    
+    var old_msg = document.getElementById("message").value;
+    
+    /*
+    var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[2]);
+    var exit_code = old_msg.indexOf(spec_code[0]);
+    var away_code = old_msg.indexOf(spec_code[1]);
+    var abs_code = old_msg.indexOf(spec_code[2]);
+    */
+    
+    if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
+        //console.log("away detected")
+        switch (swear_noregex[i].length) {
+        default:
+                //var new_msg = old_msg;
+                document.getElementById("message").value = old_msg;
+                break;
+            case 2:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 3:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 4:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 5:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 6:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 7:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 8:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 9:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8" + swear_code[1] + "$9");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 10:
+                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
+                document.getElementById("message").value = old_msg;
+                break;
+        }
+    } else if (old_msg.indexOf(link_code[0]) == -1 && old_msg.indexOf(link_code[1]) == -1 && old_msg.indexOf(link_code[2]) == -1) {
+        switch (swear_noregex[i].length) {
+            default:
+                //var new_msg = old_msg;
+                //console.log("no swears detected");
+                document.getElementById("message").value = old_msg;
+                break;
+            case 2:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 3:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 4:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 5:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 6:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 7:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 8:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 9:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8" + swear_code[0] + "$9");
+                document.getElementById("message").value = new_msg;
+                break;
+            case 10:
+                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
+                document.getElementById("message").value = new_msg;
+                break;
+        }
+    } else {
+        //console.log("url detected");
+        //new_msg = old_msg;
+        document.getElementById("message").value = old_msg;
+    }
+    
+    /*
     var old_msg = document.getElementById("message").value.toLowerCase();
     var old_msg_reg = document.getElementById("message").value;
     var index_num = old_msg.indexOf(swear_words[i]);           
@@ -653,12 +760,216 @@ function filter_swears_bchat() {
         }
       }
     }
+    */
   }
 }
 
 function filter_swears_post() {
   for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = "";
+    if (document.getElementsByTagName("textarea")[1] === undefined) {
+      //old_msg = document.getElementsByTagName("textarea")[0].value.toLowerCase();
+      old_msg = document.getElementsByTagName("textarea")[0].value;
+    }
+    else {
+      //old_msg = document.getElementsByTagName("textarea")[1].value.toLowerCase();
+      old_msg = document.getElementsByTagName("textarea")[1].value;
+    }
+    
+    /*
+    if (document.getElementsByTagName("textarea")[1] === undefined) {
+      document.getElementsByTagName("textarea")[0].value = new_msg;
+    }
+      else {
+      document.getElementsByTagName("textarea")[1].value = new_msg;
+    }
+    */
+    
+    /*
+    var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[2]);
+    var exit_code = old_msg.indexOf(spec_code[0]);
+    var away_code = old_msg.indexOf(spec_code[1]);
+    var abs_code = old_msg.indexOf(spec_code[2]);
+    */
+    
+    if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
+        //console.log("away detected")
+        switch (swear_noregex[i].length) {
+        default:
+                //var new_msg = old_msg;
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = old_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = old_msg;
+                }
+                break;
+            case 2:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 3:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 4:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 5:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 6:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 7:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 8:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 9:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8" + swear_code[1] + "$9");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 10:
+                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
+                document.getElementById("message").value = old_msg;
+                break;
+        }
+    } else if (old_msg.indexOf(link_code[0]) == -1 && old_msg.indexOf(link_code[1]) == -1 && old_msg.indexOf(link_code[2]) == -1) {
+        switch (swear_noregex[i].length) {
+            default:
+                //var new_msg = old_msg;
+                //console.log("no swears detected");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = old_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = old_msg;
+                }
+                break;
+            case 2:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 3:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 4:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 5:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 6:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 7:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 8:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 9:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8" + swear_code[0] + "$9");
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+            case 10:
+                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
+                if (document.getElementsByTagName("textarea")[1] === undefined) {
+                  document.getElementsByTagName("textarea")[0].value = new_msg;
+                } else {
+                  document.getElementsByTagName("textarea")[1].value = new_msg;
+                }
+                break;
+        }
+    } else {
+        //console.log("url detected");
+        //new_msg = old_msg;
+        //document.getElementById("message").value = old_msg;
+		
+		if (document.getElementsByTagName("textarea")[1] === undefined) {
+          document.getElementsByTagName("textarea")[0].value = new_msg;
+        } else {
+          document.getElementsByTagName("textarea")[1].value = new_msg;
+        }
+    }
+    
+    /*var old_msg = "";
     var old_msg_reg = "";
     if (document.getElementsByTagName("textarea")[1] === undefined) {
       old_msg = document.getElementsByTagName("textarea")[0].value.toLowerCase();
@@ -683,7 +994,7 @@ function filter_swears_post() {
         document.getElementsByTagName("textarea")[1].value = new_msg;
       }
     }
-  }
+  }*/
 }
 /////////////////////
 
