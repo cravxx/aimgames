@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.11
+// @version     1.2
 // @grant       none
 // ==/UserScript==
 ////// CODE FOR DEALING WITH OBJECTS
