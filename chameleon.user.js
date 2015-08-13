@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name        chameleon
+// @name        Chameleon
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1
+// @version     1.1
 // @grant       none
 // ==/UserScript==
 ////// CODE FOR DEALING WITH OBJECTS
