@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   asshole@your.mom
 // @include     http://aimgames.forummotion.com/*                     
-// @version     153
+// @version     155
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -463,7 +463,7 @@ function filter_swears_chat() {
 	*/
     
 	if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
-	    console.log("away detected")
+	    //console.log("away detected")
 	    switch (swear_noregex[i].length) {
 	    default:
                 //var new_msg = old_msg;
@@ -510,7 +510,7 @@ function filter_swears_chat() {
         switch (swear_noregex[i].length) {
             default:
                 //var new_msg = old_msg;
-                console.log("no swears detected");
+                //console.log("no swears detected");
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
                 break;
             case 2:
@@ -551,7 +551,7 @@ function filter_swears_chat() {
                 break;
         }
 	} else {
-		console.log("url detected");
+		//console.log("url detected");
 		//new_msg = old_msg;
 		document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
 	}
