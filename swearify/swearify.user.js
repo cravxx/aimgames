@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.0.05
+// @version     2.0.10
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -480,8 +480,7 @@ function filter_swears_chat() {
           break;
       }
     } else {
-        //console.log("url detected");
-        var new_msg = old_msg;
+      var new_msg = old_msg;
     }
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
     
@@ -541,6 +540,59 @@ function filter_swears_chat() {
 
 function filter_swears_bchat() {
   for (var i = 0; i < swear_words.length; i++) {
+    var old_msg = document.getElementById("message").value;
+    // http://stackoverflow.com/a/500459
+    
+    var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[2]);
+    var exit_code = old_msg.indexOf(spec_code[0]);
+    var away_code = old_msg.indexOf(spec_code[1]);
+    var abs_code = old_msg.indexOf(spec_code[2]);
+    var spec_switch = 0;
+    
+    //afk switch
+    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+      spec_switch = 1;
+    }
+    
+    if (http_link == -1 && https_link == -1 && www_link == -1) {
+      switch (swear_noregex[i].length) {
+        default:
+          var new_msg = old_msg;
+          break;
+        case 2:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
+          break;
+        case 3:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
+          break;
+        case 4:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
+          break;
+        case 5:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
+          break;
+        case 6:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
+          break;
+        case 7:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
+          break;
+        case 8:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
+          break;
+        case 9:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
+          break;
+      }
+    } else {
+      var new_msg = old_msg;
+    }
+    document.getElementById("message").value = new_msg;
+    
+    
+    /*
     var old_msg = document.getElementById("message").value.toLowerCase();
     var old_msg_reg = document.getElementById("message").value;
     var index_num = old_msg.indexOf(swear_words[i]);           
@@ -577,11 +629,77 @@ function filter_swears_bchat() {
         }
       }
     }
+    */
   }
 }
 
 function filter_swears_post() {
   for (var i = 0; i < swear_words.length; i++) {
+    var old_msg = ""; //this may not be necessary i'm not 100% sure
+    if (document.getElementsByTagName("textarea")[1] === undefined) {
+      old_msg = document.getElementsByTagName("textarea")[0].value;
+    }
+    else {
+      old_msg = document.getElementsByTagName("textarea")[1].value;
+    }
+    // http://stackoverflow.com/a/500459
+    
+    var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[2]);
+    var exit_code = old_msg.indexOf(spec_code[0]);
+    var away_code = old_msg.indexOf(spec_code[1]);
+    var abs_code = old_msg.indexOf(spec_code[2]);
+    var spec_switch = 0;
+    
+    //afk switch
+    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+      spec_switch = 1;
+    }
+    
+    if (http_link == -1 && https_link == -1 && www_link == -1) {
+      switch (swear_noregex[i].length) {
+        default:
+          var new_msg = old_msg;
+          break;
+        case 2:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
+          break;
+        case 3:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
+          break;
+        case 4:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
+          break;
+        case 5:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
+          break;
+        case 6:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
+          break;
+        case 7:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
+          break;
+        case 8:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
+          break;
+        case 9:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
+          break;
+      }
+    } else {
+      //console.log("url detected");
+      var new_msg = old_msg;
+    }
+    if (document.getElementsByTagName("textarea")[1] === undefined) {
+      document.getElementsByTagName("textarea")[0].value = new_msg;
+    }
+    else {
+      document.getElementsByTagName("textarea")[1].value = new_msg;
+    }
+    
+    
+    /*
     var old_msg = "";
     var old_msg_reg = "";
     if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -607,6 +725,7 @@ function filter_swears_post() {
         document.getElementsByTagName("textarea")[1].value = new_msg;
       }
     }
+    */
   }
 }
 /////////////////////
