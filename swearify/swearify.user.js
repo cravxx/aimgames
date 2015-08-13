@@ -433,133 +433,57 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 
 function filter_swears_chat() {
   for (var i = 0; i < swear_words.length; i++) {
-    //console.log("shit");
-    
-    // YOU FUCKING RETARD THAT'S NOT HOW IT WORKS REGEX IS A DIFFERENT CLASS FROM STRING
-    // WHERE DID YOU LEARN PROGRAMMING YOU DOOFUS
-    //var begin_end = '/';
-    
-    /*
-    var before_char = '([';
-    var after_char = ']+)';
-    
-    var swear_string = "";
-    
-    for(var x = 0; x < swear_words[i].length; x++){
-      var low = swear_words[i].charAt(x).toLowerCase();
-      var up = swear_words[i].charAt(x).toUpperCase();
-      swear_string += before_char + '' + low + '' + up + after_char;      
-    }
-    swear_string += begin_end;
-    ///////Now we have our own shit string
-    console.log(swear_string); ////ok make it work nigga
-    
-    swear_regexp = new RegExp(swear_string, "g")
-    */
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+    // http://stackoverflow.com/a/500459
     
-    /*
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
     var exit_code = old_msg.indexOf(spec_code[0]);
     var away_code = old_msg.indexOf(spec_code[1]);
     var abs_code = old_msg.indexOf(spec_code[2]);
-    */
+    var spec_switch = 0;
     
-    if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
-        //console.log("away detected")
-        switch (swear_noregex[i].length) {
+    //afk switch
+    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+      spec_switch = 1;
+    }
+    
+    if (http_link == -1 && https_link == -1 && www_link == -1) {
+      switch (swear_noregex[i].length) {
         default:
-                //var new_msg = old_msg;
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
-                break;
-            case 2:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 3:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 4:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 5:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 6:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 7:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 8:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 9:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8" + swear_code[1] + "$9");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 10:
-                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
-                break;
-        }
-    } else if (old_msg.indexOf(link_code[0]) == -1 && old_msg.indexOf(link_code[1]) == -1 && old_msg.indexOf(link_code[2]) == -1) {
-        switch (swear_noregex[i].length) {
-            default:
-                //var new_msg = old_msg;
-                //console.log("no swears detected");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
-                break;
-            case 2:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 3:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 4:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 5:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 6:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 7:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 8:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 9:
-                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8" + swear_code[0] + "$9");
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-            case 10:
-                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
-                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-                break;
-        }
+          var new_msg == old_msg;
+          break;
+        case 2:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
+          break;
+        case 3:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
+          break;
+        case 4:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
+          break;
+        case 5:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
+          break;
+        case 6:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
+          break;
+        case 7:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
+          break;
+        case 8:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
+          break;
+        case 9:
+          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
+          break;
+      }
     } else {
         //console.log("url detected");
-        //new_msg = old_msg;
-        document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
+        var new_msg = old_msg;
     }
+    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
     
     //this should be a switch
     //var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
