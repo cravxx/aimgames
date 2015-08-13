@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   asshole@your.mom
 // @include     http://aimgames.forummotion.com/*                     
-// @version     151
+// @version     152
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -463,8 +463,8 @@ function filter_swears_chat() {
 	*/
     
 	if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
-		switch (swear_noregex[i].length) {
-			default:
+	    switch (swear_noregex[i].length) {
+	    default:
                 var new_msg = old_msg;
                 break;
             case 2:
@@ -528,6 +528,8 @@ function filter_swears_chat() {
                 //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
                 break;
         }
+	} else {
+		console.log("url detected")
 	}
 	
     //this should be a switch
