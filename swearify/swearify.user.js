@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     1.6.15
+// @version     1.6.16
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -379,7 +379,7 @@ function filter_swears_chat() {
     var edi_msg = "";
     var par_msg = "";
     var new_msg = "";
-    console.log(http_link + "  " + www_link);
+    
     if(https_link == -1 && http_link == -1 && www_link == -1){
       if (index_num >= 0) {
         edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);                
