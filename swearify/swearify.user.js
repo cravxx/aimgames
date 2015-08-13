@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   asshole@your.mom
 // @include     http://aimgames.forummotion.com/*                     
-// @version     143
+// @version     145
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -12,6 +12,76 @@
 
 //////////////////////////////// VERSIONING = COMMIT #
 
+// FOR OUR PORPUSES,
+// AND BECAUSE REGEXP IS FUCKING SLOW,
+// AND BECAUSE KAFF IS A RETARD,
+// EVERYTHING SHOULD BE PRE-DONE
+
+var swear_words = [
+
+/([fF]+)([uU]+)([cC]+)([kK]+)/g,
+/([sS]+)([hH]+)([iI]+)([tT]+)/g,
+/([bB]+)([aA]+)([sS]+)([tT]+)([aA]+)([rR]+)([dD]+)/g,
+/([wW]+)([hH]+)([oO]+)([rR]+)([eE]+)/g,
+/([dD]+)([iI]+)([cC]+)([kK]+)/g,
+/([fF]+)([aA]+)([gG]+)([gG]+)([oO]+)([tT]+)/g,
+/([rR]+)([aA]+)([pP]+)([eE]+)/g,
+/([aA]+)([sS]+)([sS]+)([hH]+)([oO]+)([lL]+)([eE]+)/g,
+/([aA]+)([sS]+)([sS]+)/g,
+/([aA]+)([rR]+)([sS]+)([eE]+)/g,
+/([bB]+)([oO]+)([nN]+)([eE]+)([rR]+)/g,
+/([cC]+)([uU]+)([mM]+)/g,
+/([bB]+)([iI]+)([tT]+)([cC]+)([hH]+)/g,
+/([lL]+)([eE]+)([sS]+)([bB]+)([iI]+)([aA]+)([nN]+)/g,
+/([sS]+)([hH]+)([iI]+)([fF]+)([tT]+)/g,
+/([cC]+)([oO]+)([cC]+)([kK]+)/g,
+/([gG]+)([aA]+)([yY]+)/g,
+/([fF]+)([aA]+)([gG]+)/g,
+/([pP]+)([oO]+)([rR]+)([nN]+)/g,
+/([mM]+)([iI]+)([lL]+)([fF]+)/g,
+/([dD]+)([aA]+)([mM]+)([nN]+)/g,
+/([sS]+)([eE]+)([mM]+)([eE]+)([nN]+)/g,
+/([dD]+)([iI]+)([dD]+)([kK]+)/g,
+/([tT]+)([iI]+)([tT]+)/g,
+/([pP]+)([iI]+)([sS]+)([sS]+)/g,
+/([pP]+)([uU]+)([sS]+)([sS]+)([yY]+)/g,
+/(\:+)(3+)/g,
+/([gG]+)([iI]+)([tT]+)/g,
+/([dD]+)([aA]+)([aA]+)/g,
+/([fF]+)([aA]+)([pP]+)/g,
+/([pP]+)([eE]+)([nN]+)([iI]+)([sS]+)/g,
+/([fF]+)([oO]+)([xX]+)([yY]+)/g,
+/([sS]+)([cC]+)([rR]+)([eE]+)([wW]+)/g,
+/([aA]+)([nN]+)([uU]+)([sS]+)/g,
+/([fF]+)([uU]+)( )/g,
+/([sS]+)([eE]+)([xX]+)/g,
+/([aA]+)([nN]+)([aA]+)([lL]+)/g,
+/([dD]+)([iI]+)([sS]+)([kK]+)/g,
+/([sS]+)([lL]+)([uU]+)([tT]+)/g,
+/([cC]+)([oO]+)([mM]+)([eE]+)([bB]+)([aA]+)([cC]+)([kK]+)/g,
+/([hH]+)([oO]+)([eE]+)/g,
+/([sS]+)([hH]+)([iI]+)([rR]+)([tT]+)/g,
+/([cC]+)([uU]+)([nN]+)([tT]+)/g,
+/([sS]+)([tT]+)([aA]+)([lL]+)([kK]+)([eE]+)([rR]+)/g,
+/([tT]+)([oO]+)([fF]+)([uU]+)/g,
+/([vV]+)([aA]+)([gG]+)([iI]+)([nN]+)([aA]+)/g,
+/([hH]+)([oO]+)([mM]+)([oO]+)/g,
+/([cC]+)([rR]+)([aA]+)([pP]+)/g,
+/([wW]+)([aA]+)([iI]+)([fF]+)([uU]+)/g,
+/([dD]+)([oO]+)([uU]+)([cC]+)([hH]+)([eE]+)/g,
+/([pP]+)([rR]+)([iI]+)([cC]+)([kK]+)/g,
+/([mM]+)([oO]+)([tT]+)([hH]+)([eE]+)([rR]+)([fF]+)/g,
+/([sS]+)([hH]+)([iI]+)([zZ]+)([nN]+)([iI]+)([tT]+)/g,
+/([tT]+)([uU]+)([rR]+)([dD]+)/g,
+/([dD]+)([iI]+)([pP]+)/g,
+/([dD]+)([iI]+)([kK]+)/g,
+/([sS]+)([hH]+)(\!+)([tT]+)/g,
+/([sS]+)([hH]+)([tT]+)/g,
+/([sS]+)([hH]+)([iI]+)/g
+
+];
+
+/*
 var swear_words = [
 "fuck", "shit", "bastard",
 "whore", "dick", "faggot",
@@ -34,6 +104,8 @@ var swear_words = [
 "dip", "dik", "sh!t", "sht",
 "shi"
 ];
+*/
+
 ///////SMILY CODE, OBJECT SHIT
 var emoticon = {
 dolan: [':dolan:', 'http://oi62.tinypic.com/2lsk7ra.jpg', 'Dolan'],
@@ -360,6 +432,7 @@ function filter_swears_chat() {
     // WHERE DID YOU LEARN PROGRAMMING YOU DOOFUS
     //var begin_end = '/';
     
+    /*
     var before_char = '([';
     var after_char = ']+)';
     
@@ -373,12 +446,45 @@ function filter_swears_chat() {
     swear_string += begin_end;
     ///////Now we have our own shit string
     console.log(swear_string); ////ok make it work nigga
-    swear_regexp = new RegExp(swear_string, "g")
     
+    swear_regexp = new RegExp(swear_string, "g")
+    */
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
     
+    switch (swear_words[i].length) {
+    default:
+        var new_msg = old_msg;
+        break;
+    case 2:
+        var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2";
+        break;
+    case 3:
+    	var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
+        break;
+    case 4:
+        var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+        break;
+    case 5:
+        var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5");
+        break;
+    case 6:
+        var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6");
+        break;
+    case 7:
+        var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7");
+        break;
+    case 8:
+        var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8");
+        break;
+    case 9:
+        var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8" + swear_code[0] + "$9");
+        break;
+    case 10:
+        //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
+        break;
+    }
     //this should be a switch
-    var new_msg = old_msg.replace(swear_regexp, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+    var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
     
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
