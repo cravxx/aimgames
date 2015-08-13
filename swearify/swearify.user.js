@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   separate namespace
 // @include     http://aimgames.forummotion.com/*                     
-// @version     135
+// @version     137
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -353,9 +353,32 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 }
 
 function filter_swears_chat() {
-	var shit = new RegExp((/([sS]+)([hH]+)([iI]+)([tT]+)), "gi");
-	var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-	var new_msg = old_msg.replace(shit, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+  for (var i = 0; i < swear_words.length; i++) {
+    //console.log("shit");
+    var begin_end = '/';
+    
+    var before_char = '([';
+    var after_char = ']+)';
+    
+    var swear_string = begin_end + before_char;
+    for(var x = 0; x < swear_words[i].length; x++){
+      var low = swear_words[i].charAt(x).toLowerCase();
+      var up = swear_words[i].charAt(x).toUpperCase();
+      swear_string += '' + low + '' + up + after_char;      
+    }
+    swear_string += begin_end;
+    ///////Now we have our own shit string
+    console.log(swear_string); ////ok make it work nigga
+    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+	  var new_msg = old_msg.replace(shit, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+    
+    
+    
+  }
+  
+   
+	
+	
 	
 	document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
 	/*
@@ -769,13 +792,15 @@ function post_page_editor() {
 /////////////////////
 
 /////////////////////RUNS SCRIPT
-window.onload = function() {  
+setInterval( function(){ 
   if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
     if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
+filter_swears_chat(); /// These are the functions that run through the text and see what to do
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").onkeypress = function (event) { /// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
+        
         var code = (event.keyCode) ? event.keyCode : event.which; /// Gets what key has been pressed
         if (code == 13) { /// 13 is enter
-          filter_swears_chat(); /// These are the functions that run through the text and see what to do
+          
           greentext_chat(); ///
           emoticon_chat(); ///       
           maymay_chat(); /// 
@@ -850,4 +875,7 @@ window.onload = function() {
       post_page_editor();
     }
   }  
+  
 }
+         
+, 100);
