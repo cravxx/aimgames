@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.0.01
+// @version     2.0.02
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -15,7 +15,79 @@
 //////////////////////////////  DO NOT CHANGE
 ////////////////////////////////
 
+// FOR OUR PORPUSES,
+// AND BECAUSE REGEXP IS FUCKING SLOW,
+// AND BECAUSE KAFF IS A RETARD,
+// EVERYTHING SHOULD BE PRE-DONE
+
+// MAKING REGEX ON THE FLY IS UNRELIABLE. DON'T DO IT.
+
 var swear_words = [
+
+/([fF]+)([uU]+)([cC]+)([kK]+)/g,
+/([sS]+)([hH]+)([iI]+)([tT]+)/g,
+/([bB]+)([aA]+)([sS]+)([tT]+)([aA]+)([rR]+)([dD]+)/g,
+/([wW]+)([hH]+)([oO]+)([rR]+)([eE]+)/g,
+/([dD]+)([iI]+)([cC]+)([kK]+)/g,
+/([fF]+)([aA]+)([gG]+)([gG]+)([oO]+)([tT]+)/g,
+/([rR]+)([aA]+)([pP]+)([eE]+)/g,
+/([aA]+)([sS]+)([sS]+)([hH]+)([oO]+)([lL]+)([eE]+)/g,
+/([aA]+)([sS]+)([sS]+)/g,
+/([aA]+)([rR]+)([sS]+)([eE]+)/g,
+/([bB]+)([oO]+)([nN]+)([eE]+)([rR]+)/g,
+/([cC]+)([uU]+)([mM]+)/g,
+/([bB]+)([iI]+)([tT]+)([cC]+)([hH]+)/g,
+/([lL]+)([eE]+)([sS]+)([bB]+)([iI]+)([aA]+)([nN]+)/g,
+/([sS]+)([hH]+)([iI]+)([fF]+)([tT]+)/g,
+/([cC]+)([oO]+)([cC]+)([kK]+)/g,
+/([gG]+)([aA]+)([yY]+)/g,
+/([fF]+)([aA]+)([gG]+)/g,
+/([pP]+)([oO]+)([rR]+)([nN]+)/g,
+/([mM]+)([iI]+)([lL]+)([fF]+)/g,
+/([dD]+)([aA]+)([mM]+)([nN]+)/g,
+/([sS]+)([eE]+)([mM]+)([eE]+)([nN]+)/g,
+/([dD]+)([iI]+)([dD]+)([kK]+)/g,
+/([tT]+)([iI]+)([tT]+)/g,
+/([pP]+)([iI]+)([sS]+)([sS]+)/g,
+/([pP]+)([uU]+)([sS]+)([sS]+)([yY]+)/g,
+/(\:+)(3+)/g,
+/([gG]+)([iI]+)([tT]+)/g,
+/([dD]+)([aA]+)([aA]+)/g,
+/([fF]+)([aA]+)([pP]+)/g,
+/([pP]+)([eE]+)([nN]+)([iI]+)([sS]+)/g,
+/([fF]+)([oO]+)([xX]+)([yY]+)/g,
+/([sS]+)([cC]+)([rR]+)([eE]+)([wW]+)/g,
+/([aA]+)([nN]+)([uU]+)([sS]+)/g,
+/([fF]+)([uU]+)( )/g,
+/([sS]+)([eE]+)([xX]+)/g,
+/([aA]+)([nN]+)([aA]+)([lL]+)/g,
+/([dD]+)([iI]+)([sS]+)([kK]+)/g,
+/([sS]+)([lL]+)([uU]+)([tT]+)/g,
+/([cC]+)([oO]+)([mM]+)([eE]+)([bB]+)([aA]+)([cC]+)([kK]+)/g,
+/([hH]+)([oO]+)([eE]+)/g,
+/([sS]+)([hH]+)([iI]+)([rR]+)([tT]+)/g,
+/([cC]+)([uU]+)([nN]+)([tT]+)/g,
+/([sS]+)([tT]+)([aA]+)([lL]+)([kK]+)([eE]+)([rR]+)/g,
+/([tT]+)([oO]+)([fF]+)([uU]+)/g,
+/([vV]+)([aA]+)([gG]+)([iI]+)([nN]+)([aA]+)/g,
+/([hH]+)([oO]+)([mM]+)([oO]+)/g,
+/([cC]+)([rR]+)([aA]+)([pP]+)/g,
+/([wW]+)([aA]+)([iI]+)([fF]+)([uU]+)/g,
+/([dD]+)([oO]+)([uU]+)([cC]+)([hH]+)([eE]+)/g,
+/([pP]+)([rR]+)([iI]+)([cC]+)([kK]+)/g,
+/([mM]+)([oO]+)([tT]+)([hH]+)([eE]+)([rR]+)([fF]+)/g,
+/([sS]+)([hH]+)([iI]+)([zZ]+)([nN]+)([iI]+)([tT]+)/g,
+/([tT]+)([uU]+)([rR]+)([dD]+)/g,
+/([dD]+)([iI]+)([pP]+)/g,
+/([dD]+)([iI]+)([kK]+)/g,
+/([sS]+)([hH]+)(\!+)([tT]+)/g,
+/([sS]+)([hH]+)([tT]+)/g,
+/([sS]+)([hH]+)([iI]+)/g
+
+];
+
+
+var swear_noregex = [
 "fuck", "shit", "bastard",
 "whore", "dick", "faggot",
 "rape", "asshole", "ass",
@@ -37,6 +109,7 @@ var swear_words = [
 "dip", "dik", "sh!t", "sht",
 "shi"
 ];
+
 ///////SMILY CODE, OBJECT SHIT
 var emoticon = {
 dolan: [':dolan:', 'http://oi62.tinypic.com/2lsk7ra.jpg', 'Dolan'],
@@ -226,8 +299,8 @@ winner2: [':winner2:', 'http://i.imgur.com/cFwUmzM.gif', 'winner2'],
 chuck2: [':chuck2:', 'http://i.imgur.com/7WB6Gic.gif', 'chuck2'],
 DOXXXXXXED: [':DOXXXXXXED:', 'http://i.imgur.com/y7eyps0.png', 'DOXXXXXXED'],
 toazuka: [':toazuka:', 'http://i.imgur.com/VQ9qxQE.png', 'toazuka'],
-ttfail: [':ttfail:', 'http://i.imgur.com/eWaObkM.png', 'ttfail'],
-jew: [':jew:', 'http://i.imgur.com/jowqkg9.gif', 'jew'],*/
+ttfail: [':ttfail:', 'http://i.imgur.com/eWaObkM.png', 'ttfail'],*/
+jew: [':jew:', 'http://i.imgur.com/jowqkg9.gif', 'jew'], //100px
 //oldjew: [':oldjew:', 'http://i.imgur.com/pz0mxbA.gif', 'oldjew'], //200px
 /*ttjew: [':ttjew:', 'http://i.imgur.com/xeYRU5O.gif', 'ttjew'],
 samefag: [':samefag:', 'http://i.imgur.com/bLXx0AX.gif', 'samefag'],
@@ -245,10 +318,10 @@ ghostpepe: [':gpepe:', 'http://i62.tinypic.com/fkqgr5.png', "ghost pepe"],
 sexypepe: [':spepe:', 'http://i60.tinypic.com/2r5qpkz.jpg', "sexy pepe"],
 straightd: [':sdubs:', 'http://i59.tinypic.com/6od98l.jpg', "straight outta doubles"],
 uglypepe: [':upepe:', 'http://i61.tinypic.com/2qiv800.jpg', "ugly pepe"]
-
 };
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
+
 var maymay = {
 sombre: ['sombre', '[font=monospace][size=14][b][color=red]S[/color] [color=orange]O[/color] [color=yellow]M[/color] [color=blue]B[/color] [color=indigo]R[/color] [color=violet]E[/color][/b][/size][/font]'],
 doors: ['the doors', '[i]the doors[/i]'],
@@ -284,14 +357,14 @@ ends: [':ends:', '[img][u][/img][/u]']
 */
 };
 ///////
-var link_code = [
-  'https://', 'http://', 'www.'
-];
 var spec_code = [
-  '/exit', '/away'
+  '/exit', '/away', '/abs'
 ];
 var swear_code = [
   '[b][/b]', '.'
+];
+var link_code = [
+  'http://', 'www.', 'https://'
 ];
 ///////
 
@@ -360,16 +433,153 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 
 function filter_swears_chat() {
   for (var i = 0; i < swear_words.length; i++) {
+    //console.log("shit");
+    
+    // YOU FUCKING RETARD THAT'S NOT HOW IT WORKS REGEX IS A DIFFERENT CLASS FROM STRING
+    // WHERE DID YOU LEARN PROGRAMMING YOU DOOFUS
+    //var begin_end = '/';
+    
+    /*
+    var before_char = '([';
+    var after_char = ']+)';
+    
+    var swear_string = "";
+    
+    for(var x = 0; x < swear_words[i].length; x++){
+      var low = swear_words[i].charAt(x).toLowerCase();
+      var up = swear_words[i].charAt(x).toUpperCase();
+      swear_string += before_char + '' + low + '' + up + after_char;      
+    }
+    swear_string += begin_end;
+    ///////Now we have our own shit string
+    console.log(swear_string); ////ok make it work nigga
+    
+    swear_regexp = new RegExp(swear_string, "g")
+    */
+    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+    
+    /*
+	var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+	var https_link = old_msg.indexOf(link_code[2]);
+	var exit_code = old_msg.indexOf(spec_code[0]);
+	var away_code = old_msg.indexOf(spec_code[1]);
+	var abs_code = old_msg.indexOf(spec_code[2]);
+	*/
+    
+	if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
+	    //console.log("away detected")
+	    switch (swear_noregex[i].length) {
+	    default:
+                //var new_msg = old_msg;
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
+                break;
+            case 2:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 3:
+            	var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 4:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 5:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 6:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 7:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 8:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 9:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3" + swear_code[1] + "$4" + swear_code[1] + "$5" + swear_code[1] + "$6" + swear_code[1] + "$7" + swear_code[1] + "$8" + swear_code[1] + "$9");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 10:
+                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
+                break;
+		}
+	} else if (old_msg.indexOf(link_code[0]) == -1 && old_msg.indexOf(link_code[1]) == -1 && old_msg.indexOf(link_code[2]) == -1) {
+        switch (swear_noregex[i].length) {
+            default:
+                //var new_msg = old_msg;
+                //console.log("no swears detected");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
+                break;
+            case 2:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 3:
+            	var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 4:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 5:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 6:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 7:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 8:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 9:
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8" + swear_code[0] + "$9");
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+            case 10:
+                //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
+                document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+                break;
+        }
+	} else {
+		//console.log("url detected");
+		//new_msg = old_msg;
+		document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
+	}
+	
+    //this should be a switch
+    //var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+    
+    
+  }
+  
+   
+	
+	
+	
+	
+	/*
+  for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
     var old_msg_reg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var index_num = old_msg.indexOf(swear_words[i]);    
+    var index_num = old_msg.indexOf(swear_words[i]);           
     
     var exit_num = old_msg.indexOf(spec_code[0]);
     var away_num = old_msg.indexOf(spec_code[1]);
-    
-    var https_link = old_msg.indexOf(link_code[0]);
-    var http_link = old_msg.indexOf(link_code[1]);
-    var www_link = old_msg.indexOf(link_code[2]);
     
     var spec_switch = 0;
     if (exit_num === 0 || away_num === 0) {
@@ -380,44 +590,38 @@ function filter_swears_chat() {
     var par_msg = "";
     var new_msg = "";
     
-    if(https_link == -1 && http_link == -1 && www_link == -1){
-      if (index_num >= 0) {
-        edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);                
-        par_msg = edi_msg.split("").join(swear_code[spec_switch]);            
-        new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-        document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+    if (index_num >= 0) {
+      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);                
+      par_msg = edi_msg.split("").join(swear_code[spec_switch]);            
+      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
+      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+    }
+    else {
+      var words = old_msg.split(" ");
+      var letter_ray = old_msg.split(" ");
+      for (var j = 0; j < words.length; j++) {
+        letter_ray[j] = unique_char(words[j]);
       }
-      else {
-        var words = old_msg.split(" ");
-        var letter_ray = old_msg.split(" ");
-        for (var j = 0; j < words.length; j++) {
-          letter_ray[j] = unique_char(words[j]);
-        }
-        for (var k = 0; k < letter_ray.length; k++) {
-          if (letter_ray[k] === swear_words[i]) {
-            edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
-            par_msg = edi_msg.split("").join(swear_code[exit_switch]);
-            new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
-            document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-          }
+      for (var k = 0; k < letter_ray.length; k++) {
+        if (letter_ray[k] === swear_words[i]) {
+          edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
+          par_msg = edi_msg.split("").join(swear_code[exit_switch]);
+          new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
+          document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
         }
       }
     }
   }
+  */
 }
 
 function filter_swears_bchat() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("message").value.toLowerCase();
     var old_msg_reg = document.getElementById("message").value;
-    var index_num = old_msg.indexOf(swear_words[i]);     
-    
+    var index_num = old_msg.indexOf(swear_words[i]);           
     var exit_num = old_msg.indexOf(spec_code[0]);
     var away_num = old_msg.indexOf(spec_code[1]);
-    
-    var https_link = old_msg.indexOf(link_code[0]);
-    var http_link = old_msg.indexOf(link_code[1]);
-    var www_link = old_msg.indexOf(link_code[2]);
     
     var spec_switch = 0;
     if (exit_num === 0 || away_num === 0) {
@@ -427,26 +631,25 @@ function filter_swears_bchat() {
     var edi_msg = "";
     var par_msg = "";
     var new_msg = "";
-    if(https_link == -1 && http_link == -1 && www_link == -1){
-      if (index_num >= 0) {
-        edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);
-        par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-        new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-        document.getElementById("message").value = new_msg;
+    
+    if (index_num >= 0) {
+      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);
+      par_msg = edi_msg.split("").join(swear_code[spec_switch]);
+      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
+      document.getElementById("message").value = new_msg;
+    }
+    else {
+      var words = old_msg.split(" ");
+      var letter_ray = old_msg.split(" ");
+      for (var j = 0; j < words.length; j++) {
+        letter_ray[j] = unique_char(words[j]);
       }
-      else {
-        var words = old_msg.split(" ");
-        var letter_ray = old_msg.split(" ");
-        for (var j = 0; j < words.length; j++) {
-          letter_ray[j] = unique_char(words[j]);
-        }
-        for (var k = 0; k < letter_ray.length; k++) {
-          if (letter_ray[k] === swear_words[i]) {
-            edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
-            par_msg = edi_msg.split("").join(swear_code[exit_switch]);
-            new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
-            document.getElementById("message").value = new_msg;
-          }
+      for (var k = 0; k < letter_ray.length; k++) {
+        if (letter_ray[k] === swear_words[i]) {
+          edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
+          par_msg = edi_msg.split("").join(swear_code[exit_switch]);
+          new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
+          document.getElementById("message").value = new_msg;
         }
       }
     }
@@ -862,3 +1065,99 @@ window.onload = function() {
     }
   }  
 }
+
+/*
+
+-------------
+------------- From remote-tracking branch 'origin/unstable'
+-------------
+
+/////////////////////RUNS SCRIPT
+setInterval( function(){ 
+  if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
+    if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
+filter_swears_chat(); /// These are the functions that run through the text and see what to do
+      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").onkeypress = function (event) { /// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
+        
+        var code = (event.keyCode) ? event.keyCode : event.which; /// Gets what key has been pressed
+        if (code == 13) { /// 13 is enter
+          
+          greentext_chat(); ///
+          emoticon_chat(); ///       
+          maymay_chat(); /// 
+          redtext_chat();
+        }
+      };
+      edit_css_chat(); /// This is done even when you aren't pressing keys
+    }
+    else { /// If we're here, that means we are on big chat window
+      document.getElementById("message").onkeypress = function (event) {
+        var code = (event.keyCode) ? event.keyCode : event.which;
+        if (code == 13) {
+          filter_swears_bchat();
+          greentext_bchat();
+          emoticon_bchat();
+          maymay_bchat();
+          redtext_bchat();
+        }
+      };
+      edit_css_bchat();
+    }
+  }
+  else {
+    inject_smilie(); ///this has to be done b4
+    /////////////////////////
+    if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW PAGE
+    loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
+    refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
+    }else{ //// QUICK REPLY
+      loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
+      cssTd = "padding-top:5px;";
+      var new_td = document.createElement("td");
+      loc.appendChild(new_td).style.cssText = cssTd;
+      refined_loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1].getElementsByTagName("td")[0];
+    }    
+    var element = document.createElement("label");
+    refined_loc.appendChild(element).style.cssText = cssLabel;
+    setInterval(function () {      
+      var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
+      if(typeof document.getElementsByTagName("textarea")[1] === 'object'){    ///if were not in preview window, we need to set some variables differently
+        area.value = document.getElementsByTagName("textarea")[1].value;
+      }  
+      if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
+        Countable.once(area, function (counter) {
+          if(loc.getElementsByTagName("label")[0].innerHTML != values(counter)[4] + " characters"){
+            loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
+          }
+          if(values(counter)[4] > 63500){ ////i dont really know the limit
+            element.style.cssText += "color:red;";
+          }else if(values(counter)[4] < 63500){
+            element.style.cssText = cssLabel;
+          }
+        });  
+      }
+    }, 3000);
+    ////////////////////////////////////////    
+    var window_chk = 0; /// If we're here that means we are not on either the main screen or big chat window. So we must be posting....
+    if (document.getElementsByTagName("textarea")[0] !== undefined || document.getElementsByTagName("textarea")[1] !== undefined) { /// Checks to make sure we are either browsing a topic (1) or on the preview page (0)
+      if (document.getElementsByTagName("textarea")[1] !== undefined) { /// Then figures out which one it is
+        window_chk = 1;
+      }
+      document.getElementsByTagName("textarea")[window_chk].onkeypress = function (event) { /// Another keypress 
+        var code = (event.keyCode) ? event.keyCode : event.which;
+        if (code == 13) {
+          filter_swears_post(); /// Posting functions
+          greentext_post(); ///            
+          emoticon_post(); ///
+          maymay_post(); ///
+          redtext_post();
+        }
+      }
+      post_page_editor();
+    }
+  }  
+  
+}
+         
+, 100);
+*/
