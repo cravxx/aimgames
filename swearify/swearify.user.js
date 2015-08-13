@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Swearify
 // @description Adds a number of enhancements to your experience on AIM games.
-// @namespace   separate namespace
+// @namespace   asshole@your.mom
 // @include     http://aimgames.forummotion.com/*                     
 // @version     138
 // @grant       none
@@ -369,10 +369,12 @@ function filter_swears_chat() {
     swear_string += begin_end;
     ///////Now we have our own shit string
     console.log(swear_string); ////ok make it work nigga
+    swear_regexp = new RegExp(swear_string, "gi")
     
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
     
-    var new_msg = old_msg.replace(swear_string, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+    //this should be a switch
+    var new_msg = old_msg.replace(swear_regexp, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
     
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
