@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   asshole@your.mom
 // @include     http://aimgames.forummotion.com/*                     
-// @version     142
+// @version     143
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -355,23 +355,25 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 function filter_swears_chat() {
   for (var i = 0; i < swear_words.length; i++) {
     //console.log("shit");
-    var begin_end = '/';
+    
+    // YOU FUCKING RETARD THAT'S NOT HOW IT WORKS REGEX IS A DIFFERENT CLASS FROM STRING
+    // WHERE DID YOU LEARN PROGRAMMING YOU DOOFUS
+    //var begin_end = '/';
     
     var before_char = '([';
     var after_char = ']+)';
     
-    // this doesnt even work you methhead
-    //var swear_string = begin_end + before_char;
-    /*
+    var swear_string = "";
+    
     for(var x = 0; x < swear_words[i].length; x++){
       var low = swear_words[i].charAt(x).toLowerCase();
       var up = swear_words[i].charAt(x).toUpperCase();
-      swear_string += '' + low + '' + up + after_char;      
+      swear_string += before_char + '' + low + '' + up + after_char;      
     }
-    swear_string += begin_end;*/
+    swear_string += begin_end;
     ///////Now we have our own shit string
     console.log(swear_string); ////ok make it work nigga
-    swear_regexp = /([sS]+)([hH]+)([iI]+)([tT]+)/g
+    swear_regexp = new RegExp(swear_string, "g")
     
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
     
