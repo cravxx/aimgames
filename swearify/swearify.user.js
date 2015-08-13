@@ -354,10 +354,10 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 
 function filter_swears_chat() {
 	var shit = /([sS]+)([hH]+)([iI]+)([tT]+)/gi
-	var msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-	msg.replace(shit, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+	var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+	var new_msg = old_msg.replace(shit, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
 	
-	document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = msg;
+	document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
 	/*
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
