@@ -223,8 +223,8 @@ winner2: [':winner2:', 'http://i.imgur.com/cFwUmzM.gif', 'winner2'],
 chuck2: [':chuck2:', 'http://i.imgur.com/7WB6Gic.gif', 'chuck2'],
 DOXXXXXXED: [':DOXXXXXXED:', 'http://i.imgur.com/y7eyps0.png', 'DOXXXXXXED'],
 toazuka: [':toazuka:', 'http://i.imgur.com/VQ9qxQE.png', 'toazuka'],
-ttfail: [':ttfail:', 'http://i.imgur.com/eWaObkM.png', 'ttfail'],
-jew: [':jew:', 'http://i.imgur.com/jowqkg9.gif', 'jew'],*/
+ttfail: [':ttfail:', 'http://i.imgur.com/eWaObkM.png', 'ttfail'],*/
+jew: [':jew:', 'http://i.imgur.com/jowqkg9.gif', 'jew'], //100px
 //oldjew: [':oldjew:', 'http://i.imgur.com/pz0mxbA.gif', 'oldjew'], //200px
 /*ttjew: [':ttjew:', 'http://i.imgur.com/xeYRU5O.gif', 'ttjew'],
 samefag: [':samefag:', 'http://i.imgur.com/bLXx0AX.gif', 'samefag'],
@@ -354,6 +354,12 @@ function unique_char(string) { /// http://stackoverflow.com/questions/13868043/s
 }
 
 function filter_swears_chat() {
+	var shit = /([sS]+)([hH]+)([iI]+)([tT]+)/gi
+	var msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+	msg.replace(shit, "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
+	
+	document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = msg;
+	/*
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
     var old_msg_reg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
@@ -393,6 +399,7 @@ function filter_swears_chat() {
       }
     }
   }
+  */
 }
 
 function filter_swears_bchat() {
