@@ -3,14 +3,14 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.1
+// @version     1.11
 // @grant       none
 // ==/UserScript==
 ////// CODE FOR DEALING WITH OBJECTS
 function values(o) {
   return Object.keys(o) .map(function (k) {
-    return o[k]
-  })
+    return o[k];
+  });
 }
 //////
 var color_ = {
@@ -38,7 +38,7 @@ var color_ = {
     'background-color: rgb(75, 0, 130);',
     '#4B0082'
   ],
-  indigo: [
+ violet: [
     'background-color: rgb(127, 0, 255);',
     '#7F00FF'
   ],
@@ -70,14 +70,14 @@ function setCookie(name, value, days) {
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = '; expires=' + date.toGMTString();
   } 
-  else expires = '';
+  else var expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
 var counter = 0;
 setInterval(function () {
   if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
     if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
-      if (counter == 0 || getCookie('CB_color') != values(color_) [counter][1]) {
+      if (counter === 0 || getCookie('CB_color') != values(color_) [counter][1]) {
         setCookie('CB_color', values(color_) [counter][1], 1);
       }
       //document.getElementById("frame_chatbox").contentWindow.document.getElementById('scolor') .value = values(color_) [counter][1];
@@ -102,7 +102,7 @@ setInterval(function () {
         }
       };
     }else{
-      if (counter == 0 || getCookie('CB_color') != values(color_) [counter][1]) {
+      if (counter === 0 || getCookie('CB_color') != values(color_) [counter][1]) {
         setCookie('CB_color', values(color_) [counter][1], 1);
       }
       document.getElementById('scolor') .value = values(color_) [counter][1];
