@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     1.6.14
+// @version     1.6.15
 // @grant       none
 // @icon        http://i60.tinypic.com/2vl9nr4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -285,7 +285,7 @@ ends: [':ends:', '[img][u][/img][/u]']
 };
 ///////
 var link_code = [
-  'http://', 'www.'
+  'https://', 'http://', 'www.'
 ];
 var spec_code = [
   '/exit', '/away'
@@ -367,8 +367,9 @@ function filter_swears_chat() {
     var exit_num = old_msg.indexOf(spec_code[0]);
     var away_num = old_msg.indexOf(spec_code[1]);
     
-    var http_link = old_msg.indexOf(link_code[0]);
-    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[0]);
+    var http_link = old_msg.indexOf(link_code[1]);
+    var www_link = old_msg.indexOf(link_code[2]);
     
     var spec_switch = 0;
     if (exit_num === 0 || away_num === 0) {
@@ -378,7 +379,8 @@ function filter_swears_chat() {
     var edi_msg = "";
     var par_msg = "";
     var new_msg = "";
-    if(http_link == -1 && www_link == -1){
+    console.log(http_link + "  " + www_link);
+    if(https_link == -1 && http_link == -1 && www_link == -1){
       if (index_num >= 0) {
         edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);                
         par_msg = edi_msg.split("").join(swear_code[spec_switch]);            
@@ -413,8 +415,9 @@ function filter_swears_bchat() {
     var exit_num = old_msg.indexOf(spec_code[0]);
     var away_num = old_msg.indexOf(spec_code[1]);
     
-    var http_link = old_msg.indexOf(link_code[0]);
-    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[0]);
+    var http_link = old_msg.indexOf(link_code[1]);
+    var www_link = old_msg.indexOf(link_code[2]);
     
     var spec_switch = 0;
     if (exit_num === 0 || away_num === 0) {
@@ -424,7 +427,7 @@ function filter_swears_bchat() {
     var edi_msg = "";
     var par_msg = "";
     var new_msg = "";
-    if(http_link == -1 && www_link == -1){
+    if(https_link == -1 && http_link == -1 && www_link == -1){
       if (index_num >= 0) {
         edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);
         par_msg = edi_msg.split("").join(swear_code[spec_switch]);
