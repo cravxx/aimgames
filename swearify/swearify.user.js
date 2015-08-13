@@ -459,18 +459,18 @@ function filter_swears_chat() {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
     
     /*
-	var http_link = old_msg.indexOf(link_code[0]);
+    var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
-	var https_link = old_msg.indexOf(link_code[2]);
-	var exit_code = old_msg.indexOf(spec_code[0]);
-	var away_code = old_msg.indexOf(spec_code[1]);
-	var abs_code = old_msg.indexOf(spec_code[2]);
-	*/
+    var https_link = old_msg.indexOf(link_code[2]);
+    var exit_code = old_msg.indexOf(spec_code[0]);
+    var away_code = old_msg.indexOf(spec_code[1]);
+    var abs_code = old_msg.indexOf(spec_code[2]);
+    */
     
-	if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
-	    //console.log("away detected")
-	    switch (swear_noregex[i].length) {
-	    default:
+    if (old_msg.indexOf(spec_code[0]) != -1 || old_msg.indexOf(spec_code[1]) != -1 || old_msg.indexOf(spec_code[2]) != -1) {
+        //console.log("away detected")
+        switch (swear_noregex[i].length) {
+        default:
                 //var new_msg = old_msg;
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
                 break;
@@ -479,7 +479,7 @@ function filter_swears_chat() {
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
                 break;
             case 3:
-            	var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3");
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[1] + "$2"+ swear_code[1] + "$3");
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
                 break;
             case 4:
@@ -510,8 +510,8 @@ function filter_swears_chat() {
                 //we're fucked, there can only be 9 capturing groups, maybe using argument 2 as a function may work
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
                 break;
-		}
-	} else if (old_msg.indexOf(link_code[0]) == -1 && old_msg.indexOf(link_code[1]) == -1 && old_msg.indexOf(link_code[2]) == -1) {
+        }
+    } else if (old_msg.indexOf(link_code[0]) == -1 && old_msg.indexOf(link_code[1]) == -1 && old_msg.indexOf(link_code[2]) == -1) {
         switch (swear_noregex[i].length) {
             default:
                 //var new_msg = old_msg;
@@ -523,7 +523,7 @@ function filter_swears_chat() {
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
                 break;
             case 3:
-            	var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
+                var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
                 break;
             case 4:
@@ -555,12 +555,12 @@ function filter_swears_chat() {
                 document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
                 break;
         }
-	} else {
-		//console.log("url detected");
-		//new_msg = old_msg;
-		document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
-	}
-	
+    } else {
+        //console.log("url detected");
+        //new_msg = old_msg;
+        document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = old_msg;
+    }
+    
     //this should be a switch
     //var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
     
@@ -568,11 +568,11 @@ function filter_swears_chat() {
   }
   
    
-	
-	
-	
-	
-	/*
+    
+    
+    
+    
+    /*
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
     var old_msg_reg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
