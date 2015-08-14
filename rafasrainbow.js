@@ -9,6 +9,7 @@ swearify_color_select3="";
 swearify_color_select4="";
 swearify_color_select5="";
 swearify_color_select6="";
+/*swearify_
 swearify_
 swearify_
 swearify_
@@ -18,8 +19,7 @@ swearify_
 swearify_
 swearify_
 swearify_
-swearify_
-swearify_
+swearify_*/
 
 
 function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
@@ -53,7 +53,7 @@ random_length=0;
 update=0;
 
 var random_char=new Array();
-function randomize_colors() {
+function randomize_colors(swearify_input_text) {
 	var length=swearify_input_text.length;
 	var a;
 	for (a=0; a<length; a+=1) {
@@ -62,7 +62,7 @@ function randomize_colors() {
 	random_length=length;
 	update=1
 }
-function textcolorizer_handle() {
+function textcolorizer_handle(input_effect,input_color1,input_color2,input_color3,input_color4,input_color5,input_color6,input_color7,input_color8,input_text,input_font,input_size,input_bold,input_italic,input_colorword) {
 	
 	/*if (input_effect!=document.getElementById("input_effect").value) {
 		document.getElementById("color_select1").style.visibility="hidden";
@@ -92,7 +92,8 @@ function textcolorizer_handle() {
 		if (input_color8!=document.getElementById("input_color8").value) {update=1;}
 	input_color8=document.getElementById("input_color8").value;
 	*/
-		if (input_text!=document.getElementById("input_text").value) {update=1;}
+	
+	/*	if (input_text!=document.getElementById("input_text").value) {update=1;}
 	input_text=document.getElementById("input_text").value;
 		if (input_font!=document.getElementById("input_font").value) {update=1;}
 	input_font=document.getElementById("input_font").value;
@@ -104,7 +105,8 @@ function textcolorizer_handle() {
 	input_italic=0
 	
 	if (input_colorword!=document.getElementById("input_colorword").checked) {update=1;}
-	input_colorword=document.getElementById("input_colorword").checked;
+	input_colorword=document.getElementById("input_colorword").checked;*/
+	
 	if (update==1) {
 		update=0;
 		str_html="";
@@ -266,9 +268,9 @@ function textcolorizer_handle() {
 			}
 		}
 		if (str_style!="") {str_html+="</span>"}
-		document.getElementById("div_preview").innerHTML="<span style='font-size:12px'>"+str_html+"</span>";
-		document.getElementById("output_bbcode").value=str_bbcode+str_bbcodeend;
-		document.getElementById("output_html").value=str_html;
+		//document.getElementById("div_preview").innerHTML="<span style='font-size:12px'>"+str_html+"</span>";
+		return str_bbcode+str_bbcodeend;
+		//document.getElementById("output_html").value=str_html;
 	}
-	setTimeout(textcolorizer_handle,50)
+	//setTimeout(textcolorizer_handle,50)
 }
