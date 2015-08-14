@@ -379,7 +379,8 @@ lenny20: [':lenny20:', '( ͡⚆ ͜ʖ ͡⚆)'], //cancer during browser edit (fir
 lenny21: [':lenny21:', '¯\_( ͠° ͟ʖ °͠ )_/¯'], //cancer during browser edit (firefox)
 lenny22: [':lenny22:', '(▀ ͜ʖ ͡°)'], //cancer during browser edit (firefox)
 raise2: [':raise2:', 'ヽ༼ຈل͜ຈ༽ﾉ гคเรє ๏г ๔เє ヽ༼ຈل͜ຈ༽ﾉ'], //cancer during browser edit (firefox)
-nyan: [':nyan:', '~=[,,_,,]:3'] //cancer during browser edit (firefox)
+nyan: [':nyan:', '~=[,,_,,]:3'],
+woop: [':woop:', "[ \\[size=10]\\[/size][size=9]\\[/size][size=8]\\[/size][size=7]\\[/size][size=6]\\[/size][size=7]\\[/size][size=8]\\[/size][size=9]\\[/size][size=10]\\[/size]\\ ]"] //dupe the backslashes
 
 //do not enable (bad idea) < you're a bad idea < when you were born your mom said you were a bad idea
 /*
