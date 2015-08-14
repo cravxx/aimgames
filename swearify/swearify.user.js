@@ -99,7 +99,7 @@ var swear_noregex = [
 "piss", "pussy", ":3",
 "git", "daa", "fap",
 "penis", "foxy", "screw",
-"anus", "fu ", "sex",
+"anus", "fu", "sex",
 "anal", "disk", "slut",
 "comeback", "hoe", "shirt",
 "cunt", "stalker", "tofu",
