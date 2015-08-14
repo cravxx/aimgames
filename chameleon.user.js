@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.5
+// @version     1.5.1
 // @grant       none
 // ==/UserScript==
 /*RainbowVis-JS Released under Eclipse Public License - v 1.0*/
@@ -21,8 +21,8 @@ function values(o) {
 //////COLOR
 var rainbow = new Rainbow();
 var s = '';
-for (let i = 0; i < 100; i += 5) {
-  let hexColour = rainbow.colourAt(i);
+for (var i = 0; i < 100; i += 5) {
+  var hexColour = rainbow.colourAt(i);
   s += '#' + hexColour + ',';
 }
 s = s.split(',');
