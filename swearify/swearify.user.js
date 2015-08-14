@@ -830,7 +830,7 @@ function leet_post() {
   }
   
 
-
+  // WHY THE FUCK IS THIS HERE KAFF
   if (http_link == -1 && https_link == -1 && www_link == -1) {
     switch (swear_noregex[i].length) {
       default:
