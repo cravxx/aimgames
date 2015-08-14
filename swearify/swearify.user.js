@@ -85,7 +85,8 @@ var swear_words = [
 /([sS]+)([hH]+)(\!+)([tT]+)/g,
 /([sS]+)([hH]+)([tT]+)/g,
 /([sS]+)([hH]+)([iI]+)/g,
-/([sS]+)([tT]+)([fF]+)([uU]+)/g
+/([sS]+)([tT]+)([fF]+)([uU]+)/g,
+/([hH]+)([oO]+)([rR]+)([eE]+)/g
 ];
 
 var swear_noregex = [
