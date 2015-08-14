@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.3.37
+// @version     2.3.38
 // @grant       none
 // @icon        data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAKUUExURf/////m5v93d/+oqP/Bwf+Dg/+cnP9FRf9eXv9RUf9qav/NzeLi4tjY2PHx8fz8/P+Pj8XExMPBwdGvr/KuruyOjtmmpuXl5fLy8snJycLCwsrDw+1ra/+1tfvk5OasrMi2ts29vfj4+P6QkNHR0elzc+np6cq9vcvHx++BgcbGxsi5udGwsOmTk/9GRtzHx8PDw8LBwcm5ufPz8+CXl8XFxdm4uPahoc7OztS6utvb2/39/dfX1/7+/vt7e9zR0dDQ0O/v78TExOvr6+ibm9/f3/7l5fx7e9SsrNLLy/54eP3BwdiUlM21tf94eNqpqcS+vtPT09apqcPAwOTk5MjIyNzc3My2tt7T0+v3++P0+N2mq+BPVOX1+epMT+qoq8q0tc3Nzc7Jyca7u93S0hbF9Aa/8QK+8AO56gK66wK97z++4LrCxMHCwsDCwsDCw7zDxb7DxcnW2dn0+9v0++L2++b3/PL7/QDK/wDL/wDH/QDJ/5LD0b7Cw7vCxLfCxV260wGx4QOv3QOt2wep1hey3ADF+gDG/ADG+x3F87XCxk662ACz5ACw4ACv3wCu3QCt3ACx4gCy4wC36YG/z319fScnJzMzM7y8vLzCxDLF7QDG/QDF+wDI/wCp1wCs2gCs2wCr2gCv3rTBxF1fYBMUFBQUFKenp7/Cw7PBxSi85QC67QC56wC87wC/8wCx4QCz4wCy4rzBwy8vLzk5Oa2trbrBwySz2gC15gCu3gC05QGr2r3Bw7/CwiOu0wCt3QCp2BGt2LnBwxas1QCm1ACo1ky206O+xgCq2ACn1QDC9wDE+VPD4bfBxJzAyhO04QC+8l/C3ZXAzA6+7wC98QDA9XK70IW+zQe04wC57AC88AC/8k0VJ2YAAAABYktHRACIBR1IAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiUlEQVQ4y5WRZ1cTURCGZ+9ucrMbAUVRGBsqomILKhYUG/au2Huv7GIXG3ZjSSKiWDESK4pkwUpUVKwIFuztz3i3wAnhg8c5Z3fnvPPcmbn7AvwrOEIID8DzHOF5XiCCRdBkwQIWQSAWlhJiJWClBIhNtAKVqA7wlFLeIlB2loii3SraGEBFDiiVoBYAi0azCRzPKI5QamcANQHQTrOHYyXQ3yLbhvXUdBOQbMa8/4gGYeERoZp2q4bsWoR9wxtFNm4CdrYKRDVtZqJUEmxsL2256BjE5i1aihJp1To2sk1b/X9oe7KFQKJSuzhEjG3PAD6+A2LHGkDSAfaDOiUgdu7SlQN7t+4OTOzR0xzBsxEW1oH2SmIdsDcn0T59+yE6ko0OtdE/RqvjgBRu4CA9GxxynSFDNdWRnAKpSXUB07hhCZqaNHzEyFGJOjB6jGZvrXFjx0Xqclx01Hg9wfgJmr01QMTESbrqmJw6Jc0AwnR7a3yZOs1okDA9eYYxAWfq9sKs2XPmzpu/YGGaATgWLV5i1HGpbi8sW75i5arVa9JlRVcz1q4z67h+w8ZNm7dA5tbMzG3bd2TIO2Umylm7ZLOu7N6zd9/+A3DQ6XQeOnxEkc1CBpqZctTl9hzLBs/xHNeJkwrmnjp9BoNCPnvufF7eBSd4L+b7Ll1GvHL12vWgslJw42bhrcIiP6jFrhLPbcTcO3fvBQPK/QelqjvwEPIDgcCjx1g/yp541Oz8p/DM5/OVK+Ylg+P5i5de7ysvqKrqfi3L9XqUvSn3eisq3oK/sqrqnSIX1C3LyvsPH3NU1eOGan915ScF5ZAGctbnL/5q/9dvUFzqLvmuoBJCyOk/fv4qLPr95y9qjLbDWeFJXAAAAABJRU5ErkJggg==
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -11,7 +11,7 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // ==/UserScript==
 
-let the_bodies_hit_the_floor = "Let the bodies hit the floor. Let the bodies hit the floor. Let the bodies hit the floor.";
+// let the_bodies_hit_the_floor = "var the bodies hit the floor. var the bodies hit the floor. var the bodies hit the floor.";
 
 ////////////////////////////////
 //////////////////////////////  VERSIONING: X.X.XXr
@@ -487,19 +487,19 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
 
 ///////////////////// MANAGES THE SWEAR FILTERING
 function filter_swears_chat() {
-  for (let i = 0; i < swear_words.length; i++) {
+  for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
     var new_msg = '';
     // http://stackoverflow.com/a/500459
     
-    let http_link = old_msg.indexOf(link_code[0]);
-    let www_link = old_msg.indexOf(link_code[1]);
-    let https_link = old_msg.indexOf(link_code[2]);
+    var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[2]);
     
-    let exit_code = old_msg.indexOf(spec_code[0]);
-    let away_code = old_msg.indexOf(spec_code[1]);
-    let abs_code = old_msg.indexOf(spec_code[2]);
-    let code_code = old_msg.indexOf(spec_code[3]);
+    var exit_code = old_msg.indexOf(spec_code[0]);
+    var away_code = old_msg.indexOf(spec_code[1]);
+    var abs_code = old_msg.indexOf(spec_code[2]);
+    var code_code = old_msg.indexOf(spec_code[3]);
     
     var spec_switch = 0;
     //special switches switch
@@ -545,19 +545,19 @@ function filter_swears_chat() {
 }
 
 function filter_swears_bchat() {
-  for (let i = 0; i < swear_words.length; i++) {
+  for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("message").value;
     var new_msg = '';
     // http://stackoverflow.com/a/500459
     
-    let http_link = old_msg.indexOf(link_code[0]);
-    let www_link = old_msg.indexOf(link_code[1]);
-    let https_link = old_msg.indexOf(link_code[2]);
+    var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[2]);
     
-    let exit_code = old_msg.indexOf(spec_code[0]);
-    let away_code = old_msg.indexOf(spec_code[1]);
-    let abs_code = old_msg.indexOf(spec_code[2]);
-    let code_code = old_msg.indexOf(spec_code[3]);
+    var exit_code = old_msg.indexOf(spec_code[0]);
+    var away_code = old_msg.indexOf(spec_code[1]);
+    var abs_code = old_msg.indexOf(spec_code[2]);
+    var code_code = old_msg.indexOf(spec_code[3]);
     
     var spec_switch = 0;
     
@@ -604,7 +604,7 @@ function filter_swears_bchat() {
 }
 
 function filter_swears_post() {
-  for (let i = 0; i < swear_words.length; i++) {
+  for (var i = 0; i < swear_words.length; i++) {
     var old_msg = ""; //this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName("textarea")[1] === undefined) {
       old_msg = document.getElementsByTagName("textarea")[0].value;
@@ -614,9 +614,9 @@ function filter_swears_post() {
     }
     // http://stackoverflow.com/a/500459
     
-    let http_link = old_msg.indexOf(link_code[0]);
-    let www_link = old_msg.indexOf(link_code[1]);
-    let https_link = old_msg.indexOf(link_code[2]);    
+    var http_link = old_msg.indexOf(link_code[0]);
+    var www_link = old_msg.indexOf(link_code[1]);
+    var https_link = old_msg.indexOf(link_code[2]);    
     
     if (http_link == -1 && https_link == -1 && www_link == -1) {
       switch (swear_noregex[i].length) {
@@ -673,7 +673,7 @@ function greentext_chat() {
 
 function greentext_bchat() {
   var old_msg = document.getElementById("message").value;
-  let index_num = old_msg.indexOf(">");
+  var index_num = old_msg.indexOf(">");
   if (index_num === 0) {
     var new_msg = color_code[0] + old_msg + color_code[1];
     document.getElementById("message").value = new_msg;
@@ -689,8 +689,8 @@ function greentext_post() {
     old_msg = document.getElementsByTagName("textarea")[1].value;
   }
   var msg_ray = old_msg.split("\n");
-  for (let i = 0; i < msg_ray.length; i++) {
-    let index_num = msg_ray[i].indexOf(">");
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = msg_ray[i].indexOf(">");
     if (index_num === 0) {
       msg_ray[i] = color_code[0] + msg_ray[i] + color_code[1];
       if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -707,7 +707,7 @@ function greentext_post() {
 ///////////////////// MANAGES THE EMULATION OF REDTEXT
 function redtext_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  let index_num = old_msg.indexOf("<");
+  var index_num = old_msg.indexOf("<");
   if (index_num === old_msg.length - 1) {
     var new_msg = color_code[2] + old_msg + color_code[3];
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -716,7 +716,7 @@ function redtext_chat() {
 
 function redtext_bchat() {
   var old_msg = document.getElementById("message").value;
-  let index_num = old_msg.indexOf("<");
+  var index_num = old_msg.indexOf("<");
   if (index_num === old_msg.length - 1) {
     var new_msg = color_code[2] + old_msg + color_code[3];
     document.getElementById("message").value = new_msg;
@@ -732,8 +732,8 @@ function redtext_post() {
     old_msg = document.getElementsByTagName("textarea")[1].value;
   }
   var msg_ray = old_msg.split("\n");
-  for (let i = 0; i < msg_ray.length; i++) {
-    let index_num = msg_ray[i].indexOf("<");
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = msg_ray[i].indexOf("<");
     if (index_num === old_msg.length - 1) {
       msg_ray[i] = color_code[2] + msg_ray[i] + color_code[3];
       if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -749,9 +749,9 @@ function redtext_post() {
 
 function leet_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  let index_num = old_msg.regexIndexOf(/\/leet /i);
+  var index_num = old_msg.regexIndexOf(/\/leet /i);
   if (index_num === 0) {
-    let new_msg = old_msg.replace(/\/leet /i, '');
+    var new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
     //new_msg = new_msg.replace(/b/gi, 'b');
     //new_msg = new_msg.replace(/c/gi, 'c');
@@ -784,9 +784,9 @@ function leet_chat() {
 
 function leet_bchat() {
   var old_msg = document.getElementById("message").value;
-  let index_num = old_msg.regexIndexOf(/\/leet /i);
+  var index_num = old_msg.regexIndexOf(/\/leet /i);
   if (index_num === 0) {
-    let new_msg = old_msg.replace(/\/leet /i, '');
+    var new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
     //new_msg = new_msg.replace(/b/gi, 'b');
     //new_msg = new_msg.replace(/c/gi, 'c');
@@ -828,10 +828,10 @@ function leet_post() {
   // http://stackoverflow.com/a/500459
   
   var msg_ray = old_msg.split("\n");
-  for (let i = 0; i < msg_ray.length; i++) {
-    let index_num = old_msg.regexIndexOf(/\/leet /i);
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/leet /i);
     if (index_num === 0) {
-      let new_msg = msg_ray[i].replace(/\/leet /i, '');
+      var new_msg = msg_ray[i].replace(/\/leet /i, '');
       new_msg = new_msg.replace(/a/gi, '4');
       //new_msg = new_msg.replace(/b/gi, 'b');
       //new_msg = new_msg.replace(/c/gi, 'c');
@@ -871,9 +871,9 @@ function leet_post() {
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 function rainbow_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  let index_num = old_msg.regexIndexOf(/\/rb /i);
+  var index_num = old_msg.regexIndexOf(/\/rb /i);
   if (index_num === 0) {
-    let new_msg = old_msg.replace(/\/rb /i, '');
+    var new_msg = old_msg.replace(/\/rb /i, '');
     new_msg = rainbowText(new_msg);
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
@@ -881,9 +881,9 @@ function rainbow_chat() {
 
 function rainbow_bchat() {
   var old_msg = document.getElementById("message").value;
-  let index_num = old_msg.regexIndexOf(/\/rb /i);
+  var index_num = old_msg.regexIndexOf(/\/rb /i);
   if (index_num === 0) {
-    let new_msg = old_msg.replace(/\/rb /i, '');
+    var new_msg = old_msg.replace(/\/rb /i, '');
     new_msg = rainbowText(new_msg);
     document.getElementById("message").value = new_msg;
   }
@@ -898,8 +898,8 @@ function rainbow_post() {
     old_msg = document.getElementsByTagName("textarea")[1].value;
   }
   var msg_ray = old_msg.split("\n");
-  for (let i = 0; i < msg_ray.length; i++) {
-    let index_num = old_msg.regexIndexOf(/\/rb /i);
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/rb /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/rb /i, '');
       msg_ray[i] = rainbowText(msg_ray[i]);
@@ -918,9 +918,9 @@ function rainbow_post() {
 /////////////////////RANDOM CHARACTER COLOR
 function random_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  let index_num = old_msg.regexIndexOf(/\/rn /i);
+  var index_num = old_msg.regexIndexOf(/\/rn /i);
   if (index_num === 0) {
-    let new_msg = old_msg.replace(/\/rn /i, '');
+    var new_msg = old_msg.replace(/\/rn /i, '');
     new_msg = randomText(new_msg);
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
@@ -928,9 +928,9 @@ function random_chat() {
 
 function random_bchat() {
   var old_msg = document.getElementById("message").value;
-  let index_num = old_msg.regexIndexOf(/\/rn /i);
+  var index_num = old_msg.regexIndexOf(/\/rn /i);
   if (index_num === 0) {
-    let new_msg = old_msg.replace(/\/rn /i, '');
+    var new_msg = old_msg.replace(/\/rn /i, '');
     new_msg = randomText(new_msg);
     document.getElementById("message").value = new_msg;
   }
@@ -945,8 +945,8 @@ function random_post() {
     old_msg = document.getElementsByTagName("textarea")[1].value;
   }
   var msg_ray = old_msg.split("\n");
-  for (let i = 0; i < msg_ray.length; i++) {
-    let index_num = old_msg.regexIndexOf(/\/rn /i);
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/rn /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/rn /i, '');
       msg_ray[i] = randomText(msg_ray[i]);
@@ -965,9 +965,9 @@ function random_post() {
 ////////////////////GRADIENT MSG COLOR
 function gradient_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  let index_num = old_msg.regexIndexOf(/\/gd /i);
+  var index_num = old_msg.regexIndexOf(/\/gd /i);
   if (index_num === 0) {
-    let new_msg = old_msg.replace(/\/gd /i, '');
+    var new_msg = old_msg.replace(/\/gd /i, '');
     new_msg = gradientText(new_msg);
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
@@ -983,10 +983,10 @@ function values(o) {
 } //////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
 
 function emoticon_chat() {
-  for (let i = 0; i < Object.keys(emoticon).length; i++) {
+  for (var i = 0; i < Object.keys(emoticon).length; i++) {
     //console.log(values(emoticon)[i][0]);
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    let index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -995,9 +995,9 @@ function emoticon_chat() {
 }
 
 function emoticon_bchat() {
-  for (let i = 0; i < Object.keys(emoticon).length; i++) {
+  for (var i = 0; i < Object.keys(emoticon).length; i++) {
     var old_msg = document.getElementById("message").value;
-    let index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       document.getElementById("message").value = new_msg;
@@ -1006,7 +1006,7 @@ function emoticon_bchat() {
 }
 
 function emoticon_post() {
-  for (let i = 0; i < Object.keys(emoticon).length; i++) {
+  for (var i = 0; i < Object.keys(emoticon).length; i++) {
     var old_msg = "";
     if (document.getElementsByTagName("textarea")[1] === undefined) {
       old_msg = document.getElementsByTagName("textarea")[0].value;
@@ -1014,7 +1014,7 @@ function emoticon_post() {
     else {
       old_msg = document.getElementsByTagName("textarea")[1].value;
     }
-    let index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -1030,9 +1030,9 @@ function emoticon_post() {
 
 /////////////////////MANAGES THE MAY MAY SYSTEM
 function maymay_chat() {
-  for (let i = 0; i < Object.keys(maymay).length; i++) {
+  for (var i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    let index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -1041,9 +1041,9 @@ function maymay_chat() {
 }
 
 function maymay_bchat() {
-  for (let i = 0; i < Object.keys(maymay).length; i++) {
+  for (var i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = document.getElementById("message").value;
-    let index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       document.getElementById("message").value = new_msg;
@@ -1052,7 +1052,7 @@ function maymay_bchat() {
 }
 
 function maymay_post() {
-  for (let i = 0; i < Object.keys(maymay).length; i++) {
+  for (var i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = "";
     if (document.getElementsByTagName("textarea")[1] === undefined) {
       old_msg = document.getElementsByTagName("textarea")[0].value;
@@ -1060,7 +1060,7 @@ function maymay_post() {
     else {
       old_msg = document.getElementsByTagName("textarea")[1].value;
     }
-    let index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -1122,7 +1122,7 @@ function edit_css_bchat() {
 
 /////////////////////INJECTS THE FUCKING SMILIES INTO WINDOW
 function the_base(smilie_code, smilie_url, smilie_text) {
-  let change_this = td_base;
+  var change_this = td_base;
   change_this = change_this.replace(new RegExp("_smilie", "gi"), smilie_code);
   change_this = change_this.replace(new RegExp("_title", "gi"), smilie_code.substr(1, smilie_code.length - 2)); ////could be smilie_text
   change_this = change_this.replace(new RegExp("_link", "gi"), smilie_url);
@@ -1136,7 +1136,7 @@ function inject_smilie() {
   }
   var get_place = document.getElementsByTagName("table")[2];
   if (get_place.innerHTML == "") {
-    let the_body = document.createElement("tbody");
+    var the_body = document.createElement("tbody");
 
     get_place.appendChild(the_body);
     get_place.getElementsByTagName("tbody")[0].innerHTML = td_array;
@@ -1144,12 +1144,12 @@ function inject_smilie() {
     var counter = 0;
     var coconut = 0;
 
-    for (let x = 0; x < Object.keys(emoticon).length; x++) {
+    for (var x = 0; x < Object.keys(emoticon).length; x++) {
       //console.log(counter + "   " + coconut + "   " + x);
       if (counter == 8) {
         counter = 0;
         coconut++;
-        let the_tr = document.createElement("tr");
+        var the_tr = document.createElement("tr");
         get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
         get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
       }
