@@ -393,7 +393,7 @@ ends: [':ends:', '[img][u][/img][/u]']
 };
 ///////
 var spec_code = [
-  '/exit', '/away', '/abs'
+  '/exit', '/away', '/abs', '[code]'
 ];
 var swear_code = [
   '[b][/b]', '.'
@@ -448,24 +448,6 @@ var cssTd = "";
 ///////
 
 ///////////////////// MANAGES THE SWEAR FILTERING
-function unique_char(string) { /// http://stackoverflow.com/questions/13868043/showing-unique-characters-in-a-string-only-once
-  var str_length = string.length;
-  var unique = '';
-  for (var i = 0; i < str_length; i++) {
-    var foundIt = false;
-    for (var j = 0; j < unique.length; j++) {
-      if (string[i] == unique[j]) {
-        foundIt = true;
-        break;
-      }
-    }
-    if (!foundIt) {
-      unique += string[i];
-    }
-  }
-  return unique;
-}
-
 function filter_swears_chat() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
@@ -474,13 +456,15 @@ function filter_swears_chat() {
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
+    
     var exit_code = old_msg.indexOf(spec_code[0]);
     var away_code = old_msg.indexOf(spec_code[1]);
     var abs_code = old_msg.indexOf(spec_code[2]);
-    var spec_switch = 0;
+    var code_code = old_msg.indexOf(spec_code[3]);
     
-    //afk switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+    var spec_switch = 0;
+    //special switches switch
+    if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1) {
       spec_switch = 1;
     }
     
@@ -518,59 +502,7 @@ function filter_swears_chat() {
       var new_msg = old_msg;
     }
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-    
-    //this should be a switch
-    //var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
-    
-    
   }
-  
-   
-    
-    
-    
-    
-    /*
-  for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
-    var old_msg_reg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var index_num = old_msg.indexOf(swear_words[i]);           
-    
-    var exit_num = old_msg.indexOf(spec_code[0]);
-    var away_num = old_msg.indexOf(spec_code[1]);
-    
-    var spec_switch = 0;
-    if (exit_num === 0 || away_num === 0) {
-      spec_switch = 1;
-    }
-    
-    var edi_msg = "";
-    var par_msg = "";
-    var new_msg = "";
-    
-    if (index_num >= 0) {
-      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);                
-      par_msg = edi_msg.split("").join(swear_code[spec_switch]);            
-      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-    }
-    else {
-      var words = old_msg.split(" ");
-      var letter_ray = old_msg.split(" ");
-      for (var j = 0; j < words.length; j++) {
-        letter_ray[j] = unique_char(words[j]);
-      }
-      for (var k = 0; k < letter_ray.length; k++) {
-        if (letter_ray[k] === swear_words[i]) {
-          edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
-          par_msg = edi_msg.split("").join(swear_code[exit_switch]);
-          new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
-          document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-        }
-      }
-    }
-  }
-  */
 }
 
 function filter_swears_bchat() {
@@ -581,13 +513,16 @@ function filter_swears_bchat() {
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
+    
     var exit_code = old_msg.indexOf(spec_code[0]);
     var away_code = old_msg.indexOf(spec_code[1]);
     var abs_code = old_msg.indexOf(spec_code[2]);
+    var code_code = old_msg.indexOf(spec_code[3]);
+    
     var spec_switch = 0;
     
     //afk switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+    if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1) {
       spec_switch = 1;
     }
     
@@ -625,46 +560,6 @@ function filter_swears_bchat() {
       var new_msg = old_msg;
     }
     document.getElementById("message").value = new_msg;
-    
-    
-    /*
-    var old_msg = document.getElementById("message").value.toLowerCase();
-    var old_msg_reg = document.getElementById("message").value;
-    var index_num = old_msg.indexOf(swear_words[i]);           
-    var exit_num = old_msg.indexOf(spec_code[0]);
-    var away_num = old_msg.indexOf(spec_code[1]);
-    
-    var spec_switch = 0;
-    if (exit_num === 0 || away_num === 0) {
-      spec_switch = 1;
-    }
-    
-    var edi_msg = "";
-    var par_msg = "";
-    var new_msg = "";
-    
-    if (index_num >= 0) {
-      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);
-      par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-      document.getElementById("message").value = new_msg;
-    }
-    else {
-      var words = old_msg.split(" ");
-      var letter_ray = old_msg.split(" ");
-      for (var j = 0; j < words.length; j++) {
-        letter_ray[j] = unique_char(words[j]);
-      }
-      for (var k = 0; k < letter_ray.length; k++) {
-        if (letter_ray[k] === swear_words[i]) {
-          edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
-          par_msg = edi_msg.split("").join(swear_code[exit_switch]);
-          new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
-          document.getElementById("message").value = new_msg;
-        }
-      }
-    }
-    */
   }
 }
 
@@ -682,13 +577,16 @@ function filter_swears_post() {
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
+    
     var exit_code = old_msg.indexOf(spec_code[0]);
     var away_code = old_msg.indexOf(spec_code[1]);
     var abs_code = old_msg.indexOf(spec_code[2]);
+    var code_code = old_msg.indexOf(spec_code[3]);
+    
     var spec_switch = 0;
     
     //afk switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+    if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != 1) {
       spec_switch = 1;
     }
     
@@ -723,7 +621,6 @@ function filter_swears_post() {
           break;
       }
     } else {
-      //console.log("url detected");
       var new_msg = old_msg;
     }
     if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -732,35 +629,6 @@ function filter_swears_post() {
     else {
       document.getElementsByTagName("textarea")[1].value = new_msg;
     }
-    
-    
-    /*
-    var old_msg = "";
-    var old_msg_reg = "";
-    if (document.getElementsByTagName("textarea")[1] === undefined) {
-      old_msg = document.getElementsByTagName("textarea")[0].value.toLowerCase();
-      old_msg_reg = document.getElementsByTagName("textarea")[0].value;
-    }
-    else {
-      old_msg = document.getElementsByTagName("textarea")[1].value.toLowerCase();
-      old_msg_reg = document.getElementsByTagName("textarea")[1].value;
-    }
-    var edi_msg = "";
-    var par_msg = "";
-    var new_msg = "";
-    var index_num = old_msg.indexOf(swear_words[i]);
-    if (index_num >= 0) {
-      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);
-      par_msg = edi_msg.split("").join(swear_code[0]);
-      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-      if (document.getElementsByTagName("textarea")[1] === undefined) {
-        document.getElementsByTagName("textarea")[0].value = new_msg;
-      }
-      else {
-        document.getElementsByTagName("textarea")[1].value = new_msg;
-      }
-    }
-    */
   }
 }
 /////////////////////
@@ -852,7 +720,6 @@ function redtext_post() {
 /////////////////////
 
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
-
 function values(o) {
   return Object.keys(o).map(function (k) {
     return o[k]
@@ -1143,99 +1010,3 @@ window.addEventListener('load', function() {
     }
   }  
 }, false);
-
-/*
-
--------------
-------------- From remote-tracking branch 'origin/unstable'
--------------
-
-/////////////////////RUNS SCRIPT
-setInterval( function(){ 
-  if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
-    if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
-filter_swears_chat(); /// These are the functions that run through the text and see what to do
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").onkeypress = function (event) { /// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
-        
-        var code = (event.keyCode) ? event.keyCode : event.which; /// Gets what key has been pressed
-        if (code == 13) { /// 13 is enter
-          
-          greentext_chat(); ///
-          emoticon_chat(); ///       
-          maymay_chat(); /// 
-          redtext_chat();
-        }
-      };
-      edit_css_chat(); /// This is done even when you aren't pressing keys
-    }
-    else { /// If we're here, that means we are on big chat window
-      document.getElementById("message").onkeypress = function (event) {
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          filter_swears_bchat();
-          greentext_bchat();
-          emoticon_bchat();
-          maymay_bchat();
-          redtext_bchat();
-        }
-      };
-      edit_css_bchat();
-    }
-  }
-  else {
-    inject_smilie(); ///this has to be done b4
-    /////////////////////////
-    if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW PAGE
-    loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
-    refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
-    }else{ //// QUICK REPLY
-      loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
-      cssTd = "padding-top:5px;";
-      var new_td = document.createElement("td");
-      loc.appendChild(new_td).style.cssText = cssTd;
-      refined_loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1].getElementsByTagName("td")[0];
-    }    
-    var element = document.createElement("label");
-    refined_loc.appendChild(element).style.cssText = cssLabel;
-    setInterval(function () {      
-      var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
-      if(typeof document.getElementsByTagName("textarea")[1] === 'object'){    ///if were not in preview window, we need to set some variables differently
-        area.value = document.getElementsByTagName("textarea")[1].value;
-      }  
-      if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
-        Countable.once(area, function (counter) {
-          if(loc.getElementsByTagName("label")[0].innerHTML != values(counter)[4] + " characters"){
-            loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
-          }
-          if(values(counter)[4] > 63500){ ////i dont really know the limit
-            element.style.cssText += "color:red;";
-          }else if(values(counter)[4] < 63500){
-            element.style.cssText = cssLabel;
-          }
-        });  
-      }
-    }, 3000);
-    ////////////////////////////////////////    
-    var window_chk = 0; /// If we're here that means we are not on either the main screen or big chat window. So we must be posting....
-    if (document.getElementsByTagName("textarea")[0] !== undefined || document.getElementsByTagName("textarea")[1] !== undefined) { /// Checks to make sure we are either browsing a topic (1) or on the preview page (0)
-      if (document.getElementsByTagName("textarea")[1] !== undefined) { /// Then figures out which one it is
-        window_chk = 1;
-      }
-      document.getElementsByTagName("textarea")[window_chk].onkeypress = function (event) { /// Another keypress 
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          filter_swears_post(); /// Posting functions
-          greentext_post(); ///            
-          emoticon_post(); ///
-          maymay_post(); ///
-          redtext_post();
-        }
-      }
-      post_page_editor();
-    }
-  }  
-  
-}
-         
-, 100);
-*/
