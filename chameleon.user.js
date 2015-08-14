@@ -3,9 +3,10 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.2
+// @version     1.4
 // @grant       none
 // ==/UserScript==
+
 ////// CODE FOR DEALING WITH OBJECTS
 function values(o) {
   return Object.keys(o) .map(function (k) {
@@ -13,6 +14,8 @@ function values(o) {
   });
 }
 //////
+
+//////COLOR
 var color_ = {
   white: [
     'background-color: rgb(255, 255, 255);',
@@ -42,7 +45,7 @@ var color_ = {
     'background-color: rgb(75, 0, 130);',
     '#4B0082'
   ],
- violet: [
+  violet: [
     'background-color: rgb(127, 0, 255);',
     '#7F00FF'
   ],
@@ -67,6 +70,9 @@ var color_ = {
     '#3c00ff'
   ]
 };
+///////
+
+///////COOKIE SHIT
 function setCookie(name, value, days) {
   if (days) {
     var date = new Date();
@@ -77,69 +83,68 @@ function setCookie(name, value, days) {
   else var expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
+
 function getCookie(c_name) {
-var name = c_name + '=';
-var ca = document.cookie.split(';');
-for (var i = 0; i < ca.length; i++) {
-var c = ca[i];
-while (c.charAt(0) == ' ') c = c.substring(1);
-if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-}
-return '';
-}
-var counter = 0;
-setInterval(function () {
-  if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
-    if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
-      if (counter === 0 || getCookie('CB_color') != values(color_) [counter][1]) {
-        setCookie('CB_color', values(color_) [counter][1], 1);
-      }
-      //document.getElementById("frame_chatbox").contentWindow.document.getElementById('scolor') .value = values(color_) [counter][1];
-      //document.getElementById("frame_chatbox").contentWindow.document.getElementById('divcolor-preview') .style.cssText = values(color_) [counter][0];
-      //document.getElementById("frame_chatbox").contentWindow.document.getElementById('message') .style.color = values(color_) [counter][1];
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById('message') .onkeypress = function (event) {
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          counter++;
-          if (counter == (values(color_) .length)) {
-            counter = 0;
-          }
-        }
-      };
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById('message') .onkeyup = function (event) {
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          setCookie('CB_color', values(color_) [counter][1], 1);
-          document.getElementById("frame_chatbox").contentWindow.document.getElementById('scolor') .value = values(color_) [counter][1];
-          document.getElementById("frame_chatbox").contentWindow.document.getElementById('divcolor-preview') .style.cssText = values(color_) [counter][0];
-          document.getElementById("frame_chatbox").contentWindow.document.getElementById('message') .style.color = values(color_) [counter][1];
-        }
-      };
-    }else{
-      if (counter === 0 || getCookie('CB_color') != values(color_) [counter][1]) {
-        setCookie('CB_color', values(color_) [counter][1], 1);
-      }
-      document.getElementById('scolor') .value = values(color_) [counter][1];
-      document.getElementById('divcolor-preview') .style.cssText = values(color_) [counter][0];
-      document.getElementById('message') .style.color = values(color_) [counter][1];
-      document.getElementById('message') .onkeypress = function (event) {
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          counter++;
-          if (counter == (values(color_) .length)) {
-            counter = 0;
-          }
-        }
-      };
-      document.getElementById('message') .onkeyup = function (event) {
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          setCookie('CB_color', values(color_) [counter][1], 1);
-          document.getElementById('scolor') .value = values(color_) [counter][1];
-          document.getElementById('divcolor-preview') .style.cssText = values(color_) [counter][0];
-          document.getElementById('message') .style.color = values(color_) [counter][1];
-        }
-      };      
-    }
+  var name = c_name + '=';
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1);
+    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
   }
-}, 100);
+  return '';
+}
+///////
+
+var counter = 0;
+
+if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
+  if (window.location.pathname.length <= 1) {    
+    if (getCookie('chameleon_counter') === 0) {
+      setCookie('CB_color', values(color_) [counter][1], 1);
+    }    
+    document.getElementById('frame_chatbox') .contentWindow.document.getElementById('message') .addEventListener('keydown', function (event) {
+      var code = (event.keyCode) ? event.keyCode : event.which;
+      if (code == 13) {
+        counter++;
+        if (counter == (values(color_) .length)) {
+          counter = 0;
+        }
+      }
+    }, false);
+    document.getElementById('frame_chatbox') .contentWindow.document.getElementById('message') .addEventListener('keyup', function (event) {
+      var code = (event.keyCode) ? event.keyCode : event.which;
+      if (code == 13) {
+        setCookie('chameleon_counter', counter, 1);
+        setCookie('CB_color', values(color_) [counter][1], 1);
+        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('scolor') .value = values(color_) [counter][1];
+        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('divcolor-preview') .style.cssText = values(color_) [counter][0];
+        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('message') .style.color = values(color_) [counter][1];
+      }
+    }, false);
+  } else {
+    if (getCookie('chameleon_counter') === 0) {
+      setCookie('CB_color', values(color_) [counter][1], 1);
+    }
+    document.getElementById('message') .addEventListener('keydown', function (event) {
+      var code = (event.keyCode) ? event.keyCode : event.which;
+      if (code == 13) {
+        counter++;
+        if (counter == (values(color_) .length)) {
+          counter = 0;
+        }
+        console.log(counter);
+      }
+    }, false);
+    document.getElementById('message') .addEventListener('keyup', function (event) {
+      var code = (event.keyCode) ? event.keyCode : event.which;
+      if (code == 13) {
+        setCookie('chameleon_counter', counter, 1);
+        setCookie('CB_color', values(color_) [counter][1], 1);
+        document.getElementById('scolor') .value = values(color_) [counter][1];
+        document.getElementById('divcolor-preview') .style.cssText = values(color_) [counter][0];
+        document.getElementById('message') .style.color = values(color_) [counter][1];
+      }
+    }, false);
+  }
+}
