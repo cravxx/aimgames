@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        Swearify for blaze
-// @description FUK U
-// @namespace   aaaaaaaaaaaaaaaaaaaa@tsvenia.com
+// @name        Swearify
+// @description Adds a number of enhancements to your experience on AIM games.
+// @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     attempt 1
+// @version     2.0.21
 // @grant       none
 // @icon        data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAKUUExURf/////m5v93d/+oqP/Bwf+Dg/+cnP9FRf9eXv9RUf9qav/NzeLi4tjY2PHx8fz8/P+Pj8XExMPBwdGvr/KuruyOjtmmpuXl5fLy8snJycLCwsrDw+1ra/+1tfvk5OasrMi2ts29vfj4+P6QkNHR0elzc+np6cq9vcvHx++BgcbGxsi5udGwsOmTk/9GRtzHx8PDw8LBwcm5ufPz8+CXl8XFxdm4uPahoc7OztS6utvb2/39/dfX1/7+/vt7e9zR0dDQ0O/v78TExOvr6+ibm9/f3/7l5fx7e9SsrNLLy/54eP3BwdiUlM21tf94eNqpqcS+vtPT09apqcPAwOTk5MjIyNzc3My2tt7T0+v3++P0+N2mq+BPVOX1+epMT+qoq8q0tc3Nzc7Jyca7u93S0hbF9Aa/8QK+8AO56gK66wK97z++4LrCxMHCwsDCwsDCw7zDxb7DxcnW2dn0+9v0++L2++b3/PL7/QDK/wDL/wDH/QDJ/5LD0b7Cw7vCxLfCxV260wGx4QOv3QOt2wep1hey3ADF+gDG/ADG+x3F87XCxk662ACz5ACw4ACv3wCu3QCt3ACx4gCy4wC36YG/z319fScnJzMzM7y8vLzCxDLF7QDG/QDF+wDI/wCp1wCs2gCs2wCr2gCv3rTBxF1fYBMUFBQUFKenp7/Cw7PBxSi85QC67QC56wC87wC/8wCx4QCz4wCy4rzBwy8vLzk5Oa2trbrBwySz2gC15gCu3gC05QGr2r3Bw7/CwiOu0wCt3QCp2BGt2LnBwxas1QCm1ACo1ky206O+xgCq2ACn1QDC9wDE+VPD4bfBxJzAyhO04QC+8l/C3ZXAzA6+7wC98QDA9XK70IW+zQe04wC57AC88AC/8k0VJ2YAAAABYktHRACIBR1IAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiUlEQVQ4y5WRZ1cTURCGZ+9ucrMbAUVRGBsqomILKhYUG/au2Huv7GIXG3ZjSSKiWDESK4pkwUpUVKwIFuztz3i3wAnhg8c5Z3fnvPPcmbn7AvwrOEIID8DzHOF5XiCCRdBkwQIWQSAWlhJiJWClBIhNtAKVqA7wlFLeIlB2loii3SraGEBFDiiVoBYAi0azCRzPKI5QamcANQHQTrOHYyXQ3yLbhvXUdBOQbMa8/4gGYeERoZp2q4bsWoR9wxtFNm4CdrYKRDVtZqJUEmxsL2256BjE5i1aihJp1To2sk1b/X9oe7KFQKJSuzhEjG3PAD6+A2LHGkDSAfaDOiUgdu7SlQN7t+4OTOzR0xzBsxEW1oH2SmIdsDcn0T59+yE6ko0OtdE/RqvjgBRu4CA9GxxynSFDNdWRnAKpSXUB07hhCZqaNHzEyFGJOjB6jGZvrXFjx0Xqclx01Hg9wfgJmr01QMTESbrqmJw6Jc0AwnR7a3yZOs1okDA9eYYxAWfq9sKs2XPmzpu/YGGaATgWLV5i1HGpbi8sW75i5arVa9JlRVcz1q4z67h+w8ZNm7dA5tbMzG3bd2TIO2Umylm7ZLOu7N6zd9/+A3DQ6XQeOnxEkc1CBpqZctTl9hzLBs/xHNeJkwrmnjp9BoNCPnvufF7eBSd4L+b7Ll1GvHL12vWgslJw42bhrcIiP6jFrhLPbcTcO3fvBQPK/QelqjvwEPIDgcCjx1g/yp541Oz8p/DM5/OVK+Ylg+P5i5de7ysvqKrqfi3L9XqUvSn3eisq3oK/sqrqnSIX1C3LyvsPH3NU1eOGan915ScF5ZAGctbnL/5q/9dvUFzqLvmuoBJCyOk/fv4qLPr95y9qjLbDWeFJXAAAAABJRU5ErkJggg==
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -22,7 +22,6 @@
 
 // MAKING REGEX ON THE FLY IS UNRELIABLE. DON'T DO IT.
 
-console.log("point 1")
 var swear_words = [
 
 /([fF]+)([uU]+)([cC]+)([kK]+)/g,
@@ -87,7 +86,7 @@ var swear_words = [
 
 ];
 
-console.log("point 2")
+
 var swear_noregex = [
 "fuck", "shit", "bastard",
 "whore", "dick", "faggot",
@@ -112,7 +111,6 @@ var swear_noregex = [
 ];
 
 ///////SMILY CODE, OBJECT SHIT
-console.log("point 3")
 var emoticon = {
 dolan: [':dolan:', 'http://oi62.tinypic.com/2lsk7ra.jpg', 'Dolan'],
 lysf: [':lysf:', 'http://i.imgur.com/8eLDb0a.png', 'LYSF'],
@@ -325,7 +323,6 @@ leetpepe: [':1337pepe:', 'http://i.imgur.com/TgrYBQP.gif', "1337 pepe"]
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
 
-console.log("point 4")
 var maymay = {
 sombre: ['sombre', '[font=monospace][size=14][b][color=red]S[/color] [color=orange]O[/color] [color=yellow]M[/color] [color=blue]B[/color] [color=indigo]R[/color] [color=violet]E[/color][/b][/size][/font]'],
 doors: ['the doors', '[i]the doors[/i]'],
@@ -362,23 +359,18 @@ ends: [':ends:', '[img][u][/img][/u]']
 */
 };
 ///////
-console.log("point 5")
 var spec_code = [
   '/exit', '/away', '/abs'
 ];
-console.log("point 6")
 var swear_code = [
   '[b][/b]', '.'
 ];
-console.log("point 7")
 var link_code = [
   'http://', 'www.', 'https://'
 ];
-console.log("point 8")
 ///////
 
 ///////COLOR CODE FOR 4CHAN GREENTEXT
-console.log("point 9")
 var color_code = [
   "[color=#789922]",
   "[/color]",
@@ -386,13 +378,11 @@ var color_code = [
 ];
 ///////
 
-console.log("point 10")
 ///////FORTICONS
 var img_tag = ["[img]", "[/img]"];
 ///////
 
 ///////CSS STYLE STRINGS
-console.log("point 11")
 var cssChkbox = "font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;";
 var cssButton = "font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;";
 var cssMsg = "color:white; margin-right:8px; margin-left:5px;";
@@ -401,15 +391,12 @@ var cssChat = "overflow-x: hidden; left:141px;"; /// white-space: nowrap;
 ///////
 
 ///////CODE FOR EXTRA SMILIE INJECT
-console.log("point 12")
 var smilie_header_html = "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify</option>";
 var td_base = "<td><a href='javascript:insert_chatboxsmilie(_smilie)'><img title='_title' src='_link' alt='_title' border='0'></a></td>";
 var td_array = "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
 
-console.log("point 13")
 var quote = '"';
 
-console.log("point 14")
 if (document.getElementsByName("categ").length == 1) {
   document.getElementsByName("categ")[0].innerHTML = smilie_header_html; /// add the Swearify selection
 }
@@ -429,7 +416,6 @@ var cssTd = "";
 
 ///////////////////// MANAGES THE SWEAR FILTERING
 function unique_char(string) { /// http://stackoverflow.com/questions/13868043/showing-unique-characters-in-a-string-only-once
-console.log("point 15")
   var str_length = string.length;
   var unique = '';
   for (var i = 0; i < str_length; i++) {
@@ -449,7 +435,6 @@ console.log("point 15")
 
 function filter_swears_chat() {
   for (var i = 0; i < swear_words.length; i++) {
-    console.log("point 16." + i)
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
     // http://stackoverflow.com/a/500459
     
@@ -557,7 +542,6 @@ function filter_swears_chat() {
 
 function filter_swears_bchat() {
   for (var i = 0; i < swear_words.length; i++) {
-    console.log("point 17." + i)
     var old_msg = document.getElementById("message").value;
     // http://stackoverflow.com/a/500459
     
@@ -653,7 +637,6 @@ function filter_swears_bchat() {
 
 function filter_swears_post() {
   for (var i = 0; i < swear_words.length; i++) {
-    console.log("point 18." + i)
     var old_msg = ""; //this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName("textarea")[1] === undefined) {
       old_msg = document.getElementsByTagName("textarea")[0].value;
