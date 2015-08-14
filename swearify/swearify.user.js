@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.3.33
+// @version     2.3.34
 // @grant       none
 // @icon        data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAKUUExURf/////m5v93d/+oqP/Bwf+Dg/+cnP9FRf9eXv9RUf9qav/NzeLi4tjY2PHx8fz8/P+Pj8XExMPBwdGvr/KuruyOjtmmpuXl5fLy8snJycLCwsrDw+1ra/+1tfvk5OasrMi2ts29vfj4+P6QkNHR0elzc+np6cq9vcvHx++BgcbGxsi5udGwsOmTk/9GRtzHx8PDw8LBwcm5ufPz8+CXl8XFxdm4uPahoc7OztS6utvb2/39/dfX1/7+/vt7e9zR0dDQ0O/v78TExOvr6+ibm9/f3/7l5fx7e9SsrNLLy/54eP3BwdiUlM21tf94eNqpqcS+vtPT09apqcPAwOTk5MjIyNzc3My2tt7T0+v3++P0+N2mq+BPVOX1+epMT+qoq8q0tc3Nzc7Jyca7u93S0hbF9Aa/8QK+8AO56gK66wK97z++4LrCxMHCwsDCwsDCw7zDxb7DxcnW2dn0+9v0++L2++b3/PL7/QDK/wDL/wDH/QDJ/5LD0b7Cw7vCxLfCxV260wGx4QOv3QOt2wep1hey3ADF+gDG/ADG+x3F87XCxk662ACz5ACw4ACv3wCu3QCt3ACx4gCy4wC36YG/z319fScnJzMzM7y8vLzCxDLF7QDG/QDF+wDI/wCp1wCs2gCs2wCr2gCv3rTBxF1fYBMUFBQUFKenp7/Cw7PBxSi85QC67QC56wC87wC/8wCx4QCz4wCy4rzBwy8vLzk5Oa2trbrBwySz2gC15gCu3gC05QGr2r3Bw7/CwiOu0wCt3QCp2BGt2LnBwxas1QCm1ACo1ky206O+xgCq2ACn1QDC9wDE+VPD4bfBxJzAyhO04QC+8l/C3ZXAzA6+7wC98QDA9XK70IW+zQe04wC57AC88AC/8k0VJ2YAAAABYktHRACIBR1IAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiUlEQVQ4y5WRZ1cTURCGZ+9ucrMbAUVRGBsqomILKhYUG/au2Huv7GIXG3ZjSSKiWDESK4pkwUpUVKwIFuztz3i3wAnhg8c5Z3fnvPPcmbn7AvwrOEIID8DzHOF5XiCCRdBkwQIWQSAWlhJiJWClBIhNtAKVqA7wlFLeIlB2loii3SraGEBFDiiVoBYAi0azCRzPKI5QamcANQHQTrOHYyXQ3yLbhvXUdBOQbMa8/4gGYeERoZp2q4bsWoR9wxtFNm4CdrYKRDVtZqJUEmxsL2256BjE5i1aihJp1To2sk1b/X9oe7KFQKJSuzhEjG3PAD6+A2LHGkDSAfaDOiUgdu7SlQN7t+4OTOzR0xzBsxEW1oH2SmIdsDcn0T59+yE6ko0OtdE/RqvjgBRu4CA9GxxynSFDNdWRnAKpSXUB07hhCZqaNHzEyFGJOjB6jGZvrXFjx0Xqclx01Hg9wfgJmr01QMTESbrqmJw6Jc0AwnR7a3yZOs1okDA9eYYxAWfq9sKs2XPmzpu/YGGaATgWLV5i1HGpbi8sW75i5arVa9JlRVcz1q4z67h+w8ZNm7dA5tbMzG3bd2TIO2Umylm7ZLOu7N6zd9/+A3DQ6XQeOnxEkc1CBpqZctTl9hzLBs/xHNeJkwrmnjp9BoNCPnvufF7eBSd4L+b7Ll1GvHL12vWgslJw42bhrcIiP6jFrhLPbcTcO3fvBQPK/QelqjvwEPIDgcCjx1g/yp541Oz8p/DM5/OVK+Ylg+P5i5de7ysvqKrqfi3L9XqUvSn3eisq3oK/sqrqnSIX1C3LyvsPH3NU1eOGan915ScF5ZAGctbnL/5q/9dvUFzqLvmuoBJCyOk/fv4qLPr95y9qjLbDWeFJXAAAAABJRU5ErkJggg==
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 ////////////////////////////////
-//////////////////////////////  VERSIONING: X.X.XX
+//////////////////////////////  VERSIONING: X.X.XXr
 //////////////////////////////  DO NOT CHANGE
 ////////////////////////////////
 
@@ -449,6 +449,30 @@ var refined_loc = "";
 var cssTd = "";
 ///////
 
+///////////////////// http://stackoverflow.com/a/274094
+
+String.prototype.regexIndexOf = function(regex, startpos) {
+    var indexOf = this.substring(startpos || 0).search(regex);
+    return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
+}
+
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+    regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
+    if(typeof (startpos) == "undefined") {
+        startpos = this.length;
+    } else if(startpos < 0) {
+        startpos = 0;
+    }
+    var stringToWorkWith = this.substring(0, startpos + 1);
+    var lastIndexOf = -1;
+    var nextStop = 0;
+    while((result = regex.exec(stringToWorkWith)) != null) {
+        lastIndexOf = result.index;
+        regex.lastIndex = ++nextStop;
+    }
+    return lastIndexOf;
+}
+
 ///////////////////// MANAGES THE SWEAR FILTERING
 function filter_swears_chat() {
   for (let i = 0; i < swear_words.length; i++) {
@@ -713,9 +737,8 @@ function redtext_post() {
 
 function leet_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  let index_num_lo = old_msg.indexOf("/leet");
-  let index_num_up = old_msg.indexOf("/LEET");
-  if (index_num_lo === 0 || index_num_up === 0) {
+  let index_num = old_msg.regexIndexOf(/\/leet /i);
+  if (index_num === 0) {
     let new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
     //new_msg = new_msg.replace(/b/gi, 'b');
@@ -749,9 +772,8 @@ function leet_chat() {
 
 function leet_bchat() {
   var old_msg = document.getElementById("message").value;
-  let index_num_lo = old_msg.indexOf("/leet");
-  let index_num_up = old_msg.indexOf("/LEET");
-  if (index_num_lo === 0 || index_num_up === 0) {
+  let index_num = old_msg.regexIndexOf(/\/leet /i);
+  if (index_num === 0) {
     let new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
     //new_msg = new_msg.replace(/b/gi, 'b');
@@ -795,9 +817,8 @@ function leet_post() {
   
   var msg_ray = old_msg.split("\n");
   for (let i = 0; i < msg_ray.length; i++) {
-    let index_num_lo = msg_ray[i].indexOf("/leet");
-    let index_num_up = msg_ray[i].indexOf("/LEET");
-    if (index_num_lo === 0 || index_num_up === 0) {
+    let index_num = old_msg.regexIndexOf(/\/leet /i);
+    if (index_num === 0) {
       let new_msg = msg_ray[i].replace(/\/leet /i, '');
       new_msg = new_msg.replace(/a/gi, '4');
       //new_msg = new_msg.replace(/b/gi, 'b');
@@ -838,9 +859,8 @@ function leet_post() {
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 function rainbow_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  let index_num_lo = old_msg.indexOf("/rb");
-  let index_num_up = old_msg.indexOf("/RB");
-  if (index_num_lo === 0 || index_num_up === 0) {
+  let index_num = old_msg.regexIndexOf(/\/rb /i);
+  if (index_num === 0) {
     let new_msg = old_msg.replace(/\/rb /i, '');
     new_msg = rainbowText(new_msg);
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -849,9 +869,8 @@ function rainbow_chat() {
 
 function rainbow_bchat() {
   var old_msg = document.getElementById("message").value;
-  let index_num_lo = old_msg.indexOf("/rb");
-  let index_num_up = old_msg.indexOf("/RB");
-  if (index_num_lo === 0 || index_num_up === 0) {
+  let index_num = old_msg.regexIndexOf(/\/rb /i);
+  if (index_num === 0) {
     let new_msg = old_msg.replace(/\/rb /i, '');
     new_msg = rainbowText(new_msg);
     document.getElementById("message").value = new_msg;
@@ -868,9 +887,8 @@ function rainbow_post() {
   }
   var msg_ray = old_msg.split("\n");
   for (let i = 0; i < msg_ray.length; i++) {
-    let index_num_lo = msg_ray[i].indexOf("/rb");
-    let index_num_up = msg_ray[i].indexOf("/RB");
-    if (index_num_lo === 0 || index_num_up === 0) {
+    let index_num = old_msg.regexIndexOf(/\/rb /i);
+    if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/rb /i, '');
       msg_ray[i] = rainbowText(msg_ray[i]);
       
@@ -888,9 +906,8 @@ function rainbow_post() {
 /////////////////////RANDOM CHARACTER COLOR
 function random_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num_lo = old_msg.indexOf("/rn");
-  var index_num_up = old_msg.indexOf("/RN");
-  if (index_num_lo === 0 || index_num_up === 0) {
+  let index_num = old_msg.regexIndexOf(/\/rn /i);
+  if (index_num === 0) {
     let new_msg = old_msg.replace(/\/rn /i, '');
     new_msg = randomText(new_msg);
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -899,9 +916,8 @@ function random_chat() {
 
 function random_bchat() {
   var old_msg = document.getElementById("message").value;
-  var index_num_lo = old_msg.indexOf("/rn");
-  var index_num_up = old_msg.indexOf("/RN");
-  if (index_num_lo === 0 || index_num_up === 0) {
+  let index_num = old_msg.regexIndexOf(/\/rn /i);
+  if (index_num === 0) {
     let new_msg = old_msg.replace(/\/rn /i, '');
     new_msg = randomText(new_msg);
     document.getElementById("message").value = new_msg;
@@ -918,9 +934,8 @@ function random_post() {
   }
   var msg_ray = old_msg.split("\n");
   for (let i = 0; i < msg_ray.length; i++) {
-    let index_num_lo = msg_ray[i].indexOf("/rn");
-    let index_num_up = msg_ray[i].indexOf("/RN");
-    if (index_num_lo === 0 || index_num_up === 0) {
+    let index_num = old_msg.regexIndexOf(/\/rn /i);
+    if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/rn /i, '');
       msg_ray[i] = randomText(msg_ray[i]);
       
@@ -938,9 +953,8 @@ function random_post() {
 ////////////////////GRADIENT MSG COLOR
 function gradient_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num_lo = old_msg.indexOf("/gd");
-  var index_num_up = old_msg.indexOf("/GD");
-  if (index_num_lo === 0 || index_num_up === 0) {
+  let index_num = old_msg.regexIndexOf(/\/gd /i);
+  if (index_num === 0) {
     let new_msg = old_msg.replace(/\/gd /i, '');
     new_msg = gradientText(new_msg);
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
