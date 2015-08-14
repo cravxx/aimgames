@@ -11,6 +11,8 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // ==/UserScript==
 
+let the_bodies_hit_the_floor = "Let the bodies hit the floor. Let the bodies hit the floor. Let the bodies hit the floor.";
+
 ////////////////////////////////
 //////////////////////////////  VERSIONING: X.X.XXr
 //////////////////////////////  DO NOT CHANGE
@@ -451,7 +453,7 @@ var cssTd = "";
 
 ///////////////////// http://stackoverflow.com/a/6969486
 
-String.prototype.escape = function(str) {
+function escape(str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
 
@@ -982,7 +984,7 @@ function emoticon_chat() {
   for (let i = 0; i < Object.keys(emoticon).length; i++) {
     //console.log(values(emoticon)[i][0]);
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    let index_num = old_msg.indexOf(values(emoticon)[i][0]);
+    let index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -993,7 +995,7 @@ function emoticon_chat() {
 function emoticon_bchat() {
   for (let i = 0; i < Object.keys(emoticon).length; i++) {
     var old_msg = document.getElementById("message").value;
-    let index_num = old_msg.indexOf(values(emoticon)[i][0]);
+    let index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       document.getElementById("message").value = new_msg;
@@ -1010,7 +1012,7 @@ function emoticon_post() {
     else {
       old_msg = document.getElementsByTagName("textarea")[1].value;
     }
-    let index_num = old_msg.indexOf(values(emoticon)[i][0]);
+    let index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -1028,7 +1030,7 @@ function emoticon_post() {
 function maymay_chat() {
   for (let i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    let index_num = old_msg.indexOf(values(maymay)[i][0]);
+    let index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -1039,7 +1041,7 @@ function maymay_chat() {
 function maymay_bchat() {
   for (let i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = document.getElementById("message").value;
-    let index_num = old_msg.indexOf(values(maymay)[i][0]);
+    let index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       document.getElementById("message").value = new_msg;
@@ -1056,7 +1058,7 @@ function maymay_post() {
     else {
       old_msg = document.getElementsByTagName("textarea")[1].value;
     }
-    let index_num = old_msg.indexOf(values(maymay)[i][0]);
+    let index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) {
