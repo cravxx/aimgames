@@ -449,6 +449,14 @@ var refined_loc = "";
 var cssTd = "";
 ///////
 
+///////////////////// http://stackoverflow.com/a/6969486
+
+String.prototype.escape = function(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+/////////////////////
+
 ///////////////////// http://stackoverflow.com/a/274094
 
 String.prototype.regexIndexOf = function(regex, startpos) {
