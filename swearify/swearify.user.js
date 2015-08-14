@@ -544,7 +544,7 @@ function filter_swears_chat() {
   }
 }
 
-function filter_swears_bchat() {
+function filter_swears_chat() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("message").value;
     var new_msg = '';
@@ -560,8 +560,7 @@ function filter_swears_bchat() {
     var code_code = old_msg.indexOf(spec_code[3]);
     
     var spec_switch = 0;
-    
-    //afk switch
+    //special switches switch
     if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1) {
       spec_switch = 1;
     }
