@@ -405,21 +405,138 @@
     global.Countable = Countable
   }
 }(this));
+///////////////////thanks for the free code rafa
+///////////////////
 
+// randomColor by David Merfield under the MIT license
+// https://github.com/davidmerfield/randomColor/
+;(function(root,factory){if(typeof define==='function'&&define.amd){define([],factory);}else if(typeof exports==='object'){var randomColor=factory();if(typeof module==='object'&&module&&module.exports){exports=module.exports=randomColor;} exports.randomColor=randomColor;}else{root.randomColor=factory();};}(this,function(){var seed=null;var colorDictionary={};loadColorBounds();var randomColor=function(options){options=options||{};if(options.seed&&!seed)seed=options.seed;var H,S,B;if(options.count!=null){var totalColors=options.count,colors=[];options.count=null;while(totalColors>colors.length){colors.push(randomColor(options));} options.count=totalColors;if(options.seed)seed=options.seed;return colors;} H=pickHue(options);S=pickSaturation(H,options);B=pickBrightness(H,S,options);return setFormat([H,S,B],options);};function pickHue(options){var hueRange=getHueRange(options.hue),hue=randomWithin(hueRange);if(hue<0){hue=360+hue} return hue;} function pickSaturation(hue,options){if(options.luminosity==='random'){return randomWithin([0,100]);} if(options.hue==='monochrome'){return 0;} var saturationRange=getSaturationRange(hue);var sMin=saturationRange[0],sMax=saturationRange[1];switch(options.luminosity){case'bright':sMin=55;break;case'dark':sMin=sMax-10;break;case'light':sMax=55;break;} return randomWithin([sMin,sMax]);} function pickBrightness(H,S,options){var brightness,bMin=getMinimumBrightness(H,S),bMax=100;switch(options.luminosity){case'dark':bMax=bMin+20;break;case'light':bMin=(bMax+bMin)/2;break;case'random':bMin=0;bMax=100;break;} return randomWithin([bMin,bMax]);} function setFormat(hsv,options){switch(options.format){case'hsvArray':return hsv;case'hslArray':return HSVtoHSL(hsv);case'hsl':var hsl=HSVtoHSL(hsv);return'hsl('+hsl[0]+', '+hsl[1]+'%, '+hsl[2]+'%)';case'rgbArray':return HSVtoRGB(hsv);case'rgb':var rgb=HSVtoRGB(hsv);return'rgb('+rgb.join(', ')+')';default:return HSVtoHex(hsv);}} function getMinimumBrightness(H,S){var lowerBounds=getColorInfo(H).lowerBounds;for(var i=0;i<lowerBounds.length-1;i++){var s1=lowerBounds[i][0],v1=lowerBounds[i][1];var s2=lowerBounds[i+1][0],v2=lowerBounds[i+1][1];if(S>=s1&&S<=s2){var m=(v2-v1)/(s2-s1),b=v1-m*s1;return m*S+b;}} return 0;} function getHueRange(colorInput){if(typeof parseInt(colorInput)==='number'){var number=parseInt(colorInput);if(number<360&&number>0){return[number,number];}} if(typeof colorInput==='string'){if(colorDictionary[colorInput]){var color=colorDictionary[colorInput];if(color.hueRange){return color.hueRange}}} return[0,360];} function getSaturationRange(hue){return getColorInfo(hue).saturationRange;} function getColorInfo(hue){if(hue>=334&&hue<=360){hue-=360;} for(var colorName in colorDictionary){var color=colorDictionary[colorName];if(color.hueRange&&hue>=color.hueRange[0]&&hue<=color.hueRange[1]){return colorDictionary[colorName];}}return'Color not found';} function randomWithin(range){if(seed==null){return Math.floor(range[0]+Math.random()*(range[1]+1-range[0]));}else{var max=range[1]||1;var min=range[0]||0;seed=(seed*9301+49297)%233280;var rnd=seed/233280.0;return Math.floor(min+rnd*(max-min));}} function HSVtoHex(hsv){var rgb=HSVtoRGB(hsv);function componentToHex(c){var hex=c.toString(16);return hex.length==1?"0"+hex:hex;} var hex="#"+componentToHex(rgb[0])+componentToHex(rgb[1])+componentToHex(rgb[2]);return hex;} function defineColor(name,hueRange,lowerBounds){var sMin=lowerBounds[0][0],sMax=lowerBounds[lowerBounds.length-1][0],bMin=lowerBounds[lowerBounds.length-1][1],bMax=lowerBounds[0][1];colorDictionary[name]={hueRange:hueRange,lowerBounds:lowerBounds,saturationRange:[sMin,sMax],brightnessRange:[bMin,bMax]};} function loadColorBounds(){defineColor('monochrome',null,[[0,0],[100,0]]);defineColor('red',[-26,18],[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]);defineColor('orange',[19,46],[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]);defineColor('yellow',[47,62],[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]);defineColor('green',[63,178],[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]);defineColor('blue',[179,257],[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]);defineColor('purple',[258,282],[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]);defineColor('pink',[283,334],[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]);} function HSVtoRGB(hsv){var h=hsv[0];if(h===0){h=1} if(h===360){h=359} h=h/360;var s=hsv[1]/100,v=hsv[2]/100;var h_i=Math.floor(h*6),f=h*6-h_i,p=v*(1-s),q=v*(1-f*s),t=v*(1-(1-f)*s),r=256,g=256,b=256;switch(h_i){case 0:r=v,g=t,b=p;break;case 1:r=q,g=v,b=p;break;case 2:r=p,g=v,b=t;break;case 3:r=p,g=q,b=v;break;case 4:r=t,g=p,b=v;break;case 5:r=v,g=p,b=q;break;} var result=[Math.floor(r*255),Math.floor(g*255),Math.floor(b*255)];return result;} function HSVtoHSL(hsv){var h=hsv[0],s=hsv[1]/100,v=hsv[2]/100,k=(2-s)*v;return[h,Math.round(s*v/(k<1?k:2-k)*10000)/100,k/2*100];} return randomColor;}));
+/*
+RainbowVis-JS
+Released under Eclipse Public License - v 1.0
+*/
+function Rainbow(){"use strict";function e(e){if(e.length<2)throw new Error("Rainbow must have two or more colours.");var a=(t-F)/(e.length-1),i=new ColourGradient;i.setGradient(e[0],e[1]),i.setNumberRange(F,F+a),r=[i];for(var o=1;o<e.length-1;o++){var l=new ColourGradient;l.setGradient(e[o],e[o+1]),l.setNumberRange(F+a*o,F+a*(o+1)),r[o]=l}n=e}var r=null,F=0,t=100,n=["ff0000","ffff00","00ff00","0000ff"];e(n),this.setSpectrum=function(){return e(arguments),this},this.setSpectrumByArray=function(r){return e(r),this},this.colourAt=function(e){if(isNaN(e))throw new TypeError(e+" is not a number");if(1===r.length)return r[0].colourAt(e);var n=(t-F)/r.length,a=Math.min(Math.floor((Math.max(e,F)-F)/n),r.length-1);return r[a].colourAt(e)},this.colorAt=this.colourAt,this.setNumberRange=function(r,a){if(!(a>r))throw new RangeError("maxNumber ("+a+") is not greater than minNumber ("+r+")");return F=r,t=a,e(n),this}}function ColourGradient(){"use strict";function e(e,F,t){var n=e;i>n&&(n=i),n>o&&(n=o);var a=o-i,l=parseInt(F,16),u=parseInt(t,16),s=(u-l)/a,g=Math.round(s*(n-i)+l);return r(g.toString(16))}function r(e){return 1===e.length?"0"+e:e}function F(e){var r=/^#?[0-9a-fA-F]{6}$/i;return r.test(e)}function t(e){if(F(e))return e.substring(e.length-6,e.length);var r=e.toLowerCase();if(l.hasOwnProperty(r))return l[r];throw new Error(e+" is not a valid colour.")}var n="ff0000",a="0000ff",i=0,o=100;this.setGradient=function(e,r){n=t(e),a=t(r)},this.setNumberRange=function(e,r){if(!(r>e))throw new RangeError("maxNumber ("+r+") is not greater than minNumber ("+e+")");i=e,o=r},this.colourAt=function(r){return e(r,n.substring(0,2),a.substring(0,2))+e(r,n.substring(2,4),a.substring(2,4))+e(r,n.substring(4,6),a.substring(4,6))};var l={aliceblue:"F0F8FF",antiquewhite:"FAEBD7",aqua:"00FFFF",aquamarine:"7FFFD4",azure:"F0FFFF",beige:"F5F5DC",bisque:"FFE4C4",black:"000000",blanchedalmond:"FFEBCD",blue:"0000FF",blueviolet:"8A2BE2",brown:"A52A2A",burlywood:"DEB887",cadetblue:"5F9EA0",chartreuse:"7FFF00",chocolate:"D2691E",coral:"FF7F50",cornflowerblue:"6495ED",cornsilk:"FFF8DC",crimson:"DC143C",cyan:"00FFFF",darkblue:"00008B",darkcyan:"008B8B",darkgoldenrod:"B8860B",darkgray:"A9A9A9",darkgreen:"006400",darkgrey:"A9A9A9",darkkhaki:"BDB76B",darkmagenta:"8B008B",darkolivegreen:"556B2F",darkorange:"FF8C00",darkorchid:"9932CC",darkred:"8B0000",darksalmon:"E9967A",darkseagreen:"8FBC8F",darkslateblue:"483D8B",darkslategray:"2F4F4F",darkslategrey:"2F4F4F",darkturquoise:"00CED1",darkviolet:"9400D3",deeppink:"FF1493",deepskyblue:"00BFFF",dimgray:"696969",dimgrey:"696969",dodgerblue:"1E90FF",firebrick:"B22222",floralwhite:"FFFAF0",forestgreen:"228B22",fuchsia:"FF00FF",gainsboro:"DCDCDC",ghostwhite:"F8F8FF",gold:"FFD700",goldenrod:"DAA520",gray:"808080",green:"008000",greenyellow:"ADFF2F",grey:"808080",honeydew:"F0FFF0",hotpink:"FF69B4",indianred:"CD5C5C",indigo:"4B0082",ivory:"FFFFF0",khaki:"F0E68C",lavender:"E6E6FA",lavenderblush:"FFF0F5",lawngreen:"7CFC00",lemonchiffon:"FFFACD",lightblue:"ADD8E6",lightcoral:"F08080",lightcyan:"E0FFFF",lightgoldenrodyellow:"FAFAD2",lightgray:"D3D3D3",lightgreen:"90EE90",lightgrey:"D3D3D3",lightpink:"FFB6C1",lightsalmon:"FFA07A",lightseagreen:"20B2AA",lightskyblue:"87CEFA",lightslategray:"778899",lightslategrey:"778899",lightsteelblue:"B0C4DE",lightyellow:"FFFFE0",lime:"00FF00",limegreen:"32CD32",linen:"FAF0E6",magenta:"FF00FF",maroon:"800000",mediumaquamarine:"66CDAA",mediumblue:"0000CD",mediumorchid:"BA55D3",mediumpurple:"9370DB",mediumseagreen:"3CB371",mediumslateblue:"7B68EE",mediumspringgreen:"00FA9A",mediumturquoise:"48D1CC",mediumvioletred:"C71585",midnightblue:"191970",mintcream:"F5FFFA",mistyrose:"FFE4E1",moccasin:"FFE4B5",navajowhite:"FFDEAD",navy:"000080",oldlace:"FDF5E6",olive:"808000",olivedrab:"6B8E23",orange:"FFA500",orangered:"FF4500",orchid:"DA70D6",palegoldenrod:"EEE8AA",palegreen:"98FB98",paleturquoise:"AFEEEE",palevioletred:"DB7093",papayawhip:"FFEFD5",peachpuff:"FFDAB9",peru:"CD853F",pink:"FFC0CB",plum:"DDA0DD",powderblue:"B0E0E6",purple:"800080",red:"FF0000",rosybrown:"BC8F8F",royalblue:"4169E1",saddlebrown:"8B4513",salmon:"FA8072",sandybrown:"F4A460",seagreen:"2E8B57",seashell:"FFF5EE",sienna:"A0522D",silver:"C0C0C0",skyblue:"87CEEB",slateblue:"6A5ACD",slategray:"708090",slategrey:"708090",snow:"FFFAFA",springgreen:"00FF7F",steelblue:"4682B4",tan:"D2B48C",teal:"008080",thistle:"D8BFD8",tomato:"FF6347",turquoise:"40E0D0",violet:"EE82EE",wheat:"F5DEB3",white:"FFFFFF",whitesmoke:"F5F5F5",yellow:"FFFF00",yellowgreen:"9ACD32"}}"undefined"!=typeof module&&(module.exports=Rainbow);
+
+var ColorList = Array("#FF0000", "#FF7700", "#FFFF00", "#00FF00", "#00FFFF", "#0077FF", "#9900FF");
+var LastStr = "";
+
+///////COOKIE SHIT
+function setCookie(name, value, days) {
+  if (days) {
+    var date = new Date();
+    var expires = '';
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = '; expires=' + date.toGMTString();
+  } 
+  else var expires = '';
+  document.cookie = name + '=' + value + expires + '; path=/';
+}
+
+function getCookie(c_name) {
+  var name = c_name + '=';
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1);
+    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+  }
+  return '';
+}
+///////
+function invertColor(hexTripletColor) { /// http://stackoverflow.com/questions/9600295/automatically-change-text-color-to-assure-readability
+    var color = hexTripletColor;
+    color = color.substring(1);           // remove #
+    color = parseInt(color, 16);          // convert to integer
+    color = 0xFFFFFF ^ color;             // invert three bytes
+    color = color.toString(16);           // convert to hex
+    color = ("000000" + color).slice(-6); // pad with leading zeros
+    color = "#" + color;                  // prepend #
+    return color;
+}
+
+function isWhitespace(char_) {
+	if (char_ == ' ') return true; // space
+	if (char_ == '\t') return true; // tab
+	if (char_ == '\n') return true; // newline
+	if (char_ == '\r') return true; // return
+	return false;
+}
+
+function rainbowText(InStr) {
+	var OutStr = "";
+	var CurrCol = 0;
+	
+	for (var x = 0; x < InStr.length; x++) {
+		if (isWhitespace(InStr.charAt(x))) {
+			OutStr += InStr.charAt(x);
+		} else {
+			OutStr += "[color="+ColorList[CurrCol]+"]"+InStr.charAt(x)+"[/color]";
+			CurrCol = (CurrCol+1)%ColorList.length;
+		}
+	}
+	return OutStr;
+}
+
+function gradientText(InStr) {
+	var start_color = '';
+	if(getCookie('CB_color') == ''){
+		start_color = randomColor();
+	}else{
+		start_color = getCookie('CB_color');
+	}
+	
+	var numberOfItems = 14; ////whole gradient
+  	var rainbow = new Rainbow(); 
+ 	rainbow.setNumberRange(0, numberOfItems);
+ 	rainbow.setSpectrum(start_color, invertColor(start_color));
+ 	var s = '';
+ 	for (var i = 0; i < numberOfItems; i++) {
+     		var hexColour = rainbow.colourAt(i);
+     		s += '#' + hexColour + ',';
+  	}
+  	s = s.split(',');
+	
+	var OutStr = "";
+	var CurrCol = 0;
+	
+	for (var x = 0; x < InStr.length; x++) {
+		if (isWhitespace(InStr.charAt(x))) {
+			OutStr += InStr.charAt(x);
+		} else {
+			OutStr += "[color="+s[CurrCol]+"]"+InStr.charAt(x)+"[/color]";
+			CurrCol = (CurrCol+1)%7; ///half it tho
+		}
+	}
+	return OutStr;
+}
+
+function randomText(InStr) {
+	var OutArr = InStr.split("");
+	var OutStr = ""
+	for (var i = 0; i < OutArr.length; i++) {
+		if(isWhitespace(OutArr[i])){
+			OutStr += OutArr[i];
+		}else{
+			OutStr += '[color=' + randomColor() + ']' + OutArr[i] + '[/color]';
+		}
+	}
+	return OutStr;
+}
 // ==UserScript==
 // @name        Swearify
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.0.21
+// @version     2.3.41
 // @grant       none
-// @icon        http://i60.tinypic.com/2vl9nr4.png
+// @icon        data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAKUUExURf/////m5v93d/+oqP/Bwf+Dg/+cnP9FRf9eXv9RUf9qav/NzeLi4tjY2PHx8fz8/P+Pj8XExMPBwdGvr/KuruyOjtmmpuXl5fLy8snJycLCwsrDw+1ra/+1tfvk5OasrMi2ts29vfj4+P6QkNHR0elzc+np6cq9vcvHx++BgcbGxsi5udGwsOmTk/9GRtzHx8PDw8LBwcm5ufPz8+CXl8XFxdm4uPahoc7OztS6utvb2/39/dfX1/7+/vt7e9zR0dDQ0O/v78TExOvr6+ibm9/f3/7l5fx7e9SsrNLLy/54eP3BwdiUlM21tf94eNqpqcS+vtPT09apqcPAwOTk5MjIyNzc3My2tt7T0+v3++P0+N2mq+BPVOX1+epMT+qoq8q0tc3Nzc7Jyca7u93S0hbF9Aa/8QK+8AO56gK66wK97z++4LrCxMHCwsDCwsDCw7zDxb7DxcnW2dn0+9v0++L2++b3/PL7/QDK/wDL/wDH/QDJ/5LD0b7Cw7vCxLfCxV260wGx4QOv3QOt2wep1hey3ADF+gDG/ADG+x3F87XCxk662ACz5ACw4ACv3wCu3QCt3ACx4gCy4wC36YG/z319fScnJzMzM7y8vLzCxDLF7QDG/QDF+wDI/wCp1wCs2gCs2wCr2gCv3rTBxF1fYBMUFBQUFKenp7/Cw7PBxSi85QC67QC56wC87wC/8wCx4QCz4wCy4rzBwy8vLzk5Oa2trbrBwySz2gC15gCu3gC05QGr2r3Bw7/CwiOu0wCt3QCp2BGt2LnBwxas1QCm1ACo1ky206O+xgCq2ACn1QDC9wDE+VPD4bfBxJzAyhO04QC+8l/C3ZXAzA6+7wC98QDA9XK70IW+zQe04wC57AC88AC/8k0VJ2YAAAABYktHRACIBR1IAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiUlEQVQ4y5WRZ1cTURCGZ+9ucrMbAUVRGBsqomILKhYUG/au2Huv7GIXG3ZjSSKiWDESK4pkwUpUVKwIFuztz3i3wAnhg8c5Z3fnvPPcmbn7AvwrOEIID8DzHOF5XiCCRdBkwQIWQSAWlhJiJWClBIhNtAKVqA7wlFLeIlB2loii3SraGEBFDiiVoBYAi0azCRzPKI5QamcANQHQTrOHYyXQ3yLbhvXUdBOQbMa8/4gGYeERoZp2q4bsWoR9wxtFNm4CdrYKRDVtZqJUEmxsL2256BjE5i1aihJp1To2sk1b/X9oe7KFQKJSuzhEjG3PAD6+A2LHGkDSAfaDOiUgdu7SlQN7t+4OTOzR0xzBsxEW1oH2SmIdsDcn0T59+yE6ko0OtdE/RqvjgBRu4CA9GxxynSFDNdWRnAKpSXUB07hhCZqaNHzEyFGJOjB6jGZvrXFjx0Xqclx01Hg9wfgJmr01QMTESbrqmJw6Jc0AwnR7a3yZOs1okDA9eYYxAWfq9sKs2XPmzpu/YGGaATgWLV5i1HGpbi8sW75i5arVa9JlRVcz1q4z67h+w8ZNm7dA5tbMzG3bd2TIO2Umylm7ZLOu7N6zd9/+A3DQ6XQeOnxEkc1CBpqZctTl9hzLBs/xHNeJkwrmnjp9BoNCPnvufF7eBSd4L+b7Ll1GvHL12vWgslJw42bhrcIiP6jFrhLPbcTcO3fvBQPK/QelqjvwEPIDgcCjx1g/yp541Oz8p/DM5/OVK+Ylg+P5i5de7ysvqKrqfi3L9XqUvSn3eisq3oK/sqrqnSIX1C3LyvsPH3NU1eOGan915ScF5ZAGctbnL/5q/9dvUFzqLvmuoBJCyOk/fv4qLPr95y9qjLbDWeFJXAAAAABJRU5ErkJggg==
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // ==/UserScript==
 
 ////////////////////////////////
-//////////////////////////////  VERSIONING: X.X.XX
+//////////////////////////////  VERSIONING: X.X.XXr
 //////////////////////////////  DO NOT CHANGE
 ////////////////////////////////
 
@@ -431,7 +548,6 @@
 // MAKING REGEX ON THE FLY IS UNRELIABLE. DON'T DO IT.
 
 var swear_words = [
-
 /([fF]+)([uU]+)([cC]+)([kK]+)/g,
 /([sS]+)([hH]+)([iI]+)([tT]+)/g,
 /([bB]+)([aA]+)([sS]+)([tT]+)([aA]+)([rR]+)([dD]+)/g,
@@ -466,7 +582,7 @@ var swear_words = [
 /([fF]+)([oO]+)([xX]+)([yY]+)/g,
 /([sS]+)([cC]+)([rR]+)([eE]+)([wW]+)/g,
 /([aA]+)([nN]+)([uU]+)([sS]+)/g,
-/([fF]+)([uU]+)( )/g,
+/([fF]+)([uU]+)/g,
 /([sS]+)([eE]+)([xX]+)/g,
 /([aA]+)([nN]+)([aA]+)([lL]+)/g,
 /([dD]+)([iI]+)([sS]+)([kK]+)/g,
@@ -490,10 +606,10 @@ var swear_words = [
 /([dD]+)([iI]+)([kK]+)/g,
 /([sS]+)([hH]+)(\!+)([tT]+)/g,
 /([sS]+)([hH]+)([tT]+)/g,
-/([sS]+)([hH]+)([iI]+)/g
-
+/([sS]+)([hH]+)([iI]+)/g,
+/([sS]+)([tT]+)([fF]+)([uU]+)/g,
+/([hH]+)([oO]+)([rR]+)([eE]+)/g
 ];
-
 
 var swear_noregex = [
 "fuck", "shit", "bastard",
@@ -507,7 +623,7 @@ var swear_noregex = [
 "piss", "pussy", ":3",
 "git", "daa", "fap",
 "penis", "foxy", "screw",
-"anus", "fu ", "sex",
+"anus", "fu", "sex",
 "anal", "disk", "slut",
 "comeback", "hoe", "shirt",
 "cunt", "stalker", "tofu",
@@ -515,8 +631,9 @@ var swear_noregex = [
 "waifu", "douche", "prick",
 "motherf", "shiznit", "turd",
 "dip", "dik", "sh!t", "sht",
-"shi"
+"shi", "stfu", "hore"
 ];
+///////
 
 ///////SMILY CODE, OBJECT SHIT
 var emoticon = {
@@ -671,23 +788,23 @@ waifoos: [':waifoos:', 'http://i57.tinypic.com/2cehr0o.png', 'waifoos'],
 hypetrain: [':hypetrain:', 'http://i61.tinypic.com/3448old.png', 'hypetrain'],
 bigxd: [':bigxd:', 'http://i59.tinypic.com/154d8bd.png', 'bigxd'],
 fonz: [':fonz:', 'http://i61.tinypic.com/2mnhyld.png', 'fonz'],
-mrbean: [':mrbean:', 'http://i61.tinypic.com/1127csk.png', 'mrbean'],
-mlady: [':mlady:', 'http://i57.tinypic.com/1zf7vpv.gif', 'mlady'],
+mrbean: [':mrbean:', 'http://i61.tinypic.com/1127csk.png', 'mr bean'],
+mlady: [':mlady:', 'http://i57.tinypic.com/1zf7vpv.gif', '\'mlady'],
 lick: [':lick:', 'http://i57.tinypic.com/208w9j9.png', 'lick'],
 nogf: [':nogf:', 'http://i58.tinypic.com/1191f7o.png', 'nogf'],
 mint: [':mint:', 'http://i60.tinypic.com/2hzkc5y.png', 'mint'],
 devious: [':devious:', 'http://i61.tinypic.com/ol00h3.png', 'devious'],
-babyfrogs: [':babyfrogs:', 'http://i58.tinypic.com/5zh7o7.png', 'babyfrogs'],
+babyfrogs: [':babyfrogs:', 'http://i58.tinypic.com/5zh7o7.png', 'baby frogs'],
 rlpepe: [':rlpepe:', 'http://i61.tinypic.com/25sszo5.png', 'rlpepe'],
 besrs: [':besrs:', 'http://i60.tinypic.com/2gtruyd.png', 'besrs'],
 cri: [':cri:', 'http://i59.tinypic.com/avj1bq.png', 'cri'],
 patrick: [':patrick:', 'http://i58.tinypic.com/ricfet.png', 'patrick'],
-standbuy: [':standbuy:', 'http://i61.tinypic.com/2ijt75c.png', 'standbuy'],
-notgood: [':notgood:', 'http://i62.tinypic.com/swtet1.jpg', 'notgood'],
+standbuy: [':standbuy:', 'http://i61.tinypic.com/2ijt75c.png', 'stand buy'],
+notgood: [':notgood:', 'http://i62.tinypic.com/swtet1.jpg', 'not good'],
 confident: [':confident:', 'http://i59.tinypic.com/znwqjq.jpg', 'confident'],
-cripepe: [':cripepe:', 'http://i58.tinypic.com/2ldbla0.png', 'cripepe'],
-ebinpepe: [':ebinpepe:', 'http://i57.tinypic.com/2mrxj05.png', 'ebinpepe'],
-greedypepe: [':greedypepe:', 'http://i59.tinypic.com/k3tcth.png', 'greedypepe'],
+cripepe: [':cripepe:', 'http://i58.tinypic.com/2ldbla0.png', 'cri pepe'],
+ebinpepe: [':ebinpepe:', 'http://i57.tinypic.com/2mrxj05.png', 'ebin pepe'],
+greedypepe: [':greedypepe:', 'http://i59.tinypic.com/k3tcth.png', 'greedy pepe'],
 disgust3: [':disgust3:', 'http://i61.tinypic.com/fa90t0.png', 'disgust 3'],
 nou: [':nou:', 'http://i60.tinypic.com/n39miv.png', 'nou'],
 inspace: [':inspace:', 'http://i59.tinypic.com/25uo7wy.png', 'inspace'],
@@ -726,11 +843,20 @@ ghostpepe: [':gpepe:', 'http://i62.tinypic.com/fkqgr5.png', "ghost pepe"],
 sexypepe: [':spepe:', 'http://i60.tinypic.com/2r5qpkz.jpg', "sexy pepe"],
 straightd: [':sdubs:', 'http://i59.tinypic.com/6od98l.jpg', "straight outta doubles"],
 uglypepe: [':upepe:', 'http://i61.tinypic.com/2qiv800.jpg', "ugly pepe"],
-leetpepe: [':1337pepe:', 'http://i.imgur.com/TgrYBQP.gif', "1337 pepe"]
+leetpepe: [':1337pepe:', 'http://i.imgur.com/TgrYBQP.gif', "1337 pepe"],
+seizurepepe: [':seizurepepe:', 'http://i.imgur.com/Xu5UZpk.gif', "seizure pepe"],
+pepeoveryou: [':pepe>you:', 'http://i.imgur.com/5fDk6Z1.gif', "rare pepe > you"],
+pepesi: [':pepesi:', 'http://i.imgur.com/bPKbLTq.gif', "PEPEsi"],
+pepicasso: [':pepicasso:', 'http://i.imgur.com/rFDnOk7.gif', "peekasso"],
+pepe007: [':pepe007:', 'http://i.imgur.com/vRgJvjh.gif', "pepe 007"],
+pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"],
+peperun: [':peperun:', 'http://i.imgur.com/3xLRJRC.gif', "pepe run"],
+pepenaked: [':pepenaked:', 'http://i.imgur.com/O9moFkn.gif', "pepe naked"]
+
 };
 ///////
-///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
 
+///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
 var maymay = {
 sombre: ['sombre', '[font=monospace][size=14][b][color=red]S[/color] [color=orange]O[/color] [color=yellow]M[/color] [color=blue]B[/color] [color=indigo]R[/color] [color=violet]E[/color][/b][/size][/font]'],
 doors: ['the doors', '[i]the doors[/i]'],
@@ -755,7 +881,32 @@ hitler: [':hitler:', '[IMG]http://i.imgur.com/jowqkg9.gif[/IMG] [size=26][b]ADOL
 anonymoose: [':anonymoose:', '[b][font=Comic Sans MS][color=#3BED44]A[/color][color=#1137CE]N[/color][color=#6D2645]O[/color][color=#4B20D2]N[/color][color=#C9EE35]Y[/color][color=#BEF7E8]M[/color][color=#66D74E]O[/color][color=#702B82]O[/color][color=#950C47]S[/color][color=#9F65A4]E[/color] [color=#88DA22]W[/color][color=#332E39]E[/color] [color=#ED8A9F]O[/color][color=#86306E]N[/color][color=#4BD338]L[/color][color=#6B6743]Y[/color] [color=#5D1908]S[/color][color=#3764FE]W[/color][color=#19A9D8]A[/color][color=#346143]L[/color][color=#E3A6B6]L[/color][color=#5447A3]O[/color][color=#21032A]W[/color] [color=#6183A4]N[/color][color=#0E4A2B]E[/color][color=#06790B]V[/color][color=#19B543]E[/color][color=#08930B]R[/color] [color=#B5AE1A]S[/color][color=#406842]P[/color][color=#C3F745]I[/color][color=#DC2D64]T[/color][/font][/b]'],
 ripped: [':rip:', '[b][font=Impact][size=20][color=#3BED44]r[/color][color=#1137CE]i[/color][color=#6D2645]p[/color] [color=#C9EE35]i[/color][color=#BEF7E8]n[/color] [color=#702B82]p[/color][color=#950C47]i[/color][color=#9F65A4]e[/color][color=#196650]c[/color][color=#88DA22]e[/color][color=#332E39]s[/color][/size][/font][/b]'],
 toa: ['toa', '[img]http://i61.tinypic.com/cmjk6.png[/img]'],
-murica: ['murica', '[b][font=Comic Sans MS][color=#FF0000]M[/color][color=#FF5555]U[/color][color=#FFAAAA]R[/color][color=#FFFFFF]I[/color][color=#AAAAFF]C[/color][color=#5555FF]A[/color][/font][/b]']
+murica: ['murica', '[b][font=Comic Sans MS][color=#FF0000]M[/color][color=#FF5555]U[/color][color=#FFAAAA]R[/color][color=#FFFFFF]I[/color][color=#AAAAFF]C[/color][color=#5555FF]A[/color][/font][/b]'],
+lenny2: [':lenny2:', '( ͡ຈ╭͜ʖ╮͡ຈ )'], //cancer during browser edit (firefox)
+lenny3: [':lenny3:', '( ͡ಠ ʖ̯ ͡ಠ)'], //cancer during browser edit (firefox)
+lenny4: [':lenny4:', '( ͡~ ͜ʖ ͡~)'], //cancer during browser edit (firefox)
+lenny5: [':lenny5:', '( ͡~ ͜ʖ ͡°)'], //cancer during browser edit (firefox)
+lenny6: [':lenny6:', '( ͠° ͟ʖ ͡°)'], //cancer during browser edit (firefox)
+lenny7: [':lenny7:', '( ͡ʘ╭͜ʖ╮͡ʘ)'], //cancer during browser edit (firefox)
+lenny8: [':lenny8:', '( ͝סּ ͜ʖ͡סּ)'], //cancer during browser edit (firefox)
+lenny9: [':lenny9:', '( ͡ᵔ ͜ʖ ͡ᵔ )'], //cancer during browser edit (firefox)
+lenny10: [':lenny10:', '( ͡^ ͜ʖ ͡^ )'], //cancer during browser edit (firefox)
+lenny11: [':lenny11:', '[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]'], //cancer during browser edit (firefox)
+lenny12: [':lenny12:', '( ͡ຈ ͜ʖ ͡ຈ)'], //cancer during browser edit (firefox)
+lenny13: [':lenny13:', '( ͡° ʖ̯ ͡°)'], //cancer during browser edit (firefox)
+lenny14: [':lenny14:', '( ͡ ͜ʖ ͡ )'], //cancer during browser edit (firefox)
+lenny15: [':lenny15:', '(☞ ͡° ͜ʖ ͡°)☞'], //cancer during browser edit (firefox)
+lenny16: [':lenny16:', 'ᕕ( ͡° ͜ʖ ͡° )ᕗ'], //cancer during browser edit (firefox)
+lenny17: [':lenny17:', '( ͡°╭͜ʖ╮͡° )'], //cancer during browser edit (firefox)
+lenny18: [':lenny18:', '( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ͡°) ͜ʖ ͡°)ʖ ͡°)ʖ ͡°)'], //cancer during browser edit (firefox)
+lenny19: [':lenny19:', '(つ ͡° ͜ʖ ͡°)つ'], //cancer during browser edit (firefox)
+lenny20: [':lenny20:', '( ͡⚆ ͜ʖ ͡⚆)'], //cancer during browser edit (firefox)
+lenny21: [':lenny21:', '¯\_( ͠° ͟ʖ °͠ )_/¯'], //cancer during browser edit (firefox)
+lenny22: [':lenny22:', '(▀ ͜ʖ ͡°)'], //cancer during browser edit (firefox)
+raise2: [':raise2:', 'ヽ༼ຈل͜ຈ༽ﾉ гคเรє ๏г ๔เє ヽ༼ຈل͜ຈ༽ﾉ'], //cancer during browser edit (firefox)
+nyan: [':nyan:', '~=[,,_,,]:3'],
+woop: [':woop:', "[ \\[size=10]\\[/size][size=9]\\[/size][size=8]\\[/size][size=7]\\[/size][size=6]\\[/size][size=7]\\[/size][size=8]\\[/size][size=9]\\[/size][size=10]\\[/size]\\ ]"] //dupe the backslashes
+
 //do not enable (bad idea) < you're a bad idea < when you were born your mom said you were a bad idea
 /*
 startbold: [':startbold:', '[b][img][/b][/img]'],
@@ -767,8 +918,10 @@ ends: [':ends:', '[img][u][/img][/u]']
 */
 };
 ///////
+
+///////EXTRA FILTERING CODE
 var spec_code = [
-  '/exit', '/away', '/abs'
+  '/exit', '/away', '/abs', '[code]'
 ];
 var swear_code = [
   '[b][/b]', '.'
@@ -782,7 +935,8 @@ var link_code = [
 var color_code = [
   "[color=#789922]",
   "[/color]",
-  "[color=#AA0000]"
+  "[b][color=#AA0000]",
+  "[/color][/b]"
 ];
 ///////
 
@@ -822,224 +976,153 @@ var refined_loc = "";
 var cssTd = "";
 ///////
 
-///////////////////// MANAGES THE SWEAR FILTERING
-function unique_char(string) { /// http://stackoverflow.com/questions/13868043/showing-unique-characters-in-a-string-only-once
-  var str_length = string.length;
-  var unique = '';
-  for (var i = 0; i < str_length; i++) {
-    var foundIt = false;
-    for (var j = 0; j < unique.length; j++) {
-      if (string[i] == unique[j]) {
-        foundIt = true;
-        break;
-      }
-    }
-    if (!foundIt) {
-      unique += string[i];
-    }
-  }
-  return unique;
+///////////////////// http://stackoverflow.com/a/6969486
+
+function escape(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
 
+/////////////////////
+
+///////////////////// http://stackoverflow.com/a/274094
+
+String.prototype.regexIndexOf = function(regex, startpos) {
+    var indexOf = this.substring(startpos || 0).search(regex);
+    return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
+}
+
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+    regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
+    if(typeof (startpos) == "undefined") {
+        startpos = this.length;
+    } else if(startpos < 0) {
+        startpos = 0;
+    }
+    var stringToWorkWith = this.substring(0, startpos + 1);
+    var lastIndexOf = -1;
+    var nextStop = 0;
+    while((result = regex.exec(stringToWorkWith)) != null) {
+        lastIndexOf = result.index;
+        regex.lastIndex = ++nextStop;
+    }
+    return lastIndexOf;
+}
+
+///////////////////// MANAGES THE SWEAR FILTERING
 function filter_swears_chat() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+    var new_msg = '';
     // http://stackoverflow.com/a/500459
     
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
+    
     var exit_code = old_msg.indexOf(spec_code[0]);
     var away_code = old_msg.indexOf(spec_code[1]);
     var abs_code = old_msg.indexOf(spec_code[2]);
-    var spec_switch = 0;
+    var code_code = old_msg.indexOf(spec_code[3]);
     
-    //afk switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+    var spec_switch = 0;
+    //special switches switch
+    if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1) {
       spec_switch = 1;
     }
     
     if (http_link == -1 && https_link == -1 && www_link == -1) {
       switch (swear_noregex[i].length) {
         default:
-          var new_msg = old_msg;
+          new_msg = old_msg;
           break;
         case 2:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
           break;
         case 3:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
           break;
         case 4:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
           break;
         case 5:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
           break;
         case 6:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
           break;
         case 7:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
           break;
         case 8:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
           break;
         case 9:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
           break;
       }
     } else {
-      var new_msg = old_msg;
+      new_msg = old_msg;
     }
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-    
-    //this should be a switch
-    //var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
-    
-    
   }
-  
-   
-    
-    
-    
-    
-    /*
-  for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value.toLowerCase();
-    var old_msg_reg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var index_num = old_msg.indexOf(swear_words[i]);           
-    
-    var exit_num = old_msg.indexOf(spec_code[0]);
-    var away_num = old_msg.indexOf(spec_code[1]);
-    
-    var spec_switch = 0;
-    if (exit_num === 0 || away_num === 0) {
-      spec_switch = 1;
-    }
-    
-    var edi_msg = "";
-    var par_msg = "";
-    var new_msg = "";
-    
-    if (index_num >= 0) {
-      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);                
-      par_msg = edi_msg.split("").join(swear_code[spec_switch]);            
-      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-    }
-    else {
-      var words = old_msg.split(" ");
-      var letter_ray = old_msg.split(" ");
-      for (var j = 0; j < words.length; j++) {
-        letter_ray[j] = unique_char(words[j]);
-      }
-      for (var k = 0; k < letter_ray.length; k++) {
-        if (letter_ray[k] === swear_words[i]) {
-          edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
-          par_msg = edi_msg.split("").join(swear_code[exit_switch]);
-          new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
-          document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-        }
-      }
-    }
-  }
-  */
 }
 
 function filter_swears_bchat() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("message").value;
+    var new_msg = '';
     // http://stackoverflow.com/a/500459
     
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
+    
     var exit_code = old_msg.indexOf(spec_code[0]);
     var away_code = old_msg.indexOf(spec_code[1]);
     var abs_code = old_msg.indexOf(spec_code[2]);
+    var code_code = old_msg.indexOf(spec_code[3]);
+    
     var spec_switch = 0;
     
     //afk switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
+    if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1) {
       spec_switch = 1;
     }
     
     if (http_link == -1 && https_link == -1 && www_link == -1) {
       switch (swear_noregex[i].length) {
         default:
-          var new_msg = old_msg;
+          new_msg = old_msg;
           break;
         case 2:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
           break;
         case 3:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
           break;
         case 4:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
           break;
         case 5:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
           break;
         case 6:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
           break;
         case 7:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
           break;
         case 8:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
           break;
         case 9:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
           break;
       }
     } else {
-      var new_msg = old_msg;
+      new_msg = old_msg;
     }
     document.getElementById("message").value = new_msg;
-    
-    
-    /*
-    var old_msg = document.getElementById("message").value.toLowerCase();
-    var old_msg_reg = document.getElementById("message").value;
-    var index_num = old_msg.indexOf(swear_words[i]);           
-    var exit_num = old_msg.indexOf(spec_code[0]);
-    var away_num = old_msg.indexOf(spec_code[1]);
-    
-    var spec_switch = 0;
-    if (exit_num === 0 || away_num === 0) {
-      spec_switch = 1;
-    }
-    
-    var edi_msg = "";
-    var par_msg = "";
-    var new_msg = "";
-    
-    if (index_num >= 0) {
-      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);
-      par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-      document.getElementById("message").value = new_msg;
-    }
-    else {
-      var words = old_msg.split(" ");
-      var letter_ray = old_msg.split(" ");
-      for (var j = 0; j < words.length; j++) {
-        letter_ray[j] = unique_char(words[j]);
-      }
-      for (var k = 0; k < letter_ray.length; k++) {
-        if (letter_ray[k] === swear_words[i]) {
-          edi_msg = old_msg_reg.substr(old_msg.indexOf(words[k]), words[k].length);
-          par_msg = edi_msg.split("").join(swear_code[exit_switch]);
-          new_msg = old_msg_reg.replace(new RegExp(words[k], "gi"), par_msg);
-          document.getElementById("message").value = new_msg;
-        }
-      }
-    }
-    */
   }
 }
 
@@ -1056,50 +1139,40 @@ function filter_swears_post() {
     
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
-    var https_link = old_msg.indexOf(link_code[2]);
-    var exit_code = old_msg.indexOf(spec_code[0]);
-    var away_code = old_msg.indexOf(spec_code[1]);
-    var abs_code = old_msg.indexOf(spec_code[2]);
-    var spec_switch = 0;
-    
-    //afk switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1) {
-      spec_switch = 1;
-    }
+    var https_link = old_msg.indexOf(link_code[2]);    
     
     if (http_link == -1 && https_link == -1 && www_link == -1) {
       switch (swear_noregex[i].length) {
         default:
-          var new_msg = old_msg;
+          new_msg = old_msg;
           break;
         case 2:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2");
           break;
         case 3:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3");
           break;
         case 4:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4");
           break;
         case 5:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5");
           break;
         case 6:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6");
           break;
         case 7:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7");
           break;
         case 8:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8");
           break;
         case 9:
-          var new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
+          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2"+ swear_code[0] + "$3" + swear_code[0] + "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8" + swear_code[0] + "$9");
           break;
       }
     } else {
-      //console.log("url detected");
-      var new_msg = old_msg;
+      new_msg = old_msg;
     }
     if (document.getElementsByTagName("textarea")[1] === undefined) {
       document.getElementsByTagName("textarea")[0].value = new_msg;
@@ -1107,35 +1180,6 @@ function filter_swears_post() {
     else {
       document.getElementsByTagName("textarea")[1].value = new_msg;
     }
-    
-    
-    /*
-    var old_msg = "";
-    var old_msg_reg = "";
-    if (document.getElementsByTagName("textarea")[1] === undefined) {
-      old_msg = document.getElementsByTagName("textarea")[0].value.toLowerCase();
-      old_msg_reg = document.getElementsByTagName("textarea")[0].value;
-    }
-    else {
-      old_msg = document.getElementsByTagName("textarea")[1].value.toLowerCase();
-      old_msg_reg = document.getElementsByTagName("textarea")[1].value;
-    }
-    var edi_msg = "";
-    var par_msg = "";
-    var new_msg = "";
-    var index_num = old_msg.indexOf(swear_words[i]);
-    if (index_num >= 0) {
-      edi_msg = old_msg_reg.substr(old_msg.indexOf(swear_words[i]), swear_words[i].length);
-      par_msg = edi_msg.split("").join(swear_code[0]);
-      new_msg = old_msg_reg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-      if (document.getElementsByTagName("textarea")[1] === undefined) {
-        document.getElementsByTagName("textarea")[0].value = new_msg;
-      }
-      else {
-        document.getElementsByTagName("textarea")[1].value = new_msg;
-      }
-    }
-    */
   }
 }
 /////////////////////
@@ -1187,8 +1231,8 @@ function greentext_post() {
 function redtext_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
   var index_num = old_msg.indexOf("<");
-  if (index_num === 0) {
-    var new_msg = color_code[2] + old_msg + color_code[1];
+  if (index_num === old_msg.length - 1) {
+    var new_msg = color_code[2] + old_msg + color_code[3];
     document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
   }
 }
@@ -1196,8 +1240,8 @@ function redtext_chat() {
 function redtext_bchat() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.indexOf("<");
-  if (index_num === 0) {
-    var new_msg = color_code[2] + old_msg + color_code[1];
+  if (index_num === old_msg.length - 1) {
+    var new_msg = color_code[2] + old_msg + color_code[3];
     document.getElementById("message").value = new_msg;
   }
 }
@@ -1213,8 +1257,8 @@ function redtext_post() {
   var msg_ray = old_msg.split("\n");
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = msg_ray[i].indexOf("<");
-    if (index_num === 0) {
-      msg_ray[i] = color_code[2] + msg_ray[i] + color_code[1];
+    if (index_num === old_msg.length - 1) {
+      msg_ray[i] = color_code[2] + msg_ray[i] + color_code[3];
       if (document.getElementsByTagName("textarea")[1] === undefined) {
         document.getElementsByTagName("textarea")[0].value = msg_ray.join('<br />');
       }
@@ -1226,8 +1270,235 @@ function redtext_post() {
 }
 /////////////////////
 
-/////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
+function leet_chat() {
+  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/leet /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/leet /i, '');
+    new_msg = new_msg.replace(/a/gi, '4');
+    //new_msg = new_msg.replace(/b/gi, 'b');
+    //new_msg = new_msg.replace(/c/gi, 'c');
+    //new_msg = new_msg.replace(/d/gi, 'd');
+    new_msg = new_msg.replace(/e/gi, '3');
+    //new_msg = new_msg.replace(/f/gi, 'f');
+    new_msg = new_msg.replace(/g/gi, '6');
+    //new_msg = new_msg.replace(/h/gi, 'h');
+    new_msg = new_msg.replace(/i/gi, '1');
+    //new_msg = new_msg.replace(/j/gi, 'j');
+    //new_msg = new_msg.replace(/k/gi, 'k');
+    //new_msg = new_msg.replace(/l/gi, 'l');
+    //new_msg = new_msg.replace(/m/gi, 'm');
+    //new_msg = new_msg.replace(/n/gi, 'n');
+    new_msg = new_msg.replace(/o/gi, '0');
+    //new_msg = new_msg.replace(/p/gi, 'p');
+    //new_msg = new_msg.replace(/q/gi, 'q');
+    //new_msg = new_msg.replace(/r/gi, 'r');
+    new_msg = new_msg.replace(/s/gi, '5');
+    new_msg = new_msg.replace(/t/gi, '7');
+    //new_msg = new_msg.replace(/u/gi, 'u');
+    //new_msg = new_msg.replace(/v/gi, 'v');
+    //new_msg = new_msg.replace(/w/gi, 'w');
+    //new_msg = new_msg.replace(/x/gi, 'x');
+    //new_msg = new_msg.replace(/y/gi, 'y');
+    //new_msg = new_msg.replace(/z/gi, 'z');
+    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+  }
+}
 
+function leet_bchat() {
+  var old_msg = document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/leet /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/leet /i, '');
+    new_msg = new_msg.replace(/a/gi, '4');
+    //new_msg = new_msg.replace(/b/gi, 'b');
+    //new_msg = new_msg.replace(/c/gi, 'c');
+    //new_msg = new_msg.replace(/d/gi, 'd');
+    new_msg = new_msg.replace(/e/gi, '3');
+    //new_msg = new_msg.replace(/f/gi, 'f');
+    new_msg = new_msg.replace(/g/gi, '6');
+    //new_msg = new_msg.replace(/h/gi, 'h');
+    new_msg = new_msg.replace(/i/gi, '1');
+    //new_msg = new_msg.replace(/j/gi, 'j');
+    //new_msg = new_msg.replace(/k/gi, 'k');
+    //new_msg = new_msg.replace(/l/gi, 'l');
+    //new_msg = new_msg.replace(/m/gi, 'm');
+    //new_msg = new_msg.replace(/n/gi, 'n');
+    new_msg = new_msg.replace(/o/gi, '0');
+    //new_msg = new_msg.replace(/p/gi, 'p');
+    //new_msg = new_msg.replace(/q/gi, 'q');
+    //new_msg = new_msg.replace(/r/gi, 'r');
+    new_msg = new_msg.replace(/s/gi, '5');
+    new_msg = new_msg.replace(/t/gi, '7');
+    //new_msg = new_msg.replace(/u/gi, 'u');
+    //new_msg = new_msg.replace(/v/gi, 'v');
+    //new_msg = new_msg.replace(/w/gi, 'w');
+    //new_msg = new_msg.replace(/x/gi, 'x');
+    //new_msg = new_msg.replace(/y/gi, 'y');
+    //new_msg = new_msg.replace(/z/gi, 'z');
+    document.getElementById("message").value = new_msg;
+  }
+}
+
+function leet_post() {
+  var old_msg = ""; //this may not be necessary i'm not 100% sure
+  if (document.getElementsByTagName("textarea")[1] === undefined) {
+    old_msg = document.getElementsByTagName("textarea")[0].value;
+  }
+  else {
+    old_msg = document.getElementsByTagName("textarea")[1].value;
+  }
+  // http://stackoverflow.com/a/500459
+  
+  var msg_ray = old_msg.split("\n");
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/leet /i);
+    if (index_num === 0) {
+      var new_msg = msg_ray[i].replace(/\/leet /i, '');
+      new_msg = new_msg.replace(/a/gi, '4');
+      //new_msg = new_msg.replace(/b/gi, 'b');
+      //new_msg = new_msg.replace(/c/gi, 'c');
+      //new_msg = new_msg.replace(/d/gi, 'd');
+      new_msg = new_msg.replace(/e/gi, '3');
+      //new_msg = new_msg.replace(/f/gi, 'f');
+      new_msg = new_msg.replace(/g/gi, '6');
+      //new_msg = new_msg.replace(/h/gi, 'h');
+      new_msg = new_msg.replace(/i/gi, '1');
+      //new_msg = new_msg.replace(/j/gi, 'j');
+      //new_msg = new_msg.replace(/k/gi, 'k');
+      //new_msg = new_msg.replace(/l/gi, 'l');
+      //new_msg = new_msg.replace(/m/gi, 'm');
+      //new_msg = new_msg.replace(/n/gi, 'n');
+      new_msg = new_msg.replace(/o/gi, '0');
+      //new_msg = new_msg.replace(/p/gi, 'p');
+      //new_msg = new_msg.replace(/q/gi, 'q');
+      //new_msg = new_msg.replace(/r/gi, 'r');
+      new_msg = new_msg.replace(/s/gi, '5');
+      new_msg = new_msg.replace(/t/gi, '7');
+      //new_msg = new_msg.replace(/u/gi, 'u');
+      //new_msg = new_msg.replace(/v/gi, 'v');
+      //new_msg = new_msg.replace(/w/gi, 'w');
+      //new_msg = new_msg.replace(/x/gi, 'x');
+      //new_msg = new_msg.replace(/y/gi, 'y');
+      //new_msg = new_msg.replace(/z/gi, 'z');
+      msg_ray[i] = new_msg;
+      if (document.getElementsByTagName("textarea")[1] === undefined) {
+        document.getElementsByTagName("textarea")[0].value = msg_ray.join('<br />');
+      }
+      else {
+        document.getElementsByTagName("textarea")[1].value = msg_ray.join('<br />');
+      }
+    }
+  }
+}
+///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
+function rainbow_chat() {
+  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/rb /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/rb /i, '');
+    new_msg = rainbowText(new_msg);
+    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+  }
+}
+
+function rainbow_bchat() {
+  var old_msg = document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/rb /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/rb /i, '');
+    new_msg = rainbowText(new_msg);
+    document.getElementById("message").value = new_msg;
+  }
+}
+
+function rainbow_post() {
+  var old_msg = "";
+  if (document.getElementsByTagName("textarea")[1] === undefined) {
+    old_msg = document.getElementsByTagName("textarea")[0].value;
+  }
+  else {
+    old_msg = document.getElementsByTagName("textarea")[1].value;
+  }
+  var msg_ray = old_msg.split("\n");
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/rb /i);
+    if (index_num === 0) {
+      msg_ray[i] = msg_ray[i].replace(/\/rb /i, '');
+      msg_ray[i] = rainbowText(msg_ray[i]);
+      
+      if (document.getElementsByTagName("textarea")[1] === undefined) {
+        document.getElementsByTagName("textarea")[0].value = msg_ray.join('<br />');
+      }
+      else {
+        document.getElementsByTagName("textarea")[1].value = msg_ray.join('<br />');
+      }
+    }
+  }
+}
+/////////////////////
+
+/////////////////////RANDOM CHARACTER COLOR
+function random_chat() {
+  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/rn /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/rn /i, '');
+    new_msg = randomText(new_msg);
+    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+  }
+}
+
+function random_bchat() {
+  var old_msg = document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/rn /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/rn /i, '');
+    new_msg = randomText(new_msg);
+    document.getElementById("message").value = new_msg;
+  }
+}
+
+function random_post() {
+  var old_msg = "";
+  if (document.getElementsByTagName("textarea")[1] === undefined) {
+    old_msg = document.getElementsByTagName("textarea")[0].value;
+  }
+  else {
+    old_msg = document.getElementsByTagName("textarea")[1].value;
+  }
+  var msg_ray = old_msg.split("\n");
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/rn /i);
+    if (index_num === 0) {
+      msg_ray[i] = msg_ray[i].replace(/\/rn /i, '');
+      msg_ray[i] = randomText(msg_ray[i]);
+      
+      if (document.getElementsByTagName("textarea")[1] === undefined) {
+        document.getElementsByTagName("textarea")[0].value = msg_ray.join('<br />');
+      }
+      else {
+        document.getElementsByTagName("textarea")[1].value = msg_ray.join('<br />');
+      }
+    }
+  }
+}
+/////////////////////
+
+////////////////////GRADIENT MSG COLOR
+function gradient_chat() {
+  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/gd /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/gd /i, '');
+    new_msg = gradientText(new_msg);
+    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+  }
+}
+
+////////////////////
+
+/////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 function values(o) {
   return Object.keys(o).map(function (k) {
     return o[k]
@@ -1238,7 +1509,7 @@ function emoticon_chat() {
   for (var i = 0; i < Object.keys(emoticon).length; i++) {
     //console.log(values(emoticon)[i][0]);
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var index_num = old_msg.indexOf(values(emoticon)[i][0]);
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -1249,7 +1520,7 @@ function emoticon_chat() {
 function emoticon_bchat() {
   for (var i = 0; i < Object.keys(emoticon).length; i++) {
     var old_msg = document.getElementById("message").value;
-    var index_num = old_msg.indexOf(values(emoticon)[i][0]);
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       document.getElementById("message").value = new_msg;
@@ -1266,7 +1537,7 @@ function emoticon_post() {
     else {
       old_msg = document.getElementsByTagName("textarea")[1].value;
     }
-    var index_num = old_msg.indexOf(values(emoticon)[i][0]);
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -1284,7 +1555,7 @@ function emoticon_post() {
 function maymay_chat() {
   for (var i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var index_num = old_msg.indexOf(values(maymay)[i][0]);
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
@@ -1295,7 +1566,7 @@ function maymay_chat() {
 function maymay_bchat() {
   for (var i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = document.getElementById("message").value;
-    var index_num = old_msg.indexOf(values(maymay)[i][0]);
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       document.getElementById("message").value = new_msg;
@@ -1312,7 +1583,7 @@ function maymay_post() {
     else {
       old_msg = document.getElementsByTagName("textarea")[1].value;
     }
-    var index_num = old_msg.indexOf(values(maymay)[i][0]);
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) {
@@ -1376,7 +1647,7 @@ function edit_css_bchat() {
 function the_base(smilie_code, smilie_url, smilie_text) {
   var change_this = td_base;
   change_this = change_this.replace(new RegExp("_smilie", "gi"), smilie_code);
-  change_this = change_this.replace(new RegExp("_title", "gi"), smilie_code.substr(1,smilie_code.length - 2)); ////could be smilie_text
+  change_this = change_this.replace(new RegExp("_title", "gi"), smilie_code.substr(1, smilie_code.length - 2)); ////could be smilie_text
   change_this = change_this.replace(new RegExp("_link", "gi"), smilie_url);
   return change_this;
 }
@@ -1436,10 +1707,10 @@ function post_page_editor() {
 /////////////////////
 
 /////////////////////RUNS SCRIPT
-window.onload = function() {  
+window.addEventListener('load', function() {
   if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
     if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").onkeypress = function (event) { /// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
+      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").addEventListener('keydown', function(event) {/// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
         var code = (event.keyCode) ? event.keyCode : event.which; /// Gets what key has been pressed
         if (code == 13) { /// 13 is enter
           filter_swears_chat(); /// These are the functions that run through the text and see what to do
@@ -1447,12 +1718,16 @@ window.onload = function() {
           emoticon_chat(); ///       
           maymay_chat(); /// 
           redtext_chat();
+          leet_chat();
+          rainbow_chat();
+          random_chat();
+          gradient_chat();
         }
-      };
+      }, false);
       edit_css_chat(); /// This is done even when you aren't pressing keys
     }
     else { /// If we're here, that means we are on big chat window
-      document.getElementById("message").onkeypress = function (event) {
+      document.getElementById("message").addEventListener('keydown', function(event) {
         var code = (event.keyCode) ? event.keyCode : event.which;
         if (code == 13) {
           filter_swears_bchat();
@@ -1460,8 +1735,11 @@ window.onload = function() {
           emoticon_bchat();
           maymay_bchat();
           redtext_bchat();
-        }
-      };
+          leet_bchat();
+          rainbow_bchat();
+          random_bchat();
+        }        
+      }, false);
       edit_css_bchat();
     }
   }
@@ -1504,7 +1782,7 @@ window.onload = function() {
       if (document.getElementsByTagName("textarea")[1] !== undefined) { /// Then figures out which one it is
         window_chk = 1;
       }
-      document.getElementsByTagName("textarea")[window_chk].onkeypress = function (event) { /// Another keypress 
+      document.getElementsByTagName("textarea")[window_chk].addEventListener('keydown', function(event) {
         var code = (event.keyCode) ? event.keyCode : event.which;
         if (code == 13) {
           filter_swears_post(); /// Posting functions
@@ -1512,105 +1790,12 @@ window.onload = function() {
           emoticon_post(); ///
           maymay_post(); ///
           redtext_post();
+          leet_post();
+          rainbow_post();
+          random_post();
         }
-      }
+      }, false);
       post_page_editor();
     }
   }  
-}
-
-/*
-
--------------
-------------- From remote-tracking branch 'origin/unstable'
--------------
-
-/////////////////////RUNS SCRIPT
-setInterval( function(){ 
-  if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
-    if (window.location.pathname.length <= 1) { /// Figure out which of the two we are in
-filter_swears_chat(); /// These are the functions that run through the text and see what to do
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").onkeypress = function (event) { /// If we are here, that means we are on the main page. So we set up a key press for the small chatbox
-        
-        var code = (event.keyCode) ? event.keyCode : event.which; /// Gets what key has been pressed
-        if (code == 13) { /// 13 is enter
-          
-          greentext_chat(); ///
-          emoticon_chat(); ///       
-          maymay_chat(); /// 
-          redtext_chat();
-        }
-      };
-      edit_css_chat(); /// This is done even when you aren't pressing keys
-    }
-    else { /// If we're here, that means we are on big chat window
-      document.getElementById("message").onkeypress = function (event) {
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          filter_swears_bchat();
-          greentext_bchat();
-          emoticon_bchat();
-          maymay_bchat();
-          redtext_bchat();
-        }
-      };
-      edit_css_bchat();
-    }
-  }
-  else {
-    inject_smilie(); ///this has to be done b4
-    /////////////////////////
-    if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW PAGE
-    loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
-    refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
-    }else{ //// QUICK REPLY
-      loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
-      cssTd = "padding-top:5px;";
-      var new_td = document.createElement("td");
-      loc.appendChild(new_td).style.cssText = cssTd;
-      refined_loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1].getElementsByTagName("td")[0];
-    }    
-    var element = document.createElement("label");
-    refined_loc.appendChild(element).style.cssText = cssLabel;
-    setInterval(function () {      
-      var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
-      if(typeof document.getElementsByTagName("textarea")[1] === 'object'){    ///if were not in preview window, we need to set some variables differently
-        area.value = document.getElementsByTagName("textarea")[1].value;
-      }  
-      if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
-        Countable.once(area, function (counter) {
-          if(loc.getElementsByTagName("label")[0].innerHTML != values(counter)[4] + " characters"){
-            loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
-          }
-          if(values(counter)[4] > 63500){ ////i dont really know the limit
-            element.style.cssText += "color:red;";
-          }else if(values(counter)[4] < 63500){
-            element.style.cssText = cssLabel;
-          }
-        });  
-      }
-    }, 3000);
-    ////////////////////////////////////////    
-    var window_chk = 0; /// If we're here that means we are not on either the main screen or big chat window. So we must be posting....
-    if (document.getElementsByTagName("textarea")[0] !== undefined || document.getElementsByTagName("textarea")[1] !== undefined) { /// Checks to make sure we are either browsing a topic (1) or on the preview page (0)
-      if (document.getElementsByTagName("textarea")[1] !== undefined) { /// Then figures out which one it is
-        window_chk = 1;
-      }
-      document.getElementsByTagName("textarea")[window_chk].onkeypress = function (event) { /// Another keypress 
-        var code = (event.keyCode) ? event.keyCode : event.which;
-        if (code == 13) {
-          filter_swears_post(); /// Posting functions
-          greentext_post(); ///            
-          emoticon_post(); ///
-          maymay_post(); ///
-          redtext_post();
-        }
-      }
-      post_page_editor();
-    }
-  }  
-  
-}
-         
-, 100);
-*/
+}, false);
