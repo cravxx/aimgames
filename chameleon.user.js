@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.4
+// @version     1.4.1
 // @grant       none
 // ==/UserScript==
 
@@ -68,7 +68,12 @@ var color_ = {
   psy_blue: [
     'background-color: rgb(60, 0, 255);',
     '#3c00ff'
+  ],
+  viz_custom: [
+    'background-color: rgb(51,51,102);',
+    '#333366'
   ]
+  
 };
 ///////
 
@@ -133,7 +138,6 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
         if (counter == (values(color_) .length)) {
           counter = 0;
         }
-        console.log(counter);
       }
     }, false);
     document.getElementById('message') .addEventListener('keyup', function (event) {
