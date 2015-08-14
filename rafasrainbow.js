@@ -44,6 +44,15 @@ function ConvertInText(InStr) {
 		}
 	//}
 }
+
+function ConvertRandomColor(InStr) {
+	var OutArr = InStr.split("");
+	var OutStr = ""
+	for (var i = 0; i < OutArr.length; i++) {
+		OutStr += '[color=#' + Math.floor(Math.random()*16777215).toString(16) + ']' + OutArr[i] + '[/color]'
+	}
+	return OutStr;
+}
 		
 function Timer() {
 	ConvertInText();
