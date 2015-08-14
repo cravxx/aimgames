@@ -59,7 +59,7 @@ function rainbowText(InStr) {
 	var OutStr = "";
 	var CurrCol = 0;
 	
-	for (let x = 0; x < InStr.length; x++) {
+	for (var x = 0; x < InStr.length; x++) {
 		if (isWhitespace(InStr.charAt(x))) {
 			OutStr += InStr.charAt(x);
 		} else {
@@ -83,7 +83,7 @@ function gradientText(InStr) {
  	rainbow.setNumberRange(0, numberOfItems);
  	rainbow.setSpectrum(start_color, invertColor(start_color));
  	var s = '';
- 	for (let i = 0; i < numberOfItems; i++) {
+ 	for (var i = 0; i < numberOfItems; i++) {
      		var hexColour = rainbow.colourAt(i);
      		s += '#' + hexColour + ',';
   	}
@@ -92,7 +92,7 @@ function gradientText(InStr) {
 	var OutStr = "";
 	var CurrCol = 0;
 	
-	for (let x = 0; x < InStr.length; x++) {
+	for (var x = 0; x < InStr.length; x++) {
 		if (isWhitespace(InStr.charAt(x))) {
 			OutStr += InStr.charAt(x);
 		} else {
