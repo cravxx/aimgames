@@ -1107,6 +1107,7 @@ window.addEventListener('load', function() {
           emoticon_bchat();
           maymay_bchat();
           redtext_bchat();
+          leet_bchat();
         }        
       }, false);
       edit_css_bchat();
