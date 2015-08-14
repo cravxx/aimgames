@@ -714,7 +714,7 @@ function redtext_post() {
 function leet_chat() {
   var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
   let index_num_lo = old_msg.indexOf("/leet");
-  let index_num_up = old_msg.indexOf("/leet");
+  let index_num_up = old_msg.indexOf("/LEET");
   if (index_num_lo === 0 || index_num_up === 0) {
     let new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
@@ -750,7 +750,7 @@ function leet_chat() {
 function leet_bchat() {
   var old_msg = document.getElementById("message").value;
   let index_num_lo = old_msg.indexOf("/leet");
-  let index_num_up = old_msg.indexOf("/leet");
+  let index_num_up = old_msg.indexOf("/LEET");
   if (index_num_lo === 0 || index_num_up === 0) {
     let new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
