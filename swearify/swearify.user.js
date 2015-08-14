@@ -755,6 +755,41 @@ function leet_chat() {
   }
 }
 
+function leet_bchat() {
+  var old_msg = document.getElementById("message").value;
+  var index_num = old_msg.indexOf("/leet");
+  if (index_num === 0) {
+    let new_msg = old_msg.replace(/\/leet /, '');
+    new_msg = new_msg.replace(/a/g, '4');
+    new_msg = new_msg.replace(/b/g, 'b');
+    new_msg = new_msg.replace(/c/g, 'c');
+    new_msg = new_msg.replace(/d/g, 'd');
+    new_msg = new_msg.replace(/e/g, '3');
+    new_msg = new_msg.replace(/f/g, 'f');
+    new_msg = new_msg.replace(/g/g, '6');
+    new_msg = new_msg.replace(/h/g, 'h');
+    new_msg = new_msg.replace(/i/g, '1');
+    new_msg = new_msg.replace(/j/g, 'j');
+    new_msg = new_msg.replace(/k/g, 'k');
+    new_msg = new_msg.replace(/l/g, 'l');
+    new_msg = new_msg.replace(/m/g, 'm');
+    new_msg = new_msg.replace(/n/g, 'n');
+    new_msg = new_msg.replace(/o/g, '0');
+    new_msg = new_msg.replace(/p/g, 'p');
+    new_msg = new_msg.replace(/q/g, 'q');
+    new_msg = new_msg.replace(/r/g, 'r');
+    new_msg = new_msg.replace(/s/g, '5');
+    new_msg = new_msg.replace(/t/g, '7');
+    new_msg = new_msg.replace(/u/g, 'u');
+    new_msg = new_msg.replace(/v/g, 'v');
+    new_msg = new_msg.replace(/w/g, 'w');
+    new_msg = new_msg.replace(/x/g, 'x');
+    new_msg = new_msg.replace(/y/g, 'y');
+    new_msg = new_msg.replace(/z/g, 'z');
+    document.getElementById("message").value = new_msg;
+  }
+}
+
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 function values(o) {
   return Object.keys(o).map(function (k) {
