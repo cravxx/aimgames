@@ -2,6 +2,26 @@
 // @require http://www.stuffbydavid.com/textcolorizer_stuff/jscolor.js
 //btw kaff i'm a fucking genius
 
+swearify_input_text="";
+swearify_color_select1="";
+swearify_color_select2="";
+swearify_color_select3="";
+swearify_color_select4="";
+swearify_color_select5="";
+swearify_color_select6="";
+swearify_
+swearify_
+swearify_
+swearify_
+swearify_
+swearify_
+swearify_
+swearify_
+swearify_
+swearify_
+swearify_
+
+
 function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
 function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
 function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
@@ -14,26 +34,27 @@ function toHex(n) {
 	 return "0123456789ABCDEF".charAt((n-n%16)/16)
 	  + "0123456789ABCDEF".charAt(n%16);
 }
-input_effect=""
-input_color1=""
-input_color2=""
-input_color3=""
-input_color4=""
-input_color5=""
-input_color6=""
-input_color7=""
-input_color8=""
-input_text=""
-input_font=""
-input_size=""
-input_bold=0
-input_italic=0
-input_colorword=0
+input_effect="";
+input_color1="";
+input_color2="";
+input_color3="";
+input_color4="";
+input_color5="";
+input_color6="";
+input_color7="";
+input_color8="";
+input_text="";
+input_font="";
+input_size="";
+input_bold=0;
+input_italic=0;
+input_colorword=0;
 random_length=0;
-update=0
+update=0;
+
 var random_char=new Array();
 function randomize_colors() {
-	var length=document.getElementById("input_text").value.length;
+	var length=swearify_input_text.length;
 	var a;
 	for (a=0; a<length; a+=1) {
 		random_char[a]=rgbToHex(Math.floor(Math.random()*256),Math.floor(Math.random()*256),Math.floor(Math.random()*256))
@@ -43,7 +64,7 @@ function randomize_colors() {
 }
 function textcolorizer_handle() {
 	
-	if (input_effect!=document.getElementById("input_effect").value) {
+	/*if (input_effect!=document.getElementById("input_effect").value) {
 		document.getElementById("color_select1").style.visibility="hidden";
 		document.getElementById("color_select2").style.visibility="hidden";
 		document.getElementById("color_select3").style.visibility="hidden";
@@ -70,20 +91,21 @@ function textcolorizer_handle() {
 	input_color7=document.getElementById("input_color7").value;
 		if (input_color8!=document.getElementById("input_color8").value) {update=1;}
 	input_color8=document.getElementById("input_color8").value;
+	*/
 		if (input_text!=document.getElementById("input_text").value) {update=1;}
 	input_text=document.getElementById("input_text").value;
 		if (input_font!=document.getElementById("input_font").value) {update=1;}
 	input_font=document.getElementById("input_font").value;
 		if (input_size!=document.getElementById("input_size").value) {update=1;}
-	input_size=document.getElementById("input_size").value;
+	input_size="1"
 		if (input_bold!=document.getElementById("input_bold").checked) {update=1;}
-	input_bold=document.getElementById("input_bold").checked;
+	input_bold=0
 		if (input_italic!=document.getElementById("input_italic").checked) {update=1;}
-	input_italic=document.getElementById("input_italic").checked;
+	input_italic=0
 	
 	if (input_colorword!=document.getElementById("input_colorword").checked) {update=1;}
 	input_colorword=document.getElementById("input_colorword").checked;
-		if (update==1) {
+	if (update==1) {
 		update=0;
 		str_html="";
 		str_bbcode="";
