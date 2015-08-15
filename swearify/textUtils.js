@@ -63,18 +63,14 @@ var built_in = ["eval", "isFinite", "isNaN", "parseFloat", "parseInt",
 
 function jsText(InStr) {
 	var OutStr = InStr;
-	var CurrCol = 0;
-	
-	for (var x = 0; x < InStr.length; x++) {
-		for (var z = 0; z < keywords.length; z++) {
-			OutStr = OutStr.replace(keywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
-		}
-		for (var z = 0; z < literals.length; z++) {
-			OutStr = OutStr.replace(literals[z], "[color=#CC3366]" + literals[z] + "[/color]");
-		}
-		for (var z = 0; z < built_in.length; z++) {
-			OutStr = OutStr.replace(built_in[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
-		}
+	for (var z = 0; z < keywords.length; z++) {
+		OutStr = OutStr.replace(keywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
+	}
+	for (var z = 0; z < literals.length; z++) {
+		OutStr = OutStr.replace(literals[z], "[color=#CC3366]" + literals[z] + "[/color]");
+	}
+	for (var z = 0; z < built_in.length; z++) {
+		OutStr = OutStr.replace(built_in[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
 	}
 	return OutStr;
 }
