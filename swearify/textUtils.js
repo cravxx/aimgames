@@ -67,13 +67,13 @@ function jsText(InStr) {
 	
 	for (var x = 0; x < InStr.length; x++) {
 		for (var z = 0; z < keywords.length; z++) {
-			OutStr = InStr.replace(keywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]")
+			OutStr = InStr.replace(keywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
 		}
 		for (var z = 0; z < literals.length; z++) {
-			OutStr = InStr.replace(literals[z], "[color=#CC3366]" + literals[z] + "[/color]")
+			OutStr = OutStr.replace(literals[z], "[color=#CC3366]" + literals[z] + "[/color]");
 		}
 		for (var z = 0; z < built_in.length; z++) {
-			OutStr = InStr.replace(built_in[z], "[color=#33FFFF]" + built_in[z] + "[/color]")
+			OutStr = OutStr.replace(built_in[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
 		}
 	}
 	return OutStr;
