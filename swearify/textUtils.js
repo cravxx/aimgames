@@ -13,14 +13,14 @@ function Rainbow(){"use strict";function e(e){if(e.length<2)throw new Error("Rai
 var ColorList = ["#FF0000", "#FF8B00", "#E7FF00", "#5CFF00", "#00FF2E", "#00FFB9", "#00B9FF", "#002EFF", "#5C00FF", "#E700FF", "#FF008B"];
 var LastStr = "";
 
-var keywords = ["in", "of", "if", "for", "while", "finally", "var", "new",
+var jsKeywords = ["in", "of", "if", "for", "while", "finally", "var", "new",
     "function", "do", "return", "void", "else", "break", "catch",
     "instanceof", "with", "throw", "case", "default", "try", "this",
     "switch", "continue", "typeof", "delete", "let", "yield", "const",
     "export", "super", "debugger", "as", "async", "await"
 ];
-var literals = ["true", "false", "null", "undefined", "NaN", "Infinity"];
-var built_in = ["eval", "isFinite", "isNaN", "parseFloat", "parseInt",
+var jsLiterals = ["true", "false", "null", "undefined", "NaN", "Infinity"];
+var jsBuiltIn = ["eval", "isFinite", "isNaN", "parseFloat", "parseInt",
     "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent",
     "escape", "unescape", "Object", "Function", "Boolean", "Error",
     "EvalError", "InternalError", "RangeError", "ReferenceError",
@@ -32,17 +32,76 @@ var built_in = ["eval", "isFinite", "isNaN", "parseFloat", "parseInt",
     "window", "document", "Symbol", "Set", "Map", "WeakSet", "WeakMap",
     "Proxy", "Reflect", "Promise"
 ];
+var javaKeywords = ["false", "synchronized", "int", "abstract", "float", "private",
+    "char", "boolean", "static", "null", "if", "const", "for", "true",
+    "while", "long", "strictfp", "finally", "protected", "import", "native",
+    "final", "void", "enum", "else", "break", "transient", "catch",
+    "instanceof", "byte", "super", "volatile", "case", "assert", "short",
+    "package", "default", "double", "public", "try", "this", "switch",
+    "continue", "throws", "protected", "public", "private"
+];
+var vbsKeywords = ["call", "class", "const", "dim", "do", "loop", "erase",
+    "execute", "executeglobal", "exit", "for", "each", "next", "function",
+    "if", "then", "else", "on", "error", "option", "explicit", "new",
+    "private", "property", "let", "get", "public", "randomize", "redim",
+    "rem", "select", "case", "set", "stop", "sub", "while", "wend", "with",
+    "end", "to", "elseif", "is", "or", "xor", "and", "not",
+    "class_initialize", "class_terminate", "default", "preserve", "in",
+    "me", "byval", "byref", "step", "resume", "goto"
+];
+var vbsLiterals = ["lcase", "month", "vartype", "instrrev", "ubound",
+    "setlocale", "getobject", "rgb", "getref", "string", "weekdayname",
+    "rnd", "dateadd", "monthname", "now", "day", "minute", "isarray",
+    "cbool", "round", "formatcurrency", "conversions", "csng", "timevalue",
+    "second", "year", "space", "abs", "clng", "timeserial", "fixs", "len",
+    "asc", "isempty", "maths", "dateserial", "atn", "timer", "isobject",
+    "filter", "weekday", "datevalue", "ccur", "isdate", "instr", "datediff",
+    "formatdatetime", "replace", "isnull", "right", "sgn", "array",
+    "snumeric", "log", "cdbl", "hex", "chr", "lbound", "msgbox", "ucase",
+    "getlocale", "cos", "cdate", "cbyte", "rtrim", "join", "hour", "oct",
+    "typename", "trim", "strcomp", "int", "createobject", "loadpicture",
+    "tan", "formatnumber", "mid", "scriptenginebuildversion",
+    "scriptengine", "split", "scriptengineminorversion", "cint", "sin",
+    "datepart", "ltrim", "sqr", "scriptenginemajorversion", "time",
+    "derived", "eval", "date", "formatpercent", "exp", "inputbox", "left",
+    "ascw", "chrw", "regexp", "server", "response", "request", "cstr",
+    "err"
+];
+var vbsBuiltIn = ["true", "false", "null", "nothing", "empty"];
+
 
 function jsText(InStr) {
 	var OutStr = InStr;
-	for (var z = 0; z < literals.length; z++) {
-		OutStr = OutStr.replace(literals[z], "[color=#CC3366]" + literals[z] + "[/color]");
+	for (var z = 0; z < jsLiterals.length; z++) {
+		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + literals[z] + "[/color]");
 	}
-	for (var z = 0; z < built_in.length; z++) {
-		OutStr = OutStr.replace(built_in[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
+	for (var z = 0; z < jsBuiltIn.length; z++) {
+		OutStr = OutStr.replace(jsBuiltIn[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
 	}
-	for (var z = 0; z < keywords.length; z++) {
-		OutStr = OutStr.replace(keywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
+	for (var z = 0; z < jsKeywords.length; z++) {
+		OutStr = OutStr.replace(jsKeywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
+	}
+	return OutStr;
+}
+
+function javaText(InStr) {
+	var OutStr = InStr;
+	for (var z = 0; z < javaKeywords.length; z++) {
+		OutStr = OutStr.replace(javaKeywords[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
+	}
+	return OutStr;
+}
+
+function vbsText(InStr) {
+	var OutStr = InStr;
+	for (var z = 0; z < vbsLiterals.length; z++) {
+		OutStr = OutStr.replace(vbsLiterals[z], "[color=#CC3366]" + literals[z] + "[/color]");
+	}
+	for (var z = 0; z < vbsBuiltIn.length; z++) {
+		OutStr = OutStr.replace(vbsBuiltIn[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
+	}
+	for (var z = 0; z < vbsKeywords.length; z++) {
+		OutStr = OutStr.replace(vbsKeywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
 	}
 	return OutStr;
 }
