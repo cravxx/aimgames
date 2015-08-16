@@ -1299,9 +1299,9 @@ function maymay_post() {
 
 /////////////////////MANAGES THE EDITING OF CSS
 function edit_css_chat() {
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4].style.cssText = cssMsg;
+  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[5].style.cssText = cssMsg;
   /// CSS for label that says "Message:"
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4].innerHTML = "Message:";
+  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[5].innerHTML = "Message:";
   /// Edits innerHTML so theres no space between Message and the colon
   document.getElementById("frame_chatbox").contentWindow.document.getElementById("submit_button").style.cssText = cssButton;
   document.getElementById("frame_chatbox").contentWindow.document.getElementById("submit_button").value = "SEND";
@@ -1321,9 +1321,9 @@ function edit_css_chat() {
 }
 
 function edit_css_bchat() {
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4].style.cssText = cssMsg;
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[5].style.cssText = cssMsg;
   /// CSS for label that says "Message:"
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4].innerHTML = "Message:";
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[5].innerHTML = "Message:";
   /// Edits innerHTML so theres no space between Message and the colon
   document.getElementById("submit_button").style.cssText = cssButton;
   document.getElementById("submit_button").value = "SEND";
