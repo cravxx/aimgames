@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Swearify SpecOps 8.16
 // @description Takes care of IP's temporary word filtering.
-// @namespace   kaffeinition@gmail.com
+// @namespace   different_namespace
 // @include     http://aimgames.forummotion.com/*                     
 // @version     1
 // @grant       none
