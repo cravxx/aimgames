@@ -73,13 +73,13 @@ var vbsBuiltIn = ["true", "false", "null", "nothing", "empty"];
 function jsText(InStr) {
 	var OutStr = InStr;
 	for (var z = 0; z < jsLiterals.length; z++) {
-		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + literals[z] + "[/color]");
+		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + jsLiterals[z] + "[/color]");
 	}
 	for (var z = 0; z < jsBuiltIn.length; z++) {
-		OutStr = OutStr.replace(jsBuiltIn[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
+		OutStr = OutStr.replace(jsBuiltIn[z], "[color=#33FFFF]" + jsBuiltIn[z] + "[/color]");
 	}
 	for (var z = 0; z < jsKeywords.length; z++) {
-		OutStr = OutStr.replace(jsKeywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
+		OutStr = OutStr.replace(jsKeywords[z], "[color=#FFCC66]" + jsKeywords[z] + "[/color]");
 	}
 	return OutStr;
 }
@@ -87,7 +87,7 @@ function jsText(InStr) {
 function javaText(InStr) {
 	var OutStr = InStr;
 	for (var z = 0; z < javaKeywords.length; z++) {
-		OutStr = OutStr.replace(javaKeywords[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
+		OutStr = OutStr.replace(javaKeywords[z], "[color=#33FFFF]" + javaKeywords[z] + "[/color]");
 	}
 	return OutStr;
 }
@@ -95,13 +95,13 @@ function javaText(InStr) {
 function vbsText(InStr) {
 	var OutStr = InStr;
 	for (var z = 0; z < vbsLiterals.length; z++) {
-		OutStr = OutStr.replace(vbsLiterals[z], "[color=#CC3366]" + literals[z] + "[/color]");
+		OutStr = OutStr.replace(vbsLiterals[z], "[color=#CC3366]" + vbsLiterals[z] + "[/color]");
 	}
 	for (var z = 0; z < vbsBuiltIn.length; z++) {
-		OutStr = OutStr.replace(vbsBuiltIn[z], "[color=#33FFFF]" + built_in[z] + "[/color]");
+		OutStr = OutStr.replace(vbsBuiltIn[z], "[color=#33FFFF]" + vbsBuiltIn[z] + "[/color]");
 	}
 	for (var z = 0; z < vbsKeywords.length; z++) {
-		OutStr = OutStr.replace(vbsKeywords[z], "[color=#FFCC66]" + keywords[z] + "[/color]");
+		OutStr = OutStr.replace(vbsKeywords[z], "[color=#FFCC66]" + vbsKeywords[z] + "[/color]");
 	}
 	return OutStr;
 }
