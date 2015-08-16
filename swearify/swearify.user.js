@@ -397,7 +397,7 @@ seed: [':seed:', "[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU'VE DONE GE
 filter1: ['shockey', "Phantasmagoria, the malformation"],
 filter2: ['jesus', "dad"],
 filter3: ['god', "steve"],
-filter4: ['IP', "IP is gay"],
+filter4: ['inhumanpwnage', "IP is gay"],
 filter5: ['Aureus', "incest"],
 filter6: ['rafa', "Dr. Feelgood"],
 filter7: ['Kaffeinated', "Walter White"],
