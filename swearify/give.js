@@ -5,7 +5,7 @@ give.me.an = {};
 give.me.a.conjugated = {};
 give.me.a.conjugated.verb = {};
 give.me.a.conjugated.verb.in = {};
-is = {};
+isit = {}; //to avoid conflicts
 starts = {};
 starts.with = {};
 consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'];
@@ -24,7 +24,7 @@ give.me.an.integer = function(max) {
 give.me.a.noun = function() {
     var z = give.me.an.integer(give.me.nouns.length - 1)
     var z1 = give.me.an.integer(0);
-    if (!is.plural(give.me.nouns[z]) && z1) {
+    if (!isit.plural(give.me.nouns[z]) && z1) {
         return give.me.a.plural(give.me.nouns[z]);
     } else {
         return give.me.nouns[z];
@@ -38,7 +38,7 @@ give.me.a.verb = function() {
 }
 give.me.a.conjugated.verb.in.present = function() {
     var x = give.me.a.verb();
-    if (is.vocal(x.charAt(x.length - 1))) {
+    if (isit.vocal(x.charAt(x.length - 1))) {
         x = x.slice(0, x.length - 1);
     }
     tense = "present";
@@ -80,7 +80,7 @@ give.me.a.conjugated.verb.any = function() {
         return give.me.a.conjugated.verb.in.past();
     }
 }
-is.consonant = function(char) {
+isit.consonant = function(char) {
     for (i = 0; i < consonants.length; i++) {
         if (char === consonants[i]) {
             return true;
@@ -88,7 +88,7 @@ is.consonant = function(char) {
     }
     return false;
 }
-is.vocal = function(char) {
+isit.vocal = function(char) {
     for (i = 0; i < vocals.length; i++) {
         if (char == vocals[i]) {
             return true;
@@ -97,13 +97,13 @@ is.vocal = function(char) {
     return false;
 }
 starts.with.consonant = function(str) {
-    if (is.consonant(str.charAt(0))) {
+    if (isit.consonant(str.charAt(0))) {
         return true;
     } else {
         return false;
     }
 }
-is.plural = function(str) {
+isit.plural = function(str) {
     if (str.charAt(str.length - 1) === 's') {
         plural = true;
         return true;
@@ -113,7 +113,7 @@ is.plural = function(str) {
     }
 }
 give.me.a.preposition = function(str) {
-    if (!is.plural(str)) {
+    if (!isit.plural(str)) {
         if (starts.with.consonant(str)) {
             return 'a ';
         } else {
@@ -125,7 +125,7 @@ give.me.a.preposition = function(str) {
 }
 give.me.a.plural = function(str) {
     plural = true;
-    if (is.plural(str)) {
+    if (isit.plural(str)) {
         return str;
     } else {
         if (str.charAt(str.length - 1) == 'y') {
@@ -156,4 +156,4 @@ give.me.a.phrase = function() {
     var noun = give.me.a.noun();
     return give.me.an.adjective() + " " + give.me.an.adjective() + " " + give.me.a.noun() + " " + give.me.a.conjugated.verb.any() + " " + give.me.a.preposition(noun) + noun;
 }
-give.me.a.phrase();
+//give.me.a.phrase();
