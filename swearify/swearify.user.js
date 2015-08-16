@@ -390,7 +390,7 @@ raise2: [':raise2:', 'ヽ༼ຈل͜ຈ༽ﾉ гคเรє ๏г ๔เє ヽ༼
 nyan: [':nyan:', '~=[,,_,,]:3'],
 woop: [':woop:', "[ \\[size=10]\\[/size][size=9]\\[/size][size=8]\\[/size][size=7]\\[/size][size=6]\\[/size][size=7]\\[/size][size=8]\\[/size][size=9]\\[/size][size=10]\\[/size]\\ ]"], //dupe the backslashes
 seed: [':seed:', "[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU'VE DONE GERMINATES WITHIN YOU[/b][/color]"],
-filter1: ['shockey', "Phantasmagoria, the malformation"],
+/*filter1: ['shockey', "Phantasmagoria, the malformation"],
 filter2: ['jesus', "dad"],
 filter3: ['god', "steve"],
 filter4: ['inhumanpwnage', "IP is gay"],
