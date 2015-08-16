@@ -19,7 +19,7 @@ var jsKeywords = ["in", "of", "if", "for", "while", "finally", "var", "new",
     "switch", "continue", "typeof", "delete", "let", "yield", "const",
     "export", "super", "debugger", "as", "async", "await"
 ];
-var jsLiterals = ["true", "false", "null", "undefined", "NaN", "Infinity"];
+var jsLiterals = ["true", "false", "null", "undefined", "NaN", "Infinity", "\+", "\-", "\="];
 var jsBuiltIn = ["eval", "isFinite", "isNaN", "parseFloat", "parseInt",
     "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent",
     "escape", "unescape", "Object", "Function", "Boolean", "Error",
@@ -65,7 +65,7 @@ var vbsLiterals = ["lcase", "month", "vartype", "instrrev", "ubound",
     "datepart", "ltrim", "sqr", "scriptenginemajorversion", "time",
     "derived", "eval", "date", "formatpercent", "exp", "inputbox", "left",
     "ascw", "chrw", "regexp", "server", "response", "request", "cstr",
-    "err"
+    "err", "\+", "\-", "\="
 ];
 var vbsBuiltIn = ["true", "false", "null", "nothing", "empty"];
 
@@ -88,6 +88,9 @@ function javaText(InStr) {
 	var OutStr = InStr;
 	for (var z = 0; z < javaKeywords.length; z++) {
 		OutStr = OutStr.replace(javaKeywords[z], "[color=#33FFFF]" + javaKeywords[z] + "[/color]");
+	} //yes, JS literals not java
+	for (var z = 0; z < jsLiterals.length; z++) {
+		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + jsLiterals[z] + "[/color]");
 	}
 	return OutStr;
 }
