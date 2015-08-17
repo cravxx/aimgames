@@ -49,7 +49,7 @@ var swear_noregex = [
   "aim", "silver", "txm", "aure", "acv", 
   "wiab", "rafa", "phy", "kaffeinated",
   "blaz", "blaze", "ben", "aim", "admin",
-  "skype", "rip", "god", "evo"
+  "skype", "rip", "god", "evo", "rafa"
 ];
 ///////
 
