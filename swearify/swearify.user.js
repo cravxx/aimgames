@@ -17,13 +17,6 @@
 //////////////////////////////  DO NOT CHANGE
 ////////////////////////////////
 
-// FOR OUR PORPUSES,
-// AND BECAUSE REGEXP IS FUCKING SLOW,
-// AND BECAUSE KAFF IS A RETARD,
-// EVERYTHING SHOULD BE PRE-DONE
-
-// MAKING REGEX ON THE FLY IS UNRELIABLE. DON'T DO IT.
-
 var swear_words = [
 /([fF]+)([uU]+)([cC]+)([kK]+)/g,
 /([sS]+)([hH]+)([iI]+)([tT]+)/g,
@@ -86,11 +79,7 @@ var swear_words = [
 /([sS]+)([hH]+)([iI]+)/g,
 /([sS]+)([tT]+)([fF]+)([uU]+)/g,
 /([hH]+)([oO]+)([rR]+)([eE]+)/g,
-/([tT]+)([eE]+)([sS]+)([tT]+)([iI]+)([cC]+)([lL]+)([eE]+)([sS]+)/g/*,
-/([jJ])([eE])([sS])([uU])([sS])/g,
-/([yY])([aA])([nN])([iI])([sS])/g,
-/([gG])([oO])([dD])/g,
-/([iI])([pP])/g*/
+/([tT]+)([eE]+)([sS]+)([tT]+)([iI]+)([cC]+)([lL]+)([eE]+)([sS]+)/g
 ];
 
 var swear_noregex = [
@@ -113,8 +102,7 @@ var swear_noregex = [
 "waifu", "douche", "prick",
 "motherf", "shiznit", "turd",
 "dip", "dik", "sh!t", "sht",
-"shi", "stfu", "hore", "testicles"/*,
-"jesus", "yanis", "god", "ip"*/
+"shi", "stfu", "hore", "testicles"
 ];
 ///////
 
@@ -303,22 +291,9 @@ sharkfrog: [':sfrog:', 'http://i60.tinypic.com/zojamb.png', 'shark frog'],
 iduck: [':iduck:', 'http://i60.tinypic.com/zstwzt.png', 'inverted duck'],
 happen: [':happen:', 'http://i59.tinypic.com/2rzyzjm.jpg', 'happening'],
 winner2: [':winner2:', 'http://i.imgur.com/cFwUmzM.gif', 'content aware WINNER'],
-/*chuck: [':chuck:', 'http://i.imgur.com/DZ2pIWf.gif', 'chuck'],
-chuck2: [':chuck2:', 'http://i.imgur.com/7WB6Gic.gif', 'chuck2'],
-DOXXXXXXED: [':DOXXXXXXED:', 'http://i.imgur.com/y7eyps0.png', 'DOXXXXXXED'],
-toazuka: [':toazuka:', 'http://i.imgur.com/VQ9qxQE.png', 'toazuka'],
-ttfail: [':ttfail:', 'http://i.imgur.com/eWaObkM.png', 'ttfail'],*/
-jew: [':jew:', 'http://i.imgur.com/jowqkg9.gif', 'jew'], //100px
-//oldjew: [':oldjew:', 'http://i.imgur.com/pz0mxbA.gif', 'oldjew'], //200px
-/*ttjew: [':ttjew:', 'http://i.imgur.com/xeYRU5O.gif', 'ttjew'],
-samefag: [':samefag:', 'http://i.imgur.com/bLXx0AX.gif', 'samefag'],
-mofo007: [':007mofo:', 'http://i.imgur.com/hr0aB6M.png', '007mofo'],*/
+jew: [':jew:', 'http://i.imgur.com/jowqkg9.gif', 'jew'],
 muricaflag: [':muricaflag:', 'http://i.imgur.com/Sy9vZNX.gif', 'muricaflag'],
 virus: [':virus:', 'http://i.imgur.com/kZYR3oJ.gif', 'virus'],
-/*unsettling: [':unsettling:', 'http://i.imgur.com/C5qQpQR.gif', 'unsettling'],
-lennygif: [':lennygif:', 'http://i.imgur.com/D18PxsO.gif', 'lennygif'],
-bummer: [':bummer:', 'http://i58.tinypic.com/2zqd92p.png', 'bummer'],*/
-damit: [':damit:', 'http://i62.tinypic.com/25sx1kx.png', 'damit'],
 spaghetti: [':spaghetti:', 'http://i60.tinypic.com/9vicg9.png', 'mom\'s spaghetti'],
 spaghett: [':spaghett:', 'http://i60.tinypic.com/2rptelg.png', 'spaghett!'],
 joker: [':joker:', 'http://i57.tinypic.com/25ji1ww.png', "joker"],
@@ -335,7 +310,6 @@ pepe007: [':pepe007:', 'http://i.imgur.com/vRgJvjh.gif', "pepe 007"],
 pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"],
 peperun: [':peperun:', 'http://i.imgur.com/3xLRJRC.gif', "pepe run"],
 pepenaked: [':pepenaked:', 'http://i.imgur.com/O9moFkn.gif', "pepe naked"]
-
 };
 ///////
 
@@ -390,50 +364,6 @@ raise2: [':raise2:', 'ヽ༼ຈل͜ຈ༽ﾉ гคเรє ๏г ๔เє ヽ༼
 nyan: [':nyan:', '~=[,,_,,]:3'],
 woop: [':woop:', "[ \\[size=10]\\[/size][size=9]\\[/size][size=8]\\[/size][size=7]\\[/size][size=6]\\[/size][size=7]\\[/size][size=8]\\[/size][size=9]\\[/size][size=10]\\[/size]\\ ]"], //dupe the backslashes
 seed: [':seed:', "[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU'VE DONE GERMINATES WITHIN YOU[/b][/color]"],
-/*filter1: ['shockey', "Phantasmagoria, the malformation"],
-filter2: ['jesus', "dad"],
-filter3: ['god', "steve"],
-filter4: ['inhumanpwnage', "IP is gay"],
-filter5: ['Aureus', "incest"],
-filter6: ['rafa', "Dr. Feelgood"],
-filter7: ['Kaffeinated', "Walter White"],
-filter8: ['Big Jilm', "DARK MEAT"],
-filter9: ['tyx', "Tyàrkrellik, the atheist sex steve"],
-filter10: ['aim', "mahboi"],
-filter11: ['TechnologicalTerror', "Biological Error"],
-filter12: ['tech', "Biological Error"],
-filter13: ['Aero', "that guy nobody gives half a shit about"],
-filter14: ['JV', "Gosh, so Many - Posts !"],
-filter15: ['xx', "MODS PLEASE BAN ME I SUCK C[b][/b]O[b][/b]C[b][/b]K[b][/b]S"],
-filter16: ['Aisling', "pegging fetishist"],
-filter17: ['hasher', "Mr Dacker himself"],
-filter18: ['blaze', "porn artist"],
-filter19: ['vine', "autism"],
-filter20: ['bbc', "Big Black Cock"],
-filter21: ['Ultimato', "The Mongolian Moob Monster"],
-filter22: ['wiab', "D[b][/b]i[b][/b]c[b][/b]kInABox"],
-filter23: ['WolfInABox', "D[b][/b]i[b][/b]c[b][/b]kInABox"],
-filter24: ['Mercenary', "dick mongler"],
-filter25: ['penis', "gadonkadonk"],
-filter26: ['dick', "gadonkadonk"],
-filter27: ['Black Dragon', "Big Dick"],
-filter28: ['ACV', "KKK"],
-filter29: ['leo', "Soulja Boy"],
-filter30: ['omar waly', "Omar \"Run with the cash\" Waly"]/*,
-filter31: ['JV', "Gosh, so Many - Posts !"],
-filter32: ['JV', "Gosh, so Many - Posts !"],
-filter33: ['JV', "Gosh, so Many - Posts !"],
-filter34: ['JV', "Gosh, so Many - Posts !"]*/
-
-//do not enable (bad idea) < you're a bad idea < when you were born your mom said you were a bad idea
-/*
-startbold: [':startbold:', '[b][img][/b][/img]'],
-endbold: [':endbold:', '[img][b][/img][/b]'],
-startitalic: [':startitalic:', '[i][img][/i][/img]'],
-enditalic: [':enditalic:', '[img][i][/img][/i]'],
-starts: [':starts:', '[u][img][/u][/img]'],
-ends: [':ends:', '[img][u][/img][/u]']
-*/
 };
 ///////
 
@@ -494,15 +424,64 @@ var refined_loc = "";
 var cssTd = "";
 ///////
 
-///////////////////// http://stackoverflow.com/a/6969486
+///
+//UTILS
+///
+//SWEAR
+///
+//EMOTICON
+///
+//MAYMAY
+///
+//GREENTEXT
+///
+//REDTEXT
+///
+//LEET
+///
+//RAINBOW
+///
+//RANDOM
+///
+//GRADIENT
+///
+//JS
+///
+//JAVA
+///
+//VBS
+///
+//CSS
 
-function escape(str) {
-  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+
+///////UTILS
+
+function setCookie(name, value, days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    var expires = '; expires=' + date.toGMTString();
+  } 
+  else var expires = '';
+  document.cookie = name + '=' + value + expires + '; path=/';
 }
 
-/////////////////////
+function getCookie(c_name) {
+  var name = c_name + '=';
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1);
+    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+  }
+  return '';
+}
 
-///////////////////// http://stackoverflow.com/a/274094
+function values(o) {
+  return Object.keys(o).map(function (k) {
+    return o[k]
+  })
+} //////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
 
 String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
@@ -525,67 +504,10 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
     }
     return lastIndexOf;
 }
+///////
 
 ///////////////////// MANAGES THE SWEAR FILTERING
-function filter_swears_chat() {
-  for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var new_msg = '';
-    // http://stackoverflow.com/a/500459
-    
-    var http_link = old_msg.indexOf(link_code[0]);
-    var www_link = old_msg.indexOf(link_code[1]);
-    var https_link = old_msg.indexOf(link_code[2]);
-    
-    var exit_code = old_msg.indexOf(spec_code[0]);
-    var away_code = old_msg.indexOf(spec_code[1]);
-    var abs_code = old_msg.indexOf(spec_code[2]);
-    var code_code = old_msg.indexOf(spec_code[3]);
-    
-    var spec_switch = 0;
-    //special switches switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1) {
-      spec_switch = 1;
-    }
-    
-    if (http_link == -1 && https_link == -1 && www_link == -1) {
-      switch (swear_noregex[i].length) {
-        default:
-          new_msg = old_msg;
-          break;
-        case 2:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
-          break;
-        case 3:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3");
-          break;
-        case 4:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4");
-          break;
-        case 5:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
-          break;
-        case 6:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
-          break;
-        case 7:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7");
-          break;
-        case 8:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
-          break;
-        case 9:
-          new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2"+ swear_code[spec_switch] + "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" + swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
-          break;
-      }
-    } else {
-      new_msg = old_msg;
-    }
-    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-  }
-}
-
-function filter_swears_bchat() {
+function filter_swears() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("message").value;
     var new_msg = '';
@@ -701,17 +623,78 @@ function filter_swears_post() {
 }
 /////////////////////
 
-///////////////////// MANAGES THE EMULATION OF GREENTEXT
-function greentext_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num = old_msg.indexOf(">");
-  if (index_num === 0) {
-    var new_msg = color_code[0] + old_msg + color_code[1];
-    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
+/////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
+function emoticon_() {
+  for (var i = 0; i < Object.keys(emoticon).length; i++) {
+    var old_msg = document.getElementById("message").value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
+      document.getElementById("message").value = new_msg;
+    }
   }
 }
 
-function greentext_bchat() {
+function emoticon_post() {
+  for (var i = 0; i < Object.keys(emoticon).length; i++) {
+    var old_msg = "";
+    if (document.getElementsByTagName("textarea")[1] === undefined) {
+      old_msg = document.getElementsByTagName("textarea")[0].value;
+    }
+    else {
+      old_msg = document.getElementsByTagName("textarea")[1].value;
+    }
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
+      if (document.getElementsByTagName("textarea")[1] === undefined) {
+        document.getElementsByTagName("textarea")[0].value = new_msg;
+      }
+      else {
+        document.getElementsByTagName("textarea")[1].value = new_msg;
+      }
+    }
+  }
+}
+/////////////////////
+
+/////////////////////MANAGES THE MAY MAY SYSTEM
+function maymay_() {
+  for (var i = 0; i < Object.keys(maymay).length; i++) {
+    var old_msg = document.getElementById("message").value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
+      document.getElementById("message").value = new_msg;
+    }
+  }
+}
+
+function maymay_post() {
+  for (var i = 0; i < Object.keys(maymay).length; i++) {
+    var old_msg = "";
+    if (document.getElementsByTagName("textarea")[1] === undefined) {
+      old_msg = document.getElementsByTagName("textarea")[0].value;
+    }
+    else {
+      old_msg = document.getElementsByTagName("textarea")[1].value;
+    }
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
+      if (document.getElementsByTagName("textarea")[1] === undefined) {
+        document.getElementsByTagName("textarea")[0].value = new_msg;
+      }
+      else {
+        document.getElementsByTagName("textarea")[1].value = new_msg;
+      }
+    }
+  }
+}
+/////////////////////
+
+///////////////////// MANAGES THE EMULATION OF GREENTEXT
+function greentext_() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.indexOf(">");
   if (index_num === 0) {
@@ -745,18 +728,7 @@ function greentext_post() {
 /////////////////////
 
 ///////////////////// MANAGES THE EMULATION OF REDTEXT
-function redtext_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num = old_msg.indexOf("<");
-  if(old_msg.length >= 1){
-    if (index_num === old_msg.length - 1) {
-      var new_msg = color_code[2] + old_msg + color_code[3];
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-    }
-  }
-}
-
-function redtext_bchat() {
+function redtext_() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.indexOf("<");
  if(old_msg.length >= 1){
@@ -793,42 +765,8 @@ function redtext_post() {
 }
 /////////////////////
 
-function leet_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/leet /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/leet /i, '');
-    new_msg = new_msg.replace(/a/gi, '4');
-    //new_msg = new_msg.replace(/b/gi, 'b');
-    //new_msg = new_msg.replace(/c/gi, 'c');
-    //new_msg = new_msg.replace(/d/gi, 'd');
-    new_msg = new_msg.replace(/e/gi, '3');
-    //new_msg = new_msg.replace(/f/gi, 'f');
-    new_msg = new_msg.replace(/g/gi, '6');
-    //new_msg = new_msg.replace(/h/gi, 'h');
-    new_msg = new_msg.replace(/i/gi, '1');
-    //new_msg = new_msg.replace(/j/gi, 'j');
-    //new_msg = new_msg.replace(/k/gi, 'k');
-    //new_msg = new_msg.replace(/l/gi, 'l');
-    //new_msg = new_msg.replace(/m/gi, 'm');
-    //new_msg = new_msg.replace(/n/gi, 'n');
-    new_msg = new_msg.replace(/o/gi, '0');
-    //new_msg = new_msg.replace(/p/gi, 'p');
-    //new_msg = new_msg.replace(/q/gi, 'q');
-    //new_msg = new_msg.replace(/r/gi, 'r');
-    new_msg = new_msg.replace(/s/gi, '5');
-    new_msg = new_msg.replace(/t/gi, '7');
-    //new_msg = new_msg.replace(/u/gi, 'u');
-    //new_msg = new_msg.replace(/v/gi, 'v');
-    //new_msg = new_msg.replace(/w/gi, 'w');
-    //new_msg = new_msg.replace(/x/gi, 'x');
-    //new_msg = new_msg.replace(/y/gi, 'y');
-    //new_msg = new_msg.replace(/z/gi, 'z');
-    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-  }
-}
-
-function leet_bchat() {
+/////////////////////LEET TEXT
+function leet_() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/leet /i);
   if (index_num === 0) {
@@ -914,20 +852,48 @@ function leet_post() {
     }
   }
 }
+//////////////////////
+
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
-function rainbow_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  
-    new_msg = rainbowText(old_msg);
-    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-  
+function rainbow_() {
+  var old_msg = document.getElementById("message").value;  
+  new_msg = rainbowText(old_msg);
+  document.getElementById("message").value = new_msg;
 }
 
-function rainbow_bchat() {
-  var old_msg =document.getElementById("message").value;
+function inject_rainbow(){
+  var where =  document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
+  var chil_where = where.children;
   
-    new_msg = rainbowText(old_msg);
-    document.getElementById("message").value = new_msg;
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "rainbow_button");
+  where.insertBefore(the_body, chil_where[0]);
+    
+  where.getElementsByTagName("td")[0].innerHTML = '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area" title="Rainbow" class="fontbutton" style="font-size: 14px;">Rb</label>';
+ 
+  var what = document.getElementById("click_area");
+  var whot = document.getElementById("format-rainbow");
+  
+  if(getCookie('CB_rainbow') === '1'){
+    whot.checked = true;
+  }else{
+    whot.checked = false;
+  }
+  
+  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = ''; 
+  
+  what.addEventListener("click", function(){
+    if(!whot.checked){
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_rainbow', '1', 1);
+    }else{
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_rainbow', '0', 1);
+    }
+  });
 }
 
 function rainbow_post() {
@@ -957,16 +923,45 @@ function rainbow_post() {
 /////////////////////
 
 /////////////////////RANDOM CHARACTER COLOR
-function random_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  new_msg = randomText(old_msg);
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-}
-
-function random_bchat() {
+function random_() {
   var old_msg = document.getElementById("message").value;
   new_msg = randomText(old_msg);
   document.getElementById("message").value = new_msg;  
+}
+
+function inject_random(){
+  var where = document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
+  var chil_where = where.children;
+  
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "random_button");
+  where.insertBefore(the_body, chil_where[0]);
+    
+  where.getElementsByTagName("td")[0].innerHTML = '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" class="fontbutton" style="font-size: 14px;">Rn</label>';
+ 
+  var what = document.getElementById("click_area_random");
+  var whot = document.getElementById("format-random");
+  
+  if(getCookie('CB_random') === '1'){
+    whot.checked = true;
+  }else{
+    whot.checked = false;
+  }
+  
+  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = ''; 
+  
+  what.addEventListener("click", function(){
+    if(!whot.checked){
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_random', '1', 1);
+    }else{
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_random', '0', 1);
+    }
+  });
 }
 
 function random_post() {
@@ -996,16 +991,45 @@ function random_post() {
 /////////////////////
 
 ////////////////////GRADIENT MSG COLOR
-function gradient_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value; 
-  var new_msg = gradientText(old_msg);
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;  
-}
-
-function gradient_bchat() {
+function gradient_() {
   var old_msg = document.getElementById("message").value;  
   var new_msg = gradientText(old_msg);
   document.getElementById("message").value = new_msg;
+}
+
+function inject_gradient(){
+  var where =  document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
+  var chil_where = where.children;
+  
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "gradient_button");
+  where.insertBefore(the_body, chil_where[0]);
+    
+  where.getElementsByTagName("td")[0].innerHTML = '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" class="fontbutton" style="font-size: 14px;">Gd</label>';
+ 
+  var what = document.getElementById("click_area_gradient");
+  var whot = document.getElementById("format-gradient");
+  
+  if(getCookie('CB_gradient') === '1'){
+    whot.checked = true;
+  }else{
+    whot.checked = false;
+  }
+  
+  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = ''; 
+  
+  what.addEventListener("click", function(){
+    if(!whot.checked){
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_gradient', '1', 1);
+    }else{
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_gradient', '0', 1);
+    }
+  });
 }
 
 function gradient_post() {
@@ -1032,22 +1056,10 @@ function gradient_post() {
     }
   }
 }
-
 ////////////////////
 
-////////////////////JAVASCRIPT SYNTAX HIGHLIGHTING
-
-function js_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/js /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/js /i, '');
-    new_msg = jsText(new_msg);
-    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-  }
-}
-
-function js_bchat() {
+////////////////////JAVASCRIPT SYNTAX
+function js_() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/js /i);
   if (index_num === 0) {
@@ -1081,22 +1093,10 @@ function js_post() {
     }
   }
 }
-
 ////////////////////
 
-////////////////////JAVA SYNTAX HIGHLIGHTING
-
-function java_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/java /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/java /i, '');
-    new_msg = javaText(new_msg);
-    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-  }
-}
-
-function java_bchat() {
+////////////////////JAVA SYNTAX
+function java_() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/java /i);
   if (index_num === 0) {
@@ -1130,22 +1130,10 @@ function java_post() {
     }
   }
 }
-
 ////////////////////
 
-////////////////////VBSCRIPT SYNTAX HIGHLIGHTING
-
-function vbs_chat() {
-  var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/vbs /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/vbs /i, '');
-    new_msg = vbsText(new_msg);
-    document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-  }
-}
-
-function vbs_bchat() {
+////////////////////VBSCRIPT SYNTAX
+function vbs_() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/vbs /i);
   if (index_num === 0) {
@@ -1179,132 +1167,10 @@ function vbs_post() {
     }
   }
 }
-
 ////////////////////
 
-/////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
-function values(o) {
-  return Object.keys(o).map(function (k) {
-    return o[k]
-  })
-} //////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
-
-function emoticon_chat() {
-  for (var i = 0; i < Object.keys(emoticon).length; i++) {
-    //console.log(values(emoticon)[i][0]);
-    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
-    if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-    }
-  }
-}
-
-function emoticon_bchat() {
-  for (var i = 0; i < Object.keys(emoticon).length; i++) {
-    var old_msg = document.getElementById("message").value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
-    if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
-      document.getElementById("message").value = new_msg;
-    }
-  }
-}
-
-function emoticon_post() {
-  for (var i = 0; i < Object.keys(emoticon).length; i++) {
-    var old_msg = "";
-    if (document.getElementsByTagName("textarea")[1] === undefined) {
-      old_msg = document.getElementsByTagName("textarea")[0].value;
-    }
-    else {
-      old_msg = document.getElementsByTagName("textarea")[1].value;
-    }
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
-    if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] + img_tag[1]);
-      if (document.getElementsByTagName("textarea")[1] === undefined) {
-        document.getElementsByTagName("textarea")[0].value = new_msg;
-      }
-      else {
-        document.getElementsByTagName("textarea")[1].value = new_msg;
-      }
-    }
-  }
-}
-/////////////////////
-
-/////////////////////MANAGES THE MAY MAY SYSTEM
-function maymay_chat() {
-  for (var i = 0; i < Object.keys(maymay).length; i++) {
-    var old_msg = document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
-    if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
-      document.getElementById("frame_chatbox").contentWindow.document.getElementById("message").value = new_msg;
-    }
-  }
-}
-
-function maymay_bchat() {
-  for (var i = 0; i < Object.keys(maymay).length; i++) {
-    var old_msg = document.getElementById("message").value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
-    if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
-      document.getElementById("message").value = new_msg;
-    }
-  }
-}
-
-function maymay_post() {
-  for (var i = 0; i < Object.keys(maymay).length; i++) {
-    var old_msg = "";
-    if (document.getElementsByTagName("textarea")[1] === undefined) {
-      old_msg = document.getElementsByTagName("textarea")[0].value;
-    }
-    else {
-      old_msg = document.getElementsByTagName("textarea")[1].value;
-    }
-    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
-    if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
-      if (document.getElementsByTagName("textarea")[1] === undefined) {
-        document.getElementsByTagName("textarea")[0].value = new_msg;
-      }
-      else {
-        document.getElementsByTagName("textarea")[1].value = new_msg;
-      }
-    }
-  }
-}
-/////////////////////
-
 /////////////////////MANAGES THE EDITING OF CSS
-function edit_css_chat() {
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[7].style.cssText = cssMsg;
-  /// CSS for label that says "Message:" ..  +1 for every new button   
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[7].innerHTML = "Message:";
-  /// Edits innerHTML so theres no space between Message and the colon ..  +1 for every new button   
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("submit_button").style.cssText = cssButton;
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("submit_button").value = "SEND";
-  /// CSS for Send button
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_members").style.cssText = cssLine;
-  /// CSS for the line along the members and chatbox
-
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").style.cssText = cssChat;
-  ///  CSS to eliminate chat glitching and shift over the chat messages a bit 
-
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[11].innerHTML = "";
-  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[11].style.width = "0px";
-  /// CSS for removing a spacer; removing node diddnt work well so im just making it nonvisible. +1 for every new button   
-
-  document.getElementById("frame_chatbox").contentWindow.document.getElementsByClassName("cattitle")[0].style.paddingLeft = "4px";
-  //// Move over the title "Chatbox" a bit
-}
-
-function edit_css_bchat() {
+function edit_css() {
   document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[7].style.cssText = cssMsg;
   /// CSS for label that says "Message:" ..  +1 for every new button   
   document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[7].innerHTML = "Message:";
@@ -1371,378 +1237,132 @@ function inject_smilie() {
 function post_page_editor() {
   var clear = "";
   var hide = "display:none;";  
+  //console.log("it changed");
   
-  if(post_button_num == 0){
-    document.getElementById("text_edit").style.cssText = clear;
-    document.getElementById("html_edit").style.cssText = hide;
-  }else{
+  if(getCookie('post_condition') == '1'){
+    post_button_num = 1;
     document.getElementById("text_edit").style.cssText = hide;
     document.getElementById("html_edit").style.cssText = clear;
+  }else{
+    post_button_num = 0;
+    document.getElementById("text_edit").style.cssText = clear;
+    document.getElementById("html_edit").style.cssText = hide;
   }
   
   document.getElementById("text_editor_cmd_switchmode").addEventListener("click", function(){
+    //console.log("it changed" + post_button_num);
     if(post_button_num == 0){
+      setCookie('post_condition', '1', 1);
       post_button_num = 1; 
+      document.getElementById("text_edit").style.cssText = hide;
+      document.getElementById("html_edit").style.cssText = clear;
     }else if(post_button_num == 1){
+      setCookie('post_condition', '0', 1);
       post_button_num = 0;
+      document.getElementById("text_edit").style.cssText = clear;
+      document.getElementById("html_edit").style.cssText = hide;
     }
   });
 }
 /////////////////////
 
-function setCookie(name, value, days) {
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    var expires = '; expires=' + date.toGMTString();
-  } 
-  else var expires = '';
-  document.cookie = name + '=' + value + expires + '; path=/';
-}
-
-function getCookie(c_name) {
-  var name = c_name + '=';
-  var ca = document.cookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-  }
-  return '';
-}
-  
-
-/////////////////////INJECT BUTTON
-function inject_rainbow_chat(){
-  var where =  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
-  var chil_where = where.children;
-  
-  var the_body = document.createElement("td");
-  the_body.setAttribute("id", "rainbow_button");
-  where.insertBefore(the_body, chil_where[0]);
-    
-  where.getElementsByTagName("td")[0].innerHTML = '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area" title="Rainbow" class="fontbutton" style="font-size: 14px;">Rb</label>';
- 
-  var what = document.getElementById("frame_chatbox").contentWindow.document.getElementById("click_area");
-  var whot = document.getElementById("frame_chatbox").contentWindow.document.getElementById("format-rainbow");
-  
-  if(getCookie('CB_rainbow') === '1'){
-    whot.checked = true;
-  }else{
-    whot.checked = false;
-  }
-  
-  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-  var not_clicked_css = ''; 
-  
-  what.addEventListener("click", function(){
-    if(!whot.checked){
-      whot.checked = true;
-      whot.style.cssText = clicked_css;
-      setCookie('CB_rainbow', '1', 1);
-    }else{
-      whot.checked = false;
-      whot.style.cssText = not_clicked_css;
-      setCookie('CB_rainbow', '0', 1);
-    }
-  });
-}
-function inject_random_chat(){
-  var where =  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
-  var chil_where = where.children;
-  
-  var the_body = document.createElement("td");
-  the_body.setAttribute("id", "random_button");
-  where.insertBefore(the_body, chil_where[0]);
-    
-  where.getElementsByTagName("td")[0].innerHTML = '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" class="fontbutton" style="font-size: 14px;">Rn</label>';
- 
-  var what = document.getElementById("frame_chatbox").contentWindow.document.getElementById("click_area_random");
-  var whot = document.getElementById("frame_chatbox").contentWindow.document.getElementById("format-random");
-  
-  if(getCookie('CB_random') === '1'){
-    whot.checked = true;
-  }else{
-    whot.checked = false;
-  }
-  
-  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-  var not_clicked_css = ''; 
-  
-  what.addEventListener("click", function(){
-    if(!whot.checked){
-      whot.checked = true;
-      whot.style.cssText = clicked_css;
-      setCookie('CB_random', '1', 1);
-    }else{
-      whot.checked = false;
-      whot.style.cssText = not_clicked_css;
-      setCookie('CB_random', '0', 1);
-    }
-  });
-}
-function inject_gradient_chat(){
-  var where =  document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
-  var chil_where = where.children;
-  
-  var the_body = document.createElement("td");
-  the_body.setAttribute("id", "gradient_button");
-  where.insertBefore(the_body, chil_where[0]);
-    
-  where.getElementsByTagName("td")[0].innerHTML = '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" class="fontbutton" style="font-size: 14px;">Gd</label>';
- 
-  var what = document.getElementById("frame_chatbox").contentWindow.document.getElementById("click_area_gradient");
-  var whot = document.getElementById("frame_chatbox").contentWindow.document.getElementById("format-gradient");
-  
-  if(getCookie('CB_gradient') === '1'){
-    whot.checked = true;
-  }else{
-    whot.checked = false;
-  }
-  
-  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-  var not_clicked_css = ''; 
-  
-  what.addEventListener("click", function(){
-    if(!whot.checked){
-      whot.checked = true;
-      whot.style.cssText = clicked_css;
-      setCookie('CB_gradient', '1', 1);
-    }else{
-      whot.checked = false;
-      whot.style.cssText = not_clicked_css;
-      setCookie('CB_gradient', '0', 1);
-    }
-  });
-}
-
-function inject_rainbow_bchat(){
-  var where =  document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
-  var chil_where = where.children;
-  
-  var the_body = document.createElement("td");
-  the_body.setAttribute("id", "rainbow_button");
-  where.insertBefore(the_body, chil_where[0]);
-    
-  where.getElementsByTagName("td")[0].innerHTML = '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area" title="Rainbow" class="fontbutton" style="font-size: 14px;">Rb</label>';
- 
-  var what = document.getElementById("click_area");
-  var whot = document.getElementById("format-rainbow");
-  
-  if(getCookie('CB_rainbow') === '1'){
-    whot.checked = true;
-  }else{
-    whot.checked = false;
-  }
-  
-  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-  var not_clicked_css = ''; 
-  
-  what.addEventListener("click", function(){
-    if(!whot.checked){
-      whot.checked = true;
-      whot.style.cssText = clicked_css;
-      setCookie('CB_rainbow', '1', 1);
-    }else{
-      whot.checked = false;
-      whot.style.cssText = not_clicked_css;
-      setCookie('CB_rainbow', '0', 1);
-    }
-  });
-}
-function inject_random_bchat(){
-  var where =  document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
-  var chil_where = where.children;
-  
-  var the_body = document.createElement("td");
-  the_body.setAttribute("id", "random_button");
-  where.insertBefore(the_body, chil_where[0]);
-    
-  where.getElementsByTagName("td")[0].innerHTML = '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" class="fontbutton" style="font-size: 14px;">Rn</label>';
- 
-  var what = document.getElementById("click_area_random");
-  var whot = document.getElementById("format-random");
-  
-  if(getCookie('CB_random') === '1'){
-    whot.checked = true;
-  }else{
-    whot.checked = false;
-  }
-  
-  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-  var not_clicked_css = ''; 
-  
-  what.addEventListener("click", function(){
-    if(!whot.checked){
-      whot.checked = true;
-      whot.style.cssText = clicked_css;
-      setCookie('CB_random', '1', 1);
-    }else{
-      whot.checked = false;
-      whot.style.cssText = not_clicked_css;
-      setCookie('CB_random', '0', 1);
-    }
-  });
-}
-function inject_gradient_bchat(){
-  var where =  document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName("tr")[0];
-  var chil_where = where.children;
-  
-  var the_body = document.createElement("td");
-  the_body.setAttribute("id", "gradient_button");
-  where.insertBefore(the_body, chil_where[0]);
-    
-  where.getElementsByTagName("td")[0].innerHTML = '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" class="fontbutton" style="font-size: 14px;">Gd</label>';
- 
-  var what = document.getElementById("click_area_gradient");
-  var whot = document.getElementById("format-gradient");
-  
-  if(getCookie('CB_gradient') === '1'){
-    whot.checked = true;
-  }else{
-    whot.checked = false;
-  }
-  
-  var clicked_css = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-  var not_clicked_css = ''; 
-  
-  what.addEventListener("click", function(){
-    if(!whot.checked){
-      whot.checked = true;
-      whot.style.cssText = clicked_css;
-      setCookie('CB_gradient', '1', 1);
-    }else{
-      whot.checked = false;
-      whot.style.cssText = not_clicked_css;
-      setCookie('CB_gradient', '0', 1);
-    }
-  });
-}
-////////////////////
-
 /////////////////////RUNS SCRIPT
-
 window.addEventListener('load', function() {/*shit goes down in here*/  
   if (is.ie() || is.safari() || is.opera()) {
    alert("This browser is unsupported by Swearify.");
-  }else{      
-    if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) {
-      if (window.location.href === "http://aimgames.forummotion.com/") {
-        inject_rainbow_chat();
-        inject_random_chat();
-        inject_gradient_chat();
-        edit_css_chat(); /// This is done even when you aren't pressing keys     
-      }
-      if (window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum" || window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?archives"){
-        inject_rainbow_bchat();
-        inject_random_bchat();
-        inject_gradient_bchat();
-        edit_css_bchat();      
-      }
-    } else {
-      post_page_editor();
+  }else{         
+      if(window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?page=front&" || window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum" || window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?archives"){              
+       // console.log("page");
+        inject_rainbow();
+        inject_random();
+        inject_gradient();
+        edit_css();
+        inject_smilie();       
+        $(document).on("keydown", function(e){
+           if (e.which === 13) { /// 13 is enter
+             run_();    
+             console.log("pressed");          
+           }
+        });    
+    }else{
+      if(window.location.href === "http://aimgames.forummotion.com/post"){
+        post_page_editor();
+      }      
+      if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW PAGE
+      loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
+      refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
+      }else{ //// QUICK REPLY
+        loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
+        cssTd = "padding-top:5px;";
+        var new_td = document.createElement("td");
+        loc.appendChild(new_td).style.cssText = cssTd;
+        refined_loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1].getElementsByTagName("td")[0];
+      }    
+      var element = document.createElement("label");
+      refined_loc.appendChild(element).style.cssText = cssLabel;
+      setInterval(function () {      
+        var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
+        if(typeof document.getElementsByTagName("textarea")[1] === 'object'){    ///if were not in preview window, we need to set some variables differently
+          area.value = document.getElementsByTagName("textarea")[1].value;
+        }  
+        if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
+          Countable.once(area, function (counter) {
+            if(loc.getElementsByTagName("label")[0].innerHTML != values(counter)[4] + " characters"){
+              loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
+            }
+            if(values(counter)[4] > 63500){ ////i dont really know the limit
+              element.style.cssText += "color:red;";
+            }else if(values(counter)[4] < 63500){
+              element.style.cssText = cssLabel;
+            }
+          });  
+        }
+      }, 3000);
+      $(document).on("keydown", function(e){
+        if (e.which === 13) { /// 13 is enter
+          run_post();        
+        }
+      }); 
     }
-    $(document).keypress(function(event){
-    if (event.which === 13) { /// 13 is enter
-      run()
-    }
-    })
   }  
 }, false);
 
-
-function run() {
-  if (document.getElementById("frame_chatbox") !== null || document.getElementById("message") !== null) { /// If we are either in the big chat window or on the main page. Nothing in this if statement will run if we aren't there
-    if (window.location.pathname.length === 1) { /// Figure out which of the two we are in
-      filter_swears_chat(); /// These are the functions that run through the text and see what to do
-      greentext_chat(); ///
-      emoticon_chat(); ///       
-      maymay_chat(); /// 
-      redtext_chat();
-      leet_chat();
-      if(getCookie('CB_rainbow') === '1'){
-        rainbow_chat();
-      }
-      if(getCookie('CB_random') === '1'){
-        random_chat();
-      }
-      if(getCookie('CB_gradient') === '1'){
-        gradient_chat();
-      }
-      js_chat();
-      vbs_chat();
-      java_chat();
-    } else { /// If we're here, that means we are on big chat window
-      filter_swears_bchat();
-      greentext_bchat();
-      emoticon_bchat();
-      maymay_bchat();
-      redtext_bchat();
-      leet_bchat();
-      if(getCookie('CB_rainbow') === '1'){
-        rainbow_bchat();
-      }
-      if(getCookie('CB_random') === '1'){
-        random_bchat();
-      }
-      if(getCookie('CB_gradient') === '1'){
-        gradient_bchat();
-      }
-      js_bchat();
-      vbs_bchat();
-      java_bchat();
-    }
-  } else {
-    inject_smilie(); ///this has to be done b4
-    /////////////////////////
-    if (typeof document.getElementsByTagName("textarea")[1] === 'undefined') { ////PREVIEW PAGE
-    loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];   
-    refined_loc = document.getElementById("parent_editor_simple").getElementsByClassName("row2")[0];
-    }else{ //// QUICK REPLY
-      loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1];  
-      cssTd = "padding-top:5px;";
-      var new_td = document.createElement("td");
-      loc.appendChild(new_td).style.cssText = cssTd;
-      refined_loc = document.getElementById("quick_reply").getElementsByClassName("row2")[1].getElementsByTagName("td")[0];
-    }    
-    var element = document.createElement("label");
-    refined_loc.appendChild(element).style.cssText = cssLabel;
-    setInterval(function () {      
-      var area = document.getElementsByTagName("textarea")[0];  ////this is preview window shit  
-      if(typeof document.getElementsByTagName("textarea")[1] === 'object'){    ///if were not in preview window, we need to set some variables differently
-        area.value = document.getElementsByTagName("textarea")[1].value;
-      }  
-      if(typeof area !== 'undefined'){    ////dont run this shit if it's undefined yo
-        Countable.once(area, function (counter) {
-          if(loc.getElementsByTagName("label")[0].innerHTML != values(counter)[4] + " characters"){
-            loc.getElementsByTagName("label")[0].innerHTML = values(counter)[4] + " characters";
-          }
-          if(values(counter)[4] > 63500){ ////i dont really know the limit
-            element.style.cssText += "color:red;";
-          }else if(values(counter)[4] < 63500){
-            element.style.cssText = cssLabel;
-          }
-        });  
-      }
-    }, 3000);
-    ////////////////////////////////////////    
-    var window_chk = 0; /// If we're here that means we are not on either the main screen or big chat window. So we must be posting....
-    if (document.getElementsByTagName("textarea")[0] !== undefined || document.getElementsByTagName("textarea")[1] !== undefined) { /// Checks to make sure we are either browsing a topic (1) or on the preview page (0)
-      if (document.getElementsByTagName("textarea")[1] !== undefined) { /// Then figures out which one it is
-        window_chk = 1;
-      }
-      filter_swears_post(); /// Posting functions
-      greentext_post(); ///            
-      emoticon_post(); ///
-      maymay_post(); ///
-      redtext_post();
-      leet_post();
-      rainbow_post();
-      random_post();
-      gradient_post();
-      js_post();
-      vbs_post();
-      java_post();
-    }
+function run_() {
+  //console.log("big page");
+  filter_swears();
+  emoticon_();
+  maymay_();
+  greentext_();
+  redtext_();
+  leet_();
+  if(getCookie('CB_rainbow') === '1'){
+    rainbow_();
   }
+  if(getCookie('CB_random') === '1'){
+    random_();
+  }
+  if(getCookie('CB_gradient') === '1'){
+    gradient_();
+  }
+  js_();
+  vbs_();
+  java_();
 }
+
+function run_post(){    
+  //console.log("post page");
+  //////////////////////////
+  filter_swears_post();
+  emoticon_post();
+  maymay_post();
+  greentext_post();
+  redtext_post();
+  leet_post();
+  rainbow_post();
+  random_post();
+  gradient_post();
+  js_post();
+  vbs_post();
+  java_post();  
+}
+/////////////////////
