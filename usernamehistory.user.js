@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name        Username History
 // @namespace   samsquanchhunter14@gmail.com
-// @version     1
+// @version     1.0.1
+// @include     http://aimgames.forummotion.com/*
 // @grant       none
 // ==/UserScript==
 
