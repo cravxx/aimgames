@@ -2,7 +2,7 @@
 // @name        Color Vampire
 // @namespace   Hide yo colors hide yo styles
 // @include     http://aimgames.forummotion.com/*
-// @version     1.0.1
+// @version     1.2
 // @grant       none
 // ==/UserScript==
 
@@ -69,12 +69,18 @@ function setCookie(name, value, days) {
 }
 
 
-$(document).on("keydown", function(e){
+$(document).on("keydown", function(e){  
   if (e.which === 13) { /// 13 is enter
     if ($('.msg').length > 0) {
       var msg = $(".msg");
       var more = msg[msg.length - 1].children;
       var layer = more[0].style.color;
+      if(more[0].getElementsByTagName("strong").length > 0){var old_msg = document.getElementById('message').value; var new_msg = '[b]' + old_msg + '[/b]'; document.getElementById('message').value = new_msg;}
+      if(more[0].getElementsByTagName("i").length > 0 || getElementsByTagName("em").length > 0){var old_msg = document.getElementById('message').value; var new_msg = '[i]' + old_msg + '[/i]'; document.getElementById('message').value = new_msg;}
+      if(more[0].getElementsByTagName("u").length > 0){var old_msg = document.getElementById('message').value; var new_msg = '[u]' + old_msg + '[/u]'; document.getElementById('message').value = new_msg;}
+      if(more[0].getElementsByTagName("strike").length > 0){var old_msg = document.getElementById('message').value; var new_msg = '[strike]' + old_msg + '[/strike]'; document.getElementById('message').value = new_msg;}
+      
+      
       var test = layer.indexOf("(");
       if(test != -1){
         var strCol = layer.substr(4, layer.length - 5).split(",");    
@@ -83,19 +89,16 @@ $(document).on("keydown", function(e){
         var blue = parseInt(strCol[2]);        
         var hex = rgbToHex(red, green, blue);
         document.getElementById('scolor') .value = hex;
-        document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + red + ',' + green + ',' + blue + ');';
+        //document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + red + ',' + green + ',' + blue + ');';
         document.getElementById('message') .style.color = hex;
-        setCookie('CB_color', hex, 1)
+        //setCookie('CB_color', hex, 1);
       }else{
         var setCol = colourNameToHex(layer);
         document.getElementById('scolor') .value = setCol;
-        document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(setCol).r + ',' + hexToRgb(setCol).g + ',' + hexToRgb(setCol).b + ');';
+        //document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(setCol).r + ',' + hexToRgb(setCol).g + ',' + hexToRgb(setCol).b + ');';
         document.getElementById('message') .style.color = setCol;
-        setCookie('CB_color', setCol, 1)
+        //setCookie('CB_color', setCol, 1);
       }      
     }  
   }
-}); 
-
-  
-    
+});
