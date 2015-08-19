@@ -2,7 +2,7 @@
 // @name        Color Vampire
 // @namespace   Hide yo colors hide yo styles
 // @include     http://aimgames.forummotion.com/*
-// @version     1.2.2
+// @version     1.2.3
 // @grant       none
 // ==/UserScript==
 
