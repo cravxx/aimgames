@@ -2,7 +2,7 @@
 // @name        Color Vampire
 // @namespace   Hide yo colors hide yo styles
 // @include     http://aimgames.forummotion.com/*
-// @version     1.2.5
+// @version     1.3
 // @grant       none
 // ==/UserScript==
 
@@ -96,7 +96,8 @@ $(document).on("keydown", function(e){
             old_msg = '[u]' + old_msg + '[/u]'; 
           }else if(more[0].getElementsByTagName("strike").length > 0){
             old_msg = '[strike]' + old_msg + '[/strike]';
-          }       
+          }else{old_msg = old_msg;}
+          
           document.getElementById('message').value = old_msg;
 
           var test = layer.indexOf("(");
