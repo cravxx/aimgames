@@ -2,7 +2,7 @@
 // @name        MANGO
 // @namespace   MANGO MANGO MANGO
 // @include     http://aimgames.forummotion.com/
-// @version     1
+// @version     1.0.1
 // @grant       none
 // ==/UserScript==
 
