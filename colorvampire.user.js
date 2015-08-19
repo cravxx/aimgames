@@ -2,7 +2,7 @@
 // @name        Color Vampire
 // @namespace   Hide yo colors hide yo styles
 // @include     http://aimgames.forummotion.com/*
-// @version     1.2.1
+// @version     1.2.2
 // @grant       none
 // ==/UserScript==
 
@@ -99,13 +99,13 @@ $(document).on("keydown", function(e){
         document.getElementById('scolor') .value = hex;
         document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + red + ',' + green + ',' + blue + ');';
         document.getElementById('message') .style.color = hex;
-        //setCookie('CB_color', hex, 1)
+        setCookie('CB_color', hex, 1)
       }else{
         var setCol = colourNameToHex(layer);
         document.getElementById('scolor') .value = setCol;
         document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(setCol).r + ',' + hexToRgb(setCol).g + ',' + hexToRgb(setCol).b + ');';
         document.getElementById('message') .style.color = setCol;
-        //setCookie('CB_color', setCol, 1)
+        setCookie('CB_color', setCol, 1)
       }      
     }  
   }
