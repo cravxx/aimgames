@@ -1648,6 +1648,8 @@ window.addEventListener('load', function() {/*shit goes down in here*/
 }, false);
 
 function run_() {
+  leet_();
+  balloon_();
   if(getCookie('CB_rainbow') !== '1' 
   && getCookie('CB_random') !== '1' 
   && getCookie('CB_gradient') !== '1') {
@@ -1657,8 +1659,6 @@ function run_() {
   }
   greentext_();
   redtext_();
-  leet_();
-  balloon_();
   if(getCookie('CB_rainbow') === '1') {
     rainbow_();
   }
@@ -1674,18 +1674,18 @@ function run_() {
 }
 
 function run_post(){
+  balloon_post();
+  leet_post();
   filter_swears_post();
   emoticon_post();
   maymay_post();
   greentext_post();
   redtext_post();
-  leet_post();
   rainbow_post();
   random_post();
   gradient_post();
   js_post();
   vbs_post();
-  java_post();  
-  balloon_post();
+  java_post();
 }
 /////////////////////
