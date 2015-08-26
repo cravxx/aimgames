@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.6.24
+// @version     2.7.07
 // @grant       none
 // @icon        data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAKUUExURf/////m5v93d/+oqP/Bwf+Dg/+cnP9FRf9eXv9RUf9qav/NzeLi4tjY2PHx8fz8/P+Pj8XExMPBwdGvr/KuruyOjtmmpuXl5fLy8snJycLCwsrDw+1ra/+1tfvk5OasrMi2ts29vfj4+P6QkNHR0elzc+np6cq9vcvHx++BgcbGxsi5udGwsOmTk/9GRtzHx8PDw8LBwcm5ufPz8+CXl8XFxdm4uPahoc7OztS6utvb2/39/dfX1/7+/vt7e9zR0dDQ0O/v78TExOvr6+ibm9/f3/7l5fx7e9SsrNLLy/54eP3BwdiUlM21tf94eNqpqcS+vtPT09apqcPAwOTk5MjIyNzc3My2tt7T0+v3++P0+N2mq+BPVOX1+epMT+qoq8q0tc3Nzc7Jyca7u93S0hbF9Aa/8QK+8AO56gK66wK97z++4LrCxMHCwsDCwsDCw7zDxb7DxcnW2dn0+9v0++L2++b3/PL7/QDK/wDL/wDH/QDJ/5LD0b7Cw7vCxLfCxV260wGx4QOv3QOt2wep1hey3ADF+gDG/ADG+x3F87XCxk662ACz5ACw4ACv3wCu3QCt3ACx4gCy4wC36YG/z319fScnJzMzM7y8vLzCxDLF7QDG/QDF+wDI/wCp1wCs2gCs2wCr2gCv3rTBxF1fYBMUFBQUFKenp7/Cw7PBxSi85QC67QC56wC87wC/8wCx4QCz4wCy4rzBwy8vLzk5Oa2trbrBwySz2gC15gCu3gC05QGr2r3Bw7/CwiOu0wCt3QCp2BGt2LnBwxas1QCm1ACo1ky206O+xgCq2ACn1QDC9wDE+VPD4bfBxJzAyhO04QC+8l/C3ZXAzA6+7wC98QDA9XK70IW+zQe04wC57AC88AC/8k0VJ2YAAAABYktHRACIBR1IAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiUlEQVQ4y5WRZ1cTURCGZ+9ucrMbAUVRGBsqomILKhYUG/au2Huv7GIXG3ZjSSKiWDESK4pkwUpUVKwIFuztz3i3wAnhg8c5Z3fnvPPcmbn7AvwrOEIID8DzHOF5XiCCRdBkwQIWQSAWlhJiJWClBIhNtAKVqA7wlFLeIlB2loii3SraGEBFDiiVoBYAi0azCRzPKI5QamcANQHQTrOHYyXQ3yLbhvXUdBOQbMa8/4gGYeERoZp2q4bsWoR9wxtFNm4CdrYKRDVtZqJUEmxsL2256BjE5i1aihJp1To2sk1b/X9oe7KFQKJSuzhEjG3PAD6+A2LHGkDSAfaDOiUgdu7SlQN7t+4OTOzR0xzBsxEW1oH2SmIdsDcn0T59+yE6ko0OtdE/RqvjgBRu4CA9GxxynSFDNdWRnAKpSXUB07hhCZqaNHzEyFGJOjB6jGZvrXFjx0Xqclx01Hg9wfgJmr01QMTESbrqmJw6Jc0AwnR7a3yZOs1okDA9eYYxAWfq9sKs2XPmzpu/YGGaATgWLV5i1HGpbi8sW75i5arVa9JlRVcz1q4z67h+w8ZNm7dA5tbMzG3bd2TIO2Umylm7ZLOu7N6zd9/+A3DQ6XQeOnxEkc1CBpqZctTl9hzLBs/xHNeJkwrmnjp9BoNCPnvufF7eBSd4L+b7Ll1GvHL12vWgslJw42bhrcIiP6jFrhLPbcTcO3fvBQPK/QelqjvwEPIDgcCjx1g/yp541Oz8p/DM5/OVK+Ylg+P5i5de7ysvqKrqfi3L9XqUvSn3eisq3oK/sqrqnSIX1C3LyvsPH3NU1eOGan915ScF5ZAGctbnL/5q/9dvUFzqLvmuoBJCyOk/fv4qLPr95y9qjLbDWeFJXAAAAABJRU5ErkJggg==
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -987,31 +987,31 @@ function leet_() {
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
-    //new_msg = new_msg.replace(/b/gi, 'b');
-    //new_msg = new_msg.replace(/c/gi, 'c');
-    //new_msg = new_msg.replace(/d/gi, 'd');
+    new_msg = new_msg.replace(/b/gi, '|3');
+    new_msg = new_msg.replace(/c/gi, '(');
+    new_msg = new_msg.replace(/d/gi, '|)');
     new_msg = new_msg.replace(/e/gi, '3');
-    //new_msg = new_msg.replace(/f/gi, 'f');
-    new_msg = new_msg.replace(/g/gi, '6');
-    //new_msg = new_msg.replace(/h/gi, 'h');
+    new_msg = new_msg.replace(/f/gi, '|=');
+    new_msg = new_msg.replace(/g/gi, '9');
+    new_msg = new_msg.replace(/h/gi, '|-|');
     new_msg = new_msg.replace(/i/gi, '1');
-    //new_msg = new_msg.replace(/j/gi, 'j');
-    //new_msg = new_msg.replace(/k/gi, 'k');
-    //new_msg = new_msg.replace(/l/gi, 'l');
-    //new_msg = new_msg.replace(/m/gi, 'm');
-    //new_msg = new_msg.replace(/n/gi, 'n');
+    new_msg = new_msg.replace(/j/gi, '_|');
+    new_msg = new_msg.replace(/k/gi, '|<');
+    new_msg = new_msg.replace(/l/gi, '1');
+    new_msg = new_msg.replace(/m/gi, '|\\/|'); //escaped
+    new_msg = new_msg.replace(/n/gi, '|\\|'); //escaped
     new_msg = new_msg.replace(/o/gi, '0');
-    //new_msg = new_msg.replace(/p/gi, 'p');
-    //new_msg = new_msg.replace(/q/gi, 'q');
-    //new_msg = new_msg.replace(/r/gi, 'r');
+    new_msg = new_msg.replace(/p/gi, '|>');
+    new_msg = new_msg.replace(/q/gi, '().');
+    new_msg = new_msg.replace(/r/gi, '|2');
     new_msg = new_msg.replace(/s/gi, '5');
     new_msg = new_msg.replace(/t/gi, '7');
-    //new_msg = new_msg.replace(/u/gi, 'u');
-    //new_msg = new_msg.replace(/v/gi, 'v');
-    //new_msg = new_msg.replace(/w/gi, 'w');
-    //new_msg = new_msg.replace(/x/gi, 'x');
-    //new_msg = new_msg.replace(/y/gi, 'y');
-    //new_msg = new_msg.replace(/z/gi, 'z');
+    new_msg = new_msg.replace(/u/gi, '|_|');
+    new_msg = new_msg.replace(/v/gi, '\\/'); //escaped
+    new_msg = new_msg.replace(/w/gi, '\\/\\/'); //escaped
+    new_msg = new_msg.replace(/x/gi, '><');
+    new_msg = new_msg.replace(/y/gi, '`/');
+    new_msg = new_msg.replace(/z/gi, '2');
     document.getElementById("message").value = new_msg;
   }
 }
@@ -1032,31 +1032,31 @@ function leet_post() {
     if (index_num === 0) {
       var new_msg = msg_ray[i].replace(/\/leet /i, '');
       new_msg = new_msg.replace(/a/gi, '4');
-      //new_msg = new_msg.replace(/b/gi, 'b');
-      //new_msg = new_msg.replace(/c/gi, 'c');
-      //new_msg = new_msg.replace(/d/gi, 'd');
+      new_msg = new_msg.replace(/b/gi, '|3');
+      new_msg = new_msg.replace(/c/gi, '(');
+      new_msg = new_msg.replace(/d/gi, '|)');
       new_msg = new_msg.replace(/e/gi, '3');
-      //new_msg = new_msg.replace(/f/gi, 'f');
-      new_msg = new_msg.replace(/g/gi, '6');
-      //new_msg = new_msg.replace(/h/gi, 'h');
+      new_msg = new_msg.replace(/f/gi, '|=');
+      new_msg = new_msg.replace(/g/gi, '9');
+      new_msg = new_msg.replace(/h/gi, '|-|');
       new_msg = new_msg.replace(/i/gi, '1');
-      //new_msg = new_msg.replace(/j/gi, 'j');
-      //new_msg = new_msg.replace(/k/gi, 'k');
-      //new_msg = new_msg.replace(/l/gi, 'l');
-      //new_msg = new_msg.replace(/m/gi, 'm');
-      //new_msg = new_msg.replace(/n/gi, 'n');
+      new_msg = new_msg.replace(/j/gi, '_|');
+      new_msg = new_msg.replace(/k/gi, '|<');
+      new_msg = new_msg.replace(/l/gi, '1');
+      new_msg = new_msg.replace(/m/gi, '|\\/|'); //escaped
+      new_msg = new_msg.replace(/n/gi, '|\\|'); //escaped
       new_msg = new_msg.replace(/o/gi, '0');
-      //new_msg = new_msg.replace(/p/gi, 'p');
-      //new_msg = new_msg.replace(/q/gi, 'q');
-      //new_msg = new_msg.replace(/r/gi, 'r');
+      new_msg = new_msg.replace(/p/gi, '|>');
+      new_msg = new_msg.replace(/q/gi, '().');
+      new_msg = new_msg.replace(/r/gi, '|2');
       new_msg = new_msg.replace(/s/gi, '5');
       new_msg = new_msg.replace(/t/gi, '7');
-      //new_msg = new_msg.replace(/u/gi, 'u');
-      //new_msg = new_msg.replace(/v/gi, 'v');
-      //new_msg = new_msg.replace(/w/gi, 'w');
-      //new_msg = new_msg.replace(/x/gi, 'x');
-      //new_msg = new_msg.replace(/y/gi, 'y');
-      //new_msg = new_msg.replace(/z/gi, 'z');
+      new_msg = new_msg.replace(/u/gi, '|_|');
+      new_msg = new_msg.replace(/v/gi, '\\/'); //escaped
+      new_msg = new_msg.replace(/w/gi, '\\/\\/'); //escaped
+      new_msg = new_msg.replace(/x/gi, '><');
+      new_msg = new_msg.replace(/y/gi, '`/');
+      new_msg = new_msg.replace(/z/gi, '2');
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) {
         document.getElementsByTagName("textarea")[0].value = msg_ray.join('<br />');
