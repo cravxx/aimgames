@@ -1387,7 +1387,7 @@ function morse_() {
     var new_msg = old_msg.replace(/\/mc /i, '');
     new_msg = new_msg.replace(/a/gi, '.-//');
     new_msg = new_msg.replace(/b/gi, '-...//');
-    new_msg = new_msg.replace(/c/gi, '-.-.//');
+    new_msg = new_msg.replace(/c/gi, '-[b][/b].[b][/b]-.//');
     new_msg = new_msg.replace(/d/gi, '-..//');
     new_msg = new_msg.replace(/e/gi, './/');
     new_msg = new_msg.replace(/f/gi, '..-.//');
@@ -1395,13 +1395,13 @@ function morse_() {
     new_msg = new_msg.replace(/h/gi, '....//');
     new_msg = new_msg.replace(/i/gi, '..//');
     new_msg = new_msg.replace(/j/gi, '.---//');
-    new_msg = new_msg.replace(/k/gi, '-.-//');
+    new_msg = new_msg.replace(/k/gi, '-[b][/b].[b][/b]-//');
     new_msg = new_msg.replace(/l/gi, '.-..//');
     new_msg = new_msg.replace(/m/gi, '--//');
     new_msg = new_msg.replace(/n/gi, '-.//');
     new_msg = new_msg.replace(/o/gi, '---//');
     new_msg = new_msg.replace(/p/gi, '.--.//');
-    new_msg = new_msg.replace(/q/gi, '--.-//');
+    new_msg = new_msg.replace(/q/gi, '--[b][/b].[b][/b]-//');
     new_msg = new_msg.replace(/r/gi, '.-.//');
     new_msg = new_msg.replace(/s/gi, '...//');
     new_msg = new_msg.replace(/t/gi, '-//');
@@ -1409,7 +1409,7 @@ function morse_() {
     new_msg = new_msg.replace(/v/gi, '...-//');
     new_msg = new_msg.replace(/w/gi, '.--//');
     new_msg = new_msg.replace(/x/gi, '-..-//');
-    new_msg = new_msg.replace(/y/gi, '-.--//');
+    new_msg = new_msg.replace(/y/gi, '-[b][/b].[b][/b]--//');
     new_msg = new_msg.replace(/z/gi, '--..////');
     document.getElementById("message").value = new_msg;
   }
@@ -1432,7 +1432,7 @@ function morse_post() {
       var new_msg = msg_ray[i].replace(/\/mc /i, '');
       new_msg = new_msg.replace(/a/gi, '.-//');
       new_msg = new_msg.replace(/b/gi, '-...//');
-      new_msg = new_msg.replace(/c/gi, '-.-.//');
+      new_msg = new_msg.replace(/c/gi, '-[b][/b].[b][/b]-.//'); //pretty much 'escaping' for AIM
       new_msg = new_msg.replace(/d/gi, '-..//');
       new_msg = new_msg.replace(/e/gi, './/');
       new_msg = new_msg.replace(/f/gi, '..-.//');
@@ -1440,13 +1440,13 @@ function morse_post() {
       new_msg = new_msg.replace(/h/gi, '....//');
       new_msg = new_msg.replace(/i/gi, '..//');
       new_msg = new_msg.replace(/j/gi, '.---//');
-      new_msg = new_msg.replace(/k/gi, '-.-//');
+      new_msg = new_msg.replace(/k/gi, '-[b][/b].[b][/b]-//'); //pretty much 'escaping' for AIM
       new_msg = new_msg.replace(/l/gi, '.-..//');
       new_msg = new_msg.replace(/m/gi, '--//');
       new_msg = new_msg.replace(/n/gi, '-.//');
       new_msg = new_msg.replace(/o/gi, '---//');
       new_msg = new_msg.replace(/p/gi, '.--.//');
-      new_msg = new_msg.replace(/q/gi, '--.-//');
+      new_msg = new_msg.replace(/q/gi, '--[b][/b].[b][/b]-//'); //pretty much 'escaping' for AIM
       new_msg = new_msg.replace(/r/gi, '.-.//');
       new_msg = new_msg.replace(/s/gi, '...//');
       new_msg = new_msg.replace(/t/gi, '-//');
@@ -1454,7 +1454,7 @@ function morse_post() {
       new_msg = new_msg.replace(/v/gi, '...-//');
       new_msg = new_msg.replace(/w/gi, '.--//');
       new_msg = new_msg.replace(/x/gi, '-..-//');
-      new_msg = new_msg.replace(/y/gi, '-.--//');
+      new_msg = new_msg.replace(/y/gi, '-[b][/b].[b][/b]--//'); //pretty much 'escaping' for AIM
       new_msg = new_msg.replace(/z/gi, '--..////');
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) {
