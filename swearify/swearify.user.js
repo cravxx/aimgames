@@ -1783,6 +1783,13 @@ function vbs_post() {
 }
 ////////////////////
 
+function evil_() {
+  var old_msg = document.getElementById("message").value;
+  if (document.getElementById("message").value.indexOf(':cena:') != -1) {
+    window.location.href = 'https://www.youtube.com/watch?v=-tFWwtRTPV4&feature=youtu.be&t=12';
+  }
+}
+
 /////////////////////MANAGES THE EDITING OF CSS
 function edit_css() {
   document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[7].style.cssText = cssMsg;
@@ -1938,6 +1945,7 @@ window.addEventListener('load', function() {/*shit goes down in here*/
 }, false);
 
 function run_() {
+  evil_();
   morse_();
   greek_();
   leet_();
