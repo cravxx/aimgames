@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*               
-// @version     2.9.12
+// @version     2.9.13
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -74,9 +74,10 @@ var swear_noregex = [ "fuck", "shit", "bastard", "whore", "dick", "faggot",
 		"sh!t", "sht", "shi", "stfu", "hore", "testicles",
 
 		// spec ops
-		"Shockey", "kaff", "raga", "InhumanPwnage", "silver", "txm", "acv",
-		"phy", "kaff", "ben", "admin", "mdx", "skype", "rip", "god", "evo",
-		"rafa", "Phantasmagoria", "sano", "died", "ulti", "420" ];
+		// THIS MUST BE EMPTY
+		"", "", "", "", "", "", "",
+		"", "", "", "", "", "", "", "", "",
+		"", "", "", "", "", "" ];
 // /////
 // /////SMILY CODE, OBJECT SHIT
 var emoticon = {
