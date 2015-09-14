@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.29
+// @version     2.9.31
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -16,12 +16,13 @@
 //////////////////////////////DO NOT CHANGE
 var swear_words = [
 	"shockey", "kaff", "raga", "inhumanpwnage",
-	"aim", "silver", "txm", "aure", "acv", 
-	"wiab", "rafa", "phy", "kaffeinated",
-	"blaze", "ben", "aim", "admin", "mdx",
-	"skype", "rip", "god", "evo", "rafa",
-	"phantasmagoria", "myself", "sano",
-	"died", "ulti", "sin"
+	"silver", "txm", "aure", "acv", 
+	"wiab", "phy", "kaffeinated", 
+	"blaze", "ben", "aim" /* pretty sure its not in effect anymore */, 
+	"admin", "mdx", "skype", "rip", 
+	"god", "evo", "rafa", 
+	"phantasmagoria", "myself", "sano", 
+	"died", "ulti", "sin", "420"
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
@@ -816,13 +817,13 @@ function emoticon_() {
     }
   }
   for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
-	    var old_msg = document.getElementById("message").value;
-	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
-	    if (index_num >= 0) {
-	      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
-	        img_tag[1]);
-	      document.getElementById("message").value = new_msg;
-	    }
+    var old_msg = document.getElementById("message").value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
+                                               img_tag[1]);
+      document.getElementById("message").value = new_msg;
+    }
   }
 }
 
