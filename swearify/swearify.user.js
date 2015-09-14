@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*               
-// @version     2.9.18
+// @version     2.9.19
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -74,10 +74,9 @@ var swear_noregex = [ "fuck", "shit", "bastard", "whore", "dick", "faggot",
 		"sh!t", "sht", "shi", "stfu", "hore", "testicles",
 
 		// spec ops
-		// THIS MUST BE EMPTY
-		"", "", "", "", "", "", "",
-		"", "", "", "", "", "", "", "", "",
-		"", "", "", "", "", "" ];
+		"Shockey", "kaff", "raga", "InhumanPwnage", "silver", "txm", "acv",
+		"phy", "kaff", "ben", "admin", "mdx", "skype", "rip", "god", "evo",
+		"rafa", "Phantasmagoria", "sano", "died", "ulti", "420" ];
 // /////
 // /////SMILY CODE, OBJECT SHIT
 var emoticon = {
@@ -342,7 +341,6 @@ var emoticon = {
   actually: [':actually:', 'http://i.imgur.com/TEZaTei.png', "actually"],
   quilt: [':quilt:', 'http://i62.tinypic.com/w0jbxk.gif', "KAFFE QUILTS AGAIN"],
   quik: [':quik:', 'http://i61.tinypic.com/ot234o.gif', "QUICKSCOPE"],
-  /*
   conan1: [':conan1:', 'http://i.imgur.com/ak3bFC1.jpg', "CONAN 1"],
   jimjilbong: [':jimjilbong:', 'http://i.imgur.com/eO1KFC3.jpg', "JIMJILBONG"],
   steven: [':steven:', 'http://i.imgur.com/PBGQD5b.jpg', "STEFEN"],
@@ -352,8 +350,7 @@ var emoticon = {
   deep: [':deepaw:', 'http://i.imgur.com/qrlZMoD.jpg', "DEEP AWWW"],
   pepelemon: [':lemonpepe:', 'http://i.imgur.com/O6sI7fZ.gif', "PEPE LEMON"],
   why: [':why:', 'http://i.imgur.com/USyVquO.gif', "WHY"],
-  oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"],*/
-  
+  oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"],
   memeimgxppLwr1: [':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', "meme imgur xppLwr1"],
   memeimgQjY2Bpn: [':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', "meme imgur QjY2Bpn"],
   memeimgoPrEEfa: [':oPrEEfa:', 'http://i.imgur.com/oPrEEfa.png', "meme imgur oPrEEfa"],
@@ -815,10 +812,8 @@ function filter_swears() {
 			switch (swear_noregex[i].length) {
 			default:
 				// we must be in spec_ops
-				if (regexIndexOf(swear_words[i]) != -1) {
-					new_msg = old_msg.split('');
-					new_msg.join(swear_code[spec_switch]);
-				}
+				new_msg = old_msg.split('');
+				new_msg.join(swear_code[spec_switch]);
 				break;
 			case 2:
 				new_msg = old_msg.replace(swear_words[i], "$1"
@@ -901,10 +896,8 @@ function filter_swears_post() {
 			switch (swear_noregex[i].length) {
 			default:
 				// we must be in spec_ops
-				if (regexIndexOf(swear_words[i]) != -1) {
-					new_msg = old_msg.split('');
-					new_msg.join(swear_code[spec_switch]);
-				}
+				new_msg = old_msg.split('');
+				new_msg.join(swear_code[spec_switch]);
 				break;
 			case 2:
 				new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0]
@@ -1935,7 +1928,10 @@ function post_page_editor() {
 }
 // ///////////////////
 // ///////////////////RUNS SCRIPT
-window.addEventListener('load', function() { /* shit goes down in here */
+window
+		.addEventListener(
+				'load',
+				function() { /* shit goes down in here */
 					if (is.ie() || is.safari() || is.opera())
 						alert("This browser is unsupported by Swearify.");
 					else {
