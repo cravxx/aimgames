@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.24
+// @version     2.9.25
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -36,21 +36,14 @@ var swear_words = [/([fF]+)([uU]+)([cC]+)([kK]+)/g, /([sS]+)([hH]+)([iI]+)([tT]+
   /([sS]+)([hH]+)([iI]+)([zZ]+)([nN]+)([iI]+)([tT]+)/g, /([tT]+)([uU]+)([rR]+)([dD]+)/g, /([dD]+)([iI]+)([pP]+)/g,
   /([dD]+)([iI]+)([kK]+)/g, /([sS]+)([hH]+)(\!+)([tT]+)/g, /([sS]+)([hH]+)([tT]+)/g, /([sS]+)([hH]+)([iI]+)/g,
   /([sS]+)([tT]+)([fF]+)([uU]+)/g, /([hH]+)([oO]+)([rR]+)([eE]+)/g,
-  /([tT]+)([eE]+)([sS]+)([tT]+)([iI]+)([cC]+)([lL]+)([eE]+)([sS]+)/g,
-  /Shockey/gi, /kaff/gi, /raga/gi, /InhumanPwnage/gi, /silver/gi,
-  /txm/gi, /acv/gi, /phy/gi, /kaff/gi, /ben/gi, /admin/gi, /mdx/gi,
-  /skype/gi, /rip/gi, /god/gi, /evo/gi, /rafa/gi, /Phantasmagoria/gi,
-  /sano/gi, /died/gi, /ulti/gi, /420/gi, /sin/gi
+  /([tT]+)([eE]+)([sS]+)([tT]+)([iI]+)([cC]+)([lL]+)([eE]+)([sS]+)/g
 ];
 
 var swear_noregex = ["fuck", "shit", "bastard", "whore", "dick", "faggot", "rape", "asshole", "ass", "arse", "boner",
   "cum", "bitch", "lesbian", "shift", "cock", "gay", "fag", "porn", "milf", "damn", "semen", "didk", "tit", "piss",
   "pussy", ":3", "git", "daa", "fap", "penis", "foxy", "screw", "anus", "fu", "sex", "anal", "disk", "slut",
   "comeback", "hoe", "shirt", "cunt", "stalker", "tofu", "vagina", "homo", "crap", "waifu", "douche", "prick",
-  "motherf", "shiznit", "turd", "dip", "dik", "sh!t", "sht", "shi", "stfu", "hore", "testicles",
-  "", "", "", "", "", "", "", "",
-  "", "", "", "", "", "", "",  "",
-  "", "", "", "", "", "", ""
+  "motherf", "shiznit", "turd", "dip", "dik", "sh!t", "sht", "shi", "stfu", "hore", "testicles"
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
@@ -768,15 +761,9 @@ function filter_swears() {
     var spec_switch = 0;
     // special switches switch
     if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1 || semi_code != -1) spec_switch = 1;
-    if (http_link == -1 && https_link == -1 && www_link == -1) switch (swear_noregex[i].length) {  
-    default:
-		new_msg = old_msg.split('');
-		new_msg.join(swear_code[spec_switch]);
-		if (regexIndexOf(swear_words[i]) != -1) {
-			new_msg = old_msg.split('');
-			new_msg.join(swear_code[spec_switch]);
-		}
-		break;
+    if (http_link == -1 && https_link == -1 && www_link == -1) switch (swear_noregex[i].length) {
+      default: new_msg = old_msg;
+      break;
     case 2:
         new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
       break;
@@ -826,14 +813,8 @@ function filter_swears_post() {
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
     if (http_link == -1 && https_link == -1 && www_link == -1) switch (swear_noregex[i].length) {
-    default: 
-		new_msg = old_msg.split('');
-		new_msg.join(swear_code[spec_switch]);
-		if (regexIndexOf(swear_words[i]) != -1) {
-			new_msg = old_msg.split('');
-			new_msg.join(swear_code[spec_switch]);
-		}
-		break;
+      default: new_msg = old_msg;
+      break;
     case 2:
         new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2");
       break;
