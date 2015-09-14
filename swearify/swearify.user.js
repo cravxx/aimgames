@@ -802,8 +802,10 @@ function filter_swears() {
 			switch (swear_noregex[i].length) {
 			default:
 				// we must be in spec_ops
-				new_msg = old_msg.split('');
-				new_msg.join(swear_code[spec_switch]);
+				if (regexIndexOf(swear_words[i]) != -1) {
+					new_msg = old_msg.split('');
+					new_msg.join(swear_code[spec_switch]);
+				}
 				break;
 			case 2:
 				new_msg = old_msg.replace(swear_words[i], "$1"
@@ -886,8 +888,10 @@ function filter_swears_post() {
 			switch (swear_noregex[i].length) {
 			default:
 				// we must be in spec_ops
-				new_msg = old_msg.split('');
-				new_msg.join(swear_code[spec_switch]);
+				if (regexIndexOf(swear_words[i]) != -1) {
+					new_msg = old_msg.split('');
+					new_msg.join(swear_code[spec_switch]);
+				}
 				break;
 			case 2:
 				new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0]
@@ -1918,10 +1922,7 @@ function post_page_editor() {
 }
 // ///////////////////
 // ///////////////////RUNS SCRIPT
-window
-		.addEventListener(
-				'load',
-				function() { /* shit goes down in here */
+window.addEventListener('load', function() { /* shit goes down in here */
 					if (is.ie() || is.safari() || is.opera())
 						alert("This browser is unsupported by Swearify.");
 					else {
