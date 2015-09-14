@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*               
-// @version     2.9.15
+// @version     2.9.17
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -353,7 +353,6 @@ var emoticon = {
   pepelemon: [':lemonpepe:', 'http://i.imgur.com/O6sI7fZ.gif', "PEPE LEMON"],
   why: [':why:', 'http://i.imgur.com/USyVquO.gif', "WHY"],
   oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"],
-  
   
   memeimgxppLwr1: [':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', "meme imgur xppLwr1"],
   memeimgQjY2Bpn: [':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', "meme imgur QjY2Bpn"],
@@ -818,7 +817,7 @@ function filter_swears() {
 				// we must be in spec_ops
 				if (regexIndexOf(swear_words[i]) != -1) {
 					new_msg = old_msg.split('');
-					new_msg = new_msg.join(swear_code[spec_switch]);
+					new_msg.join(swear_code[spec_switch]);
 				}
 				break;
 			case 2:
@@ -904,7 +903,7 @@ function filter_swears_post() {
 				// we must be in spec_ops
 				if (regexIndexOf(swear_words[i]) != -1) {
 					new_msg = old_msg.split('');
-					new_msg = new_msg.join(swear_code[spec_switch]);
+					new_msg.join(swear_code[spec_switch]);
 				}
 				break;
 			case 2:
