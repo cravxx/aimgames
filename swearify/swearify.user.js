@@ -38,6 +38,7 @@ var swear_words = [/([fF]+)([uU]+)([cC]+)([kK]+)/g, /([sS]+)([hH]+)([iI]+)([tT]+
   /([sS]+)([tT]+)([fF]+)([uU]+)/g, /([hH]+)([oO]+)([rR]+)([eE]+)/g,
   /([tT]+)([eE]+)([sS]+)([tT]+)([iI]+)([cC]+)([lL]+)([eE]+)([sS]+)/g
 ];
+
 var swear_noregex = ["fuck", "shit", "bastard", "whore", "dick", "faggot", "rape", "asshole", "ass", "arse", "boner",
   "cum", "bitch", "lesbian", "shift", "cock", "gay", "fag", "porn", "milf", "damn", "semen", "didk", "tit", "piss",
   "pussy", ":3", "git", "daa", "fap", "penis", "foxy", "screw", "anus", "fu", "sex", "anal", "disk", "slut",
@@ -46,7 +47,7 @@ var swear_noregex = ["fuck", "shit", "bastard", "whore", "dick", "faggot", "rape
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
-var emoticon = {
+var emoticon_1 = {
   dolan: [':dolan:', 'http://oi62.tinypic.com/2lsk7ra.jpg', 'Dolan'],
   lysf: [':lysf:', 'http://i.imgur.com/8eLDb0a.png', 'LYSF'],
   bed: [':bed:', 'http://i58.tinypic.com/14tlq4g.png', 'Bed'],
@@ -286,8 +287,7 @@ var emoticon = {
   cenashrink: [':cenashrink:', 'http://i.imgur.com/B1zcAL4.gif', 'SHRINKING CENA'],
   cenacantwrestle: [':cenacantwrestle:', 'http://i.imgur.com/lxRchNh.gif', 'CENA CAN\'T WRESTLE'],
   cenaconfused2: [':cenaconfused2:', 'http://i.imgur.com/cj4Ri1g.gif', 'CONFUSED CENA 2'],
-  cenaepilepsy: [':cenaepilepsy:', 'http://i.imgur.com/UVQDNnV.gif', 'EPILEPSY CENA'],
-  
+  cenaepilepsy: [':cenaepilepsy:', 'http://i.imgur.com/UVQDNnV.gif', 'EPILEPSY CENA'],  
   lool: [':lool:', 'http://i.imgur.com/uNjx0VR.png', "lool"],
   badumtss: [':badumtss:', 'http://i.imgur.com/tzdK1B8.png', "ba dum tss"],
   confident: [':confident:', 'http://i.imgur.com/sFpY0hd.png', "confident"],
@@ -317,8 +317,10 @@ var emoticon = {
   deep: [':deepaw:', 'http://i.imgur.com/qrlZMoD.jpg', "DEEP AWWW"],
   pepelemon: [':lemonpepe:', 'http://i.imgur.com/O6sI7fZ.gif', "PEPE LEMON"],
   why: [':why:', 'http://i.imgur.com/USyVquO.gif', "WHY"],
-  oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"],
-  
+  oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"]    
+};
+
+var emoticon_2 = {
   memeimgxppLwr1: [':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', "meme imgur xppLwr1"],
   memeimgQjY2Bpn: [':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', "meme imgur QjY2Bpn"],
   memeimgoPrEEfa: [':oPrEEfa:', 'http://i.imgur.com/oPrEEfa.png', "meme imgur oPrEEfa"],
@@ -648,7 +650,7 @@ var cssChat = "overflow-x: hidden; left:141px;"; // / white-space: nowrap;
 ///////
 ///////CODE FOR EXTRA SMILIE INJECT
 var smilie_header_html =
-  "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify</option>";
+  "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify 1</option><option value='2'>Swearify 2</option>";
 var td_base =
   "<td><a href='javascript:insert_chatboxsmilie(_smilie)'><img title='_title' src='_link' alt='_title' border='0'></a></td>";
 var td_array = "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
@@ -1700,7 +1702,7 @@ function the_base(smilie_code, smilie_url, smilie_text) {
   return change_this;
 }
 
-function inject_smilie() {
+function inject_smilie(i) {
   var get_place = document.getElementsByTagName("table")[2];
   if (get_place.innerHTML == "") {
     var the_body = document.createElement("tbody");
@@ -1708,18 +1710,34 @@ function inject_smilie() {
     get_place.getElementsByTagName("tbody")[0].innerHTML = td_array;
     var counter = 0;
     var coconut = 0;
-    for (var x = 0; x < Object.keys(emoticon).length; x++) {
-      // console.log(counter + " " + coconut + " " + x);
-      if (counter == 8) {
-        counter = 0;
-        coconut++;
-        var the_tr = document.createElement("tr");
-        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
-        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
-      }
-      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
-        .innerHTML = the_base(quote + values(emoticon)[x][0] + quote, values(emoticon)[x][1], values(emoticon)[x][2]);
-      counter++;
+    if(i == 1){
+    	for (var x = 0; x < Object.keys(emoticon_1).length; x++) {
+    	      // console.log(counter + " " + coconut + " " + x);
+    	      if (counter == 8) {
+    	        counter = 0;
+    	        coconut++;
+    	        var the_tr = document.createElement("tr");
+    	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
+    	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
+    	      }
+    	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
+    	        .innerHTML = the_base(quote + values(emoticon_1)[x][0] + quote, values(emoticon_1)[x][1], values(emoticon_1)[x][2]);
+    	      counter++;
+    	    }
+    }else if(i == 2){
+    	for (var x = 0; x < Object.keys(emoticon_2).length; x++) {
+    	      // console.log(counter + " " + coconut + " " + x);
+    	      if (counter == 8) {
+    	        counter = 0;
+    	        coconut++;
+    	        var the_tr = document.createElement("tr");
+    	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
+    	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
+    	      }
+    	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
+    	        .innerHTML = the_base(quote + values(emoticon_2)[x][0] + quote, values(emoticon_2)[x][1], values(emoticon_2)[x][2]);
+    	      counter++;
+    	    }
     }
   }
 }
@@ -1757,7 +1775,8 @@ function post_page_editor() {
 window.addEventListener('load', function () { /* shit goes down in here */
   if (is.ie() || is.safari() || is.opera()) alert("This browser is unsupported by Swearify.");
   else {
-    if (window.location.href === "http://aimgames.forummotion.com/post?categ=1&mode=smilies") inject_smilie();
+    if (window.location.href === "http://aimgames.forummotion.com/post?categ=1&mode=smilies") inject_smilie(1);
+    if (window.location.href === "http://aimgames.forummotion.com/post?categ=2&mode=smilies") inject_smilie(2);
     if (window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?page=front&" || window.location
       .href === "http://aimgames.forummotion.com/chatbox/index.forum" || window.location.href ===
       "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href ===
