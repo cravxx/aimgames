@@ -305,6 +305,8 @@ var emoticon = {
   disappoint: [':disappoint:', 'http://i.imgur.com/IuAhgG9.png', "disappoint"],
   disappointok: [':disappointok:', 'http://i.imgur.com/cUyHPqs.png', "disappoint ok"],
   actually: [':actually:', 'http://i.imgur.com/TEZaTei.png', "actually"],
+  quilt: [':quilt:', 'http://i62.tinypic.com/w0jbxk.gif', "KAFFE QUILTS AGAIN"],
+  quik: [':quik:', 'http://i61.tinypic.com/ot234o.gif', "QUICKSCOPE"],
   memeimgxppLwr1: [':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', "meme imgur xppLwr1"],
   memeimgQjY2Bpn: [':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', "meme imgur QjY2Bpn"],
   memeimgoPrEEfa: [':oPrEEfa:', 'http://i.imgur.com/oPrEEfa.png', "meme imgur oPrEEfa"],
