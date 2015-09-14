@@ -342,6 +342,17 @@ var emoticon = {
   actually: [':actually:', 'http://i.imgur.com/TEZaTei.png', "actually"],
   quilt: [':quilt:', 'http://i62.tinypic.com/w0jbxk.gif', "KAFFE QUILTS AGAIN"],
   quik: [':quik:', 'http://i61.tinypic.com/ot234o.gif', "QUICKSCOPE"],
+  
+  conan1: [':conan1:', 'http://i.imgur.com/ak3bFC1.jpg', "CONAN 1"],
+  jimjilbong: [':jimjilbong:', 'http://i.imgur.com/eO1KFC3.jpg', "JIMJILBONG"],
+  steven: [':steven:', 'http://i.imgur.com/PBGQD5b.jpg', "STEFEN"],
+  adamchk: [':adamchk:', 'http://i.imgur.com/iz64vO9.jpg', "ADAM CHK EM"],
+  fried: [':fried:', 'http://i.imgur.com/D4k11CR.jpg', "FRIED"],
+  penn: [':penn2:', 'http://i.imgur.com/RJV20Ql.jpg', "PENN"],
+  deep: [':deepaw:', 'http://i.imgur.com/qrlZMoD.jpg', "DEEP AWWW"],
+  pepelemon: [':lemonpepe:', 'http://i.imgur.com/O6sI7fZ.gif', "PEPE LEMON"],
+  
+  
   memeimgxppLwr1: [':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', "meme imgur xppLwr1"],
   memeimgQjY2Bpn: [':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', "meme imgur QjY2Bpn"],
   memeimgoPrEEfa: [':oPrEEfa:', 'http://i.imgur.com/oPrEEfa.png', "meme imgur oPrEEfa"],
