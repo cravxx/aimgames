@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.25
+// @version     2.9.26
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -309,6 +309,7 @@ var emoticon_1 = {
   quilt: [':quilt:', 'http://i62.tinypic.com/w0jbxk.gif', "KAFFE QUILTS AGAIN"],
   quik: [':quik:', 'http://i61.tinypic.com/ot234o.gif', "QUICKSCOPE"],
   conan1: [':conan1:', 'http://i.imgur.com/ak3bFC1.jpg', "CONAN 1"],
+  conan2: [':conan2:', 'http://i.imgur.com/owU25CX.png', "FRESH APPLE PIE"],
   jimjilbong: [':jimjilbong:', 'http://i.imgur.com/eO1KFC3.jpg', "JIMJILBONG"],
   steven: [':steven:', 'http://i.imgur.com/PBGQD5b.jpg', "STEFEN"],
   adamchk: [':adamchk:', 'http://i.imgur.com/iz64vO9.jpg', "ADAM CHK EM"],
@@ -317,7 +318,8 @@ var emoticon_1 = {
   deep: [':deepaw:', 'http://i.imgur.com/qrlZMoD.jpg', "DEEP AWWW"],
   pepelemon: [':lemonpepe:', 'http://i.imgur.com/O6sI7fZ.gif', "PEPE LEMON"],
   why: [':why:', 'http://i.imgur.com/USyVquO.gif', "WHY"],
-  oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"]    
+  oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"],
+  kout: [':kout:', 'https://i.imgur.com/bEKMjLi.png', "KOUT"]
 };
 
 var emoticon_2 = {
