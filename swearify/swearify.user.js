@@ -1,16 +1,16 @@
-//==UserScript==
-//@name        Swearify
-//@description Adds a number of enhancements to your experience on AIM games.
-//@namespace   kaffeinition@gmail.com
-//@include     http://aimgames.forummotion.com/*                     
-//@version     2.9.20
-//@grant       none
-//@icon        http://i.imgur.com/HlEs1B4.png
-//@license     MIT License (Expat); opensource.org/licenses/MIT
-//@require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
-//@require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-//@require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
-//==/UserScript==
+// ==UserScript==
+// @name        Swearify
+// @description Adds a number of enhancements to your experience on AIM games.
+// @namespace   kaffeinition@gmail.com
+// @include     http://aimgames.forummotion.com/*                     
+// @version     2.9.20
+// @grant       none
+// @icon        http://i.imgur.com/HlEs1B4.png
+// @license     MIT License (Expat); opensource.org/licenses/MIT
+// @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
+// @require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
+// ==/UserScript==
 
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
