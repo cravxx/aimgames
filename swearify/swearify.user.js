@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.26
+// @version     2.9.28
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -14,36 +14,14 @@
 
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
-var swear_words = [/([fF]+)([uU]+)([cC]+)([kK]+)/g, /([sS]+)([hH]+)([iI]+)([tT]+)/g,
-  /([bB]+)([aA]+)([sS]+)([tT]+)([aA]+)([rR]+)([dD]+)/g, /([wW]+)([hH]+)([oO]+)([rR]+)([eE]+)/g,
-  /([dD]+)([iI]+)([cC]+)([kK]+)/g, /([fF]+)([aA]+)([gG]+)([gG]+)([oO]+)([tT]+)/g, /([rR]+)([aA]+)([pP]+)([eE]+)/g,
-  /([aA]+)([sS]+)([sS]+)([hH]+)([oO]+)([lL]+)([eE]+)/g, /([aA]+)([sS]+)([sS]+)/g, /([aA]+)([rR]+)([sS]+)([eE]+)/g,
-  /([bB]+)([oO]+)([nN]+)([eE]+)([rR]+)/g, /([cC]+)([uU]+)([mM]+)/g, /([bB]+)([iI]+)([tT]+)([cC]+)([hH]+)/g,
-  /([lL]+)([eE]+)([sS]+)([bB]+)([iI]+)([aA]+)([nN]+)/g, /([sS]+)([hH]+)([iI]+)([fF]+)([tT]+)/g,
-  /([cC]+)([oO]+)([cC]+)([kK]+)/g, /([gG]+)([aA]+)([yY]+)/g, /([fF]+)([aA]+)([gG]+)/g,
-  /([pP]+)([oO]+)([rR]+)([nN]+)/g, /([mM]+)([iI]+)([lL]+)([fF]+)/g, /([dD]+)([aA]+)([mM]+)([nN]+)/g,
-  /([sS]+)([eE]+)([mM]+)([eE]+)([nN]+)/g, /([dD]+)([iI]+)([dD]+)([kK]+)/g, /([tT]+)([iI]+)([tT]+)/g,
-  /([pP]+)([iI]+)([sS]+)([sS]+)/g, /([pP]+)([uU]+)([sS]+)([sS]+)([yY]+)/g, /(\:+)(3+)/g, /([gG]+)([iI]+)([tT]+)/g,
-  /([dD]+)([aA]+)([aA]+)/g, /([fF]+)([aA]+)([pP]+)/g, /([pP]+)([eE]+)([nN]+)([iI]+)([sS]+)/g,
-  /([fF]+)([oO]+)([xX]+)([yY]+)/g, /([sS]+)([cC]+)([rR]+)([eE]+)([wW]+)/g, /([aA]+)([nN]+)([uU]+)([sS]+)/g,
-  /([fF]+)([uU]+)/g, /([sS]+)([eE]+)([xX]+)/g, /([aA]+)([nN]+)([aA]+)([lL]+)/g, /([dD]+)([iI]+)([sS]+)([kK]+)/g,
-  /([sS]+)([lL]+)([uU]+)([tT]+)/g, /([cC]+)([oO]+)([mM]+)([eE]+)([bB]+)([aA]+)([cC]+)([kK]+)/g,
-  /([hH]+)([oO]+)([eE]+)/g, /([sS]+)([hH]+)([iI]+)([rR]+)([tT]+)/g, /([cC]+)([uU]+)([nN]+)([tT]+)/g,
-  /([sS]+)([tT]+)([aA]+)([lL]+)([kK]+)([eE]+)([rR]+)/g, /([tT]+)([oO]+)([fF]+)([uU]+)/g,
-  /([vV]+)([aA]+)([gG]+)([iI]+)([nN]+)([aA]+)/g, /([hH]+)([oO]+)([mM]+)([oO]+)/g, /([cC]+)([rR]+)([aA]+)([pP]+)/g,
-  /([wW]+)([aA]+)([iI]+)([fF]+)([uU]+)/g, /([dD]+)([oO]+)([uU]+)([cC]+)([hH]+)([eE]+)/g,
-  /([pP]+)([rR]+)([iI]+)([cC]+)([kK]+)/g, /([mM]+)([oO]+)([tT]+)([hH]+)([eE]+)([rR]+)([fF]+)/g,
-  /([sS]+)([hH]+)([iI]+)([zZ]+)([nN]+)([iI]+)([tT]+)/g, /([tT]+)([uU]+)([rR]+)([dD]+)/g, /([dD]+)([iI]+)([pP]+)/g,
-  /([dD]+)([iI]+)([kK]+)/g, /([sS]+)([hH]+)(\!+)([tT]+)/g, /([sS]+)([hH]+)([tT]+)/g, /([sS]+)([hH]+)([iI]+)/g,
-  /([sS]+)([tT]+)([fF]+)([uU]+)/g, /([hH]+)([oO]+)([rR]+)([eE]+)/g,
-  /([tT]+)([eE]+)([sS]+)([tT]+)([iI]+)([cC]+)([lL]+)([eE]+)([sS]+)/g
-];
-
-var swear_noregex = ["fuck", "shit", "bastard", "whore", "dick", "faggot", "rape", "asshole", "ass", "arse", "boner",
-  "cum", "bitch", "lesbian", "shift", "cock", "gay", "fag", "porn", "milf", "damn", "semen", "didk", "tit", "piss",
-  "pussy", ":3", "git", "daa", "fap", "penis", "foxy", "screw", "anus", "fu", "sex", "anal", "disk", "slut",
-  "comeback", "hoe", "shirt", "cunt", "stalker", "tofu", "vagina", "homo", "crap", "waifu", "douche", "prick",
-  "motherf", "shiznit", "turd", "dip", "dik", "sh!t", "sht", "shi", "stfu", "hore", "testicles"
+var swear_words = [
+	"shockey", "kaff", "raga", "inhumanpwnage",
+	"aim", "silver", "txm", "aure", "acv", 
+	"wiab", "rafa", "phy", "kaffeinated",
+	"blaze", "ben", "aim", "admin", "mdx",
+	"skype", "rip", "god", "evo", "rafa",
+	"phantasmagoria", "myself", "sano",
+	"died", "ulti", "sin"
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
@@ -727,29 +705,32 @@ function values(o) {
     return o[k];
   });
 } // ////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
-String.prototype.regexIndexOf = function (regex, startpos) {
-  var indexOf = this.substring(startpos || 0).search(regex);
-  return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
-};
-String.prototype.regexLastIndexOf = function (regex, startpos) {
-    regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ?
-      "m" : ""));
-    if (typeof (startpos) == "undefined") startpos = this.length;
-    else if (startpos < 0) startpos = 0;
-    var stringToWorkWith = this.substring(0, startpos + 1);
-    var lastIndexOf = -1;
-    var nextStop = 0;
-    while ((result = regex.exec(stringToWorkWith)) != null) {
-      lastIndexOf = result.index;
-      regex.lastIndex = ++nextStop;
-    }
-    return lastIndexOf;
-  };
-  ///////
-  ///////////////////// MANAGES THE SWEAR FILTERING
+String.prototype.regexIndexOf = function(regex, startpos) {
+	var indexOf = this.substring(startpos || 0).search(regex);
+	return indexOf >= 0 ? indexOf + (startpos || 0) : indexOf;
+}
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+	regex = regex.global ? regex : new RegExp(regex.source, "g"
+			+ (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
+	if (typeof startpos == "undefined")
+		startpos = this.length;
+	else if (startpos < 0)
+		startpos = 0;
+	var stringToWorkWith = this.substring(0, startpos + 1);
+	var lastIndexOf = -1;
+	var nextStop = 0;
+	while ((result = regex.exec(stringToWorkWith)) != null) {
+		lastIndexOf = result.index;
+		regex.lastIndex = ++nextStop;
+	}
+	return lastIndexOf;
+}
+
+///////////////////// MANAGES THE SWEAR FILTERING
 function filter_swears() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("message").value;
+    var old_msg_low = document.getElementById("message").value.toLowerCase();
     var new_msg = '';
     // http://stackoverflow.com/a/500459
     var http_link = old_msg.indexOf(link_code[0]);
@@ -763,95 +744,44 @@ function filter_swears() {
     var spec_switch = 0;
     // special switches switch
     if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1 || semi_code != -1) spec_switch = 1;
-    if (http_link == -1 && https_link == -1 && www_link == -1) switch (swear_noregex[i].length) {
-      default: new_msg = old_msg;
-      break;
-    case 2:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2");
-      break;
-    case 3:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2" + swear_code[spec_switch] +
-        "$3");
-      break;
-    case 4:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2" + swear_code[spec_switch] +
-        "$3" + swear_code[spec_switch] + "$4");
-      break;
-    case 5:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2" + swear_code[spec_switch] +
-        "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5");
-      break;
-    case 6:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2" + swear_code[spec_switch] +
-        "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6");
-      break;
-    case 7:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2" + swear_code[spec_switch] +
-        "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" +
-        swear_code[spec_switch] + "$7");
-      break;
-    case 8:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2" + swear_code[spec_switch] +
-        "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" +
-        swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8");
-      break;
-    case 9:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[spec_switch] + "$2" + swear_code[spec_switch] +
-        "$3" + swear_code[spec_switch] + "$4" + swear_code[spec_switch] + "$5" + swear_code[spec_switch] + "$6" +
-        swear_code[spec_switch] + "$7" + swear_code[spec_switch] + "$8" + swear_code[spec_switch] + "$9");
-      break;
-    } else new_msg = old_msg;
-    document.getElementById("message").value = new_msg;
+    
+    if (http_link == -1 && https_link == -1 && www_link == -1) {
+        if(old_msg_low.indexOf(swear_words[i]) >= 0)   {
+            var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
+            var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
+            new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);     
+            document.getElementById("message").value = new_msg;
+        }    	
+    }    	   
   }
 }
 
 function filter_swears_post() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = ""; // this may not be necessary i'm not 100% sure
-    if (document.getElementsByTagName("textarea")[1] === undefined) old_msg = document.getElementsByTagName("textarea")[
-      0].value;
-    else old_msg = document.getElementsByTagName("textarea")[1].value;
+    var old_msg_low = "";
+    if (document.getElementsByTagName("textarea")[1] === undefined){
+    	old_msg = document.getElementsByTagName("textarea")[0].value;
+    	old_msg_low = document.getElementsByTagName("textarea")[0].value.toLowerCase();
+    }else{
+    	old_msg = document.getElementsByTagName("textarea")[1].value;
+    	old_msg_low = document.getElementsByTagName("textarea")[1].value.toLowerCase();
+    }
     var http_link = old_msg.indexOf(link_code[0]);
     var www_link = old_msg.indexOf(link_code[1]);
     var https_link = old_msg.indexOf(link_code[2]);
-    if (http_link == -1 && https_link == -1 && www_link == -1) switch (swear_noregex[i].length) {
-      default: new_msg = old_msg;
-      break;
-    case 2:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2");
-      break;
-    case 3:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2" + swear_code[0] + "$3");
-      break;
-    case 4:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2" + swear_code[0] + "$3" + swear_code[0] +
-        "$4");
-      break;
-    case 5:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2" + swear_code[0] + "$3" + swear_code[0] +
-        "$4" + swear_code[0] + "$5");
-      break;
-    case 6:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2" + swear_code[0] + "$3" + swear_code[0] +
-        "$4" + swear_code[0] + "$5" + swear_code[0] + "$6");
-      break;
-    case 7:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2" + swear_code[0] + "$3" + swear_code[0] +
-        "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7");
-      break;
-    case 8:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2" + swear_code[0] + "$3" + swear_code[0] +
-        "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8");
-      break;
-    case 9:
-        new_msg = old_msg.replace(swear_words[i], "$1" + swear_code[0] + "$2" + swear_code[0] + "$3" + swear_code[0] +
-        "$4" + swear_code[0] + "$5" + swear_code[0] + "$6" + swear_code[0] + "$7" + swear_code[0] + "$8" +
-        swear_code[0] + "$9");
-      break;
-    } else new_msg = old_msg;
-    if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
-      new_msg;
-    else document.getElementsByTagName("textarea")[1].value = new_msg;
+    if (http_link == -1 && https_link == -1 && www_link == -1){
+    	if(old_msg_low.indexOf(swear_words[i]) >= 0)   {
+            var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
+            var par_msg = edi_msg.split("").join(swear_code[0]);
+            new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);     
+            if (document.getElementsByTagName("textarea")[1] === undefined){
+            	document.getElementsByTagName("textarea")[0].value = new_msg;
+            }else{
+            	document.getElementsByTagName("textarea")[1].value = new_msg;
+            }
+        }  
+    }   
   }
 }
 /////////////////////
