@@ -855,31 +855,54 @@ function filter_swears_post() {
 /////////////////////
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 function emoticon_() {
-  for (var i = 0; i < Object.keys(emoticon).length; i++) {
+  for (var i = 0; i < Object.keys(emoticon_1).length; i++) {
     var old_msg = document.getElementById("message").value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], "gi"));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] +
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], "gi"), img_tag[0] + values(emoticon_1)[i][1] +
         img_tag[1]);
       document.getElementById("message").value = new_msg;
     }
   }
+  for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
+	    var old_msg = document.getElementById("message").value;
+	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
+	    if (index_num >= 0) {
+	      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
+	        img_tag[1]);
+	      document.getElementById("message").value = new_msg;
+	    }
+  }
 }
 
 function emoticon_post() {
-  for (var i = 0; i < Object.keys(emoticon).length; i++) {
+  for (var i = 0; i < Object.keys(emoticon_1).length; i++) {
     var old_msg = "";
     if (document.getElementsByTagName("textarea")[1] === undefined) old_msg = document.getElementsByTagName("textarea")[
       0].value;
     else old_msg = document.getElementsByTagName("textarea")[1].value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon)[i][0], "gi"));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], "gi"));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon)[i][0], "gi"), img_tag[0] + values(emoticon)[i][1] +
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], "gi"), img_tag[0] + values(emoticon_1)[i][1] +
         img_tag[1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         new_msg;
       else document.getElementsByTagName("textarea")[1].value = new_msg;
     }
+  }
+  for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
+	    var old_msg = "";
+	    if (document.getElementsByTagName("textarea")[1] === undefined) old_msg = document.getElementsByTagName("textarea")[
+	      0].value;
+	    else old_msg = document.getElementsByTagName("textarea")[1].value;
+	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
+	    if (index_num >= 0) {
+	      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
+	        img_tag[1]);
+	      if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
+	        new_msg;
+	      else document.getElementsByTagName("textarea")[1].value = new_msg;
+	    }
   }
 }
 /////////////////////
