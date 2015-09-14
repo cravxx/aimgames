@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.22
+// @version     2.9.23
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -700,11 +700,12 @@ var cssTd = "";
 //CSS
 ///////UTILS
 function setCookie(name, value, days) {
+	var expires = '';
   if (days) {
     var date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    var expires = '; expires=' + date.toGMTString();
-  } else var expires = '';
+    expires = '; expires=' + date.toGMTString();
+  } else expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
 
@@ -721,13 +722,13 @@ function getCookie(c_name) {
 
 function values(o) {
   return Object.keys(o).map(function (k) {
-    return o[k]
-  })
+    return o[k];
+  });
 } // ////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
 String.prototype.regexIndexOf = function (regex, startpos) {
   var indexOf = this.substring(startpos || 0).search(regex);
   return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
-}
+};
 String.prototype.regexLastIndexOf = function (regex, startpos) {
     regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ?
       "m" : ""));
@@ -741,7 +742,7 @@ String.prototype.regexLastIndexOf = function (regex, startpos) {
       regex.lastIndex = ++nextStop;
     }
     return lastIndexOf;
-  }
+  };
   ///////
   ///////////////////// MANAGES THE SWEAR FILTERING
 function filter_swears() {
