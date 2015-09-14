@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.28
+// @version     2.9.29
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -297,7 +297,26 @@ var emoticon_1 = {
   pepelemon: [':lemonpepe:', 'http://i.imgur.com/O6sI7fZ.gif', "PEPE LEMON"],
   why: [':why:', 'http://i.imgur.com/USyVquO.gif', "WHY"],
   oopepe: [':oopepe:', 'http://i.imgur.com/14NwJLV.gif', "O.O PEPE"],
-  kout: [':kout:', 'https://i.imgur.com/bEKMjLi.png', "KOUT"]
+  kout: [':kout:', 'https://i.imgur.com/bEKMjLi.png', "KOUT"],
+  bear: [':bearaim:', 'http://i.imgur.com/vCmrqpM.gif', "BEAR-LY AIM-ING"],
+  cryriver: [':pepetears:', 'http://i.imgur.com/O5yu2Nq.gif', "PEAR RIVER OF TEARS"],
+  blurpepe: [':blurpepe:', 'http://i.imgur.com/GFC1b2M.gif', "blur pepe"],
+  loweffort: [':lowpepe:', 'http://i.imgur.com/99tRltW.gif', "LOW EFFORT PEPE"],
+  faceswap: [':faceswap:', 'http://i.imgur.com/qyrYGlm.gif', "FACE SWAP"],
+  sponge2: [':sponge2:', 'http://i.imgur.com/qnEwSaK.gif', "SPONGE TWO"],
+  fignewton: [':fig:', 'http://i.imgur.com/NB3xqQY.gif', "FIG NEWTON"],
+  okkid: [':okkid:', 'http://i.imgur.com/ynHTHkJ.jpg', "OK KID"],
+  nvrfeels: [':nvrfeels:', 'http://i.imgur.com/slWp1L4.jpg', "NVRFEELS"],
+  frogpepe: [':frogpepe:', 'http://i.imgur.com/CbbOaBz.jpg', "FROG PEPE"],
+  neet: [':neet:', 'http://i.imgur.com/DwO2W3B.jpg', "NEET"],
+  cooldog: [':cooldog:', 'http://i.imgur.com/Vi5O6TS.jpg', 'COOL DOG'],
+  eatshit2: [':eatshit2', 'http://i.imgur.com/KA33r6p.jpg', "EAT SHIT"],
+  scared3: [':scared3:', 'http://i.imgur.com/dYfejmB.jpg', "SCARED 3"],
+  godwills: [':godwills:', 'http://i.imgur.com/1UWRYTX.jpg', "GOD WILLS IT"],
+  cacti: [':cacti:', 'http://i.imgur.com/3vfSA0L.png', "CACTI"],
+  anthony: [':anthony:', 'http://i.imgur.com/UAagnBt.png', "HEY, ANTHONY HERE"],
+  reflect: [':reflect:', 'http://i.imgur.com/vPYpQN3.gif', "REFLECTING"],
+  burning: [':burning:', 'http://i.imgur.com/Mk8PkoI.png', "BURNING"]
 };
 
 var emoticon_2 = {
