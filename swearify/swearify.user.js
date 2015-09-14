@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*               
-// @version     2.9.13
+// @version     2.9.14
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -805,7 +805,7 @@ function filter_swears() {
 				// we must be in spec_ops
 				if (regexIndexOf(swear_words[i]) != -1) {
 					new_msg = old_msg.split('');
-					new_msg.join(swear_code[spec_switch]);
+					new_msg = new_msg.join(swear_code[spec_switch]);
 				}
 				break;
 			case 2:
@@ -891,7 +891,7 @@ function filter_swears_post() {
 				// we must be in spec_ops
 				if (regexIndexOf(swear_words[i]) != -1) {
 					new_msg = old_msg.split('');
-					new_msg.join(swear_code[spec_switch]);
+					new_msg = new_msg.join(swear_code[spec_switch]);
 				}
 				break;
 			case 2:
