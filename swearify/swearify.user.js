@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.33
+// @version     2.9.34
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -19,9 +19,9 @@ var swear_words = [
 	"silver", "acv", "phy", "ben",
 	"mdx", "evo", "rafa", "sano", 
 	"ulti", "sin", "admin", "ten graves",
-	"ragamuffin", "black dragon", "prayers", "mac" //"toa",
+	"ragamuffin", "black dragon", "prayers", "mac", //"toa",
 	
-	"420", "rip", "god", "died", /// ... *tips fedora*
+	"420", "rip", "god", "died", /// ... *tips fedora* //
 	"skype"
 ];
 ///////
