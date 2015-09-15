@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.31
+// @version     2.9.32
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -16,12 +16,13 @@
 //////////////////////////////DO NOT CHANGE
 var swear_words = [
 	"shockey", "kaff", "raga", "inhumanpwnage",
-	"silver", "acv", "phy", "ben","420"
+	"silver", "acv", "phy", "ben",
 	"mdx", "evo", "rafa", "sano", 
 	"ulti", "sin", "admin", "ten graves",
-	"ragamuffin", "black dragon", "prayers", //"toa",
+	"ragamuffin", "black dragon", "prayers", "mac" //"toa",
 	
-	"skype", "rip", "god", "died" 
+	"420", "rip", "god", "died", /// ... *tips fedora*
+	"skype"
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
