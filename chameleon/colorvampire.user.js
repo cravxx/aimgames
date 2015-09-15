@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Color Vampire
+// @name        Chameleon Vampire
 // @namespace   Hide yo colors hide yo styles
 // @include     http://aimgames.forummotion.com/*
 // @version     1.3
