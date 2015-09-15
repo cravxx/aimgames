@@ -73,22 +73,6 @@ function inject_css(css) {
     head.appendChild(gstyle);
 }
 
-function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do-i-make-a-div-follow-me-as-i-scroll-down-the-page
-    if (typeof window.pageYOffset !== 'undefined' ) {
-      // Most browsers
-      return window.pageYOffset;
-    }
-
-    var d = document.documentElement;
-    if (d.clientHeight) {
-      // IE in standards mode
-      return d.scrollTop;
-    }
-
-    // IE in quirks mode
-    return document.body.scrollTop;
-}
-
 var visibleY = function(el){
     var top = el.getBoundingClientRect().top, rect, el = el.parentNode;
     do {
@@ -113,6 +97,22 @@ window.onload = function() {
   
   // get the count of new msgs
   setInterval(get_new_msgs, 500);
+  
+  function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do-i-make-a-div-follow-me-as-i-scroll-down-the-page
+      if (typeof window.pageYOffset !== 'undefined' ) {
+        // Most browsers
+        return window.pageYOffset;
+      }
+  
+      var d = document.documentElement;
+      if (d.clientHeight) {
+        // IE in standards mode
+        return d.scrollTop;
+      }
+  
+      // IE in quirks mode
+      return document.body.scrollTop;
+  }
   
   window.onscroll = function() {
     //make the box scroll with the screen
