@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.32
+// @version     2.9.33
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -317,7 +317,17 @@ var emoticon_1 = {
   cacti: [':cacti:', 'http://i.imgur.com/3vfSA0L.png', "CACTI"],
   anthony: [':anthony:', 'http://i.imgur.com/UAagnBt.png', "HEY, ANTHONY HERE"],
   reflect: [':reflect:', 'http://i.imgur.com/vPYpQN3.gif', "REFLECTING"],
-  burning: [':burning:', 'http://i.imgur.com/Mk8PkoI.png', "BURNING"]
+  burning: [':burning:', 'http://i.imgur.com/Mk8PkoI.png', "BURNING"],
+  kingpepe: [':kingpepe:', 'http://i.imgur.com/xBangFX.png', "KING PEPE"],
+  scottip: [':scottip:', 'http://i.imgur.com/MNIXehT.png', "SCOTTISH TIP"],
+  FBPEPE: [':fbpepe:', 'http://i.imgur.com/IFJctH7.png', "FACEBOOK PEPE"],
+  ayylmaos: [':ayylmaos:', 'http://i.imgur.com/QLr8rvH.png', "AYY LMAO'S :DD:D"],
+  dinoman: [':dinoman:', 'http://i.imgur.com/KmoEbws.png', "DINO MAN"],
+  thinkpepe: [':thinkpepe:', 'http://i.imgur.com/huzfTk2.png', "THINKING PEPE"],
+  dontgeb: [':dontgeb:', 'http://i.imgur.com/XNxeYDS.png', "I DONT GEB ID :DD:D"],
+  fuckbirb: [':fuckbirb:', 'http://i.imgur.com/uH0D0PR.png', "FUCK NICE THINGS"],
+  osnap: [':osnap:', 'http://i.imgur.com/Zdl0xsV.png', "O SNAP"],
+  wlaugh: [':wlaugh:', 'http://i.imgur.com/inUpCaV.png', "WORRIED LAUGHTER"]
 };
 
 var emoticon_2 = {
