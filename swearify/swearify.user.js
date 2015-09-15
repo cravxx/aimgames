@@ -618,15 +618,16 @@ var maymay = {
   ], // dupe
   // the
   // backslashes
-  seed: [':seed:', "[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU'VE DONE GERMINATES WITHIN YOU[/b][/color]"],
-  
+  seed: [':seed:', "[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU'VE DONE GERMINATES WITHIN YOU[/b][/color]"], 
   sniper: [':sniper:', '▄︻̷̿┻̿═━一'],
   notgivinashit: [':notgivinash:', '¯\_(ツ)_/¯'],
   ameno: [':ameno:', '༼ つ ◕_◕ ༽つ'],
   brickwall: [':brickwall:', '┬┴┬┴┤(･_├┬┴┬┴'],
   mac10: [':mac10:', '⌐╦╦═─'],
   faceroll: [':faceroll:', '(._.) ( l: ) ( .-. ) ( :l ) (._.)'],
-  tablefix: [':tablefix:', '┬──┬ ノ( ゜-゜ノ)']
+  tablefix: [':tablefix:', '┬──┬ ノ( ゜-゜ノ)'],
+  wellmemed: [':memed', '[IMG]http://i58.tinypic.com/2s8o4g8.png[/IMG]'],
+  gottago: [':gofast:', '[scroll][font=Comic Sans MS][size=26][blur][color=green][i]GOTTA GO FAST[/i][/color][/blur][/size][/font]<br>[img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][/scroll]'];
 };
 ///////
 ///////EXTRA FILTERING CODE
