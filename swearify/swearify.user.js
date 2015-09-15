@@ -16,13 +16,12 @@
 //////////////////////////////DO NOT CHANGE
 var swear_words = [
 	"shockey", "kaff", "raga", "inhumanpwnage",
-	"silver", "txm", "aure", "acv", 
-	"wiab", "phy", "kaffeinated", 
-	"blaze", "ben", "aim" /* pretty sure its not in effect anymore */, 
-	"admin", "mdx", "skype", "rip", 
-	"god", "evo", "rafa", 
-	"phantasmagoria", "myself", "sano", 
-	"died", "ulti", "sin", "420"
+	"silver", "acv", "phy", "ben","420"
+	"mdx", "evo", "rafa", "sano", 
+	"ulti", "sin", "admin", "ten graves",
+	"ragamuffin", "black dragon", "prayers", //"toa",
+	
+	"skype", "rip", "god", "died" 
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
