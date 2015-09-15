@@ -23,7 +23,7 @@ function get_new_msg() { //do we have a new msg
 
 var new_msgs = 0; //how many new msgs
 function get_new_msgs() {
-  if (getScrollTop() < 1600) {
+  if (!visibleY(document.getElementById("frame_chatbox"))) { //are we not at cbox
     if (get_new_msg()) {
       new_msgs++;
       box_div.innerHTML =  '<div class=\"box\" style=\"position: fixed;left: 1%;top: 2%;\"><div class=\"ribbon\"><span>' + new_msgs + ' new msgs</span></div></div>';
@@ -128,7 +128,7 @@ window.onload = function() {
     }
     
     //reset the msgs if scrolled to the cbox
-    if (visibleY(document.getElementById("frame_chatbox"))) {
+    if (visibleY(document.getElementById("frame_chatbox"))) { //this is not used
       is_at_cbox = true;
     } else {
       is_at_cbox = false;
