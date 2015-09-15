@@ -1,6 +1,6 @@
 //test thing
 
-var css_string = "@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);h1,h2{text-align:center;width:500px;height:100px;position:fixed;top:50%;left:50%}.corner-ribbon,h1,h2{text-align:center}*{margin:0;padding:0}body{background:#f0f0f0;font-family:\'Noto Sans\',sans-serif}h1{margin:-100px 0 0 -275px;font-size:3.2em;font-weight:700;text-transform:uppercase;line-height:100px;color:#aaa}h2{margin:0 0 0 -225px;font-size:1.6em;font-weight:400;line-height:100%;color:#bbb}.corner-ribbon{width:200px;background:#e43;position:absolute;line-height:50px;letter-spacing:1px;color:#f0f0f0;-webkit-transform:rotate(-45deg)}.corner-ribbon,.corner-ribbon.top-left{top:25px;left:-50px;transform:rotate(-45deg)}.corner-ribbon.sticky{position:fixed}.corner-ribbon.shadow{box-shadow:0 0 3px rgba(0,0,0,.3)}.corner-ribbon.top-left{-webkit-transform:rotate(-45deg)}.corner-ribbon.top-right{top:25px;right:-50px;left:auto;transform:rotate(45deg);-webkit-transform:rotate(45deg)}.corner-ribbon.bottom-left{top:auto;bottom:25px;left:-50px;transform:rotate(45deg);-webkit-transform:rotate(45deg)}.corner-ribbon.bottom-right{top:auto;right:-50px;bottom:25px;left:auto;transform:rotate(-45deg);-webkit-transform:rotate(-45deg)}.corner-ribbon.white{background:#f0f0f0;color:#555}.corner-ribbon.black{background:#333}.corner-ribbon.grey{background:#999}.corner-ribbon.blue{background:#39d}.corner-ribbon.green{background:#2c7}.corner-ribbon.turquoise{background:#1b9}.corner-ribbon.purple{background:#95b}.corner-ribbon.red{background:#e43}.corner-ribbon.orange{background:#e82}.corner-ribbon.yellow{background:#ec0}";
+var css_string = ".box{width:200px;height:300px;position:relative;border:1px solid #BBB;background:#EEE}.ribbon{position:absolute;left:-5px;top:-5px;z-index:1;overflow:hidden;width:75px;height:75px;text-align:right}.ribbon span{font-size:10px;font-weight:bold;color:#FFF;text-transform:uppercase;text-align:center;line-height:20px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);width:100px;display:block;background:#79A70A;background:linear-gradient(#F70505 0%, #8F0808 100%);box shadow:0 3px 10px -5px rgba(0, 0, 0, 1);position:absolute;top:19px;left:-21px}.ribbon span::before{content:\"\";position:absolute;left:0px;top:100%;z-index:-1;border-left:3px solid #8F0808;border-right:3px solid transparent;border-bottom:3px solid transparent;border-top:3px solid #8F0808}.ribbon span::after{content:\"\";position:absolute;right:0px;top:100%;z-index:-1;border-left:3px solid transparent;border-right:3px solid #8F0808;border-bottom:3px solid transparent;border-top:3px solid #8F0808}";
 
 var preva = "";
 function get_new_msg() {
@@ -54,6 +54,6 @@ function inject_css(css) {
 
 window.onload = function() {
   inject_css(css_string);
-  document.body.innerHTML = '<div class=\"corner-ribbon top-left sticky red shadow\">Hello</div>' + document.body.innerHTML;
+  document.body.getElementsByClassName("bodyline")[0].innerHTML = '<div class=\"box\"><div class=\"ribbon\"><span>MY 12 INCH DICK</span></div></div>' + document.body.getElementsByClassName("bodyline")[0].innerHTML;
 }
 // += works too
