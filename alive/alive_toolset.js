@@ -47,7 +47,7 @@ function inject_css(css) {
     head = document.getElementsByTagName('head')[0];
     if (!head) { return; }
     gstyle = document.createElement('style');
-    gstyle.type = 'text/plain';
+    gstyle.type = 'text/css';
     gstyle.innerHTML = css;
     head.appendChild(gstyle);
 }
