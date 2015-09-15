@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Alive
 // @namespace   kaff_is_one_grease
-// @include     http://aimgames.forummotion.com/
+// @include     http://aimgames.forummotion.com/*
 // @version     1.03
 // @grant       none
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
@@ -13,9 +13,9 @@ var cssStyleText = "font-weight: bold;font-size: 11px;color: #FFF;position: rela
 
 var cssStyleContent = "font-family: monospace;display: block;padding-left: 60px;position: relative;";
 
-var first =  document.getElementsByClassName("forumline")[6].getElementsByClassName("row1")[2].getElementsByTagName("a");
+var first =  document.getElementsByClassName("forumline")[7].getElementsByClassName("row1")[2].getElementsByTagName("a");
 
-var username = "Kaffeinated";
+var username = "Big Jilm";
 
 var usr_ray = [ ];
 
@@ -38,14 +38,17 @@ function check_elem() {
  $.each(first, function(index, value) {
    usr_ray[index] = value.text;       
  });    
+  console.log(usr_ray);
 }    
 
 function displayOverlay() {       
+  check_elem();
+  
    $.each(msg_ray, function(index, value) {
      document.getElementById("overcontent").getElementsByClassName("alert")[index].innerHTML = value + "<br/>";      
    });     
    
-   check_elem();
+   
    alert_me(check_text());    
 }
 
@@ -56,9 +59,16 @@ function alert_me(text) {
   msg_ray[3] = text;          
 }
 
-setInterval(displayOverlay,1000);
+addEvent(window, 'load', function(){ load() });
 
-window.onload = function() {
+function addEvent(element, eventName, fn) {
+    if (element.addEventListener)
+        element.addEventListener(eventName, fn, false);
+    else if (element.attachEvent)
+        element.attachEvent('on' + eventName, fn);
+}
+
+function load() {
   var over_div = document.body;
   over_div.appendChild(document.createElement('div')).innerHTML = "<table id='overlay'><tbody><tr><td><row1 id='header'></row1><row2 id='overcontent'><inner class='alert'></inner><inner class='alert'></inner><inner class='alert'></inner><inner class='alert'></inner><textb id='thebox'></textb></row2></td></tr></tbody></table>";            
   document.getElementById("header").innerHTML = "Alive";
@@ -70,5 +80,7 @@ window.onload = function() {
   element.setAttribute("value", text);
   element.setAttribute("name", text);
   var foo = document.getElementById("thebox");
-  foo.appendChild(element);
+  foo.appendChild(element);    
 };
+
+setInterval(displayOverlay,1000);
