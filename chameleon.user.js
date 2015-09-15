@@ -3,8 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @include     http://teamaero.forumotion.com/*
-// @version     1.5.2
+// @version     1.5.3
 // @grant       none
 // @icon        http://i.imgur.com/g8MwvQd.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
