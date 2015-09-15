@@ -1,7 +1,12 @@
 //test thing
 var preva = "";
 function get_new_msg() {
-  preva = document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML;
-  if (document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML != preva) return true;
-  else return false;
+  if (document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML != preva) {
+    preva = document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML;
+    return true;
+  }
+  else {
+    preva = document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML;
+    return false;
+  }
 }
