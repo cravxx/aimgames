@@ -1,4 +1,7 @@
 //test thing
+
+var css_string = "@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);h1,h2{text-align:center;width:500px;height:100px;position:fixed;top:50%;left:50%}.corner-ribbon,h1,h2{text-align:center}*{margin:0;padding:0}body{background:#f0f0f0;font-family:'Noto Sans',sans-serif}h1{margin:-100px 0 0 -275px;font-size:3.2em;font-weight:700;text-transform:uppercase;line-height:100px;color:#aaa}h2{margin:0 0 0 -225px;font-size:1.6em;font-weight:400;line-height:100%;color:#bbb}.corner-ribbon{width:200px;background:#e43;position:absolute;line-height:50px;letter-spacing:1px;color:#f0f0f0;-webkit-transform:rotate(-45deg)}.corner-ribbon,.corner-ribbon.top-left{top:25px;left:-50px;transform:rotate(-45deg)}.corner-ribbon.sticky{position:fixed}.corner-ribbon.shadow{box-shadow:0 0 3px rgba(0,0,0,.3)}.corner-ribbon.top-left{-webkit-transform:rotate(-45deg)}.corner-ribbon.top-right{top:25px;right:-50px;left:auto;transform:rotate(45deg);-webkit-transform:rotate(45deg)}.corner-ribbon.bottom-left{top:auto;bottom:25px;left:-50px;transform:rotate(45deg);-webkit-transform:rotate(45deg)}.corner-ribbon.bottom-right{top:auto;right:-50px;bottom:25px;left:auto;transform:rotate(-45deg);-webkit-transform:rotate(-45deg)}.corner-ribbon.white{background:#f0f0f0;color:#555}.corner-ribbon.black{background:#333}.corner-ribbon.grey{background:#999}.corner-ribbon.blue{background:#39d}.corner-ribbon.green{background:#2c7}.corner-ribbon.turquoise{background:#1b9}.corner-ribbon.purple{background:#95b}.corner-ribbon.red{background:#e43}.corner-ribbon.orange{background:#e82}.corner-ribbon.yellow{background:#ec0}";
+
 var preva = "";
 function get_new_msg() {
   if (document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML != preva) {
@@ -50,8 +53,7 @@ function inject_css(css) {
 }
 
 window.onload = function() {
-  inject_css('@import url(\'https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/alive/alive_css.css\');');
-  
+  inject_css(css_string);
   document.body.innerHTML = '<div class=\"corner-ribbon top-left sticky red shadow\">Hello</div>' + document.body.innerHTML;
 }
 // += works too
