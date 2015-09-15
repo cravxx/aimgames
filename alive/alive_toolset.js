@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
-// @include     http://aimgames.forummotion.com/
+// @include     http://aimgames.forummotion.com/*
 // @version     1.1
 // @grant       none
 // ==/UserScript==
@@ -12,7 +12,7 @@ var css_string = "@import url(\'http://fonts.googleapis.com/css?family=Noto+Sans
 
 var preva = "";
 function get_new_msg() { //do we have a new msg
-  if (document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML != preva) {
+  if (document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML != preva && preva != "") {
     preva = document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML;
     return true;
   } else {
