@@ -38,14 +38,20 @@ function check_em() {
   
 }
 
+var gstyle;
 function inject_css(css) {
-    var head, style;
+    var head;
     head = document.getElementsByTagName('head')[0];
     if (!head) { return; }
-    style = document.createElement('style');
-    style.type = 'text/css';
-    style.innerHTML = css;
-    head.appendChild(style);
+    gstyle = document.createElement('style');
+    gstyle.type = 'text/plain';
+    gstyle.innerHTML = css;
+    head.appendChild(gstyle);
 }
 
-inject_css('p { font-size: large ! important; }');
+window.onload = function() {
+  inject_css('@import url(\'https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/alive/alive_css.css\');');
+  
+  document.body.innerHTML = '<div class=\"corner-ribbon top-left sticky red shadow\">Hello</div>' + document.body.innerHTML;
+}
+// += works too
