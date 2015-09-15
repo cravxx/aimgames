@@ -21,18 +21,18 @@ function get_new_msg() { //do we have a new msg
   }
 }
 
-var is_at_cbox = false; //have we scrolled to the chatbox
 var new_msgs = 0; //how many new msgs
 function get_new_msgs() {
-  if (!is_at_cbox)
-    if (get_new_msg())
+  if (getScrollTop() < 1600) {
+    if (get_new_msg()) {
       new_msgs++;
-  else
+      box_div.innerHTML =  '<div class=\"box\" style=\"position: fixed;left: 1%;top: 2%;\"><div class=\"ribbon\"><span>' + new_msgs + ' new msgs</span></div></div>';
+    }
+  } else if (new_msgs != 0) {
     new_msgs = 0;
-  if (new_msgs > 0) //make our nice loooking ribbon
-    box_div.innerHTML =  '<div class=\"box\" style=\"position: fixed;left: 1%;top: 2%;\"><div class=\"ribbon\"><span>' + new_msgs + ' new msgs</span></div></div>';
-  else //clear the div
-    box_div.innerHTML = '';
+    box_div.innerHTML = '<div class=\"box\" style=\"position: fixed;left: 1%;top: 2%;\"></div>';
+  }
+  print(new_msgs);
 }
 
 function check_em() {
@@ -73,17 +73,7 @@ function inject_css(css) {
     head.appendChild(gstyle);
 }
 
-var box_div; //init the box div so it can go anywhere
-window.onload = function() {
-  // inject our css
-  inject_css(css_string);
-  
-  // make an empty div where the box will go
-  var over_div = document.body;
-  box_div = over_div.appendChild(document.createElement('div'));
-  box_div.innerHTML =  '';
-  
-  function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do-i-make-a-div-follow-me-as-i-scroll-down-the-page
+function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do-i-make-a-div-follow-me-as-i-scroll-down-the-page
     if (typeof window.pageYOffset !== 'undefined' ) {
       // Most browsers
       return window.pageYOffset;
@@ -97,7 +87,17 @@ window.onload = function() {
 
     // IE in quirks mode
     return document.body.scrollTop;
-  }
+}
+
+var box_div; //init the box div so it can go anywhere
+window.onload = function() {
+  // inject our css
+  inject_css(css_string);
+  
+  // make an empty div where the box will go
+  var over_div = document.body;
+  box_div = over_div.appendChild(document.createElement('div'));
+  box_div.innerHTML =  '<div class=\"box\" style=\"position: fixed;left: 1%;top: 2%;\"></div>';
   
   // get the count of new msgs
   setInterval(get_new_msgs, 500);
