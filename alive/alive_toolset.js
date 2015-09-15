@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1
+// @version     1.1
 // @grant       none
 // ==/UserScript==
 
@@ -32,7 +32,7 @@ function get_new_msgs() {
     new_msgs = 0;
     box_div.innerHTML = '<div class=\"box\" style=\"position: fixed;left: 1%;top: 2%;\"></div>';
   }
-  print(new_msgs);
+  //print(new_msgs);
 }
 
 function check_em() {
@@ -89,6 +89,18 @@ function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do
     return document.body.scrollTop;
 }
 
+var visibleY = function(el){
+    var top = el.getBoundingClientRect().top, rect, el = el.parentNode;
+    do {
+        rect = el.getBoundingClientRect();
+        if (top <= rect.bottom === false)
+            return false;
+        el = el.parentNode;
+    } while (el != document.body);
+    // Check its within the document viewport
+    return top <= document.documentElement.clientHeight;
+};
+
 var box_div; //init the box div so it can go anywhere
 window.onload = function() {
   // inject our css
@@ -105,7 +117,7 @@ window.onload = function() {
   window.onscroll = function() {
     //make the box scroll with the screen
     var box = document.getElementById('box'),
-        scroll = getScrollTop();
+    scroll = getScrollTop();    
 
     if (box !== null) {
       if (scroll <= 28) {
@@ -116,7 +128,7 @@ window.onload = function() {
     }
     
     //reset the msgs if scrolled to the cbox
-    if (getScrollTop() > 1600) {
+    if (visibleY(document.getElementById("frame_chatbox"))) {
       is_at_cbox = true;
     } else {
       is_at_cbox = false;
