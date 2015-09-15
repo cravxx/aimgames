@@ -8,17 +8,26 @@
 
 //test thing
 
-var css_string = ".box{width:300px;height:100px;position:relative;border:1px solid #BBB;background:#EEE}.ribbon{position:absolute;left:-5px;top:-5px;z-index:1;overflow:hidden;width:75px;height:75px;text-align:right}.ribbon span{font-size:10px;font-weight:bold;color:#FFF;text-transform:uppercase;text-align:center;line-height:20px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);width:100px;display:block;background:#79A70A;background:linear-gradient(#F70505 0%, #8F0808 100%);box shadow:0 3px 10px -5px rgba(0, 0, 0, 1);position:absolute;top:19px;left:-21px}.ribbon span::before{content:\"\";position:absolute;left:0px;top:100%;z-index:-1;border-left:3px solid #8F0808;border-right:3px solid transparent;border-bottom:3px solid transparent;border-top:3px solid #8F0808}.ribbon span::after{content:\"\";position:absolute;right:0px;top:100%;z-index:-1;border-left:3px solid transparent;border-right:3px solid #8F0808;border-bottom:3px solid transparent;border-top:3px solid #8F0808}";
+var css_string = "@import url(\'http://fonts.googleapis.com/css?family=Noto+Sans:400,700\');.box{width: 0px;height: 0px;position: relative;border: 0px solid #BBB;background: #EEE;font-family: \'Noto Sans\', sans-serif}.ribbon{width: 200px;background: #e43;position: absolute;top: 0px;left: -10px;text-align: center;line-height: 50px;letter-spacing: 1px;color: #ff0000;font-size: 18px}.ribbon span{width: 200px;background: #e43;position: absolute;top: 25px;left: -50px;text-align: center;line-height: 50px;letter-spacing: 1px;color: #f0f0f0;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);font-size: 18px}.ribbon span::before{content: \"\";position:absolute;left:0px;top:100%;z-index:-1;border-left:3px solid #8F0808;border-right:3px solid transparent;border-bottom:3px solid transparent;border-top:3px solid #8F0808}.ribbon span::after{content:\"\";position:absolute;right:0px;top:100%;z-index:-1;border-left:3px solid transparent;border-right:3px solid #8F0808;border-bottom:3px solid transparent;border-top:3px solid #8F0808}";
 
 var preva = "";
 function get_new_msg() {
   if (document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML != preva) {
     preva = document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML;
     return true;
-  }
-  else {
+  } else {
     preva = document.getElementById("frame_chatbox").contentWindow.document.getElementById("chatbox").innerHTML;
     return false;
+  }
+}
+
+var is_at_cbox = false;
+var new_msgs = 0;
+function get_new_msgs() {
+  if (!is_at_cbox) {
+    if (get_new_msg()) new_msgs++;
+  } else {
+    new_msgs = 0;
   }
 }
 
@@ -63,7 +72,45 @@ function inject_css(css) {
 window.onload = function() {
   inject_css(css_string);
   var over_div = document.body;
-  over_div.appendChild(document.createElement('div')).innerHTML =  '<div class=\"box\" style=\"position: fixed;right: 1%;top: 2%;\"><div class=\"ribbon\"><span>MY 12 INCH DICK</span></div></div>';
+  var box_div = over_div.appendChild(document.createElement('div'));
+  box_div.innerHTML =  '<div class=\"box\" style=\"position: fixed;left: 1%;top: 2%;\"><div class=\"ribbon\"><span>NEW MESSAGE!</span></div></div>';
+  
+  function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do-i-make-a-div-follow-me-as-i-scroll-down-the-page
+    if (typeof window.pageYOffset !== 'undefined' ) {
+      // Most browsers
+      return window.pageYOffset;
+    }
+
+    var d = document.documentElement;
+    if (d.clientHeight) {
+      // IE in standards mode
+      return d.scrollTop;
+    }
+
+    // IE in quirks mode
+    return document.body.scrollTop;
+  }
+
+  window.onscroll = function() {
+    //make the box scroll with the screen
+    var box = document.getElementById('box'),
+        scroll = getScrollTop();
+
+    if (box !== null) {
+      if (scroll <= 28) {
+        box.style.top = "30px";
+      } else {
+        box.style.top = (scroll + 2) + "px";
+      }
+    }
+    
+    //reset the msgs if scrolled to the cbox
+    if (getScrollTop() > 1600) {
+      is_at_cbox = true;
+    } else {
+      is_at_cbox = false;
+    }
+  };
   
 }
 // += works too
