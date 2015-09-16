@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.40
+// @version     2.9.42
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -328,7 +328,59 @@ var emoticon_1 = {
   fuckbirb: [':fuckbirb:', 'http://i.imgur.com/uH0D0PR.png', "FUCK NICE THINGS"],
   osnap: [':osnap:', 'http://i.imgur.com/Zdl0xsV.png', "O SNAP"],
   wlaugh: [':wlaugh:', 'http://i.imgur.com/inUpCaV.png', "WORRIED LAUGHTER"],
-  moonface: [':moonface:', 'http://i.imgur.com/9gJYVAk.png', "MOON FACE"]
+  moonface: [':moonface:', 'http://i.imgur.com/9gJYVAk.png', "MOON FACE"],
+  
+  //begin injected dong emotes
+  imgurdongY21xRGc: [':Y21xRGc:', 'http://i.imgur.com/Y21xRGc.jpg', "EXPAND DONG Y21xRGc"],
+imgurdongfqgiO3C: [':fqgiO3C:', 'http://i.imgur.com/fqgiO3C.jpg', "EXPAND DONG fqgiO3C"],
+imgurdongArbkDMd: [':ArbkDMd:', 'http://i.imgur.com/ArbkDMd.jpg', "EXPAND DONG ArbkDMd"],
+imgurdongoeNPAcI: [':oeNPAcI:', 'http://i.imgur.com/oeNPAcI.jpg', "EXPAND DONG oeNPAcI"],
+imgurdongtYAbOEK: [':tYAbOEK:', 'http://i.imgur.com/tYAbOEK.jpg', "EXPAND DONG tYAbOEK"],
+imgurdongflLSGR0: [':flLSGR0:', 'http://i.imgur.com/flLSGR0.jpg', "EXPAND DONG flLSGR0"],
+imgurdongvuaw4uj: [':vuaw4uj:', 'http://i.imgur.com/vuaw4uj.jpg', "EXPAND DONG vuaw4uj"],
+imgurdongWsJjI1E: [':WsJjI1E:', 'http://i.imgur.com/WsJjI1E.jpg', "EXPAND DONG WsJjI1E"],
+imgurdong7y1PZ44: [':7y1PZ44:', 'http://i.imgur.com/7y1PZ44.jpg', "EXPAND DONG 7y1PZ44"],
+imgurdongihzpHyH: [':ihzpHyH:', 'http://i.imgur.com/ihzpHyH.jpg', "EXPAND DONG ihzpHyH"],
+imgurdongfjo5nmC: [':fjo5nmC:', 'http://i.imgur.com/fjo5nmC.jpg', "EXPAND DONG fjo5nmC"],
+imgurdongxIbjyrV: [':xIbjyrV:', 'http://i.imgur.com/xIbjyrV.jpg', "EXPAND DONG xIbjyrV"],
+imgurdongmRYvJI4: [':mRYvJI4:', 'http://i.imgur.com/mRYvJI4.jpg', "EXPAND DONG mRYvJI4"],
+imgurdongLQTSFfn: [':LQTSFfn:', 'http://i.imgur.com/LQTSFfn.jpg', "EXPAND DONG LQTSFfn"],
+imgurdongme4YY9e: [':me4YY9e:', 'http://i.imgur.com/me4YY9e.jpg', "EXPAND DONG me4YY9e"],
+imgurdong0pv0vet: [':0pv0vet:', 'http://i.imgur.com/0pv0vet.jpg', "EXPAND DONG 0pv0vet"],
+imgurdongazKA6IF: [':azKA6IF:', 'http://i.imgur.com/azKA6IF.jpg', "EXPAND DONG azKA6IF"],
+imgurdongOIghJUa: [':OIghJUa:', 'http://i.imgur.com/OIghJUa.jpg', "EXPAND DONG OIghJUa"],
+imgurdongiYMW6J2: [':iYMW6J2:', 'http://i.imgur.com/iYMW6J2.jpg', "EXPAND DONG iYMW6J2"],
+imgurdongtHHKYVp: [':tHHKYVp:', 'http://i.imgur.com/tHHKYVp.jpg', "EXPAND DONG tHHKYVp"],
+imgurdongI2dzif0: [':I2dzif0:', 'http://i.imgur.com/I2dzif0.jpg', "EXPAND DONG I2dzif0"],
+imgurdongs1yPzBV: [':s1yPzBV:', 'http://i.imgur.com/s1yPzBV.jpg', "EXPAND DONG s1yPzBV"],
+imgurdongtTQ4gPh: [':tTQ4gPh:', 'http://i.imgur.com/tTQ4gPh.jpg', "EXPAND DONG tTQ4gPh"],
+imgurdongqzquWaX: [':qzquWaX:', 'http://i.imgur.com/qzquWaX.jpg', "EXPAND DONG qzquWaX"],
+imgurdongEpFtLXq: [':EpFtLXq:', 'http://i.imgur.com/EpFtLXq.jpg', "EXPAND DONG EpFtLXq"],
+imgurdongLLG1h6k: [':LLG1h6k:', 'http://i.imgur.com/LLG1h6k.jpg', "EXPAND DONG LLG1h6k"],
+imgurdongBbshOLd: [':BbshOLd:', 'http://i.imgur.com/BbshOLd.jpg', "EXPAND DONG BbshOLd"],
+imgurdonggZO4oUl: [':gZO4oUl:', 'http://i.imgur.com/gZO4oUl.jpg', "EXPAND DONG gZO4oUl"],
+imgurdonglRIdSx8: [':lRIdSx8:', 'http://i.imgur.com/lRIdSx8.jpg', "EXPAND DONG lRIdSx8"],
+imgurdong0z3SmD2: [':0z3SmD2:', 'http://i.imgur.com/0z3SmD2.jpg', "EXPAND DONG 0z3SmD2"],
+imgurdongz0ii3nI: [':z0ii3nI:', 'http://i.imgur.com/z0ii3nI.jpg', "EXPAND DONG z0ii3nI"],
+imgurdongha5rqDd: [':ha5rqDd:', 'http://i.imgur.com/ha5rqDd.jpg', "EXPAND DONG ha5rqDd"],
+imgurdongRWom78Q: [':RWom78Q:', 'http://i.imgur.com/RWom78Q.jpg', "EXPAND DONG RWom78Q"],
+imgurdongkv965M0: [':kv965M0:', 'http://i.imgur.com/kv965M0.jpg', "EXPAND DONG kv965M0"],
+imgurdongll5mzvy: [':ll5mzvy:', 'http://i.imgur.com/ll5mzvy.jpg', "EXPAND DONG ll5mzvy"],
+imgurdonggXeBqOI: [':gXeBqOI:', 'http://i.imgur.com/gXeBqOI.jpg', "EXPAND DONG gXeBqOI"],
+imgurdongoXxMcF0: [':oXxMcF0:', 'http://i.imgur.com/oXxMcF0.jpg', "EXPAND DONG oXxMcF0"],
+imgurdongPkC0sSx: [':PkC0sSx:', 'http://i.imgur.com/PkC0sSx.jpg', "EXPAND DONG PkC0sSx"],
+imgurdongd9o2Idt: [':d9o2Idt:', 'http://i.imgur.com/d9o2Idt.jpg', "EXPAND DONG d9o2Idt"],
+imgurdong6SXNd6T: [':6SXNd6T:', 'http://i.imgur.com/6SXNd6T.jpg', "EXPAND DONG 6SXNd6T"],
+imgurdongNg8P2Vv: [':Ng8P2Vv:', 'http://i.imgur.com/Ng8P2Vv.jpg', "EXPAND DONG Ng8P2Vv"],
+imgurdongAScga26: [':AScga26:', 'http://i.imgur.com/AScga26.jpg', "EXPAND DONG AScga26"],
+imgurdongRtnXPSc: [':RtnXPSc:', 'http://i.imgur.com/RtnXPSc.jpg', "EXPAND DONG RtnXPSc"],
+imgurdonguFNPVMN: [':uFNPVMN:', 'http://i.imgur.com/uFNPVMN.jpg', "EXPAND DONG uFNPVMN"],
+imgurdongagtHxDU: [':agtHxDU:', 'http://i.imgur.com/agtHxDU.jpg', "EXPAND DONG agtHxDU"],
+imgurdongITi1XAI: [':ITi1XAI:', 'http://i.imgur.com/ITi1XAI.jpg', "EXPAND DONG ITi1XAI"],
+imgurdong2aSBhVZ: [':2aSBhVZ:', 'http://i.imgur.com/2aSBhVZ.jpg', "EXPAND DONG 2aSBhVZ"],
+imgurdongak7Is71: [':ak7Is71:', 'http://i.imgur.com/ak7Is71.jpg', "EXPAND DONG ak7Is71"],
+imgurdongkXYUEc4: [':kXYUEc4:', 'http://i.imgur.com/kXYUEc4.jpg', "EXPAND DONG kXYUEc4"],
+imgurdongE1HYLvI: [':E1HYLvI:', 'http://i.imgur.com/E1HYLvI.jpg', "EXPAND DONG E1HYLvI"]
 };
 
 var emoticon_2 = {
