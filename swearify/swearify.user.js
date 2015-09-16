@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.39
+// @version     2.9.40
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -321,7 +321,7 @@ var emoticon_1 = {
   kingpepe: [':kingpepe:', 'http://i.imgur.com/xBangFX.png', "KING PEPE"],
   scottip: [':scottip:', 'http://i.imgur.com/MNIXehT.png', "SCOTTISH TIP"],
   FBPEPE: [':fbpepe:', 'http://i.imgur.com/IFJctH7.png', "FACEBOOK PEPE"],
-  ayylmaos: [':ayylmaos:', 'http://i.imgur.com/QLr8rvH.png', "AYY LMAO'S :DD:D"],
+  ayylmaos: [':ayylmaos:', 'http://i.imgur.com/QLr8rvH.png', "AYY LMAO\'S :DD:D"],
   dinoman: [':dinoman:', 'http://i.imgur.com/KmoEbws.png', "DINO MAN"],
   thinkpepe: [':thinkpepe:', 'http://i.imgur.com/huzfTk2.png', "THINKING PEPE"],
   dontgeb: [':dontgeb:', 'http://i.imgur.com/XNxeYDS.png', "I DONT GEB ID :DD:D"],
