@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.35
+// @version     2.9.36
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -327,7 +327,8 @@ var emoticon_1 = {
   dontgeb: [':dontgeb:', 'http://i.imgur.com/XNxeYDS.png', "I DONT GEB ID :DD:D"],
   fuckbirb: [':fuckbirb:', 'http://i.imgur.com/uH0D0PR.png', "FUCK NICE THINGS"],
   osnap: [':osnap:', 'http://i.imgur.com/Zdl0xsV.png', "O SNAP"],
-  wlaugh: [':wlaugh:', 'http://i.imgur.com/inUpCaV.png', "WORRIED LAUGHTER"]
+  wlaugh: [':wlaugh:', 'http://i.imgur.com/inUpCaV.png', "WORRIED LAUGHTER"],
+  moonface: [':moonface:', 'http://i.imgur.com/9gJYVAk.png', "MOON FACE"]
 };
 
 var emoticon_2 = {
@@ -638,7 +639,8 @@ var maymay = {
   faceroll: [':faceroll:', '(._.) ( l: ) ( .-. ) ( :l ) (._.)'],
   tablefix: [':tablefix:', '┬──┬ ノ( ゜-゜ノ)'],
   wellmemed: [':memed', '[IMG]http://i58.tinypic.com/2s8o4g8.png[/IMG]'],
-  gottago: [':gofast:', '[scroll][font=Comic Sans MS][size=26][blur][color=green][i]GOTTA GO FAST[/i][/color][/blur][/size][/font]<br>[img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][/scroll]']
+  gottago: [':gofast:', '[scroll][font=Comic Sans MS][size=26][blur][color=green][i]GOTTA GO FAST[/i][/color][/blur][/size][/font]<br>[img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][/scroll]'],
+  destroy: [':destroy:', '[size=26]DESTROY[/size][size=23]DESTROY[/size][size=20]DESTROY[/size][size=17]DESTROY[/size][size=14]DESTROY[/size][size=11]DESTROY[/size][size=9]DESTROY[/size][size=6]DESTROY[/size][size=3]DESTROY[/size]']
 };
 ///////
 ///////EXTRA FILTERING CODE
