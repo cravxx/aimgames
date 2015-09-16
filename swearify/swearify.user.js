@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.42
+// @version     2.9.44
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -329,9 +329,13 @@ var emoticon_1 = {
   osnap: [':osnap:', 'http://i.imgur.com/Zdl0xsV.png', "O SNAP"],
   wlaugh: [':wlaugh:', 'http://i.imgur.com/inUpCaV.png', "WORRIED LAUGHTER"],
   moonface: [':moonface:', 'http://i.imgur.com/9gJYVAk.png', "MOON FACE"],
-  
-  //begin injected dong emotes
-  imgurdongY21xRGc: [':Y21xRGc:', 'http://i.imgur.com/Y21xRGc.jpg', "EXPAND DONG Y21xRGc"],
+  delsys32: [':delsys32:', 'http://i.imgur.com/FYB9CRt.gif', "DELETE SYSTEM32"],
+  falco: [':falco:', 'http://i62.tinypic.com/357n98i.png', "THAT MOTHERFUCKER FROM STAR FOX"],
+  kirby: [':kirby:', 'http://i57.tinypic.com/1589tgh.png', "FAT NIGGER WHO EATS PEOPLE"],
+};
+
+var emoticon_3 = {
+imgurdongY21xRGc: [':Y21xRGc:', 'http://i.imgur.com/Y21xRGc.jpg', "EXPAND DONG Y21xRGc"],
 imgurdongfqgiO3C: [':fqgiO3C:', 'http://i.imgur.com/fqgiO3C.jpg', "EXPAND DONG fqgiO3C"],
 imgurdongArbkDMd: [':ArbkDMd:', 'http://i.imgur.com/ArbkDMd.jpg', "EXPAND DONG ArbkDMd"],
 imgurdongoeNPAcI: [':oeNPAcI:', 'http://i.imgur.com/oeNPAcI.jpg', "EXPAND DONG oeNPAcI"],
@@ -715,7 +719,7 @@ var cssChat = "overflow-x: hidden; left:141px;"; // / white-space: nowrap;
 ///////
 ///////CODE FOR EXTRA SMILIE INJECT
 var smilie_header_html =
-  "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify 1</option><option value='2'>Swearify 2</option>";
+  "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify 1</option><option value='2'>Swearify Rage Faces</option><option value='3'>Swearify Dongs</option>";
 var td_base =
   "<td><a href='javascript:insert_chatboxsmilie(_smilie)'><img title='_title' src='_link' alt='_title' border='0'></a></td>";
 var td_array = "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
@@ -890,6 +894,15 @@ function emoticon_() {
       document.getElementById("message").value = new_msg;
     }
   }
+  for (var i = 0; i < Object.keys(emoticon_3).length; i++) {
+    var old_msg = document.getElementById("message").value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], "gi"));
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], "gi"), img_tag[0] + values(emoticon_3)[i][1] +
+                                               img_tag[1]);
+      document.getElementById("message").value = new_msg;
+    }
+  }
 }
 
 function emoticon_post() {
@@ -915,6 +928,20 @@ function emoticon_post() {
 	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
 	    if (index_num >= 0) {
 	      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
+	        img_tag[1]);
+	      if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
+	        new_msg;
+	      else document.getElementsByTagName("textarea")[1].value = new_msg;
+	    }
+  }
+  for (var i = 0; i < Object.keys(emoticon_3).length; i++) {
+	    var old_msg = "";
+	    if (document.getElementsByTagName("textarea")[1] === undefined) old_msg = document.getElementsByTagName("textarea")[
+	      0].value;
+	    else old_msg = document.getElementsByTagName("textarea")[1].value;
+	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], "gi"));
+	    if (index_num >= 0) {
+	      var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], "gi"), img_tag[0] + values(emoticon_3)[i][1] +
 	        img_tag[1]);
 	      if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
 	        new_msg;
@@ -1779,6 +1806,20 @@ function inject_smilie(i) {
     	        .innerHTML = the_base(quote + values(emoticon_2)[x][0] + quote, values(emoticon_2)[x][1], values(emoticon_2)[x][2]);
     	      counter++;
     	    }
+    }else if(i == 3){
+    	for (var x = 0; x < Object.keys(emoticon_3).length; x++) {
+    	      // console.log(counter + " " + coconut + " " + x);
+    	      if (counter == 8) {
+    	        counter = 0;
+    	        coconut++;
+    	        var the_tr = document.createElement("tr");
+    	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
+    	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
+    	      }
+    	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
+    	        .innerHTML = the_base(quote + values(emoticon_3)[x][0] + quote, values(emoticon_3)[x][1], values(emoticon_3)[x][2]);
+    	      counter++;
+    	    }
     }
   }
 }
@@ -1818,6 +1859,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
   else {
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=1&mode=smilies") inject_smilie(1);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=2&mode=smilies") inject_smilie(2);
+    if (window.location.href === "http://aimgames.forummotion.com/post?categ=3&mode=smilies") inject_smilie(3);
     if (window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?page=front&" || window.location
       .href === "http://aimgames.forummotion.com/chatbox/index.forum" || window.location.href ===
       "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href ===
