@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.69
+// @version     2.9.70
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -331,7 +331,8 @@ var emoticon_1 = {
   moonface: [':moonface:', 'http://i.imgur.com/9gJYVAk.png', "MOON FACE"],
   delsys32: [':delsys32:', 'http://i.imgur.com/FYB9CRt.gif', "DELETE SYSTEM32"],
   falco: [':falco:', 'http://i62.tinypic.com/357n98i.png', "THAT MOTHERFUCKER FROM STAR FOX"],
-  kirby: [':kirby:', 'http://i57.tinypic.com/1589tgh.png', "FAT NIGGER WHO EATS PEOPLE"]
+  kirby: [':kirby:', 'http://i57.tinypic.com/1589tgh.png', "FAT NIGGER WHO EATS PEOPLE"],
+  cenastruggle: [':cenastruggle:', 'http://i.imgur.com/yi44U9z.png', "GO JOHN CENA CENA STRONG"]
 };
 
 var emoticon_2 = {
