@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.50
+// @version     2.9.51
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1542,6 +1542,24 @@ function sekrit_() {
     new_msg = new_msg.replace(/america/gi, 'brazil');
     new_msg = new_msg.replace(/ireland/gi, 'africa');
     new_msg = new_msg.replace(/britain/gi, 'sorry, i\'m afraid john cena is not a planet');
+    new_msg = new_msg.replace(/stage maker/gi, 'men\'s rights activist');
+    new_msg = new_msg.replace(/nigger/gi, 'kike');
+    new_msg = new_msg.replace(/venomalix/gi, 'niger');
+    new_msg = new_msg.replace(/sano/gi, 'insano');
+    new_msg = new_msg.replace(/mcroger/gi, 'dildo');
+    new_msg = new_msg.replace(/prayers/gi, 'highlander');
+    new_msg = new_msg.replace(/avalanche/gi, 'avalanche of dicks');
+    new_msg = new_msg.replace(/sinfulbliss/gi, 'pissing fetish');
+    new_msg = new_msg.replace(/sin/gi, 'pissing fetish');
+    new_msg = new_msg.replace(/dad/gi, 'darth vader');
+    new_msg = new_msg.replace(/mom/gi, 'rammstein');
+    new_msg = new_msg.replace(/isis/gi, 'allahu akbar');
+    new_msg = new_msg.replace(/backflipbadger/gi, 'big boobed');
+    new_msg = new_msg.replace(/reddit/gi, 'porn site');
+    new_msg = new_msg.replace(/legnak/gi, 'drunk fat trucker');
+    new_msg = new_msg.replace(/rad1/gi, 'dick.rad');
+    new_msg = new_msg.replace(/black dragon/gi, 'guy that pretends to be a book writer');
+    new_msg = new_msg.replace(/wb /gi, 'i wanna fuck '); // leave the space
     document.getElementById("message").value = new_msg;
   }
 }
@@ -1599,6 +1617,24 @@ function sekrit_post() {
     new_msg = new_msg.replace(/america/gi, 'brazil');
     new_msg = new_msg.replace(/ireland/gi, 'africa');
     new_msg = new_msg.replace(/britain/gi, 'sorry, i\'m afraid john cena is not a planet');
+    new_msg = new_msg.replace(/stage maker/gi, 'men\'s rights activist');
+    new_msg = new_msg.replace(/nigger/gi, 'kike');
+    new_msg = new_msg.replace(/venomalix/gi, 'niger');
+    new_msg = new_msg.replace(/sano/gi, 'insano');
+    new_msg = new_msg.replace(/mcroger/gi, 'dildo');
+    new_msg = new_msg.replace(/prayers/gi, 'highlander');
+    new_msg = new_msg.replace(/avalanche/gi, 'avalanche of dicks');
+    new_msg = new_msg.replace(/sinfulbliss/gi, 'pissing fetish');
+    new_msg = new_msg.replace(/sin/gi, 'pissing fetish');
+    new_msg = new_msg.replace(/dad/gi, 'darth vader');
+    new_msg = new_msg.replace(/mom/gi, 'rammstein');
+    new_msg = new_msg.replace(/isis/gi, 'allahu akbar');
+    new_msg = new_msg.replace(/backflipbadger/gi, 'big boobed');
+    new_msg = new_msg.replace(/reddit/gi, 'porn site');
+    new_msg = new_msg.replace(/legnak/gi, 'drunk fat trucker');
+    new_msg = new_msg.replace(/rad1/gi, 'dick.rad');
+    new_msg = new_msg.replace(/black dragon/gi, 'guy that pretends to be a book writer');
+    new_msg = new_msg.replace(/wb /gi, 'i wanna fuck '); // leave the space
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         msg_ray.join('<br />');
