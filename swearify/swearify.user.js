@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.57
+// @version     2.9.58
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1884,8 +1884,12 @@ function sekrit_() {
     new_msg = new_msg.replace(/ers /gi, 'as\'');
     new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
     new_msg = new_msg.replace(/your/gi, 'yur');
-    for (i = 0; i < endings.length; i++) new_msg.replace('.', endings[i]);
-    for (i = 0; i < Object.keys(replacements).length; i++) new_msg.replace(new RegExp(replacements[i][0], "gi"), replacements[i][1]);
+    try {
+      for (i = 0; i < endings.length; i++) new_msg.replace('.', endings[i]);
+      for (i = 0; i < Object.keys(replacements).length; i++) new_msg.replace(new RegExp(replacements[i][0], "gi"), replacements[i][1]);
+    } catch (e) {
+    	print('OH NO');
+    }
     document.getElementById("message").value = new_msg;
   }
 }
@@ -2045,8 +2049,12 @@ function sekrit_post() {
     new_msg = new_msg.replace(/ers /gi, 'as\'');
     new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
     new_msg = new_msg.replace(/your/gi, 'yur');
+    try {
     for (i = 0; i < endings.length; i++) new_msg.replace('.', endings[i]);
     for (i = 0; i < Object.keys(replacements).length; i++) new_msg.replace(new RegExp(replacements[i][0], "gi"), replacements[i][1]);
+    } catch (e) {
+    	print('OH NO');
+    }
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         msg_ray.join('<br />');
