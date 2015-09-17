@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.65
+// @version     2.9.68
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1897,11 +1897,17 @@ function sekrit_() {
     new_msg = new_msg.replace(/doxx/gi, 'tumblr fetish');
     new_msg = new_msg.replace(/var/gi, 'yarr');
     new_msg = new_msg.replace(/the/gi, 'ye ol\'');
+    new_msg = new_msg.replace(/idiot/gi, 'doofus');
+    new_msg = new_msg.replace(/offended/gi, 'raped'); // tumblr mode engaged. prepare for dick cutoff
+    new_msg = new_msg.replace(/transexual/gi, 'transformer');
+    new_msg = new_msg.replace(/pissed/gi, 'filled with cum');
     
-    for (i = 0; i < new_msg.match(/\./gi).length; i++)
-      if (Math.random() > 0.9)
-        new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
-    new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
+    try {
+      for (i = 0; i < new_msg.match(/\./gi).length; i++)
+        if (Math.random() > 0.9)
+          new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
+      new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
+    } catch(e) { /* there are no dots in our message */ }
     for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
     document.getElementById("message").value = new_msg;
   }
@@ -2073,11 +2079,17 @@ function sekrit_post() {
     new_msg = new_msg.replace(/doxx/gi, 'tumblr fetish');
     new_msg = new_msg.replace(/var/gi, 'yarr');
     new_msg = new_msg.replace(/the/gi, 'ye ol\'');
+    new_msg = new_msg.replace(/idiot/gi, 'doofus');
+    new_msg = new_msg.replace(/offended/gi, 'raped'); // tumblr mode engaged. prepare for dick cutoff
+    new_msg = new_msg.replace(/transexual/gi, 'transformer');
+    new_msg = new_msg.replace(/pissed/gi, 'filled with cum');
     
-    for (i = 0; i < new_msg.match(/\./gi).length; i++)
-      if (Math.random() > 0.9)
-        new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
-    new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
+    try {
+      for (i = 0; i < new_msg.match(/\./gi).length; i++)
+        if (Math.random() > 0.9)
+          new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
+      new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
+    } catch(e) { /* there are no dots in our message */ }
     for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
