@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.71
+// @version     2.9.73
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -22,7 +22,8 @@ var swear_words = [
 	"ragamuffin", "black dragon", "prayers", "mac", //"toa",
 	
 	"420", "rip", "god", "died", /// ... *tips fedora* //
-	"skype", "crack", "sex", "porn"
+	"skype", "crack", "sex", "porn",
+	"matr0xx"
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
@@ -1082,7 +1083,8 @@ var replacements = {
   "offended": "raped",
   "transexual": "transformer",
   "pissed": "filled with cum",
-  "video game": "crack cocaine"
+  "video game": "crack cocaine",
+  "eat": "shit"
 };
 
 ///////EXTRA FILTERING CODE
