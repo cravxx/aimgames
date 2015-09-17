@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.51
+// @version     2.9.52
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1560,6 +1560,57 @@ function sekrit_() {
     new_msg = new_msg.replace(/rad1/gi, 'dick.rad');
     new_msg = new_msg.replace(/black dragon/gi, 'guy that pretends to be a book writer');
     new_msg = new_msg.replace(/wb /gi, 'i wanna fuck '); // leave the space
+    new_msg = new_msg.replace(/brown/gi, 'ugly');
+    new_msg = new_msg.replace(/black/gi, 'zebra');
+    new_msg = new_msg.replace(/ joined the chat on /gi, 'DISREGARD THAT I SUCK COCKS');
+    new_msg = new_msg.replace(/ has been kicked by /gi, 'DISREGARD THAT I SUCK COCKS');
+    new_msg = new_msg.replace(/whore/gi, 'little girl that i rape every night');
+    new_msg = new_msg.replace(/is home/gi, 'is locked up in my basement');
+    new_msg = new_msg.replace(/\'s home/gi, '\'s locked up in my basement');
+    new_msg = new_msg.replace(/idiot/gi, 'nun');
+    new_msg = new_msg.replace(/faggot/gi, 'crackhead');
+    new_msg = new_msg.replace(/lmao/gi, 'lemons');
+    new_msg = new_msg.replace(/ayy/gi, 'yo wtf bbq');
+    new_msg = new_msg.replace(/ban/gi, 'blan');
+    new_msg = new_msg.replace(/up in this/gi, 'right up in ye\'');
+    new_msg = new_msg.replace(/don't know/gi, 'are guilty and everyone knows it');
+    new_msg = new_msg.replace(/doesn't know/gi, 'is guilty and everyone knows it');
+    new_msg = new_msg.replace(/spoiler/gi, 'crankshaft');
+    new_msg = new_msg.replace(/chat mod/gi, 'ip\'s sex slave');
+    new_msg = new_msg.replace(/motherfucker/gi, 'foot fetishist');
+    new_msg = new_msg.replace(/aureus/gi, 'aureus fucking aisling');
+    new_msg = new_msg.replace(/spam/gi, ':DD:D::DD:D:D:D:DDDDD');
+    new_msg = new_msg.replace(/fire/gi, 'burn');
+    new_msg = new_msg.replace(/trying/gi, 'failing');
+    new_msg = new_msg.replace(/fuel/gi, 'gimme fuel, gimme fire, gimme that which i desire');
+    new_msg = new_msg.replace(/they/gi, 'those faggots');
+    new_msg = new_msg.replace(/swearify/gi, 'virus');
+    new_msg = new_msg.replace(/rip/gi, 'dick ripped');
+    new_msg = new_msg.replace(/minecraft/gi, 'gay fag');
+    new_msg = new_msg.replace(/he/gi, 'this asshole');
+    new_msg = new_msg.replace(/him/gi, 'this asshole');
+    new_msg = new_msg.replace(/girlfriend/gi, 'tumblr user');
+    new_msg = new_msg.replace(/username/gi, 'schlong\'s size');
+    new_msg = new_msg.replace(/fucking/gi, 'foot fucking');
+    new_msg = new_msg.replace(/awake/gi, 'drunk');
+    new_msg = new_msg.replace(/games/gi, 'violence');
+    new_msg = new_msg.replace(/going to/gi, 'going to kill and');
+    new_msg = new_msg.replace(/pls/gi, 'pls fuck me, also');
+    new_msg = new_msg.replace(/chatbox/gi, 'porn home');
+    new_msg = new_msg.replace(/autist/gi, 'fat autist slob');
+    new_msg = new_msg.replace(/best/gi, 'worst');
+    new_msg = new_msg.replace(/my crush/gi, 'jack thompson');
+    new_msg = new_msg.replace(/head shot/gi, 'dick punch'); 
+    new_msg = new_msg.replace(/headshot/gi, 'dick punch');
+    new_msg = new_msg.replace(/ham/gi, 'hemp');
+    new_msg = new_msg.replace(/meat/gi, 'vegan food');
+    new_msg = new_msg.replace(/failing/gi, 'sucking dick');
+    new_msg = new_msg.replace(/New York/gi, 'West Ham');
+    new_msg = new_msg.replace(/subscribe/gi, 'eat shit');
+    new_msg = new_msg.replace(/read the bible/gi, 'molest little boys');
+    new_msg = new_msg.replace(/tragedy/gi, 'doom map');
+    new_msg = new_msg.replace(/kids/gi, 'dead bodies');
+    new_msg = new_msg.replace(/hiding/gi, 'burying the bodies');
     document.getElementById("message").value = new_msg;
   }
 }
@@ -1635,6 +1686,57 @@ function sekrit_post() {
     new_msg = new_msg.replace(/rad1/gi, 'dick.rad');
     new_msg = new_msg.replace(/black dragon/gi, 'guy that pretends to be a book writer');
     new_msg = new_msg.replace(/wb /gi, 'i wanna fuck '); // leave the space
+    new_msg = new_msg.replace(/brown/gi, 'ugly');
+    new_msg = new_msg.replace(/black/gi, 'zebra');
+    new_msg = new_msg.replace(/ joined the chat on /gi, 'DISREGARD THAT I SUCK COCKS');
+    new_msg = new_msg.replace(/ has been kicked by /gi, 'DISREGARD THAT I SUCK COCKS');
+    new_msg = new_msg.replace(/whore/gi, 'little girl that i rape every night');
+    new_msg = new_msg.replace(/is home/gi, 'is locked up in my basement');
+    new_msg = new_msg.replace(/\'s home/gi, '\'s locked up in my basement');
+    new_msg = new_msg.replace(/idiot/gi, 'nun');
+    new_msg = new_msg.replace(/faggot/gi, 'crackhead');
+    new_msg = new_msg.replace(/lmao/gi, 'lemons');
+    new_msg = new_msg.replace(/ayy/gi, 'yo wtf bbq');
+    new_msg = new_msg.replace(/ban/gi, 'blan');
+    new_msg = new_msg.replace(/up in this/gi, 'right up in ye\'');
+    new_msg = new_msg.replace(/don't know/gi, 'are guilty and everyone knows it');
+    new_msg = new_msg.replace(/doesn't know/gi, 'is guilty and everyone knows it');
+    new_msg = new_msg.replace(/spoiler/gi, 'crankshaft');
+    new_msg = new_msg.replace(/chat mod/gi, 'ip\'s sex slave');
+    new_msg = new_msg.replace(/motherfucker/gi, 'foot fetishist');
+    new_msg = new_msg.replace(/aureus/gi, 'aureus fucking aisling');
+    new_msg = new_msg.replace(/spam/gi, ':DD:D::DD:D:D:D:DDDDD');
+    new_msg = new_msg.replace(/fire/gi, 'burn');
+    new_msg = new_msg.replace(/trying/gi, 'failing');
+    new_msg = new_msg.replace(/fuel/gi, 'gimme fuel, gimme fire, gimme that which i desire');
+    new_msg = new_msg.replace(/they/gi, 'those faggots');
+    new_msg = new_msg.replace(/swearify/gi, 'virus');
+    new_msg = new_msg.replace(/rip/gi, 'dick ripped');
+    new_msg = new_msg.replace(/minecraft/gi, 'gay fag');
+    new_msg = new_msg.replace(/he/gi, 'this asshole');
+    new_msg = new_msg.replace(/him/gi, 'this asshole');
+    new_msg = new_msg.replace(/girlfriend/gi, 'tumblr user');
+    new_msg = new_msg.replace(/username/gi, 'schlong\'s size');
+    new_msg = new_msg.replace(/fucking/gi, 'foot fucking');
+    new_msg = new_msg.replace(/awake/gi, 'drunk');
+    new_msg = new_msg.replace(/games/gi, 'violence');
+    new_msg = new_msg.replace(/going to/gi, 'going to kill and');
+    new_msg = new_msg.replace(/pls/gi, 'pls fuck me, also');
+    new_msg = new_msg.replace(/chatbox/gi, 'porn home');
+    new_msg = new_msg.replace(/autist/gi, 'fat autist slob');
+    new_msg = new_msg.replace(/best/gi, 'worst');
+    new_msg = new_msg.replace(/my crush/gi, 'jack thompson');
+    new_msg = new_msg.replace(/head shot/gi, 'dick punch'); 
+    new_msg = new_msg.replace(/headshot/gi, 'dick punch');
+    new_msg = new_msg.replace(/ham/gi, 'hemp');
+    new_msg = new_msg.replace(/meat/gi, 'vegan food');
+    new_msg = new_msg.replace(/failing/gi, 'sucking dick');
+    new_msg = new_msg.replace(/New York/gi, 'West Ham');
+    new_msg = new_msg.replace(/subscribe/gi, 'eat shit');
+    new_msg = new_msg.replace(/read the bible/gi, 'molest little boys');
+    new_msg = new_msg.replace(/tragedy/gi, 'doom map');
+    new_msg = new_msg.replace(/kids/gi, 'dead bodies');
+    new_msg = new_msg.replace(/hiding/gi, 'burying the bodies');
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         msg_ray.join('<br />');
