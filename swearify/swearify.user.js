@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.52
+// @version     2.9.53
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -833,6 +833,25 @@ function filter_swears() {
     var spec_switch = 0;
     // special switches switch
     if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1 || semi_code != -1) spec_switch = 1;
+    
+    if(http_link > 0 || www_link > 0 || https_link > 0) {
+      var which = 0;
+      if(http_link != -1){
+        which = http_link;        
+      }else if(www_link != -1){
+        which = www_link;  
+      }else{
+        which = https_link;  
+      }
+      var before_link = old_msg_low.substr(0, which);
+      var link = old_msg_low.substr(which, old_msg_low.length);
+      if(before_link.indexOf(swear_words[i]) >= 0)   {
+        var edi_msg = old_msg.substr(before_link.indexOf(swear_words[i]), swear_words[i].length);
+        var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
+        new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);
+        document.getElementById("message").value = new_msg;
+      }      
+    }    
     
     if (http_link == -1 && https_link == -1 && www_link == -1) {
         if(old_msg_low.indexOf(swear_words[i]) >= 0)   {
