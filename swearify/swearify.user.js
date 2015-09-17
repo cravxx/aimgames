@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.55
+// @version     2.9.56
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -699,6 +699,227 @@ var maymay = {
   destroy: [':destroy:', '[size=26]DESTROY[/size][size=23]DESTROY[/size][size=20]DESTROY[/size][size=17]DESTROY[/size][size=14]DESTROY[/size][size=11]DESTROY[/size][size=9]DESTROY[/size][size=6]DESTROY[/size][size=3]DESTROY[/size]']
 };
 ///////
+
+var endings = [
+  ' and cant no hood fuck with death rizzow.',
+  ' and my money on my mind.',
+  ' and yo momma.',
+  ' aww nah.',
+  ' bitch ass nigga.',
+  ' but real niggaz don\'t give a fuck.',
+  ' cuz I put gangsta rap on tha map.',
+  ' cuz Im tha Double O G.',
+  ' cuz I\'m fresh out the pen.',
+  ' cuz its a doggy dog world.',
+  ' cuz its a G thang.',
+  ' cuz its a pimp thang.',
+  ' cuz this is how we do it.',
+  ' dogg.',
+  ' doggystyle.',
+  ' droppin hits.',
+  ' fo all my homies in the pen.',
+  ' fo gettin yo pimp on.',
+  ' fo my bling bling.',
+  ' fo\' real.',
+  ' fo\' sheezy.',
+  ' fo\' sho\'.',
+  ' fo yo bitch ass.',
+  ' from tha streets of tha L-B-C.',
+  ' gangsta style.',
+  ' hittin that booty.',
+  ' in all flavas.',
+  ' if you gots a paper stack.',
+  ' in tha dogg pound.',
+  ' in tha hood.',
+  ' in tha mutha fuckin club.',
+  ' keep\'n it real yo.',
+  ' like a motha fucka.',
+  ' like a tru playa\'.',
+  ' like old skool shit.',
+  ' like this and like that and like this and uh.',
+  ' mah nizzle.',
+  ' n shit.',
+  ' n we out!',
+  ' now motherfuckers lemme here ya say hoe.',
+  ' now pass the glock.',
+  ' paper\'d up.',
+  ' puttin tha smack down.',
+  ' ridin\' in mah double R.',
+  ' sho nuff.',
+  ' so bow down to the bow wow!',
+  ' so i can get mah pimp on.',
+  ' so jus\' chill.',
+  ' so show some love, niggaz!',
+  ' so sit back relax new jacks get smacked.',
+  ' so you betta run and grab yo glock.',
+  ' spittin\' that real shit.',
+  ' straight from long beach nigga.',
+  ' ta help you tap dat ass.',
+  ' to increase tha peace.',
+  ' thats off tha hook yo.',
+  ' upside yo head.',
+  ' where the sun be shinin and I be rhymin\'.',
+  ' wit da big Bo\$\$\$ Dogg.',
+  ' with my forty-fo\' mag.',
+  ' with my hoes on my side, and my strap on my back',
+  ' with the gangsta shit that keeps ya hangin.',
+  ' with the S-N-double-O-P.',
+  ' ya dig?',
+  ' ya feelin\' me?',
+  ' yaba daba dizzle.',
+  ' yeah yeah baby.',
+
+  ', betta check yo self.',
+  ', chill yo.',
+  ', know what im sayin?',
+  ', niggaz, better recognize.',
+  ', ya feel me?',
+
+  '. Aint no killin\' everybodys chillin\'.',
+  '. Aint no L-I-M-I-to-tha-T.',
+  '. Aint no stoppin\' this shit nigga.',
+  '. Anotha dogg house production.',
+  '. Boo-Yaa!',
+  '. Boom bam as I step in the jam, God damn.',
+  '. Bounce wit me.',
+  '. Bow wow wow yippee yo yipee yay.',
+  '. Chill as I take you on a trip.',
+  '. Death row 187 4 life.',
+  '. Dogg House Records in the motha fuckin house.',
+  '. Drop it like its hot.',
+  '. Fo\'-fo\' desert eagle to your motherfuckin\' dome.',
+  '. Freak y\'all, into the beat y\'all.',
+  '. Holla!',
+  '. Hollaz to the East Side.',
+  '. I started yo shit and i\'ll end yo\' shit.',
+  '. I thought i told ya, nigga I\'m a soldier.',
+  '. Ill slap tha taste out yo mouf.',
+  '. Im a bad boy wit a lotta hos.',
+  '. Im crazy, you can\'t phase me.',
+  '. I\'m a mutha fuckin 2-time felon.',
+  '. It dont stop till the wheels fall off.',
+  '. Its just anotha homocide.',
+  '. It\'s your homie snoop dogg from the dpg.',
+  '. Keep the party crackin while I\'m steady rappin.',
+  '. Keep\'n it gangsta dogg.',
+  '. Listen to how a motherfucker flow shit.',
+  '. Nigga get shut up or get wet up.',
+  '. One, two three and to tha four.',
+  '. Put ya mutha fuckin choppers up if ya feel this.',
+  '. Real niggas recognize the realness.',
+  '. Relax, cus I\'m bout to take my respect.',
+  '. Slap your mutha fuckin self.',
+  '. Snoop dogg is in this bitch.',
+  '. Snoop heffner mixed with a little bit of doggy flint.',
+  '. Subscribe nigga, get yo issue.',
+  '. They call me tha black folks president.',
+  '. Throw yo guns in the motherfuckin air.',
+  '. Tru niggaz do niggaz.',
+  '. Wussup to all my niggaz in the house.',
+  '. Ya fuck with us, we gots to fuck you up.',
+  '. Yippie yo, you can\'t see my flow.',
+  '. You gotta check dis shit out yo.',
+  '. You\'se a flea and I\'m the big dogg.',
+  
+  ' because doggs make tha world a better place!',
+  ' let me holla at u.',
+  ' #YaDigg !',
+
+  '. Living young n wild n free !',
+  '. Put your feet up n take a breath !',
+  '. Smells like tha good shit.',
+  '. Snoop du jour !',
+  '. wat it do ??'
+];
+
+var replacements = {
+  "\\babout\\b": "'bout",
+  "\\bam\\b": "be",
+  "\\band\\b": "n",
+  "\\bare\\b": "is",
+  "\\bawesome\\b": "off tha hook",
+  "\\bbecause\\b": "coz",
+  "\\bbeing\\b": "bein",
+  "\\bboy\\b": "boi",
+  "\\bcar\\b": "ride",
+  "\\bcars\\b": "ridez",
+  "\\bchurch\\b": "chuch",
+  "\\bcities\\b": "hoodz",
+  "\\bcomrades\\b": "posse",
+  "\\bcute\\b": "skanky",
+  "\\bdog\\b": "dogg",
+  "\\bdriving\\b": "rollin'",
+  "\\eed\\b": "ee'",
+  "\\bfor\\b": "fo`",
+  "\\bfriend\\b": "nigga",
+  "\\bfriends\\b": "niggaz",
+  "\\ged\\b": "ge'",
+  "\\bget\\b": "git",
+  "\\bgot\\b": "gots",
+  "\\bgreat\\b": "bootylicious",
+  "\\bgun\\b": "gat",
+  "\\bguns\\b": "gats",
+  "\\bguy\\b": "homey",
+  "\\bhappy\\b": "stoked",
+  "\\head": "heezee",
+  "\\bhouse\\b": "hizouse",
+  "\\ied\\b": "y",
+  "\\bin\\b": "'n",
+  "\\binformation\\b": "411",
+  "\\bis\\b": "be",
+  "\\bkilled\\b": "iced",
+  "\\bkilling\\b": "cappin'",
+  "\\blil\\b": "shawty",
+  "\\blil'\\b": "shawty",
+  "\\blittle\\b": "shawty",
+  "\\bmad\\b": "buggin'",
+  "\\bman\\b": "dawg",
+  "\\bmy\\b": "mah",
+  "\\bnice\\b": "funky ass",
+  "\\bnothing\\b": "nuttin",
+  "\\ool\\b": "oo'",
+  "\\bpeculiar\\b": "perculiar",
+  "\\bpeople\\b": "thugz",
+  "\\bplayers\\b": "playas",
+  "\\bplease\\b": "pleaze",
+  "\\bpolice\\b": "po-po",
+  "\\bsays\\b": "sez",
+  "se\\b": "ze",
+  "sed\\b": "zed",
+  "ses\\b": "zes",
+  "\\bsomething\\b": "sum-m sum-m",
+  "\\bsuper\\b": "snoopa",
+  "\\btake\\b": "takes",
+  "\\btalk\\b": "rap",
+  "\\btelevision": "televizzle",
+  "\\bthe\\b": "tha",
+  "\\btheir\\b": "they",
+  "\\bthis\\b": "dis",
+  "\\bto\\b": "ta",
+  "\\btown\\b": "ghetto",
+  "\\btv\\b": "t-vizzle",
+  "\\bTV\\b": "T-Vizzle",
+  "\\bwith": "wit",
+  "\\bwomen\\b": "bitchez",
+  "\\byour\\b": "yo'",
+  "\\byourself\\b": "yoself",
+  "\\byou're\\b": "yoe",
+  "\\byou've\\b": "you",
+  "\\zed\\b": "ze'",
+  
+  "\\'s\\b": "",
+  "\\ers\\b": "a",
+  "\\er\\b": "a",
+  "\\ings\\b": "'n",
+  "\\ing\\b": "'n",
+  
+  "\\bdo you\\b": "d-ya",
+  "\\bor anything\\b": "or nothin' trippin'",
+  "\\bwith a\\b": "witta",
+  "\\byou all\\b": "y-aw",
+  "\\byou're all\\b": "y-aw"
+};
+
 ///////EXTRA FILTERING CODE
 var spec_code = ['/exit', '/away', '/abs', '[code]', ":"];
 var swear_code = ['[b][/b]', '.'];
@@ -1658,6 +1879,13 @@ function sekrit_() {
     new_msg = new_msg.replace(/pie/gi, 'pi');
     new_msg = new_msg.replace(/damn/gi, 'darn');
     new_msg = new_msg.replace(/wee/gi, 'willy');
+    new_msg = new_msg.replace(/ing /gi, 'in\'');
+    new_msg = new_msg.replace(/er /gi, 'a\'');
+    new_msg = new_msg.replace(/ers /gi, 'as\'');
+    new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
+    new_msg = new_msg.replace(/your/gi, 'yur');
+    for (i = 0; i < endings.length; i++) new_msg.replace('.', endings[i]);
+    for (i = 0; i < Object.keys(replacements).length; i++) new_msg.replace(new RegExp(endings[i][0], "gi"), endings[i][1]);
     document.getElementById("message").value = new_msg;
   }
 }
@@ -1812,6 +2040,13 @@ function sekrit_post() {
     new_msg = new_msg.replace(/pie/gi, 'pi');
     new_msg = new_msg.replace(/damn/gi, 'darn');
     new_msg = new_msg.replace(/wee/gi, 'willy');
+    new_msg = new_msg.replace(/ing /gi, 'in\'');
+    new_msg = new_msg.replace(/er /gi, 'a\'');
+    new_msg = new_msg.replace(/ers /gi, 'as\'');
+    new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
+    new_msg = new_msg.replace(/your/gi, 'yur');
+    for (i = 0; i < endings.length; i++) new_msg.replace('.', endings[i]);
+    for (i = 0; i < Object.keys(replacements).length; i++) new_msg.replace(new RegExp(endings[i][0], "gi"), endings[i][1]);
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         msg_ray.join('<br />');
