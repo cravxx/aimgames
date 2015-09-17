@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.54
+// @version     2.9.55
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -334,59 +334,6 @@ var emoticon_1 = {
   kirby: [':kirby:', 'http://i57.tinypic.com/1589tgh.png', "FAT NIGGER WHO EATS PEOPLE"]
 };
 
-var emoticon_3 = {
-imgurdongY21xRGc: [':dongintensifies:', 'http://i.imgur.com/Y21xRGc.jpg', "dong intensifies"],
-imgurdongfqgiO3C: [':my3dpenis:', 'http://i.imgur.com/fqgiO3C.jpg', "my 3d penis"],
-imgurdongArbkDMd: [':expand:', 'http://i.imgur.com/ArbkDMd.jpg', "expand"],
-imgurdongoeNPAcI: [':expand2:', 'http://i.imgur.com/oeNPAcI.jpg', "expand 2"],
-imgurdongtYAbOEK: [':expand3:', 'http://i.imgur.com/tYAbOEK.jpg', "expand 3"],
-imgurdongflLSGR0: [':expand4:', 'http://i.imgur.com/flLSGR0.jpg', "expand 4"],
-imgurdongvuaw4uj: [':donkeysdongcockreturns:', 'http://i.imgur.com/vuaw4uj.jpg', "donkey\'s dong cock returns"],
-imgurdongWsJjI1E: [':poopscoop:', 'http://i.imgur.com/WsJjI1E.jpg', "poop scoop"],
-imgurdong7y1PZ44: [':hugetropicalorgy:', 'http://i.imgur.com/7y1PZ44.jpg', "huge tropical orgy"],
-imgurdongihzpHyH: [':analassault:', 'http://i.imgur.com/ihzpHyH.jpg', "anal assault"],
-imgurdongfjo5nmC: [':kirbystripledeluxedong:', 'http://i.imgur.com/fjo5nmC.jpg', "kirby\'s triple deluxe dong"],
-imgurdongxIbjyrV: [':erectpenis:', 'http://i.imgur.com/xIbjyrV.jpg', "erect penis"],
-imgurdongmRYvJI4: [':analmassacre:', 'http://i.imgur.com/mRYvJI4.jpg', "anal massacre"],
-imgurdongLQTSFfn: [':mariopoopsoutsand:', 'http://i.imgur.com/LQTSFfn.jpg', "mario poops out sand"],
-imgurdongme4YY9e: [':rectalrampage:', 'http://i.imgur.com/me4YY9e.jpg', "rectal rampage"],
-imgurdong0pv0vet: [':featurelength:', 'http://i.imgur.com/0pv0vet.jpg', "feature length"],
-imgurdongazKA6IF: [':dickfreeze:', 'http://i.imgur.com/azKA6IF.jpg', "dick freeze"],
-imgurdongOIghJUa: [':kirbydong:', 'http://i.imgur.com/OIghJUa.jpg', "kirby dong"],
-imgurdongiYMW6J2: [':ratchetdong:', 'http://i.imgur.com/iYMW6J2.jpg', "ratchet dong"],
-imgurdongtHHKYVp: [':ratchetdong2:', 'http://i.imgur.com/tHHKYVp.jpg', "ratchet dong 2"],
-//imgurdongI2dzif0: [':I2dzif0:', 'http://i.imgur.com/I2dzif0.jpg', "I2dzif0"],
-//imgurdongs1yPzBV: [':s1yPzBV:', 'http://i.imgur.com/s1yPzBV.jpg', "s1yPzBV"],
-imgurdongtTQ4gPh: [':giantfurrycockblast:', 'http://i.imgur.com/tTQ4gPh.jpg', "giant furry cock blast"],
-imgurdongqzquWaX: [':legendarynuts:', 'http://i.imgur.com/qzquWaX.jpg', "legendary nuts"],
-imgurdongEpFtLXq: [':dongstrong:', 'http://i.imgur.com/EpFtLXq.jpg', "dong strong"],
-imgurdongLLG1h6k: [':uwutm8:', 'http://i.imgur.com/LLG1h6k.jpg', "u wut m8"],
-imgurdongBbshOLd: [':idiotsheroes:', 'http://i.imgur.com/BbshOLd.jpg', "idiots heroes"],
-imgurdonggZO4oUl: [':penntrash:', 'http://i.imgur.com/gZO4oUl.jpg', "penn jilette trash"],
-imgurdonglRIdSx8: [':fuckingcasuals:', 'http://i.imgur.com/lRIdSx8.jpg', "fucking casuals"],
-imgurdong0z3SmD2: [':cancerdong:', 'http://i.imgur.com/0z3SmD2.jpg', "cancer dong"],
-imgurdongz0ii3nI: [':minionsdong:', 'http://i.imgur.com/z0ii3nI.jpg', "minions dong"],
-//imgurdongha5rqDd: [':ha5rqDd:', 'http://i.imgur.com/ha5rqDd.jpg', "ha5rqDd"],
-//imgurdongRWom78Q: [':RWom78Q:', 'http://i.imgur.com/RWom78Q.jpg', "RWom78Q"],
-imgurdongkv965M0: [':expansionpak:', 'http://i.imgur.com/kv965M0.jpg', "expansion pak"],
-imgurdongll5mzvy: [':dongnews:', 'http://i.imgur.com/ll5mzvy.jpg', "dong news"],
-imgurdonggXeBqOI: [':batdong:', 'http://i.imgur.com/gXeBqOI.jpg', "bat dong"],
-imgurdongoXxMcF0: [':captainunderdong:', 'http://i.imgur.com/oXxMcF0.jpg', "captain underdong"],
-imgurdongPkC0sSx: [':batmanrobindong:', 'http://i.imgur.com/PkC0sSx.jpg', "batman robin dong"],
-imgurdongd9o2Idt: [':fnaf:', 'http://i.imgur.com/d9o2Idt.jpg', "fnaf rape"],
-imgurdong6SXNd6T: [':wheresthedong:', 'http://i.imgur.com/6SXNd6T.jpg', "where\'s the dong"],
-imgurdongNg8P2Vv: [':erection:', 'http://i.imgur.com/Ng8P2Vv.jpg', "erection"],
-imgurdongAScga26: [':erectionrising:', 'http://i.imgur.com/AScga26.jpg', "erection rising"],
-imgurdongRtnXPSc: [':expand5:', 'http://i.imgur.com/RtnXPSc.jpg', "expand 5"],
-imgurdonguFNPVMN: [':expand6:', 'http://i.imgur.com/uFNPVMN.jpg', "expand 6"],
-//imgurdongagtHxDU: [':agtHxDU:', 'http://i.imgur.com/agtHxDU.jpg', "agtHxDU"],
-imgurdongITi1XAI: [':freedankcuntclotcrunch:', 'http://i.imgur.com/ITi1XAI.jpg', "free dank cunt clot crunch"],
-imgurdong2aSBhVZ: [':ponydong:', 'http://i.imgur.com/2aSBhVZ.jpg', "pony dong"],
-imgurdongak7Is71: [':dongsquidward:', 'http://i.imgur.com/ak7Is71.jpg', "dong squidward"],
-imgurdongkXYUEc4: [':suffermore:', 'http://i.imgur.com/kXYUEc4.jpg', "suffer more"],
-imgurdongE1HYLvI: [':packingabigschlong:', 'http://i.imgur.com/E1HYLvI.jpg', "packing a big schlong"]
-};
-
 var emoticon_2 = {
   memeimgxppLwr1: [':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', "meme imgur xppLwr1"],
   memeimgQjY2Bpn: [':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', "meme imgur QjY2Bpn"],
@@ -580,6 +527,59 @@ var emoticon_2 = {
   memeimgDQa5Hqp: [':DQa5Hqp:', 'http://i.imgur.com/DQa5Hqp.png', "meme imgur DQa5Hqp"],
   memeimg9p0ejrZ: [':9p0ejrZ:', 'http://i.imgur.com/9p0ejrZ.png', "meme imgur 9p0ejrZ"],
   memeimgkhJK3GM: [':khJK3GM:', 'http://i.imgur.com/khJK3GM.png', "meme imgur khJK3GM"]
+};
+
+var emoticon_3 = {
+	imgurdongY21xRGc: [':dongintensifies:', 'http://i.imgur.com/Y21xRGc.jpg', "dong intensifies"],
+	imgurdongfqgiO3C: [':my3dpenis:', 'http://i.imgur.com/fqgiO3C.jpg', "my 3d penis"],
+	imgurdongArbkDMd: [':expand:', 'http://i.imgur.com/ArbkDMd.jpg', "expand"],
+	imgurdongoeNPAcI: [':expand2:', 'http://i.imgur.com/oeNPAcI.jpg', "expand 2"],
+	imgurdongtYAbOEK: [':expand3:', 'http://i.imgur.com/tYAbOEK.jpg', "expand 3"],
+	imgurdongflLSGR0: [':expand4:', 'http://i.imgur.com/flLSGR0.jpg', "expand 4"],
+	imgurdongvuaw4uj: [':donkeysdongcockreturns:', 'http://i.imgur.com/vuaw4uj.jpg', "donkey\'s dong cock returns"],
+	imgurdongWsJjI1E: [':poopscoop:', 'http://i.imgur.com/WsJjI1E.jpg', "poop scoop"],
+	imgurdong7y1PZ44: [':hugetropicalorgy:', 'http://i.imgur.com/7y1PZ44.jpg', "huge tropical orgy"],
+	imgurdongihzpHyH: [':analassault:', 'http://i.imgur.com/ihzpHyH.jpg', "anal assault"],
+	imgurdongfjo5nmC: [':kirbystripledeluxedong:', 'http://i.imgur.com/fjo5nmC.jpg', "kirby\'s triple deluxe dong"],
+	imgurdongxIbjyrV: [':erectpenis:', 'http://i.imgur.com/xIbjyrV.jpg', "erect penis"],
+	imgurdongmRYvJI4: [':analmassacre:', 'http://i.imgur.com/mRYvJI4.jpg', "anal massacre"],
+	imgurdongLQTSFfn: [':mariopoopsoutsand:', 'http://i.imgur.com/LQTSFfn.jpg', "mario poops out sand"],
+	imgurdongme4YY9e: [':rectalrampage:', 'http://i.imgur.com/me4YY9e.jpg', "rectal rampage"],
+	imgurdong0pv0vet: [':featurelength:', 'http://i.imgur.com/0pv0vet.jpg', "feature length"],
+	imgurdongazKA6IF: [':dickfreeze:', 'http://i.imgur.com/azKA6IF.jpg', "dick freeze"],
+	imgurdongOIghJUa: [':kirbydong:', 'http://i.imgur.com/OIghJUa.jpg', "kirby dong"],
+	imgurdongiYMW6J2: [':ratchetdong:', 'http://i.imgur.com/iYMW6J2.jpg', "ratchet dong"],
+	imgurdongtHHKYVp: [':ratchetdong2:', 'http://i.imgur.com/tHHKYVp.jpg', "ratchet dong 2"],
+	//imgurdongI2dzif0: [':I2dzif0:', 'http://i.imgur.com/I2dzif0.jpg', "I2dzif0"],
+	//imgurdongs1yPzBV: [':s1yPzBV:', 'http://i.imgur.com/s1yPzBV.jpg', "s1yPzBV"],
+	imgurdongtTQ4gPh: [':giantfurrycockblast:', 'http://i.imgur.com/tTQ4gPh.jpg', "giant furry cock blast"],
+	imgurdongqzquWaX: [':legendarynuts:', 'http://i.imgur.com/qzquWaX.jpg', "legendary nuts"],
+	imgurdongEpFtLXq: [':dongstrong:', 'http://i.imgur.com/EpFtLXq.jpg', "dong strong"],
+	imgurdongLLG1h6k: [':uwutm8:', 'http://i.imgur.com/LLG1h6k.jpg', "u wut m8"],
+	imgurdongBbshOLd: [':idiotsheroes:', 'http://i.imgur.com/BbshOLd.jpg', "idiots heroes"],
+	imgurdonggZO4oUl: [':penntrash:', 'http://i.imgur.com/gZO4oUl.jpg', "penn jilette trash"],
+	imgurdonglRIdSx8: [':fuckingcasuals:', 'http://i.imgur.com/lRIdSx8.jpg', "fucking casuals"],
+	imgurdong0z3SmD2: [':cancerdong:', 'http://i.imgur.com/0z3SmD2.jpg', "cancer dong"],
+	imgurdongz0ii3nI: [':minionsdong:', 'http://i.imgur.com/z0ii3nI.jpg', "minions dong"],
+	//imgurdongha5rqDd: [':ha5rqDd:', 'http://i.imgur.com/ha5rqDd.jpg', "ha5rqDd"],
+	//imgurdongRWom78Q: [':RWom78Q:', 'http://i.imgur.com/RWom78Q.jpg', "RWom78Q"],
+	imgurdongkv965M0: [':expansionpak:', 'http://i.imgur.com/kv965M0.jpg', "expansion pak"],
+	imgurdongll5mzvy: [':dongnews:', 'http://i.imgur.com/ll5mzvy.jpg', "dong news"],
+	imgurdonggXeBqOI: [':batdong:', 'http://i.imgur.com/gXeBqOI.jpg', "bat dong"],
+	imgurdongoXxMcF0: [':captainunderdong:', 'http://i.imgur.com/oXxMcF0.jpg', "captain underdong"],
+	imgurdongPkC0sSx: [':batmanrobindong:', 'http://i.imgur.com/PkC0sSx.jpg', "batman robin dong"],
+	imgurdongd9o2Idt: [':fnaf:', 'http://i.imgur.com/d9o2Idt.jpg', "fnaf rape"],
+	imgurdong6SXNd6T: [':wheresthedong:', 'http://i.imgur.com/6SXNd6T.jpg', "where\'s the dong"],
+	imgurdongNg8P2Vv: [':erection:', 'http://i.imgur.com/Ng8P2Vv.jpg', "erection"],
+	imgurdongAScga26: [':erectionrising:', 'http://i.imgur.com/AScga26.jpg', "erection rising"],
+	imgurdongRtnXPSc: [':expand5:', 'http://i.imgur.com/RtnXPSc.jpg', "expand 5"],
+	imgurdonguFNPVMN: [':expand6:', 'http://i.imgur.com/uFNPVMN.jpg', "expand 6"],
+	//imgurdongagtHxDU: [':agtHxDU:', 'http://i.imgur.com/agtHxDU.jpg', "agtHxDU"],
+	imgurdongITi1XAI: [':freedankcuntclotcrunch:', 'http://i.imgur.com/ITi1XAI.jpg', "free dank cunt clot crunch"],
+	imgurdong2aSBhVZ: [':ponydong:', 'http://i.imgur.com/2aSBhVZ.jpg', "pony dong"],
+	imgurdongak7Is71: [':dongsquidward:', 'http://i.imgur.com/ak7Is71.jpg', "dong squidward"],
+	imgurdongkXYUEc4: [':suffermore:', 'http://i.imgur.com/kXYUEc4.jpg', "suffer more"],
+	imgurdongE1HYLvI: [':packingabigschlong:', 'http://i.imgur.com/E1HYLvI.jpg', "packing a big schlong"]
 };
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
