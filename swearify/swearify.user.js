@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.60
+// @version     2.9.65
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -701,135 +701,135 @@ var maymay = {
 ///////
 
 var endings = [
-  ' and cant no hood fuck with death rizzow.',
-  ' and my money on my mind.',
-  ' and yo momma.',
-  ' aww nah.',
-  ' bitch ass nigga.',
-  ' but real niggaz don\'t give a fuck.',
-  ' cuz I put gangsta rap on tha map.',
-  ' cuz Im tha Double O G.',
-  ' cuz I\'m fresh out the pen.',
-  ' cuz its a doggy dog world.',
-  ' cuz its a G thang.',
-  ' cuz its a pimp thang.',
-  ' cuz this is how we do it.',
-  ' dogg.',
-  ' doggystyle.',
-  ' droppin hits.',
-  ' fo all my homies in the pen.',
-  ' fo gettin yo pimp on.',
-  ' fo my bling bling.',
-  ' fo\' real.',
-  ' fo\' sheezy.',
-  ' fo\' sho\'.',
-  ' fo yo bitch ass.',
-  ' from tha streets of tha L-B-C.',
-  ' gangsta style.',
-  ' hittin that booty.',
-  ' in all flavas.',
-  ' if you gots a paper stack.',
-  ' in tha dogg pound.',
-  ' in tha hood.',
-  ' in tha mutha fuckin club.',
-  ' keep\'n it real yo.',
-  ' like a motha fucka.',
-  ' like a tru playa\'.',
-  ' like old skool shit.',
-  ' like this and like that and like this and uh.',
-  ' mah nizzle.',
-  ' n shit.',
+  ' and cant no hood fuck with death rizzow\[dot\]',
+  ' and my money on my mind\[dot\]',
+  ' and yo momma\[dot\]',
+  ' aww nah\[dot\]',
+  ' bitch ass nigga\[dot\]',
+  ' but real niggaz don\'t give a fuck\[dot\]',
+  ' cuz I put gangsta rap on tha map\[dot\]',
+  ' cuz Im tha Double O G\[dot\]',
+  ' cuz I\'m fresh out the pen\[dot\]',
+  ' cuz its a doggy dog world\[dot\]',
+  ' cuz its a G thang\[dot\]',
+  ' cuz its a pimp thang\[dot\]',
+  ' cuz this is how we do it\[dot\]',
+  ' dogg\[dot\]',
+  ' doggystyle\[dot\]',
+  ' droppin hits\[dot\]',
+  ' fo all my homies in the pen\[dot\]',
+  ' fo gettin yo pimp on\[dot\]',
+  ' fo my bling bling\[dot\]',
+  ' fo\' real\[dot\]',
+  ' fo\' sheezy\[dot\]',
+  ' fo\' sho\'\[dot\]',
+  ' fo yo bitch ass\[dot\]',
+  ' from tha streets of tha L-B-C\[dot\]',
+  ' gangsta style\[dot\]',
+  ' hittin that booty\[dot\]',
+  ' in all flavas\[dot\]',
+  ' if you gots a paper stack\[dot\]',
+  ' in tha dogg pound\[dot\]',
+  ' in tha hood\[dot\]',
+  ' in tha mutha fuckin club\[dot\]',
+  ' keep\'n it real yo\[dot\]',
+  ' like a motha fucka\[dot\]',
+  ' like a tru playa\'\[dot\]',
+  ' like old skool shit\[dot\]',
+  ' like this and like that and like this and uh\[dot\]',
+  ' mah nizzle\[dot\]',
+  ' n shit\[dot\]',
   ' n we out!',
-  ' now motherfuckers lemme here ya say hoe.',
-  ' now pass the glock.',
-  ' paper\'d up.',
-  ' puttin tha smack down.',
-  ' ridin\' in mah double R.',
-  ' sho nuff.',
+  ' now motherfuckers lemme here ya say hoe\[dot\]',
+  ' now pass the glock\[dot\]',
+  ' paper\'d up\[dot\]',
+  ' puttin tha smack down\[dot\]',
+  ' ridin\' in mah double R\[dot\]',
+  ' sho nuff\[dot\]',
   ' so bow down to the bow wow!',
-  ' so i can get mah pimp on.',
-  ' so jus\' chill.',
+  ' so i can get mah pimp on\[dot\]',
+  ' so jus\' chill\[dot\]',
   ' so show some love, niggaz!',
-  ' so sit back relax new jacks get smacked.',
-  ' so you betta run and grab yo glock.',
-  ' spittin\' that real shit.',
-  ' straight from long beach nigga.',
-  ' ta help you tap dat ass.',
-  ' to increase tha peace.',
-  ' thats off tha hook yo.',
-  ' upside yo head.',
-  ' where the sun be shinin and I be rhymin\'.',
-  ' wit da big Bo\$\$\$ Dogg.',
-  ' with my forty-fo\' mag.',
+  ' so sit back relax new jacks get smacked\[dot\]',
+  ' so you betta run and grab yo glock\[dot\]',
+  ' spittin\' that real shit\[dot\]',
+  ' straight from long beach nigga\[dot\]',
+  ' ta help you tap dat ass\[dot\]',
+  ' to increase tha peace\[dot\]',
+  ' thats off tha hook yo\[dot\]',
+  ' upside yo head\[dot\]',
+  ' where the sun be shinin and I be rhymin\'\[dot\]',
+  ' wit da big Bo\$\$\$ Dogg\[dot\]',
+  ' with my forty-fo\' mag\[dot\]',
   ' with my hoes on my side, and my strap on my back',
-  ' with the gangsta shit that keeps ya hangin.',
-  ' with the S-N-double-O-P.',
+  ' with the gangsta shit that keeps ya hangin\[dot\]',
+  ' with the S-N-double-O-P\[dot\]',
   ' ya dig?',
   ' ya feelin\' me?',
-  ' yaba daba dizzle.',
-  ' yeah yeah baby.',
+  ' yaba daba dizzle\[dot\]',
+  ' yeah yeah baby\[dot\]',
 
-  ', betta check yo self.',
-  ', chill yo.',
+  ', betta check yo self\[dot\]',
+  ', chill yo\[dot\]',
   ', know what im sayin?',
-  ', niggaz, better recognize.',
+  ', niggaz, better recognize\[dot\]',
   ', ya feel me?',
 
-  '. Aint no killin\' everybodys chillin\'.',
-  '. Aint no L-I-M-I-to-tha-T.',
-  '. Aint no stoppin\' this shit nigga.',
-  '. Anotha dogg house production.',
-  '. Boo-Yaa!',
-  '. Boom bam as I step in the jam, God damn.',
-  '. Bounce wit me.',
-  '. Bow wow wow yippee yo yipee yay.',
-  '. Chill as I take you on a trip.',
-  '. Death row 187 4 life.',
-  '. Dogg House Records in the motha fuckin house.',
-  '. Drop it like its hot.',
-  '. Fo\'-fo\' desert eagle to your motherfuckin\' dome.',
-  '. Freak y\'all, into the beat y\'all.',
-  '. Holla!',
-  '. Hollaz to the East Side.',
-  '. I started yo shit and i\'ll end yo\' shit.',
-  '. I thought i told ya, nigga I\'m a soldier.',
-  '. Ill slap tha taste out yo mouf.',
-  '. Im a bad boy wit a lotta hos.',
-  '. Im crazy, you can\'t phase me.',
-  '. I\'m a mutha fuckin 2-time felon.',
-  '. It dont stop till the wheels fall off.',
-  '. Its just anotha homocide.',
-  '. It\'s your homie snoop dogg from the dpg.',
-  '. Keep the party crackin while I\'m steady rappin.',
-  '. Keep\'n it gangsta dogg.',
-  '. Listen to how a motherfucker flow shit.',
-  '. Nigga get shut up or get wet up.',
-  '. One, two three and to tha four.',
-  '. Put ya mutha fuckin choppers up if ya feel this.',
-  '. Real niggas recognize the realness.',
-  '. Relax, cus I\'m bout to take my respect.',
-  '. Slap your mutha fuckin self.',
-  '. Snoop dogg is in this bitch.',
-  '. Snoop heffner mixed with a little bit of doggy flint.',
-  '. Subscribe nigga, get yo issue.',
-  '. They call me tha black folks president.',
-  '. Throw yo guns in the motherfuckin air.',
-  '. Tru niggaz do niggaz.',
-  '. Wussup to all my niggaz in the house.',
-  '. Ya fuck with us, we gots to fuck you up.',
-  '. Yippie yo, you can\'t see my flow.',
-  '. You gotta check dis shit out yo.',
-  '. You\'se a flea and I\'m the big dogg.',
+  '\[dot\] Aint no killin\' everybodys chillin\'\[dot\]',
+  '\[dot\] Aint no L-I-M-I-to-tha-T\[dot\]',
+  '\[dot\] Aint no stoppin\' this shit nigga\[dot\]',
+  '\[dot\] Anotha dogg house production\[dot\]',
+  '\[dot\] Boo-Yaa!',
+  '\[dot\] Boom bam as I step in the jam, God damn\[dot\]',
+  '\[dot\] Bounce wit me\[dot\]',
+  '\[dot\] Bow wow wow yippee yo yipee yay\[dot\]',
+  '\[dot\] Chill as I take you on a trip\[dot\]',
+  '\[dot\] Death row 187 4 life\[dot\]',
+  '\[dot\] Dogg House Records in the motha fuckin house\[dot\]',
+  '\[dot\] Drop it like its hot\[dot\]',
+  '\[dot\] Fo\'-fo\' desert eagle to your motherfuckin\' dome\[dot\]',
+  '\[dot\] Freak y\'all, into the beat y\'all\[dot\]',
+  '\[dot\] Holla!',
+  '\[dot\] Hollaz to the East Side\[dot\]',
+  '\[dot\] I started yo shit and i\'ll end yo\' shit\[dot\]',
+  '\[dot\] I thought i told ya, nigga I\'m a soldier\[dot\]',
+  '\[dot\] Ill slap tha taste out yo mouf\[dot\]',
+  '\[dot\] Im a bad boy wit a lotta hos\[dot\]',
+  '\[dot\] Im crazy, you can\'t phase me\[dot\]',
+  '\[dot\] I\'m a mutha fuckin 2-time felon\[dot\]',
+  '\[dot\] It dont stop till the wheels fall off\[dot\]',
+  '\[dot\] Its just anotha homocide\[dot\]',
+  '\[dot\] It\'s your homie snoop dogg from the dpg\[dot\]',
+  '\[dot\] Keep the party crackin while I\'m steady rappin\[dot\]',
+  '\[dot\] Keep\'n it gangsta dogg\[dot\]',
+  '\[dot\] Listen to how a motherfucker flow shit\[dot\]',
+  '\[dot\] Nigga get shut up or get wet up\[dot\]',
+  '\[dot\] One, two three and to tha four\[dot\]',
+  '\[dot\] Put ya mutha fuckin choppers up if ya feel this\[dot\]',
+  '\[dot\] Real niggas recognize the realness\[dot\]',
+  '\[dot\] Relax, cus I\'m bout to take my respect\[dot\]',
+  '\[dot\] Slap your mutha fuckin self\[dot\]',
+  '\[dot\] Snoop dogg is in this bitch\[dot\]',
+  '\[dot\] Snoop heffner mixed with a little bit of doggy flint\[dot\]',
+  '\[dot\] Subscribe nigga, get yo issue\[dot\]',
+  '\[dot\] They call me tha black folks president\[dot\]',
+  '\[dot\] Throw yo guns in the motherfuckin air\[dot\]',
+  '\[dot\] Tru niggaz do niggaz\[dot\]',
+  '\[dot\] Wussup to all my niggaz in the house\[dot\]',
+  '\[dot\] Ya fuck with us, we gots to fuck you up\[dot\]',
+  '\[dot\] Yippie yo, you can\'t see my flow\[dot\]',
+  '\[dot\] You gotta check dis shit out yo\[dot\]',
+  '\[dot\] You\'se a flea and I\'m the big dogg\[dot\]',
   
   ' because doggs make tha world a better place!',
-  ' let me holla at u.',
+  ' let me holla at u\[dot\]',
   ' #YaDigg !',
 
-  '. Living young n wild n free !',
-  '. Put your feet up n take a breath !',
-  '. Smells like tha good shit.',
-  '. Snoop du jour !',
-  '. wat it do ??'
+  '\[dot\] Living young n wild n free !',
+  '\[dot\] Put your feet up n take a breath !',
+  '\[dot\] Smells like tha good shit\[dot\]',
+  '\[dot\] Snoop du jour !',
+  '\[dot\] wat it do ??'
 ];
 
 var replacements = {
@@ -1886,7 +1886,22 @@ function sekrit_() {
     new_msg = new_msg.replace(/ers /gi, 'as\'');
     new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
     new_msg = new_msg.replace(/your/gi, 'yur');
-    for (i = 0; i < endings.length; i++) new_msg = new_msg.replace('.', endings[i]);
+    new_msg = new_msg.replace(/main/gi, 'mayy'); // mainly, mainland etc
+    new_msg = new_msg.replace(/etc/gi, 'ayyytc');
+    new_msg = new_msg.replace(/russia/gi, 'glory to arstotzka');
+    new_msg = new_msg.replace(/http/gi, 'here\'s a nice porn site http');
+    new_msg = new_msg.replace(/habbo/gi, 'online dating sim');
+    new_msg = new_msg.replace(/roblox/gi, 'cockblox');
+    new_msg = new_msg.replace(/java/gi, 'ass');
+    new_msg = new_msg.replace(/ear rape/gi, 'good music');
+    new_msg = new_msg.replace(/doxx/gi, 'tumblr fetish');
+    new_msg = new_msg.replace(/var/gi, 'yarr');
+    new_msg = new_msg.replace(/the/gi, 'ye ol\'');
+    
+    for (i = 0; i < new_msg.match(/\./gi).length; i++)
+      if (Math.random() > 0.9)
+        new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
+    new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
     for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
     document.getElementById("message").value = new_msg;
   }
@@ -2047,7 +2062,22 @@ function sekrit_post() {
     new_msg = new_msg.replace(/ers /gi, 'as\'');
     new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
     new_msg = new_msg.replace(/your/gi, 'yur');
-    for (i = 0; i < endings.length; i++) new_msg = new_msg.replace('.', endings[i]);
+    new_msg = new_msg.replace(/main/gi, 'mayy'); // mainly, mainland etc
+    new_msg = new_msg.replace(/etc/gi, 'ayyytc');
+    new_msg = new_msg.replace(/russia/gi, 'glory to arstotzka');
+    new_msg = new_msg.replace(/http/gi, 'here\'s a nice porn site http');
+    new_msg = new_msg.replace(/habbo/gi, 'online dating sim');
+    new_msg = new_msg.replace(/roblox/gi, 'cockblox');
+    new_msg = new_msg.replace(/java/gi, 'ass');
+    new_msg = new_msg.replace(/ear rape/gi, 'good music');
+    new_msg = new_msg.replace(/doxx/gi, 'tumblr fetish');
+    new_msg = new_msg.replace(/var/gi, 'yarr');
+    new_msg = new_msg.replace(/the/gi, 'ye ol\'');
+    
+    for (i = 0; i < new_msg.match(/\./gi).length; i++)
+      if (Math.random() > 0.9)
+        new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
+    new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
     for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
