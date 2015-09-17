@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.53
+// @version     2.9.54
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1630,6 +1630,34 @@ function sekrit_() {
     new_msg = new_msg.replace(/tragedy/gi, 'doom map');
     new_msg = new_msg.replace(/kids/gi, 'dead bodies');
     new_msg = new_msg.replace(/hiding/gi, 'burying the bodies');
+    new_msg = new_msg.replace(/god/gi, 'lie *tips fedora*');
+    new_msg = new_msg.replace(/gone/gi, 'dead');
+    new_msg = new_msg.replace(/a party/gi, '9/11');
+    new_msg = new_msg.replace(/party/gi, '9/11');
+    new_msg = new_msg.replace(/wwe/gi, 'rape case');
+    new_msg = new_msg.replace(/hulk hogan/gi, '[REDACTED]');
+    new_msg = new_msg.replace(/chris benoit/gi, '[REDACTED]');
+    new_msg = new_msg.replace(/horrible/gi, 'fucking amazing');
+    new_msg = new_msg.replace(/nuts/gi, 'balls deep insane');
+    new_msg = new_msg.replace(/nut/gi, 'nut cracker');
+    new_msg = new_msg.replace(/mario/gi, 'cannibal');
+    new_msg = new_msg.replace(/sarcasm/gi, 'cannibal corpse');
+    new_msg = new_msg.replace(/beck/gi, 'anal cunt');
+    new_msg = new_msg.replace(/ween/gi, 'afroman');
+    new_msg = new_msg.replace(/wee/gi, 'willy');
+    new_msg = new_msg.replace(/omar waly/gi, 'omartian willy');
+    new_msg = new_msg.replace(/kinetico/gi, 'cinema');
+    new_msg = new_msg.replace(/animal/gi, 'pikachu');
+    new_msg = new_msg.replace(/agility/gi, 'kill bill');
+    new_msg = new_msg.replace(/agil/gi, 'kill bill');
+    new_msg = new_msg.replace(/youtube/gi, 'you lube');
+    new_msg = new_msg.replace(/lol/gi, 'gazorpazorp');
+    new_msg = new_msg.replace(/number/gi, 'numberwang');
+    new_msg = new_msg.replace(/vizual/gi, 'we got a visual on the suspect');
+    new_msg = new_msg.replace(/viz/gi, 'we got a visual on the suspect');
+    new_msg = new_msg.replace(/pie/gi, 'pi');
+    new_msg = new_msg.replace(/damn/gi, 'darn');
+    new_msg = new_msg.replace(/wee/gi, 'willy');
     document.getElementById("message").value = new_msg;
   }
 }
@@ -1756,6 +1784,34 @@ function sekrit_post() {
     new_msg = new_msg.replace(/tragedy/gi, 'doom map');
     new_msg = new_msg.replace(/kids/gi, 'dead bodies');
     new_msg = new_msg.replace(/hiding/gi, 'burying the bodies');
+    new_msg = new_msg.replace(/god/gi, 'lie *tips fedora*');
+    new_msg = new_msg.replace(/gone/gi, 'dead');
+    new_msg = new_msg.replace(/a party/gi, '9/11');
+    new_msg = new_msg.replace(/party/gi, '9/11');
+    new_msg = new_msg.replace(/wwe/gi, 'rape case');
+    new_msg = new_msg.replace(/hulk hogan/gi, '[REDACTED]');
+    new_msg = new_msg.replace(/chris benoit/gi, '[REDACTED]');
+    new_msg = new_msg.replace(/horrible/gi, 'fucking amazing');
+    new_msg = new_msg.replace(/nuts/gi, 'balls deep insane');
+    new_msg = new_msg.replace(/nut/gi, 'nut cracker');
+    new_msg = new_msg.replace(/mario/gi, 'cannibal');
+    new_msg = new_msg.replace(/sarcasm/gi, 'cannibal corpse');
+    new_msg = new_msg.replace(/beck/gi, 'anal cunt');
+    new_msg = new_msg.replace(/ween/gi, 'afroman');
+    new_msg = new_msg.replace(/wee/gi, 'willy');
+    new_msg = new_msg.replace(/omar waly/gi, 'omartian willy');
+    new_msg = new_msg.replace(/kinetico/gi, 'cinema');
+    new_msg = new_msg.replace(/animal/gi, 'pikachu');
+    new_msg = new_msg.replace(/agility/gi, 'kill bill');
+    new_msg = new_msg.replace(/agil/gi, 'kill bill');
+    new_msg = new_msg.replace(/youtube/gi, 'you lube');
+    new_msg = new_msg.replace(/lol/gi, 'gazorpazorp');
+    new_msg = new_msg.replace(/number/gi, 'numberwang');
+    new_msg = new_msg.replace(/vizual/gi, 'we got a visual on the suspect');
+    new_msg = new_msg.replace(/viz/gi, 'we got a visual on the suspect');
+    new_msg = new_msg.replace(/pie/gi, 'pi');
+    new_msg = new_msg.replace(/damn/gi, 'darn');
+    new_msg = new_msg.replace(/wee/gi, 'willy');
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         msg_ray.join('<br />');
