@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.48
+// @version     2.9.50
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1490,6 +1490,123 @@ function morse_post() {
   }
 }
 //////////////////////
+
+////////////////////// SEKRIT CHAT M0D3
+
+function sekrit_() {
+  var old_msg = document.getElementById("message").value;
+  var index_num = old_msg.regexIndexOf(/\/s /i);
+  if (index_num === 0) {
+    var new_msg = old_msg.replace(/\/s /i, '');
+    new_msg = new_msg.replace(/friend/gi, 'feminist');
+    new_msg = new_msg.replace(/geometry dash/gi, 'john cena');
+    new_msg = new_msg.replace(/car/gi, 'cat');
+    new_msg = new_msg.replace(/guy/gi, 'lad');
+    new_msg = new_msg.replace(/girl/gi, 'lady');
+    new_msg = new_msg.replace(/yanis/gi, 'dickbutt');
+    new_msg = new_msg.replace(/kaff/gi, 'mouth farts');
+    new_msg = new_msg.replace(/sex/gi, 'shemale porn addiction');
+    new_msg = new_msg.replace(/fnaf/gi, 'i\'m a faggot mods please ban me');
+    new_msg = new_msg.replace(/shockey/gi, 'shockey\'s big black cock');
+    new_msg = new_msg.replace(/matr0xx/gi, 'NANANANANANANANA PROXYMAN');
+    new_msg = new_msg.replace(/witness/gi, 'these dudes i know');
+    new_msg = new_msg.replace(/shiz/gi, 'shizzle');
+    new_msg = new_msg.replace(/\. /gi, 'izzle. ');
+    new_msg = new_msg.replace(/phone/gi, 'pokedex');
+    new_msg = new_msg.replace(/mortal kombat/gi, 'moral kombat');
+    new_msg = new_msg.replace(/nfm/gi, 'super columbine massacre rpg');
+    new_msg = new_msg.replace(/dong/gi, 'dong cena');
+    new_msg = new_msg.replace(/study/gi, 'tumblr post');
+    new_msg = new_msg.replace(/security/gi, 'suicide');
+    new_msg = new_msg.replace(/donald trump/gi, 'obama');
+    new_msg = new_msg.replace(/jv/gi, 'my dick');
+    new_msg = new_msg.replace(/aim/gi, 'gizoogle');
+    new_msg = new_msg.replace(/rafa/gi, 'olaf');
+    new_msg = new_msg.replace(/raga/gi, 'rafa');
+    new_msg = new_msg.replace(/big jilm/gi, 'big brazilian cock');
+    new_msg = new_msg.replace(/dark meat/gi, 'the jews');
+    new_msg = new_msg.replace(/shit/gi, 'shizznit');
+    new_msg = new_msg.replace(/meme/gi, 'weed');
+    new_msg = new_msg.replace(/doge/gi, 'drugs');
+    new_msg = new_msg.replace(/cake/gi, 'cocaine');
+    new_msg = new_msg.replace(/cloud/gi, 'butt');
+    new_msg = new_msg.replace(/fuck/gi, 'fuck a doodle doo');
+    new_msg = new_msg.replace(/dick/gi, 'good man');
+    new_msg = new_msg.replace(/9\/11/gi, 'the holocaust');
+    new_msg = new_msg.replace(/adolf hitler/gi, 'osama bin laden');
+    new_msg = new_msg.replace(/meeting/gi, 'school shooting');
+    new_msg = new_msg.replace(/raped/gi, 'visited 4chan');
+    new_msg = new_msg.replace(/rape/gi, '4chan visit');
+    new_msg = new_msg.replace(/raping/gi, 'wanking to ponies');
+    new_msg = new_msg.replace(/mlp/gi, 'cum in my butt');
+    new_msg = new_msg.replace(/america/gi, 'brazil');
+    new_msg = new_msg.replace(/ireland/gi, 'africa');
+    new_msg = new_msg.replace(/britain/gi, 'sorry, i\'m afraid john cena is not a planet');
+    document.getElementById("message").value = new_msg;
+  }
+}
+
+function sekrit_post() {
+  var old_msg = ""; // this may not be necessary i'm not 100% sure
+  if (document.getElementsByTagName("textarea")[1] === undefined) old_msg = document.getElementsByTagName("textarea")[0]
+    .value;
+  else old_msg = document.getElementsByTagName("textarea")[1].value;
+  var msg_ray = old_msg.split("\n");
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/s /i);
+    if (index_num === 0) {
+      var new_msg = msg_ray[i].replace(/\/s /i, '');new_msg = new_msg.replace(/friend/gi, 'feminist');
+    new_msg = new_msg.replace(/geometry dash/gi, 'john cena');
+    new_msg = new_msg.replace(/car/gi, 'cat');
+    new_msg = new_msg.replace(/guy/gi, 'lad');
+    new_msg = new_msg.replace(/girl/gi, 'lady');
+    new_msg = new_msg.replace(/yanis/gi, 'dickbutt');
+    new_msg = new_msg.replace(/kaff/gi, 'mouth farts');
+    new_msg = new_msg.replace(/sex/gi, 'shemale porn addiction');
+    new_msg = new_msg.replace(/fnaf/gi, 'i\'m a faggot mods please ban me');
+    new_msg = new_msg.replace(/shockey/gi, 'shockey\'s big black cock');
+    new_msg = new_msg.replace(/matr0xx/gi, 'NANANANANANANANA PROXYMAN');
+    new_msg = new_msg.replace(/witness/gi, 'these dudes i know');
+    new_msg = new_msg.replace(/shiz/gi, 'shizzle');
+    new_msg = new_msg.replace(/\. /gi, 'izzle. ');
+    new_msg = new_msg.replace(/phone/gi, 'pokedex');
+    new_msg = new_msg.replace(/mortal kombat/gi, 'moral kombat');
+    new_msg = new_msg.replace(/nfm/gi, 'super columbine massacre rpg');
+    new_msg = new_msg.replace(/dong/gi, 'dong cena');
+    new_msg = new_msg.replace(/study/gi, 'tumblr post');
+    new_msg = new_msg.replace(/security/gi, 'suicide');
+    new_msg = new_msg.replace(/donald trump/gi, 'obama');
+    new_msg = new_msg.replace(/jv/gi, 'my dick');
+    new_msg = new_msg.replace(/aim/gi, 'gizoogle');
+    new_msg = new_msg.replace(/rafa/gi, 'olaf');
+    new_msg = new_msg.replace(/raga/gi, 'rafa');
+    new_msg = new_msg.replace(/big jilm/gi, 'big brazilian cock');
+    new_msg = new_msg.replace(/dark meat/gi, 'the jews');
+    new_msg = new_msg.replace(/shit/gi, 'shizznit');
+    new_msg = new_msg.replace(/meme/gi, 'weed');
+    new_msg = new_msg.replace(/doge/gi, 'drugs');
+    new_msg = new_msg.replace(/cake/gi, 'cocaine');
+    new_msg = new_msg.replace(/cloud/gi, 'butt');
+    new_msg = new_msg.replace(/fuck/gi, 'fuck a doodle doo');
+    new_msg = new_msg.replace(/dick/gi, 'good man');
+    new_msg = new_msg.replace(/9\/11/gi, 'the holocaust');
+    new_msg = new_msg.replace(/adolf hitler/gi, 'osama bin laden');
+    new_msg = new_msg.replace(/meeting/gi, 'school shooting');
+    new_msg = new_msg.replace(/raped/gi, 'visited 4chan');
+    new_msg = new_msg.replace(/rape/gi, '4chan visit');
+    new_msg = new_msg.replace(/raping/gi, 'wanking to ponies');
+    new_msg = new_msg.replace(/mlp/gi, 'cum in my butt');
+    new_msg = new_msg.replace(/america/gi, 'brazil');
+    new_msg = new_msg.replace(/ireland/gi, 'africa');
+    new_msg = new_msg.replace(/britain/gi, 'sorry, i\'m afraid john cena is not a planet');
+      msg_ray[i] = new_msg;
+      if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName("textarea")[1].value = msg_ray.join('<br />');
+    }
+  }
+}
+
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 function rainbow_() {
   var old_msg = document.getElementById("message").value;
@@ -1911,6 +2028,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
 }, false);
 
 function run_() {
+  sekrit_();
   morse_();
   greek_();
   leet_();
@@ -1932,6 +2050,7 @@ function run_() {
 }
 
 function run_post() {
+  sekrit_post();
   morse_post();
   greek_post();
   balloon_post();
