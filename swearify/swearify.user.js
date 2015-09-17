@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.68
+// @version     2.9.69
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1829,8 +1829,8 @@ function sekrit_() {
     new_msg = new_msg.replace(/swearify/gi, 'virus');
     new_msg = new_msg.replace(/rip/gi, 'dick ripped');
     new_msg = new_msg.replace(/minecraft/gi, 'gay fag');
-    new_msg = new_msg.replace(/he/gi, 'this asshole');
-    new_msg = new_msg.replace(/him/gi, 'this asshole');
+    new_msg = new_msg.replace(/he /gi, 'this asshole ');
+    new_msg = new_msg.replace(/him /gi, 'this asshole ');
     new_msg = new_msg.replace(/girlfriend/gi, 'tumblr user');
     new_msg = new_msg.replace(/username/gi, 'schlong\'s size');
     new_msg = new_msg.replace(/fucking/gi, 'foot fucking');
@@ -1896,7 +1896,7 @@ function sekrit_() {
     new_msg = new_msg.replace(/ear rape/gi, 'good music');
     new_msg = new_msg.replace(/doxx/gi, 'tumblr fetish');
     new_msg = new_msg.replace(/var/gi, 'yarr');
-    new_msg = new_msg.replace(/the/gi, 'ye ol\'');
+    new_msg = new_msg.replace(/the /gi, 'ye ol\' ');
     new_msg = new_msg.replace(/idiot/gi, 'doofus');
     new_msg = new_msg.replace(/offended/gi, 'raped'); // tumblr mode engaged. prepare for dick cutoff
     new_msg = new_msg.replace(/transexual/gi, 'transformer');
@@ -2011,8 +2011,8 @@ function sekrit_post() {
     new_msg = new_msg.replace(/swearify/gi, 'virus');
     new_msg = new_msg.replace(/rip/gi, 'dick ripped');
     new_msg = new_msg.replace(/minecraft/gi, 'gay fag');
-    new_msg = new_msg.replace(/he/gi, 'this asshole');
-    new_msg = new_msg.replace(/him/gi, 'this asshole');
+    new_msg = new_msg.replace(/he /gi, 'this asshole ');
+    new_msg = new_msg.replace(/him /gi, 'this asshole ');
     new_msg = new_msg.replace(/girlfriend/gi, 'tumblr user');
     new_msg = new_msg.replace(/username/gi, 'schlong\'s size');
     new_msg = new_msg.replace(/fucking/gi, 'foot fucking');
@@ -2078,7 +2078,7 @@ function sekrit_post() {
     new_msg = new_msg.replace(/ear rape/gi, 'good music');
     new_msg = new_msg.replace(/doxx/gi, 'tumblr fetish');
     new_msg = new_msg.replace(/var/gi, 'yarr');
-    new_msg = new_msg.replace(/the/gi, 'ye ol\'');
+    new_msg = new_msg.replace(/the /gi, 'ye ol\' ');
     new_msg = new_msg.replace(/idiot/gi, 'doofus');
     new_msg = new_msg.replace(/offended/gi, 'raped'); // tumblr mode engaged. prepare for dick cutoff
     new_msg = new_msg.replace(/transexual/gi, 'transformer');
