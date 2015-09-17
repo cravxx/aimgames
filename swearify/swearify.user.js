@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.58
+// @version     2.9.60
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1733,6 +1733,8 @@ function morse_post() {
 
 ////////////////////// SEKRIT CHAT M0D3
 
+Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (max - min + 1)) + min;')
+
 function sekrit_() {
   var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/s /i);
@@ -1884,12 +1886,8 @@ function sekrit_() {
     new_msg = new_msg.replace(/ers /gi, 'as\'');
     new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
     new_msg = new_msg.replace(/your/gi, 'yur');
-    try {
-      for (i = 0; i < endings.length; i++) new_msg.replace('.', endings[i]);
-      for (i = 0; i < Object.keys(replacements).length; i++) new_msg.replace(new RegExp(replacements[i][0], "gi"), replacements[i][1]);
-    } catch (e) {
-    	print('OH NO');
-    }
+    for (i = 0; i < endings.length; i++) new_msg = new_msg.replace('.', endings[i]);
+    for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
     document.getElementById("message").value = new_msg;
   }
 }
@@ -2049,12 +2047,8 @@ function sekrit_post() {
     new_msg = new_msg.replace(/ers /gi, 'as\'');
     new_msg = new_msg.replace(/yes/gi, 'ya yes yis');
     new_msg = new_msg.replace(/your/gi, 'yur');
-    try {
-    for (i = 0; i < endings.length; i++) new_msg.replace('.', endings[i]);
-    for (i = 0; i < Object.keys(replacements).length; i++) new_msg.replace(new RegExp(replacements[i][0], "gi"), replacements[i][1]);
-    } catch (e) {
-    	print('OH NO');
-    }
+    for (i = 0; i < endings.length; i++) new_msg = new_msg.replace('.', endings[i]);
+    for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
       msg_ray[i] = new_msg;
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         msg_ray.join('<br />');
