@@ -835,7 +835,6 @@ var endings = [
 ];
 
 var replacements = {
-  "\\bbad\\b": "[url=https://www.youtube.com/watch?v=S7FsAgPuVwU]greasy[/url]",
   "\\babout\\b": "'bout",
   "\\bam\\b": "be",
   "\\band\\b": "n",
@@ -1085,7 +1084,8 @@ var replacements = {
   "transexual": "transformer",
   "pissed": "filled with cum",
   "video game": "crack cocaine",
-  "eat": "shit"
+  "eat": "shit",
+  "bad": "[url=https://www.youtube.com/watch?v=S7FsAgPuVwU]greasy[/url]",
 };
 
 ///////EXTRA FILTERING CODE
