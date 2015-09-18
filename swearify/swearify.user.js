@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.74
+// @version     2.9.75var
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -938,7 +938,7 @@ var replacements = {
   //"\\. ": "izzle. ",
   "phone": "pokedex",
   "mortal kombat": "moral kombat",
-  "nfm": "super columbine massacre rpg",var replac
+  "nfm": "super columbine massacre rpg",
   "dong": "dong cena",
   "study": "tumblr post",
   "security": "suicide",
