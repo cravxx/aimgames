@@ -835,6 +835,7 @@ var endings = [
 ];
 
 var replacements = {
+  "\\bbad\\b": "[url=https://www.youtube.com/watch?v=S7FsAgPuVwU]greasy[/url]",
   "\\babout\\b": "'bout",
   "\\bam\\b": "be",
   "\\band\\b": "n",
@@ -938,7 +939,7 @@ var replacements = {
   //"\\. ": "izzle. ",
   "phone": "pokedex",
   "mortal kombat": "moral kombat",
-  "nfm": "super columbine massacre rpg",
+  "nfm": "super columbine massacre rpg",var replac
   "dong": "dong cena",
   "study": "tumblr post",
   "security": "suicide",
