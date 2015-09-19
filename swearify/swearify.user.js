@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.76
+// @version     2.9.77
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1086,6 +1086,7 @@ var replacements = {
   "video game": "crack cocaine",
   "eat": "shit",
   "bad": "[url=https://www.youtube.com/watch?v=S7FsAgPuVwU]greasy[/url]",
+  "pornstar": "my parents"
 };
 
 ///////EXTRA FILTERING CODE
