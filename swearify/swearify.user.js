@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.78
+// @version     2.9.79
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1086,7 +1086,16 @@ var replacements = {
   "video game": "crack cocaine",
   "eat": "shit",
   "bad": "[url=https://www.youtube.com/watch?v=S7FsAgPuVwU]greasy[/url]",
-  "pornstar": "my parents"
+  "pornstar": "my parents",
+  "chemical": "cummical",
+  "10 graves": "10 tits",
+  "ten graves": "ten tits",
+  "10th": "ten tits",
+  "99": "95 + 4 pennies, add that shit up",
+  "war": "wat",
+  "what": "what fuuck",
+  "football": "rugby",
+  "still": "still dre"
 };
 
 ///////EXTRA FILTERING CODE
