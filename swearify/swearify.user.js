@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.79
+// @version     2.9.80
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -333,7 +333,11 @@ var emoticon_1 = {
   delsys32: [':delsys32:', 'http://i.imgur.com/FYB9CRt.gif', "DELETE SYSTEM32"],
   falco: [':falco:', 'http://i62.tinypic.com/357n98i.png', "THAT MOTHERFUCKER FROM STAR FOX"],
   kirby: [':kirby:', 'http://i57.tinypic.com/1589tgh.png', "FAT NIGGER WHO EATS PEOPLE"],
-  cenastruggle: [':cenastruggle:', 'http://i.imgur.com/yi44U9z.png', "GO JOHN CENA CENA STRONG"]
+  cenastruggle: [':cenastruggle:', 'http://i.imgur.com/yi44U9z.png', "GO JOHN CENA CENA STRONG"],
+  help: [':help:', 'http://i.imgur.com/xHjch8e.png', "PRESS F1 FOR HELP"],
+  shots: [':shots:', 'https://static-cdn.jtvnw.net/emoticons/v1/26388/1.0', "SHOTS FIRED"],
+  kappa: [':shots:', 'https://static-cdn.jtvnw.net/emoticons/v1/25/1.0', "KAPPAKAPPAKAPPAKAPPAKAPPAKAPPAKAPPA"]
+  
 };
 
 var emoticon_2 = {
