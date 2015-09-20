@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.83
+// @version     2.9.84
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1113,7 +1113,23 @@ var replacements = {
   "lol": "not funny at all",
   "bye": "help i'm trapped in a universe factory",
   "kappa": "makenzy",
-  "art": "fart"
+  "art": "fart",
+  "weed": "tree",
+  "bitch": "muthafucka'",
+  "ha": "ja",
+  "graduated": "raped my way up to",
+  "know": "forget",
+  "have": "rape",
+  "Navy Seals": "Anal Beads",
+  "music": "pussy pussy pussy marijuana",
+  "marijuana": "macarena",
+  "involved": "not involved",
+  "secret": "s3kr1t",
+  "raid": "twitch raid",
+  "Al-Quaeda": "ireland",
+  "confirmed": "fake as fuck",
+  "invented": "copied",
+  "invent": "copy"
 };
 
 ///////EXTRA FILTERING CODE
