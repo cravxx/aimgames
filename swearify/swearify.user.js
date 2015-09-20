@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.81
+// @version     2.9.82
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1111,7 +1111,8 @@ var replacements = {
   "died": "deidhs",
   "lol": "not funny at all",
   "bye": "help i'm trapped in a universe factory",
-  "kappa": "makenzy"
+  "kappa": "makenzy",
+  "art": "fart"
 };
 
 ///////EXTRA FILTERING CODE
