@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.80
+// @version     2.9.81
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1099,7 +1099,19 @@ var replacements = {
   "war": "wat",
   "what": "what fuuck",
   "football": "rugby",
-  "still": "still dre"
+  "still": "still dre",
+  "2": "ms-dos",
+  "6": "half",
+  "13": "baker's dozen",
+  "tornado shark": "stiff gaucho",
+  "lead": "karsh",
+  "my country": "kazakhstan",
+  "banned": "[size=29]B&[/size]",
+  "food": "juicy steak",
+  "died": "deidhs",
+  "lol": "not funny at all",
+  "bye": "help i'm trapped in a universe factory",
+  "kappa": "makenzy"
 };
 
 ///////EXTRA FILTERING CODE
