@@ -324,7 +324,7 @@ emoticon_1 = {
   
 };
 
-var emoticon_2 = {
+emoticon_2 = {
   memeimgxppLwr1: [':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', "meme imgur xppLwr1"],
   memeimgQjY2Bpn: [':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', "meme imgur QjY2Bpn"],
   memeimgoPrEEfa: [':oPrEEfa:', 'http://i.imgur.com/oPrEEfa.png', "meme imgur oPrEEfa"],
@@ -519,7 +519,7 @@ var emoticon_2 = {
   memeimgkhJK3GM: [':khJK3GM:', 'http://i.imgur.com/khJK3GM.png', "meme imgur khJK3GM"]
 };
 
-var emoticon_3 = {
+emoticon_3 = {
 	imgurdongY21xRGc: [':dongintensifies:', 'http://i.imgur.com/Y21xRGc.jpg', "dong intensifies"],
 	imgurdongfqgiO3C: [':my3dpenis:', 'http://i.imgur.com/fqgiO3C.jpg', "my 3d penis"],
 	imgurdongArbkDMd: [':expand:', 'http://i.imgur.com/ArbkDMd.jpg', "expand"],
@@ -573,7 +573,7 @@ var emoticon_3 = {
 };
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
-var maymay = {
+maymay = {
   sombre: ['sombre',
     '[font=monospace][size=14][b][color=red]S[/color] [color=orange]O[/color] [color=yellow]M[/color] [color=blue]B[/color] [color=indigo]R[/color] [color=violet]E[/color][/b][/size][/font]'
   ],
@@ -691,7 +691,7 @@ var maymay = {
 };
 ///////
 
-var endings = [
+endings = [
   ' and cant no hood fuck with death rizzow\[dot\]',
   ' and my money on my mind\[dot\]',
   ' and yo momma\[dot\]',
@@ -823,7 +823,7 @@ var endings = [
   '\[dot\] wat it do ??'
 ];
 
-var replacements = {
+replacements = {
   "\\babout\\b": "'bout",
   "\\bam\\b": "be",
   "\\band\\b": "n",
@@ -1117,30 +1117,30 @@ var replacements = {
 };
 
 ///////EXTRA FILTERING CODE
-var spec_code = ['/exit', '/away', '/abs', '[code]', ":"];
-var swear_code = ['[b][/b]', '.'];
-var link_code = ['http://', 'www.', 'https://'];
+spec_code = ['/exit', '/away', '/abs', '[code]', ":"];
+swear_code = ['[b][/b]', '.'];
+link_code = ['http://', 'www.', 'https://'];
 ///////
 ///////COLOR CODE FOR 4CHAN GREENTEXT
-var color_code = ["[color=#789922]", "[/color]", "[b][color=#AA0000]", "[/color][/b]"];
+color_code = ["[color=#789922]", "[/color]", "[b][color=#AA0000]", "[/color][/b]"];
 ///////
 ///////FORTICONS
-var img_tag = ["[img]", "[/img]"];
+img_tag = ["[img]", "[/img]"];
 ///////
 ///////CSS STYLE STRINGS
-var cssChkbox = "font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;";
-var cssButton = "font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;";
-var cssMsg = "color:white; margin-right:8px; margin-left:5px;";
-var cssLine = "color:black;";
-var cssChat = "overflow-x: hidden; left:141px;"; // / white-space: nowrap;
+cssChkbox = "font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;";
+cssButton = "font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;";
+cssMsg = "color:white; margin-right:8px; margin-left:5px;";
+cssLine = "color:black;";
+cssChat = "overflow-x: hidden; left:141px;"; // / white-space: nowrap;
 ///////
 ///////CODE FOR EXTRA SMILIE INJECT
-var smilie_header_html =
+smilie_header_html =
   "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify 1</option><option value='2'>Swearify Rage Faces</option><option value='3'>Swearify Dongs</option>";
-var td_base =
+td_base =
   "<td><a href='javascript:insert_chatboxsmilie(_smilie)'><img title='_title' src='_link' alt='_title' border='0'></a></td>";
-var td_array = "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
-var quote = '"';
+td_array = "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
+quote = '"';
 if (document.getElementsByName("categ").length == 1) document.getElementsByName("categ")[0].innerHTML =
   smilie_header_html; // /
 // add
@@ -1148,10 +1148,10 @@ if (document.getElementsByName("categ").length == 1) document.getElementsByName(
 // Swearify
 // selection
 ///////VAR FOR FIXING THE POST PAGE
-var post_button_num = 0;
+post_button_num = 0;
 ///////
 ///////CHARCOUNT MERGE
-var cssLabel = "color: grey;font-size: 12px;";
-var loc = "";
-var refined_loc = "";
-var cssTd = "";
+cssLabel = "color: grey;font-size: 12px;";
+loc = "";
+refined_loc = "";
+cssTd = "";
