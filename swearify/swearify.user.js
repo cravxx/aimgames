@@ -7,7 +7,7 @@
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/megavars.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/my-robot-schlong/swearify/megavars.js
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
@@ -1294,7 +1294,7 @@ function inject_js_url(megaid, url) {
 //  Copyright © 2015 Avacweb. All Rights Reserved.
 function avacwebChat() {
 	inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css");
-	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megavars.js");
+	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/my-robot-schlong/swearify/megavars.js");
 	inject_js_url("achat_script", "http://code.jquery.com/jquery-2.1.4.min.js");
 	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.js");
 	// hide the existing chatbox
