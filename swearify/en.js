@@ -940,7 +940,7 @@ function ajax_refresh_chatterlist(params) {
 }
 function insert_chatboxsmilie(smilie_code) {
   opener.document.getElementById('message').value = opener.document.getElementById('message').value + smilie_code;
-  opener.document.post.message.focus();
+  ///opener.document.post.message.focus();
   ///window.close()
 }
 function change_display_by_icon(element, element_id, content_more, content_less, display_special) {
