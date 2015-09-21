@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.86
+// @version     2.9.88
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -348,7 +348,12 @@ var emoticon_1 = {
   beating: [':beating:', 'http://i.imgur.com/VEO5gme.png', "BEATING A SAMSQUANCH"],
   shitfish: [':shitfish:', 'http://i.imgur.com/8SyKrip.png', 'SHITFISH'],
   foffdank: [':foffdank:', 'http://i.imgur.com/o6cLJHe.png', "F OFF DANK"],
-  bubbles: [':fetish:', 'http://i.imgur.com/5HxNIqF.png', "THATS MY FETISH"]
+  bubbles: [':fetish:', 'http://i.imgur.com/5HxNIqF.png', "THATS MY FETISH"],
+  oreo: [':oreo:', 'http://i.imgur.com/so2i2ia.png', "OREO"],
+  bigsmug: [':bigsmug:', 'http://i.imgur.com/Kb5gkvr.png', "BIG SMUG"],
+  lahey: [':lahey:', 'http://i.imgur.com/n8U65ql.jpg', 'LAHEY SHAVING'],
+  raccoon: [':coon:', 'http://i.imgur.com/K3uYrVs.gif', "RACCOON" ],
+  bean: [":bean:", "http://i.imgur.com/GYhmwKt.png", "BEAN oF COFFEE"]
 };
 
 var emoticon_2 = {
