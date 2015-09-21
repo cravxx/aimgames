@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     2.9.90
+// @version     2.9.91
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -11,12 +11,6 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
 // ==/UserScript==
-
-//replace js
-
-//document.getElementsByTagName("head")[0].getElementsByTagName("script")[3].setAttribute("src", "https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/chatbox8.js");
-
-//document.getElementsByTagName("head")[0].getElementsByTagName("script")[1].setAttribute("src", "https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/en.js");
 
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
