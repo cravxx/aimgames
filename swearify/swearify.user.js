@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.21
+// @version     2.9.85
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -336,8 +336,20 @@ var emoticon_1 = {
   cenastruggle: [':cenastruggle:', 'http://i.imgur.com/yi44U9z.png', "GO JOHN CENA CENA STRONG"],
   help: [':help:', 'http://i.imgur.com/xHjch8e.png', "PRESS F1 FOR HELP"],
   shots: [':shots:', 'https://static-cdn.jtvnw.net/emoticons/v1/26388/1.0', "SHOTS FIRED"],
-  kappa: [':shots:', 'https://static-cdn.jtvnw.net/emoticons/v1/25/1.0', "KAPPAKAPPAKAPPAKAPPAKAPPAKAPPAKAPPA"]
-  
+  kappa: [':kappa:', 'https://static-cdn.jtvnw.net/emoticons/v1/25/1.0', "KAPPAKAPPAKAPPAKAPPAKAPPAKAPPAKAPPA"],
+  bitfucked: [':bitfucked:', 'http://i.imgur.com/IYRr8WH.png', 'A BIT FUCKEED'],
+  pussy: [':pussy:', 'http://i.imgur.com/wVSWGsg.png', "PUSSY"],
+  benwhat: [':bruh:', 'http://i.imgur.com/GCkoBrX.png', "BRUUH"],
+  suprisedknight: [':knight:', 'http://i.imgur.com/vEeIx9G.png', 'SUPRISED KNIGHT'],
+  damonhair: [":damonhair:", 'http://i.imgur.com/UX0lbz2.png', "DAMON ALBARNS FUCING HAIR"],
+  shitop: [':shitop:', 'http://i.imgur.com/uz9OmPe.png', "SHIT OPINION"],
+  reptilejesus: [':jesusraptor:', 'http://i.imgur.com/K8EeUDR.png', "JESUS RAPTOR"],
+  dankrandy: [':dankrandy:', 'http://i.imgur.com/LQJAvAr.png', "DANK RANDY"],
+  randy: [':randy:', 'http://i.imgur.com/RbUuQ1j.png', "JUST RANDY"],
+  beating: [':beating:', 'http://i.imgur.com/VEO5gme.png', "BEATING A SAMSQUANCH"],
+  shitfish: [':shitfish:', 'http://i.imgur.com/8SyKrip.png', 'SHITFISH'],
+  foffdank: [':foffdank:', 'http://i.imgur.com/o6cLJHe.png', "F OFF DANK"],
+  bubbles: [':fetish:', 'http://i.imgur.com/5HxNIqF.png', "THATS MY FETISH"]
 };
 
 var emoticon_2 = {
@@ -1113,23 +1125,7 @@ var replacements = {
   "lol": "not funny at all",
   "bye": "help i'm trapped in a universe factory",
   "kappa": "makenzy",
-  "art": "fart",
-  "weed": "tree",
-  "bitch": "muthafucka'",
-  "ha": "ja",
-  "graduated": "raped my way up to",
-  "know": "forget",
-  "have": "rape",
-  "Navy Seals": "Anal Beads",
-  "music": "pussy pussy pussy marijuana",
-  "marijuana": "macarena",
-  "involved": "not involved",
-  "secret": "s3kr1t",
-  "raid": "twitch raid",
-  "Al-Quaeda": "ireland",
-  "confirmed": "fake as fuck",
-  "invented": "copied",
-  "invent": "copy"
+  "art": "fart"
 };
 
 ///////EXTRA FILTERING CODE
@@ -1251,8 +1247,8 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
 ///////////////////// MANAGES THE SWEAR FILTERING
 function filter_swears() {
   for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = document.getElementById("awc_message").value;
-    var old_msg_low = document.getElementById("awc_message").value.toLowerCase();
+    var old_msg = document.getElementById("message").value;
+    var old_msg_low = document.getElementById("message").value.toLowerCase();
     var new_msg = '';
     // http://stackoverflow.com/a/500459
     var http_link = old_msg.indexOf(link_code[0]);
@@ -1282,7 +1278,7 @@ function filter_swears() {
         var edi_msg = old_msg.substr(before_link.indexOf(swear_words[i]), swear_words[i].length);
         var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
         new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-        document.getElementById("awc_message").value = new_msg;
+        document.getElementById("message").value = new_msg;
       }      
     }    
     
@@ -1291,7 +1287,7 @@ function filter_swears() {
             var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
             var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
             new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);     
-            document.getElementById("awc_message").value = new_msg;
+            document.getElementById("message").value = new_msg;
         }    	
     }    	   
   }
@@ -1329,30 +1325,30 @@ function filter_swears_post() {
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 function emoticon_() {
   for (var i = 0; i < Object.keys(emoticon_1).length; i++) {
-    var old_msg = document.getElementById("awc_message").value;
+    var old_msg = document.getElementById("message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], "gi"), img_tag[0] + values(emoticon_1)[i][1] +
         img_tag[1]);
-      document.getElementById("awc_message").value = new_msg;
+      document.getElementById("message").value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
-    var old_msg = document.getElementById("awc_message").value;
+    var old_msg = document.getElementById("message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
                                                img_tag[1]);
-      document.getElementById("awc_message").value = new_msg;
+      document.getElementById("message").value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_3).length; i++) {
-    var old_msg = document.getElementById("awc_message").value;
+    var old_msg = document.getElementById("message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], "gi"), img_tag[0] + values(emoticon_3)[i][1] +
                                                img_tag[1]);
-      document.getElementById("awc_message").value = new_msg;
+      document.getElementById("message").value = new_msg;
     }
   }
 }
@@ -1405,11 +1401,11 @@ function emoticon_post() {
 /////////////////////MANAGES THE MAY MAY SYSTEM
 function maymay_() {
   for (var i = 0; i < Object.keys(maymay).length; i++) {
-    var old_msg = document.getElementById("awc_message").value;
+    var old_msg = document.getElementById("message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
-      document.getElementById("awc_message").value = new_msg;
+      document.getElementById("message").value = new_msg;
     }
   }
 }
@@ -1432,11 +1428,11 @@ function maymay_post() {
 /////////////////////
 ///////////////////// MANAGES THE EMULATION OF GREENTEXT
 function greentext_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.indexOf(">");
   if (index_num === 0) {
     var new_msg = color_code[0] + old_msg + color_code[1];
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -1459,12 +1455,12 @@ function greentext_post() {
 /////////////////////
 ///////////////////// MANAGES THE EMULATION OF REDTEXT
 function redtext_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.indexOf("<");
   if (old_msg.length >= 1)
     if (index_num === old_msg.length - 1) {
       var new_msg = color_code[2] + old_msg + color_code[3];
-      document.getElementById("awc_message").value = new_msg;
+      document.getElementById("message").value = new_msg;
     }
 }
 
@@ -1488,7 +1484,7 @@ function redtext_post() {
 /////////////////////
 /////////////////////LEET TEXT
 function leet_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/leet /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/leet /i, '');
@@ -1518,7 +1514,7 @@ function leet_() {
     new_msg = new_msg.replace(/x/gi, '><');
     new_msg = new_msg.replace(/y/gi, '`/');
     new_msg = new_msg.replace(/z/gi, '2');
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -1568,7 +1564,7 @@ function leet_post() {
 //////////////////////
 /////////////////////BALLOON TEXT
 function balloon_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/balloon /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/balloon /i, '');
@@ -1608,7 +1604,7 @@ function balloon_() {
     new_msg = new_msg.replace(/8/gi, '⓼');
     new_msg = new_msg.replace(/9/gi, '⓽');
     new_msg = new_msg.replace(/0/gi, '⓪');
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -1668,7 +1664,7 @@ function balloon_post() {
 //////////////////////
 /////////////////////BRAILLE TEXT
 function braille_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/braille /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/braille /i, '');
@@ -1708,7 +1704,7 @@ function braille_() {
     new_msg = new_msg.replace(/8/gi, '⠼⠓');
     new_msg = new_msg.replace(/9/gi, '⠼⠊');
     new_msg = new_msg.replace(/0/gi, '⠼⠚');
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -1768,7 +1764,7 @@ function braille_post() {
 //////////////////////
 /////////////////////GREEKIFIED TEXT
 function greek_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/greek /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/greek /i, '');
@@ -1798,7 +1794,7 @@ function greek_() {
     new_msg = new_msg.replace(/x/gi, 'χ');
     new_msg = new_msg.replace(/y/gi, 'λ');
     new_msg = new_msg.replace(/z/gi, 'ζ');
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -1848,7 +1844,7 @@ function greek_post() {
 //////////////////////
 /////////////////////MORSE CODE
 function morse_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/mc /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/mc /i, '');
@@ -1878,7 +1874,7 @@ function morse_() {
     new_msg = new_msg.replace(/x/gi, '-..-//');
     new_msg = new_msg.replace(/y/gi, '-[b][/b].[b][/b]--//');
     new_msg = new_msg.replace(/z/gi, '--..////');
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -1948,7 +1944,7 @@ function morse_post() {
 Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (max - min + 1)) + min;')
 
 function sekrit_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/s /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/s /i, '');
@@ -1959,7 +1955,7 @@ function sekrit_() {
       new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
     } catch(e) { /* there are no dots in our message */ }
     for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -1989,9 +1985,9 @@ function sekrit_post() {
 
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 function rainbow_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   new_msg = rainbowText(old_msg);
-  document.getElementById("awc_message").value = new_msg;
+  document.getElementById("message").value = new_msg;
 }
 
 function inject_rainbow() {
@@ -2043,9 +2039,9 @@ function rainbow_post() {
 /////////////////////
 /////////////////////RANDOM CHARACTER COLOR
 function random_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   new_msg = randomText(old_msg);
-  document.getElementById("awc_message").value = new_msg;
+  document.getElementById("message").value = new_msg;
 }
 
 function inject_random() {
@@ -2097,9 +2093,9 @@ function random_post() {
 /////////////////////
 ////////////////////GRADIENT MSG COLOR
 function gradient_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var new_msg = gradientText(old_msg);
-  document.getElementById("awc_message").value = new_msg;
+  document.getElementById("message").value = new_msg;
 }
 
 function inject_gradient() {
@@ -2151,12 +2147,12 @@ function gradient_post() {
 ////////////////////
 ////////////////////JAVASCRIPT SYNTAX
 function js_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/js /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/js /i, '');
     new_msg = jsText(new_msg);
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -2180,12 +2176,12 @@ function js_post() {
 ////////////////////
 ////////////////////JAVA SYNTAX
 function java_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/java /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/java /i, '');
     new_msg = javaText(new_msg);
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -2209,12 +2205,12 @@ function java_post() {
 ////////////////////
 ////////////////////VBSCRIPT SYNTAX
 function vbs_() {
-  var old_msg = document.getElementById("awc_message").value;
+  var old_msg = document.getElementById("message").value;
   var index_num = old_msg.regexIndexOf(/\/vbs /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/vbs /i, '');
     new_msg = vbsText(new_msg);
-    document.getElementById("awc_message").value = new_msg;
+    document.getElementById("message").value = new_msg;
   }
 }
 
@@ -2354,7 +2350,6 @@ function post_page_editor() {
 window.addEventListener('load', function () { /* shit goes down in here */
   if (is.ie() || is.safari() || is.opera()) alert("This browser is unsupported by Swearify.");
   else {
-    avacwebChat();
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=1&mode=smilies") inject_smilie(1);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=2&mode=smilies") inject_smilie(2);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=3&mode=smilies") inject_smilie(3);
@@ -2407,54 +2402,6 @@ window.addEventListener('load', function () { /* shit goes down in here */
     }
   }
 }, false);
-
-function inject_css(css) {
-    var head;
-    head = document.getElementsByTagName('head')[0];
-    if (!head) { return; }
-    var gstyle = document.createElement('style');
-    gstyle.type = 'text/css';
-    gstyle.innerHTML = css;
-    head.appendChild(gstyle);
-}
-
-function inject_css_url(url) {
-    var head;
-    head = document.getElementsByTagName('head')[0];
-    if (!head) { return; }
-    var gstyle = document.createElement('link');
-    gstyle.rel = 'stylesheet';
-    gstyle.type = 'text/css';
-    gstyle.href = url;
-    head.appendChild(gstyle);
-}
-
-function inject_js(megaid, megastring) {
-	var scr = document.createElement('script');
-	scr.type = "text/javascript";
-	scr.id = megaid;
-	scr.innerHTML = megastring;
-	document.getElementsByTagName('head')[0].appendChild(scr);
-	//document.body.appendChild(scr);
-}
-
-function inject_js_url(megaid, url) {
-	var scr = document.createElement('script');
-	scr.type = "text/javascript";
-	scr.id = megaid;
-	scr.src = url;
-	document.getElementsByTagName('head')[0].appendChild(scr);
-	//document.body.appendChild(scr);
-}
-
-//  Copyright © 2015 Avacweb. All Rights Reserved.
-function avacwebChat() {
-	inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css");
-	inject_js_url("achat_script", "http://code.jquery.com/jquery-2.1.4.min.js");
-	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.js");
-	// hide the existing chatbox
-	document.getElementsByClassName("forumline")[document.getElementsByClassName("forumline").length-1].hidden = true;
-}
 
 function run_() {
   sekrit_();
