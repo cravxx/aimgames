@@ -1,4 +1,4 @@
-var megachat = "avacweb_chat_config = {};
+avacweb_chat_config = {};
 (function (f, l, h) {
   if (!l) {
     if (!(window.JSON && window.sessionStorage && window.localStorage && Array.prototype.sort && Array.prototype.join)) return console.log("Minimum requirements not met to run AWC.");
@@ -988,4 +988,4 @@ var megachat = "avacweb_chat_config = {};
 var AWC_update = {
   id: "120315",
   text: "Your Avacweb Chat was updated today to fix the PM bug. Please seek support at Avacweb if you are still having isssues. <br><br>If you find any other bugs, report them quickly so they can be fixed quickly and everyone is happy! <br><br>Thanks!"
-};";
+};
