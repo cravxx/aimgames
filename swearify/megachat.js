@@ -1,4 +1,15 @@
-avacweb_chat_config = {};
+var avacweb_chat_config = {
+  version : '2-0',
+  chat_title : 'AIM Chat',
+  stylesheet : 'https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css',
+  allow_private_messaging : 1,
+  allow_user_resize : 0,
+  custom_placement : null,
+  commands : {/* commands can be added here */},
+  tabs : {/* tabs can be added here */},
+  filters : {/* don't fuck with this*/},
+  allow_copyrights : 0, //please be kind and allow AWC to place small discreet copyrights and backlink on your forum.
+}
 (function (f, l, h) {
   if (!l) {
     if (!(window.JSON && window.sessionStorage && window.localStorage && Array.prototype.sort && Array.prototype.join)) return console.log("Minimum requirements not met to run AWC.");
@@ -16,12 +27,12 @@ avacweb_chat_config = {};
       refresh_timeout: null,
       plain_text: "",
       config: {
-        chat_title: "Aim Chat",
-        stylesheet: "http://chat.avacweb.net/avacweb_chat_2.css",
+        chat_title: "AIM Chat",
+        stylesheet: "https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css",
         allow_private_messaging: 1,
-        allow_user_resize: 1,
+        allow_user_resize: 0,
         custom_placement: null,
-        allow_copyrights: 1,
+        allow_copyrights: 0,
         loading_image: "http://i40.servimg.com/u/f40/17/20/25/96/26-110.gif",
         template: {
           markup: '<div id="avacweb_chat" style="display:none"><div id="awc_header"><div id="awc_buttons"></div><span id="awc_title"></span></div><div id="awc_userlist"></div><div id="awc_rightbox"><div id="awc_tabs"></div><div id="awc_messages"></div></div><div id="awc_footer"><div id="awc_form"><input name="message" id="awc_message" maxlength="1024" autocomplete="off" onkeydown="if(event.keyCode==13)avacweb_chat.submit()"></div></div></div>',
