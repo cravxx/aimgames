@@ -127,6 +127,86 @@ avacweb_chat_config = {};
           }, "json")
         }
       },
+      filter_swears: function (msg) {
+      	var http_link = msg.indexOf(link_code[0]);
+        var www_link = msg.indexOf(link_code[1]);
+        var https_link = msg.indexOf(link_code[2]);
+      	var exit_code = msg.indexOf(spec_code[0]);
+        var away_code = msg.indexOf(spec_code[1]);
+        var abs_code = msg.indexOf(spec_code[2]);
+        var code_code = msg.indexOf(spec_code[3]);
+        var semi_code = msg.indexOf(spec_code[3]);
+      	var spec_switch = 0;
+      	if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1 || semi_code != -1) spec_switch = 1;
+      	
+      	for (var i in swear_words) {
+      		if (http_link > 0 || www_link > 0 || https_link > 0) {
+      		  var which = 0;
+      		  if (http_link != -1) {
+      			  which = http_link;        
+      		  } else if (www_link != -1) {
+      			  which = www_link;  
+      		  } else {
+        			which = https_link;  
+      		  }
+      		  var before_link = msg.substr(0, which);
+      		  var link = msg.substr(which, msg.length);
+      		  if (before_link.toLowerCase().indexOf(swear_words[i]) != -1)   {
+        			var word_msg = before_link.split(' ');
+        			for (var j in word_msg) {
+        				if (word_msg[j].toLowerCase().indexOf(swear_words[i]) != -1) {
+        					word_msg[j] = word_msg[j].split('').join(swear_code[spec_switch]);
+        				}
+        			}
+        			msg = word_msg.join(' ');
+        			msg += link;
+      		  }      
+      		} else if (msg.toLowerCase().indexOf(swear_words[i]) != -1) {
+      			var word_msg = msg.split(' ');
+      			for (var j in word_msg) {
+      				if (word_msg[j].toLowerCase().indexOf(swear_words[i]) != -1) {
+      					word_msg[j] = word_msg[j].split('').join(swear_code[spec_switch]);
+      				}
+      			}
+      			msg = word_msg.join(' ');
+      		}
+      	}
+    	  return msg;
+      },
+      filter_emoticons: function (input) {
+        for (var i = 0; i < Object.keys(emoticon_1).length; i++) {
+          var index_num = input.regexIndexOf(new RegExp(values(emoticon_1)[i][0], "gi"));
+          if (index_num >= 0) {
+            var new_msg = input.replace(new RegExp(values(emoticon_1)[i][0], "gi"), img_tag[0] + values(emoticon_1)[i][1] + img_tag[1]);
+            input = new_msg;
+          }
+        }
+        for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
+          var index_num = input.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
+          if (index_num >= 0) {
+            var new_msg = input.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] + img_tag[1]);
+            input = new_msg;
+          }
+        }
+        for (var i = 0; i < Object.keys(emoticon_3).length; i++) {
+          var index_num = input.regexIndexOf(new RegExp(values(emoticon_3)[i][0], "gi"));
+          if (index_num >= 0) {
+            var new_msg = input.replace(new RegExp(values(emoticon_3)[i][0], "gi"), img_tag[0] + values(emoticon_3)[i][1] + img_tag[1]);
+            input = new_msg;
+          }
+        }
+        return input;
+      },
+      filter_maymays: function(input) {
+        for (var i = 0; i < Object.keys(maymay).length; i++) {
+          var index_num = input.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
+          if (index_num >= 0) {
+            var new_msg = input.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
+            input = new_msg;
+          }
+        }
+        return input;
+      },
       submit: function (a) {
         if (!a) {
           var b = this.get_template_item("messagebox");
@@ -136,6 +216,9 @@ avacweb_chat_config = {};
         }
         if (this.event.fire("onsend", a)) {
           a = a.replace(/^\s+/, "");
+          a = avacweb_chat.filter_swears(a);
+          a = avacweb_chat.filter_emoticons(a);
+          a = avacweb_chat.filter_maymays(a);
           this.tabs.in_tab() && "/" !== a.charAt(0) && ((b = this.tabs.get()) && b.user_tab ? a = "/tab(" + b.name + ") " + a : b && (a = "/pm(" + b.users.join(", ") + ") " + a));
           if ("/" === a.charAt(0)) {
             b = this.parse_command(a);
