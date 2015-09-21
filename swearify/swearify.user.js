@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.23
+// @version     3.0.24
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1250,7 +1250,7 @@ function avacwebChat() {
 	inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css");
 	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/my-robot-schlong/swearify/megavars.js");
 	inject_js_url("achat_script", "http://code.jquery.com/jquery-2.1.4.min.js");
-	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.js");
+	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/my-robot-schlong/swearify/megachat.js");
 	// hide the existing chatbox
 	document.getElementsByClassName("forumline")[document.getElementsByClassName("forumline").length-1].hidden = true;
 }
