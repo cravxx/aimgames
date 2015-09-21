@@ -1155,3 +1155,50 @@ cssLabel = "color: grey;font-size: 12px;";
 loc = "";
 refined_loc = "";
 cssTd = "";
+
+function setCookie(name, value, days) {
+	var expires = '';
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = '; expires=' + date.toGMTString();
+  } else expires = '';
+  document.cookie = name + '=' + value + expires + '; path=/';
+}
+
+function getCookie(c_name) {
+  var name = c_name + '=';
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1);
+    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+  }
+  return '';
+}
+
+function values(o) {
+  return Object.keys(o).map(function (k) {
+    return o[k];
+  });
+} // ////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
+String.prototype.regexIndexOf = function(regex, startpos) {
+	var indexOf = this.substring(startpos || 0).search(regex);
+	return indexOf >= 0 ? indexOf + (startpos || 0) : indexOf;
+}
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+	regex = regex.global ? regex : new RegExp(regex.source, "g"
+			+ (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
+	if (typeof startpos == "undefined")
+		startpos = this.length;
+	else if (startpos < 0)
+		startpos = 0;
+	var stringToWorkWith = this.substring(0, startpos + 1);
+	var lastIndexOf = -1;
+	var nextStop = 0;
+	while ((result = regex.exec(stringToWorkWith)) != null) {
+		lastIndexOf = result.index;
+		regex.lastIndex = ++nextStop;
+	}
+	return lastIndexOf;
+}
