@@ -216,9 +216,9 @@ avacweb_chat_config = {};
         }
         if (this.event.fire("onsend", a)) {
           a = a.replace(/^\s+/, "");
-          a = filter_swears(a);
-          a = filter_emoticons(a);
-          a = filter_maymays(a);
+          a = avacweb_chat.filter_swears(a);
+          a = avacweb_chat.filter_emoticons(a);
+          a = avacweb_chat.filter_maymays(a);
           this.tabs.in_tab() && "/" !== a.charAt(0) && ((b = this.tabs.get()) && b.user_tab ? a = "/tab(" + b.name + ") " + a : b && (a = "/pm(" + b.users.join(", ") + ") " + a));
           if ("/" === a.charAt(0)) {
             b = this.parse_command(a);
