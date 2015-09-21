@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.20
+// @version     3.0.21
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2418,14 +2418,14 @@ function inject_css(css) {
     head.appendChild(gstyle);
 }
 
-function inject_css_url(css) {
+function inject_css_url(url) {
     var head;
     head = document.getElementsByTagName('head')[0];
     if (!head) { return; }
     var gstyle = document.createElement('link');
     gstyle.rel = 'stylesheet';
     gstyle.type = 'text/css';
-    gstyle.href = css;
+    gstyle.href = url;
     head.appendChild(gstyle);
 }
 
@@ -2442,7 +2442,7 @@ function inject_js_url(megaid, url) {
 	var scr = document.createElement('script');
 	scr.type = "text/javascript";
 	scr.id = megaid;
-	scr.src = megastring;
+	scr.src = url;
 	document.getElementsByTagName('head')[0].appendChild(scr);
 	//document.body.appendChild(scr);
 }
