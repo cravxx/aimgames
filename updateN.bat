@@ -2,7 +2,7 @@
 REM This script should automatically
 REM increase the version number.
 REM http://stackoverflow.com/a/18095483
-SET "HFile=file"
+SET "HFile=swearify.user.js"
 SET "search=// @version"
 
 FOR /f %%a IN ('^<"%HFile%" find /c /v ""') DO SET /a lines=%%a
