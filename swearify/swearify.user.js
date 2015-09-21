@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.12
+// @version     3.0.13
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1251,8 +1251,8 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
 ///////////////////// MANAGES THE SWEAR FILTERING
 function filter_swears() {
   for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = document.getElementById("message").value;
-    var old_msg_low = document.getElementById("message").value.toLowerCase();
+    var old_msg = document.getElementById("awc_message").value;
+    var old_msg_low = document.getElementById("awc_message").value.toLowerCase();
     var new_msg = '';
     // http://stackoverflow.com/a/500459
     var http_link = old_msg.indexOf(link_code[0]);
@@ -1282,7 +1282,7 @@ function filter_swears() {
         var edi_msg = old_msg.substr(before_link.indexOf(swear_words[i]), swear_words[i].length);
         var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
         new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-        document.getElementById("message").value = new_msg;
+        document.getElementById("awc_message").value = new_msg;
       }      
     }    
     
@@ -1291,7 +1291,7 @@ function filter_swears() {
             var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
             var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
             new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);     
-            document.getElementById("message").value = new_msg;
+            document.getElementById("awc_message").value = new_msg;
         }    	
     }    	   
   }
@@ -1329,30 +1329,30 @@ function filter_swears_post() {
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 function emoticon_() {
   for (var i = 0; i < Object.keys(emoticon_1).length; i++) {
-    var old_msg = document.getElementById("message").value;
+    var old_msg = document.getElementById("awc_message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], "gi"), img_tag[0] + values(emoticon_1)[i][1] +
         img_tag[1]);
-      document.getElementById("message").value = new_msg;
+      document.getElementById("awc_message").value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
-    var old_msg = document.getElementById("message").value;
+    var old_msg = document.getElementById("awc_message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
                                                img_tag[1]);
-      document.getElementById("message").value = new_msg;
+      document.getElementById("awc_message").value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_3).length; i++) {
-    var old_msg = document.getElementById("message").value;
+    var old_msg = document.getElementById("awc_message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], "gi"), img_tag[0] + values(emoticon_3)[i][1] +
                                                img_tag[1]);
-      document.getElementById("message").value = new_msg;
+      document.getElementById("awc_message").value = new_msg;
     }
   }
 }
@@ -1405,11 +1405,11 @@ function emoticon_post() {
 /////////////////////MANAGES THE MAY MAY SYSTEM
 function maymay_() {
   for (var i = 0; i < Object.keys(maymay).length; i++) {
-    var old_msg = document.getElementById("message").value;
+    var old_msg = document.getElementById("awc_message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], "gi"), values(maymay)[i][1]);
-      document.getElementById("message").value = new_msg;
+      document.getElementById("awc_message").value = new_msg;
     }
   }
 }
@@ -1432,11 +1432,11 @@ function maymay_post() {
 /////////////////////
 ///////////////////// MANAGES THE EMULATION OF GREENTEXT
 function greentext_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.indexOf(">");
   if (index_num === 0) {
     var new_msg = color_code[0] + old_msg + color_code[1];
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -1459,12 +1459,12 @@ function greentext_post() {
 /////////////////////
 ///////////////////// MANAGES THE EMULATION OF REDTEXT
 function redtext_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.indexOf("<");
   if (old_msg.length >= 1)
     if (index_num === old_msg.length - 1) {
       var new_msg = color_code[2] + old_msg + color_code[3];
-      document.getElementById("message").value = new_msg;
+      document.getElementById("awc_message").value = new_msg;
     }
 }
 
@@ -1488,7 +1488,7 @@ function redtext_post() {
 /////////////////////
 /////////////////////LEET TEXT
 function leet_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/leet /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/leet /i, '');
@@ -1518,7 +1518,7 @@ function leet_() {
     new_msg = new_msg.replace(/x/gi, '><');
     new_msg = new_msg.replace(/y/gi, '`/');
     new_msg = new_msg.replace(/z/gi, '2');
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -1568,7 +1568,7 @@ function leet_post() {
 //////////////////////
 /////////////////////BALLOON TEXT
 function balloon_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/balloon /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/balloon /i, '');
@@ -1608,7 +1608,7 @@ function balloon_() {
     new_msg = new_msg.replace(/8/gi, '⓼');
     new_msg = new_msg.replace(/9/gi, '⓽');
     new_msg = new_msg.replace(/0/gi, '⓪');
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -1668,7 +1668,7 @@ function balloon_post() {
 //////////////////////
 /////////////////////BRAILLE TEXT
 function braille_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/braille /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/braille /i, '');
@@ -1708,7 +1708,7 @@ function braille_() {
     new_msg = new_msg.replace(/8/gi, '⠼⠓');
     new_msg = new_msg.replace(/9/gi, '⠼⠊');
     new_msg = new_msg.replace(/0/gi, '⠼⠚');
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -1768,7 +1768,7 @@ function braille_post() {
 //////////////////////
 /////////////////////GREEKIFIED TEXT
 function greek_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/greek /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/greek /i, '');
@@ -1798,7 +1798,7 @@ function greek_() {
     new_msg = new_msg.replace(/x/gi, 'χ');
     new_msg = new_msg.replace(/y/gi, 'λ');
     new_msg = new_msg.replace(/z/gi, 'ζ');
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -1848,7 +1848,7 @@ function greek_post() {
 //////////////////////
 /////////////////////MORSE CODE
 function morse_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/mc /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/mc /i, '');
@@ -1878,7 +1878,7 @@ function morse_() {
     new_msg = new_msg.replace(/x/gi, '-..-//');
     new_msg = new_msg.replace(/y/gi, '-[b][/b].[b][/b]--//');
     new_msg = new_msg.replace(/z/gi, '--..////');
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -1948,7 +1948,7 @@ function morse_post() {
 Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (max - min + 1)) + min;')
 
 function sekrit_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/s /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/s /i, '');
@@ -1959,7 +1959,7 @@ function sekrit_() {
       new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
     } catch(e) { /* there are no dots in our message */ }
     for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], "gi"), values(replacements)[i]);
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -1989,9 +1989,9 @@ function sekrit_post() {
 
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 function rainbow_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   new_msg = rainbowText(old_msg);
-  document.getElementById("message").value = new_msg;
+  document.getElementById("awc_message").value = new_msg;
 }
 
 function inject_rainbow() {
@@ -2043,9 +2043,9 @@ function rainbow_post() {
 /////////////////////
 /////////////////////RANDOM CHARACTER COLOR
 function random_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   new_msg = randomText(old_msg);
-  document.getElementById("message").value = new_msg;
+  document.getElementById("awc_message").value = new_msg;
 }
 
 function inject_random() {
@@ -2097,9 +2097,9 @@ function random_post() {
 /////////////////////
 ////////////////////GRADIENT MSG COLOR
 function gradient_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var new_msg = gradientText(old_msg);
-  document.getElementById("message").value = new_msg;
+  document.getElementById("awc_message").value = new_msg;
 }
 
 function inject_gradient() {
@@ -2151,12 +2151,12 @@ function gradient_post() {
 ////////////////////
 ////////////////////JAVASCRIPT SYNTAX
 function js_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/js /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/js /i, '');
     new_msg = jsText(new_msg);
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -2180,12 +2180,12 @@ function js_post() {
 ////////////////////
 ////////////////////JAVA SYNTAX
 function java_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/java /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/java /i, '');
     new_msg = javaText(new_msg);
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
@@ -2209,12 +2209,12 @@ function java_post() {
 ////////////////////
 ////////////////////VBSCRIPT SYNTAX
 function vbs_() {
-  var old_msg = document.getElementById("message").value;
+  var old_msg = document.getElementById("awc_message").value;
   var index_num = old_msg.regexIndexOf(/\/vbs /i);
   if (index_num === 0) {
     var new_msg = old_msg.replace(/\/vbs /i, '');
     new_msg = vbsText(new_msg);
-    document.getElementById("message").value = new_msg;
+    document.getElementById("awc_message").value = new_msg;
   }
 }
 
