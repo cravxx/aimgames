@@ -61,7 +61,7 @@
 	text-shadow: 0 0px #FFF;
 }
 #avacweb_chat_button:hover {
-	border: 1px solid #00C!important;
+	border: 1px solid #7A0000!important;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #avacweb_chat_button.newmsg { /* Design of the button light up when new messages are entered */
@@ -265,6 +265,7 @@
 	max-height: 250px;
 	overflow: auto;
 	left: 5%;
+	max-width: 250px;
 	color: white;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
