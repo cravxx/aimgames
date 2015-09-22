@@ -1,4 +1,15 @@
-var avacweb_chat_config = {};
+var avacweb_chat_config = {
+  version : '2-0',
+  chat_title : 'AIM Chat',
+  stylesheet : 'https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css',
+  allow_private_messaging : 1,
+  allow_user_resize : 0,
+  custom_placement : null,
+  commands : {/* commands can be added here */},
+  tabs : {/* tabs can be added here */},
+  filters : {/* don't fuck with this*/},
+  allow_copyrights : 0, //please be kind and allow AWC to place small discreet copyrights and backlink on your forum.
+};
 (function (f, l, h) {
   if (!l) {
     if (!(window.JSON && window.sessionStorage && window.localStorage && Array.prototype.sort && Array.prototype.join)) return console.log("Minimum requirements not met to run AWC.");
@@ -17,7 +28,7 @@ var avacweb_chat_config = {};
       plain_text: "",
       config: {
         chat_title: "AIM Chat",
-        stylesheet: "https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css",
+        stylesheet: "http://chat.avacweb.net/avacweb_chat_2.css", //NEVER CHANGE THIS
         allow_private_messaging: 1,
         allow_user_resize: 0,
         custom_placement: null,
