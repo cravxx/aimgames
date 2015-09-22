@@ -232,7 +232,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
         else return input;
       },
       filter_leet: function(new_msg) {
-        if (old_msg.regexIndexOf(/\/leet /i) === 0) {
+        if (new_msg.regexIndexOf(/\/leet /i) === 0) {
           new_msg = new_msg.replace(/\/leet /i, '');
           new_msg = new_msg.replace(/a/gi, '4');
           new_msg = new_msg.replace(/b/gi, '|3');
@@ -264,7 +264,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
         } else return new_msg;
       },
       filter_balloon: function(new_msg) {
-        if (old_msg.regexIndexOf(/\/balloon /i) === 0) {
+        if (new_msg.regexIndexOf(/\/balloon /i) === 0) {
           new_msg = new_msg.replace(/\/balloon /i, '');
           new_msg = new_msg.replace(/a/gi, 'ⓐ');
           new_msg = new_msg.replace(/b/gi, 'ⓑ');
@@ -306,7 +306,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
         } else return new_msg;
       },
       filter_braille: function(new_msg) {
-        if (old_msg.regexIndexOf(/\/braille /i) === 0) {
+        if (new_msg.regexIndexOf(/\/braille /i) === 0) {
           new_msg = new_msg.replace(/\/braille /i, '');
           new_msg = new_msg.replace(/a/gi, '⠁');
           new_msg = new_msg.replace(/b/gi, '⠃');
@@ -348,7 +348,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
         } else return new_msg;
       },
       filter_greek: function(new_msg) {
-        if (old_msg.regexIndexOf(/\/greek /i) === 0) {
+        if (new_msg.regexIndexOf(/\/greek /i) === 0) {
           new_msg = new_msg.replace(/\/greek /i, '');
           new_msg = new_msg.replace(/a/gi, 'α');
           new_msg = new_msg.replace(/b/gi, 'β');
@@ -380,7 +380,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
         } else return new_msg;
       },
       filter_morse: function(new_msg) {
-        if (old_msg.regexIndexOf(/\/morse /i) === 0) {
+        if (new_msg.regexIndexOf(/\/morse /i) === 0) {
           new_msg = new_msg.replace(/\/morse /i, '');
           new_msg = new_msg.replace(/a/gi, '.-//');
           new_msg = new_msg.replace(/b/gi, '-...//');
