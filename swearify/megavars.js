@@ -320,8 +320,28 @@ emoticon_1 = {
   cenastruggle: [':cenastruggle:', 'http://i.imgur.com/yi44U9z.png', "GO JOHN CENA CENA STRONG"],
   help: [':help:', 'http://i.imgur.com/xHjch8e.png', "PRESS F1 FOR HELP"],
   shots: [':shots:', 'https://static-cdn.jtvnw.net/emoticons/v1/26388/1.0', "SHOTS FIRED"],
-  kappa: [':shots:', 'https://static-cdn.jtvnw.net/emoticons/v1/25/1.0', "KAPPAKAPPAKAPPAKAPPAKAPPAKAPPAKAPPA"]
-  
+  kappa: [':shots:', 'https://static-cdn.jtvnw.net/emoticons/v1/25/1.0', "KAPPAKAPPAKAPPAKAPPAKAPPAKAPPAKAPPA"],
+  bitfucked: [':bitfucked:', 'http://i.imgur.com/IYRr8WH.png', 'A BIT FUCKEED'],
+  pussy: [':pussy:', 'http://i.imgur.com/wVSWGsg.png', "PUSSY"],
+  benwhat: [':bruh:', 'http://i.imgur.com/GCkoBrX.png', "BRUUH"],
+  suprisedknight: [':knight:', 'http://i.imgur.com/vEeIx9G.png', 'SUPRISED KNIGHT'],
+  damonhair: [":damonhair:", 'http://i.imgur.com/UX0lbz2.png', "DAMON ALBARNS FUCING HAIR"],
+  shitop: [':shitop:', 'http://i.imgur.com/uz9OmPe.png', "SHIT OPINION"],
+  reptilejesus: [':jesusraptor:', 'http://i.imgur.com/K8EeUDR.png', "JESUS RAPTOR"],
+  dankrandy: [':dankrandy:', 'http://i.imgur.com/LQJAvAr.png', "DANK RANDY"],
+  randy: [':randy:', 'http://i.imgur.com/RbUuQ1j.png', "JUST RANDY"],
+  beating: [':beating:', 'http://i.imgur.com/VEO5gme.png', "BEATING A SAMSQUANCH"],
+  shitfish: [':shitfish:', 'http://i.imgur.com/8SyKrip.png', 'SHITFISH'],
+  foffdank: [':foffdank:', 'http://i.imgur.com/o6cLJHe.png', "F OFF DANK"],
+  bubbles: [':fetish:', 'http://i.imgur.com/5HxNIqF.png', "THATS MY FETISH"],
+  oreo: [':oreo:', 'http://i.imgur.com/so2i2ia.png', "OREO"],
+  bigsmug: [':bigsmug:', 'http://i.imgur.com/Kb5gkvr.png', "BIG SMUG"],
+  lahey: [':lahey:', 'http://i.imgur.com/n8U65ql.jpg', 'LAHEY SHAVING'],
+  raccoon: [':coon:', 'http://i.imgur.com/K3uYrVs.gif', "RACCOON" ],
+  bean: [":bean:", "http://i.imgur.com/GYhmwKt.png", "BEAN oF COFFEE"],
+  coolc: [':coolc:', 'http://i.imgur.com/6FCMFQQ.png', "COOOOOOOOOOOL"],
+  apple: [':gapple:', 'http://i.imgur.com/oO5qxLT.png', 'GREEN APPLE'],
+  jeffyeah: [':jeffye:', 'http://i.imgur.com/yUYFtX2.png', 'JEFF TWEEDY YEAAAAAAH']
 };
 
 emoticon_2 = {
@@ -1113,7 +1133,9 @@ replacements = {
   "Al-Quaeda": "ireland",
   "confirmed": "fake as fuck",
   "invented": "copied",
-  "invent": "copy"
+  "invent": "copy",
+  "username": "[b]{USERNAME}[/b]"
+  "meme": "{MEME}"
 };
 
 ///////EXTRA FILTERING CODE
