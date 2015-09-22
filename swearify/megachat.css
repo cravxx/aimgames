@@ -47,20 +47,21 @@
 	z-index: 99999;
 	bottom: 0px;
 	background: #000000;
-    box-shadow: inset 0 10px 10px #111316;
-    -moz-box-shadow: inset 0 10px 10px #111316;
-    -webkit-box-shadow: inset 0 10px 10px #111316;
-    color: #FFF;
-    border: 1px solid #161616;
+    	box-shadow: inset 0 10px 10px #111316;
+    	-moz-box-shadow: inset 0 10px 10px #111316;
+    	-webkit-box-shadow: inset 0 10px 10px #111316;
+    	color: #FFF;
+    	border: 1px solid #161616;
 	padding: 5px 7px;
 	text-align: center;
 	border-radius: 2px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
+	text-shadow: 0 0px #FFF;
 }
 #avacweb_chat_button:hover {
-	border: 1px solid #13457A!important;
+	border: 1px solid #00C!important;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #avacweb_chat_button.newmsg { /* Design of the button light up when new messages are entered */
@@ -260,10 +261,11 @@
 	-webkit-border-radius: 3px;
 	font-weight: bold;
 	text-shadow: 0 1px black;
-	box-shadow: 3px 3px 10px #888, inset 0 20px 20px #EEE;
+	box-shadow: 3px 3px 10px #888, inset 0 20px 20px #474747;
 	max-height: 250px;
 	overflow: auto;
 	left: 5%;
+	color: white;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #achat_popup {
