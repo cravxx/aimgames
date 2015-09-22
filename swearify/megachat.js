@@ -7,7 +7,7 @@ var avacweb_chat_config = {
   custom_placement : null,
   commands : {/* commands can be added here */},
   tabs : {/* tabs can be added here */},
-  filters : {/* don't fuck with this*/},
+  filters : {/* don't fuck with this */},
   allow_copyrights : 0, //please be kind and allow AWC to place small discreet copyrights and backlink on your forum.
 };
 (function (f, l, h) {
@@ -218,6 +218,18 @@ var avacweb_chat_config = {
         }
         return input;
       },
+      filter_greentext: function(input) {
+        if (input.indexOf('>') === 0)
+          return color_code[0] + input + color_code[1];
+        else return input;
+      },
+      filter_redtext: function(input) {
+        if (input.length >= 1)
+          if (input.indexOf('<') === input.length - 1)
+            return color_code[2] + input + color_code[3];
+          else return input;
+        else return input;
+      },
       submit: function (a) {
         if (!a) {
           var b = this.get_template_item("messagebox");
@@ -230,6 +242,8 @@ var avacweb_chat_config = {
           a = avacweb_chat.filter_swears(a);
           a = avacweb_chat.filter_emoticons(a);
           a = avacweb_chat.filter_maymays(a);
+          a = avacweb_chat.filter_greentext(a);
+          a = avacweb_chat.filter_redtext(a);
           this.tabs.in_tab() && "/" !== a.charAt(0) && ((b = this.tabs.get()) && b.user_tab ? a = "/tab(" + b.name + ") " + a : b && (a = "/pm(" + b.users.join(", ") + ") " + a));
           if ("/" === a.charAt(0)) {
             b = this.parse_command(a);
