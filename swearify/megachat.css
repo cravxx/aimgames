@@ -22,10 +22,11 @@
 	height: 70%;
 	width: 75%;
 	z-index: 99998;
-	font-family: sans-serif;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #avacweb_chat iframe {
    border: 2px solid #2e2e2e!important;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 .custom_placement #avacweb_chat { /* fixes the positioning of an AWC placed in page using custom_placement */
 	position: relative;
