@@ -9,7 +9,7 @@ var avacweb_chat_config = {
   tabs : {/* tabs can be added here */},
   filters : {/* don't fuck with this*/},
   allow_copyrights : 0, //please be kind and allow AWC to place small discreet copyrights and backlink on your forum.
-}
+};
 (function (f, l, h) {
   if (!l) {
     if (!(window.JSON && window.sessionStorage && window.localStorage && Array.prototype.sort && Array.prototype.join)) return console.log("Minimum requirements not met to run AWC.");
