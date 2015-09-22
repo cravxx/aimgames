@@ -1,10 +1,12 @@
 /* REQUIRED CSS */
 .a_chat_pm tr, .a_chat_pm td, .a_chat_tab tr, .a_chat_tab td, .a_chat_cmd tr, .a_chat_cmd td { 
   display:none!important; 
+  font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 .a_chat_pm:before, .a_chat_tab:before, .a_chat_cmd:before { 
   content: 'Hidden Content'; 
   font-style: italic; 
+  font-family: Verdana,Arial,Helvetica,sans-serif;
 }";
 
 
@@ -35,6 +37,7 @@
 	bottom: initial;
 	top: initial;
 	z-index: inherit;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #avacweb_chat_button { /* The button that opens the chat */
 	position: fixed;
@@ -54,9 +57,11 @@
 	border-radius: 2px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #avacweb_chat_button:hover {
 	border: 1px solid #13457A!important;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #avacweb_chat_button.newmsg { /* Design of the button light up when new messages are entered */
 	background: #FFA500;
@@ -66,6 +71,7 @@
 	color: #FFF;
 	text-shadow: 0 1px #555;
 	border: 1px solid #C5946D;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #awc_tabs { /* The box that holds the tabs */
 	background: #1C1C1C;
@@ -73,6 +79,7 @@
 	padding: 0;
 	margin: 0;
 	display: block;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #awc_header { /* the top header */
 	background: #991F00;
