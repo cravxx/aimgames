@@ -1134,7 +1134,7 @@ replacements = {
   "confirmed": "fake as fuck",
   "invented": "copied",
   "invent": "copy",
-  "username": "[b]{USERNAME}[/b]"
+  "user": "[b]{USERNAME}[/b]",
   "meme": "{MEME}"
 };
 
