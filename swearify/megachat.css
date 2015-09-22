@@ -252,14 +252,14 @@
 #achat_user_prefs, #achat_smilies, #achat_colors, #achat_popup { /*The pop up boxes that display user options, smilies, colors */
 	position: absolute;
 	bottom: 15%;
-	background: #DDD;
+	background: #161616;
 	padding: 10px;
 	border: 1px solid #BBB;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	font-weight: bold;
-	text-shadow: 0 1px white;
+	text-shadow: 0 1px black;
 	box-shadow: 3px 3px 10px #888, inset 0 20px 20px #EEE;
 	max-height: 250px;
 	overflow: auto;
