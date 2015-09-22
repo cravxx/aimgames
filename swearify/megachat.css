@@ -85,7 +85,7 @@
 #awc_header { /* the top header */
 	background: #991F00;
 	padding: 5px;
-	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-family: Adventure,Verdana,Arial,Helvetica,sans-serif;
 }
 #awc_footer { /* the bottom footer containing hte buttons and message box */
 	clear: both;
@@ -101,6 +101,8 @@
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 #awc_userlist { /* the memberlist on the left */
+	font-size: .7em;
+	font-weight: 600;
 	float: left;
 	width: 20%;
 	height: 79%;
@@ -217,7 +219,7 @@
 	text-shadow: 0 1px #EEE;
 	cursor: pointer;
 	margin: 0 3px;
-	font-size: .6em;
+	font-size: .7em;
 	/*font-size: 1em;*/
 	margin-top:2px;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
@@ -380,14 +382,14 @@
 
 .achat_tab .delete_tab { /* The delete button on tabs */
 	position: absolute;
-	font-family: sans;
-	padding: 0 2px;
-	display: none;	
-	margin: -7px 7px;
+	font-family: sans;	
+	display: none;		
 	color: #E71919;
 	text-shadow: none;
 	font-weight: bold;
 	font-size: 18px;
+	margin-left: 3px;
+	opacity: 0.8;
 }
 
 /* -----------------------
