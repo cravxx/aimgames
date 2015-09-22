@@ -1,7 +1,7 @@
 var avacweb_chat_config = {
   version : '2-0',
   chat_title : 'AIM Chat',
-  stylesheet : 'https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.css',
+  stylesheet : "http://chat.avacweb.net/avacweb_chat_2.css", //NEVER CHANGE THIS
   allow_private_messaging : 1,
   allow_user_resize : 0,
   custom_placement : null,
