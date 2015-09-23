@@ -242,7 +242,7 @@
 	background: #232424;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
-.achat_row .user {
+achat_row.user {
 	font-weight: 700;
 }
 .achat_row .date-and-time {
@@ -329,6 +329,7 @@
 	border-bottom: 1px solid #CCC;
 	cursor: pointer;
 	font-size: 0.7em;
+	color: #9B9B9B;
 }
 #awc_contextmenu p:hover {
 	background: #DDD;
@@ -445,8 +446,6 @@
 	-webkit-box-shadow: inset 0 3px 5px #363636;
 	border: 1px solid #888;
 }
-
-
 
 
 /* ----------------------
