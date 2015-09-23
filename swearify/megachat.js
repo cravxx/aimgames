@@ -725,14 +725,14 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
           var c = function () {
               b.innerHTML = b.innerHTML.replace(/href="javascript:insert_chatboxsmilie/g, 'onclick="return avacweb_chat.insert_text');
               f("form select", b).removeAttr("onchange").change(function (a) {
-                d("/post?mode=smilies&categ=" + this.value)
+                d("/post?categ=" + this.value "&mode=smilies")
               })
             },
             d = function (a) {
               b.innerHTML = '<img src="' + avacweb_chat.config.loading_image + '">';
               f(b).load(a + " #simple-wrap", c)
             };
-          d("/post?mode=smilies")
+          d("/post?categ&mode=smilies")
         }
         if ("" === b.innerHTML && "achat_colors" === a) {
           for (var e = "0369BDF".split(""), g = '<table border="0" cellpadding="0" cellspacing="0">',
