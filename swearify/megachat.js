@@ -18,7 +18,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
       version: "2-0",
       mobile: window.AWC_dev_mobile || !(!navigator.userAgent.match(/Android|webOS|BlackBerry|iP([oa]d|hone)|MeeGo|Mobile|PlayBook/i) && !navigator.userAgent.match(/Windows Phone/i)),
       logged_in: !1,
-      last_data: {
+      last_data: {t
         connected: !1,
         users: [],
         messages: []
@@ -725,7 +725,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
           var c = function () {
               b.innerHTML = b.innerHTML.replace(/href="javascript:insert_chatboxsmilie/g, 'onclick="return avacweb_chat.insert_text');
               f("form select", b).removeAttr("onchange").change(function (a) {
-                d("/post?categ=" + this.value "&mode=smilies")
+                d("/post?categ=" + this.value + "&mode=smilies")
               })
             },
             d = function (a) {
