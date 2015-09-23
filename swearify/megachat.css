@@ -168,6 +168,11 @@
 	background: #1C1C1C;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
+
+#awc_userlist .online-users {
+	padding-left: 20px;
+}
+
 #awc_messages { /* box where the messages appear. */
 	max-height: 93%;
 	min-height: 93%;
