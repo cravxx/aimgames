@@ -1,4 +1,4 @@
-/* REQUIRED CSS */
+/* REQUIRED CSS */ /*all of it is required, are you on drugs? */
 .a_chat_pm tr, .a_chat_pm td, .a_chat_tab tr, .a_chat_tab td, .a_chat_cmd tr, .a_chat_cmd td { 
   display:none!important; 
   font-family: Verdana,Arial,Helvetica,sans-serif;
@@ -81,6 +81,7 @@
 	margin: 0;
 	display: block;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: .9em;
 }
 #awc_header { /* the top header */
 	background: #991F00;
@@ -238,8 +239,11 @@
     font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 .achat_row.my_message { /* different background color for your own messages in the chat */
-	background: #47494A;
+	background: #232424;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+achat_row.user {
+	font-weight: 700;
 }
 .achat_row .date-and-time {
 	float: right;
