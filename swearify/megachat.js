@@ -1209,8 +1209,8 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
       var d = document.getElementById("awc_contextmenu"),
         e = this.get_template_item("userlist");
       d || (d = document.createElement("div"), d.id = "awc_contextmenu", d.style.display = "none", e.parentNode.insertBefore(d, e));
-      d.style.height = e.offsetHeight - 5 + "px";
-      d.style.width = e.offsetWidth + "px";
+      d.style.height = e.offsetHeight - 5 + 3 + "px";
+      d.style.width = e.offsetWidth - 2 + "px";
       d.innerHTML = '<p class="contexthead"><span class="awc_x" onclick="$(\'#awc_contextmenu\').slideUp()">x</span>' + (9 < c.username.length ? c.username.substr(0, 9) + "..." : c.username) + "</p>";
       d.innerHTML += '<p><a href="/u' + c.id + '" target="_blank">' + this.t("View Profile") + "</a></p>";
       d.innerHTML += '<p><a href="/privmsg?mode=post&u=' + c.id + '" target="_blank">' + this.t("Send Private Message") + "</a></p>";
