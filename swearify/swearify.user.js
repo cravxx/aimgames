@@ -1252,8 +1252,7 @@ function avacwebChat() {
 	inject_js_url("achat_script", "http://code.jquery.com/jquery-2.1.4.min.js");
 	inject_js_url("achat_script", "https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/megachat.js");
 	// hide the existing chatbox
-	if (window.location.href == "http://aimgames.forummotion.com/")
-	  document.getElementsByClassName("forumline")[document.getElementsByClassName("forumline").length-1].hidden = true;
+	document.getElementById("chatbox_bottom").parentNode.parentNode.parentNode.parentNode.hidden = true; // 100% better way, fam
 }
 
 function run_() {
