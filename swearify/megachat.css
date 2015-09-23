@@ -242,7 +242,7 @@
 	background: #232424;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 }
-.achat_row.user {
+.achat_row .user {
 	font-weight: 700;
 }
 .achat_row .date-and-time {
