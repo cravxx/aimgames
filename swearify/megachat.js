@@ -79,7 +79,7 @@ Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (ma
           this.get_template_item("title").innerHTML = '<span title="AWC Copyright &copy; 2015 AvacWeb, All rights reserved.">   ' + this.config.chat_title + "</span>";
           b = '<span class="achat_button" id="achat_reading" onclick="avacweb_chat.settings.toggle(\'reading\');">' + this.t("Reading") + "</span>";
           b += '<span class="achat_button" onclick="avacweb_chat.settings.toggle(\'archives\')">' + this.t("Archives") + ': <span id="archives">' + (this.settings.on("archives") ? this.t("On") : this.t("Off")) + "</span></span>";
-          b += '<span class="achat_button" onclick="avacweb_chat.log_in(1)" style="color:red">' + this.t("Log Out") + "</span>";
+          b += '<span class="achat_button" onclick="avacweb_chat.log_in(1)" style="color: #F81A1A;font-size: 0.8em;font-weight: 600;">' + this.t("Log Out") + "</span>"; /// edited because css 
           this.get_template_item("buttons").innerHTML = b;
           f(this.get_template_item("messagebox")).after('<span class="achat_button" onclick="avacweb_chat.submit()">' + this.t("Send") + "</span>");
           footer_html = '<div onclick="avacweb_chat.showhide(\'achat_user_prefs\')" class="achat_button">' + this.t("User Options") + "</div>";
