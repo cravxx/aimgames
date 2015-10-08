@@ -1131,11 +1131,13 @@ replacements = {
   "secret": "s3kr1t",
   "raid": "twitch raid",
   "Al-Quaeda": "ireland",
+  "Al-Qaeda": "ireland",
   "confirmed": "fake as fuck",
   "invented": "copied",
   "invent": "copy",
   "user": "[b]{USERNAME}[/b]",
-  "meme": "{MEME}"
+  "meme": "{MEME}",
+  "bd": "bdsm"
 };
 
 ///////EXTRA FILTERING CODE
