@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://multiplayer.needformadness.com/registernew.pl
 // @include     https://multiplayer.needformadness.com/registernew.pl
-// @version     1.2
+// @version     1.3
 // @grant       none
 // ==/UserScript==
 
@@ -45,7 +45,7 @@ function go() {
     formPost.textContent = "Create random account";
     formPost.style = 'font-family: Verdana;font-style: italic;font-weight: bold;';
     formPost.onclick = function() {
-    	var i = Math.round(Math.random()*99);
+    	var i = Math.round(Math.random()*9999999);
     
     	document.getElementById('user').value = 'chrishansen' + i;
     	document.getElementById('pass').value = 'a';
