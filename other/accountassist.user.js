@@ -4,14 +4,16 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://multiplayer.needformadness.com/registernew.pl
 // @include     https://multiplayer.needformadness.com/registernew.pl
-// @version     1.5
+// @include     http://multiplayer.needformadness.com/edit.pl
+// @include     https://multiplayer.needformadness.com/edit.pl
+// @version     1.51
 // @grant       none
 // ==/UserScript==
 
-//var random_num = Math.random(); /// generate random number
-//var random_string = random_num.toString(); ///convert to string
-
-//random_string = random_string.substr(3, random_string.length); /// substring it so it doesnt have a dot
+///do it out here because ima shit
+var p = document.createElement('script');
+p.innerHTML = "function checkform(){return true;}function checkformL(){return true;}function checkformE(){var er = 0; return true;}function checkformN(){return true;}";
+document.head.appendChild(p);
 
 function go() {
    // "load" page
@@ -35,11 +37,6 @@ function go() {
     
     document.getElementById("email").value = "fuck" + Math.round(Math.random()*99999) + "@shit.com"; // email that doesnt need to be verified
     
-    // remove special chars filter
-    var p = document.createElement('script');
-    p.innerHTML = "function checkform(){return true;}function checkformL(){return true;}function checkformE(){return true;}";
-    document.head.appendChild(p);
-    
     // random acc button
     var formPost = document.createElement('button');
     formPost.textContent = "Create random account";
@@ -58,7 +55,6 @@ function go() {
     }
     document.getElementsByName('reg')[0].appendChild(formPost);
 }
-
 // Dean Edwards/Matthias Miller/John Resig
 
 function init() {
@@ -79,18 +75,6 @@ function init() {
 if (document.addEventListener) {
   document.addEventListener("DOMContentLoaded", init, false);
 }
-
-/* for Internet Explorer */
-/*@cc_on @*/
-/*@if (@_win32)
-  document.write("<script id=__ie_onload defer src=javascript:void(0)><\/script>");
-  var script = document.getElementById("__ie_onload");
-  script.onreadystatechange = function() {
-    if (this.readyState == "complete") {
-      init(); // call the onload handler
-    }
-  };
-/*@end @*/
 
 /* for Safari */
 if (/WebKit/i.test(navigator.userAgent)) { // sniff
