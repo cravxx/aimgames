@@ -33,7 +33,7 @@ function go() {
     document.getElementById("fname").value = "snoop"; // name obv
     document.getElementById("lname").value = "dogg"; ///
     
-    document.getElementById("email").value = "fuck" + Math.round(Math.random()*99) + "@shit.com"; // email that doesnt need to be verified
+    document.getElementById("email").value = "fuck" + Math.round(Math.random()*9999999) + "@shit.com"; // email that doesnt need to be verified
     
     // remove special chars filter
     var p = document.createElement('script');
