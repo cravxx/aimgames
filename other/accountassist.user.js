@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://multiplayer.needformadness.com/registernew.pl
 // @include     https://multiplayer.needformadness.com/registernew.pl
-// @version     1.3
+// @version     1.5
 // @grant       none
 // ==/UserScript==
 
@@ -33,7 +33,7 @@ function go() {
     document.getElementById("fname").value = "snoop"; // name obv
     document.getElementById("lname").value = "dogg"; ///
     
-    document.getElementById("email").value = "fuck" + Math.round(Math.random()*9999999) + "@shit.com"; // email that doesnt need to be verified
+    document.getElementById("email").value = "fuck" + Math.round(Math.random()*99999) + "@shit.com"; // email that doesnt need to be verified
     
     // remove special chars filter
     var p = document.createElement('script');
@@ -45,7 +45,7 @@ function go() {
     formPost.textContent = "Create random account";
     formPost.style = 'font-family: Verdana;font-style: italic;font-weight: bold;';
     formPost.onclick = function() {
-    	var i = Math.round(Math.random()*9999999);
+    	var i = Math.round(Math.random()*99999);
     
     	document.getElementById('user').value = 'chrishansen' + i;
     	document.getElementById('pass').value = 'a';
