@@ -1,0 +1,27 @@
+
+* {
+    margin: 0;
+    padding: 0.04em;
+}
+html, body {
+    overflow: hidden;
+}
+body {
+    background-color: #0f0f0f;
+}
+.text-styles td {
+    vertical-align: middle;
+}
+#help-button, #divcolor, #divsmilies, #submit_button, .format-message + label {
+    background: #ddd none repeat scroll 0 0;
+    border: 1px solid #aaa;
+}
+.format-message:checked + label {
+    background: #ccc none repeat scroll 0 0;
+}
+#chatbox_contextmenu p.cb-menu-item:hover {
+    background: white none repeat scroll 0 0;
+}
+.cb-menu-title {
+    font-size: 0.8em;
+}
