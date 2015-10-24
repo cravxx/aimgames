@@ -1160,7 +1160,7 @@ var img_tag = ["[img]", "[/img]"];
 ///////CSS STYLE STRINGS
 var cssChkbox = "font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;";
 var cssButton = "font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;";
-var cssMsg = "color:white; margin-right:8px; margin-left:5px;";
+var cssMsg = "font-size:10px;color:white; margin-right:8px; margin-left:5px;";
 var cssLine = "color:black;";
 var cssChat = "overflow-x: hidden; left:141px;"; // / white-space: nowrap;
 ///////
@@ -1808,37 +1808,64 @@ function braille_post() {
 /////////////////////GREEKIFIED TEXT
 function greek_() {
   var old_msg = document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/greek /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/greek /i, '');
-    new_msg = new_msg.replace(/a/gi, 'α');
-    new_msg = new_msg.replace(/b/gi, 'β');
-    new_msg = new_msg.replace(/c/gi, 'ς');
-    new_msg = new_msg.replace(/d/gi, 'δ');
-    new_msg = new_msg.replace(/e/gi, 'ε');
-    new_msg = new_msg.replace(/f/gi, 'ƒ');
-    new_msg = new_msg.replace(/g/gi, 'g');
-    new_msg = new_msg.replace(/h/gi, 'н');
-    new_msg = new_msg.replace(/i/gi, 'ι');
-    new_msg = new_msg.replace(/j/gi, 'j');
-    new_msg = new_msg.replace(/k/gi, 'κ');
-    new_msg = new_msg.replace(/l/gi, 'ℓ');
-    new_msg = new_msg.replace(/m/gi, 'м');
-    new_msg = new_msg.replace(/n/gi, 'η');
-    new_msg = new_msg.replace(/o/gi, 'ο');
-    new_msg = new_msg.replace(/p/gi, 'ρ');
-    new_msg = new_msg.replace(/q/gi, 'φ');
-    new_msg = new_msg.replace(/r/gi, 'я');
-    new_msg = new_msg.replace(/s/gi, 's');
-    new_msg = new_msg.replace(/t/gi, 'τ');
-    new_msg = new_msg.replace(/u/gi, 'μ');
-    new_msg = new_msg.replace(/v/gi, 'v');
-    new_msg = new_msg.replace(/w/gi, 'ω');
-    new_msg = new_msg.replace(/x/gi, 'χ');
-    new_msg = new_msg.replace(/y/gi, 'λ');
-    new_msg = new_msg.replace(/z/gi, 'ζ');
-    document.getElementById("message").value = new_msg;
-  }
+  var new_msg = old_msg.replace(/\/greek /i, '');
+  new_msg = new_msg.replace(/a/gi, 'α');
+  new_msg = new_msg.replace(/b/gi, 'β');
+  new_msg = new_msg.replace(/c/gi, 'ς');
+  new_msg = new_msg.replace(/d/gi, 'δ');
+  new_msg = new_msg.replace(/e/gi, 'ε');
+  new_msg = new_msg.replace(/f/gi, 'ƒ');
+  new_msg = new_msg.replace(/g/gi, 'g');
+  new_msg = new_msg.replace(/h/gi, 'н');
+  new_msg = new_msg.replace(/i/gi, 'ι');
+  new_msg = new_msg.replace(/j/gi, 'j');
+  new_msg = new_msg.replace(/k/gi, 'κ');
+  new_msg = new_msg.replace(/l/gi, 'ℓ');
+  new_msg = new_msg.replace(/m/gi, 'м');
+  new_msg = new_msg.replace(/n/gi, 'η');
+  new_msg = new_msg.replace(/o/gi, 'ο');
+  new_msg = new_msg.replace(/p/gi, 'ρ');
+  new_msg = new_msg.replace(/q/gi, 'φ');
+  new_msg = new_msg.replace(/r/gi, 'я');
+  new_msg = new_msg.replace(/s/gi, 's');
+  new_msg = new_msg.replace(/t/gi, 'τ');
+  new_msg = new_msg.replace(/u/gi, 'μ');
+  new_msg = new_msg.replace(/v/gi, 'v');
+  new_msg = new_msg.replace(/w/gi, 'ω');
+  new_msg = new_msg.replace(/x/gi, 'χ');
+  new_msg = new_msg.replace(/y/gi, 'λ');
+  new_msg = new_msg.replace(/z/gi, 'ζ');
+  document.getElementById("message").value = new_msg;
+}
+
+function inject_greek() {
+  var where = document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName(
+    "tr")[0];
+  var chil_where = where.children;
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "greek_button");
+  the_body.setAttribute("class", "fontbutton");
+  where.insertBefore(the_body, chil_where[0]);
+  where.getElementsByTagName("td")[0].innerHTML =
+    '<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek"><img src="http://i.imgur.com/OUGQ1ik.png"></label>';
+  var what = document.getElementById("click_area_greek");
+  var whot = document.getElementById("format-greek");
+  if (getCookie('CB_greek') === '1') whot.checked = true;
+  else whot.checked = false;
+  var clicked_css =
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = '';
+  what.addEventListener("click", function () {
+    if (!whot.checked) {
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_greek', '1', 1);
+    } else {
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_greek', '0', 1);
+    }
+  });
 }
 
 function greek_post() {
@@ -2042,7 +2069,7 @@ function inject_rainbow() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="padding:1px;"><img src="http://i.imgur.com/F69UQGS.png"></label>';
+    '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow"><img src="http://i.imgur.com/F69UQGS.png"></label>';
   var what = document.getElementById("click_area_rainbow");
   var whot = document.getElementById("format-rainbow");
   if (getCookie('CB_rainbow') === '1') whot.checked = true;
@@ -2097,7 +2124,7 @@ function inject_random() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="padding:1px;"><img src="http://i.imgur.com/jpgCdWw.png"></label>';
+    '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random"><img src="http://i.imgur.com/jpgCdWw.png"></label>';
   var what = document.getElementById("click_area_random");
   var whot = document.getElementById("format-random");
   if (getCookie('CB_random') === '1') whot.checked = true;
@@ -2152,7 +2179,7 @@ function inject_gradient() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" style="padding:1px;"><img src="http://i.imgur.com/EyxCc20.png"></label>';
+    '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient"><img src="http://i.imgur.com/EyxCc20.png"></label>';
   var what = document.getElementById("click_area_gradient");
   var whot = document.getElementById("format-gradient");
   if (getCookie('CB_gradient') === '1') whot.checked = true;
@@ -2279,11 +2306,11 @@ function vbs_post() {
 }
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
-var num_buttons = 3;
+var num_buttons = 4; ///
 function edit_css() {
   document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].style.cssText = cssMsg;
   // / CSS for label that says "Message:" .. +1 for every new button
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].innerHTML = "Message:";
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].innerHTML = "MESSAGE:";
   // / Edits innerHTML so theres no space between Message and the colon .. +1
   // for every new button
   document.getElementById("submit_button").style.cssText = cssButton;
@@ -2293,8 +2320,8 @@ function edit_css() {
   // / CSS for the line along the members and chatbox
   document.getElementById("chatbox").style.cssText = cssChat;
   // / CSS to eliminate chat glitching and shift over the chat messages a bit
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[8 + num_buttons].innerHTML = "";
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[8 + num_buttons].style.width = "0px";
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[9 + num_buttons].innerHTML = "";
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[9 + num_buttons].style.width = "0px";
   // / CSS for removing a spacer; removing node diddnt work well so im just
   // making it nonvisible. +1 for every new button
   document.getElementsByClassName("cattitle")[0].style.paddingLeft = "4px";
@@ -2377,6 +2404,27 @@ function inject_smilie(i) {
     }
   }
 }
+
+function inject_spacer(){
+  var where = document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName(
+    "tr")[0];
+  var chil_where = where.children;
+  var the_body = document.createElement("td");
+  the_body.setAttribute("width", "6");
+  where.insertBefore(the_body, chil_where[0]);
+}
+
+function inject_css_url(url) {
+    var head;
+    head = document.getElementsByTagName('head')[0];
+    if (!head) { return; }
+    var gstyle = document.createElement('link');
+    gstyle.rel = 'stylesheet';
+    gstyle.type = 'text/css';
+    gstyle.href = url;
+    head.appendChild(gstyle);
+}
+
 /////////////////////
 /////////////////////FIX POST PAGE CSS
 function post_page_editor() {
@@ -2419,10 +2467,17 @@ window.addEventListener('load', function () { /* shit goes down in here */
       "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href ===
       "http://aimgames.forummotion.com/chatbox/index.forum?archives" || window.location.href ===
       "http://aimgames.forummotion.com/chatbox") {
-      inject_rainbow();
+      inject_spacer();
+      //////      
+      inject_gradient();  
+      inject_rainbow();    
       inject_random();
-      inject_gradient();
-      edit_css();
+      inject_greek();
+      
+      /////
+      inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css");
+      inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/index.css");
+      edit_css();      
       $(document).on("keydown", function (e) {
         if (e.which === 13 || e.which === 45) run_();
       });
