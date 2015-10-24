@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.33
+// @version     3.0.34
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -23,7 +23,7 @@ var swear_words = [
 	
 	"420", "rip", "god", "died", /// ... *tips fedora* //
 	"skype", "crack", "sex", "porn",
-	"matr0xx", "10th"
+	"matr0xx", "10th", "jesus"
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
@@ -227,11 +227,11 @@ var emoticon_1 = {
   pepesi: [':pepesi:', 'http://i.imgur.com/bPKbLTq.gif', "PEPEsi"],
   pepicasso: [':pepicasso:', 'http://i.imgur.com/rFDnOk7.gif', "peekasso"],
   pepe007: [':pepe007:', 'http://i.imgur.com/vRgJvjh.gif', "pepe 007"],
-  pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"],
-  peperun: [':peperun:', 'http://i.imgur.com/3xLRJRC.gif', "pepe run"]
+  pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"]
 };
 
 var emoticon_2 = {
+  peperun: [':peperun:', 'http://i.imgur.com/3xLRJRC.gif', "pepe run"],
   pepenaked: [':pepenaked:', 'http://i.imgur.com/O9moFkn.gif', "pepe naked"],
   triforce: [':triforce:', 'http://i.imgur.com/fT5Ennp.gif', "newfags can\'t triforce"],
   smokofrodo: [':smokofrodo:', 'http://i.imgur.com/PMUWXEY.png', "SMOKO FRODO"],
