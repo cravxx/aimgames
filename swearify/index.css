@@ -1,7 +1,7 @@
 
 * {
     margin: 0;
-    padding: 0em 0em 0.04em 0em;
+    padding: .04em 0em 0em 0em;
 }
 html, body {
     overflow: hidden;
