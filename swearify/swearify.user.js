@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.34
+// @version     3.0.35
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2039,10 +2039,11 @@ function inject_rainbow() {
   var chil_where = where.children;
   var the_body = document.createElement("td");
   the_body.setAttribute("id", "rainbow_button");
+  the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area" title="Rainbow" class="fontbutton" style="font-size: 14px;">Rb</label>';
-  var what = document.getElementById("click_area");
+    '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="padding:1px;"><img src="http://i.imgur.com/F69UQGS.png"></label>';
+  var what = document.getElementById("click_area_rainbow");
   var whot = document.getElementById("format-rainbow");
   if (getCookie('CB_rainbow') === '1') whot.checked = true;
   else whot.checked = false;
@@ -2093,9 +2094,10 @@ function inject_random() {
   var chil_where = where.children;
   var the_body = document.createElement("td");
   the_body.setAttribute("id", "random_button");
+  the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" class="fontbutton" style="font-size: 14px;">Rn</label>';
+    '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="padding:1px;"><img src="http://i.imgur.com/jpgCdWw.png"></label>';
   var what = document.getElementById("click_area_random");
   var whot = document.getElementById("format-random");
   if (getCookie('CB_random') === '1') whot.checked = true;
@@ -2147,9 +2149,10 @@ function inject_gradient() {
   var chil_where = where.children;
   var the_body = document.createElement("td");
   the_body.setAttribute("id", "gradient_button");
+  the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" class="fontbutton" style="font-size: 14px;">Gd</label>';
+    '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" style="padding:1px;"><img src="http://i.imgur.com/EyxCc20.png"></label>';
   var what = document.getElementById("click_area_gradient");
   var whot = document.getElementById("format-gradient");
   if (getCookie('CB_gradient') === '1') whot.checked = true;
@@ -2276,10 +2279,11 @@ function vbs_post() {
 }
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
+var num_buttons = 3;
 function edit_css() {
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[7].style.cssText = cssMsg;
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].style.cssText = cssMsg;
   // / CSS for label that says "Message:" .. +1 for every new button
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[7].innerHTML = "Message:";
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].innerHTML = "Message:";
   // / Edits innerHTML so theres no space between Message and the colon .. +1
   // for every new button
   document.getElementById("submit_button").style.cssText = cssButton;
@@ -2289,8 +2293,8 @@ function edit_css() {
   // / CSS for the line along the members and chatbox
   document.getElementById("chatbox").style.cssText = cssChat;
   // / CSS to eliminate chat glitching and shift over the chat messages a bit
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[11].innerHTML = "";
-  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[11].style.width = "0px";
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[8 + num_buttons].innerHTML = "";
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("td")[8 + num_buttons].style.width = "0px";
   // / CSS for removing a spacer; removing node diddnt work well so im just
   // making it nonvisible. +1 for every new button
   document.getElementsByClassName("cattitle")[0].style.paddingLeft = "4px";
@@ -2413,7 +2417,8 @@ window.addEventListener('load', function () { /* shit goes down in here */
     if (window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?page=front&" || window.location
       .href === "http://aimgames.forummotion.com/chatbox/index.forum" || window.location.href ===
       "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href ===
-      "http://aimgames.forummotion.com/chatbox/index.forum?archives") {
+      "http://aimgames.forummotion.com/chatbox/index.forum?archives" || window.location.href ===
+      "http://aimgames.forummotion.com/chatbox") {
       inject_rainbow();
       inject_random();
       inject_gradient();
@@ -2502,8 +2507,3 @@ function run_post() {
   java_post();
 }
 /////////////////////
-
-/*
-Exception: SyntaxError: missing } after function body
-@Scratchpad/6:2503
-*/
