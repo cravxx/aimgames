@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.32
+// @version     3.0.33
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -264,31 +264,6 @@ var emoticon_2 = {
   chatpepe: [':chatpepe:', 'http://i.imgur.com/mLyuao3.gif', 'CHAT PEPE'],
   einstein: [':einstein:', 'http://i.imgur.com/zfAPfpf.gif', 'EINSTEIN 420'],
   pepewtf: [':pepewtf:', 'http://i.imgur.com/sYuoK2u.gif', 'WTF PEPE'],
-  cenasnap: [':cenasnap:', 'http://i.imgur.com/3OgWxPJ.gif', 'OH SNAP CENA'],
-  cenaconfused: [':cenaconfused:', 'http://i.imgur.com/sxlGqjI.gif', 'CONFUSED CENA'],
-  cenalaugh: [':cenalaugh:', 'http://i.imgur.com/uiW8eOZ.gif', 'CENA WHEN HE IS TOLD ABOUT DEAD KIDS'],
-  cenashrink: [':cenashrink:', 'http://i.imgur.com/B1zcAL4.gif', 'SHRINKING CENA'],
-  cenacantwrestle: [':cenacantwrestle:', 'http://i.imgur.com/lxRchNh.gif', 'CENA CAN\'T WRESTLE'],
-  cenaconfused2: [':cenaconfused2:', 'http://i.imgur.com/cj4Ri1g.gif', 'CONFUSED CENA 2'],
-  cenaepilepsy: [':cenaepilepsy:', 'http://i.imgur.com/UVQDNnV.gif', 'EPILEPSY CENA'],  
-  lool: [':lool:', 'http://i.imgur.com/uNjx0VR.png', "lool"],
-  badumtss: [':badumtss:', 'http://i.imgur.com/tzdK1B8.png', "ba dum tss"],
-  confident: [':confident:', 'http://i.imgur.com/sFpY0hd.png', "confident"],
-  genius: [':genius:', 'http://i.imgur.com/wOlp4gc.png', "genius"],
-  foreverablack: [':foreverablack:', 'http://i.imgur.com/eYozsXA.png', "FOREVER A NIGGER"],
-  ynot: [':ynot:', 'http://i.imgur.com/dfAkHaT.png', "ynot"],
-  plspls: [':plspls:', 'http://i.imgur.com/jrcH7iN.png', "plspls"],
-  megusta: [':megusta:', 'http://i.imgur.com/WBVqQah.png', "megusta"],
-  o: [':o:', 'http://i.imgur.com/rVrqYxb.png', "ooooooooooooooooooooooooooooooooooo"],
-  omgomg: [':omgomg:', 'http://i.imgur.com/UZ6oybV.png', "omgomg"],
-  memercy: [':mercy:', 'http://i.imgur.com/gg86lM7.png', "DOES THIS LOOK LIKE THE FACE OF MERCY"],
-  crymercy: [':crymercy:', 'http://i.imgur.com/oPf9qaH.png', "cry mercy"],
-  holyfuckingshit: [':holyfuckingsh:', 'http://i.imgur.com/Z4420t0.png', "holy fucking shit"],
-  revenge: [':revenge:', 'http://i.imgur.com/4SGUhMJ.png', "revenge"],
-  nowai: [':nowai:', 'http://i.imgur.com/VSD68iA.png', "no wai"],
-  disappoint: [':disappoint:', 'http://i.imgur.com/IuAhgG9.png', "disappoint"],
-  disappointok: [':disappointok:', 'http://i.imgur.com/cUyHPqs.png', "disappoint ok"],
-  actually: [':actually:', 'http://i.imgur.com/TEZaTei.png', "actually"],
   quilt: [':quilt:', 'http://i62.tinypic.com/w0jbxk.gif', "KAFFE QUILTS AGAIN"],
   quik: [':quik:', 'http://i61.tinypic.com/ot234o.gif', "QUICKSCOPE"],
   conan1: [':conan1:', 'http://i.imgur.com/ak3bFC1.jpg', "CONAN 1"],
@@ -311,7 +286,6 @@ var emoticon_2 = {
   sponge2: [':sponge2:', 'http://i.imgur.com/qnEwSaK.gif', "SPONGE TWO"],
   fignewton: [':fig:', 'http://i.imgur.com/NB3xqQY.gif', "FIG NEWTON"],
   okkid: [':okkid:', 'http://i.imgur.com/ynHTHkJ.jpg', "OK KID"],
-  nvrfeels: [':nvrfeels:', 'http://i.imgur.com/slWp1L4.jpg', "NVRFEELS"],
   frogpepe: [':frogpepe:', 'http://i.imgur.com/CbbOaBz.jpg', "FROG PEPE"],
   neet: [':neet:', 'http://i.imgur.com/DwO2W3B.jpg', "NEET"],
   cooldog: [':cooldog:', 'http://i.imgur.com/Vi5O6TS.jpg', 'COOL DOG'],
@@ -562,7 +536,25 @@ var emoticon_3 = {
   memeimgPYtY1lB: [':PYtY1lB:', 'http://i.imgur.com/PYtY1lB.png', "meme imgur PYtY1lB"],
   memeimgDQa5Hqp: [':DQa5Hqp:', 'http://i.imgur.com/DQa5Hqp.png', "meme imgur DQa5Hqp"],
   memeimg9p0ejrZ: [':9p0ejrZ:', 'http://i.imgur.com/9p0ejrZ.png', "meme imgur 9p0ejrZ"],
-  memeimgkhJK3GM: [':khJK3GM:', 'http://i.imgur.com/khJK3GM.png', "meme imgur khJK3GM"]
+  memeimgkhJK3GM: [':khJK3GM:', 'http://i.imgur.com/khJK3GM.png', "meme imgur khJK3GM"],
+  lool: [':lool:', 'http://i.imgur.com/uNjx0VR.png', "lool"],
+  badumtss: [':badumtss:', 'http://i.imgur.com/tzdK1B8.png', "ba dum tss"],
+  confident: [':confident:', 'http://i.imgur.com/sFpY0hd.png', "confident"],
+  genius: [':genius:', 'http://i.imgur.com/wOlp4gc.png', "genius"],
+  foreverablack: [':foreverablack:', 'http://i.imgur.com/eYozsXA.png', "FOREVER A NIGGER"],
+  ynot: [':ynot:', 'http://i.imgur.com/dfAkHaT.png', "ynot"],
+  plspls: [':plspls:', 'http://i.imgur.com/jrcH7iN.png', "plspls"],
+  megusta: [':megusta:', 'http://i.imgur.com/WBVqQah.png', "megusta"],
+  o: [':o:', 'http://i.imgur.com/rVrqYxb.png', "ooooooooooooooooooooooooooooooooooo"],
+  omgomg: [':omgomg:', 'http://i.imgur.com/UZ6oybV.png', "omgomg"],
+  memercy: [':mercy:', 'http://i.imgur.com/gg86lM7.png', "DOES THIS LOOK LIKE THE FACE OF MERCY"],
+  crymercy: [':crymercy:', 'http://i.imgur.com/oPf9qaH.png', "cry mercy"],
+  holyfuckingshit: [':holyfuckingsh:', 'http://i.imgur.com/Z4420t0.png', "holy fucking shit"],
+  revenge: [':revenge:', 'http://i.imgur.com/4SGUhMJ.png', "revenge"],
+  nowai: [':nowai:', 'http://i.imgur.com/VSD68iA.png', "no wai"],
+  disappoint: [':disappoint:', 'http://i.imgur.com/IuAhgG9.png', "disappoint"],
+  disappointok: [':disappointok:', 'http://i.imgur.com/cUyHPqs.png', "disappoint ok"],
+  actually: [':actually:', 'http://i.imgur.com/TEZaTei.png', "actually"]
 };
 
 var emoticon_4 = {
@@ -615,7 +607,14 @@ var emoticon_4 = {
 	imgurdong2aSBhVZ: [':ponydong:', 'http://i.imgur.com/2aSBhVZ.jpg', "pony dong"],
 	imgurdongak7Is71: [':dongsquidward:', 'http://i.imgur.com/ak7Is71.jpg', "dong squidward"],
 	imgurdongkXYUEc4: [':suffermore:', 'http://i.imgur.com/kXYUEc4.jpg', "suffer more"],
-	imgurdongE1HYLvI: [':packingabigschlong:', 'http://i.imgur.com/E1HYLvI.jpg', "packing a big schlong"]
+	imgurdongE1HYLvI: [':packingabigschlong:', 'http://i.imgur.com/E1HYLvI.jpg', "packing a big schlong"],
+	cenasnap: [':cenasnap:', 'http://i.imgur.com/3OgWxPJ.gif', 'OH SNAP CENA'],
+	  cenaconfused: [':cenaconfused:', 'http://i.imgur.com/sxlGqjI.gif', 'CONFUSED CENA'],
+	  cenalaugh: [':cenalaugh:', 'http://i.imgur.com/uiW8eOZ.gif', 'CENA WHEN HE IS TOLD ABOUT DEAD KIDS'],
+	  cenashrink: [':cenashrink:', 'http://i.imgur.com/B1zcAL4.gif', 'SHRINKING CENA'],
+	  cenacantwrestle: [':cenacantwrestle:', 'http://i.imgur.com/lxRchNh.gif', 'CENA CAN\'T WRESTLE'],
+	  cenaconfused2: [':cenaconfused2:', 'http://i.imgur.com/cj4Ri1g.gif', 'CONFUSED CENA 2'],
+	  cenaepilepsy: [':cenaepilepsy:', 'http://i.imgur.com/UVQDNnV.gif', 'EPILEPSY CENA']
 };
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
@@ -1369,6 +1368,7 @@ function emoticon_() {
                                                img_tag[1]);
       document.getElementById("message").value = new_msg;
     }
+  }
     for (var i = 0; i < Object.keys(emoticon_4).length; i++) {
     var old_msg = document.getElementById("message").value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4)[i][0], "gi"));
@@ -2502,3 +2502,8 @@ function run_post() {
   java_post();
 }
 /////////////////////
+
+/*
+Exception: SyntaxError: missing } after function body
+@Scratchpad/6:2503
+*/
