@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.36
+// @version     3.0.37
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1528,37 +1528,64 @@ function redtext_post() {
 /////////////////////LEET TEXT
 function leet_() {
   var old_msg = document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/leet /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/leet /i, '');
-    new_msg = new_msg.replace(/a/gi, '4');
-    new_msg = new_msg.replace(/b/gi, '|3');
-    new_msg = new_msg.replace(/c/gi, '(');
-    new_msg = new_msg.replace(/d/gi, '|)');
-    new_msg = new_msg.replace(/e/gi, '3');
-    new_msg = new_msg.replace(/f/gi, '|=');
-    new_msg = new_msg.replace(/g/gi, '9');
-    new_msg = new_msg.replace(/h/gi, '|-|');
-    new_msg = new_msg.replace(/i/gi, '1');
-    new_msg = new_msg.replace(/j/gi, '_|');
-    new_msg = new_msg.replace(/k/gi, '|<');
-    new_msg = new_msg.replace(/l/gi, '1');
-    new_msg = new_msg.replace(/m/gi, '|\\/|'); // escaped
-    new_msg = new_msg.replace(/n/gi, '|\\|'); // escaped
-    new_msg = new_msg.replace(/o/gi, '0');
-    new_msg = new_msg.replace(/p/gi, '|>');
-    new_msg = new_msg.replace(/q/gi, '().');
-    new_msg = new_msg.replace(/r/gi, '|2');
-    new_msg = new_msg.replace(/s/gi, '5');
-    new_msg = new_msg.replace(/t/gi, '7');
-    new_msg = new_msg.replace(/u/gi, '|_|');
-    new_msg = new_msg.replace(/v/gi, '\\/'); // escaped
-    new_msg = new_msg.replace(/w/gi, '\\/\\/'); // escaped
-    new_msg = new_msg.replace(/x/gi, '><');
-    new_msg = new_msg.replace(/y/gi, '`/');
-    new_msg = new_msg.replace(/z/gi, '2');
-    document.getElementById("message").value = new_msg;
-  }
+  var new_msg = old_msg.replace(/\/leet /i, '');
+  new_msg = new_msg.replace(/a/gi, '4');
+  new_msg = new_msg.replace(/b/gi, '|3');
+  new_msg = new_msg.replace(/c/gi, '(');
+  new_msg = new_msg.replace(/d/gi, '|)');
+  new_msg = new_msg.replace(/e/gi, '3');
+  new_msg = new_msg.replace(/f/gi, '|=');
+  new_msg = new_msg.replace(/g/gi, '9');
+  new_msg = new_msg.replace(/h/gi, '|-|');
+  new_msg = new_msg.replace(/i/gi, '1');
+  new_msg = new_msg.replace(/j/gi, '_|');
+  new_msg = new_msg.replace(/k/gi, '|<');
+  new_msg = new_msg.replace(/l/gi, '1');
+  new_msg = new_msg.replace(/m/gi, '|\\/|'); // escaped
+  new_msg = new_msg.replace(/n/gi, '|\\|'); // escaped
+  new_msg = new_msg.replace(/o/gi, '0');
+  new_msg = new_msg.replace(/p/gi, '|>');
+  new_msg = new_msg.replace(/q/gi, '().');
+  new_msg = new_msg.replace(/r/gi, '|2');
+  new_msg = new_msg.replace(/s/gi, '5');
+  new_msg = new_msg.replace(/t/gi, '7');
+  new_msg = new_msg.replace(/u/gi, '|_|');
+  new_msg = new_msg.replace(/v/gi, '\\/'); // escaped
+  new_msg = new_msg.replace(/w/gi, '\\/\\/'); // escaped
+  new_msg = new_msg.replace(/x/gi, '><');
+  new_msg = new_msg.replace(/y/gi, '`/');
+  new_msg = new_msg.replace(/z/gi, '2');
+  document.getElementById("message").value = new_msg;
+}
+
+function inject_leet() {
+  var where = document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName(
+    "tr")[0];
+  var chil_where = where.children;
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "leet_button");
+  the_body.setAttribute("class", "fontbutton");
+  where.insertBefore(the_body, chil_where[0]);
+  where.getElementsByTagName("td")[0].innerHTML =
+    '<input name="leet" id="format-leet" class="format-message" type="checkbox"><label id="click_area_leet" title="Leet" style="cursor:pointer;"><img src="http://i.imgur.com/a6bziMI.png"></label>';
+  var what = document.getElementById("click_area_leet");
+  var whot = document.getElementById("format-leet");
+  if (getCookie('CB_leet') === '1') whot.checked = true;
+  else whot.checked = false;
+  var clicked_css =
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = '';
+  what.addEventListener("click", function () {
+    if (!whot.checked) {
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_leet', '1', 1);
+    } else {
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_leet', '0', 1);
+    }
+  });
 }
 
 function leet_post() {
@@ -1604,6 +1631,7 @@ function leet_post() {
     }
   }
 }
+
 //////////////////////
 /////////////////////BALLOON TEXT
 function balloon_() {
@@ -1657,7 +1685,7 @@ function inject_balloon() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="balloon" id="format-balloon" class="format-message" type="checkbox"><label id="click_area_balloon" title="Balloon" style="cursor:pointer;"><img src="http://i.imgur.com/jYcxqOm.png"></label>';
+    '<input name="balloon" id="format-balloon" class="format-message" type="checkbox"><label id="click_area_balloon" title="Balloon" style="cursor:pointer;"><img src="http://i.imgur.com/B15ir56.png"></label>';
   var what = document.getElementById("click_area_balloon");
   var whot = document.getElementById("format-balloon");
   if (getCookie('CB_balloon') === '1') whot.checked = true;
@@ -2360,7 +2388,7 @@ function vbs_post() {
 }
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
-var num_buttons = 6; ///
+var num_buttons = 7; ///
 function edit_css() {
   document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].style.cssText = cssMsg;
   // / CSS for label that says "Message:" .. +1 for every new button
@@ -2529,6 +2557,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
       inject_greek();
       inject_braille();
       inject_balloon();
+      inject_leet();
       
       /////
       inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css");
@@ -2578,8 +2607,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
 
 function run_() {
   sekrit_();
-  morse_();  
-  leet_();  
+  morse_();    
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
     filter_swears();
     emoticon_();
@@ -2593,6 +2621,7 @@ function run_() {
   if (getCookie('CB_greek') === '1') greek_();
   if (getCookie('CB_braille') === '1') braille_();
   if (getCookie('CB_balloon') === '1') balloon_(); 
+  if (getCookie('CB_leet') === '1') leet_();  
   js_();
   vbs_();
   java_();
