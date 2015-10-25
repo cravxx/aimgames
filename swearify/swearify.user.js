@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.37
+// @version     3.0.38
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1996,38 +1996,64 @@ function greek_post() {
 //////////////////////
 /////////////////////MORSE CODE
 function morse_() {
-  var old_msg = document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/mc /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/mc /i, '');
-    new_msg = new_msg.replace(/a/gi, '.-//');
-    new_msg = new_msg.replace(/b/gi, '-...//');
-    new_msg = new_msg.replace(/c/gi, '-[b][/b].[b][/b]-.//');
-    new_msg = new_msg.replace(/d/gi, '-..//');
-    new_msg = new_msg.replace(/e/gi, './/');
-    new_msg = new_msg.replace(/f/gi, '..-.//');
-    new_msg = new_msg.replace(/g/gi, '--.//');
-    new_msg = new_msg.replace(/h/gi, '....//');
-    new_msg = new_msg.replace(/i/gi, '..//');
-    new_msg = new_msg.replace(/j/gi, '.---//');
-    new_msg = new_msg.replace(/k/gi, '-[b][/b].[b][/b]-//');
-    new_msg = new_msg.replace(/l/gi, '.-..//');
-    new_msg = new_msg.replace(/m/gi, '--//');
-    new_msg = new_msg.replace(/n/gi, '-.//');
-    new_msg = new_msg.replace(/o/gi, '---//');
-    new_msg = new_msg.replace(/p/gi, '.--.//');
-    new_msg = new_msg.replace(/q/gi, '--[b][/b].[b][/b]-//');
-    new_msg = new_msg.replace(/r/gi, '.-.//');
-    new_msg = new_msg.replace(/s/gi, '...//');
-    new_msg = new_msg.replace(/t/gi, '-//');
-    new_msg = new_msg.replace(/u/gi, '..-//');
-    new_msg = new_msg.replace(/v/gi, '...-//');
-    new_msg = new_msg.replace(/w/gi, '.--//');
-    new_msg = new_msg.replace(/x/gi, '-..-//');
-    new_msg = new_msg.replace(/y/gi, '-[b][/b].[b][/b]--//');
-    new_msg = new_msg.replace(/z/gi, '--..////');
-    document.getElementById("message").value = new_msg;
-  }
+  var new_msg = document.getElementById("message").value;
+  new_msg = new_msg.replace(/a/gi, '.-//');
+  new_msg = new_msg.replace(/b/gi, '-...//');
+  new_msg = new_msg.replace(/c/gi, '-[b][/b].[b][/b]-.//');
+  new_msg = new_msg.replace(/d/gi, '-..//');
+  new_msg = new_msg.replace(/e/gi, './/');
+  new_msg = new_msg.replace(/f/gi, '..-.//');
+  new_msg = new_msg.replace(/g/gi, '--.//');
+  new_msg = new_msg.replace(/h/gi, '....//');
+  new_msg = new_msg.replace(/i/gi, '..//');
+  new_msg = new_msg.replace(/j/gi, '.---//');
+  new_msg = new_msg.replace(/k/gi, '-[b][/b].[b][/b]-//');
+  new_msg = new_msg.replace(/l/gi, '.-..//');
+  new_msg = new_msg.replace(/m/gi, '--//');
+  new_msg = new_msg.replace(/n/gi, '-.//');
+  new_msg = new_msg.replace(/o/gi, '---//');
+  new_msg = new_msg.replace(/p/gi, '.--.//');
+  new_msg = new_msg.replace(/q/gi, '--[b][/b].[b][/b]-//');
+  new_msg = new_msg.replace(/r/gi, '.-.//');
+  new_msg = new_msg.replace(/s/gi, '...//');
+  new_msg = new_msg.replace(/t/gi, '-//');
+  new_msg = new_msg.replace(/u/gi, '..-//');
+  new_msg = new_msg.replace(/v/gi, '...-//');
+  new_msg = new_msg.replace(/w/gi, '.--//');
+  new_msg = new_msg.replace(/x/gi, '-..-//');
+  new_msg = new_msg.replace(/y/gi, '-[b][/b].[b][/b]--//');
+  new_msg = new_msg.replace(/z/gi, '--..////');
+  document.getElementById("message").value = new_msg;  
+}
+
+function inject_morse() {
+  var where = document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName(
+    "tr")[0];
+  var chil_where = where.children;
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "morse_button");
+  the_body.setAttribute("class", "fontbutton");
+  where.insertBefore(the_body, chil_where[0]);
+  where.getElementsByTagName("td")[0].innerHTML =
+    '<input name="morse" id="format-morse" class="format-message" type="checkbox"><label id="click_area_morse" title="Morse" style="cursor:pointer;"><img src="http://i.imgur.com/8rbDggv.png"></label>';
+  var what = document.getElementById("click_area_morse");
+  var whot = document.getElementById("format-morse");
+  if (getCookie('CB_morse') === '1') whot.checked = true;
+  else whot.checked = false;
+  var clicked_css =
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = '';
+  what.addEventListener("click", function () {
+    if (!whot.checked) {
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_morse', '1', 1);
+    } else {
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_morse', '0', 1);
+    }
+  });
 }
 
 function morse_post() {
@@ -2388,7 +2414,7 @@ function vbs_post() {
 }
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
-var num_buttons = 7; ///
+var num_buttons = 8; ///
 function edit_css() {
   document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].style.cssText = cssMsg;
   // / CSS for label that says "Message:" .. +1 for every new button
@@ -2558,7 +2584,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
       inject_braille();
       inject_balloon();
       inject_leet();
-      
+      inject_morse();      
       /////
       inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css");
       inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/index.css");
@@ -2606,8 +2632,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
 }, false);
 
 function run_() {
-  sekrit_();
-  morse_();    
+  sekrit_();  
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
     filter_swears();
     emoticon_();
@@ -2622,6 +2647,7 @@ function run_() {
   if (getCookie('CB_braille') === '1') braille_();
   if (getCookie('CB_balloon') === '1') balloon_(); 
   if (getCookie('CB_leet') === '1') leet_();  
+  if (getCookie('CB_morse') === '1') morse_();    
   js_();
   vbs_();
   java_();
