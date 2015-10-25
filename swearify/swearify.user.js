@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.35
+// @version     3.0.36
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1608,47 +1608,74 @@ function leet_post() {
 /////////////////////BALLOON TEXT
 function balloon_() {
   var old_msg = document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/balloon /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/balloon /i, '');
-    new_msg = new_msg.replace(/a/gi, 'ⓐ');
-    new_msg = new_msg.replace(/b/gi, 'ⓑ');
-    new_msg = new_msg.replace(/c/gi, 'ⓒ');
-    new_msg = new_msg.replace(/d/gi, 'ⓓ');
-    new_msg = new_msg.replace(/e/gi, 'ⓔ');
-    new_msg = new_msg.replace(/f/gi, 'ⓕ');
-    new_msg = new_msg.replace(/g/gi, 'ⓖ');
-    new_msg = new_msg.replace(/h/gi, 'ⓗ');
-    new_msg = new_msg.replace(/i/gi, 'ⓘ');
-    new_msg = new_msg.replace(/j/gi, 'ⓙ');
-    new_msg = new_msg.replace(/k/gi, 'ⓚ');
-    new_msg = new_msg.replace(/l/gi, 'ⓛ');
-    new_msg = new_msg.replace(/m/gi, 'ⓜ');
-    new_msg = new_msg.replace(/n/gi, 'ⓝ');
-    new_msg = new_msg.replace(/o/gi, 'ⓞ');
-    new_msg = new_msg.replace(/p/gi, 'ⓟ');
-    new_msg = new_msg.replace(/q/gi, 'ⓠ');
-    new_msg = new_msg.replace(/r/gi, 'ⓡ');
-    new_msg = new_msg.replace(/s/gi, 'ⓢ');
-    new_msg = new_msg.replace(/t/gi, 'ⓣ');
-    new_msg = new_msg.replace(/u/gi, 'ⓤ');
-    new_msg = new_msg.replace(/v/gi, 'ⓥ');
-    new_msg = new_msg.replace(/w/gi, 'ⓦ');
-    new_msg = new_msg.replace(/x/gi, 'ⓧ');
-    new_msg = new_msg.replace(/y/gi, 'ⓨ');
-    new_msg = new_msg.replace(/z/gi, 'ⓩ');
-    new_msg = new_msg.replace(/1/gi, '⓵');
-    new_msg = new_msg.replace(/2/gi, '⓶');
-    new_msg = new_msg.replace(/3/gi, '⓷');
-    new_msg = new_msg.replace(/4/gi, '⓸');
-    new_msg = new_msg.replace(/5/gi, '⓹');
-    new_msg = new_msg.replace(/6/gi, '⓺');
-    new_msg = new_msg.replace(/7/gi, '⓻');
-    new_msg = new_msg.replace(/8/gi, '⓼');
-    new_msg = new_msg.replace(/9/gi, '⓽');
-    new_msg = new_msg.replace(/0/gi, '⓪');
-    document.getElementById("message").value = new_msg;
-  }
+  var new_msg = old_msg.replace(/\/balloon /i, '');
+  new_msg = new_msg.replace(/a/gi, 'ⓐ');
+  new_msg = new_msg.replace(/b/gi, 'ⓑ');
+  new_msg = new_msg.replace(/c/gi, 'ⓒ');
+  new_msg = new_msg.replace(/d/gi, 'ⓓ');
+  new_msg = new_msg.replace(/e/gi, 'ⓔ');
+  new_msg = new_msg.replace(/f/gi, 'ⓕ');
+  new_msg = new_msg.replace(/g/gi, 'ⓖ');
+  new_msg = new_msg.replace(/h/gi, 'ⓗ');
+  new_msg = new_msg.replace(/i/gi, 'ⓘ');
+  new_msg = new_msg.replace(/j/gi, 'ⓙ');
+  new_msg = new_msg.replace(/k/gi, 'ⓚ');
+  new_msg = new_msg.replace(/l/gi, 'ⓛ');
+  new_msg = new_msg.replace(/m/gi, 'ⓜ');
+  new_msg = new_msg.replace(/n/gi, 'ⓝ');
+  new_msg = new_msg.replace(/o/gi, 'ⓞ');
+  new_msg = new_msg.replace(/p/gi, 'ⓟ');
+  new_msg = new_msg.replace(/q/gi, 'ⓠ');
+  new_msg = new_msg.replace(/r/gi, 'ⓡ');
+  new_msg = new_msg.replace(/s/gi, 'ⓢ');
+  new_msg = new_msg.replace(/t/gi, 'ⓣ');
+  new_msg = new_msg.replace(/u/gi, 'ⓤ');
+  new_msg = new_msg.replace(/v/gi, 'ⓥ');
+  new_msg = new_msg.replace(/w/gi, 'ⓦ');
+  new_msg = new_msg.replace(/x/gi, 'ⓧ');
+  new_msg = new_msg.replace(/y/gi, 'ⓨ');
+  new_msg = new_msg.replace(/z/gi, 'ⓩ');
+  new_msg = new_msg.replace(/1/gi, '⓵');
+  new_msg = new_msg.replace(/2/gi, '⓶');
+  new_msg = new_msg.replace(/3/gi, '⓷');
+  new_msg = new_msg.replace(/4/gi, '⓸');
+  new_msg = new_msg.replace(/5/gi, '⓹');
+  new_msg = new_msg.replace(/6/gi, '⓺');
+  new_msg = new_msg.replace(/7/gi, '⓻');
+  new_msg = new_msg.replace(/8/gi, '⓼');
+  new_msg = new_msg.replace(/9/gi, '⓽');
+  new_msg = new_msg.replace(/0/gi, '⓪');
+  document.getElementById("message").value = new_msg;
+}
+
+function inject_balloon() {
+  var where = document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName(
+    "tr")[0];
+  var chil_where = where.children;
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "balloon_button");
+  the_body.setAttribute("class", "fontbutton");
+  where.insertBefore(the_body, chil_where[0]);
+  where.getElementsByTagName("td")[0].innerHTML =
+    '<input name="balloon" id="format-balloon" class="format-message" type="checkbox"><label id="click_area_balloon" title="Balloon" style="cursor:pointer;"><img src="http://i.imgur.com/jYcxqOm.png"></label>';
+  var what = document.getElementById("click_area_balloon");
+  var whot = document.getElementById("format-balloon");
+  if (getCookie('CB_balloon') === '1') whot.checked = true;
+  else whot.checked = false;
+  var clicked_css =
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = '';
+  what.addEventListener("click", function () {
+    if (!whot.checked) {
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_balloon', '1', 1);
+    } else {
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_balloon', '0', 1);
+    }
+  });
 }
 
 function balloon_post() {
@@ -1708,47 +1735,74 @@ function balloon_post() {
 /////////////////////BRAILLE TEXT
 function braille_() {
   var old_msg = document.getElementById("message").value;
-  var index_num = old_msg.regexIndexOf(/\/braille /i);
-  if (index_num === 0) {
-    var new_msg = old_msg.replace(/\/braille /i, '');
-    new_msg = new_msg.replace(/a/gi, '⠁');
-    new_msg = new_msg.replace(/b/gi, '⠃');
-    new_msg = new_msg.replace(/c/gi, '⠉');
-    new_msg = new_msg.replace(/d/gi, '⠙');
-    new_msg = new_msg.replace(/e/gi, '⠑');
-    new_msg = new_msg.replace(/f/gi, '⠋');
-    new_msg = new_msg.replace(/g/gi, '⠛');
-    new_msg = new_msg.replace(/h/gi, '⠓');
-    new_msg = new_msg.replace(/i/gi, '⠊');
-    new_msg = new_msg.replace(/j/gi, '⠚');
-    new_msg = new_msg.replace(/k/gi, '⠅');
-    new_msg = new_msg.replace(/l/gi, '⠇');
-    new_msg = new_msg.replace(/m/gi, '⠍');
-    new_msg = new_msg.replace(/n/gi, '⠝');
-    new_msg = new_msg.replace(/o/gi, '⠕');
-    new_msg = new_msg.replace(/p/gi, '⠏');
-    new_msg = new_msg.replace(/q/gi, '⠟');
-    new_msg = new_msg.replace(/r/gi, '⠗');
-    new_msg = new_msg.replace(/s/gi, '⠎');
-    new_msg = new_msg.replace(/t/gi, '⠞');
-    new_msg = new_msg.replace(/u/gi, '⠥');
-    new_msg = new_msg.replace(/v/gi, '⠧');
-    new_msg = new_msg.replace(/w/gi, '⠺');
-    new_msg = new_msg.replace(/x/gi, '⠭');
-    new_msg = new_msg.replace(/y/gi, '⠽');
-    new_msg = new_msg.replace(/z/gi, '⠵');
-    new_msg = new_msg.replace(/1/gi, '⠼⠁');
-    new_msg = new_msg.replace(/2/gi, '⠼⠃');
-    new_msg = new_msg.replace(/3/gi, '⠼⠉');
-    new_msg = new_msg.replace(/4/gi, '⠼⠙');
-    new_msg = new_msg.replace(/5/gi, '⠼⠑');
-    new_msg = new_msg.replace(/6/gi, '⠼⠋');
-    new_msg = new_msg.replace(/7/gi, '⠼⠛');
-    new_msg = new_msg.replace(/8/gi, '⠼⠓');
-    new_msg = new_msg.replace(/9/gi, '⠼⠊');
-    new_msg = new_msg.replace(/0/gi, '⠼⠚');
-    document.getElementById("message").value = new_msg;
-  }
+  var new_msg = old_msg.replace(/\/braille /i, '');
+  new_msg = new_msg.replace(/a/gi, '⠁');
+  new_msg = new_msg.replace(/b/gi, '⠃');
+  new_msg = new_msg.replace(/c/gi, '⠉');
+  new_msg = new_msg.replace(/d/gi, '⠙');
+  new_msg = new_msg.replace(/e/gi, '⠑');
+  new_msg = new_msg.replace(/f/gi, '⠋');
+  new_msg = new_msg.replace(/g/gi, '⠛');
+  new_msg = new_msg.replace(/h/gi, '⠓');
+  new_msg = new_msg.replace(/i/gi, '⠊');
+  new_msg = new_msg.replace(/j/gi, '⠚');
+  new_msg = new_msg.replace(/k/gi, '⠅');
+  new_msg = new_msg.replace(/l/gi, '⠇');
+  new_msg = new_msg.replace(/m/gi, '⠍');
+  new_msg = new_msg.replace(/n/gi, '⠝');
+  new_msg = new_msg.replace(/o/gi, '⠕');
+  new_msg = new_msg.replace(/p/gi, '⠏');
+  new_msg = new_msg.replace(/q/gi, '⠟');
+  new_msg = new_msg.replace(/r/gi, '⠗');
+  new_msg = new_msg.replace(/s/gi, '⠎');
+  new_msg = new_msg.replace(/t/gi, '⠞');
+  new_msg = new_msg.replace(/u/gi, '⠥');
+  new_msg = new_msg.replace(/v/gi, '⠧');
+  new_msg = new_msg.replace(/w/gi, '⠺');
+  new_msg = new_msg.replace(/x/gi, '⠭');
+  new_msg = new_msg.replace(/y/gi, '⠽');
+  new_msg = new_msg.replace(/z/gi, '⠵');
+  new_msg = new_msg.replace(/1/gi, '⠼⠁');
+  new_msg = new_msg.replace(/2/gi, '⠼⠃');
+  new_msg = new_msg.replace(/3/gi, '⠼⠉');
+  new_msg = new_msg.replace(/4/gi, '⠼⠙');
+  new_msg = new_msg.replace(/5/gi, '⠼⠑');
+  new_msg = new_msg.replace(/6/gi, '⠼⠋');
+  new_msg = new_msg.replace(/7/gi, '⠼⠛');
+  new_msg = new_msg.replace(/8/gi, '⠼⠓');
+  new_msg = new_msg.replace(/9/gi, '⠼⠊');
+  new_msg = new_msg.replace(/0/gi, '⠼⠚');
+  document.getElementById("message").value = new_msg;
+}
+
+function inject_braille() {
+  var where = document.getElementById("chatbox_messenger_form").getElementsByTagName("table")[1].getElementsByTagName(
+    "tr")[0];
+  var chil_where = where.children;
+  var the_body = document.createElement("td");
+  the_body.setAttribute("id", "braille_button");
+  the_body.setAttribute("class", "fontbutton");
+  where.insertBefore(the_body, chil_where[0]);
+  where.getElementsByTagName("td")[0].innerHTML =
+    '<input name="braille" id="format-braille" class="format-message" type="checkbox"><label id="click_area_braille" title="Braille" style="cursor:pointer;">⠃</label>';
+  var what = document.getElementById("click_area_braille");
+  var whot = document.getElementById("format-braille");
+  if (getCookie('CB_braille') === '1') whot.checked = true;
+  else whot.checked = false;
+  var clicked_css =
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = '';
+  what.addEventListener("click", function () {
+    if (!whot.checked) {
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_braille', '1', 1);
+    } else {
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_braille', '0', 1);
+    }
+  });
 }
 
 function braille_post() {
@@ -1847,7 +1901,7 @@ function inject_greek() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek"><img src="http://i.imgur.com/OUGQ1ik.png"></label>';
+    '<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek" style="cursor:pointer;"><img src="http://i.imgur.com/OUGQ1ik.png"></label>';
   var what = document.getElementById("click_area_greek");
   var whot = document.getElementById("format-greek");
   if (getCookie('CB_greek') === '1') whot.checked = true;
@@ -2069,7 +2123,7 @@ function inject_rainbow() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow"><img src="http://i.imgur.com/F69UQGS.png"></label>';
+    '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;"><img src="http://i.imgur.com/F69UQGS.png"></label>';
   var what = document.getElementById("click_area_rainbow");
   var whot = document.getElementById("format-rainbow");
   if (getCookie('CB_rainbow') === '1') whot.checked = true;
@@ -2124,7 +2178,7 @@ function inject_random() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random"><img src="http://i.imgur.com/jpgCdWw.png"></label>';
+    '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;"><img src="http://i.imgur.com/jHMOnyI.png"></label>';
   var what = document.getElementById("click_area_random");
   var whot = document.getElementById("format-random");
   if (getCookie('CB_random') === '1') whot.checked = true;
@@ -2179,7 +2233,7 @@ function inject_gradient() {
   the_body.setAttribute("class", "fontbutton");
   where.insertBefore(the_body, chil_where[0]);
   where.getElementsByTagName("td")[0].innerHTML =
-    '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient"><img src="http://i.imgur.com/EyxCc20.png"></label>';
+    '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" style="cursor:pointer;"><img src="http://i.imgur.com/EyxCc20.png"></label>';
   var what = document.getElementById("click_area_gradient");
   var whot = document.getElementById("format-gradient");
   if (getCookie('CB_gradient') === '1') whot.checked = true;
@@ -2306,7 +2360,7 @@ function vbs_post() {
 }
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
-var num_buttons = 4; ///
+var num_buttons = 6; ///
 function edit_css() {
   document.getElementById("chatbox_messenger_form").getElementsByTagName("label")[4 + num_buttons].style.cssText = cssMsg;
   // / CSS for label that says "Message:" .. +1 for every new button
@@ -2473,6 +2527,8 @@ window.addEventListener('load', function () { /* shit goes down in here */
       inject_rainbow();    
       inject_random();
       inject_greek();
+      inject_braille();
+      inject_balloon();
       
       /////
       inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css");
@@ -2522,12 +2578,9 @@ window.addEventListener('load', function () { /* shit goes down in here */
 
 function run_() {
   sekrit_();
-  morse_();
-  greek_();
-  leet_();
-  balloon_();
-  braille_();
-  if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1') {
+  morse_();  
+  leet_();  
+  if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
     filter_swears();
     emoticon_();
     maymay_();
@@ -2537,6 +2590,9 @@ function run_() {
   if (getCookie('CB_rainbow') === '1') rainbow_();
   if (getCookie('CB_random') === '1') random_();
   if (getCookie('CB_gradient') === '1') gradient_();
+  if (getCookie('CB_greek') === '1') greek_();
+  if (getCookie('CB_braille') === '1') braille_();
+  if (getCookie('CB_balloon') === '1') balloon_(); 
   js_();
   vbs_();
   java_();
