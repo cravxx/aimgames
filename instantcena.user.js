@@ -4,12 +4,10 @@
 // @namespace   chrisdick69696969696961@gmail.com
 // @include     http://*
 // @include     https://*
-// @version     all of em 1.0
+// @version     all of em 2.0
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
-document.body.onload = function () {
-  if (Math.random() * 100 >= 99)
-    window.location.href = 'http://instantcena.com/';
-}
+if (Math.random() * 100 >= 99)
+  window.location.href = 'http://instantcena.com/';
