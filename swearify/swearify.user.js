@@ -2570,6 +2570,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=1&mode=smilies") inject_smilie(1);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=2&mode=smilies") inject_smilie(2);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=3&mode=smilies") inject_smilie(3);
+    if (window.location.href === "http://aimgames.forummotion.com/post?categ=4&mode=smilies") inject_smilie(4);
     if (window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?page=front&" || window.location
       .href === "http://aimgames.forummotion.com/chatbox/index.forum" || window.location.href ===
       "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href ===
