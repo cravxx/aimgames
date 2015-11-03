@@ -38,7 +38,9 @@ window.onload = function() {
         asshole_dickbag_cunt_motherfucker += ', '; // make it look shiny
     }
     window.alert(clips_stopped + " clips stopped!\nThe URL for the first clip is: " + document.getElementsByTagName("audio")[0].currentSrc + "\nThe asshole cunt dickbag motherfuckers are: " + asshole_dickbag_cunt_motherfucker);
-  } else { // in a preview page or audio isn't in a spoiler
+  } else if(clips_stopped > 1){ // in a preview page or audio isn't in a spoiler
       window.alert(clips_stopped + " clips stopped! Couldn't automatically identify the asshat.");
+  }else{
+    //what
   }
 };
