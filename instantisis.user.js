@@ -3,7 +3,7 @@
 // @description ENHANCE YOUR AKBAR.
 // @namespace   chrisdick69696969696969@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     all of em 3.0
+// @version     all of em 4.0
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -16,3 +16,20 @@ document.body.onload = function () {
   a.frameborder = 0;
   document.body.appendChild(a);
 }
+
+var akbars = [
+  'ALLAHU AKBAR',
+  'allahu akbar',
+  'AKBAR',
+  'DROP THE TOWERS',
+  'THAT BASS DROPPED FASTER THAN THE TWIN TOWERS',
+  'WUB WUB DEAD',
+  'ALLAHU'
+];
+
+function akbar() {
+  for (var i in akbars)
+    if (Math.random() > 0.8)
+      window.alert(akbars[i]);
+}
+setInterval(akbar, 500);
