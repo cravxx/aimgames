@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.40
+// @version     3.0.41
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -362,7 +362,8 @@ var emoticon_2 = {
   alltrash: [':alltrash:', 'https://i.imgur.com/hED48aB.png', "INTO THE TRASH IT ALL GOES"],
   smashtrash: [':smashtrash:', 'https://i.imgur.com/MTKvgGZ.png', "PENN TAKES OUT THE TRASH"],
   couldtrash: [':couldtrash:', 'https://i.imgur.com/zxXAltg.jpg', "YOU COULD HAVE TRASHED IT"],
-  timetotrash: [':timetotrash:', 'https://i.imgur.com/ldAcjID.png', "GOOD HEAVENS JUST LOOK AT THE TIME"]
+  timetotrash: [':timetotrash:', 'https://i.imgur.com/ldAcjID.png', "GOOD HEAVENS JUST LOOK AT THE TIME"],
+  dongcena: [':dongcena:', 'http://i.imgur.com/tQgelof.gif', "IT'S DONG CENA"]
 }
 
 var emoticon_3 = {
