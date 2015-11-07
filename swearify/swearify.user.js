@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.39
+// @version     3.0.40
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -341,7 +341,28 @@ var emoticon_2 = {
   trutbh: [':trutbh:', 'http://i.imgur.com/jsxEPmb.png', "TRUE TBH"],
   benis: [':benis:', 'http://i.imgur.com/tiSmbwA.png', 'BENIS'],
   spooked: [':spooked:', 'http://i.imgur.com/gvh91nd.png', "SPOOKED"],
-  garfielf: [':garfielf:', 'http://i.imgur.com/UM1hzYI.png', "GARFILF"]
+  garfielf: [':garfielf:', 'http://i.imgur.com/UM1hzYI.png', "GARFILF"],
+  pennsneak: [':pennsneak:', 'https://i.imgur.com/mRR9F8X.png', "THE TRASH IS YOUR DESTINATION"],
+  aerooreo: ['aero', 'https://i.imgur.com/cN9Ssfd.png', "THAT KIKE JEW WITH NO SENSE OF HUMOR"],
+  trashuniverse: [':trashuniverse:', 'https://i.imgur.com/6lORTmC.jpg', "NEXT STOP: THE TRASH"],
+  discarded: [':discarded:', 'https://i.imgur.com/SraD89p.jpg', "OPINION DISCARDED"],
+  pennsmile: [':pennsmile:', 'https://i.imgur.com/JIDvcym.jpg', "THE GRIN OF ATHEISM"],
+  trash2: [':trashgo:', 'https://i.imgur.com/EAM5KD3.jpg', "INTO THE TRASH YOU GO"],
+  trashman: [':trashman:', 'https://i.imgur.com/IcKN7qV.jpg', "I'M THE TRASH MAN. I EAT GARBAGE."],
+  onlytrash: [':onlytrash:', 'https://i.imgur.com/Kegmi0Q.jpg', "NOPE. THERE'S ONLY TRASH HERE."],
+  pennsmile2: [':pennsmile2:', 'https://i.imgur.com/QeNhcOa.jpg', "THE FACE OF TRASH"],
+  bill: [':bill:', 'https://i.imgur.com/ThR0GxE.jpg', "BILL NYE THE SCIENCE ASSHOLE"],
+  pennsmile3: [':pennsmile3:', 'https://i.imgur.com/8dfyAyM.jpg', "NO COMMENTS NEEDED. JUST TRASH."],
+  penntrasher: [':penntrasher:', 'https://i.imgur.com/ZYq5crP.jpg', "TRASHER MAGAZINE"],
+  ltrash: [':ltrash:', 'https://i.imgur.com/xbaxCgO.jpg', "LITERALLY TRASHER"],
+  pepemeister: [':pepemeister:', 'https://i.imgur.com/n5xshzf.jpg', "THE PEPEMEISTER"],
+  vincewtf: [':vincewtf:', 'https://i.imgur.com/5vpTOMQ.gif', "YFW YOU FIND OUT YOUR CRUSH IS A FEMINIST"],
+  pennbat: [':pennbat:', 'https://i.imgur.com/Hb2qKNE.png', "I'M JUST TAKING OUT THE TRASH"],
+  trashmaster: [':trashmaster:', 'https://i.imgur.com/iJGSa5j.png', "WE TAKE OUT THE TRASH IN 420 SECONDS OR YOUR MONEY BACK"],
+  alltrash: [':alltrash:', 'https://i.imgur.com/hED48aB.png', "INTO THE TRASH IT ALL GOES"],
+  smashtrash: [':smashtrash:', 'https://i.imgur.com/MTKvgGZ.png', "PENN TAKES OUT THE TRASH"],
+  couldtrash: [':couldtrash:', 'https://i.imgur.com/zxXAltg.jpg', "YOU COULD HAVE TRASHED IT"],
+  timetotrash: [':timetotrash:', 'https://i.imgur.com/ldAcjID.png', "GOOD HEAVENS JUST LOOK AT THE TIME"]
 }
 
 var emoticon_3 = {
@@ -1143,7 +1164,9 @@ var replacements = {
   "lol": "not funny at all",
   "bye": "help i'm trapped in a universe factory",
   "kappa": "makenzy",
-  "art": "fart"
+  "art": "fart",
+  "sneak": "rape",
+  "7": "666"
 };
 
 ///////EXTRA FILTERING CODE
