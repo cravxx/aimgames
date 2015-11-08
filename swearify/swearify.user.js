@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.42
+// @version     3.0.43
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -227,13 +227,7 @@ var emoticon_1 = {
   pepesi: [':pepesi:', 'http://i.imgur.com/bPKbLTq.gif', "PEPEsi"],
   pepicasso: [':pepicasso:', 'http://i.imgur.com/rFDnOk7.gif', "peekasso"],
   pepe007: [':pepe007:', 'http://i.imgur.com/vRgJvjh.gif', "pepe 007"],
-  pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"],
-  doolittle: [':doolittle:', 'http://i.imgur.com/AuTNA9o.png', "doolittle"],
-  scooby: [':scoobspoop:', 'https://i.imgur.com/gvh91nd.png', "scoob"],
-  benis: [':benis:', 'https://i.imgur.com/UtoJXGH.png', "benis"],
-  smoke: [':smoke:', 'http://i.imgur.com/HpcjItw.gif', "smoke"],
-  animweed: [':animweed:', 'http://i.imgur.com/OzmSTZG.gif', "animweed"],
-  feelingbad: [':feelingbad:', 'http://i.imgur.com/AUr2Ikc.jpg', "feeling bad"]
+  pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"]
 };
 
 var emoticon_2 = {
@@ -369,7 +363,13 @@ var emoticon_2 = {
   smashtrash: [':smashtrash:', 'https://i.imgur.com/MTKvgGZ.png', "PENN TAKES OUT THE TRASH"],
   couldtrash: [':couldtrash:', 'https://i.imgur.com/zxXAltg.jpg', "YOU COULD HAVE TRASHED IT"],
   timetotrash: [':timetotrash:', 'https://i.imgur.com/ldAcjID.png', "GOOD HEAVENS JUST LOOK AT THE TIME"],
-  dongcena: [':dongcena:', 'http://i.imgur.com/tQgelof.gif', "IT'S DONG CENA"]
+  problematic: [':problematic:', 'https://i.imgur.com/AT6JIiP.jpg?1', 'problematic'],
+  doolittle: [':doolittle:', 'http://i.imgur.com/AuTNA9o.png', "doolittle"],
+  scooby: [':scoobspoop:', 'https://i.imgur.com/gvh91nd.png', "scoob"],
+  benis: [':benis:', 'https://i.imgur.com/UtoJXGH.png', "benis"],
+  smoke: [':smoke:', 'http://i.imgur.com/HpcjItw.gif', "smoke"],
+  animweed: [':animweed:', 'http://i.imgur.com/OzmSTZG.gif', "animweed"],
+  feelingbad: [':feelingbad:', 'http://i.imgur.com/AUr2Ikc.jpg', "feeling bad"]
 }
 
 var emoticon_3 = {
@@ -642,7 +642,8 @@ var emoticon_4 = {
 	  cenashrink: [':cenashrink:', 'http://i.imgur.com/B1zcAL4.gif', 'SHRINKING CENA'],
 	  cenacantwrestle: [':cenacantwrestle:', 'http://i.imgur.com/lxRchNh.gif', 'CENA CAN\'T WRESTLE'],
 	  cenaconfused2: [':cenaconfused2:', 'http://i.imgur.com/cj4Ri1g.gif', 'CONFUSED CENA 2'],
-	  cenaepilepsy: [':cenaepilepsy:', 'http://i.imgur.com/UVQDNnV.gif', 'EPILEPSY CENA']
+	  cenaepilepsy: [':cenaepilepsy:', 'http://i.imgur.com/UVQDNnV.gif', 'EPILEPSY CENA'],
+	  dongcena: [':dongcena:', 'http://i.imgur.com/tQgelof.gif', "IT'S DONG CENA"]
 };
 ///////
 ///////SPECIAL TEXT THAT NEEDS TO BE FORMATTED
@@ -761,7 +762,8 @@ var maymay = {
   gottago: [':gofast:', '[scroll][font=Comic Sans MS][size=26][blur][color=green][i]GOTTA GO FAST[/i][/color][/blur][/size][/font][list][*][/list][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][/scroll]'],
   destroy: [':destroy:', '[size=26]DESTROY[/size][size=23]DESTROY[/size][size=20]DESTROY[/size][size=17]DESTROY[/size][size=14]DESTROY[/size][size=11]DESTROY[/size][size=9]DESTROY[/size][size=6]DESTROY[/size][size=3]DESTROY[/size]'],
   logout: [':logout:', "[url=https://i.imgur.com/7XClKSN.png?1]http://superlogout.com/[/url]"],
-  abuse: [':abuse:', "[img]http://i.imgur.com/cAxpwdm.gif[/img]"]
+  abuse: [':abuse:', "[img]http://i.imgur.com/cAxpwdm.gif[/img]"],
+  square: ['Square', "□"]
 };
 ///////
 
