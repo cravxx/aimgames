@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.41
+// @version     3.0.42
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -14,7 +14,7 @@
 
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
-var swear_words = [
+/*var swear_words = [
 	"shockey", "kaff", "raga", "inhumanpwnage",
 	"silver", "acv", "phy", "ben",
 	"mdx", "evo", "rafa", "sano", 
@@ -24,7 +24,7 @@ var swear_words = [
 	"420", "rip", "god", "died", /// ... *tips fedora* //
 	"skype", "crack", "sex", "porn",
 	"matr0xx", "10th", "jesus"
-];
+];*/
 ///////
 ///////SMILY CODE, OBJECT SHIT
 var emoticon_1 = {
@@ -227,7 +227,13 @@ var emoticon_1 = {
   pepesi: [':pepesi:', 'http://i.imgur.com/bPKbLTq.gif', "PEPEsi"],
   pepicasso: [':pepicasso:', 'http://i.imgur.com/rFDnOk7.gif', "peekasso"],
   pepe007: [':pepe007:', 'http://i.imgur.com/vRgJvjh.gif', "pepe 007"],
-  pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"]
+  pepeflash: [':pepeflash:', 'http://i.imgur.com/bqGHiNG.gif', "pepe flash"],
+  doolittle: [':doolittle:', 'http://i.imgur.com/AuTNA9o.png', "doolittle"],
+  scooby: [':scoobspoop:', 'https://i.imgur.com/gvh91nd.png', "scoob"],
+  benis: [':benis:', 'https://i.imgur.com/UtoJXGH.png', "benis"],
+  smoke: [':smoke:', 'http://i.imgur.com/HpcjItw.gif', "smoke"],
+  animweed: [':animweed:', 'http://i.imgur.com/OzmSTZG.gif', "animweed"],
+  feelingbad: [':feelingbad:', 'http://i.imgur.com/AUr2Ikc.jpg', "feeling bad"]
 };
 
 var emoticon_2 = {
@@ -1287,7 +1293,7 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
 }
 
 ///////////////////// MANAGES THE SWEAR FILTERING
-function filter_swears() {
+/*function filter_swears() {
   for (var i = 0; i < swear_words.length; i++) {
     var old_msg = document.getElementById("message").value;
     var old_msg_low = document.getElementById("message").value.toLowerCase();
@@ -1362,7 +1368,7 @@ function filter_swears_post() {
         }  
     }   
   }
-}
+}*/
 /////////////////////
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 function emoticon_() {
@@ -2704,7 +2710,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
 function run_() {
   sekrit_();  
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
-    filter_swears();
+    //filter_swears();
     emoticon_();
     maymay_();
   }
@@ -2730,7 +2736,7 @@ function run_post() {
   balloon_post();
   braille_post();
   leet_post();
-  filter_swears_post();
+  //filter_swears_post();
   emoticon_post();
   maymay_post();
   greentext_post();
