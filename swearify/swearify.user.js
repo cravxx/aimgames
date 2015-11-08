@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.44
+// @version     3.0.45
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -14,17 +14,7 @@
 
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
-/*var swear_words = [
-	"shockey", "kaff", "raga", "inhumanpwnage",
-	"silver", "acv", "phy", "ben",
-	"mdx", "evo", "rafa", "sano", 
-	"ulti", "sin", "admin", "ten graves",
-	"ragamuffin", "black dragon", "prayers", "mac", //"toa",
-	
-	"420", "rip", "god", "died", /// ... *tips fedora* //
-	"skype", "crack", "sex", "porn",
-	"matr0xx", "10th", "jesus"
-];*/
+
 ///////
 ///////SMILY CODE, OBJECT SHIT
 var emoticon_1 = {
@@ -365,7 +355,7 @@ var emoticon_2 = {
   timetotrash: [':timetotrash:', 'https://i.imgur.com/ldAcjID.png', "GOOD HEAVENS JUST LOOK AT THE TIME"],
   problematic: [':problematic:', 'https://i.imgur.com/AT6JIiP.jpg?1', 'problematic'],
   doolittle: [':doolittle:', 'http://i.imgur.com/AuTNA9o.png', "doolittle"],
-  suicide: [':suicide:', 'http://i.imgur.com/xMbfSsr.jpg?1", "suicide"],
+  suicide: [':suicide:', 'http://i.imgur.com/xMbfSsr.jpg?1, "suicide"],
   benis: [':benis:', 'https://i.imgur.com/UtoJXGH.png', "benis"],
   smoke: [':smoke:', 'http://i.imgur.com/HpcjItw.gif', "smoke"],
   animweed: [':animweed:', 'http://i.imgur.com/OzmSTZG.gif', "animweed"],
@@ -1294,83 +1284,6 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
 	return lastIndexOf;
 }
 
-///////////////////// MANAGES THE SWEAR FILTERING
-/*function filter_swears() {
-  for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = document.getElementById("message").value;
-    var old_msg_low = document.getElementById("message").value.toLowerCase();
-    var new_msg = '';
-    // http://stackoverflow.com/a/500459
-    var http_link = old_msg.indexOf(link_code[0]);
-    var www_link = old_msg.indexOf(link_code[1]);
-    var https_link = old_msg.indexOf(link_code[2]);
-    var exit_code = old_msg.indexOf(spec_code[0]);
-    var away_code = old_msg.indexOf(spec_code[1]);
-    var abs_code = old_msg.indexOf(spec_code[2]);
-    var code_code = old_msg.indexOf(spec_code[3]);
-    var semi_code = old_msg.indexOf(spec_code[3]);
-    var spec_switch = 0;
-    // special switches switch
-    if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1 || semi_code != -1) spec_switch = 1;
-    
-    if(http_link > 0 || www_link > 0 || https_link > 0) {
-      var which = 0;
-      if(http_link != -1){
-        which = http_link;        
-      }else if(www_link != -1){
-        which = www_link;  
-      }else{
-        which = https_link;  
-      }
-      var before_link = old_msg_low.substr(0, which);
-      var link = old_msg_low.substr(which, old_msg_low.length);
-      if(before_link.indexOf(swear_words[i]) >= 0)   {
-        var edi_msg = old_msg.substr(before_link.indexOf(swear_words[i]), swear_words[i].length);
-        var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-        new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);
-        document.getElementById("message").value = new_msg;
-      }      
-    }    
-    
-    if (http_link == -1 && https_link == -1 && www_link == -1) {
-        if(old_msg_low.indexOf(swear_words[i]) >= 0)   {
-            var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
-            var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-            new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);     
-            document.getElementById("message").value = new_msg;
-        }    	
-    }    	   
-  }
-}
-
-function filter_swears_post() {
-  for (var i = 0; i < swear_words.length; i++) {
-    var old_msg = ""; // this may not be necessary i'm not 100% sure
-    var old_msg_low = "";
-    if (document.getElementsByTagName("textarea")[1] === undefined){
-    	old_msg = document.getElementsByTagName("textarea")[0].value;
-    	old_msg_low = document.getElementsByTagName("textarea")[0].value.toLowerCase();
-    }else{
-    	old_msg = document.getElementsByTagName("textarea")[1].value;
-    	old_msg_low = document.getElementsByTagName("textarea")[1].value.toLowerCase();
-    }
-    var http_link = old_msg.indexOf(link_code[0]);
-    var www_link = old_msg.indexOf(link_code[1]);
-    var https_link = old_msg.indexOf(link_code[2]);
-    if (http_link == -1 && https_link == -1 && www_link == -1){
-    	if(old_msg_low.indexOf(swear_words[i]) >= 0)   {
-            var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
-            var par_msg = edi_msg.split("").join(swear_code[0]);
-            new_msg = old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg);     
-            if (document.getElementsByTagName("textarea")[1] === undefined){
-            	document.getElementsByTagName("textarea")[0].value = new_msg;
-            }else{
-            	document.getElementsByTagName("textarea")[1].value = new_msg;
-            }
-        }  
-    }   
-  }
-}*/
 /////////////////////
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 function emoticon_() {
@@ -2712,7 +2625,6 @@ window.addEventListener('load', function () { /* shit goes down in here */
 function run_() {
   sekrit_();  
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
-    //filter_swears();
     emoticon_();
     maymay_();
   }
@@ -2738,7 +2650,6 @@ function run_post() {
   balloon_post();
   braille_post();
   leet_post();
-  //filter_swears_post();
   emoticon_post();
   maymay_post();
   greentext_post();
