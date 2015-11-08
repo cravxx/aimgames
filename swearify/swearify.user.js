@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.43
+// @version     3.0.44
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -365,7 +365,7 @@ var emoticon_2 = {
   timetotrash: [':timetotrash:', 'https://i.imgur.com/ldAcjID.png', "GOOD HEAVENS JUST LOOK AT THE TIME"],
   problematic: [':problematic:', 'https://i.imgur.com/AT6JIiP.jpg?1', 'problematic'],
   doolittle: [':doolittle:', 'http://i.imgur.com/AuTNA9o.png', "doolittle"],
-  scooby: [':scoobspoop:', 'https://i.imgur.com/gvh91nd.png', "scoob"],
+  suicide: [':suicide:', 'http://i.imgur.com/xMbfSsr.jpg?1", "suicide"],
   benis: [':benis:', 'https://i.imgur.com/UtoJXGH.png', "benis"],
   smoke: [':smoke:', 'http://i.imgur.com/HpcjItw.gif', "smoke"],
   animweed: [':animweed:', 'http://i.imgur.com/OzmSTZG.gif', "animweed"],
