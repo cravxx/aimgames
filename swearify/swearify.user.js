@@ -355,7 +355,7 @@ var emoticon_2 = {
   timetotrash: [':timetotrash:', 'https://i.imgur.com/ldAcjID.png', "GOOD HEAVENS JUST LOOK AT THE TIME"],
   problematic: [':problematic:', 'https://i.imgur.com/AT6JIiP.jpg?1', 'problematic'],
   doolittle: [':doolittle:', 'http://i.imgur.com/AuTNA9o.png', "doolittle"],
-  suicide: [':suicide:', 'http://i.imgur.com/xMbfSsr.jpg?1, "suicide"],
+  suicide: [':suicide:', 'http://i.imgur.com/xMbfSsr.jpg?1', "suicide"],
   benis: [':benis:', 'https://i.imgur.com/UtoJXGH.png', "benis"],
   smoke: [':smoke:', 'http://i.imgur.com/HpcjItw.gif', "smoke"],
   animweed: [':animweed:', 'http://i.imgur.com/OzmSTZG.gif', "animweed"],
