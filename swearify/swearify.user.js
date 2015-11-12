@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.45
+// @version     3.0.46
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -359,7 +359,14 @@ var emoticon_2 = {
   benis: [':benis:', 'https://i.imgur.com/UtoJXGH.png', "benis"],
   smoke: [':smoke:', 'http://i.imgur.com/HpcjItw.gif', "smoke"],
   animweed: [':animweed:', 'http://i.imgur.com/OzmSTZG.gif', "animweed"],
-  feelingbad: [':feelingbad:', 'http://i.imgur.com/AUr2Ikc.jpg', "feeling bad"]
+  feelingbad: [':feelingbad:', 'http://i.imgur.com/AUr2Ikc.jpg', "feeling bad"],
+  handpepe: [':handpepe:', 'http://i.imgur.com/tsKnHNs.png', "andrawn pepe"],
+  warning: [':warning:', 'http://i.imgur.com/0x9kI7i.png', "warning"],
+  fatty: [':fatty:', 'http://i.imgur.com/KaKdh2s.png', "fattbh"],
+  smirkcat: [':smirkcat:', 'http://i.imgur.com/2ttK2BO.png', "smirkcat"],
+  collarpull: [':collarpull:', 'http://i.imgur.com/7CZZjYQ.png', "pull ur collar m8"],
+  kappaross: [':kappaross:', 'http://i.imgur.com/1u8HBm3.png', "kappa ross"]
+  
 }
 
 var emoticon_3 = {
