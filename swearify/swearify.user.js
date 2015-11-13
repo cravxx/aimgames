@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.47
+// @version     3.0.48
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1184,7 +1184,8 @@ var link_code = ['http://', 'www.', 'https://'];
 var color_code = ["[color=#789922]", "[/color]", "[b][color=#AA0000]", "[/color][/b]"];
 ///////
 ///////FORTICONS
-var img_tag = ["[img]", "[/img]"];
+var img_tag = ["[img title='want to insert smilies like this? get swearify today']", "[/img]"];
+var post_img_tag = ["<img title='posted by swearify' src='", "'</img>"]; //we'll use the html img tag here so I can set a title
 ///////
 ///////CSS STYLE STRINGS
 var cssChkbox = "font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;";
@@ -1340,8 +1341,8 @@ function emoticon_post() {
     else old_msg = document.getElementsByTagName("textarea")[1].value;
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], "gi"));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], "gi"), img_tag[0] + values(emoticon_1)[i][1] +
-        img_tag[1]);
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], "gi"), post_img_tag[0] + values(emoticon_1)[i][1] +
+        post_img_tag[1]);
       if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
         new_msg;
       else document.getElementsByTagName("textarea")[1].value = new_msg;
@@ -1354,8 +1355,8 @@ function emoticon_post() {
 	    else old_msg = document.getElementsByTagName("textarea")[1].value;
 	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], "gi"));
 	    if (index_num >= 0) {
-	      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), img_tag[0] + values(emoticon_2)[i][1] +
-	        img_tag[1]);
+	      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], "gi"), post_img_tag[0] + values(emoticon_2)[i][1] +
+	        post_img_tag[1]);
 	      if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
 	        new_msg;
 	      else document.getElementsByTagName("textarea")[1].value = new_msg;
@@ -1368,8 +1369,8 @@ function emoticon_post() {
 	    else old_msg = document.getElementsByTagName("textarea")[1].value;
 	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], "gi"));
 	    if (index_num >= 0) {
-	      var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], "gi"), img_tag[0] + values(emoticon_3)[i][1] +
-	        img_tag[1]);
+	      var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], "gi"), post_img_tag[0] + values(emoticon_3)[i][1] +
+	        post_img_tag[1]);
 	      if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
 	        new_msg;
 	      else document.getElementsByTagName("textarea")[1].value = new_msg;
@@ -1382,8 +1383,8 @@ function emoticon_post() {
 	    else old_msg = document.getElementsByTagName("textarea")[1].value;
 	    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4)[i][0], "gi"));
 	    if (index_num >= 0) {
-	      var new_msg = old_msg.replace(new RegExp(values(emoticon_4)[i][0], "gi"), img_tag[0] + values(emoticon_4)[i][1] +
-	        img_tag[1]);
+	      var new_msg = old_msg.replace(new RegExp(values(emoticon_4)[i][0], "gi"), post_img_tag[0] + values(emoticon_4)[i][1] +
+	        post_img_tag[1]);
 	      if (document.getElementsByTagName("textarea")[1] === undefined) document.getElementsByTagName("textarea")[0].value =
 	        new_msg;
 	      else document.getElementsByTagName("textarea")[1].value = new_msg;
@@ -2392,7 +2393,7 @@ function edit_css() {
 function the_base(smilie_code, smilie_url, smilie_text) {
   var change_this = td_base;
   change_this = change_this.replace(new RegExp("_smilie", "gi"), smilie_code);
-  change_this = change_this.replace(new RegExp("_title", "gi"), smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
+  change_this = change_this.replace(new RegExp("_title", "gi"), smilie_text + "&#13;" + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
   change_this = change_this.replace(new RegExp("_link", "gi"), smilie_url);
   return change_this;
 }
