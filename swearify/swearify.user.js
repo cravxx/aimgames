@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.46
+// @version     3.0.47
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2397,6 +2397,11 @@ function the_base(smilie_code, smilie_url, smilie_text) {
   return change_this;
 }
 
+function preloader(image_url) {
+  temp_image = new Image(); 
+  temp_image.src = image_url;
+}
+
 function inject_smilie(i) {
   var get_place = document.getElementsByTagName("table")[2];
   if (get_place.innerHTML == "") {
@@ -2415,6 +2420,8 @@ function inject_smilie(i) {
     	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
     	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
     	      }
+            preloader(values(emoticon_1)[x][1]);
+            console.log(temp_image);
     	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
     	        .innerHTML = the_base(quote + values(emoticon_1)[x][0] + quote, values(emoticon_1)[x][1], values(emoticon_1)[x][2]);
     	      counter++;
@@ -2429,6 +2436,7 @@ function inject_smilie(i) {
     	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
     	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
     	      }
+            preloader(values(emoticon_2)[x][1]);
     	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
     	        .innerHTML = the_base(quote + values(emoticon_2)[x][0] + quote, values(emoticon_2)[x][1], values(emoticon_2)[x][2]);
     	      counter++;
@@ -2443,6 +2451,7 @@ function inject_smilie(i) {
     	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
     	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
     	      }
+            preloader(values(emoticon_3)[x][1]);
     	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
     	        .innerHTML = the_base(quote + values(emoticon_3)[x][0] + quote, values(emoticon_3)[x][1], values(emoticon_3)[x][2]);
     	      counter++;
@@ -2457,6 +2466,7 @@ function inject_smilie(i) {
     	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
     	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
     	      }
+            preloader(values(emoticon_4)[x][1]);
     	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
     	        .innerHTML = the_base(quote + values(emoticon_4)[x][0] + quote, values(emoticon_4)[x][1], values(emoticon_4)[x][2]);
     	      counter++;
