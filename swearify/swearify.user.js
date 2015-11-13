@@ -1184,7 +1184,7 @@ var link_code = ['http://', 'www.', 'https://'];
 var color_code = ["[color=#789922]", "[/color]", "[b][color=#AA0000]", "[/color][/b]"];
 ///////
 ///////FORTICONS
-var img_tag = ["[img title='want to insert smilies like this? get swearify today']", "[/img]"];
+var img_tag = ["[img]", "[/img]"];
 var post_img_tag = ["<img title='posted by swearify' src='", "'</img>"]; //we'll use the html img tag here so I can set a title
 ///////
 ///////CSS STYLE STRINGS
