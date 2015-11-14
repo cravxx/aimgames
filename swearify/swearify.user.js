@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.48
+// @version     3.0.49
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -17,6 +17,10 @@
 
 ///////
 ///////SMILY CODE, OBJECT SHIT
+
+var twitch_e = ["http://imgur.com/N25oPnb", "http://imgur.com/U9zJEdP", "http://imgur.com/fLJRVPd", "http://imgur.com/weh2mfB", "http://imgur.com/QMr7CTO", "http://imgur.com/4D1koT4", "http://imgur.com/3Bg6diL", "http://imgur.com/X0ks4xz", "http://imgur.com/fFPSWhR", "http://imgur.com/Mz00hgM", "http://imgur.com/Df5E3dJ", "http://imgur.com/0JtT7Ja", "http://imgur.com/wgLxZNf", "http://imgur.com/L6oJ8M2", "http://imgur.com/fvyqkop", "http://imgur.com/fOg1OkM", "http://imgur.com/OsWNV3c", "http://imgur.com/EhRdXac", "http://imgur.com/Eoa94J1", "http://imgur.com/av4w0Bg", "http://imgur.com/aFXQAsL", "http://imgur.com/cd7y4P9", "http://imgur.com/klTn12z", "http://imgur.com/cS9DWf8", "http://imgur.com/D1sXogR", "http://imgur.com/dDyGMYK", "http://imgur.com/8I8Z28o", "http://imgur.com/go2r1b6", "http://imgur.com/UzhLilh", "http://imgur.com/spuOd3L", "http://imgur.com/MLQOMf2", "http://imgur.com/ENCZjs7", "http://imgur.com/suDySiA", "http://imgur.com/WHYWg02", "http://imgur.com/DdBEPq8", "http://imgur.com/VdXeWOa", "http://imgur.com/H7PFbiP", "http://imgur.com/SbsiGx5", "http://imgur.com/JbZmULd", "http://imgur.com/kOQDj7y", "http://imgur.com/mvMflYf", "http://imgur.com/yAGsLB2", "http://imgur.com/DGJbcVA", "http://imgur.com/LoJUbSj", "http://imgur.com/6UKpRyS", "http://imgur.com/ceeqb9r", "http://imgur.com/cNy82QE", "http://imgur.com/UlIS7xA", "http://imgur.com/NeKtHhM", "http://imgur.com/XdeqkZG", "http://imgur.com/Q8hHAR3", "http://imgur.com/fNkqdl3", "http://imgur.com/BZvrfg8", "http://imgur.com/IL2ceTF", "http://imgur.com/gtMOyQl", "http://imgur.com/btvdhSc", "http://imgur.com/KnvB7nb", "http://imgur.com/c9PIaOz", "http://imgur.com/GyGxRpa", "http://imgur.com/MgBHFl9"];
+var twitch_c = ["Angry", "Big Grin", "Bored", "Confused", "Cool", "Heart", "Pirate", "Sad", "Smile", "Sticking Tongue Out", "Surprised", "Undecided", "Wink", "Winking", "PAngry", "PBig Grin", "PConfused", "PCool", "PHeart", "PPirate", "PSad", "PSleeping", "PSmile", "PSticking Tongue Out", "PSurprised", "PUndecided", "PWinking With Tongue Out", "PWinking", "MAngry", "MBig Grin", "MConfused", "MCool", "MCrazy", "MDunce", "MIn Love", "MLove It", "MMouth Shut", "MNinja", "MPirate", "MSad", "MSleeping", "MSmile", "MSmoking", "MSticking Tongue Out", "MSurprised", "MUndecided", "MWinking", "4Head", "ArsonNoSexy", "AsianGlow", "AtGL", "AtIvy", "AtWW", "BCWarrior", "BORT", "BatChest", "BibleThump", "BionicBunion", "BlargNaut", "BloodTrail"];
+
 var emoticon_1 = {
   dolan: [':dolan:', 'http://oi62.tinypic.com/2lsk7ra.jpg', 'Dolan'],
   lysf: [':lysf:', 'http://i.imgur.com/8eLDb0a.png', 'LYSF'],
@@ -1327,6 +1331,16 @@ function emoticon_() {
     var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4)[i][0], "gi"));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp(values(emoticon_4)[i][0], "gi"), img_tag[0] + values(emoticon_4)[i][1] +
+                                               img_tag[1]);
+      document.getElementById("message").value = new_msg;
+    }
+  }  
+  for(var i = 0; i < twitch_e.length; i++){
+    var old_msg = document.getElementById("message").value;
+    var index_num = old_msg.regexIndexOf(new RegExp("\\b" + twitch_c[i] + "\\b", "g"));
+    console.log(index_num);
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(twitch_c[i], img_tag[0] + twitch_e[i] +
                                                img_tag[1]);
       document.getElementById("message").value = new_msg;
     }
