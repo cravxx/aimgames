@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.52
+// @version     3.0.53
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1199,7 +1199,7 @@ var cssChat = "overflow-x: hidden; left:141px;"; // / white-space: nowrap;
 ///////
 ///////CODE FOR EXTRA SMILIE INJECT
 var smilie_header_html =
-  "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify 1</option><option value='2'>Swearify 2</option><option value='3'>Swearify Rage Faces</option><option value='4'>Swearify Dongs</option>";
+  "<option value=''>View more Emoticons</option><option value='0'>Smilies 1</option><option value='1'>Swearify 1</option><option value='2'>Swearify 2</option><option value='5'>Twitch Emotes</option><option value='3'>Swearify Rage Faces</option><option value='4'>Swearify Dongs</option>";
 var td_base =
   "<td><a href='javascript:insert_chatboxsmilie(_smilie)'><img title='_title' src='_link' alt='_title' border='0'></a></td>";
 var td_array = "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
@@ -2487,6 +2487,21 @@ function inject_smilie(i) {
     	        .innerHTML = the_base(quote + values(emoticon_4)[x][0] + quote, values(emoticon_4)[x][1], values(emoticon_4)[x][2]);
     	      counter++;
     	    }
+    }else if(i == 5){
+    	for (var x = 0; x < twitch_e.length; x++) {
+    	      // console.log(counter + " " + coconut + " " + x);
+    	      if (counter == 8) {
+    	        counter = 0;
+    	        coconut++;
+    	        var the_tr = document.createElement("tr");
+    	        get_place.getElementsByTagName("tbody")[0].appendChild(the_tr);
+    	        get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].innerHTML = td_array;
+    	      }
+            preloader(twitch_e[x]);
+    	      get_place.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[coconut].getElementsByTagName("td")[counter]
+    	        .innerHTML = the_base(quote + twitch_c[x] + quote, twitch_e[x], "");
+    	      counter++;
+    	    }
     }
   }
 }
@@ -2594,6 +2609,7 @@ window.addEventListener('load', function () { /* shit goes down in here */
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=2&mode=smilies") inject_smilie(2);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=3&mode=smilies") inject_smilie(3);
     if (window.location.href === "http://aimgames.forummotion.com/post?categ=4&mode=smilies") inject_smilie(4);
+    if (window.location.href === "http://aimgames.forummotion.com/post?categ=5&mode=smilies") inject_smilie(5);
     if (window.location.href === "http://aimgames.forummotion.com/chatbox/index.forum?page=front&" || window.location
       .href === "http://aimgames.forummotion.com/chatbox/index.forum" || window.location.href ===
       "http://aimgames.forummotion.com/chatbox/index.forum?archives=1" || window.location.href ===
