@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.55
+// @version     3.0.56
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2060,6 +2060,56 @@ var emoticon_2 = {
     ':kappaross:',
     'http://i.imgur.com/1u8HBm3.png',
     'kappa ross'
+  ],
+  trustnoone: [
+    ':trustnoone:',
+    'http://i.imgur.com/pUrFCdV.png',
+    'TRST NO ONE'
+  ],
+  spurdocry: [
+    ':spurdocry:',
+    'http://i.imgur.com/KVHHQRO.png',
+    'LAFF SO HARD; CRI'
+  ],
+  george: [
+    ':george:',
+    'http://i.imgur.com/ZszzL91.png',
+    'CONSTANTASAJSAEd'
+  ],
+  ohisee: [
+    ':ohisee:',
+    'http://i.imgur.com/omm3jAn.png',
+    'o boi'
+  ],
+  hukhuk: [
+    ':hukhuk:',
+    'http://i.imgur.com/SkF8ulm.png',
+    'HUKHUKHUK'
+  ],
+  pepecar: [
+    ':pepecar:',
+    'http://i.imgur.com/bQarQya.png',
+    'PEEPE CAR'
+  ],
+  pepecarflip: [
+    ':pepecarflip:',
+    'http://i.imgur.com/YBpZCvj.png',
+    'PEEEPE CAR FLIP'
+  ],
+  dankmemedrink: [
+    ':dankmemedrink:',
+    'http://i.imgur.com/4mLctnD.gif',
+    'DANK MEME DRUNKEN TBH'
+  ],
+  pixelpepe: [
+    ':pixelpepe:',
+    'http://i.imgur.com/Z1H1QSm.gif',
+    'PIXEL PEPE'
+  ]
+  guyfieri: [
+    ':guyfieri:',
+    'http://i.imgur.com/HLiW5HD.png',
+    'HAHA HIS HAIR'
   ]
 }
 var emoticon_3 = {
@@ -4331,7 +4381,7 @@ function emoticon_post() {
       new_msg;
        else document.getElementsByTagName('textarea') [1].value = new_msg;
     }
-  }  
+  }
 }
 /////////////////////
 /////////////////////MANAGES THE MAY MAY SYSTEM
