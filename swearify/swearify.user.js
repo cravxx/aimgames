@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.56
+// @version     3.0.57
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2105,10 +2105,10 @@ var emoticon_2 = {
     ':pixelpepe:',
     'http://i.imgur.com/Z1H1QSm.gif',
     'PIXEL PEPE'
-  ]
+  ],
   guyfieri: [
     ':guyfieri:',
-    'http://i.imgur.com/HLiW5HD.png',
+    'http://i.imgur.com/HLiW5HD.png?1',
     'HAHA HIS HAIR'
   ]
 }
