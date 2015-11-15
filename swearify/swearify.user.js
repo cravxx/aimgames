@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.54
+// @version     3.0.55
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -4254,9 +4254,6 @@ function emoticon_() {
   for (var i = 0; i < twitch_e.length; i++) {
     var old_msg = document.getElementById('message').value;
     var index_num = old_msg.regexIndexOf(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'));
-    console.log(index_num);
-    console.log(twitch_e.length);
-    console.log('commands' + twitch_c.length);
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'), img_tag[0] + twitch_e[i] +
       img_tag[1]);
@@ -4321,6 +4318,20 @@ function emoticon_post() {
        else document.getElementsByTagName('textarea') [1].value = new_msg;
     }
   }
+  for (var i = 0; i < twitch_e.length; i++) {
+    var old_msg = '';
+    if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [
+    0].value;
+     else old_msg = document.getElementsByTagName('textarea') [1].value;
+    var index_num = old_msg.regexIndexOf(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'));
+    if (index_num >= 0) {
+      var new_msg = old_msg.replace(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'), post_img_tag[0] + twitch_e[i] +
+      post_img_tag[1]);
+      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
+      new_msg;
+       else document.getElementsByTagName('textarea') [1].value = new_msg;
+    }
+  }  
 }
 /////////////////////
 /////////////////////MANAGES THE MAY MAY SYSTEM
