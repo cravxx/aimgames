@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.57
+// @version     3.0.58
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2110,8 +2110,50 @@ var emoticon_2 = {
     ':guyfieri:',
     'http://i.imgur.com/HLiW5HD.png?1',
     'HAHA HIS HAIR'
+  ],
+  ifarted: [
+    ':ifarted:',
+    'http://i.imgur.com/bNu3j6o.png',
+    "I FARTED"
+  ],
+  ablow: [
+    ':ablow:',
+    'http://i.imgur.com/oe8HKq4.png',
+    "GOTTA GIVE IT A BLOW"
+  ],
+  neatnugget: [
+    ':neatnugget:',
+    'http://i.imgur.com/yonyfRz.png',
+    "WHAHT A NEAT NUGGET"
+  ],
+  bthuthu: [
+    ':bthuthu:',
+    'http://i.imgur.com/4GZesRe.png',
+    "BUTHUTHUTHUTHU"
+  ],
+  cheeki: [
+    ':cheeki:',
+    'http://i.imgur.com/2luxDfD.png',
+    "CHEEKI BREEKI"
+  ],
+  disgustwow: [
+    ':disgustwow:',
+    'http://i.imgur.com/JI4AbsR.png',
+    'WHHAT THE FUCK DISGUST'
+  ],
+  conanuh: [
+    ':conanuh:',
+    'http://i.imgur.com/1TWrXNF.png',
+    "CONANA UHHHHHHHHHHHHHH"
+  ],
+  mladypixel: [
+    ':mladypixel:',
+    'http://i.imgur.com/ugZVg0y.gif',
+    "PIXEL ART HUE"
   ]
 }
+
+
 var emoticon_3 = {
   memeimgxppLwr1: [
     ':xppLwr1:',
