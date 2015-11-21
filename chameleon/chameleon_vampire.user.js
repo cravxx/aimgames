@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Chameleon Vampire
-// @namespace   Hide yo colors hide yo styles
+// @namespace   Hide yo colors, hide yo styles
 // @include     http://aimgames.forummotion.com/*
-// @version     1.3
+// @version     1.5
 // @grant       none
 // ==/UserScript==
 
@@ -78,10 +78,9 @@ $(document).on("keydown", function(e){
       var msg = $(".msg");
       var more = msg[msg.length - 1].children;
       var layer = more[0].style.color;
-
-      var old_msg = document.getElementById('message').value;   
-      
-      if(old_msg.length > 0){
+      //console.log(layer);
+      var old_msg = document.getElementById('message').value;  
+      if(old_msg){
         var exit_code = old_msg.indexOf(spec_code[0]);
         var away_code = old_msg.indexOf(spec_code[1]);
         var abs_code = old_msg.indexOf(spec_code[2]);
@@ -90,35 +89,36 @@ $(document).on("keydown", function(e){
         if (exit_code == -1 && away_code == -1 && abs_code == -1 && me_code == -1) {
           if(more[0].getElementsByTagName("strong").length > 0){        
             old_msg = '[b]' + old_msg + '[/b]'; 
-          }else if(more[0].getElementsByTagName("i").length > 0 || getElementsByTagName("em").length > 0){       
+          }
+          if(more[0].getElementsByTagName("i").length > 0 || more[0].getElementsByTagName("em").length > 0){       
             old_msg = '[i]' + old_msg + '[/i]'; 
-          }else if(more[0].getElementsByTagName("u").length > 0){        
+          }
+          if(more[0].getElementsByTagName("u").length > 0){        
             old_msg = '[u]' + old_msg + '[/u]'; 
-          }else if(more[0].getElementsByTagName("strike").length > 0){
+          }
+          if(more[0].getElementsByTagName("strike").length > 0){
             old_msg = '[strike]' + old_msg + '[/strike]';
-          }else{old_msg = old_msg;}
-          
-          document.getElementById('message').value = old_msg;
-
-          var test = layer.indexOf("(");
-          if(test != -1){
-            var strCol = layer.substr(4, layer.length - 5).split(",");    
-            var red = parseInt(strCol[0]);
-            var green = parseInt(strCol[1]);
-            var blue = parseInt(strCol[2]);        
-            var hex = rgbToHex(red, green, blue);
-            document.getElementById('scolor') .value = hex;
-            document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + red + ',' + green + ',' + blue + ');';
-            document.getElementById('message') .style.color = hex;
-            setCookie('CB_color', hex, 1);
-          }else{
-            var setCol = colourNameToHex(layer);
-            document.getElementById('scolor') .value = setCol;
-            document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(setCol).r + ',' + hexToRgb(setCol).g + ',' + hexToRgb(setCol).b + ');';
-            document.getElementById('message') .style.color = setCol;
-            setCookie('CB_color', setCol, 1);
-          }      
+          }          
+          document.getElementById('message').value = old_msg;          
         }  
+      }
+      var test = layer.indexOf("("); 
+      if(test != -1){
+        var strCol = layer.substr(4, layer.length - 5).split(",");    
+        var red = parseInt(strCol[0]);
+        var green = parseInt(strCol[1]);
+        var blue = parseInt(strCol[2]);        
+        var hex = rgbToHex(red, green, blue);
+        document.getElementById('scolor') .value = hex;
+        document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + red + ',' + green + ',' + blue + ');';
+        document.getElementById('message') .style.color = hex;
+        setCookie('CB_color', hex, 1);
+      }else{
+        var setCol = colourNameToHex(layer);
+        document.getElementById('scolor') .value = setCol;
+        document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(setCol).r + ',' + hexToRgb(setCol).g + ',' + hexToRgb(setCol).b + ');';
+        document.getElementById('message') .style.color = setCol;
+        setCookie('CB_color', setCol, 1);
       }
     }
   }
