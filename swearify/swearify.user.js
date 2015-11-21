@@ -5563,7 +5563,7 @@ function callback(response) { ////// thanks kaff, you're now a partaker in this 
   }
   //var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
 
-  if (document.getElementsByName('username')[0].value == 'Xavier') {
+  if (document.getElementsByName('username')[0].value == 'XXXXXXX') {
     //console.log("holy fucking shit, it works")
     window.location.replace('http://agor.io');
   } else {
