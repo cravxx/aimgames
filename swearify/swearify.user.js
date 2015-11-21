@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.61
+// @version     3.0.62
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -5563,7 +5563,7 @@ function callback(response) { ////// thanks kaff, you're now a partaker in this 
   }
   //var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
 
-  if (document.getElementById('register') [0].value == 'Xavier') {
+  if (document.getElementsByName('username')[0].value == 'Xavier') {
     //console.log("holy fucking shit, it works")
     window.location.replace('http://agor.io');
   } else {
