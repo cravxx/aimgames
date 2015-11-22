@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.64
+// @version     3.0.66
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -5622,6 +5622,9 @@ window.addEventListener('load', function () { /* shit goes down in here */
     }
   }
 }, false);
+function wmd_() {
+  document.getElementById('message').value = "[img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img][img]http://i.imgur.com/OHADYUW.png[/img]";
+}
 function run_() {
   sekrit_();
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
@@ -5641,6 +5644,7 @@ function run_() {
   js_();
   vbs_();
   java_();
+  wmd_();
 }
 function run_post() {
   sekrit_post();
