@@ -137,3 +137,13 @@ window.onload = function() {
   
 }
 // += works too
+
+function getUserTagsOnDocument() {
+  var atags = document.getElementsByTagName('a')
+  var utags = [ ];
+  for (var i in atags) {
+  	if (atags[i] && atags[i].href && atags[i].href.match(/\/u/))
+  		utags[utags.length] = atags[i];
+  }
+  return utags;
+}
