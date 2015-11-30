@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*                     
-// @version     3.0.70
+// @version     1.fam.8.1.peonisms.1448849145.7
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2151,6 +2151,16 @@ var emoticon_2 = {
     ':mladypixel:',
     'http://i.imgur.com/ugZVg0y.gif',
     "PIXEL ART HUE"
+  ],
+  bucketheadkick: [
+    ':bucketkick:',
+    'http://i.imgur.com/oNufCMY.gif',
+    "BUCKETHEAD LETHAL BLOW"
+  ],
+  painedexpression: [
+    ':painedexp:',
+    'http://i.imgur.com/n9z2Obr.png',
+    "VERY PAINED TBH FAM"
   ]
 }
 
@@ -3759,7 +3769,7 @@ var maymay = {
   square: [
     'Square',
     '□'
-  ],
+  ]/*,
   tbh: [
     'tbh',
     'tbh (to be honest)'
@@ -3775,7 +3785,7 @@ var maymay = {
   bro: [
     'bro',
     'bro (brother)'
-  ]
+  ]*/
 };
 ///////
 var endings = [
