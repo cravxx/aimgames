@@ -5462,11 +5462,11 @@ function preloader(image_url) {
 }
 
 function inject_smilie(i) {
-  var smilie_count_1,
-    smilie_count_2,
-    smilie_count_3,
-    smilie_count_4,
-    smilie_count_5;
+  var smilie_count_1 = Object.keys(emoticon_1).length;
+  var smilie_count_2 = Object.keys(emoticon_2).length;
+  var smilie_count_3 = Object.keys(emoticon_3).length;
+  var smilie_count_4 = Object.keys(emoticon_4).length;
+  var smilie_count_5 = Object.keys(emoticon_5).length;     
   var get_place = document.getElementsByTagName('table')[2];
   if (get_place.innerHTML == '') {
     var the_body = document.createElement('tbody');
@@ -5475,7 +5475,6 @@ function inject_smilie(i) {
     var counter = 0;
     var coconut = 0;
     if (i == 1) {
-      smilie_count_1 = Object.keys(emoticon_1).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_1).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
@@ -5490,7 +5489,6 @@ function inject_smilie(i) {
         counter++;
       }
     } else if (i == 2) {
-      smilie_count_2 = Object.keys(emoticon_2).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_2).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
@@ -5505,7 +5503,6 @@ function inject_smilie(i) {
         counter++;
       }
     } else if (i == 3) {
-      smilie_count_3 = Object.keys(emoticon_3).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_3).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
@@ -5520,7 +5517,6 @@ function inject_smilie(i) {
         counter++;
       }
     } else if (i == 4) {
-      smilie_count_4 = Object.keys(emoticon_4).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_4).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
@@ -5535,7 +5531,6 @@ function inject_smilie(i) {
         counter++;
       }
     } else if (i == 5) {
-      smilie_count_5 = Object.keys(emoticon_5).length; /// get total smilies in this window
       for (var x = 0; x < twitch_e.length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
