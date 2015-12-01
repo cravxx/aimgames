@@ -2,8 +2,8 @@
 // @name        Swearify
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
-// @include     http://aimgames.forummotion.com/*                     
-// @version     1.fam.8.1.peonisms.1448849145.7
+// @include     http://aimgames.forummotion.com/*
+// @version     0.hmm.8.1.rationalnesses.1448990738.7
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -11,7 +11,6 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
 // ==/UserScript==
-
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
 ///////
@@ -2115,27 +2114,27 @@ var emoticon_2 = {
   ifarted: [
     ':ifarted:',
     'http://i.imgur.com/bNu3j6o.png',
-    "I FARTED"
+    'I FARTED'
   ],
   ablow: [
     ':ablow:',
     'http://i.imgur.com/oe8HKq4.png',
-    "GOTTA GIVE IT A BLOW"
+    'GOTTA GIVE IT A BLOW'
   ],
   neatnugget: [
     ':neatnugget:',
     'http://i.imgur.com/yonyfRz.png',
-    "WHAHT A NEAT NUGGET"
+    'WHAHT A NEAT NUGGET'
   ],
   bthuthu: [
     ':bthuthu:',
     'http://i.imgur.com/4GZesRe.png',
-    "BUTHUTHUTHUTHU"
+    'BUTHUTHUTHUTHU'
   ],
   cheeki: [
     ':cheeki:',
     'http://i.imgur.com/2luxDfD.png',
-    "CHEEKI BREEKI"
+    'CHEEKI BREEKI'
   ],
   disgustwow: [
     ':disgustwow:',
@@ -2145,26 +2144,29 @@ var emoticon_2 = {
   conanuh: [
     ':conanuh:',
     'http://i.imgur.com/1TWrXNF.png',
-    "CONANA UHHHHHHHHHHHHHH"
+    'CONANA UHHHHHHHHHHHHHH'
   ],
   mladypixel: [
     ':mladypixel:',
     'http://i.imgur.com/ugZVg0y.gif',
-    "PIXEL ART HUE"
+    'PIXEL ART HUE'
   ],
   bucketheadkick: [
     ':bucketkick:',
     'http://i.imgur.com/oNufCMY.gif',
-    "BUCKETHEAD LETHAL BLOW"
+    'BUCKETHEAD LETHAL BLOW'
   ],
   painedexpression: [
     ':painedexp:',
     'http://i.imgur.com/n9z2Obr.png',
-    "VERY PAINED TBH FAM"
+    'VERY PAINED TBH FAM'
+  ],
+  wookie: [
+    ':wookie:',
+    'http://i.imgur.com/wXxjuXj.gif',
+    'WOOKIE CONTENT AWARE SCALE'
   ]
 }
-
-
 var emoticon_3 = {
   memeimgxppLwr1: [
     ':xppLwr1:',
@@ -3767,25 +3769,26 @@ var maymay = {
     '[img]http://i.imgur.com/cAxpwdm.gif[/img]'
   ],
   square: [
-    'Square',
-    '□'
-  ]/*,
-  tbh: [
-    'tbh',
-    'tbh (to be honest)'
-  ],
-  smh: [
-    'smh',
-    'smh (shaking my head)'
-  ],
-  fam: [
-    'fam',
-    'fam (family)'
-  ],
-  bro: [
-    'bro',
-    'bro (brother)'
-  ]*/
+      'Square',
+      '□'
+    ]
+    /*,
+        tbh: [
+          'tbh',
+          'tbh (to be honest)'
+        ],
+        smh: [
+          'smh',
+          'smh (shaking my head)'
+        ],
+        fam: [
+          'fam',
+          'fam (family)'
+        ],
+        bro: [
+          'bro',
+          'bro (brother)'
+        ]*/
 };
 ///////
 var endings = [
@@ -4237,13 +4240,13 @@ var cssChat = 'overflow-x: hidden; left:141px;'; // / white-space: nowrap;
 ///////
 ///////CODE FOR EXTRA SMILIE INJECT
 var smilie_header_html =
-'<option value=\'\'>View more Emoticons</option><option value=\'0\'>Smilies 1</option><option value=\'1\'>Swearify 1</option><option value=\'2\'>Swearify 2</option><option value=\'5\'>Twitch Emotes</option><option value=\'3\'>Swearify Rage Faces</option><option value=\'4\'>Swearify Dongs</option>';
+  '<option value=\'\'>View more Emoticons</option><option value=\'0\'>Smilies 1</option><option value=\'1\'>Swearify 1</option><option value=\'2\'>Swearify 2</option><option value=\'5\'>Twitch Emotes</option><option value=\'3\'>Swearify Rage Faces</option><option value=\'4\'>Swearify Dongs</option>';
 var td_base =
-'<td><a href=\'javascript:insert_chatboxsmilie(_smilie)\'><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a></td>';
+  '<td><a href=\'javascript:insert_chatboxsmilie(_smilie)\'><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a></td>';
 var td_array = '<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>';
 var quote = '"';
-if (document.getElementsByName('categ').length == 1) document.getElementsByName('categ') [0].innerHTML =
-smilie_header_html; // /
+if (document.getElementsByName('categ').length == 1) document.getElementsByName('categ')[0].innerHTML =
+  smilie_header_html; // /
 // add
 // the
 // Swearify
@@ -4295,6 +4298,7 @@ function setCookie(name, value, days) {
   } else expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
+
 function getCookie(c_name) {
   var name = c_name + '=';
   var ca = document.cookie.split(';');
@@ -4305,70 +4309,70 @@ function getCookie(c_name) {
   }
   return '';
 }
+
 function values(o) {
-  return Object.keys(o).map(function (k) {
+  return Object.keys(o).map(function(k) {
     return o[k];
   });
 }
 // ////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
 
-String.prototype.regexIndexOf = function (regex, startpos) {
+String.prototype.regexIndexOf = function(regex, startpos) {
   var indexOf = this.substring(startpos || 0).search(regex);
-  return indexOf >= 0 ? indexOf + (startpos || 0)  : indexOf;
+  return indexOf >= 0 ? indexOf + (startpos || 0) : indexOf;
 }
-String.prototype.regexLastIndexOf = function (regex, startpos) {
-  regex = regex.global ? regex : new RegExp(regex.source, 'g'
-  + (regex.ignoreCase ? 'i' : '') + (regex.multiLine ? 'm' : ''));
-  if (typeof startpos == 'undefined')
-  startpos = this.length;
-   else if (startpos < 0)
-  startpos = 0;
-  var stringToWorkWith = this.substring(0, startpos + 1);
-  var lastIndexOf = - 1;
-  var nextStop = 0;
-  while ((result = regex.exec(stringToWorkWith)) != null) {
-    lastIndexOf = result.index;
-    regex.lastIndex = ++nextStop;
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+    regex = regex.global ? regex : new RegExp(regex.source, 'g' + (regex.ignoreCase ? 'i' : '') + (regex.multiLine ? 'm' : ''));
+    if (typeof startpos == 'undefined')
+      startpos = this.length;
+    else if (startpos < 0)
+      startpos = 0;
+    var stringToWorkWith = this.substring(0, startpos + 1);
+    var lastIndexOf = -1;
+    var nextStop = 0;
+    while ((result = regex.exec(stringToWorkWith)) != null) {
+      lastIndexOf = result.index;
+      regex.lastIndex = ++nextStop;
+    }
+    return lastIndexOf;
   }
-  return lastIndexOf;
-}
-/////////////////////
-/////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
+  /////////////////////
+  /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 
 function emoticon_() {
   for (var i = 0; i < Object.keys(emoticon_1).length; i++) {
     var old_msg = document.getElementById('message').value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1) [i][0], 'gi'));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_1) [i][0], 'gi'), img_tag[0] + values(emoticon_1) [i][1] +
-      img_tag[1]);
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], 'gi'), img_tag[0] + values(emoticon_1)[i][1] +
+        img_tag[1]);
       document.getElementById('message').value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
     var old_msg = document.getElementById('message').value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2) [i][0], 'gi'));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_2) [i][0], 'gi'), img_tag[0] + values(emoticon_2) [i][1] +
-      img_tag[1]);
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], 'gi'), img_tag[0] + values(emoticon_2)[i][1] +
+        img_tag[1]);
       document.getElementById('message').value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_3).length; i++) {
     var old_msg = document.getElementById('message').value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3) [i][0], 'gi'));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_3) [i][0], 'gi'), img_tag[0] + values(emoticon_3) [i][1] +
-      img_tag[1]);
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], 'gi'), img_tag[0] + values(emoticon_3)[i][1] +
+        img_tag[1]);
       document.getElementById('message').value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_4).length; i++) {
     var old_msg = document.getElementById('message').value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4) [i][0], 'gi'));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_4) [i][0], 'gi'), img_tag[0] + values(emoticon_4) [i][1] +
-      img_tag[1]);
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_4)[i][0], 'gi'), img_tag[0] + values(emoticon_4)[i][1] +
+        img_tag[1]);
       document.getElementById('message').value = new_msg;
     }
   }
@@ -4377,80 +4381,81 @@ function emoticon_() {
     var index_num = old_msg.regexIndexOf(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'), img_tag[0] + twitch_e[i] +
-      img_tag[1]);
+        img_tag[1]);
       document.getElementById('message').value = new_msg;
     }
   }
 }
+
 function emoticon_post() {
   for (var i = 0; i < Object.keys(emoticon_1).length; i++) {
     var old_msg = '';
-    if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [
-    0].value;
-     else old_msg = document.getElementsByTagName('textarea') [1].value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1) [i][0], 'gi'));
+    if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
+      0].value;
+    else old_msg = document.getElementsByTagName('textarea')[1].value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_1) [i][0], 'gi'), post_img_tag[0] + values(emoticon_1) [i][1] +
-      post_img_tag[1]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      new_msg;
-       else document.getElementsByTagName('textarea') [1].value = new_msg;
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], 'gi'), post_img_tag[0] + values(emoticon_1)[i][1] +
+        post_img_tag[1]);
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        new_msg;
+      else document.getElementsByTagName('textarea')[1].value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_2).length; i++) {
     var old_msg = '';
-    if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [
-    0].value;
-     else old_msg = document.getElementsByTagName('textarea') [1].value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2) [i][0], 'gi'));
+    if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
+      0].value;
+    else old_msg = document.getElementsByTagName('textarea')[1].value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_2) [i][0], 'gi'), post_img_tag[0] + values(emoticon_2) [i][1] +
-      post_img_tag[1]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      new_msg;
-       else document.getElementsByTagName('textarea') [1].value = new_msg;
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], 'gi'), post_img_tag[0] + values(emoticon_2)[i][1] +
+        post_img_tag[1]);
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        new_msg;
+      else document.getElementsByTagName('textarea')[1].value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_3).length; i++) {
     var old_msg = '';
-    if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [
-    0].value;
-     else old_msg = document.getElementsByTagName('textarea') [1].value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3) [i][0], 'gi'));
+    if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
+      0].value;
+    else old_msg = document.getElementsByTagName('textarea')[1].value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_3) [i][0], 'gi'), post_img_tag[0] + values(emoticon_3) [i][1] +
-      post_img_tag[1]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      new_msg;
-       else document.getElementsByTagName('textarea') [1].value = new_msg;
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], 'gi'), post_img_tag[0] + values(emoticon_3)[i][1] +
+        post_img_tag[1]);
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        new_msg;
+      else document.getElementsByTagName('textarea')[1].value = new_msg;
     }
   }
   for (var i = 0; i < Object.keys(emoticon_4).length; i++) {
     var old_msg = '';
-    if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [
-    0].value;
-     else old_msg = document.getElementsByTagName('textarea') [1].value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4) [i][0], 'gi'));
+    if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
+      0].value;
+    else old_msg = document.getElementsByTagName('textarea')[1].value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(emoticon_4) [i][0], 'gi'), post_img_tag[0] + values(emoticon_4) [i][1] +
-      post_img_tag[1]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      new_msg;
-       else document.getElementsByTagName('textarea') [1].value = new_msg;
+      var new_msg = old_msg.replace(new RegExp(values(emoticon_4)[i][0], 'gi'), post_img_tag[0] + values(emoticon_4)[i][1] +
+        post_img_tag[1]);
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        new_msg;
+      else document.getElementsByTagName('textarea')[1].value = new_msg;
     }
   }
   for (var i = 0; i < twitch_e.length; i++) {
     var old_msg = '';
-    if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [
-    0].value;
-     else old_msg = document.getElementsByTagName('textarea') [1].value;
+    if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
+      0].value;
+    else old_msg = document.getElementsByTagName('textarea')[1].value;
     var index_num = old_msg.regexIndexOf(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'));
     if (index_num >= 0) {
       var new_msg = old_msg.replace(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'), post_img_tag[0] + twitch_e[i] +
-      post_img_tag[1]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      new_msg;
-       else document.getElementsByTagName('textarea') [1].value = new_msg;
+        post_img_tag[1]);
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        new_msg;
+      else document.getElementsByTagName('textarea')[1].value = new_msg;
     }
   }
 }
@@ -4460,25 +4465,26 @@ function emoticon_post() {
 function maymay_() {
   for (var i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = document.getElementById('message').value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay) [i][0], 'gi'));
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(maymay) [i][0], 'gi'), values(maymay) [i][1]);
+      var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], 'gi'), values(maymay)[i][1]);
       document.getElementById('message').value = new_msg;
     }
   }
 }
+
 function maymay_post() {
   for (var i = 0; i < Object.keys(maymay).length; i++) {
     var old_msg = '';
-    if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [
-    0].value;
-     else old_msg = document.getElementsByTagName('textarea') [1].value;
-    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay) [i][0], 'gi'));
+    if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
+      0].value;
+    else old_msg = document.getElementsByTagName('textarea')[1].value;
+    var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], 'gi'));
     if (index_num >= 0) {
-      var new_msg = old_msg.replace(new RegExp(values(maymay) [i][0], 'gi'), values(maymay) [i][1]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      new_msg;
-       else document.getElementsByTagName('textarea') [1].value = new_msg;
+      var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], 'gi'), values(maymay)[i][1]);
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        new_msg;
+      else document.getElementsByTagName('textarea')[1].value = new_msg;
     }
   }
 }
@@ -4494,18 +4500,19 @@ function greentext_() {
     document.getElementById('message').value = new_msg;
   }
 }
+
 function greentext_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = msg_ray[i].indexOf('>');
     if (index_num === 0) {
       msg_ray[i] = color_code[0] + msg_ray[i] + color_code[1];
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -4516,25 +4523,26 @@ function redtext_() {
   var old_msg = document.getElementById('message').value;
   var index_num = old_msg.indexOf('<');
   if (old_msg.length >= 1)
-  if (index_num === old_msg.length - 1) {
-    var new_msg = color_code[2] + old_msg + color_code[3];
-    document.getElementById('message').value = new_msg;
-  }
+    if (index_num === old_msg.length - 1) {
+      var new_msg = color_code[2] + old_msg + color_code[3];
+      document.getElementById('message').value = new_msg;
+    }
 }
+
 function redtext_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = msg_ray[i].indexOf('<');
     if (msg_ray[i].length >= 1)
-    if (index_num === old_msg.length - 1) {
-      msg_ray[i] = color_code[2] + msg_ray[i] + color_code[3];
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
-    }
+      if (index_num === old_msg.length - 1) {
+        msg_ray[i] = color_code[2] + msg_ray[i] + color_code[3];
+        if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+          msg_ray.join('<br />');
+        else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
+      }
   }
 }
 /////////////////////
@@ -4571,23 +4579,24 @@ function leet_() {
   new_msg = new_msg.replace(/z/gi, '2');
   document.getElementById('message').value = new_msg;
 }
+
 function inject_leet() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'leet_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="leet" id="format-leet" class="format-message" type="checkbox"><label id="click_area_leet" title="Leet" style="cursor:pointer;"><img src="http://i.imgur.com/a6bziMI.png"></label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="leet" id="format-leet" class="format-message" type="checkbox"><label id="click_area_leet" title="Leet" style="cursor:pointer;"><img src="http://i.imgur.com/a6bziMI.png"></label>';
   var what = document.getElementById('click_area_leet');
   var whot = document.getElementById('format-leet');
   if (getCookie('CB_leet') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -4599,10 +4608,11 @@ function inject_leet() {
     }
   });
 }
+
 function leet_post() {
   var old_msg = ''; // this may not be necessary i'm not 100% sure
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/leet /i);
@@ -4635,9 +4645,9 @@ function leet_post() {
       new_msg = new_msg.replace(/y/gi, '`/');
       new_msg = new_msg.replace(/z/gi, '2');
       msg_ray[i] = new_msg;
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -4685,23 +4695,24 @@ function balloon_() {
   new_msg = new_msg.replace(/0/gi, '⓪');
   document.getElementById('message').value = new_msg;
 }
+
 function inject_balloon() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'balloon_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="balloon" id="format-balloon" class="format-message" type="checkbox"><label id="click_area_balloon" title="Balloon" style="cursor:pointer;"><img src="http://i.imgur.com/B15ir56.png"></label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="balloon" id="format-balloon" class="format-message" type="checkbox"><label id="click_area_balloon" title="Balloon" style="cursor:pointer;"><img src="http://i.imgur.com/B15ir56.png"></label>';
   var what = document.getElementById('click_area_balloon');
   var whot = document.getElementById('format-balloon');
   if (getCookie('CB_balloon') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -4713,10 +4724,11 @@ function inject_balloon() {
     }
   });
 }
+
 function balloon_post() {
   var old_msg = ''; // this may not be necessary i'm not 100% sure
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/balloon /i);
@@ -4759,9 +4771,9 @@ function balloon_post() {
       new_msg = new_msg.replace(/9/gi, '⓽');
       new_msg = new_msg.replace(/0/gi, '⓪');
       msg_ray[i] = new_msg;
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -4809,23 +4821,24 @@ function braille_() {
   new_msg = new_msg.replace(/0/gi, '⠼⠚');
   document.getElementById('message').value = new_msg;
 }
+
 function inject_braille() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'braille_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="braille" id="format-braille" class="format-message" type="checkbox"><label id="click_area_braille" title="Braille" style="cursor:pointer;">⠃</label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="braille" id="format-braille" class="format-message" type="checkbox"><label id="click_area_braille" title="Braille" style="cursor:pointer;">⠃</label>';
   var what = document.getElementById('click_area_braille');
   var whot = document.getElementById('format-braille');
   if (getCookie('CB_braille') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -4837,10 +4850,11 @@ function inject_braille() {
     }
   });
 }
+
 function braille_post() {
   var old_msg = ''; // this may not be necessary i'm not 100% sure
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/braille /i);
@@ -4883,9 +4897,9 @@ function braille_post() {
       new_msg = new_msg.replace(/9/gi, '⠼⠊');
       new_msg = new_msg.replace(/0/gi, '⠼⠚');
       msg_ray[i] = new_msg;
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -4923,23 +4937,24 @@ function greek_() {
   new_msg = new_msg.replace(/z/gi, 'ζ');
   document.getElementById('message').value = new_msg;
 }
+
 function inject_greek() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'greek_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek" style="cursor:pointer;"><img src="http://i.imgur.com/OUGQ1ik.png"></label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek" style="cursor:pointer;"><img src="http://i.imgur.com/OUGQ1ik.png"></label>';
   var what = document.getElementById('click_area_greek');
   var whot = document.getElementById('format-greek');
   if (getCookie('CB_greek') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -4951,10 +4966,11 @@ function inject_greek() {
     }
   });
 }
+
 function greek_post() {
   var old_msg = ''; // this may not be necessary i'm not 100% sure
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/greek /i);
@@ -4987,9 +5003,9 @@ function greek_post() {
       new_msg = new_msg.replace(/y/gi, 'λ');
       new_msg = new_msg.replace(/z/gi, 'ζ');
       msg_ray[i] = new_msg;
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5026,23 +5042,24 @@ function morse_() {
   new_msg = new_msg.replace(/z/gi, '--..////');
   document.getElementById('message').value = new_msg;
 }
+
 function inject_morse() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'morse_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="morse" id="format-morse" class="format-message" type="checkbox"><label id="click_area_morse" title="Morse" style="cursor:pointer;"><img src="http://i.imgur.com/8rbDggv.png"></label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="morse" id="format-morse" class="format-message" type="checkbox"><label id="click_area_morse" title="Morse" style="cursor:pointer;"><img src="http://i.imgur.com/8rbDggv.png"></label>';
   var what = document.getElementById('click_area_morse');
   var whot = document.getElementById('format-morse');
   if (getCookie('CB_morse') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -5054,10 +5071,11 @@ function inject_morse() {
     }
   });
 }
+
 function morse_post() {
   var old_msg = ''; // this may not be necessary i'm not 100% sure
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/mc /i);
@@ -5106,9 +5124,9 @@ function morse_post() {
       // AIM
       new_msg = new_msg.replace(/z/gi, '--..////');
       msg_ray[i] = new_msg;
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5116,6 +5134,7 @@ function morse_post() {
 ////////////////////// SEKRIT CHAT M0D3
 
 Math.irandom = new Function('min', 'max', 'return Math.floor(Math.random() * (max - min + 1)) + min;')
+
 function sekrit_() {
   var old_msg = document.getElementById('message').value;
   var index_num = old_msg.regexIndexOf(/\/s /i);
@@ -5123,35 +5142,34 @@ function sekrit_() {
     var new_msg = old_msg.replace(/\/s /i, '');
     try {
       for (i = 0; i < new_msg.match(/\./gi).length; i++)
-      if (Math.random() > 0.9)
-      new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
+        if (Math.random() > 0.9)
+          new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
       new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
-    } catch (e) { /* there are no dots in our message */
-    }
-    for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements) [i], 'gi'), values(replacements) [i]);
+    } catch (e) { /* there are no dots in our message */ }
+    for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], 'gi'), values(replacements)[i]);
     document.getElementById('message').value = new_msg;
   }
 }
+
 function sekrit_post() {
   var old_msg = ''; // this may not be necessary i'm not 100% sure
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/s /i);
     if (index_num === 0) {
       try {
         for (i = 0; i < new_msg.match(/\./gi).length; i++)
-        if (Math.random() > 0.9)
-        new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
+          if (Math.random() > 0.9)
+            new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
         new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
-      } catch (e) { /* there are no dots in our message */
-      }
-      for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements) [i], 'gi'), values(replacements) [i]);
+      } catch (e) { /* there are no dots in our message */ }
+      for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], 'gi'), values(replacements)[i]);
       msg_ray[i] = new_msg;
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5162,23 +5180,24 @@ function rainbow_() {
   new_msg = rainbowText(old_msg);
   document.getElementById('message').value = new_msg;
 }
+
 function inject_rainbow() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'rainbow_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;"><img src="http://i.imgur.com/F69UQGS.png"></label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;"><img src="http://i.imgur.com/F69UQGS.png"></label>';
   var what = document.getElementById('click_area_rainbow');
   var whot = document.getElementById('format-rainbow');
   if (getCookie('CB_rainbow') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -5190,19 +5209,20 @@ function inject_rainbow() {
     }
   });
 }
+
 function rainbow_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/rb /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/rb /i, '');
       msg_ray[i] = rainbowText(msg_ray[i]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5214,23 +5234,24 @@ function random_() {
   new_msg = randomText(old_msg);
   document.getElementById('message').value = new_msg;
 }
+
 function inject_random() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'random_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;"><img src="http://i.imgur.com/jHMOnyI.png"></label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;"><img src="http://i.imgur.com/jHMOnyI.png"></label>';
   var what = document.getElementById('click_area_random');
   var whot = document.getElementById('format-random');
   if (getCookie('CB_random') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -5242,19 +5263,20 @@ function inject_random() {
     }
   });
 }
+
 function random_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/rn /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/rn /i, '');
       msg_ray[i] = randomText(msg_ray[i]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5266,23 +5288,24 @@ function gradient_() {
   var new_msg = gradientText(old_msg);
   document.getElementById('message').value = new_msg;
 }
+
 function inject_gradient() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('id', 'gradient_button');
   the_body.setAttribute('class', 'fontbutton');
   where.insertBefore(the_body, chil_where[0]);
-  where.getElementsByTagName('td') [0].innerHTML =
-  '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" style="cursor:pointer;"><img src="http://i.imgur.com/EyxCc20.png"></label>';
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="gradient" id="format-gradient" class="format-message" type="checkbox"><label id="click_area_gradient" title="Gradient" style="cursor:pointer;"><img src="http://i.imgur.com/EyxCc20.png"></label>';
   var what = document.getElementById('click_area_gradient');
   var whot = document.getElementById('format-gradient');
   if (getCookie('CB_gradient') === '1') whot.checked = true;
-   else whot.checked = false;
+  else whot.checked = false;
   var clicked_css =
-  'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
   var not_clicked_css = '';
-  what.addEventListener('click', function () {
+  what.addEventListener('click', function() {
     if (!whot.checked) {
       whot.checked = true;
       whot.style.cssText = clicked_css;
@@ -5294,19 +5317,20 @@ function inject_gradient() {
     }
   });
 }
+
 function gradient_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/gd /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/gd /i, '');
       msg_ray[i] = gradientText(msg_ray[i]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5322,19 +5346,20 @@ function js_() {
     document.getElementById('message').value = new_msg;
   }
 }
+
 function js_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/js /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/js /i, '');
       msg_ray[i] = jsText(msg_ray[i]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5350,19 +5375,20 @@ function java_() {
     document.getElementById('message').value = new_msg;
   }
 }
+
 function java_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/java /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/java /i, '');
       msg_ray[i] = javaText(msg_ray[i]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
@@ -5378,31 +5404,31 @@ function vbs_() {
     document.getElementById('message').value = new_msg;
   }
 }
+
 function vbs_post() {
   var old_msg = '';
-  if (document.getElementsByTagName('textarea') [1] === undefined) old_msg = document.getElementsByTagName('textarea') [0].value;
-   else old_msg = document.getElementsByTagName('textarea') [1].value;
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
   var msg_ray = old_msg.split('\n');
   for (var i = 0; i < msg_ray.length; i++) {
     var index_num = old_msg.regexIndexOf(/\/vbs /i);
     if (index_num === 0) {
       msg_ray[i] = msg_ray[i].replace(/\/vbs /i, '');
       msg_ray[i] = vbsText(msg_ray[i]);
-      if (document.getElementsByTagName('textarea') [1] === undefined) document.getElementsByTagName('textarea') [0].value =
-      msg_ray.join('<br />');
-       else document.getElementsByTagName('textarea') [1].value = msg_ray.join('<br />');
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
     }
   }
 }
-
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
 
 var num_buttons = 8; ///
 function edit_css() {
-  document.getElementById('chatbox_messenger_form').getElementsByTagName('label') [4 + num_buttons].style.cssText = cssMsg;
+  document.getElementById('chatbox_messenger_form').getElementsByTagName('label')[4 + num_buttons].style.cssText = cssMsg;
   // / CSS for label that says "Message:" .. +1 for every new button
-  document.getElementById('chatbox_messenger_form').getElementsByTagName('label') [4 + num_buttons].innerHTML = 'MESSAGE:';
+  document.getElementById('chatbox_messenger_form').getElementsByTagName('label')[4 + num_buttons].innerHTML = 'MESSAGE:';
   // / Edits innerHTML so theres no space between Message and the colon .. +1
   // for every new button
   document.getElementById('submit_button').style.cssText = cssButton;
@@ -5412,11 +5438,11 @@ function edit_css() {
   // / CSS for the line along the members and chatbox
   document.getElementById('chatbox').style.cssText = cssChat;
   // / CSS to eliminate chat glitching and shift over the chat messages a bit
-  document.getElementById('chatbox_messenger_form').getElementsByTagName('td') [9 + num_buttons].innerHTML = '';
-  document.getElementById('chatbox_messenger_form').getElementsByTagName('td') [9 + num_buttons].style.width = '0px';
+  document.getElementById('chatbox_messenger_form').getElementsByTagName('td')[9 + num_buttons].innerHTML = '';
+  document.getElementById('chatbox_messenger_form').getElementsByTagName('td')[9 + num_buttons].style.width = '0px';
   // / CSS for removing a spacer; removing node diddnt work well so im just
   // making it nonvisible. +1 for every new button
-  document.getElementsByClassName('cattitle') [0].style.paddingLeft = '4px';
+  document.getElementsByClassName('cattitle')[0].style.paddingLeft = '4px';
   // // Move over the title "Chatbox" a bit
 }
 /////////////////////
@@ -5429,94 +5455,122 @@ function the_base(smilie_code, smilie_url, smilie_text) {
   change_this = change_this.replace(new RegExp('_link', 'gi'), smilie_url);
   return change_this;
 }
+
 function preloader(image_url) {
   temp_image = new Image();
   temp_image.src = image_url;
 }
+
 function inject_smilie(i) {
-  var get_place = document.getElementsByTagName('table') [2];
+  var smilie_count_1,
+    smilie_count_2,
+    smilie_count_3,
+    smilie_count_4,
+    smilie_count_5;
+  var get_place = document.getElementsByTagName('table')[2];
   if (get_place.innerHTML == '') {
     var the_body = document.createElement('tbody');
     get_place.appendChild(the_body);
-    get_place.getElementsByTagName('tbody') [0].innerHTML = td_array;
+    get_place.getElementsByTagName('tbody')[0].innerHTML = td_array;
     var counter = 0;
     var coconut = 0;
     if (i == 1) {
+      smilie_count_1 = Object.keys(emoticon_1).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_1).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
           counter = 0;
           coconut++;
           var the_tr = document.createElement('tr');
-          get_place.getElementsByTagName('tbody') [0].appendChild(the_tr);
-          get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].innerHTML = td_array;
+          get_place.getElementsByTagName('tbody')[0].appendChild(the_tr);
+          get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].innerHTML = td_array;
         }
-        preloader(values(emoticon_1) [x][1]);
-        console.log(temp_image);
-        get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].getElementsByTagName('td') [counter].innerHTML = the_base(quote + values(emoticon_1) [x][0] + quote, values(emoticon_1) [x][1], values(emoticon_1) [x][2]);
+        preloader(values(emoticon_1)[x][1]);
+        get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_1)[x][0] + quote, values(emoticon_1)[x][1], values(emoticon_1)[x][2]);
         counter++;
       }
     } else if (i == 2) {
+      smilie_count_2 = Object.keys(emoticon_2).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_2).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
           counter = 0;
           coconut++;
           var the_tr = document.createElement('tr');
-          get_place.getElementsByTagName('tbody') [0].appendChild(the_tr);
-          get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].innerHTML = td_array;
+          get_place.getElementsByTagName('tbody')[0].appendChild(the_tr);
+          get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].innerHTML = td_array;
         }
-        preloader(values(emoticon_2) [x][1]);
-        get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].getElementsByTagName('td') [counter].innerHTML = the_base(quote + values(emoticon_2) [x][0] + quote, values(emoticon_2) [x][1], values(emoticon_2) [x][2]);
+        preloader(values(emoticon_2)[x][1]);
+        get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_2)[x][0] + quote, values(emoticon_2)[x][1], values(emoticon_2)[x][2]);
         counter++;
       }
     } else if (i == 3) {
+      smilie_count_3 = Object.keys(emoticon_3).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_3).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
           counter = 0;
           coconut++;
           var the_tr = document.createElement('tr');
-          get_place.getElementsByTagName('tbody') [0].appendChild(the_tr);
-          get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].innerHTML = td_array;
+          get_place.getElementsByTagName('tbody')[0].appendChild(the_tr);
+          get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].innerHTML = td_array;
         }
-        preloader(values(emoticon_3) [x][1]);
-        get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].getElementsByTagName('td') [counter].innerHTML = the_base(quote + values(emoticon_3) [x][0] + quote, values(emoticon_3) [x][1], values(emoticon_3) [x][2]);
+        preloader(values(emoticon_3)[x][1]);
+        get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_3)[x][0] + quote, values(emoticon_3)[x][1], values(emoticon_3)[x][2]);
         counter++;
       }
     } else if (i == 4) {
+      smilie_count_4 = Object.keys(emoticon_4).length; /// get total smilies in this window
       for (var x = 0; x < Object.keys(emoticon_4).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
           counter = 0;
           coconut++;
           var the_tr = document.createElement('tr');
-          get_place.getElementsByTagName('tbody') [0].appendChild(the_tr);
-          get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].innerHTML = td_array;
+          get_place.getElementsByTagName('tbody')[0].appendChild(the_tr);
+          get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].innerHTML = td_array;
         }
-        preloader(values(emoticon_4) [x][1]);
-        get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].getElementsByTagName('td') [counter].innerHTML = the_base(quote + values(emoticon_4) [x][0] + quote, values(emoticon_4) [x][1], values(emoticon_4) [x][2]);
+        preloader(values(emoticon_4)[x][1]);
+        get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_4)[x][0] + quote, values(emoticon_4)[x][1], values(emoticon_4)[x][2]);
         counter++;
       }
     } else if (i == 5) {
+      smilie_count_5 = Object.keys(emoticon_5).length; /// get total smilies in this window
       for (var x = 0; x < twitch_e.length; x++) {
         // console.log(counter + " " + coconut + " " + x);
         if (counter == 8) {
           counter = 0;
           coconut++;
           var the_tr = document.createElement('tr');
-          get_place.getElementsByTagName('tbody') [0].appendChild(the_tr);
-          get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].innerHTML = td_array;
+          get_place.getElementsByTagName('tbody')[0].appendChild(the_tr);
+          get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].innerHTML = td_array;
         }
         preloader(twitch_e[x]);
-        get_place.getElementsByTagName('tbody') [0].getElementsByTagName('tr') [coconut].getElementsByTagName('td') [counter].innerHTML = the_base(quote + twitch_c[x] + quote, twitch_e[x], '');
+        get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + twitch_c[x] + quote, twitch_e[x], '');
         counter++;
       }
     }
+    if (smilie_count_1 > 200) {
+      console.log('warning, exceeded smilie count by ' + (smilie_count_1 - 200) + ' in window 1');
+    }
+    if (smilie_count_2 > 200) {
+      console.log('warning, exceeded smilie count by ' + (smilie_count_2 - 200) + ' in window 2');
+    }
+    if (smilie_count_3 > 200) {
+      console.log('warning, exceeded smilie count by ' + (smilie_count_3 - 200) + ' in window 3');
+    }
+    if (smilie_count_4 > 200) {
+      console.log('warning, exceeded smilie count by ' + (smilie_count_4 - 200) + ' in window 4');
+    }
+    if (smilie_count_5 > 200) {
+      console.log('warning, exceeded smilie count by ' + (smilie_count_5 - 200) + ' in window 5');
+    }
+    console.log('window 1 | ' + smilie_count_1 + '\n' + 'window 2 | ' + smilie_count_2 + '\n' + 'window 3 | ' + smilie_count_3 + '\n' + 'window 4 | ' + smilie_count_4 + '\n' + 'window 5 | ' + smilie_count_5);
   }
 }
+
 function inject_spacer() {
-  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table') [1].getElementsByTagName('tr') [0];
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
   var chil_where = where.children;
   var the_body = document.createElement('td');
   the_body.setAttribute('width', '6');
@@ -5525,7 +5579,7 @@ function inject_spacer() {
 
 function inject_css_url(url) {
   var head;
-  head = document.getElementsByTagName('head') [0];
+  head = document.getElementsByTagName('head')[0];
   if (!head) {
     return;
   }
@@ -5535,7 +5589,6 @@ function inject_css_url(url) {
   gstyle.href = url;
   head.appendChild(gstyle);
 }
-
 /////////////////////
 /////////////////////FIX POST PAGE CSS
 
@@ -5551,7 +5604,7 @@ function post_page_editor() {
     document.getElementById('text_edit').style.cssText = clear;
     document.getElementById('html_edit').style.cssText = hide;
   }
-  document.getElementById('text_editor_cmd_switchmode').addEventListener('click', function () {
+  document.getElementById('text_editor_cmd_switchmode').addEventListener('click', function() {
     // console.log("it changed" + post_button_num);
     if (post_button_num == 0) {
       setCookie('post_condition', '1', 1);
@@ -5566,24 +5619,23 @@ function post_page_editor() {
     }
   });
 }
-
 /////////////////////
 /////////////////////RUNS SCRIPT
 
-window.addEventListener('load', function () { /* shit goes down in here */
+window.addEventListener('load', function() { /* shit goes down in here */
   if (is.ie() || is.safari() || is.opera()) alert('This browser is unsupported by Swearify.');
-   else {
+  else {
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') inject_smilie(1);
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies') inject_smilie(2);
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies') inject_smilie(3);
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies') inject_smilie(4);
     if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies') inject_smilie(5);
     if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || window.location.href ===
-    'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || window.location.href ===
-    'http://aimgames.forummotion.com/chatbox/index.forum?archives' || window.location.href ===
-    'http://aimgames.forummotion.com/chatbox') {
+      'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || window.location.href ===
+      'http://aimgames.forummotion.com/chatbox/index.forum?archives' || window.location.href ===
+      'http://aimgames.forummotion.com/chatbox') {
       inject_spacer();
-      //////      
+      //////
       inject_gradient();
       inject_rainbow();
       inject_random();
@@ -5596,44 +5648,45 @@ window.addEventListener('load', function () { /* shit goes down in here */
       inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
       inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/index.css');
       edit_css();
-      $(document).on('keydown', function (e) {
+      $(document).on('keydown', function(e) {
         if (e.which === 13 || e.which === 45) run_();
       });
     } else {
       if (window.location.href === 'http://aimgames.forummotion.com/post') post_page_editor();
-      if (typeof document.getElementsByTagName('textarea') [1] === 'undefined') { // //PREVIEWs
+      if (typeof document.getElementsByTagName('textarea')[1] === 'undefined') { // //PREVIEWs
         // PAGE
-        loc = document.getElementById('parent_editor_simple').getElementsByClassName('row2') [0];
-        refined_loc = document.getElementById('parent_editor_simple').getElementsByClassName('row2') [0];
+        loc = document.getElementById('parent_editor_simple').getElementsByClassName('row2')[0];
+        refined_loc = document.getElementById('parent_editor_simple').getElementsByClassName('row2')[0];
       } else {
-        loc = document.getElementById('quick_reply').getElementsByClassName('row2') [1];
+        loc = document.getElementById('quick_reply').getElementsByClassName('row2')[1];
         cssTd = 'padding-top:5px;';
         var new_td = document.createElement('td');
         loc.appendChild(new_td).style.cssText = cssTd;
-        refined_loc = document.getElementById('quick_reply').getElementsByClassName('row2') [1].getElementsByTagName('td') [0];
+        refined_loc = document.getElementById('quick_reply').getElementsByClassName('row2')[1].getElementsByTagName('td')[0];
       }
       var element = document.createElement('label');
       refined_loc.appendChild(element).style.cssText = cssLabel;
-      setInterval(function () {
-        var area = document.getElementsByTagName('textarea') [0]; // //this
+      setInterval(function() {
+        var area = document.getElementsByTagName('textarea')[0]; // //this
         // is
         // preview
         // window
         // shit
-        if (typeof document.getElementsByTagName('textarea') [1] === 'object') area.value = document.getElementsByTagName('textarea') [1].value;
-        if (typeof area !== 'undefined') Countable.once(area, function (counter) {
-          if (loc.getElementsByTagName('label') [0].innerHTML != values(counter) [4] + ' characters') loc.getElementsByTagName('label') [0].innerHTML = values(counter) [4] + ' characters';
-          if (values(counter) [4] > 63500) element.style.cssText += 'color:red;';
-           else if (values(counter) [4] < 63500) element.style.cssText = cssLabel;
+        if (typeof document.getElementsByTagName('textarea')[1] === 'object') area.value = document.getElementsByTagName('textarea')[1].value;
+        if (typeof area !== 'undefined') Countable.once(area, function(counter) {
+          if (loc.getElementsByTagName('label')[0].innerHTML != values(counter)[4] + ' characters') loc.getElementsByTagName('label')[0].innerHTML = values(counter)[4] + ' characters';
+          if (values(counter)[4] > 63500) element.style.cssText += 'color:red;';
+          else if (values(counter)[4] < 63500) element.style.cssText = cssLabel;
         });
       }, 3000);
       // ////////
-      $(document).on('keydown', function (e) {
+      $(document).on('keydown', function(e) {
         if (e.which === 13) run_post();
       });
     }
   }
 }, false);
+
 function run_() {
   sekrit_();
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
@@ -5654,6 +5707,7 @@ function run_() {
   vbs_();
   java_();
 }
+
 function run_post() {
   sekrit_post();
   morse_post();
