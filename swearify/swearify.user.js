@@ -4240,6 +4240,11 @@ var cssChat = 'overflow-x: hidden; left:141px;'; // / white-space: nowrap;
 ///////
 ///////CODE FOR EXTRA SMILIE INJECT
 var smilie_header_html =
+/////////////// window 1 - Swearify 1
+/////////////// window 2 - Swearify 2
+/////////////// window 3 - Twitch Emoticons
+/////////////// window 4 - Swearify Rage Faces
+/////////////// window 5 - Swearify Dongs
   '<option value=\'\'>View more Emoticons</option><option value=\'0\'>Smilies 1</option><option value=\'1\'>Swearify 1</option><option value=\'2\'>Swearify 2</option><option value=\'5\'>Twitch Emotes</option><option value=\'3\'>Swearify Rage Faces</option><option value=\'4\'>Swearify Dongs</option>';
 var td_base =
   '<td><a href=\'javascript:insert_chatboxsmilie(_smilie)\'><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a></td>';
@@ -5462,11 +5467,6 @@ function preloader(image_url) {
 }
 
 function inject_smilie(i) {
-  var smilie_count_1 = Object.keys(emoticon_1).length;
-  var smilie_count_2 = Object.keys(emoticon_2).length;
-  var smilie_count_3 = Object.keys(emoticon_3).length;
-  var smilie_count_4 = Object.keys(emoticon_4).length;
-  var smilie_count_5 = Object.keys(emoticon_5).length;     
   var get_place = document.getElementsByTagName('table')[2];
   if (get_place.innerHTML == '') {
     var the_body = document.createElement('tbody');
@@ -5545,22 +5545,6 @@ function inject_smilie(i) {
         counter++;
       }
     }
-    if (smilie_count_1 > 200) {
-      console.log('warning, exceeded smilie count by ' + (smilie_count_1 - 200) + ' in window 1');
-    }
-    if (smilie_count_2 > 200) {
-      console.log('warning, exceeded smilie count by ' + (smilie_count_2 - 200) + ' in window 2');
-    }
-    if (smilie_count_3 > 200) {
-      console.log('warning, exceeded smilie count by ' + (smilie_count_3 - 200) + ' in window 3');
-    }
-    if (smilie_count_4 > 200) {
-      console.log('warning, exceeded smilie count by ' + (smilie_count_4 - 200) + ' in window 4');
-    }
-    if (smilie_count_5 > 200) {
-      console.log('warning, exceeded smilie count by ' + (smilie_count_5 - 200) + ' in window 5');
-    }
-    console.log('window 1 | ' + smilie_count_1 + '\n' + 'window 2 | ' + smilie_count_2 + '\n' + 'window 3 | ' + smilie_count_3 + '\n' + 'window 4 | ' + smilie_count_4 + '\n' + 'window 5 | ' + smilie_count_5);
   }
 }
 
@@ -5616,6 +5600,44 @@ function post_page_editor() {
 }
 /////////////////////
 /////////////////////RUNS SCRIPT
+
+function debugg(){
+  var smilie_count_1 = Object.keys(emoticon_1).length;
+  var smilie_count_2 = Object.keys(emoticon_2).length;
+  var smilie_count_3 = Object.keys(emoticon_3).length;
+  var smilie_count_4 = Object.keys(emoticon_4).length;
+  var smilie_count_5 = Object.keys(twitch_e).length;
+  var total_smilies = smilie_count_1 + smilie_count_2 + smilie_count_3 + smilie_count_4 + smilie_count_5;
+
+  var meme_count =  Object.keys(maymay).length;
+
+
+  if (smilie_count_1 > 200) {
+    console.log('warning, exceeded smilie count by ' + (smilie_count_1 - 200) + ' in window 1');
+  }
+  if (smilie_count_2 > 200) {
+    console.log('warning, exceeded smilie count by ' + (smilie_count_2 - 200) + ' in window 2');
+  }
+  if (smilie_count_3 > 200) {
+    console.log('warning, exceeded smilie count by ' + (smilie_count_3 - 200) + ' in window 3');
+  }
+  if (smilie_count_4 > 200) {
+    console.log('warning, exceeded smilie count by ' + (smilie_count_4 - 200) + ' in window 4');
+  }
+  if (smilie_count_5 > 200) {
+    console.log('warning, exceeded smilie count by ' + (smilie_count_5 - 200) + ' in window 5');
+  }
+  console.log('window 1 | ' + smilie_count_1 + '\n' + 'window 2 | ' + smilie_count_2 + '\n' + 'window 3 | ' + smilie_count_3 + '\n' + 'window 4 | ' + smilie_count_4 + '\n' + 'window 5 | ' + smilie_count_5+ '\n' + 'smilie total ' + total_smilies + '\n\n' + "meme total " + meme_count);
+
+  /////////////// window 1 - Swearify 1
+  /////////////// window 2 - Swearify 2
+  /////////////// window 3 - Twitch Emoticons
+  /////////////// window 4 - Swearify Rage Faces
+  /////////////// window 5 - Swearify Dongs
+}
+
+// get info and shit
+debugg();
 
 window.addEventListener('load', function() { /* shit goes down in here */
   if (is.ie() || is.safari() || is.opera()) alert('This browser is unsupported by Swearify.');
