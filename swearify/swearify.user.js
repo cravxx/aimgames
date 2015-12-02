@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     0.hmm.8.1.rationalnesses.1448990738.7
+// @version     2.buggerit.0.5.shamers.1449084681.7
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -5699,10 +5699,9 @@ window.addEventListener('load', function() { /* shit goes down in here */
       });
     }
   }
+  // get info and shit
+  debugg();
 }, false);
-
-// get info and shit
-debugg();
 
 function run_() {
   sekrit_();
