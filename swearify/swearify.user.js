@@ -5608,9 +5608,7 @@ function debugg(){
   var smilie_count_4 = Object.keys(emoticon_4).length;
   var smilie_count_5 = Object.keys(twitch_e).length;
   var total_smilies = smilie_count_1 + smilie_count_2 + smilie_count_3 + smilie_count_4 + smilie_count_5;
-
   var meme_count =  Object.keys(maymay).length;
-
 
   if (smilie_count_1 > 200) {
     console.log('warning, exceeded smilie count by ' + (smilie_count_1 - 200) + ' in window 1');
@@ -5628,7 +5626,6 @@ function debugg(){
     console.log('warning, exceeded smilie count by ' + (smilie_count_5 - 200) + ' in window 5');
   }
   console.log('window 1 | ' + smilie_count_1 + '\n' + 'window 2 | ' + smilie_count_2 + '\n' + 'window 3 | ' + smilie_count_3 + '\n' + 'window 4 | ' + smilie_count_4 + '\n' + 'window 5 | ' + smilie_count_5+ '\n' + 'smilie total ' + total_smilies + '\n' + "meme total " + meme_count);
-
   /////////////// window 1 - Swearify 1
   /////////////// window 2 - Swearify 2
   /////////////// window 3 - Twitch Emoticons
@@ -5699,8 +5696,7 @@ window.addEventListener('load', function() { /* shit goes down in here */
       });
     }
   }
-  // get info and shit
-  debugg();
+  //debugg(); // get info and shit
 }, false);
 
 function run_() {
