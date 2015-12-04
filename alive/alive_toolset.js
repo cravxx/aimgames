@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.13
+// @version     1.14
 // @grant       none
 // ==/UserScript==
 
@@ -59,6 +59,7 @@ function isDubs(strg) {
 	return false;
 }
 
+//should be in onload as well
 var oldMessagesAmount = messages.length;
 /**
  * Returns the amount of new messages since the last time this function was called
@@ -84,6 +85,7 @@ function checkDubs() {
 	}
 }
 
+//maybe should be in onload
 var boxElement = document.createElement('div'); //box element that holds the new msg ribbon
 boxElement.className = 'box'; //not element.class
 boxElement.style = 'position: fixed;left: 1%;top: 2%;';
@@ -166,6 +168,9 @@ function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do
     return document.body.scrollTop;
 }
 
+/**
+ * Returns all a href tags that redirect to /uXXXX
+ */
 function getUserTagsOnDocument() {
   var atags = document.getElementsByTagName('a')
   var utags = [ ];
@@ -233,7 +238,7 @@ function getProfileDetails(profileLink) {
   getPageContents(getProfileDetailsCallback, profileLink);
 };
 
-window.addEventListener('load', function() {
+function go() {
   // inject our css
   injectCSS(ribbonCSS);
   
@@ -262,5 +267,7 @@ window.addEventListener('load', function() {
     }
   }, false);
   
-}, false);
+};
+
+window.addEventListener('load', go, false);
 // += works too
