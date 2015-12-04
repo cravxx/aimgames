@@ -2,17 +2,16 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.14
+// @version     1.15
 // @grant       none
 // ==/UserScript==
 
 
 
 //won't work in bchat (yet)
-//probably doesn't work as an userscript (this shit should be in onload)
-var chatboxElement = document.getElementById('frame_chatbox').contentWindow.document.getElementById('chatbox');
+var chatboxElement;
 
-var messages = chatboxElement.children;
+var messages;
 
 /**
  * Returns the user who posted 'msgDOM' chatbox message
@@ -59,8 +58,7 @@ function isDubs(strg) {
 	return false;
 }
 
-//should be in onload as well
-var oldMessagesAmount = messages.length;
+var oldMessagesAmount;
 /**
  * Returns the amount of new messages since the last time this function was called
  */
@@ -85,14 +83,10 @@ function checkDubs() {
 	}
 }
 
-//maybe should be in onload
-var boxElement = document.createElement('div'); //box element that holds the new msg ribbon
-boxElement.className = 'box'; //not element.class
-boxElement.style = 'position: fixed;left: 1%;top: 2%;';
-var ribbonElement = document.createElement('div'); //new msg ribbon
-ribbonElement.className = 'ribbon'; //not element.class
-var ribbonText = document.createElement('span'); //new msg string (X new msgs)
-ribbonElement.appendChild(ribbonText);
+var boxElement; //box element that holds the new msg ribbon
+var ribbonElement; //new msg ribbon
+var ribbonText; //new msg string (X new msgs)
+
 /**
  * Makes the 'new message!' box
  */
@@ -239,6 +233,21 @@ function getProfileDetails(profileLink) {
 };
 
 function go() {
+  
+  // init vars
+  chatboxElement = document.getElementById('frame_chatbox').contentWindow.document.getElementById('chatbox');
+  messages = chatboxElement.children;
+  oldMessagesAmount = messages.length;
+  
+  // init elements
+  var boxElement = document.createElement('div'); //box element that holds the new msg ribbon
+  boxElement.className = 'box'; //not element.class
+  boxElement.style = 'position: fixed;left: 1%;top: 2%;';
+  var ribbonElement = document.createElement('div'); //new msg ribbon
+  ribbonElement.className = 'ribbon'; //not element.class
+  var ribbonText = document.createElement('span'); //new msg string (X new msgs)
+  ribbonElement.appendChild(ribbonText);
+  
   // inject our css
   injectCSS(ribbonCSS);
   
