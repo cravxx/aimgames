@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.5
+// @version     1.13
 // @grant       none
 // ==/UserScript==
 
@@ -166,6 +166,73 @@ function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do
     return document.body.scrollTop;
 }
 
+function getUserTagsOnDocument() {
+  var atags = document.getElementsByTagName('a')
+  var utags = [ ];
+  for (var i in atags) {
+  	if (atags[i] && atags[i].href && atags[i].href.match(/\/u/))
+  		utags[utags.length] = atags[i];
+  }
+  return utags;
+}
+
+
+/**
+ * Calls function 'callback' with the page 'url''s contents
+ */
+function getPageContents(callback, url, params) { ////// http://stackoverflow.com/a/28728475
+  http = new XMLHttpRequest();
+  if (params !== undefined) {
+    http.open('POST', url, true);
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  } else {
+    http.open('GET', url, true);
+  }
+  http.onreadystatechange = function () {
+    if (http.readyState == 4 && http.status == 200) {
+      callback(http.responseText);
+      //console.log(http.responseText)
+    }
+  }
+  http.send(params);
+}
+
+/**
+ * Profile details from the last time getProfileDetails() (actually getProfileDetailsCallback) was called (profile-advanced-details element)
+ */
+var lastHoveredProfileDetails;
+/**
+ * Temporary doc stuff that i can browse in browser console (allan please remove eventually)
+ */
+var tempdoc;
+/**
+ * used for getProfileDetails
+ */
+function getProfileDetailsCallback(response) {
+  //errors for some reason
+  //var parser = new DOMParser();
+  //tempdoc = parser.parseFromString(response, "text/xml");
+  
+  //unsafe or whatever
+  //if (document.implementation.createHTMLDocument) //new browsers
+  	tempdoc = document.implementation.createHTMLDocument();
+  //else //ie8 and below
+  //	tempdoc = new ActiveXObject("htmlfile");
+  
+  //really fucked but works
+  //console.log('resp' + response);
+  tempdoc.body.innerHTML = response;
+  
+  lastHoveredProfileDetails = tempdoc.getElementById('profile-advanced-details');
+}
+
+/**
+ * Makes 'lastHoveredProfileDetails' contain profile details from an user's profile link. (e.g http://aimgames.forummotion.com/u1426)
+ */
+function getProfileDetails(profileLink) {
+  getPageContents(getProfileDetailsCallback, profileLink);
+};
+
 window.addEventListener('load', function() {
   // inject our css
   injectCSS(ribbonCSS);
@@ -197,13 +264,3 @@ window.addEventListener('load', function() {
   
 }, false);
 // += works too
-
-function getUserTagsOnDocument() {
-  var atags = document.getElementsByTagName('a')
-  var utags = [ ];
-  for (var i in atags) {
-  	if (atags[i] && atags[i].href && atags[i].href.match(/\/u/))
-  		utags[utags.length] = atags[i];
-  }
-  return utags;
-}
