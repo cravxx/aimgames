@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     beta 0.trash.6
+// @version     beta 0.trash.5
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -20,7 +20,6 @@ window.addEventListener('load', function() { /* shit goes down in here */
     for (var i = 0; i < chatFrame.length; i++)
     	if (chatFrame[i].src == 'http://illiweb.com/rsc/18/frm/chatbox/chatbox8.js')
     		chatScript = chatFrame[i];
-    console.log(chatScript);
     //remove old script since we can't edit src directly
     var chatScriptParent = chatScript.parentNode;
     chatScriptParent.removeChild(chatScript);
@@ -29,8 +28,6 @@ window.addEventListener('load', function() { /* shit goes down in here */
     chatScript.type = 'text/javascript';
     chatScript.src = 'https://cdn.rawgit.com/HulaSamsquanch/aimgames/hijack-cbox/swearify/hchat.js';
     chatScriptParent.appendChild(chatScript);
-    console.log(chatScript);
-    console.log(chatScriptParent);
   }
   //debugg(); // get info and shit
 }, false);
