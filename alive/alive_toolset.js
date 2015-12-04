@@ -2,13 +2,14 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.3
+// @version     1.4
 // @grant       none
 // ==/UserScript==
 
 
 
-//won't work in bchat
+//won't work in bchat (yet)
+//probably doesn't work as an userscript (this shit should be in onload)
 var chatboxElement = document.getElementById('frame_chatbox').contentWindow.document.getElementById('chatbox');
 
 var messages = chatboxElement.children;
@@ -97,7 +98,10 @@ function makeBox() {
   console.log('is at cbox - ' + getScrollTop() + ' new msgs - ' + newMsgs());
   if (getScrollTop() <= 1700) { //are we not at cbox (doesnt work in bchat, may bug in different resolutions) --- 1700 is scroll top 1400 is scroll bottom in my resolution
     ////// QUESTION >>>> IS THIS SLOW? THIS SEEMS TO UPDATE THE DOM EVERY TIME THE FUNCTION IS CALLED; IS IT FASTER TO CHECK IF THE INNERHTML NEEDS TO BE CHANGED?
-    ribbonText.innerHTML = newMsgs() + ' new msgs';
+    if (newMsgs() === 1)
+    	ribbonText.innerHTML = '1 new msg';
+    else
+    	ribbonText.innerHTML = newMsgs() + ' new msgs';
     if (newMsgs() > 0) { //note MSG NUMBER CAN BE UNDER 0!!! since the non-archive chat removes old messages or something... this may be a problem (if someone posts 1 msg and 1 is removed the new msg counter is not displayed)
       if (boxElement.children[0] === undefined) //if the box element doesnt already exist
         boxElement.appendChild(ribbonElement);
