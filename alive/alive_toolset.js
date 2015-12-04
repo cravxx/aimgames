@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.4
+// @version     1.5
 // @grant       none
 // ==/UserScript==
 
@@ -166,7 +166,7 @@ function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do
     return document.body.scrollTop;
 }
 
-window.onload = function() {
+window.addEventListener('load', function() {
   // inject our css
   injectCSS(ribbonCSS);
   
@@ -180,7 +180,7 @@ window.onload = function() {
   
   
   ////KEEPS BOX AT THE TOP OF THE SCREEN
-  window.onscroll = function() {
+  window.addEventListener('scroll', function() {
     remBox();
     //make the box scroll with the screen
     var box = document.getElementById('box'),
@@ -193,9 +193,9 @@ window.onload = function() {
         box.style.top = (scroll + 2) + "px";
       }
     }
-  };
+  }, false);
   
-}
+}, false);
 // += works too
 
 function getUserTagsOnDocument() {
