@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.19
+// @version     1.21
 // @grant       none
 // ==/UserScript==
 
@@ -243,10 +243,41 @@ function getProfileDetails(profileLink) {
   getPageContents(getProfileDetailsCallback, profileLink);
 };
 
+/**
+ * Moves chat timestamps to the right of the screen (call once every chat update)
+ */
 function reorganizeTimestamps() {
-  //for (var i = 0; i < messages.length; i++)
-  //  messages[i]
+  for (var i = 0; i < messages.length; i++) {
+    var cArray = messages[i].children;
+    var spTimeDate = document.createElement('span');
+    spTimeDate.innerHTML = cArray[0].innerHTML;
+    spTimeDate.className = 'date-and-time';
+    spTimeDate.style = 'text-align: right;display:block;float:right;width:10%;margin-left:10px;'
+    var spMsg = document.createElement('span');
+    spMsg.innerHTML = cArray[1].innerHTML;
+    spMsg.className = 'user-msg';
+    messages[i].removeChild(messages[i].firstChild);
+    messages[i].removeChild(messages[i].firstChild);
+    messages[i].appendChild(spMsg);
+    messages[i].appendChild(spTimeDate);
+  }
 };
+
+/**
+ * Removes that annoying prick aileron owl's spammy messages
+ */
+function annoyingPrick() {
+  for (var i = 0; i < messages.length; i++) {
+    var msgText = messages[i].getElementsByClassName('msg')[0].children[0];
+    if (msgText.children.length > 0) { //message is bold
+      if (msgText.children[0].innerHTML.toLowerCase() == 'hoo' || msgText.children[0].innerHTML.toLowerCase() == 'cookie' || msgText.children[0].innerHTML.toLowerCase() == 'hoo cookie' || msgText.children[0].innerHTML.toLowerCase() == 'cookie hoo')
+        messages[i].parentNode.removeChild(messages[i])
+    } else { //message isn't bold
+      if (msgText.innerHTML.toLowerCase() == 'hoo' || msgText.innerHTML.toLowerCase() == 'cookie' || msgText.innerHTML.toLowerCase() == 'hoo cookie' || msgText.innerHTML.toLowerCase() == 'cookie hoo')
+        messages[i].parentNode.removeChild(messages[i])
+    }
+  }
+}
 
 function go() {
   
