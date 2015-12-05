@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.18
+// @version     1.19
 // @grant       none
 // ==/UserScript==
 
@@ -243,6 +243,11 @@ function getProfileDetails(profileLink) {
   getPageContents(getProfileDetailsCallback, profileLink);
 };
 
+function reorganizeTimestamps() {
+  //for (var i = 0; i < messages.length; i++)
+  //  messages[i]
+};
+
 function go() {
   
   // init vars
@@ -251,12 +256,12 @@ function go() {
   oldMessagesAmount = messages.length;
   
   // init elements
-  var boxElement = document.createElement('div'); //box element that holds the new msg ribbon
+  boxElement = document.createElement('div'); //box element that holds the new msg ribbon
   boxElement.className = 'box'; //not element.class
   boxElement.style = 'position: fixed;left: 1%;top: 2%;';
-  var ribbonElement = document.createElement('div'); //new msg ribbon
+  ribbonElement = document.createElement('div'); //new msg ribbon
   ribbonElement.className = 'ribbon'; //not element.class
-  var ribbonText = document.createElement('span'); //new msg string (X new msgs)
+  ribbonText = document.createElement('span'); //new msg string (X new msgs)
   ribbonElement.appendChild(ribbonText);
   
   // inject our css
