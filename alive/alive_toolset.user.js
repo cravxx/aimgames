@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.15
+// @version     1.17
 // @grant       none
 // ==/UserScript==
 
@@ -124,14 +124,25 @@ function remBox() {
 var ribbonCSS = "@import url(\'http://fonts.googleapis.com/css?family=Noto+Sans:400,700\');.box{width: 0px;height: 0px;position: relative;border: 0px solid #BBB;background: #EEE;font-family: \'Noto Sans\', sans-serif}.ribbon{width: 200px;background: #e43;position: absolute;top: 0px;left: -10px;text-align: center;line-height: 50px;letter-spacing: 1px;color: #ff0000;font-size: 18px}.ribbon span{width: 200px;background: #e43;position: absolute;top: 25px;left: -50px;text-align: center;line-height: 50px;letter-spacing: 1px;color: #f0f0f0;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);font-size: 18px}.ribbon span::before{content: \"\";position:absolute;left:0px;top:100%;z-index:-1;border-left:3px solid #8F0808;border-right:3px solid transparent;border-bottom:3px solid transparent;border-top:3px solid #8F0808}.ribbon span::after{content:\"\";position:absolute;right:0px;top:100%;z-index:-1;border-left:3px solid transparent;border-right:3px solid #8F0808;border-bottom:3px solid transparent;border-top:3px solid #8F0808}";
 
 
-var gstyle;
+
 function injectCSS(css) {
     var head;
     head = document.getElementsByTagName('head')[0];
     if (!head) { return; }
-    gstyle = document.createElement('style');
+    var gstyle = document.createElement('style');
     gstyle.type = 'text/css';
     gstyle.innerHTML = css;
+    head.appendChild(gstyle);
+}
+
+function injectCSSURL(url) {
+    var head;
+    head = document.getElementsByTagName('head')[0];
+    if (!head) { return; }
+    var gstyle = document.createElement('link');
+    gstyle.rel = 'stylesheet';
+    gstyle.type = 'text/css';
+    gstyle.href = url;
     head.appendChild(gstyle);
 }
 /* doesnt work wtf
@@ -168,11 +179,17 @@ function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do
 function getUserTagsOnDocument() {
   var atags = document.getElementsByTagName('a')
   var utags = [ ];
-  for (var i in atags) {
+  for (var i = 0; i < atags.length; i++) {
   	if (atags[i] && atags[i].href && atags[i].href.match(/\/u/))
   		utags[utags.length] = atags[i];
   }
   return utags;
+}
+
+function makeTooltips() {
+  var utags = getUserTagsOnDocument();
+  //for (var i in utags)
+  	
 }
 
 
@@ -250,6 +267,9 @@ function go() {
   
   // inject our css
   injectCSS(ribbonCSS);
+  
+  // inject css from url
+  injectCSSURL('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/alive/alive_css.css');
   
   // make an empty div where the box will go
   document.body.appendChild(boxElement);
