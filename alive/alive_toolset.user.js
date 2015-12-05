@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.21
+// @version     1.23
 // @grant       none
 // ==/UserScript==
 
@@ -279,10 +279,31 @@ function annoyingPrick() {
   }
 }
 
+/**
+ * adds a manual refresh button argh i lost the code for this once aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ */
+function addRefreshButton() {
+  var s = document.createElement('span');
+  s.innerHTML = ' | ';
+  var a = document.createElement('a');
+  a.href = 'javascript:void(0)';
+  var r = document.createElement('span');
+  r.id =  'alive-refreshbutton';
+  r.style = '';
+  r.onclick = 'chatbox.refresh()';
+  r.innerHTML = 'Refresh';
+  a.appendChild(r);
+  var b = chatboxFrame.getElementById('chatbox_display_archives');
+  b.appendChild(a);
+  b.appendChild(s);
+}
+
+var chatboxFrame;
 function go() {
   
   // init vars
-  chatboxElement = document.getElementById('frame_chatbox').contentWindow.document.getElementById('chatbox');
+  chatboxFrame = document.getElementById('frame_chatbox').contentWindow.document;
+  chatboxElement = chatboxFrame.getElementById('chatbox');
   messages = chatboxElement.children;
   oldMessagesAmount = messages.length;
   
@@ -304,7 +325,8 @@ function go() {
   // get the count of new msgs
   setInterval(makeBox, 500);
   
-  
+  // adds the refresh button (note: this only needs to be done once. the chatbox takes care of the rest)
+  addRefreshButton();
   
   
   ////KEEPS BOX AT THE TOP OF THE SCREEN
