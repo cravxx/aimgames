@@ -2,7 +2,7 @@
 // @name        toolset
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.17
+// @version     1.18
 // @grant       none
 // ==/UserScript==
 
@@ -186,12 +186,6 @@ function getUserTagsOnDocument() {
   return utags;
 }
 
-function makeTooltips() {
-  var utags = getUserTagsOnDocument();
-  //for (var i in utags)
-  	
-}
-
 
 /**
  * Calls function 'callback' with the page 'url''s contents
@@ -267,9 +261,6 @@ function go() {
   
   // inject our css
   injectCSS(ribbonCSS);
-  
-  // inject css from url
-  injectCSSURL('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/alive/alive_css.css');
   
   // make an empty div where the box will go
   document.body.appendChild(boxElement);
