@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name        toolset
-// @namespace   samsquanchhunter14@gmail.com
+// @name        Chatbox++
+// @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
+// @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/*
 // @version     1.23
 // @grant       none
+// @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
 
@@ -92,7 +94,7 @@ var ribbonText; //new msg string (X new msgs)
  */
 function makeBox() {
   console.log('is at cbox - ' + getScrollTop() + ' new msgs - ' + newMsgs());
-  if (getScrollTop() <= 1700) { //are we not at cbox (doesnt work in bchat, may bug in different resolutions) --- 1700 is scroll top 1400 is scroll bottom in my resolution
+  if (getScrollTop() <= 1400) { //are we not at cbox (doesnt work in bchat, may bug in different resolutions) --- 1700 in console 1400 otherwise
     ////// QUESTION >>>> IS THIS SLOW? THIS SEEMS TO UPDATE THE DOM EVERY TIME THE FUNCTION IS CALLED; IS IT FASTER TO CHECK IF THE INNERHTML NEEDS TO BE CHANGED?
     if (newMsgs() === 1)
     	ribbonText.innerHTML = '1 new msg';
