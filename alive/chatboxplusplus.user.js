@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.25
+// @version     1.26
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -114,7 +114,7 @@ function makeBox() {
  * Removes the box (faster-ish than doing it 2x a second - do it onscroll)
  */
 function remBox() {
-  if (getScrollTop() > 1700) {
+  if (getScrollTop() > 1400) {
     resetNewMsgs(); //resets the new msgs counter; you shouldnt do this once newMsgs() is called since this function is called 2x a second so the "new msg" ribbon would only appear for half a second then disappear as the new msg counter would be 0....
     if (boxElement.children[0] !== undefined) //if the box element wasnt added or was removed before
       boxElement.removeChild(ribbonElement);
