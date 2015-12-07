@@ -310,7 +310,7 @@ function go() {
   chatboxFrame = document.getElementById('frame_chatbox').contentWindow.document;
   chatboxElement = chatboxFrame.getElementById('chatbox');
   messages = chatboxElement.children;
-  oldMessagesAmount = messages.length;
+  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
   
   // init elements
   boxElement = document.createElement('div'); //box element that holds the new msg ribbon
