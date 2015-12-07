@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.28
+// @version     1.29
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -311,48 +311,59 @@ function go() {
     document.getElementById('i_logo').src = 'http://i.imgur.com/LjuijqL.png';
   
   // init vars
-  chatboxFrame = document.getElementById('frame_chatbox').contentWindow.document;
-  chatboxElement = chatboxFrame.getElementById('chatbox');
-  messages = chatboxElement.children;
-  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
+  if (document.getElementById('frame_chatbox') !== null) { //running in forum
+  	  // ribbon is only here since we don't need it in big chat
+	  chatboxFrame = document.getElementById('frame_chatbox').contentWindow.document;
+	  chatboxElement = chatboxFrame.getElementById('chatbox');
+	  messages = chatboxElement.children;
+	  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
+	  
+	  // init elements
+	  boxElement = document.createElement('div'); //box element that holds the new msg ribbon
+	  boxElement.className = 'box'; //not element.class
+	  boxElement.style = 'position: fixed;left: 1%;top: 2%;';
+	  ribbonElement = document.createElement('div'); //new msg ribbon
+	  ribbonElement.className = 'ribbon'; //not element.class
+	  ribbonText = document.createElement('span'); //new msg string (X new msgs)
+	  ribbonElement.appendChild(ribbonText);
+	  
+	  // inject our css
+	  injectCSS(ribbonCSS);
+	  
+	  // make an empty div where the box will go
+	  document.body.appendChild(boxElement);
+	  
+	  // get the count of new msgs
+	  setInterval(makeBox, 500);
+	  
+	  ////KEEPS BOX AT THE TOP OF THE SCREEN
+	  window.addEventListener('scroll', function() {
+	    remBox();
+	    //make the box scroll with the screen
+	    var box = document.getElementById('box'),
+	    scroll = getScrollTop();    
+	
+	    if (box !== null) {
+	      if (scroll <= 28) {
+	        box.style.top = "30px";
+	      } else {
+	        box.style.top = (scroll + 2) + "px";
+	      }
+	    }
+	  }, false);
+  } else { //running in bchat
+	  chatboxFrame = document;
+	  chatboxElement = chatboxFrame.getElementById('chatbox');
+	  messages = chatboxElement.children;
+	  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
+  }
   
-  // init elements
-  boxElement = document.createElement('div'); //box element that holds the new msg ribbon
-  boxElement.className = 'box'; //not element.class
-  boxElement.style = 'position: fixed;left: 1%;top: 2%;';
-  ribbonElement = document.createElement('div'); //new msg ribbon
-  ribbonElement.className = 'ribbon'; //not element.class
-  ribbonText = document.createElement('span'); //new msg string (X new msgs)
-  ribbonElement.appendChild(ribbonText);
-  
-  // inject our css
-  injectCSS(ribbonCSS);
-  
-  // make an empty div where the box will go
-  document.body.appendChild(boxElement);
-  
-  // get the count of new msgs
-  setInterval(makeBox, 500);
+  // other code like dubs that is universal (both chat and bigchat)
   
   // adds the refresh button (note: this only needs to be done once. the chatbox takes care of the rest)
   addRefreshButton();
   
   
-  ////KEEPS BOX AT THE TOP OF THE SCREEN
-  window.addEventListener('scroll', function() {
-    remBox();
-    //make the box scroll with the screen
-    var box = document.getElementById('box'),
-    scroll = getScrollTop();    
-
-    if (box !== null) {
-      if (scroll <= 28) {
-        box.style.top = "30px";
-      } else {
-        box.style.top = (scroll + 2) + "px";
-      }
-    }
-  }, false);
   
 };
 
