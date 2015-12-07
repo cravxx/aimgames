@@ -3,14 +3,17 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.27
+// @version     1.28
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
 
+//this script won't work in big chat/archives (yet)
+//it is only runs on the page, not the chat frame (errors in chat frame)
+//changing chatboxFrame to document should be enough to fix
+//debug using https://developer.mozilla.org/pt-BR/docs/Tools/Browser_Toolbox
 
-//won't work in bchat (yet)
 var chatboxElement;
 
 var messages;
@@ -303,8 +306,9 @@ function addRefreshButton() {
 var chatboxFrame;
 function go() {
   
-  //powered by chatbox++
-  document.getElementById('i_logo').src = 'http://i.imgur.com/LjuijqL.png';
+  // chatbox++ logo
+  if (document.getElementById('i_logo') !== null) //null in chatbox frame; not undefined, keep note
+    document.getElementById('i_logo').src = 'http://i.imgur.com/LjuijqL.png';
   
   // init vars
   chatboxFrame = document.getElementById('frame_chatbox').contentWindow.document;
