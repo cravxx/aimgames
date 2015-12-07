@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.30
+// @version     1.31
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -303,6 +303,14 @@ function addRefreshButton() {
   b.appendChild(s);
 }
 
+function inIframe() {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}
+
 var chatboxFrame;
 function go() {
   
@@ -359,7 +367,7 @@ function go() {
 	  messages = chatboxElement.children;
 	  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
 	  
-	  if (window.location.pathname != "/") //if not at home (not frame of small chat)
+	  if (inIframe()) //if not at home (not frame of small chat)
 	  	universalGo();
 	  console.log(window.location.pathname);
   }
