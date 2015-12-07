@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.29
+// @version     1.30
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -351,21 +351,24 @@ function go() {
 	      }
 	    }
 	  }, false);
+	  
+	  universalGo();
   } else { //running in bchat
 	  chatboxFrame = document;
 	  chatboxElement = chatboxFrame.getElementById('chatbox');
 	  messages = chatboxElement.children;
 	  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
+	  
+	  if (window.location.pathname != "/") //if not at home (not frame of small chat)
+	  	universalGo();
+	  console.log(window.location.pathname);
   }
-  
-  // other code like dubs that is universal (both chat and bigchat)
-  
-  // adds the refresh button (note: this only needs to be done once. the chatbox takes care of the rest)
-  addRefreshButton();
-  
-  
-  
 };
+
+function universalGo() { // stuff that is ran once on either chat or big chat
+	// adds the refresh button (note: this only needs to be done once. the chatbox takes care of the rest)
+	addRefreshButton();
+}
 
 window.addEventListener('load', go, false);
 // += works too
