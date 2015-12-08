@@ -4,7 +4,7 @@
 // @namespace   chrisdick69696969696961@gmail.com
 // @include     http://*
 // @include     https://*
-// @version     all of em 3.0
+// @version     all of em 4.0
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -455,7 +455,7 @@ var cenas = [
 ];
 
 // cena audio
-var hisname = new Audio('http://picosong.com/cdn/0198abb2065bfb90f12a8f2f6609aabd.mp3');
+var hisname = new Audio('http://music.djmazadownload.com/music/WWE/John%20Cena%20%28The%20Time%20Is%20Now%29%20%5Bwww.DJMaza.Com%5D.mp3');
 
 // all images are cena
 document.body.onload = function() {
