@@ -2,7 +2,7 @@
 // @name            Swearify - Image Reuploader
 // @namespace       samsquanchhunter
 // @description     Special utility to quickly prepare images for insertion into Swearify.
-// @version         1.0
+// @version         1.1
 // ==/UserScript==
 
 ///portions from https://github.com/pinceladasdaweb/imgur-upload and LouCypher
@@ -25,7 +25,7 @@ w3DuxmcMtVgDkYONicHLVoTBSJOXgYONieHHz38Ml+98Ydh88DXDtx//CBtACmBiYGCYS4H+OYyU\
                   </menu>';
 
 document.querySelector("#userscript-search-by-image menuitem")
-  .addEventListener("click", searchImage, false);
+  .addEventListener("click", uploadImage, false);
 
 function initMenu(aEvent) {
   // Executed when user right click on web page body
@@ -41,63 +41,35 @@ function initMenu(aEvent) {
   }
 }
 
-function addParamsToForm(aForm, aKey, aValue) {
-  var hiddenField = document.createElement("input");
-  hiddenField.setAttribute("type", "hidden");
-  hiddenField.setAttribute("name", aKey);
-  hiddenField.setAttribute("value", aValue);
-  aForm.appendChild(hiddenField);
-}
-
-function create(name, props) {
-  var el = document.createElement(name),
-    p;
-  for (p in props) {
-    if (props.hasOwnProperty(p)) {
-      el[p] = props[p];
-    }
-  }
-  return el;
-}
-
 ///http://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
-function copyToClipboard(text) {
-  window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+function copyToClipboard(directlink) {
+  window.prompt("Direct Link", directlink);
 }
 
-function searchImage(aEvent) {
+function fileTypeLength(file){
+  return file.length - file.lastIndexOf(".");
+}
+
+function uploadImage(aEvent) {
   // Executed when user click on menuitem
   // aEvent.target is the <menuitem> element
 
   var imageURL = aEvent.target.getAttribute("imageURL");
 
-  var xhttp = new XMLHttpRequest(),
-    status = document.querySelector('.status'),
-    self = this,
-    fd = new FormData();
+  var xhttp = new XMLHttpRequest();
+  var status = document.querySelector('.status');
+  var formdata = new FormData();
 
-  fd.append('image', imageURL);
+  formdata.append('image', imageURL);
   xhttp.open('POST', 'https://api.imgur.com/3/image');
   xhttp.setRequestHeader('Authorization', 'Client-ID d8b88dd7493540b'); //Get yout Client ID here: http://api.imgur.com/
   xhttp.onreadystatechange = function() {
     if (xhttp.status === 200 && xhttp.readyState === 4) {
-      var res = JSON.parse(xhttp.responseText),
-        link, p, a, t;
-
-      link = res.data.link;
-      p = create('p');
-      a = create('a', {
-        href: link,
-        target: '_blank'
-      });
-      t = document.createTextNode(link);
-
-      a.appendChild(t);
-      p.appendChild(a);
-
-      copyToClipboard(link);
+      var response = JSON.parse(xhttp.responseText);
+      var response_deeper = response.data.link;
+      var dirty_resize = response_deeper.slice(0, response_deeper.length - fileTypeLength(response_deeper)) + "s" + response_deeper.slice(response_deeper.length - fileTypeLength(response_deeper));
+      copyToClipboard(dirty_resize);
     }
   };
-  xhttp.send(fd);
-  console.log(imageURL);
+  xhttp.send(formdata);
 }
