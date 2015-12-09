@@ -3,7 +3,7 @@
 // @description Prevents any stray audio clips from automatically playing on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.8
+// @version     1.9
 // @icon        http://www.mediafire.com/convkey/c313/jnx13q9ha6j01w9zg.jpg
 // ==/UserScript==
 
@@ -25,7 +25,7 @@ if(!loaded) {
   }
 }
 
-window.onload = function() {
+window.addEventListener('load', function() {
   loaded = true;
   console.log(clips_stopped + " clips stopped!");
   if(clips_stopped == 1 && poster.length > 0){ // not in a preview page and audio is in a spoiler
@@ -43,4 +43,4 @@ window.onload = function() {
   }else{
     //what
   }
-};
+}, false);
