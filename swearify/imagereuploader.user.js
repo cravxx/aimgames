@@ -3,6 +3,8 @@
 // @namespace       samsquanchhunter
 // @description     Special utility to quickly prepare images for insertion into Swearify.
 // @version         1.1
+// @include         http://*
+// @include         https://*
 // ==/UserScript==
 
 ///portions from https://github.com/pinceladasdaweb/imgur-upload and LouCypher
