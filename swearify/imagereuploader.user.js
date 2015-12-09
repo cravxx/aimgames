@@ -2,7 +2,7 @@
 // @name            Swearify - Image Reuploader
 // @namespace       samsquanchhunter
 // @description     Special utility to quickly prepare images for insertion into Swearify.
-// @version         1.1
+// @version         1.2
 // @include         http://*
 // @include         https://*
 // ==/UserScript==
