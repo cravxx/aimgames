@@ -46,6 +46,7 @@ function copyToClipboard(directlink) {
   window.prompt("Direct Link", directlink);
 }
 
+///should work okay
 function fileTypeLength(file){
   return file.length - file.lastIndexOf(".");
 }
