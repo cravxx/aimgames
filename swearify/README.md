@@ -6,6 +6,7 @@ _Big swearing, big emoticons, big memes, big fun!_
 - Custom emoticons! Check them out in the "Swearify" section of the Smilie window
 - Fixes and improves upon existing CSS
 - Countable.js integration for use on post boxes
+
 #Image Reuploader
 _Quickly get an image ready for use in the chatbox!_
 - Context menu integration
