@@ -8,13 +8,10 @@ addons:
       - oracle-java8-installer
 
 before_install:
-  - remove_dir_from_path $JAVA_HOME/bin
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-  - export PATH=$JAVA_HOME/bin:$PATH
   - java -version
   
 before_script:
   - npm install -g grunt-cli
-  - java -version
   - cd build
   - java -jar build.jar
