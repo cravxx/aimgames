@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   too much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1
+// @version     2
 // @grant       none
 // ==/UserScript==
 
@@ -13,13 +13,12 @@
 
 ///////COOKIE SHIT
 function setCookie(name, value, days) {
+  var expires = '';
   if (days) {
     var date = new Date();
-    var expires = '';
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = '; expires=' + date.toGMTString();
   }
-  else var expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
 ///////
