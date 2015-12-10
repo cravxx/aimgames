@@ -14,3 +14,27 @@ linesToKeep 13
 # Argument 1 is the file that will be output, argument 2 is the file that will be input.
 # ..\ means "go back one folder"
 ..\bin\swearify.compiled.user.js "..\swearify\swearify.user.js"
+
+linesToKeep 8
+..\bin\alive.compiled.user.js "..\alive\alive.user.js"
+
+linesToKeep 9
+..\bin\chatboxplusplus.compiled.user.js "..\alive\chatboxplusplus.user.js"
+
+linesToKeep 10
+..\bin\chameleon.compiled.user.js "..\chameleon\chameleon.user.js"
+
+linesToKeep 8
+..\bin\chameleon_random.compiled.user.js "..\chameleon\chameleon_random.user.js"
+
+linesToKeep 7
+..\bin\chameleon_vampire.compiled.user.js "..\chameleon\chameleon_vampire.user.js"
+
+linesToKeep 11
+..\bin\accountassist.compiled.user.js "..\other\accountassist.user.js"
+
+linesToKeep 8
+..\bin\ratebot.compiled.user.js "..\other\ratebot.user.js"
+
+linesToKeep 9
+..\bin\imagereuploader.compiled.user.js "..\swearify\imagereuploader.user.js"
