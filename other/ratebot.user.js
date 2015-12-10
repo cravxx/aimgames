@@ -3,7 +3,7 @@
 // @description Rating bot for BestEverAlbums.com
 // @namespace   kaffeinition@gmail.com
 // @include     http://www.besteveralbums.com/*
-// @version     1.3
+// @version     1.4
 // @grant       none
 // @icon        data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEC0lEQVRYw+3XW4iVVRQH8J8HZ9RUcryUN0xQMAgq0gpLghEfspSQMh8Us4sRQogX6CErFcQQL1GiGSpBCWVampZBmUWUSmlJmogWmqR4F9TRcY5n9/Cto9/oQdSkenC/zKz9rb322mv913+tw411dasLluLOkEdgJdqhJT7CmPjWF/0xEXNjr13ojwj52cJVOlCH7bgt5P54Hk/hSUzC7WiGQdiCJXg89J8L/f4h39s095KheAZn8C7WYV68pAXuQXf8jtbxkiKOoxY9MRCbw2YNjsT/5Yd2CP3dIW8vXMNLEgaEfs+Qb8UyPIGbw7FUIYKnY79FyK3KH16Ly6Yu4etESqQSdavYOpkmu2l2ilIi7aS+Dc0LrK/jbFk/kRo4t4TeC/kmv3+O0hgG4x3MjnvL2DAd1Xi5wMREGs7MUzycSHV0hsc4fpqNJzm9j35tmV2ivifT4szCIr+9zsgCfRJpLQ/t45UGdoWdtqiKe6vLKWge3nxV4lPYS9cdtCxSWpflbcIQSsv4+TCrf2D+qSy3H+7Kwq4HqwqsHsu6Ej9Fbr/txNQSg25iH46iIe49W45AVXhGlqTzodvC21F/HRo4mAv1/ruztEF1ItVnuJG3c5a7SnxWYvre7KGXr+1qRibSdwxoYMMOjrVhbJH+x9jelYGdmXSGYpHaatp3Yk041beK0fi4PTWx1/swrcLBXpUcqMEUGUAsYHMibWNbP8af4a8f+aPI3kTawagDvBUg/XMy7+UjtoCN6LacFfn9EsUzWRlXXOPKDuQrApMjNaNib17uzIH4OzO+vRry2CivKVfCbE0vpMu5HCAT6oOUmlxjbdddiQOFYLfaYMFGFYFVmBGkVIOTcWYCDmMYPgn9MiA7YQ7WXCm/V6F90OQlFREXN8V96B17d2BF0DS8EM62C/2VV9mUrno1Ai4WBx2Px9MytL8ZUZkWF3bC/tB/KfQXF67RgWPRVMprT8htolMeqtCU9ldqSk3/wWxwXYBbMQIN9CnxZelCOz2/SuyZyP0XA/cQR4bySx6466jdyqNh53LAbcyIJ7llFm+kzMtG004ivchwDAnOmIuqROrD2gBWDUZ34fv3mRR22oat1nFfvildCqy+LI+DjYCVSLVZf2gErET6gAcDkGQ63QYzJVVOQ6NJ5RJgRedyMbDOceRoFpFGwDrB6V4czE87OHoqK3FX4sB5YC2l0DoYrV22d6IMrCKzBtHxYkPLWd+DB/KM2JFChwDqwczpy67uQQ7LSszJN5Ivsg63CPPr2bSJnTlG3IZhx9m6IXv9+WlnGb/m7RR55Hoz4uWAVR1nbvw4+f/2gUpV8K/2gfxA8p/0gWt1oDzA9MPnuQFmUURnRozb+QFmXIU+cBL+BqwwuY0/o2EGAAAAAElFTkSuQmCC
 
@@ -87,7 +87,7 @@ window.addEventListener('load', function() {
     if(rating <= 100){      
       if(album_page)
       {
-        album_page_rate(track_num)
+        album_page_rate(track_num);
         //console.log("album page rate");
       }
     if(artist_page)
