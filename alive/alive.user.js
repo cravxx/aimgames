@@ -2,7 +2,7 @@
 // @name        Alive
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.03
+// @version     1.04
 // @grant       none
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
 // ==/UserScript==
@@ -59,7 +59,7 @@ function alert_me(text) {
   msg_ray[3] = text;          
 }
 
-addEvent(window, 'load', function(){ load() });
+addEvent(window, 'load', function(){ load(); });
 
 function addEvent(element, eventName, fn) {
     if (element.addEventListener)
@@ -81,6 +81,6 @@ function load() {
   element.setAttribute("name", text);
   var foo = document.getElementById("thebox");
   foo.appendChild(element);    
-};
+}
 
 setInterval(displayOverlay,1000);
