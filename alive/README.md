@@ -13,9 +13,9 @@ One could also consider Chatbox++ an addon to Swearify/Alive or a family-friendl
 ###Features:
 - Manual refresh button
 - Ribbon that pops up whenever there is a new message
-
-###Planned additions:
 - Basic spam filter
 - Message timestamps on the right of the screen
 - "Doubles" system
+
+###Planned additions:
 - Ability to hover over an username and see basic profile info
