@@ -10,13 +10,19 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Build {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		int linesToKeep = 0;
+		File buildFile = null;
 		for (String line : Files.readAllLines(Paths.get("./instructions.txt"))) { //instructions should be in this file
 			if (line.startsWith("linesToKeep ")) {
 				linesToKeep = Integer.parseInt(line.substring(12));
+			} else if (line.startsWith("buildFolder ")) {
+				buildFile = new File("./" + line.substring(12) + "LASTBUILD.txt");
 			} else if (!line.startsWith("#") && (!line.trim().equals(""))) { //if line isn't comment or empty
 				String lineFrom = line.substring(line.indexOf(" ") + 1).replace("\"", ""); //get only argument 2
 				System.out.println(lineFrom);
@@ -60,6 +66,32 @@ public class Build {
 		    	System.out.println("line ignored");
 		    }
 		}
+		// write the current date to a file
+		if (buildFile != null)
+			if (buildFile.exists()) {
+				// get contents
+				FileInputStream fis = new FileInputStream(buildFile);
+				BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+				String line = br.readLine().substring(15); //Build number: #
+				int buildnum = Integer.parseInt(line);
+				br.close();
+	
+				// write
+			    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			    //get current date time with Date()
+			    Date date = new Date();
+				FileOutputStream fos = new FileOutputStream(buildFile);
+				fos.write(("Build number: #" + (buildnum + 1) + "\r\nBuild date: " + dateFormat.format(date)).getBytes());
+				fos.close();
+			} else {
+				// just write
+			    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			    //get current date time with Date()
+			    Date date = new Date();
+				FileOutputStream fos = new FileOutputStream(buildFile);
+				fos.write(("Build number: #1" + "\r\nBuild date: " + dateFormat.format(date)).getBytes());
+				fos.close();
+			}
 	}
 
 	public static void compile(String instruction) throws IOException, InterruptedException {
