@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "4.2.0"
+jdk:
+  - oraclejdk8
 before_script:
   - npm install -g grunt-cli
   - java -version
