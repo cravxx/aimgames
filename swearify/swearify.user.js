@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.buggerit.0.5.shamers.1449084681.7
+// @version     2.buggerit.0.5.shamers.1449084681.10
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -5659,9 +5659,12 @@ window.addEventListener('load', function() { /* shit goes down in here */
       inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
       inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/index.css');
       edit_css();
-      $(document).on('keydown', function(e) {
+      document.getElementById('submit_button').addEventListener('click', function() {
+        run_();
+      }, false);
+      /*$(document).on('keydown', function(e) {
         if (e.which === 13 || e.which === 45) run_();
-      });
+      });*/
     } else {
       if (window.location.href === 'http://aimgames.forummotion.com/post') post_page_editor();
       if (typeof document.getElementsByTagName('textarea')[1] === 'undefined') { // //PREVIEWs
@@ -5719,6 +5722,7 @@ function run_() {
   vbs_();
   java_();
 }
+
 
 function run_post() {
   sekrit_post();
