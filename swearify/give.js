@@ -1,17 +1,17 @@
-give = {};
+var give = {};
 give.me = {};
 give.me.a = {};
 give.me.an = {};
 give.me.a.conjugated = {};
 give.me.a.conjugated.verb = {};
 give.me.a.conjugated.verb.in = {};
-isit = {}; //to avoid conflicts
-starts = {};
+var isit = {}; //to avoid conflicts
+var starts = {};
 starts.with = {};
-consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
+var consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
     'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'
 ];
-vocals = ['a', 'e', 'i', 'o', 'u'];
+var vocals = ['a', 'e', 'i', 'o', 'u'];
 give.me.nouns = ["stitch", "square", "leather", "bucket", "church",
     "group", "silver", "hall", "move", "tank", "leg", "roll",
     "wool", "hammer", "company", "digestion", "pin", "farm",
@@ -466,32 +466,32 @@ give.me.verbs = ["warm", "step", "hand", "multiply", "decay", "bore",
     "stroke", "blush", "compare", "wander", "talk", "influence",
     "telephone", "trot"
 ];
-tense = "present";
-plural = true;
+var tense = "present";
+var plural = true;
 String.prototype.replaceAt = function(index, character) {
     return this.substr(0, index) + character + this.substr(index +
         character.length);
-}
+};
 give.me.an.integer = function(max) {
     return Math.round(Math.random() * (max + 1));
-}
+};
 give.me.a.noun = function() {
-    var z = give.me.an.integer(give.me.nouns.length - 1)
+    var z = give.me.an.integer(give.me.nouns.length - 1);
     var z1 = give.me.an.integer(0);
     if (!isit.plural(give.me.nouns[z]) && z1) {
         return give.me.a.plural(give.me.nouns[z]);
     } else {
         return give.me.nouns[z];
     }
-}
+};
 give.me.an.adjective = function() {
     return give.me.adjectives[give.me.an.integer(give.me.adjectives
         .length - 1)];
-}
+};
 give.me.a.verb = function() {
     return give.me.verbs[give.me.an.integer(give.me.verbs.length -
         1)];
-}
+};
 give.me.a.conjugated.verb.in.present = function() {
     var x = give.me.a.verb();
     if (isit.vocal(x.charAt(x.length - 1))) {
@@ -499,15 +499,15 @@ give.me.a.conjugated.verb.in.present = function() {
     }
     tense = "present";
     return x + 'ing';
-}
+};
 give.me.a.conjugated.verb.in.future = function() {
     tense = "future";
     return 'will ' + give.me.a.verb();
-}
+};
 give.me.a.conjugated.verb.in.past = function() {
     var x = give.me.an.integer(1);
     if (x == 1) {
-        var x = give.me.a.verb();
+        x = give.me.a.verb();
         if (x.charAt(x.length - 1) == 'e') {
             tense = "past, d";
             return x + 'd';
@@ -516,7 +516,7 @@ give.me.a.conjugated.verb.in.past = function() {
             return x + 'ed';
         }
     } else {
-        var x = give.me.a.verb();
+        x = give.me.a.verb();
         if (x.charAt(x.length - 1) == 'e') {
             tense = "had, d";
             return 'had ' + x + 'd';
@@ -525,7 +525,7 @@ give.me.a.conjugated.verb.in.past = function() {
             return 'had ' + x + 'ed';
         }
     }
-}
+};
 give.me.a.conjugated.verb.any = function() {
     var x = give.me.an.integer(2);
     if (x == 1) {
@@ -535,30 +535,30 @@ give.me.a.conjugated.verb.any = function() {
     } else {
         return give.me.a.conjugated.verb.in.past();
     }
-}
+};
 isit.consonant = function(char) {
-    for (i = 0; i < consonants.length; i++) {
+    for (var i = 0; i < consonants.length; i++) {
         if (char === consonants[i]) {
             return true;
         }
     }
     return false;
-}
+};
 isit.vocal = function(char) {
-    for (i = 0; i < vocals.length; i++) {
+    for (var i = 0; i < vocals.length; i++) {
         if (char == vocals[i]) {
             return true;
         }
     }
     return false;
-}
+};
 starts.with.consonant = function(str) {
     if (isit.consonant(str.charAt(0))) {
         return true;
     } else {
         return false;
     }
-}
+};
 isit.plural = function(str) {
     if (str.charAt(str.length - 1) === 's') {
         plural = true;
@@ -567,7 +567,7 @@ isit.plural = function(str) {
         plural = false;
         return false;
     }
-}
+};
 give.me.a.preposition = function(str) {
     if (!isit.plural(str)) {
         if (starts.with.consonant(str)) {
@@ -578,7 +578,7 @@ give.me.a.preposition = function(str) {
     } else {
         return '';
     }
-}
+};
 give.me.a.plural = function(str) {
     plural = true;
     if (isit.plural(str)) {
@@ -590,7 +590,7 @@ give.me.a.plural = function(str) {
             return str + 's';
         }
     }
-}
+};
 give.me.an.interrogative_phrase = function(str) {
     //var x = '';
     if (tense == 'future') {
@@ -607,11 +607,11 @@ give.me.an.interrogative_phrase = function(str) {
         return str.replace(/(.*)ing (.*)/g, 'does $1 $2?');
     }
     //return x;
-}
+};
 give.me.a.phrase = function() {
         var noun = give.me.a.noun();
         return give.me.an.adjective() + " " + give.me.an.adjective() +
             " " + give.me.a.noun() + " " + give.me.a.conjugated.verb.any() +
             " " + give.me.a.preposition(noun) + noun;
-}
+};
 //give.me.a.phrase();
