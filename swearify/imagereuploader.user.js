@@ -18,6 +18,7 @@ menu.id = "userscript-search-by-image";
 menu.type = "context";
 var menuitem = document.createElement("menuitem");
 menuitem.label = "Resize and Upload";
+/*jshint multistr: true */
 menuitem.icon = "data:image/png;base64,\
 iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAAK6wAACusBgosNWgAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAEl\
@@ -27,6 +28,7 @@ FkR5ijNICLMzTF31hOHnr38MHGxMDJlhMgwv3vxkWL7jJYpaJmzu0lTigWtmYGBg+PHrH8P0VU8Y\
 tJV5MNRiNYCfmxmuGQZ+/PrHwMmOqRyrAX///WfgYEOV4mBjwjAUpwHHL31iyA6XgRvCwcbEkBUm\
 w3DuxmcMtVgDkYONicHLVoTBSJOXgYONieHHz38Ml+98Ydh88DXDtx//CBtACmBiYGCYS4H+OYyU\
 5kasgUgKAADN8WLFzlj9rgAAAABJRU5ErkJggg==";
+/*jshint multistr: false */
 menu.appendChild(menuitem);
 body.appendChild(menu);
 

@@ -5151,7 +5151,6 @@ Math.irandom = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-
 function sekrit_() {
   var old_msg = document.getElementById('message').value;
   var index_num = old_msg.regexIndexOf(/\/s /i);
