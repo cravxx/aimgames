@@ -6,7 +6,7 @@
 // @include     https://multiplayer.needformadness.com/registernew.pl
 // @include     http://multiplayer.needformadness.com/edit.pl
 // @include     https://multiplayer.needformadness.com/edit.pl
-// @version     1.51
+// @version     1.52
 // @grant       none
 // ==/UserScript==
 
@@ -51,8 +51,8 @@ function go() {
     	document.getElementById('lname').value = 'a';
     	document.getElementById('email').value = 'ac' + i + '@hansen.com';
     
-    	document.getElementsByName('reg')[0].submit()
-    }
+    	document.getElementsByName('reg')[0].submit();
+    };
     document.getElementsByName('reg')[0].appendChild(formPost);
 }
 // Dean Edwards/Matthias Miller/John Resig
@@ -69,7 +69,7 @@ function init() {
 
   // do stuff
   go();
-};
+}
 
 /* for Mozilla/Opera9 */
 if (document.addEventListener) {
