@@ -2,7 +2,7 @@
 // @name        Chameleon Vampire
 // @namespace   Hide yo colors, hide yo styles
 // @include     http://aimgames.forummotion.com/*
-// @version     1.5
+// @version     1.6
 // @grant       none
 // ==/UserScript==
 
@@ -58,13 +58,12 @@ function colourNameToHex(colour)
 }
 
 function setCookie(name, value, days) {
+  var expires = '';
   if (days) {
     var date = new Date();
-    var expires = '';
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = '; expires=' + date.toGMTString();
-  } 
-  else var expires = '';
+  }
   document.cookie = name + '=' + value + expires + '; path=/';
 }
 
