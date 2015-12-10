@@ -1,4 +1,4 @@
-// ==UserScript==
+/** @preserve // ==UserScript==
 // @name        Swearify
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
@@ -11,6 +11,7 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
 // ==/UserScript==
+*/
 //////////////////////////////VERSIONING: X.X.XX
 //////////////////////////////DO NOT CHANGE
 ///////
