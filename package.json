@@ -1,14 +1,14 @@
 {
   "name": "aimgames-travis",
   "version": "4.2.0",
-  "url" : "https://github.com/HulaSamsquanch/aimgames.git",
-  "email" : "samsquanchhunter14@gmail.com",
-  "license" : "MIT",
-
+  "url": "https://github.com/HulaSamsquanch/aimgames.git",
+  "email": "samsquanchhunter14@gmail.com",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-cli": "0.1.9",
     "grunt-contrib-jshint": "0.6.3",
+    "grunt-contrib-watch": "^0.6.1",
     "jshint": "^2.8.0"
   },
   "repository": {

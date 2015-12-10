@@ -7,7 +7,6 @@
 // @icon        http://www.mediafire.com/convkey/c313/jnx13q9ha6j01w9zg.jpg
 // ==/UserScript==
 
-//var audio_players = document.getElementsByTagName("audio");
 var loaded = false;
 var poster = [];
 var clips_stopped = 0;
