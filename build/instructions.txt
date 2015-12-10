@@ -4,40 +4,41 @@
 ##       CHRISHANSEN69       ##
 ###############################
 
+# Directory separator should be '/' for Unix/Windows and '\' for Windows only
 
 # Lines that are empty or prefixed with '#' are ignored.
 # This file contains instructions for the builder.
 
 # buildFolder indicates the folder for the build number and build date
-buildFolder ..\bin\
+buildFolder ../bin/
 
 # linesToKeep indicates how many lines should be kept from the start of the file. It is reset after every instruction is ran.
 linesToKeep 13
 
 # Argument 1 is the file that will be output, argument 2 is the file that will be input.
-# ..\ means "go back one folder"
-..\bin\swearify.compiled.user.js "..\swearify\swearify.user.js"
+# ../ means "go back one folder"
+../bin/swearify.compiled.user.js "../swearify/swearify.user.js"
 
 linesToKeep 8
-..\bin\alive.compiled.user.js "..\alive\alive.user.js"
+../bin/alive.compiled.user.js "../alive/alive.user.js"
 
 linesToKeep 9
-..\bin\chatboxplusplus.compiled.user.js "..\alive\chatboxplusplus.user.js"
+../bin/chatboxplusplus.compiled.user.js "../alive/chatboxplusplus.user.js"
 
 linesToKeep 10
-..\bin\chameleon.compiled.user.js "..\chameleon\chameleon.user.js"
+../bin/chameleon.compiled.user.js "../chameleon/chameleon.user.js"
 
 linesToKeep 8
-..\bin\chameleon_random.compiled.user.js "..\chameleon\chameleon_random.user.js"
+../bin/chameleon_random.compiled.user.js "../chameleon/chameleon_random.user.js"
 
 linesToKeep 7
-..\bin\chameleon_vampire.compiled.user.js "..\chameleon\chameleon_vampire.user.js"
+../bin/chameleon_vampire.compiled.user.js "../chameleon/chameleon_vampire.user.js"
 
 linesToKeep 11
-..\bin\accountassist.compiled.user.js "..\other\accountassist.user.js"
+../bin/accountassist.compiled.user.js "../other/accountassist.user.js"
 
 linesToKeep 8
-..\bin\ratebot.compiled.user.js "..\other\ratebot.user.js"
+../bin/ratebot.compiled.user.js "../other/ratebot.user.js"
 
 linesToKeep 9
-..\bin\imagereuploader.compiled.user.js "..\swearify\imagereuploader.user.js"
+../bin/imagereuploader.compiled.user.js "../swearify/imagereuploader.user.js"
