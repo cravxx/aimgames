@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1.41
+// @version     1.42
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -182,7 +182,7 @@ function getScrollTop() { //// http://stackoverflow.com/questions/6691558/how-do
  * Returns all a href tags that redirect to /uXXXX
  */
 function getUserTagsOnDocument() {
-  var atags = document.getElementsByTagName('a')
+  var atags = document.getElementsByTagName('a');
   var utags = [ ];
   for (var i = 0; i < atags.length; i++) {
   	if (atags[i] && atags[i].href && atags[i].href.match(/\/u/))
@@ -196,7 +196,7 @@ function getUserTagsOnDocument() {
  * Calls function 'callback' with the page 'url''s contents
  */
 function getPageContents(callback, url, params) { ////// http://stackoverflow.com/a/28728475
-  http = new XMLHttpRequest();
+  var http = new XMLHttpRequest();
   if (params !== undefined) {
     http.open('POST', url, true);
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -208,7 +208,7 @@ function getPageContents(callback, url, params) { ////// http://stackoverflow.co
       callback(http.responseText);
       //console.log(http.responseText)
     }
-  }
+  };
   http.send(params);
 }
 
@@ -246,7 +246,7 @@ function getProfileDetailsCallback(response) {
  */
 function getProfileDetails(profileLink) {
   getPageContents(getProfileDetailsCallback, profileLink);
-};
+}
 
 /**
  * Moves chat timestamps to the right of the screen (call once every chat update)
@@ -257,7 +257,7 @@ function reorganizeTimestamps() {
     var spTimeDate = document.createElement('span');
     spTimeDate.innerHTML = cArray[0].innerHTML;
     spTimeDate.className = 'date-and-time';
-    spTimeDate.style = 'text-align: right;display:block;float:right;margin-left:10px;'
+    spTimeDate.style = 'text-align: right;display:block;float:right;margin-left:10px;';
     var spMsg = document.createElement('span');
     spMsg.innerHTML = cArray[1].innerHTML;
     spMsg.className = 'user-msg';
@@ -266,7 +266,7 @@ function reorganizeTimestamps() {
     messages[i].appendChild(spMsg);
     messages[i].appendChild(spTimeDate);
   }
-};
+}
 
 /**
  * Removes that annoying prick aileron owl's spammy messages
@@ -277,10 +277,10 @@ function annoyingPrick() {
       var msgText = messages[i].getElementsByClassName('msg')[0].children[0];
       if (msgText.children.length > 0) { //message is bold
         if (msgText.children[0].innerHTML.toLowerCase() == 'hoo' || msgText.children[0].innerHTML.toLowerCase() == 'cookie' || msgText.children[0].innerHTML.toLowerCase() == 'hoo cookie' || msgText.children[0].innerHTML.toLowerCase() == 'cookie hoo')
-          messages[i].parentNode.removeChild(messages[i])
+          messages[i].parentNode.removeChild(messages[i]);
       } else { //message isn't bold
         if (msgText.innerHTML.toLowerCase() == 'hoo' || msgText.innerHTML.toLowerCase() == 'cookie' || msgText.innerHTML.toLowerCase() == 'hoo cookie' || msgText.innerHTML.toLowerCase() == 'cookie hoo')
-          messages[i].parentNode.removeChild(messages[i])
+          messages[i].parentNode.removeChild(messages[i]);
       }
     } catch (e) {
     }
@@ -387,7 +387,7 @@ function go() {
   } else { //running in bchat
 	  throw "big chat is not supported by chatbox++, sorry";
   }
-};
+}
 
 window.addEventListener('load', go, false);
 // += works too
