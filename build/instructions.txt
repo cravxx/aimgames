@@ -8,6 +8,9 @@
 # Lines that are empty or prefixed with '#' are ignored.
 # This file contains instructions for the builder.
 
+# buildFolder indicates the folder for the build number and build date
+buildFolder ..\bin\
+
 # linesToKeep indicates how many lines should be kept from the start of the file. It is reset after every instruction is ran.
 linesToKeep 13
 

@@ -6,3 +6,5 @@ linesToKeep 13
 
 # Argument 1 is the file that will be output, argument 2 is the file that will be input.
 swearify.compiled.user.js "..\..\swearify\swearify.user.js"
+
+buildFolder ..\..\bin\
