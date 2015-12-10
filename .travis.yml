@@ -1,17 +1,10 @@
 language: java
 
-sudo: required
-
 jdk:
   - oraclejdk8
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install nodejs
-  - sudo apt-get install npm
-
 before_script:
-  - npm install -g grunt-cli
   - java -version
+  - ls -l
   - cd build
   - java -jar build.jar
