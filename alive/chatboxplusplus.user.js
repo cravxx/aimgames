@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1.37
+// @version     1.38
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -257,7 +257,7 @@ function reorganizeTimestamps() {
     var spTimeDate = document.createElement('span');
     spTimeDate.innerHTML = cArray[0].innerHTML;
     spTimeDate.className = 'date-and-time';
-    spTimeDate.style = 'text-align: right;display:block;float:right;margin-left:10px;'
+    spTimeDate.style = 'text-align: right;display:block;float:right;width:10%;'
     var spMsg = document.createElement('span');
     spMsg.innerHTML = cArray[1].innerHTML;
     spMsg.className = 'user-msg';
@@ -273,13 +273,16 @@ function reorganizeTimestamps() {
  */
 function annoyingPrick() {
   for (var i = 0; i < messages.length; i++) {
-    var msgText = messages[i].getElementsByClassName('msg')[0].children[0];
-    if (msgText.children.length > 0) { //message is bold
-      if (msgText.children[0].innerHTML.toLowerCase() == 'hoo' || msgText.children[0].innerHTML.toLowerCase() == 'cookie' || msgText.children[0].innerHTML.toLowerCase() == 'hoo cookie' || msgText.children[0].innerHTML.toLowerCase() == 'cookie hoo')
-        messages[i].parentNode.removeChild(messages[i])
-    } else { //message isn't bold
-      if (msgText.innerHTML.toLowerCase() == 'hoo' || msgText.innerHTML.toLowerCase() == 'cookie' || msgText.innerHTML.toLowerCase() == 'hoo cookie' || msgText.innerHTML.toLowerCase() == 'cookie hoo')
-        messages[i].parentNode.removeChild(messages[i])
+    try { //this causes errors sometimes. I HAVE NO IDEA WHY.
+      var msgText = messages[i].getElementsByClassName('msg')[0].children[0];
+      if (msgText.children.length > 0) { //message is bold
+        if (msgText.children[0].innerHTML.toLowerCase() == 'hoo' || msgText.children[0].innerHTML.toLowerCase() == 'cookie' || msgText.children[0].innerHTML.toLowerCase() == 'hoo cookie' || msgText.children[0].innerHTML.toLowerCase() == 'cookie hoo')
+          messages[i].parentNode.removeChild(messages[i])
+      } else { //message isn't bold
+        if (msgText.innerHTML.toLowerCase() == 'hoo' || msgText.innerHTML.toLowerCase() == 'cookie' || msgText.innerHTML.toLowerCase() == 'hoo cookie' || msgText.innerHTML.toLowerCase() == 'cookie hoo')
+          messages[i].parentNode.removeChild(messages[i])
+      }
+    } catch (e) {
     }
   }
 }
