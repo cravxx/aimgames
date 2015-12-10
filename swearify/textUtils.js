@@ -73,13 +73,14 @@ var vbsBuiltIn = ["true", "false", "null", "nothing", "empty"];
 
 function jsText(InStr) {
 	var OutStr = InStr;
-	for (var z = 0; z < jsLiterals.length; z++) {
+  var z;
+	for (z = 0; z < jsLiterals.length; z++) {
 		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + jsLiterals[z] + "[/color]");
 	}
-	for (var z = 0; z < jsBuiltIn.length; z++) {
+	for (z = 0; z < jsBuiltIn.length; z++) {
 		OutStr = OutStr.replace(jsBuiltIn[z], "[color=#33FFFF]" + jsBuiltIn[z] + "[/color]");
 	}
-	for (var z = 0; z < jsKeywords.length; z++) {
+	for (z = 0; z < jsKeywords.length; z++) {
 		OutStr = OutStr.replace(jsKeywords[z], "[color=#FFCC66]" + jsKeywords[z] + "[/color]");
 	}
 	return OutStr;
@@ -87,10 +88,11 @@ function jsText(InStr) {
 
 function javaText(InStr) {
 	var OutStr = InStr;
-	for (var z = 0; z < javaKeywords.length; z++) {
+  var z;
+	for (z = 0; z < javaKeywords.length; z++) {
 		OutStr = OutStr.replace(javaKeywords[z], "[color=#33FFFF]" + javaKeywords[z] + "[/color]");
 	} //yes, JS literals not java
-	for (var z = 0; z < jsLiterals.length; z++) {
+	for (z = 0; z < jsLiterals.length; z++) {
 		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + jsLiterals[z] + "[/color]");
 	}
 	return OutStr;
@@ -98,13 +100,14 @@ function javaText(InStr) {
 
 function vbsText(InStr) {
 	var OutStr = InStr;
-	for (var z = 0; z < vbsLiterals.length; z++) {
+  var z;
+	for (z = 0; z < vbsLiterals.length; z++) {
 		OutStr = OutStr.replace(vbsLiterals[z], "[color=#CC3366]" + vbsLiterals[z] + "[/color]");
 	}
-	for (var z = 0; z < vbsBuiltIn.length; z++) {
+	for (z = 0; z < vbsBuiltIn.length; z++) {
 		OutStr = OutStr.replace(vbsBuiltIn[z], "[color=#33FFFF]" + vbsBuiltIn[z] + "[/color]");
 	}
-	for (var z = 0; z < vbsKeywords.length; z++) {
+	for (z = 0; z < vbsKeywords.length; z++) {
 		OutStr = OutStr.replace(vbsKeywords[z], "[color=#FFCC66]" + vbsKeywords[z] + "[/color]");
 	}
 	return OutStr;
@@ -112,13 +115,13 @@ function vbsText(InStr) {
 
 ///////COOKIE SHIT
 function setCookie(name, value, days) {
+  var expires;
   if (days) {
     var date = new Date();
-    var expires = '';
+    expires = '';
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = '; expires=' + date.toGMTString();
   } 
-  else var expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
 
@@ -128,7 +131,7 @@ function getCookie(c_name) {
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
     while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
   }
   return '';
 }
@@ -169,7 +172,7 @@ function rainbowText(InStr) {
 
 function gradientText(InStr) {
 	var start_color = '';
-	if(getCookie('CB_color') == ''){
+	if(getCookie('CB_color') === ''){
 		start_color = randomColor();
 	}else{
 		start_color = getCookie('CB_color');
@@ -202,7 +205,7 @@ function gradientText(InStr) {
 
 function randomText(InStr) {
 	var OutArr = InStr.split("");
-	var OutStr = ""
+	var OutStr = "";
 	for (var i = 0; i < OutArr.length; i++) {
 		if(isWhitespace(OutArr[i])){
 			OutStr += OutArr[i];
