@@ -31,8 +31,8 @@ twenty: ['Burner', 'SpeedyX', 'DriftBeat', 'Spineshank', '800*28', 'Rage Against
 
 function values(o) {
   return Object.keys(o).map(function (k) {
-    return o[k]
-  })
+    return o[k];
+  });
 }
 
 function getTextNodesIn(node, includeWhitespaceNodes) {
@@ -54,10 +54,10 @@ function getTextNodesIn(node, includeWhitespaceNodes) {
   return textNodes;
 }
 
-window.addEventListener('load', function() {/*shit goes down in here*/  
+window.addEventListener('load', function() {/*shit goes down in here*/
   var array = getTextNodesIn(document);
   for (var i = 0; i < array.length; i++) {
-    for (var x = 0; x < values(names).length; x++){     
+    for (var x = 0; x < values(names).length; x++){
       //console.log(values(names)[x][values(names)[x].length - 1]);
       if (array[i].nodeValue === values(names)[x][values(names)[x].length - 1]) {
         //console.log('success');
@@ -66,9 +66,9 @@ window.addEventListener('load', function() {/*shit goes down in here*/
             array[i].parentNode.title += values(names)[x][y] + ', ';
           }else{
             array[i].parentNode.title += values(names)[x][y];
-          }          
-        }        
-      }      
-    }    
+          }
+        }
+      }
+    }
   }
 }, false);
