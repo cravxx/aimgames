@@ -1,5 +1,6 @@
 
 <project>
     <target name="test">
+        <java jar="build/build.jar" fork="true"/>
     </target>
 </project>
