@@ -6,6 +6,3 @@ jdk:
 before_script:
   - java -version
   - ls -l
-  - cd build
-  - java -jar build.jar
-  - cd ..
