@@ -1,12 +1,12 @@
 module.exports = function(grunt) {
-
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      all: [  'Gruntfile.js', '**/*.user.js', "**/*.js" ]
+      scripts: ['Gruntfile.js', '**/*.user.js', "**/*.js"]
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('bleedTheFreak', ['jshint:scripts']);
 
 };
