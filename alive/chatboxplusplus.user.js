@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1.33
+// @version     1.34
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -83,7 +83,7 @@ function checkDubs() {
 			var dubsSpan = document.createElement('span');
 			dubsSpan.style = "color:red";
 			dubsSpan.innerHTML = ' CHECK \'EM';
-			messages[i].children[0].appendChild(dubsSpan);
+			messages[i].getElementsByClassName('date-and-time')[0].appendChild(dubsSpan);
 		}
 	}
 }
@@ -303,6 +303,26 @@ function addRefreshButton() {
   b.appendChild(s);
 }
 
+var prevChatHTML;
+/**
+ * Checks if the chatbox HTML has changed
+ * yes, this function is chrome-safe
+ */
+function checkChatboxChanged() {
+  if (prevChatHTML !== undefined) {
+    if (chatboxElement.innerHTML !== prevChatHTML) { //chat has changed
+      annoyingPrick();
+      reorganizeTimestamps();
+      checkDubs();
+    }
+  } else { //first run
+    annoyingPrick();
+    reorganizeTimestamps();
+    checkDubs();
+  }
+  prevChatHTML = chatboxElement.innerHTML;
+}
+
 var chatboxFrame;
 function go() {
   
@@ -334,7 +354,10 @@ function go() {
 	  document.body.appendChild(boxElement);
 	  
 	  // get the count of new msgs
-	  setInterval(makeBox, 500);
+	  setInterval(function() {
+	  	makeBox();
+	  	checkChatboxChanged();
+	  }, 1000); //too slow? too fast?
 	  
 	  ////KEEPS BOX AT THE TOP OF THE SCREEN
 	  window.addEventListener('scroll', function() {
