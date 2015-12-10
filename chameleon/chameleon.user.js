@@ -35,7 +35,7 @@ c_s = [
   s[11], s[12], s[13], s[14], s[15], s[16], s[17], s[18], s[19], s[18],
   s[17], s[16], s[15], s[14], s[13], s[12], s[11], s[10], s[9], s[8],
   s[7], s[6], s[5], s[4], s[3], s[2], s[1]
-]
+];
 
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -49,13 +49,14 @@ function hexToRgb(hex) {
 
 ///////COOKIE SHIT
 function setCookie(name, value, days) {
+  var expires;
   if (days) {
     var date = new Date();
-    var expires = '';
+    expires = '';
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = '; expires=' + date.toGMTString();
   } 
-  else var expires = '';
+  else expires = '';
   document.cookie = name + '=' + value + expires + '; path=/';
 }
 
@@ -65,7 +66,7 @@ function getCookie(c_name) {
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
     while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
   }
   return '';
 }
