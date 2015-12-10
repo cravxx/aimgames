@@ -1,4 +1,4 @@
-package com.chrishansen.aimgames.builder;
+package br.com.chrishansen.aimgames.builder;
 
 import java.io.BufferedReader;
 import java.io.File;
