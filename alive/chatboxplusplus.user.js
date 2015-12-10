@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1.35
+// @version     1.37
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -81,9 +81,9 @@ function checkDubs() {
 	for (var i = 0; i < messages.length; i++) { //DON'T DO A FOREACH (VAR X IN Y) IN HTMLCOLLECTIONS IT WILL THROW AN ERROR
 		if (isDubs(msgTimestamp(messages[i]))) {
 			var dubsSpan = document.createElement('span');
-			dubsSpan.style = "color:red";
+			dubsSpan.style = "color: red; text-align: right; display: block; float: right;";
 			dubsSpan.innerHTML = ' CHECK \'EM';
-			messages[i].getElementsByClassName('date-and-time')[0].appendChild(dubsSpan);
+			messages[i].appendChild(dubsSpan);
 		}
 	}
 }
@@ -257,7 +257,7 @@ function reorganizeTimestamps() {
     var spTimeDate = document.createElement('span');
     spTimeDate.innerHTML = cArray[0].innerHTML;
     spTimeDate.className = 'date-and-time';
-    spTimeDate.style = 'text-align: right;display:block;float:right;width:10%;margin-left:10px;'
+    spTimeDate.style = 'text-align: right;display:block;float:right;margin-left:10px;'
     var spMsg = document.createElement('span');
     spMsg.innerHTML = cArray[1].innerHTML;
     spMsg.className = 'user-msg';
