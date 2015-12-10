@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1.39
+// @version     1.40
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -257,7 +257,7 @@ function reorganizeTimestamps() {
     var spTimeDate = document.createElement('span');
     spTimeDate.innerHTML = cArray[0].innerHTML;
     spTimeDate.className = 'date-and-time';
-    spTimeDate.style = 'text-align: right;display:block;float:right;'
+    spTimeDate.style = 'text-align: right;display:block;float:right;margin-left:10px;'
     var spMsg = document.createElement('span');
     spMsg.innerHTML = cArray[1].innerHTML;
     spMsg.className = 'user-msg';
