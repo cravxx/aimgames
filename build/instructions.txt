@@ -37,7 +37,7 @@ linesToKeep 7
 linesToKeep 11
 ../bin/accountassist.compiled.user.js "../other/accountassist.user.js"
 
-linesToKeep 8
+linesToKeep 9
 ../bin/ratebot.compiled.user.js "../other/ratebot.user.js"
 
 linesToKeep 9
