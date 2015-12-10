@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1.34
+// @version     1.35
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -353,11 +353,15 @@ function go() {
 	  // make an empty div where the box will go
 	  document.body.appendChild(boxElement);
 	  
-	  // get the count of new msgs
+	  // get the count of new msgs and apply dubs etc
 	  setInterval(function() {
 	  	makeBox();
 	  	checkChatboxChanged();
 	  }, 1000); //too slow? too fast?
+	  // dang it. this one runs too quickly. a timeout wouldn't work either
+	  /*document.getElementById('submit_button').addEventListener('click', function() {
+	        things();
+	  }, false);*/
 	  
 	  ////KEEPS BOX AT THE TOP OF THE SCREEN
 	  window.addEventListener('scroll', function() {
