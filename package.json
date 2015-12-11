@@ -7,16 +7,21 @@
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-cli": "0.1.9",
-    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-jshint": "0.6.3",
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
-    "jshint": "^2.8.0"
+    "jshint": "^2.8.0",
+    "karma": "^0.8.8",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.6",
+    "karma-script-launcher": "^0.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/HulaSamsquanch/aimgames.git"
   },
   "scripts": {
-    "test": "grunt bleedTheFreak"
+    "test": "karma start karma.conf.js"
   }
 }
