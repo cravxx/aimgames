@@ -1,9 +1,8 @@
 # Scripts for AIM Games [![Travis Build](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames)
+[![Firefox 38+](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more information.
-
-## Tested on
-[![Firefox 38+](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/)
 
 ## Compiling
 ~~_This may only be possible using Windows_~~ Successfully tested and working under Unix and Windows!
