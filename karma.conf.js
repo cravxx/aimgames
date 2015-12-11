@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Fri Dec 11 2015 12:27:17 GMT-0600 (Central Standard Time)
+// Generated on Fri Dec 11 2015 13:07:22 GMT-0600 (Central Standard Time)
 
 
 // base path, that will be used to resolve files and exclude
@@ -44,7 +44,7 @@ logLevel = LOG_INFO;
 
 
 // enable / disable watching file and executing tests whenever any file changes
-autoWatch = true;
+autoWatch = false;
 
 
 // Start these browsers, currently available:

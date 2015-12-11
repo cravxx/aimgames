@@ -1,1 +1,1 @@
-var FIREFOX_BIN = "C:/Program Files (x86)/Mozilla Firefox/firefox.exe";
+var FIREFOX_BIN = 'C:/Program Files (x86)/Mozilla Firefox/firefox.exe';
