@@ -2,6 +2,9 @@
 
 View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more information.
 
+## Tested on
+[![Firefox 38+](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/)
+
 ## Compiling
 ~~_This may only be possible using Windows_~~ Successfully tested and working under Unix and Windows!
 
