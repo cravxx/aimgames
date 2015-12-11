@@ -1,6 +1,9 @@
-# Scripts for AIM Games [![Travis Build](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames)
-[![Firefox 38+](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+# Scripts for AIM Games [![Travis Build Status](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames)
+[![Firefox 38+ Support](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/)
+[![Oracle Java JDK 8+ Support](https://img.shields.io/badge/java-JDK_8-ff69b4.svg)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+[![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![Github Issues](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/issues.svg)](https://github.com/HulaSamsquanch/aimgames/issues)
+[![Pending Pull Requests](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/pulls.svg)](https://github.com/HulaSamsquanch/aimgames/pulls)
 
 View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more information.
 
