@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.buggerit.0.5.shamers.1449084681.13
+// @version     2.buggerit.0.5.shamers.1449084681.14
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -2180,6 +2180,11 @@ var emoticon_2 = {
     ':gman:',
     'http://i.imgur.com/cf58SzQ.jpg',
     'WHY DO I EVEN TRY'
+  ],
+  bu2hurt: [
+    ':butthurt:',
+    'http://i.imgur.com/JQdiPHOs.jpg',
+    'BUTTHURT'
   ]
 };
 var emoticon_3 = {
