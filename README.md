@@ -20,5 +20,5 @@ View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more infor
 `[compiled file location] [source file location]`  
 linesToKeep is not required but it is recommended.
 
-### Todo
-Automatic compiling through Travis CI?
+### Planned features
+- Automatic compiling through Travis CI (partially finished)
