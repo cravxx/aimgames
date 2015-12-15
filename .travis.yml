@@ -8,4 +8,3 @@ script:
   - ls -l
   - cd build
   - java -jar build.jar
-  - cd ..
