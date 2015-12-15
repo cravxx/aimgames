@@ -1,8 +1,12 @@
-# Scripts for AIM Games [![Travis Build Status](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames) [![Latest Release Version](https://img.shields.io/github/release/ParticleCore/Particle.svg)](https://github.com/ParticleCore/Particle/releases/latest) [![Github Issues](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/issues.svg)](https://github.com/HulaSamsquanch/aimgames/issues)
-[![Pending Pull Requests](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/pulls.svg)](https://github.com/HulaSamsquanch/aimgames/pulls)
-[![Firefox 38+ Support](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/)
-[![Oracle Java JDK 8+ Support](https://img.shields.io/badge/java-JDK_8-ff69b4.svg)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+# Scripts for AIM Games [![Travis Build Status](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames) [![Latest Release Version](https://img.shields.io/github/release/ParticleCore/Particle.svg)](https://github.com/ParticleCore/Particle/releases/latest)
+[![Github Issues](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/issues.svg)](https://github.com/HulaSamsquanch/aimgames/issues) [![Pending Pull Requests](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/pulls.svg)](https://github.com/HulaSamsquanch/aimgames/pulls)
 [![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+
+_For the end user..._  
+[![Firefox 38+ Supported](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/) [![Greasemonkey 3.0+ Support](https://img.shields.io/badge/Greasemonkey-3.0%2B-yellow.svg)](http://www.greasespot.net/)
+
+_For compilation..._  
+[![Oracle Java JDK 8+ Required and Supported](https://img.shields.io/badge/java-JDK_8-ff69b4.svg)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more information.
 
