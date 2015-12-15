@@ -3,9 +3,8 @@ language: java
 jdk:
   - oraclejdk8
 
-before_script:
+script:
   - java -version
   - ls -l
   - cd build
   - java -jar build.jar
-  - cd ..
