@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Element Remover
 // @namespace   samsquanchhunter
-// @version     0.1.0
+// @version     0.1.1
 // @include     http://*
 // @include     https://*
 // @grant       none
@@ -37,10 +37,10 @@ var running_array = [];
 function initMenu(aEvent) {
   // Executed when user right click on web page body
   // aEvent.target is the element you right click on
+  body.setAttribute("contextmenu", "userscript-grease");
   child_node = aEvent.target;
   parent_node = child_node.parentNode;
   var item = document.querySelector("#userscript-grease menuitem");
-  body.setAttribute("contextmenu", "userscript-grease");
 }
 
 function rElement(aEvent) {

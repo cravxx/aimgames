@@ -2,7 +2,7 @@
 // @name            Swearify - Image Reuploader
 // @namespace       samsquanchhunter
 // @description     Special utility to quickly prepare images for insertion into Swearify.
-// @version         1.4.2
+// @version         1.4.3
 // @include         http://*
 // @include         https://*
 // @grant           none
@@ -33,11 +33,14 @@ document.querySelector("#userscript-grease menuitem")
 function initMenu(aEvent) {
   // Executed when user right click on web page body
   // aEvent.target is the element you right click on
+  body.setAttribute("contextmenu", "userscript-grease");
   var node = aEvent.target;
   var item = document.querySelector("#userscript-grease menuitem");
   if (node.localName == "img") {
-    body.setAttribute("contextmenu", "userscript-grease");
+    item.setAttribute("disabled", "false");
     item.setAttribute("imageURL", node.src);
+  }else{
+    item.setAttribute("disabled", "true");
   }
 }
 
