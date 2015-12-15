@@ -2,7 +2,7 @@
 // @name            Swearify - Image Reuploader
 // @namespace       samsquanchhunter
 // @description     Special utility to quickly prepare images for insertion into Swearify.
-// @version         1.4
+// @version         1.4.2
 // @include         http://*
 // @include         https://*
 // @grant           none
@@ -20,22 +20,21 @@ if(document.getElementsByTagName("menu").length === 0){
 }else{
   menu = document.getElementsByTagName("menu")[0];
 }
-var menuitem = document.createElement("menuitem_imgre");
+var menuitem = document.createElement("menuitem");
+menuitem.id = "menu_imgre";
 menuitem.label = "Resize and Upload";
-/*jshint multistr: true */
 menuitem.icon = "http://i.imgur.com/F2wghzO.png";
-/*jshint multistr: false */
 menu.appendChild(menuitem);
 body.appendChild(menu);
 
-document.querySelector("#userscript-grease menuitem_imgre")
+document.querySelector("#userscript-grease menuitem")
   .addEventListener("click", uploadImage, false);
 
 function initMenu(aEvent) {
   // Executed when user right click on web page body
   // aEvent.target is the element you right click on
   var node = aEvent.target;
-  var item = document.querySelector("#userscript-grease menuitem_imgre");
+  var item = document.querySelector("#userscript-grease menuitem");
   if (node.localName == "img") {
     body.setAttribute("contextmenu", "userscript-grease");
     item.setAttribute("imageURL", node.src);
