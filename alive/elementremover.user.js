@@ -9,6 +9,14 @@
 
 ///portions from https://github.com/pinceladasdaweb/imgur-upload and LouCypher
 
+var running_array;
+
+var child_node, parent_node;
+
+if(running_array === undefined){
+  running_array = [];
+}
+
 var body = document.body;
 body.addEventListener("contextmenu", initMenu, false);
 
@@ -45,27 +53,18 @@ function rElement(aEvent) {
   addElement(child_node);
 }
 
-var running_array;
-
-var child_node, parent_node;
-
-if(running_array === undefined){
-  running_array = [];
-}
-
-
 function addElement(elem) {
   running_array.push.apply(running_array, [elem]);
   //running_array.push(elem);
 }
 window.addEventListener('load', function() { /* shit goes down in here */
    setInterval(function(){
-    for(var t = 0; t < (running_array.length - 1); t++){
+    for(var t = 0; t < running_array.length; t++){
       var c_node = running_array[t];
+      console.log(t + "  " + c_node + "   " + running_array.length);
       var p_node = c_node.parentNode;
       p_node.removeChild(c_node);
     }
-    console.log(running_array);
 }, 1000);
 
 }, false);
