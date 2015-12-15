@@ -27,7 +27,7 @@ menuitem.icon = "http://i.imgur.com/F2wghzO.png";
 menu.appendChild(menuitem);
 body.appendChild(menu);
 
-document.querySelector("#userscript-grease menuitem")
+document.querySelector("#userscript-grease #menu_imgre")
   .addEventListener("click", uploadImage, false);
 
 function initMenu(aEvent) {
@@ -35,7 +35,7 @@ function initMenu(aEvent) {
   // aEvent.target is the element you right click on
   body.setAttribute("contextmenu", "userscript-grease");
   var node = aEvent.target;
-  var item = document.querySelector("#userscript-grease menuitem");
+  var item = document.querySelector("#userscript-grease #menu_imgre");
   if (node.localName == "img") {
     item.setAttribute("disabled", "false");
     item.setAttribute("imageURL", node.src);
