@@ -15,6 +15,8 @@ body.addEventListener("contextmenu", initMenu, false);
 
 if(document.getElementsByTagName("menu").length === 0){
   var menu = document.createElement("menu");
+  menu.id = "userscript-grease";
+  menu.type = "context";
 }else{
   menu = document.getElementsByTagName("menu")[0];
 }
