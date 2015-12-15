@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Element Remover
 // @namespace   samsquanchhunter
-// @version     0.5.0
+// @version     0.5.1
 // @include     http://*
 // @include     https://*
 // @grant       none
@@ -10,13 +10,6 @@
 ///portions from https://github.com/pinceladasdaweb/imgur-upload and LouCypher
 
 var child_node;
-
-if (running_array_c === undefined) {
-  var running_array_c = [];
-}
-if (running_array_p === undefined) {
-  var running_array_p = [];
-}
 
 (function() {
   var body = document.body;
@@ -60,6 +53,18 @@ if (running_array_p === undefined) {
     return matchingElements;
   }
 
+  function hideThisShit(elem) {
+    elem.style.visibility = 'hidden';
+    elem.style.width = '0px';
+    elem.style.height = '0px';
+  }
+
+  function showThisShit(elem) {
+    elem.style.visibility = 'visible';
+    elem.style.width = 'auto';
+    elem.style.height = 'auto';
+  }
+
   function initMenu(aEvent) {
     // Executed when user right click on web page body
     // aEvent.target is the element you right click on
@@ -67,6 +72,11 @@ if (running_array_p === undefined) {
     child_node = aEvent.target;
     var item = document.querySelector("#userscript-grease #menu_elemr");
     var item_reset = document.querySelector("#userscript-grease #menu_elemr_reset");
+    if(getAllElementsWithAttribute('toRemove').length !== 0){
+      item_reset.disabled = false;
+    }else{
+      item_reset.disabled = true;
+    }
   }
 
   function bagItAndTagIt(aEvent) {
@@ -79,6 +89,7 @@ if (running_array_p === undefined) {
     // Executed when user click on Reset
     // aEvent.target is the <menuitem> element
     for (var t = 0; t < getAllElementsWithAttribute('toRemove').length; t++) {
+      showThisShit(getAllElementsWithAttribute('toRemove')[t]);
       getAllElementsWithAttribute('toRemove')[t].setAttribute("toRemove", false);
     }
   }
@@ -86,7 +97,9 @@ if (running_array_p === undefined) {
   window.addEventListener('load', function() { /* shit goes down in here */
     setInterval(function() {
       for (var t = 0; t < getAllElementsWithAttribute('toRemove').length; t++) {
-        getAllElementsWithAttribute('toRemove')[t].parentNode.removeChild(getAllElementsWithAttribute('toRemove')[t]);
+        if (getAllElementsWithAttribute('toRemove')[t].getAttribute('toRemove') == 'true') {
+          hideThisShit(getAllElementsWithAttribute('toRemove')[t]);
+        }
       }
     }, 1000);
   }, false);
