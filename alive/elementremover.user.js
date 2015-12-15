@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Element Remover
 // @namespace   samsquanchhunter
-// @version     0.0.2
+// @version     0.1.0
 // @include     http://*
 // @include     https://*
 // @grant       none
@@ -19,13 +19,14 @@ if(document.getElementsByTagName("menu").length === 0){
 }else{
   menu = document.getElementsByTagName("menu")[0];
 }
-var menuitem = document.createElement("menuitem_elemr");
+var menuitem = document.createElement("menuitem");
+menuitem.id = "menu_elemr";
 menuitem.label = "Remove Element";
 menuitem.icon = "http://i.imgur.com/IeWWYDw.png";
 menu.appendChild(menuitem);
 body.appendChild(menu);
 
-document.querySelector("#userscript-grease menuitem_elemr")
+document.querySelector("#userscript-grease menuitem")
   .addEventListener("click", rElement, false);
 
 var child_node = null;
@@ -38,7 +39,7 @@ function initMenu(aEvent) {
   // aEvent.target is the element you right click on
   child_node = aEvent.target;
   parent_node = child_node.parentNode;
-  var item = document.querySelector("#userscript-grease menuitem_elemr");
+  var item = document.querySelector("#userscript-grease menuitem");
   body.setAttribute("contextmenu", "userscript-grease");
 }
 
