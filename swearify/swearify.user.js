@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.buggerit.0.5.shamers.1449084681.15
+// @version     2.buggerit.0.5.shamers.1449084681.16
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -5047,6 +5047,113 @@ function greek_post() {
     }
   }
 }
+
+/////////////////////
+/////////////////////SMALL CAPS TEXT
+
+function smallcaps_() {
+  var old_msg = document.getElementById('message').value;
+  var new_msg = old_msg.replace(/\/smc /i, ''); //this is not necessary but the fucks i could give do not exist
+  new_msg = new_msg.replace(/a/gi, 'ᴀ');
+  new_msg = new_msg.replace(/b/gi, 'ʙ');
+  new_msg = new_msg.replace(/c/gi, 'ᴄ');
+  new_msg = new_msg.replace(/d/gi, 'ᴅ');
+  new_msg = new_msg.replace(/e/gi, 'ᴇ');
+  new_msg = new_msg.replace(/f/gi, 'ғ');
+  new_msg = new_msg.replace(/g/gi, 'ɢ');
+  new_msg = new_msg.replace(/h/gi, 'ʜ');
+  new_msg = new_msg.replace(/i/gi, 'ɪ');
+  new_msg = new_msg.replace(/j/gi, 'ᴊ');
+  new_msg = new_msg.replace(/k/gi, 'ᴋ');
+  new_msg = new_msg.replace(/l/gi, 'ʟ');
+  new_msg = new_msg.replace(/m/gi, 'ᴍ');
+  new_msg = new_msg.replace(/n/gi, 'ɴ');
+  new_msg = new_msg.replace(/o/gi, 'ᴏ');
+  new_msg = new_msg.replace(/p/gi, 'ᴘ');
+  new_msg = new_msg.replace(/q/gi, 'ǫ');
+  new_msg = new_msg.replace(/r/gi, 'ʀ');
+  new_msg = new_msg.replace(/s/gi, 's');
+  new_msg = new_msg.replace(/t/gi, 'ᴛ');
+  new_msg = new_msg.replace(/u/gi, 'ᴜ');
+  new_msg = new_msg.replace(/v/gi, 'ᴠ');
+  new_msg = new_msg.replace(/w/gi, 'ᴡ');
+  new_msg = new_msg.replace(/x/gi, 'x');
+  new_msg = new_msg.replace(/y/gi, 'ʏ');
+  new_msg = new_msg.replace(/z/gi, 'ᴢ');
+  document.getElementById('message').value = new_msg;
+}
+
+function inject_smallcaps() {
+  var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
+  var chil_where = where.children;
+  var the_body = document.createElement('td');
+  the_body.setAttribute('id', 'smallcaps_button');
+  the_body.setAttribute('class', 'fontbutton');
+  where.insertBefore(the_body, chil_where[0]);
+  where.getElementsByTagName('td')[0].innerHTML =
+    '<input name="smallcaps" id="format-smallcaps" class="format-message" type="checkbox"><label id="click_area_smallcaps" title="Small Caps" style="cursor:pointer;"><img src="https://i.imgur.com/gmvDgDv.jpg"></label>';
+  var what = document.getElementById('click_area_smallcaps');
+  var whot = document.getElementById('format-smallcaps');
+  if (getCookie('CB_smallcaps') === '1') whot.checked = true;
+  else whot.checked = false;
+  var clicked_css =
+    'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+  var not_clicked_css = '';
+  what.addEventListener('click', function() {
+    if (!whot.checked) {
+      whot.checked = true;
+      whot.style.cssText = clicked_css;
+      setCookie('CB_smallcaps', '1', 1);
+    } else {
+      whot.checked = false;
+      whot.style.cssText = not_clicked_css;
+      setCookie('CB_smallcaps', '0', 1);
+    }
+  });
+}
+
+function smallcaps_post() {
+  var old_msg = ''; // this may not be necessary i'm not 100% sure
+  if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
+  else old_msg = document.getElementsByTagName('textarea')[1].value;
+  var msg_ray = old_msg.split('\n');
+  for (var i = 0; i < msg_ray.length; i++) {
+    var index_num = old_msg.regexIndexOf(/\/smc /i);
+    if (index_num === 0) {
+      var new_msg = msg_ray[i].replace(/\/smc /i, '');
+      new_msg = new_msg.replace(/a/gi, 'ᴀ');
+      new_msg = new_msg.replace(/b/gi, 'ʙ');
+      new_msg = new_msg.replace(/c/gi, 'ᴄ');
+      new_msg = new_msg.replace(/d/gi, 'ᴅ');
+      new_msg = new_msg.replace(/e/gi, 'ᴇ');
+      new_msg = new_msg.replace(/f/gi, 'ғ');
+      new_msg = new_msg.replace(/g/gi, 'ɢ');
+      new_msg = new_msg.replace(/h/gi, 'ʜ');
+      new_msg = new_msg.replace(/i/gi, 'ɪ');
+      new_msg = new_msg.replace(/j/gi, 'ᴊ');
+      new_msg = new_msg.replace(/k/gi, 'ᴋ');
+      new_msg = new_msg.replace(/l/gi, 'ʟ');
+      new_msg = new_msg.replace(/m/gi, 'ᴍ');
+      new_msg = new_msg.replace(/n/gi, 'ɴ');
+      new_msg = new_msg.replace(/o/gi, 'ᴏ');
+      new_msg = new_msg.replace(/p/gi, 'ᴘ');
+      new_msg = new_msg.replace(/q/gi, 'ǫ');
+      new_msg = new_msg.replace(/r/gi, 'ʀ');
+      new_msg = new_msg.replace(/s/gi, 's');
+      new_msg = new_msg.replace(/t/gi, 'ᴛ');
+      new_msg = new_msg.replace(/u/gi, 'ᴜ');
+      new_msg = new_msg.replace(/v/gi, 'ᴠ');
+      new_msg = new_msg.replace(/w/gi, 'ᴡ');
+      new_msg = new_msg.replace(/x/gi, 'x');
+      new_msg = new_msg.replace(/y/gi, 'ʏ');
+      new_msg = new_msg.replace(/z/gi, 'ᴢ');
+      msg_ray[i] = new_msg;
+      if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
+        msg_ray.join('<br />');
+      else document.getElementsByTagName('textarea')[1].value = msg_ray.join('<br />');
+    }
+  }
+}
 //////////////////////
 /////////////////////MORSE CODE
 
@@ -5690,6 +5797,7 @@ window.addEventListener('load', function() { /* shit goes down in here */
       inject_rainbow();
       inject_random();
       inject_greek();
+      inject_smallcaps();
       inject_braille();
       inject_balloon();
       inject_leet();
@@ -5757,6 +5865,7 @@ function run_() {
   if (getCookie('CB_balloon') === '1') balloon_();
   if (getCookie('CB_leet') === '1') leet_();
   if (getCookie('CB_morse') === '1') morse_();
+  if (getCookie('CB_smallcaps') === '1') smallcaps_();
   js_();
   vbs_();
   java_();
@@ -5764,6 +5873,7 @@ function run_() {
 
 
 function run_post() {
+  smallcaps_post();
   sekrit_post();
   morse_post();
   greek_post();
