@@ -26,7 +26,7 @@ menuitem.icon = "http://i.imgur.com/IeWWYDw.png";
 menu.appendChild(menuitem);
 body.appendChild(menu);
 
-document.querySelector("#userscript-grease menuitem")
+document.querySelector("#userscript-grease #menu_elemr")
   .addEventListener("click", rElement, false);
 
 var child_node = null;
@@ -40,7 +40,7 @@ function initMenu(aEvent) {
   body.setAttribute("contextmenu", "userscript-grease");
   child_node = aEvent.target;
   parent_node = child_node.parentNode;
-  var item = document.querySelector("#userscript-grease menuitem");
+  var item = document.querySelector("#userscript-grease #menu_elemr");
 }
 
 function rElement(aEvent) {
