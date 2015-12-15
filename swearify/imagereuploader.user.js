@@ -13,10 +13,12 @@
 var body = document.body;
 body.addEventListener("contextmenu", initMenu, false);
 
-var menu = document.createElement("menu");
-menu.id = "userscript-search-by-image";
-menu.type = "context";
-var menuitem = document.createElement("menuitem");
+if(document.getElementsByTagName("menu") === null){
+  var menu = document.createElement("menu");
+}else{
+  menu = document.getElementsByTagName("menu")[0];
+}
+var menuitem = document.createElement("menuitem_imgre");
 menuitem.label = "Resize and Upload";
 /*jshint multistr: true */
 menuitem.icon = "http://i.imgur.com/F2wghzO.png";
@@ -24,16 +26,16 @@ menuitem.icon = "http://i.imgur.com/F2wghzO.png";
 menu.appendChild(menuitem);
 body.appendChild(menu);
 
-document.querySelector("#userscript-search-by-image menuitem")
+document.querySelector("#userscript-grease menuitem_imgre")
   .addEventListener("click", uploadImage, false);
 
 function initMenu(aEvent) {
   // Executed when user right click on web page body
   // aEvent.target is the element you right click on
   var node = aEvent.target;
-  var item = document.querySelector("#userscript-search-by-image menuitem");
+  var item = document.querySelector("#userscript-grease menuitem_imgre");
   if (node.localName == "img") {
-    body.setAttribute("contextmenu", "userscript-search-by-image");
+    body.setAttribute("contextmenu", "userscript-grease");
     item.setAttribute("imageURL", node.src);
   }
 }

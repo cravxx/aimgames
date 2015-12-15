@@ -12,16 +12,18 @@
 var body = document.body;
 body.addEventListener("contextmenu", initMenu, false);
 
-var menu = document.createElement("menu");
-menu.id = "userscript-remove-element";
-menu.type = "context";
-var menuitem = document.createElement("menuitem");
+if(document.getElementsByTagName("menu") === null){
+  var menu = document.createElement("menu");
+}else{
+  menu = document.getElementsByTagName("menu")[0];
+}
+var menuitem = document.createElement("menuitem_elemr");
 menuitem.label = "Remove Element";
 menuitem.icon = "http://i.imgur.com/IeWWYDw.png";
 menu.appendChild(menuitem);
 body.appendChild(menu);
 
-document.querySelector("#userscript-remove-element menuitem")
+document.querySelector("#userscript-grease menuitem_elemr")
   .addEventListener("click", rElement, false);
 
 var child_node = null;
@@ -34,8 +36,8 @@ function initMenu(aEvent) {
   // aEvent.target is the element you right click on
   child_node = aEvent.target;
   parent_node = child_node.parentNode;
-  var item = document.querySelector("#userscript-remove-element menuitem");
-  body.setAttribute("contextmenu", "userscript-remove-element");
+  var item = document.querySelector("#userscript-grease menuitem_elemr");
+  body.setAttribute("contextmenu", "userscript-grease");
 }
 
 function rElement(aEvent) {
