@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Element Remover
 // @namespace   samsquanchhunter
-// @version     0.0.1
+// @version     0.0.2
 // @include     http://*
 // @include     https://*
 // @grant       none
@@ -24,7 +24,6 @@ body.appendChild(menu);
 document.querySelector("#userscript-remove-element menuitem")
   .addEventListener("click", rElement, false);
 
-
 var child_node = null;
 var parent_node = null;
 
@@ -39,18 +38,14 @@ function initMenu(aEvent) {
   body.setAttribute("contextmenu", "userscript-remove-element");
 }
 
-var fragment = document.createDocumentFragment();
-
 function rElement(aEvent) {
   // Executed when user click on menuitem
   // aEvent.target is the <menuitem> element
-  //console.log(child_node + " " + parent_node);
   addElement(child_node);
 }
 
 function addElement(elem) {
   running_array.push(elem);
-  //console.log(running_array.length);
 }
 
 window.addEventListener('load', function() { /* shit goes down in here */
@@ -60,6 +55,5 @@ window.addEventListener('load', function() { /* shit goes down in here */
        var p_node = c_node.parentNode;
        p_node.removeChild(c_node);
      }
-     //console.log(running_array.length);
   }, 1000);
 }, false);
