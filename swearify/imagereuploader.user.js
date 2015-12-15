@@ -13,7 +13,7 @@
 var body = document.body;
 body.addEventListener("contextmenu", initMenu, false);
 
-if(document.getElementsByTagName("menu") === null){
+if(document.getElementsByTagName("menu").length === 0){
   var menu = document.createElement("menu");
 }else{
   menu = document.getElementsByTagName("menu")[0];
