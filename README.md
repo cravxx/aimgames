@@ -1,4 +1,4 @@
-# Scripts for AIM Games [![Travis Build Status](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames) [![Latest Release Version](https://img.shields.io/github/release/ParticleCore/Particle.svg)](https://github.com/ParticleCore/Particle/releases/latest)
+# Scripts for AIM Games [![Travis Build Status](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames) [![Latest Release Version](https://img.shields.io/github/release/HulaSamsquanch/aimgames.svg)](https://github.com/HulaSamsquanch/aimgames/releases/latest)
 [![Github Issues](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/issues.svg)](https://github.com/HulaSamsquanch/aimgames/issues) [![Pending Pull Requests](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/pulls.svg)](https://github.com/HulaSamsquanch/aimgames/pulls)
 [![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
