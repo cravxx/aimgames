@@ -29,11 +29,6 @@ body.appendChild(menu);
 document.querySelector("#userscript-grease #menu_elemr")
   .addEventListener("click", rElement, false);
 
-var child_node = null;
-var parent_node = null;
-
-var running_array = [];
-
 function initMenu(aEvent) {
   // Executed when user right click on web page body
   // aEvent.target is the element you right click on
@@ -46,19 +41,31 @@ function initMenu(aEvent) {
 function rElement(aEvent) {
   // Executed when user click on menuitem
   // aEvent.target is the <menuitem> element
+  console.log(child_node);
   addElement(child_node);
 }
 
-function addElement(elem) {
-  running_array.push(elem);
+var running_array;
+
+var child_node, parent_node;
+
+if(running_array === undefined){
+  running_array = [];
 }
 
+
+function addElement(elem) {
+  running_array.push.apply(running_array, [elem]);
+  //running_array.push(elem);
+}
 window.addEventListener('load', function() { /* shit goes down in here */
    setInterval(function(){
-     for(var t = 0; t < running_array.length; t++){
-       var c_node = running_array[t];
-       var p_node = c_node.parentNode;
-       p_node.removeChild(c_node);
-     }
-  }, 1000);
+    for(var t = 0; t < (running_array.length - 1); t++){
+      var c_node = running_array[t];
+      var p_node = c_node.parentNode;
+      p_node.removeChild(c_node);
+    }
+    console.log(running_array);
+}, 1000);
+
 }, false);
