@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.buggerit.0.5.shamers.1449084681.16
+// @version     2.buggerit.0.5.shamers.1449084681.17
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -5573,7 +5573,7 @@ function vbs_post() {
 ////////////////////
 /////////////////////MANAGES THE EDITING OF CSS
 
-var num_buttons = 8; ///
+var num_buttons = 9; ///
 function edit_css() {
   document.getElementById('chatbox_messenger_form').getElementsByTagName('label')[4 + num_buttons].style.cssText = cssMsg;
   // / CSS for label that says "Message:" .. +1 for every new button
