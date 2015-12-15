@@ -3,7 +3,7 @@
 [![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 _For the end user..._  
-[![Firefox 38+ Supported](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/) [![Greasemonkey 3.0+ Support](https://img.shields.io/badge/Greasemonkey-3.0%2B-yellow.svg)](http://www.greasespot.net/)
+[![Firefox 38+ Supported](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/) [![Greasemonkey 3.0+ Support](https://img.shields.io/badge/greasemonkey-3.0%2B-yellow.svg)](http://www.greasespot.net/)
 
 _For compilation..._  
 [![Oracle Java JDK 8+ Required and Supported](https://img.shields.io/badge/java-JDK_8-ff69b4.svg)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
