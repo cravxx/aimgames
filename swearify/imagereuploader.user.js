@@ -37,10 +37,10 @@ function initMenu(aEvent) {
   var node = aEvent.target;
   var item = document.querySelector("#userscript-grease #menu_imgre");
   if (node.localName == "img") {
-    item.setAttribute("disabled", "false");
+    item.disabled = false;
     item.setAttribute("imageURL", node.src);
   }else{
-    item.setAttribute("disabled", "true");
+    item.disabled = true;
   }
 }
 
