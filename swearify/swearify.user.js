@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.buggerit.0.5.shamers.1449084681.14
+// @version     2.buggerit.0.5.shamers.1449084681.15
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -3789,9 +3789,13 @@ var maymay = {
     '[img]http://i.imgur.com/cAxpwdm.gif[/img]'
   ],
   square: [
-      'Square',
-      '□'
-    ]
+    'Square',
+    '□'
+  ],
+  mindlessretard: [
+    ':mindlessretard:',
+    'ຈل͜ຈ ɪ ᴄᴛʀʟ ᴠ ᴛʜɪɴɢs ɪɴᴛᴏ ᴄʜᴀᴛ ʙᴇᴄᴀᴜsᴇ ɪ ᴀᴍ ᴀ ᴍɪɴᴅʟᴇss ʀᴇᴛᴀʀᴅ ຈل͜ຈ'
+  ]
     /*,
         tbh: [
           'tbh',
@@ -4213,7 +4217,8 @@ var replacements = {
   'sneak': 'rape',
   '7': '666',
   'double': 'dubs',
-  'triple': 'trips'
+  'triple': 'trips',
+  'told': 'milfd'
 };
 ///////EXTRA FILTERING CODE
 var spec_code = [
