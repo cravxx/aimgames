@@ -18,5 +18,6 @@
   },
   "scripts": {
     "test": "grunt bleedTheFreak"
-  }
+  },
+  "droneVersion": "1.portal.10.1.mechanochemical.1450552871.7"
 }
