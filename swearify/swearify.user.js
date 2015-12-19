@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.portal.10.1.mechanochemical.1450552871.8
+// @version     1.portal.10.1.mechanochemical.1450552871.9
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -118,7 +118,7 @@ var facts = [
   'Fact not found.',
   'Warning, sphere corruption at twenty-- rats cannot throw up.',
   //random facts
-  'Gandhi was extremely racist towards africans and even lobbied for segregated entrances to public buildings.',
+    'Gandhi was extremely racist towards africans and even lobbied for segregated entrances to public buildings.',
   'British people say \"Happy Christmas\" because in the 19th century the word \"merry\" also meant \"intoxicated\" so they wanted to separate it from public insobriety.',
   'Drinking caffeine in the evening delays our brain\'s release of melatonin and interrupts our circadian rhythm by as much as 40 minutes.',
   'The man most responsible for the Rwandan Genocide was only sentenced to 35 years in prison.',
@@ -256,7 +256,7 @@ var facts = [
   '29th May is officially \"Put a Pillow on Your Fridge Day\".',
   'Cherophobia is the fear of fun.',
   'Human saliva has a boiling point three times that of regular water.',
-  'If you lift a kangaroo\"s tail off the ground it can\"t hop.',
+  'If you lift a kangaroo\'s tail off the ground it can\'t hop.',
   'Hyphephilia are people who get aroused by touching fabrics.',
   'Billy goats urinate on their own heads to smell more attractive to females.',
   'The person who invented the Frisbee was cremated and made into frisbees after he died.',
@@ -268,7 +268,7 @@ var facts = [
   'If Pinokio says \"My Nose Will Grow Now\", it would cause a paradox.',
   'Heart attacks are more likely to happen on a Monday.',
   'If you consistently fart for 6 years & 9 months, enough gas is produced to create the energy of an atomic bomb.',
-  'An average person\"s yearly fast food intake will contain 12 pubic hairs.',
+  'An average person\'s yearly fast food intake will contain 12 pubic hairs.',
   'The top six foods that make your fart are beans, corn, bell peppers, cauliflower, cabbage and milk.',
   'There is a species of spider called the Hobo Spider.',
   'All the swans in England are property of the Queen.',
@@ -289,16 +289,16 @@ var facts = [
   'In the Arctic, the sun sometimes appears to be square.',
   'Non-dairy creamer is flammable.',
   'Stewardesses is the longest word typed with only the left hand.',
-  'Camel\"s have three eyelids.',
+  'Camels have three eyelids.',
   'The average person laughs 10 times a day.',
   'A healthy (non-colorblind) human eye can distinguish between 500 shades of gray.',
   'A syzygy occurs when three atronomical bodies line up.',
   'Shakespeare invented the word \"assassination\" and \"bump.\"',
   'Your heart beats over 100,000 times a day.',
   'The Beetham Tower has 47 floors.',
-  'A duck\"s quack doesn\"t echo, and no one knows why.',
+  'A duck\'s quack doesn\'t echo, and no one knows why.',
   'Elwood Edwards did the voice for the AOL sound files (i.e. \"You\'ve got Mail.\").',
-  'Americans are responsible for about 1/5 of the world\"s garbage annually.',
+  'Americans are responsible for about 1/5 of the world\'s garbage annually.',
   'Lizards can self-amputate their tails for protection. It grows back after a few months.',
   'The most frequently named bugs from the Bible are: Locust: 24, Moth: 11, Grasshopper: 10, Scorpion: 10, Caterpillar: 9, and Bee: 4.',
   'Our eyes are always the same size from birth, but our nose and ears never stop growing.',
@@ -420,7 +420,7 @@ var facts = [
   'Elephants have the longest pregnancy in the animal kingdom at 22 months. The longest human pregnancy on record is 17 months, 11 days.',
   'California consumes more bottled water than any other product.',
   'In 1936, American track star Jesse Owens beat a race horse over a 100-yard course. The horse was given a head start.',
-  //EVADE.
+  //SWERVE.
   'I place the good of the Vault above everything, even my own paternal feelings. We must not allow sentiment to cloud our judgment! But I admire your protective instincts. Very well. I give you my word that Amata will not suffer further because of your actions. Now then. If you really care about Amata, you will see how dangerous your father\'s actions were. Hand over your weapons, and put an end to this dangerous situation. There\'s no need to join your father as a traitor to the Vault.',
   'And you expect me to believe that the only way to do that is to let them travel out in the Wastes and mingle with those savages? I suppose it would allow them to stay alive, and we could still keep the Vault as our safe haven. But it\'d require a new type of leader. And I know only one person with the proper attitude to do that. I\'ll inform my daughter Amata that she is the new Overseer, effective immediately.',
   'Really? And here I had expected you to be full of bullets and bravado, but short on brains. Perhaps you\'ve grown up since you left our Vault. I regret the unfortunate events of that night, but I\'m afraid that once your father left us, they were unavoidable. The sad truth is that his actions presented a real and direct threat to the future success of our Vault. And so, regrettably, they had to be opposed.',
