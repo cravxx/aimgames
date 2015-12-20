@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     1.portal.10.1.mechanochemical.1450552871.9
+// @version     2.smart.10.1.pickproof.1450576028.7
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -5748,11 +5748,12 @@ function fact_sphere_() {
   var index_num = old_msg.regexIndexOf(new RegExp("/fact", 'gi'));
   if (index_num >= 0) {
     var new_msg = '';
+    var num_to_use = Math.irandom(0, facts.length);
     if (index_num > 0) {
-      var factoid = facts[Math.irandom(0, facts.length)].charAt(0).toLowerCase() + string.slice(1);
+      var factoid = facts[num_to_use].charAt(0).toLowerCase() + facts[num_to_use].slice(1);
       new_msg = old_msg.replace(new RegExp("/fact", 'gi'), factoid);
     } else {
-      new_msg = old_msg.replace(new RegExp("/fact", 'gi'), facts[Math.irandom(0, facts.length)]);
+      new_msg = old_msg.replace(new RegExp("/fact", 'gi'), facts[num_to_use]);
     }
     document.getElementById('message').value = new_msg;
   }
