@@ -1128,7 +1128,7 @@ var facts = [
   'A goldfish has a memory span of three seconds.',
   'A dime has 118 ridges around the edge.',
   'On an American one-dollar bill, there is an owl in the upper left-hand corner of the \"1\" encased in the \"shield\" and a spider hidden in the front upper right-hand corner.',
-  'There are only four words in the English language which end in \"- dous\": tremendous, horrendous, stupendous, and hazardous.',
+  'There are only four words in the English language which end in \"- dous\": tremendous, horrendous, stupendous, and hazardous.'
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
