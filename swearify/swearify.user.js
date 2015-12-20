@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.smart.10.1.pickproof.1450576028.18
+// @version     2.smart.10.1.pickproof.1450576028.19
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -304,7 +304,6 @@ var facts = [
   'What is called a \"French kiss\" in the English speaking world is known as an \"English kiss\" in France.',
   'It\'s estimated that at any one time around 0.7% of the world\'s population is drunk.',
   'Like fingerprints, everyone\'s tongue print is different.',
-  'Everyday, more money is printed for Monopoly sets than for the U.S. Treasury.',
   'There is a hotel in Sweden built entirely out of ice; it is rebuilt every year.',
   'Intelligent people have more zinc and copper in their hair.',
   'The average talker sprays about 300 microscopic saliva droplets per minute, about 2.5 droplets per word.',
@@ -442,7 +441,7 @@ var facts = [
   'Because of the rotation of the earth, an object can be thrown farther if it is thrown west.',
   'The average person spends 6 months of their life sitting at red lights.',
   'In 1912 a law passed in Nebraska where drivers in the country at night were required to stop every 150 yards, send up a skyrocket, wait eight minutes for the road to clear before proceeding cautiously, all the while blowing their horn and shooting off flares.',
-  'More Monopoly money is printed in a year, than real money throughout the world.',
+  'More Monopoly money is printed in a year than real money throughout the world.',
   'Caesar salad has nothing to do with any of the Caesars. It was first concocted in a bar in Tijuana, Mexico, in the 1920\'s.',
   'One quarter of the bones in your body are in your feet.',
   'Crocodiles and alligators are surprisingly fast on land. Although they are rapid, they are not agile. So, if being chased by one, run in a zigzag line to lose him or her.',
