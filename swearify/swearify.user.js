@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.smart.10.1.pickproof.1450576028.15
+// @version     2.smart.10.1.pickproof.1450576028.16
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -851,7 +851,6 @@ var facts = [
   'In ancient Egypt, priests plucked EVERY hair from their bodies, including their eyebrows and eyelashes.',
   'TYPEWRITER is the longest word that can be made using the letters only on one row of the keyboard.',
   '\"Go.\" is the shortest complete sentence in the English language.',
-  'If Barbie were life-size, her measurements would be 39-23-33. She would stand seven feet, two inches tall.',
   'The original story from \"Tales of 1001 Arabian Nights\" begins, \"Aladdin was a little Chinese boy.\"',
   'Honey is the only natural food that is made without destroying any kind of life. What about milk you say?',
   'No word in the English language rhymes with \"MONTH\".',
