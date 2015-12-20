@@ -5743,14 +5743,17 @@ function sekrit_post() {
 
 /////////////////////
 ///////////////////// FACT SPHERE IS A GOOD FRIEND
-
 function fact_sphere_() {
   var old_msg = document.getElementById('message').value;
   var index_num = old_msg.regexIndexOf(new RegExp("/fact", 'gi'));
-  console.log(index_num + "  " + facts[Math.irandom(0, facts.length)]);
   if (index_num >= 0) {
-    var new_msg = old_msg.replace(new RegExp("/fact", 'gi'), facts[Math.irandom(0, facts.length)]);
-    console.log(new_msg);
+    var new_msg = '';
+    if (index_num > 0) {
+      var factoid = facts[Math.irandom(0, facts.length)].charAt(0).toLowerCase() + string.slice(1);
+      new_msg = old_msg.replace(new RegExp("/fact", 'gi'), factoid);
+    } else {
+      new_msg = old_msg.replace(new RegExp("/fact", 'gi'), facts[Math.irandom(0, facts.length)]);
+    }
     document.getElementById('message').value = new_msg;
   }
 }
