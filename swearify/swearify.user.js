@@ -117,8 +117,8 @@ var facts = [
   'Error. Error. Error. Fact not found.',
   'Fact not found.',
   'Warning, sphere corruption at twenty-- rats cannot throw up.',
-  //random facts
-    'Gandhi was extremely racist towards africans and even lobbied for segregated entrances to public buildings.',
+   //random facts
+  'Gandhi was extremely racist towards africans and even lobbied for segregated entrances to public buildings.',
   'British people say \"Happy Christmas\" because in the 19th century the word \"merry\" also meant \"intoxicated\" so they wanted to separate it from public insobriety.',
   'Drinking caffeine in the evening delays our brain\'s release of melatonin and interrupts our circadian rhythm by as much as 40 minutes.',
   'The man most responsible for the Rwandan Genocide was only sentenced to 35 years in prison.',
@@ -410,17 +410,17 @@ var facts = [
   'Elephants have the longest pregnancy in the animal kingdom at 22 months. The longest human pregnancy on record is 17 months, 11 days.',
   'California consumes more bottled water than any other product.',
   'In 1936, American track star Jesse Owens beat a race horse over a 100-yard course. The horse was given a head start.',
-  //SWERVE.
+   //SWERVE.
   'I place the good of the Vault above everything, even my own paternal feelings. We must not allow sentiment to cloud our judgment! But I admire your protective instincts. Very well. I give you my word that Amata will not suffer further because of your actions. Now then. If you really care about Amata, you will see how dangerous your father\'s actions were. Hand over your weapons, and put an end to this dangerous situation. There\'s no need to join your father as a traitor to the Vault.',
   'And you expect me to believe that the only way to do that is to let them travel out in the Wastes and mingle with those savages? I suppose it would allow them to stay alive, and we could still keep the Vault as our safe haven. But it\'d require a new type of leader. And I know only one person with the proper attitude to do that. I\'ll inform my daughter Amata that she is the new Overseer, effective immediately.',
   'Really? And here I had expected you to be full of bullets and bravado, but short on brains. Perhaps you\'ve grown up since you left our Vault. I regret the unfortunate events of that night, but I\'m afraid that once your father left us, they were unavoidable. The sad truth is that his actions presented a real and direct threat to the future success of our Vault. And so, regrettably, they had to be opposed.',
   'And what makes you so certain about that? I can\'t imagine you\'re still so naive after spending time in that hell outside. None of them know what the outside is like, and most of them would die out there. Then the rest of us inside would eventually die out, too. I won\'t risk all of our lives just for few people\'s passing fancy of taking a Wasteland vacation. I hope you can understand that.',
-  //DEFLECT.
+   //DEFLECT.
   'The Unity will bring about the master race. Master! Master! One able to survive, or even thrive, in the wasteland. As long as there are differences, we will tear ourselves apart! fighting each other. We need one race. Race! Race! One goal! Goal! Goal! One people... to move forward to our destiny. Destiny.',
   'We are all biased, are we not? We each care more about our individual communities than other people. We haven\'t changed. And I\'ll tell you something else... We won\'t change. Not unless we are of one people. One. One! One. One race. One. One! One. The Unity will allow us to move beyond these petty concerns, and deal with the major problems at hand. You do want to be a part of that, don\'t you? Part. Don\'t!',
   'You think you can destroy me?! Destroy! Me?',
   'So what shall it be. Do you join the unity? Or do you die here? Join! Die! Join! Die!',
-  // random shit pt1
+   // random shit pt1
   'Most American car horns honk in the key of F.',
   'The name Wendy was made up for the book \"Peter Pan.\"',
   'Barbie\'s full name is Barbara Millicent Roberts.',
@@ -428,7 +428,7 @@ var facts = [
   'Studies show that if a cat falls off the seventh floor of a building it has about thirty percent less chance of surviving than a cat that falls off the twentieth floor. It supposedly takes about eight floors for the cat to realize what is occurring, relax and correct itself.',
   'Your stomach has to produce a new layer of mucus every 2 weeks otherwise it will digest itself.',
   'The citrus soda 7-UP was created in 1929; \'7\' was selected after the original 7-ounce containers and \'UP\' for the direction of the bubbles.',
-  '101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents are present and don\'t die throughout the movie.  .',
+  '101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents are present and don\'t die throughout the movie. .',
   'To escape the grip of a crocodile\'s jaws, push your thumbs into its eyeballs - it will let you go instantly.',
   'Reindeer like to eat bananas.',
   'No word in the English language rhymes with month, orange, silver and purple.',
@@ -459,7 +459,7 @@ var facts = [
   'Most collect calls are made on father\'s day.',
   'The first automobile race ever seen in the United States was held in Chicago in 1895. The track ran from Chicago to Evanston, Illinois. The winner was J. Frank Duryea, whose average speed was 71/2 miles per hour.',
   'Each of us generates about 3.5 pounds of rubbish a day, most of it paper.',
-  'Women manage the money and pay the bills in  75% of all Americans households.',
+  'Women manage the money and pay the bills in 75% of all Americans households.',
   'A rainbow can be seen only in the morning or late afternoon. It can occur only when the sun is 40 degrees or less above the horizon.',
   'It has NEVER rained in Calama, a town in the Atacama Desert of Chile.',
   'It costs more to buy a new car today in the United States than it cost Christopher Columbus to equip and undertake three voyages to and from the New World.',
@@ -509,7 +509,7 @@ var facts = [
   'A Boeing 747\'s wingspan is longer than the Wright brother\'s first flight.',
   'American Airlines saved $40,000 in 1987 by eliminating one olive from each salad served in first-class. [link]',
   'Average life span of a major league baseball: 7 pitches.',
-  'A palindrome is a sentence or group of sentences that reads the same backwards as it does forward: Ex:  \'Red rum, sir, is murder.\' \'Ma is as selfless as I am.\' \'Nurse, I spy gypsies. Run.\'  \'A man, a plan, a canal - Panama.\' \'He lived as a devil, eh?\'',
+  'A palindrome is a sentence or group of sentences that reads the same backwards as it does forward: Ex: \'Red rum, sir, is murder.\' \'Ma is as selfless as I am.\' \'Nurse, I spy gypsies. Run.\' \'A man, a plan, a canal - Panama.\' \'He lived as a devil, eh?\'',
   'The first CD pressed in the US was Bruce Springsteen\'s \'Born in the USA\'',
   'In 1986 Congress & President Ronald Reagan signed Public Law 99-359, which changed Daylight Saving Time from the last Sunday in April to the first Sunday in April. It was estimated to save the nation about 300,000 barrels of oil each year by adding most of the month April to D.S.T.',
   'The thumbnail grows the slowest, the middle nail the fastest, nearly 4 times faster than toenails.',
@@ -836,10 +836,10 @@ var facts = [
   'There are 1,792 steps in the Eiffel Tower.',
   'There are 269 steps to the top of the Leaning Tower of Pisa.',
   'Leonardo da Vinci could write with one hand while drawing with the other.',
-  // weird shit
+   // weird shit
   'Happy birthday.',
   'I can\'t believe we\'re down by five.',
-  // random shit pt2 (loads of dupes ughhh)
+   // random shit pt2 (loads of dupes ughhh)
   'In 10 minutes, a hurricane releases more energy than all the world\'s nuclear weapons combined.',
   'On average, 100 people choke to death on ballpoint pens every year.',
   'On average people fear spiders more than they do death.',
@@ -925,7 +925,7 @@ var facts = [
   'The glue on Israeli postage stamps is certified kosher.',
   'The Guinness Book of Records holds the record for being the book most often stolen from public libraries.',
   'Astronauts are not allowed to eat beans before they go into space because passing wind in a space suit damages them.',
-  // random shit pt3
+   // random shit pt3
   '111,111,111 x 111,111,111 = 12,345,678,987,654,321.',
   'The phrase \"rule of thumb\" is derived from and old English law which stated that you couldn\'t beat your wife with anything wider than your thumb.',
   'The average chocolate bar has 8 insects\' legs in it.',
@@ -1761,7 +1761,7 @@ var facts = [
   'Sound travels up to 15 times faster through steel than air, at speeds up to 19,000 feet per second.',
   'Humans share 50% of their DNA with bananas.',
   'Maine is the closest U.S. state to Africa.',
-  'An octopus has three hearts. ',
+  'An octopus has three hearts.',
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
