@@ -428,7 +428,7 @@ var facts = [
   'Studies show that if a cat falls off the seventh floor of a building it has about thirty percent less chance of surviving than a cat that falls off the twentieth floor. It supposedly takes about eight floors for the cat to realize what is occurring, relax and correct itself.',
   'Your stomach has to produce a new layer of mucus every 2 weeks otherwise it will digest itself.',
   'The citrus soda 7-UP was created in 1929; \'7\' was selected after the original 7-ounce containers and \'UP\' for the direction of the bubbles.',
-  '101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents are present and don\'t die throughout the movie. .',
+  '101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents are present and don\'t die throughout the movie.',
   'To escape the grip of a crocodile\'s jaws, push your thumbs into its eyeballs - it will let you go instantly.',
   'Reindeer like to eat bananas.',
   'No word in the English language rhymes with month, orange, silver and purple.',
