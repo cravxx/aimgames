@@ -389,7 +389,6 @@ var facts = [
   'On average, 2 newborns will be given to the wrong parents every day.',
   'In the U.S, Frisbees outsell footballs, baseballs and basketballs combined.',
   'The human body is comprised of 80% water.',
-  'It is believed that Leonardo Da Vinci invented the scissors.',
   'Despite a population of over a billion, China has only about 200 family names.',
   'Buckingham Palace has 602 rooms.',
   'Beethoven dipped his head in cold water before he composed.',
@@ -843,7 +842,7 @@ var facts = [
   'Happy birthday.',
   'I can\'t believe we\'re down by five.',
   // random shit pt2 (loads of dupes ughhh)
-    'In 10 minutes, a hurricane releases more energy than all the world\'s nuclear weapons combined.',
+  'In 10 minutes, a hurricane releases more energy than all the world\'s nuclear weapons combined.',
   'On average, 100 people choke to death on ballpoint pens every year.',
   'On average people fear spiders more than they do death.',
   'Ninety percent of New York City cabbies are recently arrived immigrants.',
@@ -932,7 +931,7 @@ var facts = [
   'The Guinness Book of Records holds the record for being the book most often stolen from public libraries.',
   'Astronauts are not allowed to eat beans before they go into space because passing wind in a space suit damages them.',
   // random shit pt3
-    '111,111,111 x 111,111,111 = 12,345,678,987,654,321.',
+  '111,111,111 x 111,111,111 = 12,345,678,987,654,321.',
   'The phrase \"rule of thumb\" is derived from and old English law which stated that you couldn\'t beat your wife with anything wider than your thumb.',
   'The average chocolate bar has 8 insects\' legs in it.',
   'The average human eats 8 spiders in their lifetime at night.',
