@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.smart.10.1.pickproof.1450576028.19
+// @version     2.smart.10.1.pickproof.1450576028.20
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -311,7 +311,6 @@ var facts = [
   'Every year 11,000 Americans injure themselves while trying out bizarre sexual positions.',
   'If we had the same mortality rate now as in 1900, more than half the people in the world today would not be alive.',
   'On average, Americans eat 18 acres of pizza everyday.',
-  'The Romans used to make toothpaste from urine.',
   'Catfish are the only animals that naturally have an odd number of whiskers.',
   'Your ribs move about 5 million times a year, everytime you breathe.',
   'Nutmeg is extremely poisonous if injected intravenously',
@@ -797,7 +796,7 @@ var facts = [
   '100% of lottery winners do gain weight.',
   'Bullet proof vests, fire escapes, windshield wipers, and laser printers were all invented by women.',
   'A cat has 32 muscles in each ear.',
-  'Cats urine glows under a black light.',
+  'A cat\'s urine glows under a black light.',
   'In every episode of Seinfeld there is a Superman somewhere.',
   'Lorne Greene had one of his nipples bitten off by an alligator while he was host of \"Lorne Greene\'s Wild Kingdom.\"',
   'Pamela Anderson Lee is Canada\'s Centennial Baby, being the first baby born on the centennial anniversary of Canada\'s independence.',
@@ -886,7 +885,6 @@ var facts = [
   'Butterflies taste with their feet.',
   'The strongest muscle in the body is the tongue.',
   'Elephants are the only animal that cannot jump.',
-  'A cat\'s urine glows under a black light.',
   'Polar bears are left-handed.',
   'Humans and dolphins are the only species that have sex for pleasure.',
   'The shark is the only fish that can blink with both eyes.',
@@ -950,7 +948,6 @@ var facts = [
   'The longest word in the English language is 1909 letters long and it refers to a distinct part of DNA.',
   'Americans on the average eat 18 acres of pizza every day.',
   'You know that you are more likely to be killed by a champagne cork than by a poisonous spider.',
-  'Cat\'s urine glows under a black light.',
   'Babies are born without knee caps. They don\'t appear until the child reaches 2-6 years of age.',
   'One of the reasons marijuana is illegal today is because cotton growers in the 30s lobbied against hemp farmers-they saw it as competition.',
   'Cats have over one hundred vocal sounds, dogs only have about ten.',
@@ -1235,7 +1232,6 @@ var facts = [
   'David Rice Atchison was President of the United States for only one day.',
   'The sail fish has been clocked at speeds of over 60 miles per hour.',
   'The Library of Congress has 600 miles of shelves.',
-  'Pennsylvania is misspelled on the Liberty Bell, because that is how they spelled it in the 18th century.',
   'William Shakespeare was born and died on the same day: April 23.',
   'Ketchup was once sold as a medicine.',
   'Napoleon suffered from a fear of cats.',
