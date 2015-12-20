@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.smart.10.1.pickproof.1450576028.17
+// @version     2.smart.10.1.pickproof.1450576028.18
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -555,7 +555,7 @@ var facts = [
   'The Pentagon, in Arlington, Virginia, has twice as many bathrooms as is necessary, because when it was built in the 1940s, the state of Virginia still had segregation laws requiring separate toilet facilities for blacks and whites.',
   'The cruise liner, Queen Elizabeth II, moves only six inches for each gallon of diesel that it burns.',
   'If you have three quarters, four dimes, and four pennies, you have $1.19, the largest amount of money in coins without being able to make change for a dollar.',
-  'In Aspen Colorado, you can have a maximum income of $104,000 and still receive government subsidized housing.',
+  'In Aspen, Colorado, you can have a maximum income of $104,000 and still receive government subsidized housing.',
   'Honking of car horns for a couple that just got married is an old superstition to insure great sex.',
   'Dr. Kellogg introduced Kellogg\'s Corn Flakes in hopes that it would reduce masturbation. [link]',
   'The sperm of a mouse is actually longer than the sperm of an elephant.',
