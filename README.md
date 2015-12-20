@@ -14,11 +14,10 @@ View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more infor
 Successfully tested and working under Unix and Windows.
 
 1. Install the lastest version of the [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-2. Add Java to PATH ([windows tutorial](http://www.kingluddite.com/tools/how-do-i-add-java-to-my-windows-path), [other OSes](https://www.java.com/en/download/help/path.xml)).
-3. Navigate to the `build/` folder.
-4. Modify the `instructions.txt` file as you wish.
-5. Run `java -jar build.jar` or double-click the build.jar file.
-6. Your compiled file should be available in the `bin/` folder.
+1. Add Java to PATH ([windows tutorial](http://www.kingluddite.com/tools/how-do-i-add-java-to-my-windows-path), [other OSes](https://www.java.com/en/download/help/path.xml)).
+1. Modify the `instructions.txt` file as you wish.
+1. Run `build.sh` (Unix) or `build.bat` (Windows)
+1. Your compiled file(s) should be available in the `bin/` folder.
 
 ### `instructions.txt` Syntax
 `linesToKeep [number]`  
