@@ -286,7 +286,6 @@ var facts = [
   'On a Canadian two-dollar bill, the American flag is flying over the Parliament Building.',
   'In the Arctic, the sun sometimes appears to be square.',
   'Non-dairy creamer is flammable.',
-  'Stewardesses is the longest word typed with only the left hand.',
   'Camels have three eyelids.',
   'The average person laughs 10 times a day.',
   'A healthy (non-colorblind) human eye can distinguish between 500 shades of gray.',
@@ -432,8 +431,6 @@ var facts = [
   'Your stomach has to produce a new layer of mucus every 2 weeks otherwise it will digest itself.',
   'The citrus soda 7-UP was created in 1929; \'7\' was selected after the original 7-ounce containers and \'UP\' for the direction of the bubbles.',
   '101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents are present and don\'t die throughout the movie.  .',
-  'A pig\'s orgasm lasts for 30 minutes.',
-  '\'Stewardesses\' is the longest word that is typed with only the left hand.',
   'To escape the grip of a crocodile\'s jaws, push your thumbs into its eyeballs - it will let you go instantly.',
   'Reindeer like to eat bananas.',
   'No word in the English language rhymes with month, orange, silver and purple.',
@@ -845,7 +842,7 @@ var facts = [
   // weird shit
   'Happy birthday.',
   'I can\'t believe we\'re down by five.',
-  // random shit pt2
+  // random shit pt2 (loads of dupes ughhh)
     'In 10 minutes, a hurricane releases more energy than all the world\'s nuclear weapons combined.',
   'On average, 100 people choke to death on ballpoint pens every year.',
   'On average people fear spiders more than they do death.',
@@ -887,7 +884,6 @@ var facts = [
   'When you tie a noose, the rope is wrapped twelve times around because it\'s the same length as a person’s head.',
   'Hummingbirds are the only animals that can fly backwards.',
   'A cat\'s jaw cannot move sideways.',
-  'If you yelled for 8 years, 7 months and 6 days you would have produced enough sound energy to heat one cup of coffee.',
   'If you passed gas consistently for 6 years and 9 months, enough gas is produced to create the energy of an atomic bomb.',
   'A pig\'s orgasm lasts 30 minutes.',
   'A cockroach will live nine days without its head before it starves to death.',
@@ -964,8 +960,6 @@ var facts = [
   'Cat\'s urine glows under a black light.',
   'Babies are born without knee caps. They don\'t appear until the child reaches 2-6 years of age.',
   'One of the reasons marijuana is illegal today is because cotton growers in the 30s lobbied against hemp farmers-they saw it as competition.',
-  'Currently one person in two billion will live to be 116 or older.',
-  'If you yelled for 8 years, 7 months and 6 days, you would have produced enough sound energy to heat one cup of coffee. If you fart consistently for 6 years and 9 months, enough gas is produced to create the energy of an atomic bomb.',
   'Cats have over one hundred vocal sounds, dogs only have about ten.',
   'If Barbie were life-size her measurements would be 39-23-33. She would stand seven feet, two inches tall and have a neck twice the length of a normal human\'s neck.',
   'Feb 1865 is the only month in recorded history not to have a full moon.',
