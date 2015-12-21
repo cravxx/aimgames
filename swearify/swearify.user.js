@@ -3902,6 +3902,11 @@ var emoticon_2 = {
     ':butthurt:',
     'http://i.imgur.com/JQdiPHOs.jpg',
     'BUTTHURT'
+  ],
+  otter: [
+    ':otter:',
+    'http://i.imgur.com/Lsw88dw.png',
+    'OTTER DOES NOT LIkEY'
   ]
 };
 var emoticon_3 = {
@@ -7336,7 +7341,7 @@ function edit_css() {
 function the_base(smilie_code, smilie_url, smilie_text) {
   var change_this = td_base;
   change_this = change_this.replace(new RegExp('_smilie', 'gi'), smilie_code);
-  change_this = change_this.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
+  change_this = change_this.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
   change_this = change_this.replace(new RegExp('_link', 'gi'), smilie_url);
   return change_this;
 }
