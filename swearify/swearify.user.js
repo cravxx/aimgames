@@ -1724,7 +1724,9 @@ var facts = [
   'Sound travels up to 15 times faster through steel than air, at speeds up to 19,000 feet per second.',
   'Humans share 50% of their DNA with bananas.',
   'Maine is the closest U.S. state to Africa.',
-  'An octopus has three hearts.'
+  'An octopus has three hearts.',
+  'Apple is the richest company in the world, but 2/3 of their business is overseas.',
+  'Hippopotomonstrosesquipedaliophobia is the fear of long words.'
 ];
 ///////
 ///////SMILY CODE, OBJECT SHIT
