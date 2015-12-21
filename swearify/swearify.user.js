@@ -3905,6 +3905,16 @@ var emoticon_2 = {
     ':otter:',
     'http://i.imgur.com/Lsw88dw.png',
     'OTTER DOES NOT LIkEY'
+  ],
+  lqbait: [
+    ':lqbait:',
+    'http://i.imgur.com/E7u2DbLs.jpg',
+    'LOW QUALITY BAIT'
+  ],
+  bait: [
+    ':bait:',
+    'http://i.imgur.com/Zln9GoZs.jpg',
+    'THIS IS BAIT'
   ]
 };
 var emoticon_3 = {
