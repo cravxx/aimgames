@@ -7732,15 +7732,13 @@ window.addEventListener('load', function() { /* shit goes down in here */
 function run_() {
   sekrit_();
   fact_sphere_();
+  misconceptions_();
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
     emoticon_();
     maymay_();
   }
   greentext_();
   redtext_();
-  if (getCookie('CB_rainbow') === '1') rainbow_();
-  if (getCookie('CB_random') === '1') random_();
-  if (getCookie('CB_gradient') === '1') gradient_();
   if (getCookie('CB_greek') === '1') greek_();
   if (getCookie('CB_braille') === '1') braille_();
   if (getCookie('CB_balloon') === '1') balloon_();
@@ -7750,7 +7748,9 @@ function run_() {
   js_();
   vbs_();
   java_();
-  misconceptions_();
+  if (getCookie('CB_rainbow') === '1') rainbow_();
+  if (getCookie('CB_random') === '1') random_();
+  if (getCookie('CB_gradient') === '1') gradient_();
 }
 
 function run_post() {
