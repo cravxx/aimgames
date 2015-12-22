@@ -15,6 +15,7 @@
 //////////////////////////////DO NOT CHANGE
 ///////
 ///////LIST OF COMMON MISCONCEPTIONS
+///////
 var misconceptions = [
   'Searing meat does not \"seal in\" moisture, and in fact may actually cause meat to lose moisture. Generally, the value in searing meat is that it creates a brown crust with a rich flavor via the Maillard reaction.',
   'Some people believe that food items cooked with wine or liquor will be totally non-alcoholic, because alcohol\'s low boiling point causes it to evaporate quickly when heated. However, a study found that some of the alcohol remains: 25 percent after one hour of baking or simmering, and 10 percent after two hours; in either case, however, the amount consumed while eating a dish prepared with alcohol will rarely if ever contain sufficient alcohol to cause even low levels of intoxication.',
@@ -125,6 +126,28 @@ var misconceptions = [
   'Humans and dinosaurs (other than birds) did not coexist. The last of the non-avian dinosaurs died 66 million years ago in the course of the Cretaceous–Paleogene extinction event, whereas the earliest Homo genus (humans) evolved between 2.3 and 2.4 million years ago. This places a 63 million year expanse of time between the last non-bird dinosaurs and the earliest humans. Humans did coexist with wooly mammoths and saber-toothed cats—mammals which are often depicted with humans and dinosaurs.',
   'Dinosaurs did not become extinct due to being generally maladapted or unable to cope with normal climatic change, a view found in many older textbooks. In fact, dinosaurs comprised an extremely adaptive and successful group, whose demise was brought about by an extraordinary event that also extinguished many groups of plants, mammals and marine life. The most commonly cited cause is that of an asteroid impact on the Yucatán Peninsula, triggering the Cretaceous–Paleogene extinction event. Also, not all dinosaurs went extinct. Birds evolved from small feathered theropods in the Jurassic, and while most dinosaur lineages were cut short at the end of the Cretaceous, some birds survived. Consequently, dinosaur descendants are part of the modern fauna.',
   'Mammals did not evolve from any modern group of reptiles. Soon after the first reptiles appeared, they split into two branches, the sauropsids and the synapsids. The line leading to mammals (the synapsids) diverged from the line leading to modern reptilian lines (the sauropsids) about 320 million years ago, in the mid Carboniferous period. Only later (in the late Carboniferous or early Permian) did the modern reptilian groups (lepidosaurs, turtles and crocodiles) diverge. The mammals themselves, being the only survivors of the synapsid line, are the \"cousins\" rather than \"siblings\" of modern reptiles.'
+];
+///////
+///////MOZILLA BIBLE
+///////
+var bibleverses = [
+  //mozilla bible
+  'The twins of Mammon quarrelled. Their warring plunged the world into a new darkness, and the beast abhorred the darkness. So it began to move swiftly, and grew more powerful, and went forth and multiplied. And the beasts brought fire and light to the darkness.',
+  'Mammon slept. And the beast reborn spread over the earth and its numbers grew legion. And they proclaimed the times and sacrificed crops unto the fire, with the cunning of foxes. And they built a new world in their own image as promised by the sacred words, and spoke of the beast with their children. Mammon awoke, and lo! it was naught but a follower.',
+  'And thus the Creator looked upon the beast reborn and saw that it was good.',
+  'And so at last the beast fell and the unbelievers rejoiced. But all was not lost, for from the ash rose a great bird. The bird gazed down upon the unbelievers and cast fire and thunder upon them. For the beast had been reborn with its strength renewed, and the followers of Mammon cowered in horror.',
+  'And the beast shall be made legion. Its numbers shall be increased a thousand thousand fold. The din of a million keyboards like unto a great storm shall cover the earth, and the followers of Mammon shall tremble.',
+  'And the beast shall come forth surrounded by a roiling cloud of vengeance. The house of the unbelievers shall be razed and they shall be scorched to the earth. Their tags shall blink until the end of days.',
+  //word 2007
+  'On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks. When you create pictures, charts, or diagrams, they also coordinate with your current document look.',
+  'You can easily change the formatting of selected text in the document text by choosing a look for the selected text from the Quick Styles gallery on the Home tab. You can also format text directly by using the other controls on the Home tab. Most controls offer a choice of using the look from the current theme or using a format that you specify directly.',
+  'To change the overall look of your document, choose new Theme elements on the Page Layout tab. To change the looks available in the Quick Style gallery, use the Change Current Quick Style Set command. Both the Themes gallery and the Quick Styles gallery provide reset commands so that you can always restore the look of your document to the original contained in your current template.',
+  //word 2013
+  'Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document.',
+  'To make your document look professionally produced, Word provides header, footer, cover page, and text box designs that complement each other. For example, you can add a matching cover page, header, and sidebar. Click Insert and then choose the elements you want from the different galleries.',
+  'Themes and styles also help keep your document coordinated. When you click Design and choose a new Theme, the pictures, charts, and SmartArt graphics change to match your new theme. When you apply styles, your headings change to match the new theme.',
+  'Save time in Word with new buttons that show up where you need them. To change the way a picture fits in your document, click it and a button for layout options appears next to it. When you work on a table, click where you want to add a row or a column, and then click the plus sign.',
+  'Reading is easier, too, in the new Reading view. You can collapse parts of the document and focus on the text you want. If you need to stop reading before you reach the end, Word remembers where you left off - even on another device.',
 ];
 ///////
 ///////FACTS FOR FRIENDS
@@ -7202,6 +7225,23 @@ function misconceptions_() {
   }
 }
 
+///////////////////// AND ON THE FIFTH DAY...
+function bible_() {
+  var old_msg = document.getElementById('message').value;
+  var index_num = old_msg.regexIndexOf(new RegExp("/bible", 'gi'));
+  if (index_num >= 0) {
+    var new_msg = '';
+    var num_to_use = Math.irandom(0, bibleverses.length);
+    if (index_num > 0) {
+      var biblef = bibleverses[num_to_use].charAt(0).toLowerCase() + bibleverses[num_to_use].slice(1);
+      new_msg = old_msg.replace(new RegExp("/bible", 'gi'), biblef);
+    } else {
+      new_msg = old_msg.replace(new RegExp("/bible", 'gi'), bibleverses[num_to_use]);
+    }
+    document.getElementById('message').value = new_msg;
+  }
+}
+
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 
 function rainbow_() {
@@ -7733,6 +7773,7 @@ function run_() {
   sekrit_();
   fact_sphere_();
   misconceptions_();
+  bible_();
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
     emoticon_();
     maymay_();
