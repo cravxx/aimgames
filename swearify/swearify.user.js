@@ -272,6 +272,52 @@ var hodor = [
   'Hodor hodor HODOR! Hodor hodor - hodor hodor! Hodor, HODOR hodor, hodor hodor, hodor. Hodor hodor. Hodor. Hodor hodor hodor hodor?! Hodor. Hodor hodor, hodor. Hodor hodor. Hodor. Hodor, hodor; hodor HODOR hodor, hodor hodor?! Hodor, hodor. Hodor. Hodor, hodor... Hodor hodor hodor - hodor; hodor hodor? Hodor hodor - hodor, hodor. Hodor HODOR hodor, hodor HODOR hodor, hodor hodor?! Hodor hodor - hodor hodor... Hodor hodor hodor? '
 ];
 ///////
+///////
+///////
+var spaceipsum = [
+  "If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.",
+  "Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.",
+  "That's one small step for [a] man, one giant leap for mankind.",
+  "We have an infinite amount to learn both from nature and from each other",
+  "I don't know what you could say about a day in which you have seen four beautiful sunsets.",
+  "It suddenly struck me that that tiny pea, pretty and blue, was the Earth. I put up my thumb and shut one eye, and my thumb blotted out the planet Earth. I didn't feel like a giant. I felt very, very small.",
+  "Houston, Tranquillity Base here. The Eagle has landed.",
+  "I believe every human has a finite number of heartbeats. I don't intend to waste any of mine",
+  "Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next 10.",
+  "Problems look mighty small from 150 miles up.",
+  "Here men from the planet Earth first set foot upon the Moon. July 1969 AD. We came in peace for all mankind.",
+  "You know, being a test pilot isn't always the healthiest business in the world.",
+  "For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.",
+  "The Earth was small, light blue, and so touchingly alone, our home that must be defended like a holy relic. The Earth was absolutely round. I believe I never knew what the word round meant until I saw Earth from space.",
+  "A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.",
+  "Across the sea of space, the stars are other suns.",
+  "We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.",
+  "Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.",
+  "The sky is the limit only for those who aren't afraid to fly!",
+  "We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.",
+  "Curious that we spend more time congratulating people who have succeeded than encouraging people who have not.",
+  "Where ignorance lurks, so too do the frontiers of discovery and imagination.",
+  "Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.",
+  "To go places and do things that have never been done before – that’s what living is all about.",
+  "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.",
+  "To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature—could one dream of anything more?",
+  "The path of a cosmonaut is not an easy, triumphant march to glory. You have to get to know the meaning not just of joy but also of grief, before being allowed in the spacecraft cabin.",
+  "Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.",
+  "Buy why, some say, the moon? Why choose this as our goal? And they may as well ask why climb the highest mountain?",
+  "The dreams of yesterday are the hopes of today and the reality of tomorrow.",
+  "As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore . . . and this is exploration at its greatest.",
+  "Failure is not an option.",
+  "NASA is not about the ‘Adventure of Human Space Exploration’…We won’t be doing it just to get out there in space – we’ll be doing it because the things we learn out there will be making life better for a lot of people who won’t be able to go.",
+  "There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.",
+  "When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!",
+  "Astronomy compels the soul to look upward, and leads us from this world to another.",
+  "The regret on our side is, they used to say years ago, we are reading about you in science class. Now they say, we are reading about you in history class.",
+  "Many say exploration is part of our destiny, but it’s actually our duty to future generations and their quest to ensure the survival of the human species.",
+  "What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.",
+  "We want to explore. We’re curious people. Look back over history, people have put their lives at stake to go out and explore … We believe in what we’re doing. Now it’s time to go.",
+  "As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man."
+];
+///////
 ///////FACTS FOR FRIENDS
 ///////
 var facts = [
@@ -7398,6 +7444,23 @@ function hodoripsum_() {
   }
 }
 
+///////////////////// SPACE IPSUM
+function spaceipsum_() {
+  var old_msg = document.getElementById('message').value;
+  var index_num = old_msg.regexIndexOf(new RegExp("/space", 'gi'));
+  if (index_num >= 0) {
+    var new_msg = '';
+    var num_to_use = Math.irandom(0, spaceipsum.length);
+    if (index_num > 0) {
+      var cslipsum = spaceipsum[num_to_use].charAt(0).toLowerCase() + spaceipsum[num_to_use].slice(1);
+      new_msg = old_msg.replace(new RegExp("/space", 'gi'), cslipsum);
+    } else {
+      new_msg = old_msg.replace(new RegExp("/space", 'gi'), spaceipsum[num_to_use]);
+    }
+    document.getElementById('message').value = new_msg;
+  }
+}
+
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 
 function rainbow_() {
@@ -7932,6 +7995,7 @@ function run_() {
   bible_();
   slipsum_();
   hodoripsum_();
+  spaceipsum_();
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
     emoticon_();
     maymay_();
