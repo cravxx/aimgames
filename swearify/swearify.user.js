@@ -7930,6 +7930,7 @@ function run_() {
   fact_sphere_();
   misconceptions_();
   bible_();
+  slipsum_();
   hodoripsum_();
   if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
     emoticon_();
