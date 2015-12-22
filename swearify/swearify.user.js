@@ -2402,7 +2402,8 @@ var twitch_e = [
   'http://i.imgur.com/S1Gr4Xn.png',
   'http://i.imgur.com/hQW5929.png',
   'http://i.imgur.com/th40WaF.png',
-  'http://i.imgur.com/iNCxXrt.png'
+  'http://i.imgur.com/iNCxXrt.png',
+  'http://i.imgur.com/50rXezM.png'
 ];
 var twitch_c = [
   'KappaHD',
@@ -2561,7 +2562,8 @@ var twitch_c = [
   'WTRuck',
   'WutFace',
   'YouWHY',
-  'afkKappa'
+  'afkKappa',
+  'KappaClaus'
 ];
 var emoticon_1 = {
   dolan: [
