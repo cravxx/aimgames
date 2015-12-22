@@ -44,6 +44,8 @@ public class Build {
 				String lineTo = line.substring(0, line.indexOf(" ")).replace("\"", ""); //get only argument 1
 				System.out.println("lineto " + lineTo);
 				File fTo = new File("./" + lineTo);
+				if (!fTo.exists())
+					fTo.createNewFile();
 				FileInputStream fis = new FileInputStream(fTo);
 				BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 				String result = "";
@@ -84,6 +86,7 @@ public class Build {
 				fos.write(("Build number: #" + (buildnum + 1) + "\r\nBuild date: " + dateFormat.format(date)).getBytes());
 				fos.close();
 			} else {
+				buildFile.createNewFile();
 				// just write
 			    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			    //get current date time with Date()
