@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     2.smart.10.1.pickproof.1450576028.37
+// @version     3.muhchromecock.9.1.mesmerises.1451439600.7
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -8175,7 +8175,8 @@ window.addEventListener('load', function() { /* shit goes down in here */
     if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || window.location.href ===
       'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || window.location.href ===
       'http://aimgames.forummotion.com/chatbox/index.forum?archives' || window.location.href ===
-      'http://aimgames.forummotion.com/chatbox') {
+      'http://aimgames.forummotion.com/chatbox' || window.location.href ===
+      'http://aimgames.forummotion.com/') {
       inject_spacer();
       //////
       inject_gradient();
