@@ -4432,6 +4432,46 @@ var emoticon_2 = {
     ':bait:',
     'http://i.imgur.com/Zln9GoZs.jpg',
     'THIS IS BAIT'
+  ],
+  vacuumcock: [
+    ':vacuumcock:',
+    'http://i.imgur.com/y1cy56G.png',
+    'LOOK, THE VACUUM CLEANER\'S MY COCK!'
+  ],
+  weme1: [
+    ':weme1:',
+    'http://i.imgur.com/2Txnwuy.png',
+    'THE MOLLUSK'
+  ],
+  wemeah: [
+    ':wemeah:',
+    'http://i.imgur.com/LoviJ84.png',
+    'ahhhhhhhhhhhhh'
+  ],
+  wemeworry: [
+    ':wemeworry:',
+    'http://i.imgur.com/HhiJsfP.png',
+    'WOORIED WEME'
+  ],
+  laheywhat: [
+    ':laheywtf:',
+    'http://i.imgur.com/vbzgFbj.png',
+    'WHAT DID YOU SAY RANDY'
+  ],
+  lazyday: [
+    ':lazyday:',
+    'http://i.imgur.com/gorA8tC.png',
+    'when its a lazy day'
+  ],
+  coffeeanddonuts: [
+    ':candd:',
+    'http://i.imgur.com/VPzS8Gk.png',
+    'COFFEE AND DONUTS OBAMA'
+  ],
+  fadedtbh: [
+    ':fadedtbh:',
+    'http://i.imgur.com/FS8k5LN.png',
+    'faded tbh bruh'
   ]
 };
 var emoticon_3 = {
