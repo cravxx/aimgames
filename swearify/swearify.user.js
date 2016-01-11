@@ -4507,6 +4507,41 @@ var emoticon_2 = {
     ':wemealright:',
     'http://i.imgur.com/G9173lzs.png',
     'WEME ALRIGHT'
+  ],
+  bonomeme: [
+    ':bonoqueen:',
+    'http://i.imgur.com/EAMFYGRs.png',
+    'ekkek so prettay'
+  ],
+  mutter: [
+    ':mutter:',
+    'http://i.imgur.com/hA6GD1Zs.png',
+    'MUTTERRRR'
+  ],
+  mansface: [
+    ':amansface:',
+    'http://i.imgur.com/oxEVl2xs.png',
+    'keke what'
+  ],
+  cosmoj: [
+    ':cosmoj:',
+    'http://i.imgur.com/DlTH0Co.png',
+    'cosmo keke'
+  ],
+  spurdofite: [
+    ':spurdofite:',
+    'http://i.imgur.com/zl72tzS.png',
+    ':DdD PEBIN'
+  ],
+  sittingspurdo: [
+    ':sittingspurdo:',
+    'http://i.imgur.com/KCdnxmA.png',
+    'SITTING SPURDO :DDDD'
+  ],
+  weme4: [
+    ':weme4:',
+    'http://i.imgur.com/Uw4ODf8s.gif',
+    'WEME KEKE'
   ]
 };
 var emoticon_3 = {
