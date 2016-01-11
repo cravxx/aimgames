@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     3.muhchromecock.9.1.mesmerises.1451439600.7
+// @version     4.far.0.5.biolysis.1452473005.7
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -4472,6 +4472,41 @@ var emoticon_2 = {
     ':fadedtbh:',
     'http://i.imgur.com/FS8k5LN.png',
     'faded tbh bruh'
+  ],
+  wow: [
+    ':wow:',
+    'http://i.imgur.com/G3uWfdy.png',
+    'oboi'
+  ],
+  mcmurtry: [
+    ':mcmurtry:',
+    'http://i66.tinypic.com/22klfl.jpg',
+    'lmao'
+  ],
+  weme2: [
+    ':weme2:',
+    'http://i.imgur.com/bZ22958s.jpg',
+    'WEW LAD'
+  ],
+  weme3: [
+    ':weme3:',
+    'http://i.imgur.com/MUpyelJs.png',
+    'kek another ween meme'
+  ],
+  weenscream: [
+    ':weenscream:',
+    'http://i.imgur.com/nJ4k1ISs.png',
+    'WHEN THE WEME SO SUPREME YOU LET OUT A SCREAM'
+  ],
+  wemenervous: [
+    ':wemenervous:',
+    'http://i.imgur.com/h3n4PFOs.png',
+    'NERVOUS WEME'
+  ],
+  wemealright: [
+    ':wemealright:',
+    'http://i.imgur.com/G9173lzs.png',
+    'WEME ALRIGHT'
   ]
 };
 var emoticon_3 = {
