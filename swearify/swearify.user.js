@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     4.far.0.5.biolysis.1452473005.7
+// @version     4.far.0.5.biolysis.1452473005.8
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -648,7 +648,7 @@ var facts = [
   'The average American spends about US$232 on legal expenses each year.',
   '51% of Britons have never had a one-night stand.',
   'Parking takes up as much as 14% of all land-use in Los Angeles County.',
-  'The Chinese Han empire was aware of the Roman Rmpire and they sent envoys to each-other.',
+  'The Chinese Han empire was aware of the Roman Empire and they sent envoys to each-other.',
   'The 3 tallest statues in the world are of Buddha.',
   'The most dangerous job in America is President: over 9% have been killed in office.',
   'Whenever Prince Charles visits the U.S., his Secret Service code name is \"Unicorn.\"',
