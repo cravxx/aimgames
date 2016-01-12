@@ -1,0 +1,19 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start', 'cli.js' ]
+2 info using npm@2.14.12
+3 info using node@v4.2.4
+4 verbose stack Error: missing script: start
+4 verbose stack     at run (/usr/lib/node_modules/npm/lib/run-script.js:142:19)
+4 verbose stack     at /usr/lib/node_modules/npm/lib/run-script.js:58:5
+4 verbose stack     at /usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:345:5
+4 verbose stack     at handleExists (/usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:318:20)
+4 verbose stack     at FSReqWrap.cb [as oncomplete] (fs.js:212:19)
+5 verbose cwd /home/daffeinatek/i/aimgames/drone-ver
+6 error Linux 3.11.0-15-generic
+7 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start" "cli.js"
+8 error node v4.2.4
+9 error npm  v2.14.12
+10 error missing script: start
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
