@@ -35,28 +35,43 @@ function hexToRgb(hex) {
         b: parseInt(result[3], 16)
     } : null;
 }
+
+function createRainbow(center, width, f_r, f_g, f_b, cutoff) {
+var a= [];
+var frequency_r = .1;
+var frequency_g = .2;
+var frequency_b = .3;
+for (var i = 0; i < cutoff; ++i)
+{
+   var red   = Math.sin(frequency_r*i + 0) * width + center;
+   var green = Math.sin(frequency_g*i + 2*Math.PI/3) * width + center;
+   var blue  = Math.sin(frequency_b*i + 4*Math.PI/3) * width + center;
+   a[i] = strangeAyylium(red,green,blue);
+
+}
+return a;
+}
+
+
+
 //////
 
 //////COLOR
 var color_array = []; ///main array what we want gets moved into
-var color_style = [ "Normal", "Trippy", "Patriotic", "Warm" ];
+var color_style = [ "Normal", "Trippy", "Patriotic", "Warm", "Light", "Different"];
 ////
 //
 //
 var patriotic = [ "#ff0000", "#ffffff", "#0000ff" ];
-
-//needs work//var trippy = [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ];
+///trippy needs work
+var trippy = [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ];
 var warm = [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ];
 
-var normal=[];
-var frequency = .3;
-for (var i = 0; i < 32; ++i)
-{
-   var red   = Math.sin(frequency*i + 0) * 127 + 128;
-   var green = Math.sin(frequency*i + 2) * 127 + 128;
-   var blue  = Math.sin(frequency*i + 4) * 127 + 128;
-normal[i] = strangeAyylium(red,green,blue);
-}
+var normal = createRainbow(128,127, .3, .3, .3, 32);
+
+var light = createRainbow(200,55, .3, .3, .3, 32);
+
+var different = createRainbow(128, 127, .1, .2, .3, 27);
 ///////
 
 ///////COOKIE SHIT
@@ -118,6 +133,7 @@ var counter = 0;
 function whatdo(wew){    
     var dunwan = [];
     color_array = []; //clear it
+    counter = 0;
    
    if(wew.value == "Normal"){
     dunwan = normal;
@@ -125,13 +141,16 @@ function whatdo(wew){
     dunwan = patriotic;
    }else if(wew.value == "Warm"){
     dunwan = warm;
-   }
+   }else if(wew.value == "Light"){
+    dunwan = light;
+    }else if(wew.value == "Different"){
+    dunwan = different;
+    }
    
    for (var all = 0; all < dunwan.length; all++) {
         color_array[all] = dunwan[all];
         console.log("kek");
-   }
-   counter = 0;
+   }   
 }
 
 window.addEventListener('load', function() {

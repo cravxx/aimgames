@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.5.3
+// @version     2.drama.5.1.skater.1452934202.7
 // @grant       none
 // @icon        http://i.imgur.com/g8MwvQd.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
