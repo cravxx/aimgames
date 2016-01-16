@@ -71,6 +71,12 @@ function getCookie(c_name) {
 }
 ///////
 
+function returnOption(text){
+	var option = document.createElement("option");
+	option.text = text;
+	return option;
+}
+
 function createSelectBox(){
 	var new_td = document.createElement("td");
 	new_td.id = "Cha";
@@ -87,10 +93,11 @@ function createSelectBox(){
 	
 
 	var sel_location = document.getElementById('selectCha');
-        var option = document.createElement("option");
-        var text = document.createTextNode(value);
-        option.appendChild("whew");
-        sel_location.appendChild(option);   
+        sel_location.appendChild(returnOption("strut"));
+sel_location.appendChild(returnOption("dat"));
+sel_location.appendChild(returnOption("ass"));
+sel_location.appendChild(returnOption("icecreaminiowa"));
+sel_location.appendChild(returnOption("ayy lmao lamo"));
 
 }
 
