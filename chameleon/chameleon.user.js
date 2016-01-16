@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     4.drab.6.1.puzzlements.1452981454.7
+// @version     4.drab.7.1.puzzlements.1452981454.7
 // @grant       none
 // @icon        http://i.imgur.com/g8MwvQd.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -112,16 +112,23 @@ function returnOption(text){
 function createSelectBox(){
 	var new_td = document.createElement("td");
 	new_td.id = "Cha";
+	new_td.style.paddingRight = "5px";
 
   	document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].insertBefore(
 		new_td, 
 		document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].childNodes[0]
   	);
-
+  	
 	var gen_location = document.getElementById("Cha");
+	
+	label = document.createElement('label');
+        label.id = 'labelCha';        
+        gen_location.appendChild(label);	
+        
         select = document.createElement('select');
-        select.id = 'selectCha';        
+        select.id = 'selectCha';  
         gen_location.appendChild(select);	
+        
 
 	var sel_location = document.getElementById('selectCha');	
 	
@@ -154,6 +161,10 @@ function whatdo(wew){
    for (var all = 0; all < dunwan.length; all++) {
         color_array[all] = dunwan[all];
    } 
+   
+   console.log(dunwan.length);
+   document.getElementById("labelCha").innerHTML = dunwan.length;
+   
    setCookie('chameleon_counter', counter, 1);
    setCookie('CB_color', color_array[counter], 1);
    document.getElementById('scolor') .value = color_array[counter];
@@ -162,23 +173,16 @@ function whatdo(wew){
 }
 
 window.addEventListener('load', function() {
-   createSelectBox();
-   var array_watch = [];
+   createSelectBox(); 
    
    if (getCookie('chameleon_color_style') === "") {
       setCookie('chameleon_color_style', color_hex['normal'], 1);
-      array_watch = color_hex['normal'];
     } else{
-      array_watch = getCookie('chameleon_color_style');
       document.getElementById('selectCha').value = capitalizeFirstLetter(getCookie('chameleon_color_style'));
     }
     
-    for (var all = 0; all < color_hex['normal'].length; all++) { ////load normal at first
-        color_array[all] = values(color_hex['normal'])[all];
-        console.log("only once pls");
-   }
-   
-   
+   document.getElementById("labelCha").style.cssText = "font-size: 10px; color: white; margin-right: 8px; margin-left: 5px;";
+   document.getElementById("labelCha").innerHTML = color_hex[getCookie('chameleon_color_style')].length;
    
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
   if (window.location.pathname.length <= 1) {
@@ -235,4 +239,3 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
   }
 }  
 }, false);
-
