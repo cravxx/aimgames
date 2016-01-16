@@ -8,9 +8,6 @@
 // @icon        http://i.imgur.com/g8MwvQd.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
-/*RainbowVis-JS Released under Eclipse Public License - v 1.0*/
-function Rainbow(){"use strict";function e(e){if(e.length<2)throw new Error("Rainbow must have two or more colours.");var a=(t-F)/(e.length-1),i=new ColourGradient;i.setGradient(e[0],e[1]),i.setNumberRange(F,F+a),r=[i];for(var o=1;o<e.length-1;o++){var l=new ColourGradient;l.setGradient(e[o],e[o+1]),l.setNumberRange(F+a*o,F+a*(o+1)),r[o]=l}n=e}var r=null,F=0,t=100,n=["ff0000","ffff00","00ff00","0000ff"];e(n),this.setSpectrum=function(){return e(arguments),this},this.setSpectrumByArray=function(r){return e(r),this},this.colourAt=function(e){if(isNaN(e))throw new TypeError(e+" is not a number");if(1===r.length)return r[0].colourAt(e);var n=(t-F)/r.length,a=Math.min(Math.floor((Math.max(e,F)-F)/n),r.length-1);return r[a].colourAt(e)},this.colorAt=this.colourAt,this.setNumberRange=function(r,a){if(!(a>r))throw new RangeError("maxNumber ("+a+") is not greater than minNumber ("+r+")");return F=r,t=a,e(n),this}}function ColourGradient(){"use strict";function e(e,F,t){var n=e;i>n&&(n=i),n>o&&(n=o);var a=o-i,l=parseInt(F,16),u=parseInt(t,16),s=(u-l)/a,g=Math.round(s*(n-i)+l);return r(g.toString(16))}function r(e){return 1===e.length?"0"+e:e}function F(e){var r=/^#?[0-9a-fA-F]{6}$/i;return r.test(e)}function t(e){if(F(e))return e.substring(e.length-6,e.length);var r=e.toLowerCase();if(l.hasOwnProperty(r))return l[r];throw new Error(e+" is not a valid colour.")}var n="ff0000",a="0000ff",i=0,o=100;this.setGradient=function(e,r){n=t(e),a=t(r)},this.setNumberRange=function(e,r){if(!(r>e))throw new RangeError("maxNumber ("+r+") is not greater than minNumber ("+e+")");i=e,o=r},this.colourAt=function(r){return e(r,n.substring(0,2),a.substring(0,2))+e(r,n.substring(2,4),a.substring(2,4))+e(r,n.substring(4,6),a.substring(4,6))};var l={aliceblue:"F0F8FF",antiquewhite:"FAEBD7",aqua:"00FFFF",aquamarine:"7FFFD4",azure:"F0FFFF",beige:"F5F5DC",bisque:"FFE4C4",black:"000000",blanchedalmond:"FFEBCD",blue:"0000FF",blueviolet:"8A2BE2",brown:"A52A2A",burlywood:"DEB887",cadetblue:"5F9EA0",chartreuse:"7FFF00",chocolate:"D2691E",coral:"FF7F50",cornflowerblue:"6495ED",cornsilk:"FFF8DC",crimson:"DC143C",cyan:"00FFFF",darkblue:"00008B",darkcyan:"008B8B",darkgoldenrod:"B8860B",darkgray:"A9A9A9",darkgreen:"006400",darkgrey:"A9A9A9",darkkhaki:"BDB76B",darkmagenta:"8B008B",darkolivegreen:"556B2F",darkorange:"FF8C00",darkorchid:"9932CC",darkred:"8B0000",darksalmon:"E9967A",darkseagreen:"8FBC8F",darkslateblue:"483D8B",darkslategray:"2F4F4F",darkslategrey:"2F4F4F",darkturquoise:"00CED1",darkviolet:"9400D3",deeppink:"FF1493",deepskyblue:"00BFFF",dimgray:"696969",dimgrey:"696969",dodgerblue:"1E90FF",firebrick:"B22222",floralwhite:"FFFAF0",forestgreen:"228B22",fuchsia:"FF00FF",gainsboro:"DCDCDC",ghostwhite:"F8F8FF",gold:"FFD700",goldenrod:"DAA520",gray:"808080",green:"008000",greenyellow:"ADFF2F",grey:"808080",honeydew:"F0FFF0",hotpink:"FF69B4",indianred:"CD5C5C",indigo:"4B0082",ivory:"FFFFF0",khaki:"F0E68C",lavender:"E6E6FA",lavenderblush:"FFF0F5",lawngreen:"7CFC00",lemonchiffon:"FFFACD",lightblue:"ADD8E6",lightcoral:"F08080",lightcyan:"E0FFFF",lightgoldenrodyellow:"FAFAD2",lightgray:"D3D3D3",lightgreen:"90EE90",lightgrey:"D3D3D3",lightpink:"FFB6C1",lightsalmon:"FFA07A",lightseagreen:"20B2AA",lightskyblue:"87CEFA",lightslategray:"778899",lightslategrey:"778899",lightsteelblue:"B0C4DE",lightyellow:"FFFFE0",lime:"00FF00",limegreen:"32CD32",linen:"FAF0E6",magenta:"FF00FF",maroon:"800000",mediumaquamarine:"66CDAA",mediumblue:"0000CD",mediumorchid:"BA55D3",mediumpurple:"9370DB",mediumseagreen:"3CB371",mediumslateblue:"7B68EE",mediumspringgreen:"00FA9A",mediumturquoise:"48D1CC",mediumvioletred:"C71585",midnightblue:"191970",mintcream:"F5FFFA",mistyrose:"FFE4E1",moccasin:"FFE4B5",navajowhite:"FFDEAD",navy:"000080",oldlace:"FDF5E6",olive:"808000",olivedrab:"6B8E23",orange:"FFA500",orangered:"FF4500",orchid:"DA70D6",palegoldenrod:"EEE8AA",palegreen:"98FB98",paleturquoise:"AFEEEE",palevioletred:"DB7093",papayawhip:"FFEFD5",peachpuff:"FFDAB9",peru:"CD853F",pink:"FFC0CB",plum:"DDA0DD",powderblue:"B0E0E6",purple:"800080",red:"FF0000",rosybrown:"BC8F8F",royalblue:"4169E1",saddlebrown:"8B4513",salmon:"FA8072",sandybrown:"F4A460",seagreen:"2E8B57",seashell:"FFF5EE",sienna:"A0522D",silver:"C0C0C0",skyblue:"87CEEB",slateblue:"6A5ACD",slategray:"708090",slategrey:"708090",snow:"FFFAFA",springgreen:"00FF7F",steelblue:"4682B4",tan:"D2B48C",teal:"008080",thistle:"D8BFD8",tomato:"FF6347",turquoise:"40E0D0",violet:"EE82EE",wheat:"F5DEB3",white:"FFFFFF",whitesmoke:"F5F5F5",yellow:"FFFF00",yellowgreen:"9ACD32"}}"undefined"!=typeof module&&(module.exports=Rainbow);
-///////////////////////////
 
 ////// CODE FOR DEALING WITH OBJECTS
 function values(o) {
@@ -18,26 +15,17 @@ function values(o) {
     return o[k];
   });
 }
-//////
+////// TOOLBOX
+function ayyliumLanguage(n)
+  {
+    var nybHexString = "0123456789ABCDEF";
+    return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
+  }
 
-//////COLOR
-var rainbow = new Rainbow();
-var s = '';
-for (var i = 0; i < 100; i += 5) {
-  var hexColour = rainbow.colourAt(i);
-  s += '#' + hexColour + ',';
-
-}
-s = s.split(',');
-
-c_s = [
-  s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9], s[10],
-  s[11], s[12], s[13], s[14], s[15], s[16], s[17], s[18], s[19], s[18],
-  s[17], s[16], s[15], s[14], s[13], s[12], s[11], s[10], s[9], s[8],
-  s[7], s[6], s[5], s[4], s[3], s[2], s[1]
-];
-
-var patriotic = [ "#ff0000", "#ffffff", "#0000ff" ];
+function strangeAyylium(r,g,b)
+  {
+    return '#' + ayyliumLanguage(r) + ayyliumLanguage(g) + ayyliumLanguage(b);
+  }
 
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -47,20 +35,28 @@ function hexToRgb(hex) {
         b: parseInt(result[3], 16)
     } : null;
 }
-///////
+//////
 
-///////Color arrays all named
+//////COLOR
+var color_array = []; ///main array what we want gets moved into
+var color_style = [ "Normal", "Trippy", "Patriotic", "Warm" ];
+////
+//
+//
+var patriotic = [ "#ff0000", "#ffffff", "#0000ff" ];
 
-var color_style = [ "Normal", "Trippy", "Patriotic" ];
+//needs work//var trippy = [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ];
+var warm = [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ];
 
-///////
-
-
-
-///////
-
-var color_array = [];
-
+var normal=[];
+var frequency = .3;
+for (var i = 0; i < 32; ++i)
+{
+   var red   = Math.sin(frequency*i + 0) * 127 + 128;
+   var green = Math.sin(frequency*i + 2) * 127 + 128;
+   var blue  = Math.sin(frequency*i + 4) * 127 + 128;
+normal[i] = strangeAyylium(red,green,blue);
+}
 ///////
 
 ///////COOKIE SHIT
@@ -119,18 +115,17 @@ function createSelectBox(){
 
 var counter = 0;
 
-function whatdo(wew){
-    console.log(wew.value);
-    
+function whatdo(wew){    
     var dunwan = [];
     color_array = []; //clear it
    
    if(wew.value == "Normal"){
-    dunwan = c_s;
+    dunwan = normal;
    }else if(wew.value == "Patriotic"){
     dunwan = patriotic;
-   }else{}
-   
+   }else if(wew.value == "Warm"){
+    dunwan = warm;
+   }
    
    for (var all = 0; all < dunwan.length; all++) {
         color_array[all] = dunwan[all];
@@ -141,8 +136,8 @@ function whatdo(wew){
 
 window.addEventListener('load', function() {
    createSelectBox();
-   for (var all = 0; all < c_s.length; all++) {
-        color_array[all] = c_s[all];
+   for (var all = 0; all < normal.length; all++) { ////load normal at first
+        color_array[all] = normal[all];
         console.log("only once pls");
    }
    
