@@ -71,6 +71,13 @@ function getCookie(c_name) {
 }
 ///////
 
+function createSelectBox(){
+  document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].insertBefore(
+	document.createElement("td"), 
+	document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].childNodes[0]
+  );
+}
+
 var counter = 0;
 
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
@@ -127,3 +134,7 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
     }, false);
   }
 }
+
+window.addEventListener('load', function() {
+   createSelectBox();
+}, false);
