@@ -80,10 +80,18 @@ function createSelectBox(){
 		document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].childNodes[0]
   	);
 
-	var gen_location = document.getElementById("chatbox_messenger_form").getElementsByTagName("td
+	var gen_location = document.getElementById("Cha");
         select = document.createElement('select');
         select.id = 'selectCha';
-        where.appendChild(select);
+        gen_location.appendChild(select);
+	
+
+	var sel_location = document.getElementById('selectCha');
+        var option = document.createElement("option");
+        var text = document.createTextNode(value);
+        option.appendChild("whew");
+        sel_location.appendChild(option);   
+
 }
 
     function addOption(){
