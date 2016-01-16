@@ -38,20 +38,20 @@ function hexToRgb(hex) {
 }
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    return string[0].toUpperCase() + string.slice(1);
 }
 //////
 
-function createRainbow(center, width, f_r, f_g, f_b, cutoff) {
+function createRainbow(center, width, f_r, f_g, f_b, phase1, phase2, phase3, cutoff) {
 var a= [];
 var frequency_r = f_r;
 var frequency_g = f_g;
 var frequency_b = f_b;
 for (var i = 0; i < cutoff; ++i)
 {
-   var red   = Math.sin(frequency_r*i + 0) * width + center;
-   var green = Math.sin(frequency_g*i + 2*Math.PI/3) * width + center;
-   var blue  = Math.sin(frequency_b*i + 4*Math.PI/3) * width + center;
+   var red   = Math.sin(frequency_r*i + phase1) * width + center;
+   var green = Math.sin(frequency_g*i + phase2) * width + center;
+   var blue  = Math.sin(frequency_b*i + phase3) * width + center;
    a[i] = strangeAyylium(red,green,blue);
 
 }
@@ -61,18 +61,18 @@ return a;
 
 //////COLOR
 var color_array = []; ///main array what we want gets moved into
-var color_style = [ "Normal", "Trippy", "Patriotic", "Warm", "Light", "Different"];
 ////
 //
 //
 var color_hex = {
-    normal: createRainbow(128,127, .3, .3, .3, 32),
+    normal: createRainbow(128,127, .3, .3, .3, 0, 2, 4, 32),
     ///trippy needs work
     trippy: [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ],
     patriotic: [ "#ff0000", "#ffffff", "#0000ff" ],
     warm: [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ],
-    light: createRainbow(200,55, .3, .3, .3, 32),
-    different: createRainbow(128, 127, .1, .2, .3, 27)        
+    light: createRainbow(200,55, .3, .3, .3, 0, 2, 4, 32),
+    different: createRainbow(128, 127, .1, .2, .3, 0, 2, 4, 27),
+    yellow: createRainbow(128, 127, 0.3, 0.3, 0.46, 1.8, 1.8, 3.18, 22)
 };
 //
 
@@ -125,8 +125,10 @@ function createSelectBox(){
 	var sel_location = document.getElementById('selectCha');	
 	
 	sel_location.addEventListener('change', function() {whatdo(this);}, false);
-	for(var num_entries = 0; num_entries < color_style.length; num_entries++){
-	   sel_location.appendChild(returnOption(color_style[num_entries]));
+	var keys = [];
+    for(var k in color_hex) keys.push(k);    
+	for(var num_entries = 0; num_entries < keys.length; num_entries++){
+	   sel_location.appendChild(returnOption(capitalizeFirstLetter(keys[num_entries])));
 	}
 }
 
@@ -136,31 +138,25 @@ function whatdo(wew){
     var dunwan = [];
     color_array = []; //clear it
     counter = 0;
-   
-   if(wew.value == "Normal"){
-    dunwan = color_hex['normal'];
-   }else if(wew.value == "Patriotic"){
-    dunwan = color_hex['patriotic'];
-   }else if(wew.value == "Warm"){
-    dunwan = color_hex['warm'];
-   }else if(wew.value == "Light"){
-    dunwan = color_hex['light'];
-    }else if(wew.value == "Different"){
-    dunwan = color_hex['different'];
+    
+    var keys = [];
+    for(var k in color_hex) keys.push(k);
+    
+    for(var t = 0; t < values(color_hex).length; t++) {    
+    console.log(wew.value.toLowerCase() + "   " + keys[t]);
+        if(wew.value.toLowerCase() == keys[t]){ 
+            dunwan = color_hex[keys[t]];  
+        }        
     }
-   
    setCookie('chameleon_color_style', wew.value.toLowerCase(), 1);
    
    for (var all = 0; all < dunwan.length; all++) {
         color_array[all] = dunwan[all];
-        console.log("kek");
    }   
 }
 
 window.addEventListener('load', function() {
    createSelectBox();
-   
-   
    var array_watch = [];
    
    if (getCookie('chameleon_color_style') === "") {
@@ -233,4 +229,5 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
   }
 }  
 }, false);
+
 
