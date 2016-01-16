@@ -152,7 +152,10 @@ function whatdo(wew){
    
    for (var all = 0; all < dunwan.length; all++) {
         color_array[all] = dunwan[all];
-   }   
+   } 
+   document.getElementById('scolor') .value = color_array[counter];
+   document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(color_array[counter]).r + ',' + hexToRgb(color_array[counter]).g + ',' + hexToRgb(color_array[counter]).b + ');';
+   document.getElementById('message') .style.color = color_array[counter];
 }
 
 window.addEventListener('load', function() {
@@ -229,5 +232,3 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
   }
 }  
 }, false);
-
-
