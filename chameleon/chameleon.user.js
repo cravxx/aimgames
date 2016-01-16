@@ -84,6 +84,13 @@ function createSelectBox(){
         select = document.createElement('select');
         select.id = 'selectCha';
         gen_location.appendChild(select);
+	
+
+	var sel_location = document.getElementById('selectCha');
+        var option = document.createElement("option");
+        option.text = "wew";
+        sel_location.appendChild(option);   
+
 }
 
     function addOption(){
