@@ -44,9 +44,9 @@ function capitalizeFirstLetter(string) {
 
 function createRainbow(center, width, f_r, f_g, f_b, cutoff) {
 var a= [];
-var frequency_r = .1;
-var frequency_g = .2;
-var frequency_b = .3;
+var frequency_r = f_r;
+var frequency_g = f_g;
+var frequency_b = f_b;
 for (var i = 0; i < cutoff; ++i)
 {
    var red   = Math.sin(frequency_r*i + 0) * width + center;
