@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     4.drab.4.1.puzzlements.1452981454.7
+// @version     4.drab.5.1.puzzlements.1452981454.7
 // @grant       none
 // @icon        http://i.imgur.com/g8MwvQd.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
