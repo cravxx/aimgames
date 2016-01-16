@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   how much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     2.drama.5.1.skater.1452934202.7
+// @version     3.trippy.4.1.programer.1452964254.7
 // @grant       none
 // @icon        http://i.imgur.com/g8MwvQd.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -36,6 +36,10 @@ function hexToRgb(hex) {
         b: parseInt(result[3], 16)
     } : null;
 }
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 //////
 
 function createRainbow(center, width, f_r, f_g, f_b, cutoff) {
@@ -53,9 +57,6 @@ for (var i = 0; i < cutoff; ++i)
 }
 return a;
 }
-
-
-
 //////
 
 //////COLOR
@@ -64,17 +65,16 @@ var color_style = [ "Normal", "Trippy", "Patriotic", "Warm", "Light", "Different
 ////
 //
 //
-var patriotic = [ "#ff0000", "#ffffff", "#0000ff" ];
-///trippy needs work
-var trippy = [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ];
-var warm = [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ];
-
-var normal = createRainbow(128,127, .3, .3, .3, 32);
-
-var light = createRainbow(200,55, .3, .3, .3, 32);
-
-var different = createRainbow(128, 127, .1, .2, .3, 27);
-///////
+var color_hex = {
+    normal: createRainbow(128,127, .3, .3, .3, 32),
+    ///trippy needs work
+    trippy: [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ],
+    patriotic: [ "#ff0000", "#ffffff", "#0000ff" ],
+    warm: [ "#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff" ],
+    light: createRainbow(200,55, .3, .3, .3, 32),
+    different: createRainbow(128, 127, .1, .2, .3, 27)        
+};
+//
 
 ///////COOKIE SHIT
 function setCookie(name, value, days) {
@@ -138,16 +138,18 @@ function whatdo(wew){
     counter = 0;
    
    if(wew.value == "Normal"){
-    dunwan = normal;
+    dunwan = color_hex['normal'];
    }else if(wew.value == "Patriotic"){
-    dunwan = patriotic;
+    dunwan = color_hex['patriotic'];
    }else if(wew.value == "Warm"){
-    dunwan = warm;
+    dunwan = color_hex['warm'];
    }else if(wew.value == "Light"){
-    dunwan = light;
+    dunwan = color_hex['light'];
     }else if(wew.value == "Different"){
-    dunwan = different;
+    dunwan = color_hex['different'];
     }
+   
+   setCookie('chameleon_color_style', wew.value.toLowerCase(), 1);
    
    for (var all = 0; all < dunwan.length; all++) {
         color_array[all] = dunwan[all];
@@ -157,10 +159,24 @@ function whatdo(wew){
 
 window.addEventListener('load', function() {
    createSelectBox();
-   for (var all = 0; all < normal.length; all++) { ////load normal at first
-        color_array[all] = normal[all];
+   
+   
+   var array_watch = [];
+   
+   if (getCookie('chameleon_color_style') === "") {
+      setCookie('chameleon_color_style', color_hex['normal'], 1);
+      array_watch = color_hex['normal'];
+    } else{
+      array_watch = getCookie('chameleon_color_style');
+      document.getElementById('selectCha').value = capitalizeFirstLetter(getCookie('chameleon_color_style'));
+    }
+    
+    for (var all = 0; all < color_hex['normal'].length; all++) { ////load normal at first
+        color_array[all] = values(color_hex['normal'])[all];
         console.log("only once pls");
    }
+   
+   
    
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
   if (window.location.pathname.length <= 1) {
@@ -217,3 +233,4 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
   }
 }  
 }, false);
+
