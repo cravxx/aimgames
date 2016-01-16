@@ -121,7 +121,9 @@ var counter = 0;
 
 function whatdo(wew){
     console.log(wew.value);
-    var dunwan;
+    
+    var dunwan = [];
+    color_array = []; //clear it
    
    if(wew.value == "Normal"){
     dunwan = c_s;
@@ -138,11 +140,12 @@ function whatdo(wew){
 }
 
 window.addEventListener('load', function() {
-   createSelectBox();   
-}, false);
-
-
-
+   createSelectBox();
+   for (var all = 0; all < c_s.length; all++) {
+        color_array[all] = c_s[all];
+        console.log("only once pls");
+   }
+   
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
   if (window.location.pathname.length <= 1) {
     if (getCookie('chameleon_counter') === 0) {
@@ -196,4 +199,5 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
       }
     }, false);
   }
-}
+}  
+}, false);

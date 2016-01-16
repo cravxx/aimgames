@@ -37,6 +37,8 @@ c_s = [
   s[7], s[6], s[5], s[4], s[3], s[2], s[1]
 ];
 
+var patriotic = [ "#ff0000", "#ffffff", "#0000ff" ];
+
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
@@ -50,6 +52,14 @@ function hexToRgb(hex) {
 ///////Color arrays all named
 
 var color_style = [ "Normal", "Trippy", "Patriotic" ];
+
+///////
+
+
+
+///////
+
+var color_array = [];
 
 ///////
 
@@ -100,6 +110,8 @@ function createSelectBox(){
         gen_location.appendChild(select);	
 
 	var sel_location = document.getElementById('selectCha');	
+	
+	sel_location.addEventListener('change', function() {whatdo(this);}, false);
 	for(var num_entries = 0; num_entries < color_style.length; num_entries++){
 	   sel_location.appendChild(returnOption(color_style[num_entries]));
 	}
@@ -107,10 +119,30 @@ function createSelectBox(){
 
 var counter = 0;
 
+function whatdo(wew){
+    console.log(wew.value);
+    var dunwan;
+   
+   if(wew.value == "Normal"){
+    dunwan = c_s;
+   }else if(wew.value == "Patriotic"){
+    dunwan = patriotic;
+   }else{}
+   
+   
+   for (var all = 0; all < dunwan.length; all++) {
+        color_array[all] = dunwan[all];
+        console.log("kek");
+   }
+   counter = 0;
+}
+
+window.addEventListener('load', function() {
+   createSelectBox(); 
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
   if (window.location.pathname.length <= 1) {
     if (getCookie('chameleon_counter') === 0) {
-      setCookie('CB_color', c_s[counter], 1);
+      setCookie('CB_color', color_array[counter], 1);
     } else{
       counter = getCookie('chameleon_counter');
     }
@@ -118,7 +150,7 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
       var code = (event.keyCode) ? event.keyCode : event.which;
       if (code == 13) {
         counter++;
-        if (counter == 37) {
+        if (counter == color_array.length) {
           counter = 0;
         }
       }
@@ -127,15 +159,15 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
       var code = (event.keyCode) ? event.keyCode : event.which;
       if (code == 13) {
         setCookie('chameleon_counter', counter, 1);
-        setCookie('CB_color', c_s[counter], 1);
-        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('scolor') .value = c_s[counter];
-        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(c_s[counter]).r + ',' + hexToRgb(c_s[counter]).g + ',' + hexToRgb(c_s[counter]).b + ');';
-        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('message') .style.color = c_s[counter];
+        setCookie('CB_color', color_array[counter], 1);
+        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('scolor') .value = color_array[counter];
+        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(color_array[counter]).r + ',' + hexToRgb(color_array[counter]).g + ',' + hexToRgb(color_array[counter]).b + ');';
+        document.getElementById('frame_chatbox') .contentWindow.document.getElementById('message') .style.color = color_array[counter];
       }
     }, false);
   } else {
     if (getCookie('chameleon_counter') === 0) {
-      setCookie('CB_color', c_s[counter], 1);
+      setCookie('CB_color', color_array[counter], 1);
     } else{
       counter = getCookie('chameleon_counter');
     }
@@ -143,7 +175,7 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
       var code = (event.keyCode) ? event.keyCode : event.which;
       if (code == 13) {
         counter++;
-        if (counter == 37) {
+        if (counter == color_array.length) {
           counter = 0;
         }
       }
@@ -152,16 +184,13 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
       var code = (event.keyCode) ? event.keyCode : event.which;
       if (code == 13) {
         setCookie('chameleon_counter', counter, 1);
-        setCookie('CB_color', c_s[counter], 1);
-        console.log(c_s[counter]);
-        document.getElementById('scolor') .value = c_s[counter];
-        document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(c_s[counter]).r + ',' + hexToRgb(c_s[counter]).g + ',' + hexToRgb(c_s[counter]).b + ');';
-        document.getElementById('message') .style.color = c_s[counter];
+        setCookie('CB_color', color_array[counter], 1);
+        console.log(color_array[counter]);
+        document.getElementById('scolor') .value = color_array[counter];
+        document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(color_array[counter]).r + ',' + hexToRgb(color_array[counter]).g + ',' + hexToRgb(color_array[counter]).b + ');';
+        document.getElementById('message') .style.color = color_array[counter];
       }
     }, false);
   }
-}
-
-window.addEventListener('load', function() {
-   createSelectBox();
+}  
 }, false);
