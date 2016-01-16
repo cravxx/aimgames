@@ -74,6 +74,7 @@ function getCookie(c_name) {
 function returnOption(text){
 	var option = document.createElement("option");
 	option.text = text;
+	option.style.dir = "rtl";
 	return option;
 }
 
@@ -88,33 +89,17 @@ function createSelectBox(){
 
 	var gen_location = document.getElementById("Cha");
         select = document.createElement('select');
-        select.id = 'selectCha';
+        select.id = 'selectCha';        
         gen_location.appendChild(select);
 	
 
 	var sel_location = document.getElementById('selectCha');
         sel_location.appendChild(returnOption("strut"));
-sel_location.appendChild(returnOption("dat"));
-sel_location.appendChild(returnOption("ass"));
-sel_location.appendChild(returnOption("icecreaminiowa"));
-sel_location.appendChild(returnOption("ayy lmao lamo"));
-
+        sel_location.appendChild(returnOption("dat"));
+        sel_location.appendChild(returnOption("ass"));
+        sel_location.appendChild(returnOption("icecreaminiowa"));
+        sel_location.appendChild(returnOption("ayy lmao lamo"));
 }
-
-    function addOption(){
-        var input = document.getElementById("input");
-        var value = input.value;
-        // This will attempt to grab the 'select' element, but if it finds
-        // that it doesn't exist (i.e. getElementById returns a "falsy" value)
-        // then it will return the value of the createSelect function. 
-        // This could also be done with more explicit "if" statements
-        var menu = document.getElementById('select') || createSelect();
-
-        var option = document.createElement("option");
-        var text = document.createTextNode(value);
-        option.appendChild(text);
-        menu.appendChild(option);   
-    }
 
 var counter = 0;
 
