@@ -73,7 +73,7 @@ var color_hex = {
     light: createRainbow(200,55, 0.3, 0.3, 0.3, 0, 2, 4, 32),
     different: createRainbow(128, 127, 0.1, 0.2, 0.3, 0, 2, 4, 27),
     yellow: createRainbow(128, 127, 0.3, 0.3, 0.46, 1.8, 1.8, 3.18, 22),
-    vast: createRainbow(128, 127, 0.24, 0.36, 0.46, 0.9, 1.99, 2.89, 106);
+    vast: createRainbow(128, 127, 0.24, 0.36, 0.46, 0.9, 1.99, 2.89, 106)
 };
 //
 
