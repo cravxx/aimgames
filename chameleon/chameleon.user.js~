@@ -47,6 +47,12 @@ function hexToRgb(hex) {
 }
 ///////
 
+///////Color arrays all named
+
+var color_style = [ "Normal", "Trippy", "Patriotic" ];
+
+///////
+
 ///////COOKIE SHIT
 function setCookie(name, value, days) {
   var expires = '';
@@ -75,6 +81,7 @@ function returnOption(text){
 	var option = document.createElement("option");
 	option.text = text;
 	option.style.dir = "rtl";
+	option.style.paddingRight = "4px";
 	return option;
 }
 
@@ -90,15 +97,12 @@ function createSelectBox(){
 	var gen_location = document.getElementById("Cha");
         select = document.createElement('select');
         select.id = 'selectCha';        
-        gen_location.appendChild(select);
-	
+        gen_location.appendChild(select);	
 
-	var sel_location = document.getElementById('selectCha');
-        sel_location.appendChild(returnOption("strut"));
-        sel_location.appendChild(returnOption("dat"));
-        sel_location.appendChild(returnOption("ass"));
-        sel_location.appendChild(returnOption("icecreaminiowa"));
-        sel_location.appendChild(returnOption("ayy lmao lamo"));
+	var sel_location = document.getElementById('selectCha');	
+	for(var num_entries = 0; num_entries < color_style.length; num_entries++){
+	   sel_location.appendChild(returnOption(color_style[num_entries]));
+	}
 }
 
 var counter = 0;
