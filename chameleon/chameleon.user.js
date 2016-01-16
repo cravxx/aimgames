@@ -15,6 +15,7 @@ function values(o) {
     return o[k];
   });
 }
+
 ////// TOOLBOX
 function ayyliumLanguage(n)
   {
@@ -35,6 +36,7 @@ function hexToRgb(hex) {
         b: parseInt(result[3], 16)
     } : null;
 }
+//////
 
 function createRainbow(center, width, f_r, f_g, f_b, cutoff) {
 var a= [];
