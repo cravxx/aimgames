@@ -8088,8 +8088,6 @@ function edit_css() {
   // making it nonvisible. +1 for every new button
   document.getElementsByClassName('cattitle')[0].style.paddingLeft = '4px';
   // // Move over the title "Chatbox" a bit
-  document.getElementById("divsmilies").getElementsByTagName("img")[0].src = "http://i.imgur.com/47NbRiV.gif";
-  // // Replace the old smilie image on the button with a new one
 }
 /////////////////////
 /////////////////////INJECTS THE FUCKING SMILIES INTO WINDOW
