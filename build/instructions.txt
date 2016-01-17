@@ -25,7 +25,7 @@ linesToKeep 8
 linesToKeep 9
 ../bin/chatboxplusplus.compiled.user.js "../alive/chatboxplusplus.user.js"
 
-linesToKeep 10
+linesToKeep 11
 ../bin/chameleon.compiled.user.js "../chameleon/chameleon.user.js"
 
 linesToKeep 8
