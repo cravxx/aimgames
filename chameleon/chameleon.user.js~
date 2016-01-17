@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name        Chameleon
-// @description Auto color formatting for the chatbox.
-// @namespace   how much grease
+// @description Customizable message coloring for the AIM Chatbox.
+// @namespace   samsquanchhunter14@gmail.com
+// @include     https://aimgames.forummotion.com/*
 // @include     http://aimgames.forummotion.com/*
 // @version     4.drab.7.1.puzzlements.1452981454.7
 // @grant       none
-// @icon        http://i.imgur.com/g8MwvQd.png
+// @icon        http://i.imgur.com/jCJgorp.gif
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
