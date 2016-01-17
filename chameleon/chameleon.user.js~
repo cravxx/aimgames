@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     https://aimgames.forummotion.com/*
 // @include     http://aimgames.forummotion.com/*
-// @version     4.fine.4.1.frostbiting.1453002991.7
+// @version     4.fine.4.1.frostbiting.1453002991.8
 // @grant       none
 // @icon        http://i.imgur.com/jCJgorp.gif
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -85,7 +85,9 @@ var color_hex = {
     lemon: createRainbow(128, 127, 1, 0, 0, 1.86, 1.07, 3.6, 38),
     cotton: createRainbow(128, 127, 0.73, 0, 0, 2.7, 3.03, 1.09, 32),
     peaches: createRainbow(128, 127, 0, 0, 0.35, 2.14, 0, 0, 35),
-    honey: createRainbow(128, 127, 0, 0, 0.42, 1.73, 1.86, 1.68, 15)
+    honey: createRainbow(128, 127, 0, 0, 0.42, 1.73, 1.86, 1.68, 15),
+    bright: createRainbow(128, 127, 0.34, 0.43, 0.33, 0, 0.52, 3.6, 103),
+    maxed: createRainbow(128, 127, 0.34, 0.28, 0, 3.09, 0.38, 3.52, 224)
 };
 //
 
@@ -254,4 +256,5 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
   }
 }  
 }, false);
+
 
