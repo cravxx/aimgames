@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     https://aimgames.forummotion.com/*
 // @include     http://aimgames.forummotion.com/*
-// @version     4.drab.7.1.puzzlements.1452981454.7
+// @version     4.drab.8.1.puzzlements.1452981454.7
 // @grant       none
 // @icon        http://i.imgur.com/jCJgorp.gif
 // @license     MIT License (Expat); opensource.org/licenses/MIT
