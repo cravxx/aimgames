@@ -3,10 +3,12 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     4.far.0.5.biolysis.1452473005.8
+// @version     4.far.0.5.biolysis.1452473005.9
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
+// @homepage https://github.com/HulaSamsquanch/aimgames
+// @supportURL https://github.com/HulaSamsquanch/aimgames/issues
 // @require     https://raw.githubusercontent.com/RadLikeWhoa/Countable/master/Countable.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @require     https://raw.githubusercontent.com/arasatasaygin/is.js/master/is.js
