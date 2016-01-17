@@ -151,7 +151,7 @@ function whatdo(wew){
     for(var k in color_hex) keys.push(k);
     
     for(var t = 0; t < values(color_hex).length; t++) {    
-    console.log(wew.value.toLowerCase() + "   " + keys[t]);
+    //console.log(wew.value.toLowerCase() + "   " + keys[t]);
         if(wew.value.toLowerCase() == keys[t]){ 
             dunwan = color_hex[keys[t]];  
         }        
@@ -234,7 +234,7 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
       if (code == 13) {
         setCookie('chameleon_counter', counter, 1);
         setCookie('CB_color', color_array[counter], 1);
-        console.log(color_array[counter]);
+        //console.log(color_array[counter]);
         document.getElementById('scolor') .value = color_array[counter];
         document.getElementById('divcolor-preview') .style.cssText = 'background-color: rgb(' + hexToRgb(color_array[counter]).r + ',' + hexToRgb(color_array[counter]).g + ',' + hexToRgb(color_array[counter]).b + ');';
         document.getElementById('message') .style.color = color_array[counter];
