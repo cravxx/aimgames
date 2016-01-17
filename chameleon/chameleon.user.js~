@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     https://aimgames.forummotion.com/*
 // @include     http://aimgames.forummotion.com/*
-// @version     4.drab.9.1.puzzlements.1452981454.10
+// @version     4.drab.10.1.puzzlements.1452981454.10
 // @grant       none
 // @icon        http://i.imgur.com/jCJgorp.gif
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -78,7 +78,15 @@ var color_hex = {
     toxic: createRainbow(128, 127, 0.3, 0.34, 0.3, 2.32, 3.6, 1.8, 22),
     isabelle: createRainbow(128, 127, 1, 1, 1, 3.6, 2.14, 2.21, 19),
     blazing: createRainbow(128, 127, 1, 1, 1, 1.61, 0.43, 2.81, 19),
-    pastel: createRainbow(128, 127, 0, 0.3, 0.3, 2.62, 2.23, 1.8, 38)
+    pastel: createRainbow(128, 127, 0, 0.3, 0.3, 2.62, 2.23, 1.8, 38),
+    fruity: createRainbow(128, 127, 0.29, 0, 0.3, 1.73, 2.01, 3.6, 43),
+    minty: createRainbow(128, 127, 0.29, 0, 0.3, 3.6, 2.01, 3.6, 43),
+    strobe: createRainbow(128, 127, 0.42, 0, 0, 1.86, 3.6, 3.6, 43),
+    lemon: createRainbow(128, 127, 1, 0, 0, 1.86, 1.07, 3.6, 38),
+    cotton: createRainbow(128, 127, 0.73, 0, 0, 2.7, 3.03, 1.09, 32)
+
+
+
 };
 //
 
