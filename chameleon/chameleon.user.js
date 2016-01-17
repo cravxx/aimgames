@@ -77,7 +77,8 @@ var color_hex = {
     vast: createRainbow(128, 127, 0.24, 0.36, 0.46, 0.9, 1.99, 2.89, 106),
     toxic: createRainbow(128, 127, 0.3, 0.34, 0.3, 2.32, 3.6, 1.8, 22),
     isabelle: createRainbow(128, 127, 1, 1, 1, 3.6, 2.14, 2.21, 19),
-    blazing: createRainbow(128, 127, 1, 1, 1, 1.61, 0.43, 2.81, 19)
+    blazing: createRainbow(128, 127, 1, 1, 1, 1.61, 0.43, 2.81, 19),
+    pastel: createRainbow(128, 127, 0, 0.3, 0.3, 2.62, 2.23, 1.8, 38)
 };
 //
 
