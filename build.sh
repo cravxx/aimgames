@@ -29,8 +29,8 @@ cd ..
 
 #Argument 1 is the file that will be output, argument 2 is the file that will be input, argument 3 is the number of lines to be kept from the start of the file.
 #../ means "go back one folder"
-sh compile.sh ../bin/swearify.compiled.user.js "../swearify/swearify.user.js" 15
-sh increment.sh
+sh compile.sh ../bin/swearify.compiled.user.js "../swearify/swearify.user.js" 15 || exit 1
+sh increment.sh || exit 1
 
 #return to home
 cd ..
