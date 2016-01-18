@@ -1,0 +1,1 @@
+java -jar IncrementBuildNumber.jar ../bin/LASTBUILD.txt
