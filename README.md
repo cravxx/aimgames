@@ -2,7 +2,7 @@
 [![Github Issues](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/issues.svg)](https://github.com/HulaSamsquanch/aimgames/issues) [![Pending Pull Requests](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/pulls.svg)](https://github.com/HulaSamsquanch/aimgames/pulls)
 [![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
-_For the end user..._[<sup><sup>[regarding chrome support]</sup></sup>](https://github.com/HulaSamsquanch/aimgames/wiki/Chromium-support)  
+_For the end user..._  
 [![Firefox 38+ Support](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/) [![Greasemonkey 3.0+ Support](https://img.shields.io/badge/greasemonkey-3.0%2B-yellow.svg)](http://www.greasespot.net/)  
 [![Chrome  42+ Support](https://img.shields.io/badge/chrome-42%2B-blue.svg)](http://www.google.com/chrome/)  [![Tampermonkey 3.10+ Support](https://img.shields.io/badge/tampermonkey-3.10%2B-green.svg)](https://tampermonkey.net/)  
 
