@@ -1,6 +1,8 @@
 # Appveyor doesn"t have JDK 8 by default in PATH so we must set it
 
 build_script: 
+# is there a better way to do this?
+ - cmd: SET tempath=%PATH%
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
  - build.bat
 
@@ -10,6 +12,7 @@ environment:
 
 # Note: AppVeyor checkout only the last commit and not the entire branch. So you may have to checkout the wanted branch: git checkout master
 on_success:
+ - cmd: SET PATH=%tempath%
  - git config --global credential.helper store
  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
  - git config --global user.email "chrishansen@notarealem.ail"
