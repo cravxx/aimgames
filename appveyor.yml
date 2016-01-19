@@ -3,3 +3,9 @@
 build_script: 
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
  - build.bat
+ - cmd: For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
+ - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
+ - git checkout -b failsafe-appveyor-test
+ - git add bin/*
+ - git commit -m "Automated Appveyor build at %mydate%_%mytime%"
+ - git push origin master
