@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     https://aimgames.forummotion.com/*
 // @include     http://aimgames.forummotion.com/*
-// @version     4.fine.5.1.frostbiting.1453002991.8
+// @version     4.fine.6.1.frostbiting.1453002991.8
 // @grant       none
 // @icon        http://i.imgur.com/jCJgorp.gif
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -130,25 +130,25 @@ function createSelectBox(){
 	new_td.style.paddingRight = "5px";
 
   	document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].insertBefore(
-		new_td, 
+		new_td,
 		document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].childNodes[0]
   	);
 
 	var gen_location = document.getElementById("Cha");
-	
+
 	label = document.createElement('label');
     label.id = 'labelCha';
     gen_location.appendChild(label);
 
 	select = document.createElement('select');
-    select.id = 'selectCha';        
-    gen_location.appendChild(select);	
+    select.id = 'selectCha';
+    gen_location.appendChild(select);
 
-	var sel_location = document.getElementById('selectCha');	
-	
+	var sel_location = document.getElementById('selectCha');
+
 	sel_location.addEventListener('change', function() {whatdo(this);}, false);
 	var keys = [];
-    for(var k in color_hex) keys.push(k);    
+    for(var k in color_hex) keys.push(k);
 	for(var num_entries = 0; num_entries < keys.length; num_entries++){
 	   sel_location.appendChild(returnOption(capitalizeFirstLetter(keys[num_entries])));
 	}
@@ -156,28 +156,28 @@ function createSelectBox(){
 
 var counter = 0;
 
-function whatdo(wew){    
+function whatdo(wew){
     var dunwan = [];
     color_array = []; //clear it
     counter = 0;
-    
+
     var keys = [];
     for(var k in color_hex) keys.push(k);
-    
-    for(var t = 0; t < values(color_hex).length; t++) {    
+
+    for(var t = 0; t < values(color_hex).length; t++) {
     //console.log(wew.value.toLowerCase() + "   " + keys[t]);
-        if(wew.value.toLowerCase() == keys[t]){ 
-            dunwan = color_hex[keys[t]];  
-        }        
+        if(wew.value.toLowerCase() == keys[t]){
+            dunwan = color_hex[keys[t]];
+        }
     }
    setCookie('chameleon_color_style', wew.value.toLowerCase(), 1);
-   
+
    for (var all = 0; all < dunwan.length; all++) {
         color_array[all] = dunwan[all];
-   } 
-   
-   document.getElementById("labelCha").innerHTML = dunwan.length;
-   
+   }
+
+   document.getElementById("labelCha").textContent = dunwan.length;
+
    setCookie('chameleon_counter', counter, 1);
    setCookie('CB_color', color_array[counter], 1);
    document.getElementById('scolor') .value = color_array[counter];
@@ -187,7 +187,7 @@ function whatdo(wew){
 
 window.addEventListener('load', function() {
    createSelectBox();
-   
+
    if (getCookie('chameleon_color_style') === "") {
       setCookie('chameleon_color_style', color_hex['normal'], 1);
     } else{
@@ -198,10 +198,10 @@ window.addEventListener('load', function() {
         color_array[all] = values(color_hex[getCookie('chameleon_color_style')])[all];
         //console.log("only once pls");
     }
-   
+
     document.getElementById("labelCha").style.cssText = "font-size: 10px; color: white; margin-right: 8px; margin-left: 5px;";
     document.getElementById("labelCha").innerHTML = color_hex[getCookie('chameleon_color_style')].length;
-         
+
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
   if (window.location.pathname.length <= 1) {
     if (getCookie('chameleon_counter') === 0) {
@@ -255,7 +255,5 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
       }
     }, false);
   }
-}  
+}
 }, false);
-
-
