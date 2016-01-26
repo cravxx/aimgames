@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     4.far.0.5.biolysis.1452473005.10
+// @version     4.far.1.5.biolysis.1452473005.10
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -4544,6 +4544,21 @@ var emoticon_2 = {
     ':weme4:',
     'http://i.imgur.com/Uw4ODf8s.gif',
     'WEME KEKE'
+  ],
+  noodbro: [
+    ':noodbro:',
+    'http://i.imgur.com/MRF9GGC.png',
+    'NOOD BRO'
+  ],
+  boratjew: [
+    ":boratjew:",
+    'http://i.imgur.com/aX2p3Xbs.png',
+    'BORAT FACE WHEN HE SEES A JEW'
+  ],
+  alsuprise: [
+    ':alsuprise:',
+    'http://prntscr.com/9uc769',
+    'THE AL J SUPRISE'
   ]
 };
 var emoticon_3 = {
