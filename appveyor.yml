@@ -21,5 +21,5 @@ on_success:
  - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
  - git checkout master
  - git add bin/*
- - git commit -m "Automated Appveyor build at %mydate%_%mytime%"
+ - git commit -m "Automated Appveyor build at %mydate%_%mytime% [skip ci]"
  - git push origin master
