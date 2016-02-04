@@ -1,6 +1,8 @@
-# Scripts for AIM Games [![Travis (Unix) Build Status](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames) [![Appveyor (Windows) Build Status](https://ci.appveyor.com/api/projects/status/l56ynyon7vnig3og?svg=true)](https://ci.appveyor.com/project/chrishansen69/aimgames) [![Latest Release Version](https://img.shields.io/github/release/HulaSamsquanch/aimgames.svg)](https://github.com/HulaSamsquanch/aimgames/releases/latest)
+# Scripts for AIM Games [![Travis (Unix) Build Status](https://travis-ci.org/HulaSamsquanch/aimgames.svg?branch=master)](https://travis-ci.org/HulaSamsquanch/aimgames) [![Appveyor (Windows) Build Status](https://ci.appveyor.com/api/projects/status/l56ynyon7vnig3og?svg=true)](https://ci.appveyor.com/project/chrishansen69/aimgames)
 [![Github Issues](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/issues.svg)](https://github.com/HulaSamsquanch/aimgames/issues) [![Pending Pull Requests](http://githubbadges.herokuapp.com/HulaSamsquanch/aimgames/pulls.svg)](https://github.com/HulaSamsquanch/aimgames/pulls)
 [![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![Code Climate](https://img.shields.io/codeclimate/github/HulaSamsquanch/aimgames.svg)](https://codeclimate.com/github/HulaSamsquanch/aimgames)
+[![Issue Count](https://codeclimate.com/github/HulaSamsquanch/aimgames/badges/issue_count.svg)](https://codeclimate.com/github/HulaSamsquanch/aimgames)
 
 _For the end user..._  
 [![Firefox 38+ Support](https://img.shields.io/badge/firefox-38%2B-orange.svg)](https://www.mozilla.org/firefox/new/) [![Greasemonkey 3.0+ Support](https://img.shields.io/badge/greasemonkey-3.0%2B-yellow.svg)](http://www.greasespot.net/)  
