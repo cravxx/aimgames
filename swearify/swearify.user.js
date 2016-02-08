@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     4.far.1.5.biolysis.1452473005.10
+// @version     4.badgered.5.1.decency.1454874903.7
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -8124,9 +8124,38 @@ function preloader(image_url) {
   temp_image.src = image_url;
 }
 
-function inject_smilie(i) {
-  var get_place = document.getElementsByTagName('table')[2];
-  if (get_place.innerHTML === '') {
+
+function manageScreen() {
+  for(var i = 260; i < window.screen.availWidth; i += 130){
+    console.log(i);
+    if(wX() < i && wX() > i - 130){
+      window.innerWidth = i;
+    }
+  }
+}
+
+function wX() {
+  var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth;
+  return x;
+}
+
+
+function wY() {
+  var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+  return y;
+}
+
+
+function inject_smilie(i, wWidth) {
+    var get_place = document.getElementsByTagName('table')[2];
     var the_body = document.createElement('tbody');
     get_place.appendChild(the_body);
     get_place.getElementsByTagName('tbody')[0].innerHTML = td_array;
@@ -8137,7 +8166,7 @@ function inject_smilie(i) {
     if (i == 1) {
       for (x = 0; x < Object.keys(emoticon_1).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
-        if (counter == 8) {
+        if (counter == wWidth) {
           counter = 0;
           coconut++;
           the_tr = document.createElement('tr');
@@ -8151,7 +8180,7 @@ function inject_smilie(i) {
     } else if (i == 2) {
       for (x = 0; x < Object.keys(emoticon_2).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
-        if (counter == 8) {
+        if (counter == wWidth) {
           counter = 0;
           coconut++;
           the_tr = document.createElement('tr');
@@ -8165,7 +8194,7 @@ function inject_smilie(i) {
     } else if (i == 3) {
       for (x = 0; x < Object.keys(emoticon_3).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
-        if (counter == 8) {
+        if (counter == wWidth) {
           counter = 0;
           coconut++;
           the_tr = document.createElement('tr');
@@ -8179,7 +8208,7 @@ function inject_smilie(i) {
     } else if (i == 4) {
       for (x = 0; x < Object.keys(emoticon_4).length; x++) {
         // console.log(counter + " " + coconut + " " + x);
-        if (counter == 8) {
+        if (counter == wWidth) {
           counter = 0;
           coconut++;
           the_tr = document.createElement('tr');
@@ -8193,7 +8222,7 @@ function inject_smilie(i) {
     } else if (i == 5) {
       for (x = 0; x < twitch_e.length; x++) {
         // console.log(counter + " " + coconut + " " + x);
-        if (counter == 8) {
+        if (counter == wWidth) {
           counter = 0;
           coconut++;
           the_tr = document.createElement('tr');
@@ -8205,7 +8234,6 @@ function inject_smilie(i) {
         counter++;
       }
     }
-  }
 }
 
 function inject_spacer() {
@@ -8296,11 +8324,31 @@ function debugg() {
 window.addEventListener('load', function() { /* shit goes down in here */
   if (is.ie() || is.safari() || is.opera()) alert('This browser is unsupported by Swearify.');
   else {
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') inject_smilie(1);
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies') inject_smilie(2);
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies') inject_smilie(3);
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies') inject_smilie(4);
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies') inject_smilie(5);
+    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies'){
+      var get_place = document.getElementsByTagName('table')[2];
+      if (!get_place.innerHTML === '')
+         get_place.innerHTML = "";
+      inject_smilie(1, Math.floor(wX()/130)-1); window.onresize = function(event) {manageScreen(); inject_smilie(1, Math.floor(wX()/130)-1);}}
+    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies'){
+      var get_place = document.getElementsByTagName('table')[2];
+      if (!get_place.innerHTML === '')
+         get_place.innerHTML = "";
+      inject_smilie(2, Math.floor(wX()/130)-1); window.onresize = function(event) {manageScreen(); inject_smilie(2, Math.floor(wX()/130)-1);}}
+    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies'){
+      var get_place = document.getElementsByTagName('table')[2];
+      if (!get_place.innerHTML === '')
+         get_place.innerHTML = "";
+      inject_smilie(3, Math.floor(wX()/130)-1); window.onresize = function(event) {manageScreen(); inject_smilie(3, Math.floor(wX()/130)-1);}}
+    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies'){
+      var get_place = document.getElementsByTagName('table')[2];
+      if (!get_place.innerHTML === '')
+         get_place.innerHTML = "";
+      inject_smilie(4, Math.floor(wX()/130)-1); window.onresize = function(event) {manageScreen(); inject_smilie(4, Math.floor(wX()/130)-1);}}
+    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies'){
+      var get_place = document.getElementsByTagName('table')[2];
+      if (!get_place.innerHTML === '')
+         get_place.innerHTML = "";
+      inject_smilie(5, Math.floor(wX()/130)-1); window.onresize = function(event) {manageScreen(); inject_smilie(5, Math.floor(wX()/130)-1);}}
     if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || window.location.href ===
       'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || window.location.href ===
       'http://aimgames.forummotion.com/chatbox/index.forum?archives' || window.location.href ===
