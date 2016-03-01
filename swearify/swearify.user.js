@@ -1230,16 +1230,16 @@ var emoticon_5 = {
         ':strangeant:', 'http://i.imgur.com/Zka5Ztas.png', "A STRANGE ANDUNNY FANTANU"
     ],
     anime1: [
-        ':anime1', 'http://i.imgur.com/5Ss4qUys.png', 'ANIME 1'
+        ':anime1:', 'http://i.imgur.com/5Ss4qUys.png', 'ANIME 1'
     ],
     anime2: [
-        ':anime2', 'http://i.imgur.com/ROKeKzGs.png', 'ANIME 2'
+        ':anime2:', 'http://i.imgur.com/ROKeKzGs.png', 'ANIME 2'
     ],
     anime3: [
         ':anime3:', 'http://i.imgur.com/jdutcGfs.png', 'ANIME 3'
     ],
     lowresman: [
-        ':lowresman:', 'http://i.imgur.com/rLLnJ09s.png', 'LOW RES MAN'
+        ':lowresman:', 'http://i.imgur.com/rLLnJ09.png', 'LOW RES MAN'
     ],
     anime4: [
         ':anime4:', 'http://i.imgur.com/TL3QgbDs.png', 'ANIME 4'
@@ -1318,6 +1318,9 @@ var emoticon_5 = {
     ],
     idubbbzpuke: [
         ':idubbbzpuke:', 'http://i.imgur.com/AybmiQWs.png', 'idubbbzpuke'
+    ],
+    anime6: [
+        ':purebliss:', 'http://i.imgur.com/iGiMwxv.jpg', 'PURE BLISS'
     ]
 };
 var emoticon_3 = {
@@ -2352,7 +2355,7 @@ var smilie_header_html =
 var td_base =
     '<td><a href=\'javascript:insert_chatboxsmilie(_smilie)\'><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a></td>';
 var td_array = '<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>';
-var quote = '"';
+var quote = '\'';
 if (document.getElementsByName('categ').length == 1) document.getElementsByName('categ')[0].innerHTML =
     smilie_header_html;
 ///////VAR FOR FIXING THE POST PAGE
@@ -3969,8 +3972,8 @@ window.addEventListener('load', function()
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies')
         {
             get_place = document.getElementsByTagName('table')[2];
-            if (get_place.innerHTML !== '')
-                get_place.innerHTML = "";
+            if (get_place.innerText !== '')
+                get_place.innerText = "";
             inject_smilie(1, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -3981,8 +3984,8 @@ window.addEventListener('load', function()
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies')
         {
             get_place = document.getElementsByTagName('table')[2];
-            if (get_place.innerHTML !== '')
-                get_place.innerHTML = "";
+            if (get_place.innerText !== '')
+                get_place.innerText = "";
             inject_smilie(2, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -3993,8 +3996,8 @@ window.addEventListener('load', function()
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies')
         {
             get_place = document.getElementsByTagName('table')[2];
-            if (get_place.innerHTML !== '')
-                get_place.innerHTML = "";
+            if (get_place.innerText !== '')
+                get_place.innerText = "";
             inject_smilie(3, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -4005,8 +4008,8 @@ window.addEventListener('load', function()
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies')
         {
             get_place = document.getElementsByTagName('table')[2];
-            if (get_place.innerHTML !== '')
-                get_place.innerHTML = "";
+            if (get_place.innerText !== '')
+                get_place.innerText = "";
             inject_smilie(4, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -4029,8 +4032,8 @@ window.addEventListener('load', function()
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies')
         {
             get_place = document.getElementsByTagName('table')[2];
-            if (get_place.innerHTML !== '')
-                get_place.innerHTML = "";
+            if (get_place.innerText !== '')
+                get_place.innerText = "";
             inject_smilie(6, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -4059,8 +4062,7 @@ window.addEventListener('load', function()
             inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
             inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/index.css');
             edit_css();
-            document.getElementById('submit_button').addEventListener('click', function()
-            {
+            document.getElementById('submit_button').addEventListener('click', function()  {
                 run_();
             }, false);
             $(document).on('keydown', function(e) {
