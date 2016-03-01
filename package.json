@@ -19,5 +19,5 @@
   "scripts": {
     "test": "grunt bleedTheFreak"
   },
-  "droneVersion": "5.badgered.5.1.archdukedom.1454874937.7"
+  "droneVersion": "6.explicit.5.1.compactness.1456796986.7"
 }
