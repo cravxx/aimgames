@@ -98,11 +98,13 @@ function emoticon() {
             $("#message").val(new_msg);
         }
     });
-    
+}
+
+// check for memes
+function meme() {
     $.each(maymay, function(name, value) {
       if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-          console.log(value[0]);
-        new_msg = $("#message").val().replace(new RegExp(value[0], 'gi'), value[1]);
+        var new_msg = $("#message").val().replace(new RegExp(value[0], 'gi'), value[1]);
         $('#message').val(new_msg);
       }
     });    
@@ -183,6 +185,125 @@ function addRandom() {
     });
 }
 
+// greek
+function greek() {    
+    var new_msg = $('#message').val();
+    new_msg = new_msg.replace(/a/gi, 'a');
+    new_msg = new_msg.replace(/b/gi, 'ß');
+    new_msg = new_msg.replace(/c/gi, '?');
+    new_msg = new_msg.replace(/d/gi, 'd');
+    new_msg = new_msg.replace(/e/gi, 'e');
+    new_msg = new_msg.replace(/f/gi, 'ƒ');
+    new_msg = new_msg.replace(/g/gi, 'g');
+    new_msg = new_msg.replace(/h/gi, '?');
+    new_msg = new_msg.replace(/i/gi, '?');
+    new_msg = new_msg.replace(/j/gi, 'j');
+    new_msg = new_msg.replace(/k/gi, '?');
+    new_msg = new_msg.replace(/l/gi, 'l');
+    new_msg = new_msg.replace(/m/gi, '?');
+    new_msg = new_msg.replace(/n/gi, '?');
+    new_msg = new_msg.replace(/o/gi, '?');
+    new_msg = new_msg.replace(/p/gi, '?');
+    new_msg = new_msg.replace(/q/gi, 'f');
+    new_msg = new_msg.replace(/r/gi, '?');
+    new_msg = new_msg.replace(/s/gi, 's');
+    new_msg = new_msg.replace(/t/gi, 't');
+    new_msg = new_msg.replace(/u/gi, 'µ');
+    new_msg = new_msg.replace(/v/gi, 'v');
+    new_msg = new_msg.replace(/w/gi, '?');
+    new_msg = new_msg.replace(/x/gi, '?');
+    new_msg = new_msg.replace(/y/gi, '?');
+    new_msg = new_msg.replace(/z/gi, '?');
+    $('#message').val(new_msg);
+}
+
+function addGreek() {
+    var where = $(".text-styles tr")[0];    
+  
+    $(where).prepend($("<td id='greek_button' class='fontbutton'></td>"));
+  
+    var whereTd = $(where).find('td');  
+    $(whereTd[0]).append(
+      $('<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek" style="cursor:pointer;"><img src="http://i.imgur.com/OUGQ1ik.png"></label>')    
+    );
+    
+    var what = document.getElementById('click_area_greek');
+    var whot = document.getElementById('format-greek');
+    if (getCookie('CB_greek') === '1') whot.checked = true;
+    else whot.checked = false;
+    what.addEventListener('click', function() {
+        if (!whot.checked) {
+            whot.checked = true;
+            whot.style.cssText = cssClicked;
+            setCookie('CB_greek', '1', 1);
+        } else {
+            whot.checked = false;
+            whot.style.cssText = '';
+            setCookie('CB_greek', '0', 1);
+        }
+    });
+}
+
+// smallcaps
+function smallcaps() {
+    var new_msg = $('#message').val();
+    new_msg = new_msg.replace(/a/gi, '?');
+    new_msg = new_msg.replace(/b/gi, '?');
+    new_msg = new_msg.replace(/c/gi, '?');
+    new_msg = new_msg.replace(/d/gi, '?');
+    new_msg = new_msg.replace(/e/gi, '?');
+    new_msg = new_msg.replace(/f/gi, '?');
+    new_msg = new_msg.replace(/g/gi, '?');
+    new_msg = new_msg.replace(/h/gi, '?');
+    new_msg = new_msg.replace(/i/gi, '?');
+    new_msg = new_msg.replace(/j/gi, '?');
+    new_msg = new_msg.replace(/k/gi, '?');
+    new_msg = new_msg.replace(/l/gi, '?');
+    new_msg = new_msg.replace(/m/gi, '?');
+    new_msg = new_msg.replace(/n/gi, '?');
+    new_msg = new_msg.replace(/o/gi, '?');
+    new_msg = new_msg.replace(/p/gi, '?');
+    new_msg = new_msg.replace(/q/gi, 'o');
+    new_msg = new_msg.replace(/r/gi, '?');
+    new_msg = new_msg.replace(/s/gi, 's');
+    new_msg = new_msg.replace(/t/gi, '?');
+    new_msg = new_msg.replace(/u/gi, '?');
+    new_msg = new_msg.replace(/v/gi, '?');
+    new_msg = new_msg.replace(/w/gi, '?');
+    new_msg = new_msg.replace(/x/gi, 'x');
+    new_msg = new_msg.replace(/y/gi, '?');
+    new_msg = new_msg.replace(/z/gi, '?');
+    $('#message').val(new_msg);
+}
+
+function addSmallcaps() {
+    var where = $(".text-styles tr")[0];    
+  
+    $(where).prepend($("<td id='smallcaps_button' class='fontbutton'></td>"));
+  
+    var whereTd = $(where).find('td');  
+    $(whereTd[0]).append(
+      $('<input name="smallcaps" id="format-smallcaps" class="format-message" type="checkbox"><label id="click_area_smallcaps" title="Small Caps" style="cursor:pointer;"><img src="https://i.imgur.com/gmvDgDv.jpg"></label>')    
+    );
+    
+    var what = document.getElementById('click_area_smallcaps');
+    var whot = document.getElementById('format-smallcaps');
+    if (getCookie('CB_smallcaps') === '1') whot.checked = true;
+    else whot.checked = false;
+    
+    what.addEventListener('click', function() {
+        if (!whot.checked) {
+            whot.checked = true;
+            whot.style.cssText = cssClicked;
+            setCookie('CB_smallcaps', '1', 1);
+        } else {
+            whot.checked = false;
+            whot.style.cssText = '';
+            setCookie('CB_smallcaps', '0', 1);
+        }
+    });
+}
+
 // spacer
 function addSpacer() {
     var where = $(".text-styles tr")[0];      
@@ -194,9 +315,12 @@ function addSpacer() {
 // run the functions that edit text
 function run() {
     emoticon();
+    meme();
     greentext();  
     if (getCookie('CB_rainbow') === '1') rainbow();
     if (getCookie('CB_random') === '1') random();
+    if (getCookie('CB_greek') === '1') greek();
+    if (getCookie('CB_smallcaps') === '1') smallcaps();
 }
 
 // main function
@@ -215,6 +339,8 @@ $(document).ready(function() {
     ///
     addRainbow();
     addRandom();
+    addGreek();
+    addSmallcaps();
     
     $(document).on('keydown', function(e) {
       if (e.which === 13 || e.which === 45) run();
