@@ -3,7 +3,8 @@
 // @description Adds a number of enhancements to your experience on AIM Games.
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+// @require     http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js
+// @require     https://rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @version     1.1
 // @icon        http://i.imgur.com/HlEs1B4.png
@@ -19,33 +20,10 @@ var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
 var cssLine = 'color:black;';
 var cssChat = 'overflow-x: hidden; left:141px;';
 var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;';
 
 var imgTag = [ '[img]', '[/img]' ];
 var greenText = [ '[color=#789922]', '[/color]' ];
-
-function setCookie(name, value, days) {
-    var expires = '';
-    if (days)
-    {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = '; expires=' + date.toGMTString();
-    }
-    else expires = '';
-    document.cookie = name + '=' + value + expires + '; path=/';
-}
-
-function getCookie(c_name) {
-    var name = c_name + '=';
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++)
-    {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1);
-        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
-    }
-    return '';
-}
 
 String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
@@ -73,6 +51,17 @@ function editCss() {
     // Remove the spacer to the left of the "Message" label
     $('[src="http://illiweb.com/fa/subsilver/wysiwyg/smilie.gif"]').attr('src', 'http://i.imgur.com/47NbRiV.gif');
     // Replace the old smilie image with a new one
+}
+
+function customCss() {
+    if (Cookies.get('CB_hide') === '1'){
+        $('.hider').hide();
+        $('#click_area_hide').text('<');
+    }else{
+        $('.hider').show();
+        $('#click_area_hide').text('>');
+    }     
+    $('#click_area_hide').css('cssText', cssHide);    
 }
 
 ///////////////
@@ -124,30 +113,29 @@ function rainbow() {
 function addRainbow() {   
     var where = $(".text-styles tr")[0];    
   
-    $(where).prepend($("<td id='rainbow_button' class='fontbutton'></td>"));
+    $(where).prepend($("<td id='rainbow_button' class='fontbutton hider'></td>"));
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
       $('<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;"><img src="http://i.imgur.com/F69UQGS.png"></label>')    
     );
   
-    var what = document.getElementById('click_area_rainbow');
     var whot = document.getElementById('format-rainbow');
     
-    if (getCookie('CB_rainbow') === '1') whot.checked = true;
+    if (Cookies.get('CB_rainbow') === '1') whot.checked = true;
     else whot.checked = false;
     
-    what.addEventListener('click', function() {
+    $('#click_area_rainbow').click(function() {
         if (!whot.checked) {
-            whot.checked = true;
+            whot.checked = true;            
             whot.style.cssText = cssClicked;
-            setCookie('CB_rainbow', '1', 1);
+            Cookies.set('CB_rainbow', '1');            
         } else {
-            whot.checked = false;
+            whot.checked = false;            
             whot.style.cssText = '';
-            setCookie('CB_rainbow', '0', 1);
+            Cookies.set('CB_rainbow', '0');
         }
-    });    
+    });   
 }
 
 // random text
@@ -158,28 +146,27 @@ function random_() {
 function addRandom() {
     var where = $(".text-styles tr")[0];    
   
-    $(where).prepend($("<td id='random_button' class='fontbutton'></td>"));
+    $(where).prepend($("<td id='random_button' class='fontbutton hider'></td>"));
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
       $('<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;"><img src="http://i.imgur.com/jHMOnyI.png"></label>')    
     );
     
-    var what = document.getElementById('click_area_random');
     var whot = document.getElementById('format-random');
     
-    if (getCookie('CB_random') === '1') whot.checked = true;
+    if (Cookies.get('CB_random') === '1') whot.checked = true;
     else whot.checked = false;
     
-    what.addEventListener('click', function() {
+    $('#click_area_random').click(function() {
         if (!whot.checked) {
-            whot.checked = true;
+            whot.checked = true;            
             whot.style.cssText = cssClicked;
-            setCookie('CB_random', '1', 1);
+            Cookies.set('CB_random', '1');            
         } else {
-            whot.checked = false;
+            whot.checked = false;            
             whot.style.cssText = '';
-            setCookie('CB_random', '0', 1);
+            Cookies.set('CB_random', '0');
         }
     });
 }
@@ -219,26 +206,27 @@ function greek() {
 function addGreek() {
     var where = $(".text-styles tr")[0];    
   
-    $(where).prepend($("<td id='greek_button' class='fontbutton'></td>"));
+    $(where).prepend($("<td id='greek_button' class='fontbutton hider'></td>"));
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
       $('<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek" style="cursor:pointer;"><img src="http://i.imgur.com/OUGQ1ik.png"></label>')    
     );
     
-    var what = document.getElementById('click_area_greek');
     var whot = document.getElementById('format-greek');
-    if (getCookie('CB_greek') === '1') whot.checked = true;
+    
+    if (Cookies.get('CB_greek') === '1') whot.checked = true;
     else whot.checked = false;
-    what.addEventListener('click', function() {
+    
+    $('#click_area_greek').click(function() {
         if (!whot.checked) {
-            whot.checked = true;
+            whot.checked = true;            
             whot.style.cssText = cssClicked;
-            setCookie('CB_greek', '1', 1);
+            Cookies.set('CB_greek', '1');            
         } else {
-            whot.checked = false;
+            whot.checked = false;            
             whot.style.cssText = '';
-            setCookie('CB_greek', '0', 1);
+            Cookies.set('CB_greek', '0');
         }
     });
 }
@@ -278,37 +266,53 @@ function smallcaps() {
 function addSmallcaps() {
     var where = $(".text-styles tr")[0];    
   
-    $(where).prepend($("<td id='smallcaps_button' class='fontbutton'></td>"));
+    $(where).prepend($("<td id='smallcaps_button' class='fontbutton hider'></td>"));
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
       $('<input name="smallcaps" id="format-smallcaps" class="format-message" type="checkbox"><label id="click_area_smallcaps" title="Small Caps" style="cursor:pointer;"><img src="https://i.imgur.com/gmvDgDv.jpg"></label>')    
     );
     
-    var what = document.getElementById('click_area_smallcaps');
     var whot = document.getElementById('format-smallcaps');
-    if (getCookie('CB_smallcaps') === '1') whot.checked = true;
+    
+    if (Cookies.get('CB_smallcaps') === '1') whot.checked = true;
     else whot.checked = false;
     
-    what.addEventListener('click', function() {
+    $('#click_area_smallcaps').click(function() {
         if (!whot.checked) {
-            whot.checked = true;
+            whot.checked = true;            
             whot.style.cssText = cssClicked;
-            setCookie('CB_smallcaps', '1', 1);
+            Cookies.set('CB_smallcaps', '1');            
         } else {
-            whot.checked = false;
+            whot.checked = false;            
             whot.style.cssText = '';
-            setCookie('CB_smallcaps', '0', 1);
+            Cookies.set('CB_smallcaps', '0');
         }
     });
 }
 
 // spacer
-function addSpacer() {
-    var where = $(".text-styles tr")[0];      
-    $(where).prepend($("<td></td>"));  
+function addSpacer() { 
+    var where = $(".text-styles tr")[0];  
+    
+    $(where).prepend($("<td id='hide_button' class='fontbutton'></td>"));
+  
     var whereTd = $(where).find('td');  
-    $(whereTd[0]).attr('width', '6');
+    $(whereTd[0]).append(
+      $('<input name="hide" id="hide-button" class="format-message" type="checkbox"><label id="click_area_hide" title="Hide" style="cursor:pointer;"></label>')    
+    );  
+    
+    $('#click_area_hide').click(function() {
+        if (!$('.hider').is(":visible")) {
+            $('.hider').show();
+            $('#click_area_hide').text('>');
+            Cookies.set('CB_hide', '0');            
+        } else {
+            $('.hider').hide();
+            $('#click_area_hide').text('<');
+            Cookies.set('CB_hide', '1');
+        }
+    });    
 }
 
 // run the functions that edit text
@@ -316,25 +320,23 @@ function run() {
     emoticon();
     meme();
     greentext();  
-    if (getCookie('CB_rainbow') === '1') rainbow();
-    if (getCookie('CB_random') === '1') random();
-    if (getCookie('CB_greek') === '1') greek();
-    if (getCookie('CB_smallcaps') === '1') smallcaps();
+    if (Cookies.get('CB_rainbow') === '1') rainbow();
+    if (Cookies.get('CB_random') === '1') random();
+    if (Cookies.get('CB_greek') === '1') greek();
+    if (Cookies.get('CB_smallcaps') === '1') smallcaps();
 }
 
 // main function
 $(document).ready(function() {
-	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()
-	{
+	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()	{
 		if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox' || 
-		  window.location.href === 'http://aimgames.forummotion.com/')
-		{
+		  window.location.href === 'http://aimgames.forummotion.com/') {
 			addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
-			editCss();        
+			editCss();                   
 			///
 			addSpacer();
 			///
@@ -342,7 +344,9 @@ $(document).ready(function() {
 			addRandom();
 			addGreek();
 			addSmallcaps();
-			
+            
+            ///
+            customCss();
 			$(document).on('keydown', function(e) {
 			  if (e.which === 13 || e.which === 45) run();
 			});
