@@ -5,6 +5,7 @@
 // @include     http://aimgames.forummotion.com/*
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js
+// @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @version     1
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -18,9 +19,34 @@ var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;
 var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
 var cssLine = 'color:black;';
 var cssChat = 'overflow-x: hidden; left:141px;';
+var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
 
 var imgTag = [ '[img]', '[/img]' ];
 var greenText = [ '[color=#789922]', '[/color]' ];
+
+function setCookie(name, value, days) {
+    var expires = '';
+    if (days)
+    {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + date.toGMTString();
+    }
+    else expires = '';
+    document.cookie = name + '=' + value + expires + '; path=/';
+}
+
+function getCookie(c_name) {
+    var name = c_name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++)
+    {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+    }
+    return '';
+}
 
 String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
@@ -56,7 +82,6 @@ function editCss() {
 
 // check for emoticon codes
 function emoticon() {
-    var index_num;
     var new_msg;
     var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3, emoticon_4, emoticon_5);
   
@@ -73,6 +98,14 @@ function emoticon() {
             $("#message").val(new_msg);
         }
     });
+    
+    $.each(maymay, function(name, value) {
+      if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
+          console.log(value[0]);
+        new_msg = $("#message").val().replace(new RegExp(value[0], 'gi'), value[1]);
+        $('#message').val(new_msg);
+      }
+    });    
 }
 
 // check for greentext
@@ -82,10 +115,88 @@ function greentext() {
     }
 }
 
+// rainbow text
+function rainbow() {
+    $('#message').val(rainbowText($('#message').val()));
+}
+
+function addRainbow() {   
+    var where = $(".text-styles tr")[0];    
+  
+    $(where).prepend($("<td id='rainbow_button' class='fontbutton'></td>"));
+  
+    var whereTd = $(where).find('td');  
+    $(whereTd[0]).append(
+      $('<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;"><img src="http://i.imgur.com/F69UQGS.png"></label>')    
+    );
+  
+    var what = document.getElementById('click_area_rainbow');
+    var whot = document.getElementById('format-rainbow');
+    
+    if (getCookie('CB_rainbow') === '1') whot.checked = true;
+    else whot.checked = false;
+    
+    what.addEventListener('click', function() {
+        if (!whot.checked) {
+            whot.checked = true;
+            whot.style.cssText = cssClicked;
+            setCookie('CB_rainbow', '1', 1);
+        } else {
+            whot.checked = false;
+            whot.style.cssText = '';
+            setCookie('CB_rainbow', '0', 1);
+        }
+    });    
+}
+
+// random text
+function random_() {
+    $("#message").val(randomText($("#message").val()));
+}
+
+function addRandom() {
+    var where = $(".text-styles tr")[0];    
+  
+    $(where).prepend($("<td id='random_button' class='fontbutton'></td>"));
+  
+    var whereTd = $(where).find('td');  
+    $(whereTd[0]).append(
+      $('<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;"><img src="http://i.imgur.com/jHMOnyI.png"></label>')    
+    );
+    
+    var what = document.getElementById('click_area_random');
+    var whot = document.getElementById('format-random');
+    
+    if (getCookie('CB_random') === '1') whot.checked = true;
+    else whot.checked = false;
+    
+    what.addEventListener('click', function() {
+        if (!whot.checked) {
+            whot.checked = true;
+            whot.style.cssText = cssClicked;
+            setCookie('CB_random', '1', 1);
+        } else {
+            whot.checked = false;
+            whot.style.cssText = '';
+            setCookie('CB_random', '0', 1);
+        }
+    });
+}
+
+// spacer
+function addSpacer() {
+    var where = $(".text-styles tr")[0];      
+    $(where).prepend($("<td></td>"));  
+    var whereTd = $(where).find('td');  
+    $(whereTd[0]).attr('width', '6');
+}
+
 // run the functions that edit text
 function run() {
     emoticon();
     greentext();  
+    if (getCookie('CB_rainbow') === '1') rainbow();
+    if (getCookie('CB_random') === '1') random();
 }
 
 // main function
@@ -100,9 +211,12 @@ $(document).ready(function() {
     addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
     editCss();        
     ///
+    addSpacer();
+    ///
+    addRainbow();
+    addRandom();
     
     $(document).on('keydown', function(e) {
-      console.log("something");
       if (e.which === 13 || e.which === 45) run();
     });
   }
