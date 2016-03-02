@@ -20,7 +20,8 @@ var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
 var cssLine = 'color:black;';
 var cssChat = 'overflow-x: hidden; left:141px;';
 var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;';
+var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;height: 100%;line-height: 200%;';
+var cssImage = 'padding-top: 1px;'
 
 var imgTag = [ '[img]', '[/img]' ];
 var greenText = [ '[color=#789922]', '[/color]' ];
@@ -62,6 +63,7 @@ function customCss() {
         $('#click_area_hide').text('>');
     }     
     $('#click_area_hide').css('cssText', cssHide);    
+    $('.swearIcons').css('cssText', cssImage);
 }
 
 ///////////////
@@ -117,22 +119,22 @@ function addRainbow() {
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
-      $('<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;"><img src="http://i.imgur.com/F69UQGS.png"></label>')    
+      $('<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;height: 100%;"><img class="swearIcons" src="http://i.imgur.com/F69UQGS.png"></label>')    
     );
   
-    var whot = document.getElementById('format-rainbow');
+    var chkboxFormat = $('#format-rainbow');
     
-    if (Cookies.get('CB_rainbow') === '1') whot.checked = true;
-    else whot.checked = false;
+    if (Cookies.get('CB_rainbow') === '1') $(chkboxFormat).prop('checked', true);
+    else $(chkboxFormat).prop('checked', false);
     
     $('#click_area_rainbow').click(function() {
-        if (!whot.checked) {
-            whot.checked = true;            
-            whot.style.cssText = cssClicked;
+        if (!$(chkboxFormat).prop('checked')) {
+            $(chkboxFormat).prop('checked', true);     
+            $(chkboxFormat).css('cssText', cssClicked);
             Cookies.set('CB_rainbow', '1');            
         } else {
-            whot.checked = false;            
-            whot.style.cssText = '';
+            $(chkboxFormat).prop('checked', false);     
+            $(chkboxFormat).css('cssText', '');
             Cookies.set('CB_rainbow', '0');
         }
     });   
@@ -150,36 +152,36 @@ function addRandom() {
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
-      $('<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;"><img src="http://i.imgur.com/jHMOnyI.png"></label>')    
+      $('<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;height: 100%;"><img class="swearIcons" src="http://i.imgur.com/jHMOnyI.png"></label>')    
     );
     
-    var whot = document.getElementById('format-random');
+    var chkboxFormat = $('#format-random');
     
-    if (Cookies.get('CB_random') === '1') whot.checked = true;
-    else whot.checked = false;
+    if (Cookies.get('CB_random') === '1') $(chkboxFormat).prop('checked', true);
+    else $(chkboxFormat).prop('checked', false);
     
     $('#click_area_random').click(function() {
-        if (!whot.checked) {
-            whot.checked = true;            
-            whot.style.cssText = cssClicked;
+        if (!$(chkboxFormat).prop('checked')) {
+            $(chkboxFormat).prop('checked', true);     
+            $(chkboxFormat).css('cssText', cssClicked);
             Cookies.set('CB_random', '1');            
         } else {
-            whot.checked = false;            
-            whot.style.cssText = '';
+            $(chkboxFormat).prop('checked', false);     
+            $(chkboxFormat).css('cssText', '');
             Cookies.set('CB_random', '0');
         }
-    });
+    });   
 }
 
 // greek
 function greek() {    
     var new_msg = $('#message').val();
     new_msg = new_msg.replace(/a/gi, 'a');
-    new_msg = new_msg.replace(/b/gi, 'ß');
+    new_msg = new_msg.replace(/b/gi, '?');
     new_msg = new_msg.replace(/c/gi, '?');
     new_msg = new_msg.replace(/d/gi, 'd');
     new_msg = new_msg.replace(/e/gi, 'e');
-    new_msg = new_msg.replace(/f/gi, 'ƒ');
+    new_msg = new_msg.replace(/f/gi, '?');
     new_msg = new_msg.replace(/g/gi, 'g');
     new_msg = new_msg.replace(/h/gi, '?');
     new_msg = new_msg.replace(/i/gi, '?');
@@ -194,7 +196,7 @@ function greek() {
     new_msg = new_msg.replace(/r/gi, '?');
     new_msg = new_msg.replace(/s/gi, 's');
     new_msg = new_msg.replace(/t/gi, 't');
-    new_msg = new_msg.replace(/u/gi, 'µ');
+    new_msg = new_msg.replace(/u/gi, '?');
     new_msg = new_msg.replace(/v/gi, 'v');
     new_msg = new_msg.replace(/w/gi, '?');
     new_msg = new_msg.replace(/x/gi, '?');
@@ -210,25 +212,25 @@ function addGreek() {
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
-      $('<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek" style="cursor:pointer;"><img src="http://i.imgur.com/OUGQ1ik.png"></label>')    
+      $('<input name="greek" id="format-greek" class="format-message" type="checkbox"><label id="click_area_greek" title="Greek" style="cursor:pointer;height: 100%;"><img class="swearIcons" src="http://i.imgur.com/OUGQ1ik.png"></label>')    
     );
     
-    var whot = document.getElementById('format-greek');
+    var chkboxFormat = $('#format-greek');
     
-    if (Cookies.get('CB_greek') === '1') whot.checked = true;
-    else whot.checked = false;
+    if (Cookies.get('CB_greek') === '1') $(chkboxFormat).prop('checked', true);
+    else $(chkboxFormat).prop('checked', false);
     
     $('#click_area_greek').click(function() {
-        if (!whot.checked) {
-            whot.checked = true;            
-            whot.style.cssText = cssClicked;
+        if (!$(chkboxFormat).prop('checked')) {
+            $(chkboxFormat).prop('checked', true);     
+            $(chkboxFormat).css('cssText', cssClicked);
             Cookies.set('CB_greek', '1');            
         } else {
-            whot.checked = false;            
-            whot.style.cssText = '';
+            $(chkboxFormat).prop('checked', false);     
+            $(chkboxFormat).css('cssText', '');
             Cookies.set('CB_greek', '0');
         }
-    });
+    });   
 }
 
 // smallcaps
@@ -270,25 +272,25 @@ function addSmallcaps() {
   
     var whereTd = $(where).find('td');  
     $(whereTd[0]).append(
-      $('<input name="smallcaps" id="format-smallcaps" class="format-message" type="checkbox"><label id="click_area_smallcaps" title="Small Caps" style="cursor:pointer;"><img src="https://i.imgur.com/gmvDgDv.jpg"></label>')    
+      $('<input name="smallcaps" id="format-smallcaps" class="format-message" type="checkbox"><label id="click_area_smallcaps" title="Small Caps" style="cursor:pointer;height: 100%;"><img class="swearIcons" src="https://i.imgur.com/gmvDgDv.jpg"></label>')    
     );
     
-    var whot = document.getElementById('format-smallcaps');
+    var chkboxFormat = $('#format-smallcaps');
     
-    if (Cookies.get('CB_smallcaps') === '1') whot.checked = true;
-    else whot.checked = false;
+    if (Cookies.get('CB_smallcaps') === '1') $(chkboxFormat).prop('checked', true);
+    else $(chkboxFormat).prop('checked', false);
     
     $('#click_area_smallcaps').click(function() {
-        if (!whot.checked) {
-            whot.checked = true;            
-            whot.style.cssText = cssClicked;
+        if (!$(chkboxFormat).prop('checked')) {
+            $(chkboxFormat).prop('checked', true);     
+            $(chkboxFormat).css('cssText', cssClicked);
             Cookies.set('CB_smallcaps', '1');            
         } else {
-            whot.checked = false;            
-            whot.style.cssText = '';
+            $(chkboxFormat).prop('checked', false);     
+            $(chkboxFormat).css('cssText', '');
             Cookies.set('CB_smallcaps', '0');
         }
-    });
+    });   
 }
 
 // spacer
