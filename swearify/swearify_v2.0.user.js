@@ -4,9 +4,8 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
-// @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     1
+// @version     1.1
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -325,25 +324,28 @@ function run() {
 
 // main function
 $(document).ready(function() {
-  if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || 
-      window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || 
-      window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || 
-      window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' || 
-      window.location.href === 'http://aimgames.forummotion.com/chatbox' || 
-      window.location.href === 'http://aimgames.forummotion.com/')
-  {
-    addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
-    editCss();        
-    ///
-    addSpacer();
-    ///
-    addRainbow();
-    addRandom();
-    addGreek();
-    addSmallcaps();
-    
-    $(document).on('keydown', function(e) {
-      if (e.which === 13 || e.which === 45) run();
-    });
-  }
+	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()
+	{
+		if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || 
+		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || 
+		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || 
+		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' || 
+		  window.location.href === 'http://aimgames.forummotion.com/chatbox' || 
+		  window.location.href === 'http://aimgames.forummotion.com/')
+		{
+			addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
+			editCss();        
+			///
+			addSpacer();
+			///
+			addRainbow();
+			addRandom();
+			addGreek();
+			addSmallcaps();
+			
+			$(document).on('keydown', function(e) {
+			  if (e.which === 13 || e.which === 45) run();
+			});
+		}		
+	});  
 });
