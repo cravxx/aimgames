@@ -1306,7 +1306,7 @@ var emoticon_5 = {
         ':idubbbzsuprise:', 'http://i.imgur.com/J6YxZnK.png', 'idUBBBZ SUPRISEEE'    
     ],
     idubbbzoculus1: [
-        ':idubbbzoculus1:', 'http://i.imgur.com/BiRMDGE.png', 'IDUBBBBBBBBB'    
+        ':idubbbzoculus1:', 'http://i.imgur.com/BiRMDGEs.png', 'IDUBBBBBBBBB'    
     ],
     idubbbzoculus2: [
         ':idubbbzoculus2:', 'http://i.imgur.com/BvEIQeis.png', 'IIDUUDBBD'
@@ -1315,7 +1315,7 @@ var emoticon_5 = {
         ':idubbbzunpleased:', 'http://i.imgur.com/9DvMLtD.png', 'ASJAI IDUBBSBSS'
     ],
     idubbbzangry: [
-        ':idubbbzangry:', 'http://i.imgur.com/2CxFaP2.png', 'ANGRY IDUBBA'
+        ':idubbbzangry:', 'http://i.imgur.com/2CxFaP2s.png', 'ANGRY IDUBBA'
     ]
 };
 var emoticon_3 = {
