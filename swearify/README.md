@@ -1,3 +1,13 @@
+#Swearify 2.0
+_Big swearing, big emoticons, big memes, big fun._
+Rebuild of Swearify in jQuery, developed in both Chrome AND Firefox. Features include:
+- Bypass AIM's swearing filter
+- Greentext messages
+- [Memes](https://github.com/HulaSamsquanch/aimgames/wiki/Swearify#list-of-memes-outdated)
+- [Emoticons](https://github.com/HulaSamsquanch/aimgames/wiki/Swearify#list-of-emoticons) Check them out in the "Swearify 1 2 3" sections of the Smilie window
+- Improves upon existing forum CSS
+- Special text effects
+
 #Swearify
 _Big swearing, big emoticons, big memes, big fun._
 - Bypass AIM's swearing filter
