@@ -5,6 +5,7 @@
 // @include     http://aimgames.forummotion.com/*
 // @require     https://rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+// @require     http://daffeinatek.byethost32.com/swearify/jquery.caret.1.02.min.js
 // @require     http://daffeinatek.byethost32.com/swearify/html2canvas.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @version     1.1
@@ -35,10 +36,12 @@ var smilieOptions = {
     "1": "Swearify 1", 
     "2": "Swearify 2",
     "3": "Swearify 3",
-    "4": "Twitch"
+    "4": "Twitch",
+    "5": "---------",
+    "6": "Memes"
 };
 
-var smilieBase = '<a href=\"javascript:insert_chatboxsmilie(_smilie)\"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
+var smilieBase = '<a href="javascript:void(0)" class="emotes"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
 var quote = '\'';
 
 String.prototype.regexIndexOf = function(regex, startpos) {
@@ -79,6 +82,25 @@ function customCss() {
     }     
     $('#click_area_hide').css('cssText', cssHide);    
     $('.swearIcons').css('cssText', cssImage);
+}
+
+
+/* my replacement for the insert_chatboxsmilies() function in en.js */
+function initEmotesAsClickable(smilie_code, indiv) {
+    $(indiv).click(function(){
+        /* on click, get the parent window (the chatbox) and put the smilie code into the message box */
+        msgBox = window.opener.$('#message');
+        var msgBoxSplitBefore = '';
+        var msgBoxSplitAfter = '';
+        if($(msgBox).caret().start < $(msgBox).val().length) {
+            msgBoxSplitBefore = msgBox.val().substr(0,$(msgBox).caret().start);
+            msgBoxSplitAfter = msgBox.val().substr($(msgBox).caret().start,$(msgBox).val().length);
+        }else{
+            msgBoxSplitBefore = msgBox.val().substr(0,$(msgBox).val().length);
+            msgBoxSplitAfter = '';
+        }        
+        msgBox.val(msgBoxSplitBefore + smilie_code + msgBoxSplitAfter);        
+    });    
 }
 
 /* begin non-utility functions */
@@ -323,8 +345,11 @@ function addSpacer() {
 }
 
 function appendOptions() {
-    $.each(smilieOptions, function(key, value) {        
-        $('[name="categ"]').append($('<option>', { value : key }).text(value)); 
+    $.each(smilieOptions, function(key, value) {
+        if(key == 5)
+            $('[name="categ"]').append($('<option disabled>', { value : key }).text(value));            
+        else
+            $('[name="categ"]').append($('<option>', { value : key }).text(value));             
     });
 }
 
@@ -346,6 +371,7 @@ function addSmilie(i) {
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+             initEmotesAsClickable(value[0], indiv);
              across++;   
              if (across >= 8) {
                  across = 0;                 
@@ -360,6 +386,7 @@ function addSmilie(i) {
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+             initEmotesAsClickable(value[0], indiv);
              across++;   
              if (across >= 8) {
                  across = 0;                 
@@ -374,6 +401,7 @@ function addSmilie(i) {
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+             initEmotesAsClickable(value[0], indiv);
              across++;   
              if (across >= 8) {
                  across = 0;                 
@@ -388,6 +416,7 @@ function addSmilie(i) {
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + item + quote, twitch_e[index], item)));
+             initEmotesAsClickable(item, indiv);
              across++;   
              if (across >= 8) {
                  across = 0;                 
@@ -395,6 +424,21 @@ function addSmilie(i) {
              }                                                           
          });                       
     }
+    if (i == 6) {
+         $.each(maymay, function(name, value) {             
+             var row = $(tbody).find('tr')[down];                
+             console.log(across + " " + down);
+             $(row).append('<td></td>');
+             var indiv = $(row).find('td')[across];
+             $(indiv).append($(smilieHtml(value[1], value[1], value[0])));
+             initEmotesAsClickable(value[0], indiv);
+             across++;   
+             if (across >= 8) {
+                 across = 0;                 
+                 down++;                 
+             }                                                           
+         });                       
+    }        
 }
 
 function smilieHtml(smilie_code, smilie_url, smilie_text) {
@@ -452,7 +496,7 @@ function run() {
 /* this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script */
 jQuery(document).ready(function() {
 	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()	{
-        appendOptions();
+        appendOptions();        
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') {            
             addSmilie(1);
         }
@@ -464,7 +508,13 @@ jQuery(document).ready(function() {
         }
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies') {            
             addSmilie(4);
-        }    
+        }
+        /*
+           The separator goes here, hence +1
+        */
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies') {           
+            addSmilie(6);
+        }
 		if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || 
