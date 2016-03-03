@@ -14,11 +14,6 @@
 // @grant       none
 // ==/UserScript==
 
-var td_base =
-    '<a href=\"javascript:insert_chatboxsmilie(_smilie)\"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
-var td_array = '<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>';
-var quote = '\'';
-
 var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
 var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;';
 var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
@@ -31,12 +26,15 @@ var cssImage = 'padding-top: 1px;'
 var imgTag = [ '[img]', '[/img]' ];
 var greenText = [ '[color=#789922]', '[/color]' ];
 
-var selectValues = { 
+var smilieOptions = { 
     "1": "Swearify 1", 
     "2": "Swearify 2",
     "3": "Swearify 3",
     "4": "Twitch"
 };
+
+var smilieBase = '<a href=\"javascript:insert_chatboxsmilie(_smilie)\"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
+var quote = '\'';
 
 String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
@@ -189,11 +187,11 @@ function addRandom() {
 function greek() {    
     var new_msg = $('#message').val();
     new_msg = new_msg.replace(/a/gi, 'a');
-    new_msg = new_msg.replace(/b/gi, '?');
+    new_msg = new_msg.replace(/b/gi, 'ß');
     new_msg = new_msg.replace(/c/gi, '?');
     new_msg = new_msg.replace(/d/gi, 'd');
     new_msg = new_msg.replace(/e/gi, 'e');
-    new_msg = new_msg.replace(/f/gi, '?');
+    new_msg = new_msg.replace(/f/gi, 'ƒ');
     new_msg = new_msg.replace(/g/gi, 'g');
     new_msg = new_msg.replace(/h/gi, '?');
     new_msg = new_msg.replace(/i/gi, '?');
@@ -208,7 +206,7 @@ function greek() {
     new_msg = new_msg.replace(/r/gi, '?');
     new_msg = new_msg.replace(/s/gi, 's');
     new_msg = new_msg.replace(/t/gi, 't');
-    new_msg = new_msg.replace(/u/gi, '?');
+    new_msg = new_msg.replace(/u/gi, 'µ');
     new_msg = new_msg.replace(/v/gi, 'v');
     new_msg = new_msg.replace(/w/gi, '?');
     new_msg = new_msg.replace(/x/gi, '?');
@@ -331,12 +329,12 @@ function addSpacer() {
 
 // smilies
 function appendOptions() {
-    $.each(selectValues, function(key, value) {        
+    $.each(smilieOptions, function(key, value) {        
         $('[name="categ"]').append($('<option>', { value : key }).text(value)); 
     });
 }
 
-function inject_smilie(i) {
+function addSmilie(i) {
     var table = $('table')[2];
     $(table).append(
       $('<tbody></tbody>')    
@@ -345,75 +343,72 @@ function inject_smilie(i) {
     $(tbody).append(
       $('<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>')
     );
-    var tbodyTr;
-    var tbodyTd;
-    var counter = 0;
-    var coconut = 0;
+    var across = 0;
+    var down = 0;
     if (i == 1) {
          $.each(emoticon_1, function(name, value) {             
-             var row = $(tbody).find('tr')[coconut];                
-             console.log(counter + " " + coconut);
+             var row = $(tbody).find('tr')[down];                
+             console.log(across + " " + down);
              $(row).append('<td></td>');
-             var indiv = $(row).find('td')[counter];
+             var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
-             counter++;   
-             if (counter >= 8) {
-                 counter = 0;                 
-                 coconut++;                 
+             across++;   
+             if (across >= 8) {
+                 across = 0;                 
+                 down++;                 
              }                                                           
          });                       
     }
     if (i == 2) {
          $.each(emoticon_2, function(name, value) {             
-             var row = $(tbody).find('tr')[coconut];                
-             console.log(counter + " " + coconut);
+             var row = $(tbody).find('tr')[down];                
+             console.log(across + " " + down);
              $(row).append('<td></td>');
-             var indiv = $(row).find('td')[counter];
+             var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
-             counter++;   
-             if (counter >= 8) {
-                 counter = 0;                 
-                 coconut++;                 
+             across++;   
+             if (across >= 8) {
+                 across = 0;                 
+                 down++;                 
              }                                                           
          });                       
     }
     if (i == 3) {
          $.each(emoticon_5, function(name, value) {             
-             var row = $(tbody).find('tr')[coconut];                
-             console.log(counter + " " + coconut);
+             var row = $(tbody).find('tr')[down];                
+             console.log(across + " " + down);
              $(row).append('<td></td>');
-             var indiv = $(row).find('td')[counter];
+             var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
-             counter++;   
-             if (counter >= 8) {
-                 counter = 0;                 
-                 coconut++;                 
+             across++;   
+             if (across >= 8) {
+                 across = 0;                 
+                 down++;                 
              }                                                           
          });                       
     }
     if (i == 4) {
          $.each(twitch_c, function(index, item) {             
-             var row = $(tbody).find('tr')[coconut];                
-             console.log(counter + " " + coconut);
+             var row = $(tbody).find('tr')[down];                
+             console.log(across + " " + down);
              $(row).append('<td></td>');
-             var indiv = $(row).find('td')[counter];
+             var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + item + quote, twitch_e[index], item)));
-             counter++;   
-             if (counter >= 8) {
-                 counter = 0;                 
-                 coconut++;                 
+             across++;   
+             if (across >= 8) {
+                 across = 0;                 
+                 down++;                 
              }                                                           
          });                       
     }
 }
 
 function smilieHtml(smilie_code, smilie_url, smilie_text) {
-    var change_this = td_base;
-    change_this = change_this.replace(new RegExp('_smilie', 'gi'), smilie_code);
-    change_this = change_this.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
-    change_this = change_this.replace(new RegExp('_link', 'gi'), smilie_url);
-    console.log(change_this);
-    return change_this;
+    var smilieComplete = smilieBase;
+    smilieComplete = smilieComplete.replace(new RegExp('_smilie', 'gi'), smilie_code);
+    smilieComplete = smilieComplete.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
+    smilieComplete = smilieComplete.replace(new RegExp('_link', 'gi'), smilie_url);
+    return smilieComplete;
 }
 
 // run the functions that edit text
@@ -432,16 +427,16 @@ $(document).ready(function() {
 	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()	{
         appendOptions();
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') {            
-            inject_smilie(1);
+            addSmilie(1);
         }
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies') {            
-            inject_smilie(2);
+            addSmilie(2);
         }    
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies') {            
-            inject_smilie(3);
+            addSmilie(3);
         }
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies') {            
-            inject_smilie(4);
+            addSmilie(4);
         }    
 		if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || 
