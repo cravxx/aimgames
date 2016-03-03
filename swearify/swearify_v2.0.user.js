@@ -3,8 +3,9 @@
 // @description Adds a number of enhancements to your experience on AIM Games.
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js
 // @require     https://rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
+// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+// @require     http://daffeinatek.byethost32.com/swearify/html2canvas.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @version     1.1
 // @icon        http://i.imgur.com/HlEs1B4.png
@@ -13,6 +14,10 @@
 // @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
 // @grant       none
 // ==/UserScript==
+
+/* SWEARIFY 2.0 
+- even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads it's own.
+*/
 
 var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
 var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;';
@@ -76,11 +81,8 @@ function customCss() {
     $('.swearIcons').css('cssText', cssImage);
 }
 
-///////////////
-/////////      end of utility functions
-///////////////
+/* begin non-utility functions */
 
-// check for emoticon codes
 function emoticon() {
     var new_msg;
     var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3, emoticon_4, emoticon_5);
@@ -100,7 +102,6 @@ function emoticon() {
     });
 }
 
-// check for memes
 function meme() {
     $.each(maymay, function(name, value) {
       if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
@@ -110,14 +111,12 @@ function meme() {
     });    
 }
 
-// check for greentext
 function greentext() {    
     if ($("#message").val().indexOf('>') === 0) {
         $("#message").val(greenText[0] + $("#message").val() + greenText[1]);
     }
 }
 
-// rainbow text
 function rainbow() {
     $('#message').val(rainbowText($('#message').val()));
 }
@@ -150,7 +149,6 @@ function addRainbow() {
     });   
 }
 
-// random text
 function random_() {
     $("#message").val(randomText($("#message").val()));
 }
@@ -183,7 +181,6 @@ function addRandom() {
     });   
 }
 
-// greek
 function greek() {    
     var new_msg = $('#message').val();
     new_msg = new_msg.replace(/a/gi, 'a');
@@ -243,7 +240,6 @@ function addGreek() {
     });   
 }
 
-// smallcaps
 function smallcaps() {
     var new_msg = $('#message').val();
     new_msg = new_msg.replace(/a/gi, '?');
@@ -303,7 +299,6 @@ function addSmallcaps() {
     });   
 }
 
-// spacer
 function addSpacer() { 
     var where = $(".text-styles tr")[0];  
     
@@ -327,7 +322,6 @@ function addSpacer() {
     });    
 }
 
-// smilies
 function appendOptions() {
     $.each(smilieOptions, function(key, value) {        
         $('[name="categ"]').append($('<option>', { value : key }).text(value)); 
@@ -411,7 +405,40 @@ function smilieHtml(smilie_code, smilie_url, smilie_text) {
     return smilieComplete;
 }
 
-// run the functions that edit text
+/* the function that returns a canvas and opens a jQuery UI Dialog */
+function takeScreenshot(){
+    html2canvas(document.body, {        
+        onrendered: function(canvas) { 
+            var dataURL = canvas.toDataURL("image/png");
+            $('<div></div>').dialog({
+                modal: true,
+                title: "View Screenshot",
+                open: function () {
+                    $(this).html('<a target=\'_blank\' href=' + dataURL + '>Click to Open</a>');
+                },
+                buttons: {
+                    Ok: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                close: function(event, ui) {
+                    $(this).dialog('destroy').remove();
+                }
+            });
+        }
+    });
+}
+
+/* add button and intialize event listener for taking a screenshot */
+function addScreenshot() {
+   $('.genmed').prepend('<span id="chatbox_screenshot"><a href="javascript:void(0)">Take Screenshot</a></span>&nbsp;|&nbsp;');
+    $('#chatbox_screenshot').click(function(){
+        takeScreenshot();
+        console.log("did this");
+    });
+}
+
+/* this will run after every keypress */
 function run() {
     emoticon();
     meme();
@@ -422,8 +449,8 @@ function run() {
     if (Cookies.get('CB_smallcaps') === '1') smallcaps();
 }
 
-// main function
-$(document).ready(function() {
+/* this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script */
+jQuery(document).ready(function() {
 	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()	{
         appendOptions();
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') {            
@@ -445,17 +472,24 @@ $(document).ready(function() {
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox' || 
 		  window.location.href === 'http://aimgames.forummotion.com/') {
 			addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
+            addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
 			editCss();                   
-			///
+			/**/
 			addSpacer();
-			///
+			/**/
 			addRainbow();
 			addRandom();
 			addGreek();
 			addSmallcaps();
             
-            ///
+            /**/
             customCss();
+            
+            // screenshot feature only works in chrome, so I'll add an if statement
+            if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1)
+                addScreenshot();            
+            
+            /**/
 			$(document).on('keydown', function(e) {
 			  if (e.which === 13 || e.which === 45) run();
 			});
