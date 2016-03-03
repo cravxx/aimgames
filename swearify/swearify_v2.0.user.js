@@ -14,6 +14,11 @@
 // @grant       none
 // ==/UserScript==
 
+var td_base =
+    '<a href=\"javascript:insert_chatboxsmilie(_smilie)\"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
+var td_array = '<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>';
+var quote = '\'';
+
 var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
 var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;';
 var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
@@ -25,6 +30,13 @@ var cssImage = 'padding-top: 1px;'
 
 var imgTag = [ '[img]', '[/img]' ];
 var greenText = [ '[color=#789922]', '[/color]' ];
+
+var selectValues = { 
+    "1": "Swearify 1", 
+    "2": "Swearify 2",
+    "3": "Swearify 3",
+    "4": "Twitch"
+};
 
 String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
@@ -317,6 +329,93 @@ function addSpacer() {
     });    
 }
 
+// smilies
+function appendOptions() {
+    $.each(selectValues, function(key, value) {        
+        $('[name="categ"]').append($('<option>', { value : key }).text(value)); 
+    });
+}
+
+function inject_smilie(i) {
+    var table = $('table')[2];
+    $(table).append(
+      $('<tbody></tbody>')    
+    );
+    var tbody = $(table).find('tbody')[0];
+    $(tbody).append(
+      $('<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>')
+    );
+    var tbodyTr;
+    var tbodyTd;
+    var counter = 0;
+    var coconut = 0;
+    if (i == 1) {
+         $.each(emoticon_1, function(name, value) {             
+             var row = $(tbody).find('tr')[coconut];                
+             console.log(counter + " " + coconut);
+             $(row).append('<td></td>');
+             var indiv = $(row).find('td')[counter];
+             $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+             counter++;   
+             if (counter >= 8) {
+                 counter = 0;                 
+                 coconut++;                 
+             }                                                           
+         });                       
+    }
+    if (i == 2) {
+         $.each(emoticon_2, function(name, value) {             
+             var row = $(tbody).find('tr')[coconut];                
+             console.log(counter + " " + coconut);
+             $(row).append('<td></td>');
+             var indiv = $(row).find('td')[counter];
+             $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+             counter++;   
+             if (counter >= 8) {
+                 counter = 0;                 
+                 coconut++;                 
+             }                                                           
+         });                       
+    }
+    if (i == 3) {
+         $.each(emoticon_5, function(name, value) {             
+             var row = $(tbody).find('tr')[coconut];                
+             console.log(counter + " " + coconut);
+             $(row).append('<td></td>');
+             var indiv = $(row).find('td')[counter];
+             $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+             counter++;   
+             if (counter >= 8) {
+                 counter = 0;                 
+                 coconut++;                 
+             }                                                           
+         });                       
+    }
+    if (i == 4) {
+         $.each(twitch_c, function(index, item) {             
+             var row = $(tbody).find('tr')[coconut];                
+             console.log(counter + " " + coconut);
+             $(row).append('<td></td>');
+             var indiv = $(row).find('td')[counter];
+             $(indiv).append($(smilieHtml(quote + item + quote, twitch_e[index], item)));
+             counter++;   
+             if (counter >= 8) {
+                 counter = 0;                 
+                 coconut++;                 
+             }                                                           
+         });                       
+    }
+}
+
+function smilieHtml(smilie_code, smilie_url, smilie_text) {
+    var change_this = td_base;
+    change_this = change_this.replace(new RegExp('_smilie', 'gi'), smilie_code);
+    change_this = change_this.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
+    change_this = change_this.replace(new RegExp('_link', 'gi'), smilie_url);
+    console.log(change_this);
+    return change_this;
+}
+
 // run the functions that edit text
 function run() {
     emoticon();
@@ -331,6 +430,19 @@ function run() {
 // main function
 $(document).ready(function() {
 	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()	{
+        appendOptions();
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') {            
+            inject_smilie(1);
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies') {            
+            inject_smilie(2);
+        }    
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies') {            
+            inject_smilie(3);
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies') {            
+            inject_smilie(4);
+        }    
 		if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' || 
 		  window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || 
