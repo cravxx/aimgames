@@ -1213,10 +1213,10 @@ var emoticon_5 = {
         ':strangeant:', 'http://i.imgur.com/Zka5Ztas.png', "A STRANGE ANDUNNY FANTANU"
     ],
     anime1: [
-        ':anime1', 'http://i.imgur.com/5Ss4qUys.png', 'ANIME 1'
+        ':anime1:', 'http://i.imgur.com/5Ss4qUys.png', 'ANIME 1'
     ],
     anime2: [
-        ':anime2', 'http://i.imgur.com/ROKeKzGs.png', 'ANIME 2'
+        ':anime2:', 'http://i.imgur.com/ROKeKzGs.png', 'ANIME 2'
     ],
     anime3: [
         ':anime3:', 'http://i.imgur.com/jdutcGfs.png', 'ANIME 3'
@@ -1304,6 +1304,18 @@ var emoticon_5 = {
     ],
     idubbbzsuprise: [
         ':idubbbzsuprise:', 'http://i.imgur.com/J6YxZnK.png', 'idUBBBZ SUPRISEEE'    
+    ],
+    idubbbzoculus1: [
+        ':idubbbzoculus1:', 'http://i.imgur.com/BiRMDGE.png', 'IDUBBBBBBBBB'    
+    ],
+    idubbbzoculus2: [
+        ':idubbbzoculus2:', 'http://i.imgur.com/BvEIQeis.png', 'IIDUUDBBD'
+    ],
+    idubbbzunpleased: [
+        ':idubbbzunpleased:', 'http://i.imgur.com/9DvMLtD.png', 'ASJAI IDUBBSBSS'
+    ],
+    idubbbzangry: [
+        ':idubbbzangry:', 'http://i.imgur.com/2CxFaP2.png', 'ANGRY IDUBBA'
     ]
 };
 var emoticon_3 = {
