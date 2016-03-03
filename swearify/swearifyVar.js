@@ -782,7 +782,7 @@ var emoticon_2 = {
         ':cooldog:', 'http://i.imgur.com/Vi5O6TS.jpg', 'COOL DOG'
     ],
     eatshit2: [
-        ':eatshit2', 'http://i.imgur.com/KA33r6p.jpg', 'EAT SHIT'
+        ':eatshit2:', 'http://i.imgur.com/KA33r6p.jpg', 'EAT SHIT'
     ],
     scared3: [
         ':scared3:', 'http://i.imgur.com/dYfejmB.jpg', 'SCARED 3'
