@@ -1301,6 +1301,9 @@ var emoticon_5 = {
     ],
     idubbbzpuke: [
         ':idubbbzpuke:', 'http://i.imgur.com/AybmiQWs.png', 'idubbbzpuke'
+    ],
+    idubbbzsuprise: [
+        ':idubbbzsuprise:', 'http://i.imgur.com/J6YxZnK.png', 'idUBBBZ SUPRISEEE'    
     ]
 };
 var emoticon_3 = {
