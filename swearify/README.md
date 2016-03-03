@@ -8,6 +8,7 @@ Rebuild of Swearify in jQuery, developed in both Chrome AND Firefox. Features in
 - [Emoticons!](https://github.com/HulaSamsquanch/aimgames/wiki/Swearify#list-of-emoticons) Check them out in the "Swearify 1 2 3" sections of the Smilie window
 - Improves upon existing forum CSS
 - Special text effects
+- __CHROME ONLY__ Take a screenshot right from your chatbox!
 
 #Swearify
 _Big swearing, big emoticons, big memes, big fun._
