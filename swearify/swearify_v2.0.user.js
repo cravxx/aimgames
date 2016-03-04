@@ -6,7 +6,6 @@
 // @require     https://rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     http://daffeinatek.byethost32.com/swearify/jquery.caret.1.02.min.js
-// @require     http://daffeinatek.byethost32.com/swearify/html2canvas.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @version     1.1
 // @icon        http://i.imgur.com/HlEs1B4.png
@@ -496,7 +495,7 @@ function run() {
 /* this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script */
 jQuery(document).ready(function() {
 	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()	{
-        appendOptions();        
+        appendOptions();
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') {            
             addSmilie(1);
         }
@@ -536,8 +535,11 @@ jQuery(document).ready(function() {
             customCss();
             
             // screenshot feature only works in chrome, so I'll add an if statement
-            if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1)
-                addScreenshot();            
+            if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+                $.getScript('http://daffeinatek.byethost32.com/swearify/html2canvas.js', function()	{
+                    addScreenshot();
+                });
+            }                     
             
             /**/
 			$(document).on('keydown', function(e) {
