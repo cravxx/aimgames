@@ -17,6 +17,24 @@
 
 /* SWEARIFY 2.0 
 - even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads it's own.
+
+'TO IMPLEMENT' LIST
+    -   Enabled for posting
+
+    -   Dynamic reorder smilie window on window resize                       
+
+IDEAS:
+    -   Slide the text effect buttons to the left and right instead of the sharp show/hide
+        this could be accomplished by wrapping elements with the class name '.hider' in a div and calling .slide or .animate 
+    
+    -   Possibly use prototype.js for... stuff? 
+
+    -   Count total messages and characters typed (NSA pls)
+
+    -   Smilie window:  1. default window that opens up has a search bar, automagic update list (don't load the images, obviously)
+                        2. extend all the custom features (like window resizing) to the default smilie page
+
+    -   A dedicated .css file 
 */
 
 var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
@@ -71,7 +89,10 @@ function editCss() {
     // Replace the old smilie image with a new one
 }
 
-function customCss() {
+/**ROUGH HACK
+ * sets some css for the buttons, especially for the hide button
+ */
+function buttonCss() {
     if (Cookies.get('CB_hide') === '1'){
         $('.hider').hide();
         $('#click_area_hide').text('<');
@@ -84,10 +105,14 @@ function customCss() {
 }
 
 
-/* my replacement for the insert_chatboxsmilies() function in en.js */
+/**
+ * my replacement for the insert_chatboxsmilies() function in en.js
+ */
 function initEmotesAsClickable(smilie_code, indiv) {
     $(indiv).click(function(){
-        /* on click, get the parent window (the chatbox) and put the smilie code into the message box */
+        /**
+         * on click, get the parent window (the chatbox) and put the smilie code into the message box
+         */
         msgBox = window.opener.$('#message');
         var msgBoxSplitBefore = '';
         var msgBoxSplitAfter = '';
@@ -102,8 +127,32 @@ function initEmotesAsClickable(smilie_code, indiv) {
     });    
 }
 
-/* begin non-utility functions */
+/**
+ * add in the new options to the dropdown menu in the smilie window
+ */
+function appendOptions() {
+    $.each(smilieOptions, function(key, value) {
+        if(key == 5)
+            $('[name="categ"]').append($('<option disabled>', { value : key }).text(value));            
+        else
+            $('[name="categ"]').append($('<option>', { value : key }).text(value));             
+    });
+}
 
+/**
+ * this returns a string of html based off smilieBase with inserted variables
+ */
+function smilieHtml(smilie_code, smilie_url, smilie_text) {
+    var smilieComplete = smilieBase;
+    smilieComplete = smilieComplete.replace(new RegExp('_smilie', 'gi'), smilie_code);
+    smilieComplete = smilieComplete.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
+    smilieComplete = smilieComplete.replace(new RegExp('_link', 'gi'), smilie_url);
+    return smilieComplete;
+}
+
+/**
+ * begin non-utility functions
+ */
 function emoticon() {
     var new_msg;
     var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
@@ -138,10 +187,39 @@ function greentext() {
     }
 }
 
+/**
+ * begin button functions
+ */
+
+/**
+ * This button will hide and show the rest of the buttons on click
+ */
+function addHider() { 
+    var where = $(".text-styles tr")[0];  
+    
+    $(where).prepend($("<td id='hide_button' class='fontbutton'></td>"));
+  
+    var whereTd = $(where).find('td');  
+    $(whereTd[0]).append(
+      $('<input name="hide" id="hide-button" class="format-message" type="checkbox"><label id="click_area_hide" title="Hide" style="cursor:pointer;"></label>')    
+    );  
+    
+    $('#click_area_hide').click(function() {
+        if (!$('.hider').is(":visible")) {
+            $('.hider').show();
+            $('#click_area_hide').text('>');
+            Cookies.set('CB_hide', '0');            
+        } else {
+            $('.hider').hide();
+            $('#click_area_hide').text('<');
+            Cookies.set('CB_hide', '1');
+        }
+    });    
+}
+
 function rainbow() {
     $('#message').val(rainbowText($('#message').val()));
 }
-
 function addRainbow() {   
     var where = $(".text-styles tr")[0];    
   
@@ -173,7 +251,6 @@ function addRainbow() {
 function random_() {
     $("#message").val(randomText($("#message").val()));
 }
-
 function addRandom() {
     var where = $(".text-styles tr")[0];    
   
@@ -202,38 +279,6 @@ function addRandom() {
     });   
 }
 
-function addSpacer() { 
-    var where = $(".text-styles tr")[0];  
-    
-    $(where).prepend($("<td id='hide_button' class='fontbutton'></td>"));
-  
-    var whereTd = $(where).find('td');  
-    $(whereTd[0]).append(
-      $('<input name="hide" id="hide-button" class="format-message" type="checkbox"><label id="click_area_hide" title="Hide" style="cursor:pointer;"></label>')    
-    );  
-    
-    $('#click_area_hide').click(function() {
-        if (!$('.hider').is(":visible")) {
-            $('.hider').show();
-            $('#click_area_hide').text('>');
-            Cookies.set('CB_hide', '0');            
-        } else {
-            $('.hider').hide();
-            $('#click_area_hide').text('<');
-            Cookies.set('CB_hide', '1');
-        }
-    });    
-}
-
-function appendOptions() {
-    $.each(smilieOptions, function(key, value) {
-        if(key == 5)
-            $('[name="categ"]').append($('<option disabled>', { value : key }).text(value));            
-        else
-            $('[name="categ"]').append($('<option>', { value : key }).text(value));             
-    });
-}
-
 function addSmilie(i) {
     var table = $('table')[2];
     $(table).append(
@@ -247,8 +292,7 @@ function addSmilie(i) {
     var down = 0;
     if (i == 1) {
          $.each(emoticon_1, function(name, value) {             
-             var row = $(tbody).find('tr')[down];                
-             console.log(across + " " + down);
+             var row = $(tbody).find('tr')[down];   
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
@@ -262,8 +306,7 @@ function addSmilie(i) {
     }
     if (i == 2) {
          $.each(emoticon_2, function(name, value) {             
-             var row = $(tbody).find('tr')[down];                
-             console.log(across + " " + down);
+             var row = $(tbody).find('tr')[down];    
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
@@ -277,8 +320,7 @@ function addSmilie(i) {
     }
     if (i == 3) {
          $.each(emoticon_3, function(name, value) {             
-             var row = $(tbody).find('tr')[down];                
-             console.log(across + " " + down);
+             var row = $(tbody).find('tr')[down];    
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
@@ -292,8 +334,7 @@ function addSmilie(i) {
     }
     if (i == 4) {
          $.each(twitch_c, function(index, item) {             
-             var row = $(tbody).find('tr')[down];                
-             console.log(across + " " + down);
+             var row = $(tbody).find('tr')[down];
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(quote + item + quote, twitch_e[index], item)));
@@ -305,10 +346,12 @@ function addSmilie(i) {
              }                                                           
          });                       
     }
+     /*
+       The separator goes here, hence +1
+    */
     if (i == 6) {
          $.each(maymay, function(name, value) {             
-             var row = $(tbody).find('tr')[down];                
-             console.log(across + " " + down);
+             var row = $(tbody).find('tr')[down]; 
              $(row).append('<td></td>');
              var indiv = $(row).find('td')[across];
              $(indiv).append($(smilieHtml(value[1], value[1], value[0])));
@@ -320,14 +363,6 @@ function addSmilie(i) {
              }                                                           
          });                       
     }        
-}
-
-function smilieHtml(smilie_code, smilie_url, smilie_text) {
-    var smilieComplete = smilieBase;
-    smilieComplete = smilieComplete.replace(new RegExp('_smilie', 'gi'), smilie_code);
-    smilieComplete = smilieComplete.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
-    smilieComplete = smilieComplete.replace(new RegExp('_link', 'gi'), smilie_url);
-    return smilieComplete;
 }
 
 /* the function that returns a canvas and opens a jQuery UI Dialog */
@@ -359,7 +394,6 @@ function addScreenshot() {
    $('.genmed').prepend('<span id="chatbox_screenshot"><a href="javascript:void(0)">Take Screenshot</a></span>&nbsp;|&nbsp;');
     $('#chatbox_screenshot').click(function(){
         takeScreenshot();
-        console.log("did this");
     });
 }
 
@@ -369,9 +403,7 @@ function run() {
     meme();
     greentext();  
     if (Cookies.get('CB_rainbow') === '1') rainbow();
-    if (Cookies.get('CB_random') === '1') random();
-    if (Cookies.get('CB_greek') === '1') greek();
-    if (Cookies.get('CB_smallcaps') === '1') smallcaps();
+    if (Cookies.get('CB_random') === '1') random();    
 }
 
 /* this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script */
@@ -406,15 +438,13 @@ jQuery(document).ready(function() {
             addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
 			editCss();                   
 			/**/
-			addSpacer();
+			addHider();
 			/**/
 			addRainbow();
 			addRandom();
-			addGreek();
-			addSmallcaps();
             
             /**/
-            customCss();
+            buttonCss();
             
             // screenshot feature only works in chrome, so I'll add an if statement
             if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
