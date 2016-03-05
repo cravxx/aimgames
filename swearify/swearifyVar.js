@@ -92,8 +92,8 @@ var emoticon_1 = {
     riot: [
         ':riot:', 'http://i.imgur.com/exN4785.png', 'riot'
     ],
-    blaze: [
-        ':blaze:', 'http://i60.tinypic.com/14ul0nd.png', 'blaze'
+    pepeblaze: [
+        ':pepeblaze:', 'http://i60.tinypic.com/14ul0nd.png', 'blaze'
     ],
     afx: [
         ':afx:', 'http://i.imgur.com/r5o9xXL.png', 'afx'
@@ -645,9 +645,6 @@ var emoticon_2 = {
     ],
     illuminati: [
         ':illuminati:', 'https://static-cdn.jtvnw.net/emoticons/v1/25927/1.0', 'THE JOOOOOOOOOOOOOOOOOOOOOS'
-    ],
-    blazeskr: [
-        'blaze', 'https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0', 'B-B-B-B-B-BAKA SENPAIIII'
     ],
     gnome: [
         ':gnome:', 'https://static-cdn.jtvnw.net/emoticons/v1/44069/1.0', 'alohaGnome'
@@ -1323,9 +1320,15 @@ var emoticon_3 = {
 };
 
 /** the memes
- * memes are started with #
+ * memes are started with !
+ * (was using # but I don't want to conflict with my hashtag idea)
  */
 var maymay = {
+
+    /*
+     * oc
+     */
+
     sombre: [
         'sombre', '[font=monospace][size=14][b][color=red]S[/color] [color=orange]O[/color] [color=yellow]M[/color] [color=blue]B[/color] [color=indigo]R[/color] [color=violet]E[/color][/b][/size][/font]'
     ],
@@ -1338,67 +1341,74 @@ var maymay = {
     donger: [
         'donger', '[size=29][b][font=impact]DONGER[/font][/b][/size]'
     ],
-    esca: [
-        'that escalated', '[size=20][font=impact]THAT ESCALATED[/font][/size]'
-    ],
     minty: [
         'minty', '[img]http://i60.tinypic.com/2hzkc5y.png[/img][blur][b][color=#98FF98] MINTY[/color][/b][/blur]'
     ],
-    lenny: [
-        '#lenny', '( ͡° ͜ʖ ͡°)'
-    ],
     greeneggs: [
-        '#eggs', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( ͡° ʖ̯ ͡°)[/size]'
-    ],
-    rekt: [
-        'rekt', '[size=19][font=impact][blur][b][color=red]☑ REKT[/color][/b][/blur][/font][/size]'
+        '!eggs', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( ͡° ʖ̯ ͡°)[/size]'
     ],
     danked: [
-        'dank', '[color=red][b](USER WAS BANNED FOR THIS DANK)[/b][/color]'
+        '!dank', '[color=red][b](USER WAS BANNED FOR THIS DANK)[/b][/color]'
     ],
+    ohshit: [
+        '!shit', '[b][font=Comic Sans MS][color=#665203]O[/color][color=#6B5304]O[/color][color=#715405]O[/color][color=#765506]O[/color][color=#7C5708]H[/color] [color=#87590B]S[/color][color=#765109]H[/color][color=#664808]I[/color][color=#563F06]I[/color][color=#463605]I[/color][color=#362D03]T[/color][/font][/b]'
+    ],
+    yes: [
+        '!yes', '[size=6]yes,[/size] yes YES [size=26]YES[/size]'
+    ],
+    ripped: [
+        '!rip', '[b][font=Impact][size=20][color=#3BED44]r[/color][color=#1137CE]i[/color][color=#6D2645]p[/color] [color=#C9EE35]i[/color][color=#BEF7E8]n[/color] [color=#702B82]p[/color][color=#950C47]i[/color][color=#9F65A4]e[/color][color=#196650]c[/color][color=#88DA22]e[/color][color=#332E39]s[/color][/size][/font][/b]'
+    ],
+    logout: [
+        '!logout', '[url=https://i.imgur.com/7XClKSN.png?1]http://superlogout.com/[/url]'
+    ],
+    woop: [
+        '!woop', '[ \\[size=10]\\[/size][size=9]\\[/size][size=8]\\[/size][size=7]\\[/size][size=6]\\[/size][size=7]\\[/size][size=8]\\[/size][size=9]\\[/size][size=10]\\[/size]\\ ]'
+    ],
+    destroy: [
+        '!destroy', '[size=26]DESTROY[/size][size=23]DESTROY[/size][size=20]DESTROY[/size][size=17]DESTROY[/size][size=14]DESTROY[/size][size=11]DESTROY[/size][size=9]DESTROY[/size][size=6]DESTROY[/size][size=3]DESTROY[/size]'
+    ],
+    wellmemed: [
+        '!memed', '[IMG]http://i58.tinypic.com/2s8o4g8.png[/IMG]'
+    ],
+    abuse: [
+        '!abuse', '[img]http://i.imgur.com/cAxpwdm.gif[/img]'
+    ],
+
+    /**
+     * unoriginal 
+     */
+
+    lenny: [
+        '!lenny', '( ͡° ͜ʖ ͡°)'
+    ],    
+    rekt: [
+        'rekt', '[size=19][font=impact][blur][b][color=red]☑ REKT[/color][/b][/blur][/font][/size]'
+    ],    
     blazed420: [
         '420 blaze it', '[b][font=Comic Sans MS][color=#FF0000]4[/color][color=#FD2A00]2[/color][color=#FC5500]0[/color] [color=#F9AA00]B[/color][color=#F8D400]L[/color][color=#F6FF00]A[/color][color=#CDFF00]Z[/color][color=#A4FF00]E[/color] [color=#52FF00]I[/color][color=#29FF00]T[/color][/font][/b]'
     ],
     checkem: [
         'checkem', '[size=15][font=impact]C[/font][/size][size=20][font=impact]H[/font][/size][size=15][font=impact]E[/font][/size][size=20][font=impact]C[/font][/size][size=15][font=impact]K[/font][/size][size=20][font=impact] [/font][/size][size=15][font=impact]E[/font][/size][size=20][font=impact]M[/font][/size]'
-    ],
-    ohshit: [
-        'ohshi', '[b][font=Comic Sans MS][color=#665203]O[/color][color=#6B5304]O[/color][color=#715405]O[/color][color=#765506]O[/color][color=#7C5708]H[/color] [color=#87590B]S[/color][color=#765109]H[/color][color=#664808]I[/color][color=#563F06]I[/color][color=#463605]I[/color][color=#362D03]T[/color][/font][/b]'
-    ],
-    yes: [
-        '#yes', '[size=6]yes,[/size] yes YES [size=26]YES[/size]'
-    ],
-    ripped: [
-        ':rip:', '[b][font=Impact][size=20][color=#3BED44]r[/color][color=#1137CE]i[/color][color=#6D2645]p[/color] [color=#C9EE35]i[/color][color=#BEF7E8]n[/color] [color=#702B82]p[/color][color=#950C47]i[/color][color=#9F65A4]e[/color][color=#196650]c[/color][color=#88DA22]e[/color][color=#332E39]s[/color][/size][/font][/b]'
-    ],
-    toa: [
-        'toa', 'toa' //'[img]http://i61.tinypic.com/cmjk6.png[/img]'
-    ],
+    ],              
     murica: [
         'murica', '[b][font=Comic Sans MS][color=#FF0000]M[/color][color=#FF5555]U[/color][color=#FFAAAA]R[/color][color=#FFFFFF]I[/color][color=#AAAAFF]C[/color][color=#5555FF]A[/color][/font][/b]'
-    ],
-    woop: [
-        '#woop', '[ \\[size=10]\\[/size][size=9]\\[/size][size=8]\\[/size][size=7]\\[/size][size=6]\\[/size][size=7]\\[/size][size=8]\\[/size][size=9]\\[/size][size=10]\\[/size]\\ ]'
-    ],
-    wellmemed: [
-        '#memed', '[IMG]http://i58.tinypic.com/2s8o4g8.png[/IMG]'
-    ],
+    ],       
     gottago: [
-        '#fast', '[scroll][font=Comic Sans MS][size=26][blur][color=green][i]GOTTA GO FAST[/i][/color][/blur][/size][/font][list][*][/list][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][/scroll]'
-    ],
-    destroy: [
-        '#destroy', '[size=26]DESTROY[/size][size=23]DESTROY[/size][size=20]DESTROY[/size][size=17]DESTROY[/size][size=14]DESTROY[/size][size=11]DESTROY[/size][size=9]DESTROY[/size][size=6]DESTROY[/size][size=3]DESTROY[/size]'
-    ],
-    logout: [
-        '#logout', '[url=https://i.imgur.com/7XClKSN.png?1]http://superlogout.com/[/url]'
-    ],
-    abuse: [
-        '#abuse', '[img]http://i.imgur.com/cAxpwdm.gif[/img]'
-    ],
-    square: [
-        '#square', '□'
-    ],
+        '!fast', '[scroll][font=Comic Sans MS][size=26][blur][color=green][i]GOTTA GO FAST[/i][/color][/blur][/size][/font][list][*][/list][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][img]http://i61.tinypic.com/2hdmr2f.png[/img][/scroll]'
+    ],   
     mindlessretard: [
-        '#retard', 'ຈل͜ຈ ɪ ᴄᴛʀʟ ᴠ ᴛʜɪɴɢs ɪɴᴛᴏ ᴄʜᴀᴛ ʙᴇᴄᴀᴜsᴇ ɪ ᴀᴍ ᴀ ᴍɪɴᴅʟᴇss ʀᴇᴛᴀʀᴅ ຈل͜ຈ'
-    ]
+        '!retard', 'ຈل͜ຈ ɪ ᴄᴛʀʟ ᴠ ᴛʜɪɴɢs ɪɴᴛᴏ ᴄʜᴀᴛ ʙᴇᴄᴀᴜsᴇ ɪ ᴀᴍ ᴀ ᴍɪɴᴅʟᴇss ʀᴇᴛᴀʀᴅ ຈل͜ຈ'
+    ],
+    
+    /**
+     * username 
+     */
+
+    toa: [
+        'toa', 'toa' //'[img]http://i61.tinypic.com/cmjk6.png[/img]'
+    ],        
+    blaze: [
+        'blaze', 'https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0', 'B-B-B-B-B-BAKA SENPAIIII'
+    ],
 };
