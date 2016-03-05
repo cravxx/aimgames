@@ -7,8 +7,8 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     http://daffeinatek.byethost32.com/swearify/jquery.caret.1.02.min.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     1.1
-// @icon        http://i.imgur.com/HlEs1B4.png
+// @version     7.upright.5.1.kaoliangs.1457204914.7
+// @icon        http://i.imgur.com/fjgumlV.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
 // @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
@@ -21,7 +21,10 @@
 'TO IMPLEMENT' LIST
     -   Enabled for posting
 
-    -   Dynamic reorder smilie window on window resize                       
+    -   Dynamic reorder smilie window on window resize     
+
+BUGS:
+    -   After clicking a smilie to add it to the message box, by pressing enter you can add it again
 
 IDEAS:
     -   Slide the text effect buttons to the left and right instead of the sharp show/hide
@@ -35,6 +38,9 @@ IDEAS:
                         2. extend all the custom features (like window resizing) to the default smilie page
 
     -   A dedicated .css file 
+
+    -   Hashtag system? start or end a message with a hash tag and that message will get sent to my site. Clicking on the hash tag directs to a page where
+        a list of the messages posted with that hashtag will be shown. Probably requires php.
 */
 
 var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
@@ -89,7 +95,7 @@ function editCss() {
     // Replace the old smilie image with a new one
 }
 
-/**ROUGH HACK
+/** ROUGH HACK
  * sets some css for the buttons, especially for the hide button
  */
 function buttonCss() {
@@ -188,7 +194,7 @@ function greentext() {
 }
 
 /**
- * begin button functions
+ *      begin button functions
  */
 
 /**
@@ -365,7 +371,9 @@ function addSmilie(i) {
     }        
 }
 
-/* the function that returns a canvas and opens a jQuery UI Dialog */
+/**
+ * returns a canvas and opens a jQuery UI Dialog
+ */
 function takeScreenshot(){
     html2canvas(document.body, {        
         onrendered: function(canvas) { 
@@ -389,7 +397,9 @@ function takeScreenshot(){
     });
 }
 
-/* add button and intialize event listener for taking a screenshot */
+/**
+ * add button and intialize event listener for taking a screenshot
+ */
 function addScreenshot() {
    $('.genmed').prepend('<span id="chatbox_screenshot"><a href="javascript:void(0)">Take Screenshot</a></span>&nbsp;|&nbsp;');
     $('#chatbox_screenshot').click(function(){
@@ -397,7 +407,9 @@ function addScreenshot() {
     });
 }
 
-/* this will run after every keypress */
+/**
+ * this will run after every keypress
+ */
 function run() {
     emoticon();
     meme();
@@ -406,7 +418,9 @@ function run() {
     if (Cookies.get('CB_random') === '1') random();    
 }
 
-/* this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script */
+/**
+ * this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script
+ */
 jQuery(document).ready(function() {
 	$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function()	{
         appendOptions();
@@ -446,7 +460,8 @@ jQuery(document).ready(function() {
             /**/
             buttonCss();
             
-            // screenshot feature only works in chrome, so I'll add an if statement
+            /* screenshot feature only works in chrome, so I'll add an if statement
+             */
             if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
                 $.getScript('http://daffeinatek.byethost32.com/swearify/html2canvas.js', function()	{
                     addScreenshot();
