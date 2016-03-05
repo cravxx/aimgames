@@ -106,7 +106,7 @@ function initEmotesAsClickable(smilie_code, indiv) {
 
 function emoticon() {
     var new_msg;
-    var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3, emoticon_4, emoticon_5);
+    var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
   
     $.each(massiveObj, function(name, value) {
       if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
@@ -276,7 +276,7 @@ function addSmilie(i) {
          });                       
     }
     if (i == 3) {
-         $.each(emoticon_5, function(name, value) {             
+         $.each(emoticon_3, function(name, value) {             
              var row = $(tbody).find('tr')[down];                
              console.log(across + " " + down);
              $(row).append('<td></td>');
