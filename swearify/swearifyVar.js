@@ -1257,8 +1257,8 @@ var emoticon_5 = {
     jeremydisgust: [
         ':jeremydisgust:', 'http://i.imgur.com/h56MGYhs.png', 'jeremy disgust'
     ],
-    mark: [
-        ':mark:', 'http://i.imgur.com/q20ZR0Us.png', "mark."
+    jeff: [
+        ':jeff:', 'http://i.imgur.com/q20ZR0Us.png', "IT'S JEFF NOT MARK YOU GAY RETARD."
     ],
     jeremyface: [
         ':jeremyface:', 'http://i.imgur.com/X2gnbuas.png', "jeremyface"
