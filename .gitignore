@@ -3,4 +3,4 @@ build/build.jar
 build/b.bat
 build/mycompile.bat
 build/myincrement.bat
-/*.swp
+.*.sw*
