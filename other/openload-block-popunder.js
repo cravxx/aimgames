@@ -10,5 +10,8 @@
 // ==/UserScript==
 "use strict";
 
+// show the hidden button that links to the real download
 document.getElementById("realdl").style = '';
+
+// hide the button that creates the pop-under
 document.getElementById("downloadTimer").style = "display: none;";
