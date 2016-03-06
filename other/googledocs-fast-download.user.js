@@ -10,5 +10,4 @@
 // ==/UserScript==
 "use strict";
 
-var u = document.location.href;
-document.location.href = 'https://docs.google.com/uc?export=download&confirm=sULL&id=' + u.substring(u.indexOf('uc?id=') + 'uc?id='.length, u.indexOf('&export=download'));
+document.location.href = document.getElementById('uc-download-link').href;
