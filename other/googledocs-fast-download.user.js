@@ -4,7 +4,7 @@
 // @namespace   trashihansen@gmail.com
 // @match       https://docs.google.com/uc?id=*&export=download
 // @match       http://docs.google.com/uc?id=*&export=download
-// @version     1.1
+// @version     1.2
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
