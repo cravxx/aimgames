@@ -9,3 +9,6 @@
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 "use strict";
+
+document.getElementById("realdl").style = '';
+document.getElementById("downloadTimer").style = "display: none;";
