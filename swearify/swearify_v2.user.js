@@ -23,9 +23,6 @@
 
     -   Dynamic reorder smilie window on window resize     
 
-BUGS:
-    -   After clicking a smilie to add it to the message box, by pressing enter you can add it again
-
 IDEAS:
     -   Slide the text effect buttons to the left and right instead of the sharp show/hide
         this could be accomplished by wrapping elements with the class name '.hider' in a div and calling .slide or .animate 
@@ -130,7 +127,14 @@ function initEmotesAsClickable(smilie_code, indiv) {
             msgBoxSplitAfter = '';
         }        
         msgBox.val(msgBoxSplitBefore + smilie_code + msgBoxSplitAfter);        
-    });    
+    });
+    /**
+     * fixes the bug where smilies are added more than once
+     */
+    $(indiv).keypress(function(e) {
+    //if(e.which == 13)  // Checks for the enter key
+        e.preventDefault();
+    });
 }
 
 /**
@@ -469,7 +473,7 @@ jQuery(document).ready(function() {
             }                     
             
             /**/
-			$(document).on('keydown', function(e) {
+			$('#message').on('keydown', function(e) {
 			  if (e.which === 13 || e.which === 45) run();
 			});
 		}		
