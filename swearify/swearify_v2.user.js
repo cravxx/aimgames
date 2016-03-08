@@ -7,8 +7,8 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     http://daffeinatek.byethost32.com/swearify/jquery.caret.1.02.min.js
 // @require     https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     7.upright.5.1.kaoliangs.1457204914.7
-// @icon        http://i.imgur.com/fjgumlV.png
+// @version     alpha.2.3
+// @icon        http://daffeinatek.byethost32.com/swearify/swearifyDev.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
 // @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
@@ -22,6 +22,8 @@
     -   Enabled for posting
 
     -   Dynamic reorder smilie window on window resize     
+
+    -   Upgraded swear filter
 
 IDEAS:
     -   Slide the text effect buttons to the left and right instead of the sharp show/hide
@@ -202,6 +204,7 @@ function smilieHtml(smilie_code, smilie_url, smilie_text) {
 
 /**
  * moved over from e29c520
+ * obviously this needs upgrading as it's awful
  */
 function swear() {
     $.each(swears, function(index, item) {
