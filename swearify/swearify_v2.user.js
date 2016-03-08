@@ -233,17 +233,17 @@ function swear() {
           var before_link = old_msg_low.substr(0, which);
           var link = old_msg_low.substr(which, old_msg_low.length);
           if(before_link.indexOf(swear_words[i]) >= 0)   {
-            var edi_msg = old_msg.substr(before_link.indexOf(swear_words[i]), swear_words[i].length);
+            var edi_msg = old_msg.substr(before_link.indexOf(item),item.length);
             var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-            $('#message').val(old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg));
+            $('#message').val(old_msg.replace(new RegExp(item, "gi"), par_msg));
           }      
         }    
         
         if (http_link == -1 && https_link == -1 && www_link == -1) {
             if(old_msg_low.indexOf(swear_words[i]) >= 0)   {
-                var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
+                var edi_msg = old_msg.substr(old_msg_low.indexOf(item), item.length);
                 var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-                $('#message').val(old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg));
+                $('#message').val(old_msg.replace(new RegExp(item, "gi"), par_msg));
             }    	
         }
         
