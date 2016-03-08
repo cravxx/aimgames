@@ -64,6 +64,10 @@ var smilieOptions = {
 var smilieBase = '<a href="javascript:void(0)" class="emotes"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
 var quote = '\'';
 
+var spec_code = [ '/exit', '/away', '/abs', '[code]' ];
+var swear_code = [ '[b][/b]', '.' ];
+var link_code = [ 'http://', 'www.', 'https://' ];
+
 String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
     return indexOf >= 0 ? indexOf + (startpos || 0) : indexOf;
