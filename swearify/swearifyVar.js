@@ -1,3 +1,10 @@
+/**
+ * the swears
+ */
+var swears = [
+    'sex', '494', 'mdx'
+];
+
 /** the emoticons
  * emotes are surrounded by : :
  */

@@ -23,9 +23,6 @@
 
     -   Dynamic reorder smilie window on window resize     
 
-BUGS:
-    -   After clicking a smilie to add it to the message box, by pressing enter you can add it again
-
 IDEAS:
     -   Slide the text effect buttons to the left and right instead of the sharp show/hide
         this could be accomplished by wrapping elements with the class name '.hider' in a div and calling .slide or .animate 
@@ -198,6 +195,57 @@ function smilieHtml(smilie_code, smilie_url, smilie_text) {
 /**
  * begin non-utility functions
  */
+
+/**
+ * moved over from e29c520
+ */
+function swear() {
+    $.each(swears, function(index, item) {
+        var old_msg = $('#message').val();
+        var old_msg_low = $('#message').val().toLowerCase();
+        var new_msg = '';
+        // http://stackoverflow.com/a/500459
+        var http_link = old_msg.indexOf(link_code[0]);
+        var www_link = old_msg.indexOf(link_code[1]);
+        var https_link = old_msg.indexOf(link_code[2]);
+        var exit_code = old_msg.indexOf(spec_code[0]);
+        var away_code = old_msg.indexOf(spec_code[1]);
+        var abs_code = old_msg.indexOf(spec_code[2]);
+        var code_code = old_msg.indexOf(spec_code[3]);
+        var semi_code = old_msg.indexOf(spec_code[3]);
+        var spec_switch = 0;
+        // special switches switch
+        if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1 || semi_code != -1) spec_switch = 1;
+        
+        if(http_link > 0 || www_link > 0 || https_link > 0) {
+          var which = 0;
+          if(http_link != -1){
+            which = http_link;        
+          }else if(www_link != -1){
+            which = www_link;  
+          }else{
+            which = https_link;  
+          }
+          var before_link = old_msg_low.substr(0, which);
+          var link = old_msg_low.substr(which, old_msg_low.length);
+          if(before_link.indexOf(swear_words[i]) >= 0)   {
+            var edi_msg = old_msg.substr(before_link.indexOf(swear_words[i]), swear_words[i].length);
+            var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
+            $('#message').val(old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg));
+          }      
+        }    
+        
+        if (http_link == -1 && https_link == -1 && www_link == -1) {
+            if(old_msg_low.indexOf(swear_words[i]) >= 0)   {
+                var edi_msg = old_msg.substr(old_msg_low.indexOf(swear_words[i]), swear_words[i].length);
+                var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
+                $('#message').val(old_msg.replace(new RegExp(swear_words[i], "gi"), par_msg));
+            }    	
+        }
+        
+    });  
+}
+
 function emoticon() {
     var new_msg;
     var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
@@ -450,6 +498,7 @@ function addScreenshot() {
  * this will run after every keypress
  */
 function run() {
+    swear();
     emoticon();
     meme();
     greentext();  
