@@ -64,9 +64,9 @@ var smilieOptions = {
 var smilieBase = '<a href="javascript:void(0)" class="emotes"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
 var quote = '\'';
 
-var spec_code = [ '/exit', '/away', '/abs', '[code]' ];
-var swear_code = [ '[b][/b]', '.' ];
-var link_code = [ 'http://', 'www.', 'https://' ];
+var specialCode = [ '/exit', '/away', '/abs', '[code]' ];
+var filteringCode = [ '[b][/b]', '.' ];
+var linkCode = [ 'http://', 'www.', 'https://' ];
 
 String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
@@ -205,66 +205,77 @@ function smilieHtml(smilie_code, smilie_url, smilie_text) {
  */
 function swear() {
     $.each(swears, function(index, item) {
-        var old_msg = $('#message').val();
-        var old_msg_low = $('#message').val().toLowerCase();
-        var new_msg = '';
-        // http://stackoverflow.com/a/500459
-        var http_link = old_msg.indexOf(link_code[0]);
-        var www_link = old_msg.indexOf(link_code[1]);
-        var https_link = old_msg.indexOf(link_code[2]);
-        var exit_code = old_msg.indexOf(spec_code[0]);
-        var away_code = old_msg.indexOf(spec_code[1]);
-        var abs_code = old_msg.indexOf(spec_code[2]);
-        var code_code = old_msg.indexOf(spec_code[3]);
-        var semi_code = old_msg.indexOf(spec_code[3]);
-        var spec_switch = 0;
-        // special switches switch
-        if (exit_code != -1 || away_code != -1 || abs_code != -1 || code_code != -1 || semi_code != -1) spec_switch = 1;
+        /**
+         * define a ton of variables
+         */
+        var oldMsg = $('#message').val();
+        var oldMsgLowercase = $('#message').val().toLowerCase();
+        var newMsg = '';
+
+        var httpLink = oldMsg.indexOf(linkCode[0]);
+        var wwwLink = oldMsg.indexOf(linkCode[1]);
+        var httpsLink = oldMsg.indexOf(linkCode[2]);
+
+        var exitCode = oldMsg.indexOf(specialCode[0]);
+        var awayCode = oldMsg.indexOf(specialCode[1]);
+        var absentCode = oldMsg.indexOf(specialCode[2]);
+        var codeCode = oldMsg.indexOf(specialCode[3]);
+
+        var filteringMethod = 0;
+
+        /**
+         * is the message a chatbox command
+         */
+        if (exitCode != -1 || awayCode != -1 || absentCode != -1 || codeCode != -1) 
+            filteringMethod = 1;
         
-        if(http_link > 0 || www_link > 0 || https_link > 0) {
-          var which = 0;
-          if(http_link != -1){
-            which = http_link;        
-          }else if(www_link != -1){
-            which = www_link;  
-          }else{
-            which = https_link;  
-          }
-          var before_link = old_msg_low.substr(0, which);
-          var link = old_msg_low.substr(which, old_msg_low.length);
-          if(before_link.indexOf(item) >= 0)   {
-            var edi_msg = old_msg.substr(before_link.indexOf(item),item.length);
-            var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-            $('#message').val(old_msg.replace(new RegExp(item, "gi"), par_msg));
-          }      
+        /**
+         * what to do if the message has a link 
+         */
+        if (httpLink > 0 || wwwLink > 0 || httpsLink > 0) {
+            var which = 0;
+            if (httpLink != -1) {
+                which = httpLink;        
+            } else if (wwwLink != -1) {
+                which = wwwLink;  
+            } else {
+                which = httpsLink;
+            }
+
+            var before_link = oldMsgLowercase.substr(0, which);
+            var link = oldMsgLowercase.substr(which, oldMsgLowercase.length);
+            if (before_link.indexOf(item) >= 0) {
+                newMsg = oldMsg.substr(before_link.indexOf(item),item.length).split("").join(filteringCode[filteringMethod]);
+            } 
         }    
         
-        if (http_link == -1 && https_link == -1 && www_link == -1) {
-            if(old_msg_low.indexOf(item) >= 0)   {
-                var edi_msg = old_msg.substr(old_msg_low.indexOf(item), item.length);
-                var par_msg = edi_msg.split("").join(swear_code[spec_switch]);
-                $('#message').val(old_msg.replace(new RegExp(item, "gi"), par_msg));
+        /**
+         * what to do normally
+         */
+        if (httpLink == -1 && httpsLink == -1 && wwwLink == -1) {
+            if (oldMsgLowercase.indexOf(item) >= 0) {
+                newMsg = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);                
             }    	
         }
-        
+        $('#message').val(oldMsg.replace(new RegExp(item, "gi"), newMsg));        
     });  
 }
 
 function emoticon() {
-    var new_msg;
+    var newMsg;
     var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
   
     $.each(massiveObj, function(name, value) {
       if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-        new_msg = $("#message").val().replace(new RegExp(value[0], 'gi'), imgTag[0] + value[1] + imgTag[1]);
-        $('#message').val(new_msg);
+        newMsg = $("#message").val().replace(new RegExp(value[0], 'gi'), imgTag[0] + value[1] + imgTag[1]);
+        $('#message').val(newMsg);
       }
     });
   
     $.each(twitch_c, function(index, item) {
         if ($("#message").val().regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-            new_msg = $("#message").val().replace(new RegExp('\\b' + item + '\\b', 'g'), imgTag[0] + twitch_e[index] + imgTag[1]);
-            $("#message").val(new_msg);
+            newMsg = $("#message").val().replace(new RegExp('\\b' + item + '\\b', 'g'), imgTag[0] + twitch_e[index] + imgTag[1]);
+            $("#message").val(newMsg);
         }
     });
 }
@@ -272,8 +283,8 @@ function emoticon() {
 function meme() {
     $.each(maymay, function(name, value) {
       if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-        var new_msg = $("#message").val().replace(new RegExp(value[0], 'gi'), value[1]);
-        $('#message').val(new_msg);
+        var newMsg = $("#message").val().replace(new RegExp(value[0], 'gi'), value[1]);
+        $('#message').val(newMsg);
       }
     });    
 }
