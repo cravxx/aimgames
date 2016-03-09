@@ -200,10 +200,33 @@ function uploadtoImgur(canvas) {
 }
 
 /**
+ * http://stackoverflow.com/questions/14521108/dynamically-load-js-inside-js
+ */
+var loadJS = function(url, implementationCode, location){
+    //url is URL of external file, implementationCode is the code
+    //to be called from the file, location is the location to 
+    //insert the <script> element
+
+    var scriptTag = document.createElement('script');
+    scriptTag.src = url;
+
+    scriptTag.onload = implementationCode;
+    scriptTag.onreadystatechange = implementationCode;
+
+    location.appendChild(scriptTag);
+};
+
+/**
  * uhh
  */
-window.onload = function() {
-    createStuff();
+window.onload = function() {    
+    if (typeof jQuery === 'undefined') {
+        console.log('no jquery: load and call');      
+        loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js', createStuff, document.body);
+    } else {
+        console.log('jquery exists: normal : ^ )');
+        createStuff();
+    }    
 };
 
 
