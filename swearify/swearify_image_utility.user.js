@@ -9,6 +9,15 @@
 
 /**
  * a rewrite of the Image Reuploader userscript
+ *
+ * unsure of whether to go for jQuery or raw javascript as I would like it to be near universal for
+ * any website.
+ *
+ * going with jquery would require a type of system that detects if the site has jQuery and modifies
+ * functions accordingly, it just seems too complicated. 
+ *
+ * currenly traces of jQuery exist within the code, I'll work on removing them for now.
+ *
  */
 
 /**
