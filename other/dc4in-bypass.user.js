@@ -4,15 +4,21 @@
 // @namespace   hansen-i-nate@gmail.com
 // @match       http://*.dc4in.com/*
 // @match       https://*.dc4in.com/*
-// @version     1.1
+// @version     1.3
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 "use strict";
 
-//$('#loading').html('<fieldset><legend><span class="label label-primary">Result</span></legend><h4><span class="label label-success">Successfully</span></h4><h4><div id="result"></div></h4></fieldset>');
-$('#adfly').children()[0].onclick = "Submit();"
+// remove bad button
+//$('#adfly').children()[0].remove();
+// slightly better (i think)
+$('#adfly').children().remove();
 
+// add new button (same as the button after clicking the ad)
+$('#adfly').append('<button class="btn btn-info btn-lg" onclick="Submit();">Submit</button>');
+
+// guarantee success (i think)
 window.start = window.finish;
 window.error = window.finish;
 window.error1 = window.finish;
@@ -59,3 +65,6 @@ function error1() {
 
 }
 */
+
+//'&lol=Hha you are fking noob'
+// haha you are fking bad coder
