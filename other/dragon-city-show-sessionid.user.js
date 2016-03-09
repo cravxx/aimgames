@@ -4,7 +4,7 @@
 // @namespace   jojohansen@gmail.com
 // @include     https://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
 // @include     http://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
-// @version     1.5
+// @version     1.6
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
