@@ -4,7 +4,8 @@
     position: relative;
     height: 100px;
     width: 350px;
-    margin: 20px auto;
+    /*margin: 20px auto;*/
+    margin: 0 auto;
     background: #ECECEC;
     border-radius: 4px;
     font-size: 16px;
