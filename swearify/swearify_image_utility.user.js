@@ -3,7 +3,7 @@
 // @namespace   samsquanchhunter
 // @include     http://*
 // @include     https://*
-// @version     1
+// @version     alpha.1.1
 // @grant       none
 // ==/UserScript
 
@@ -11,6 +11,23 @@
  * a rewrite of the Image Reuploader userscript
  */
 
+/**
+ * some utility functions
+ */
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+    for(var i = this.length - 1; i >= 0; i--) {
+        if(this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+        }
+    }
+}
+
+/**
+ * create the context item
+ */
 function createStuff() {
   document.body.addEventListener("contextmenu", onRightClick, false);
 
@@ -46,6 +63,7 @@ function onRightClick(e) {
     item.disabled = true;
   }
 }
+
 
 /**
  * part of a lifesaving library https://github.com/viliusle/Hermite-resize
@@ -114,7 +132,7 @@ function resample_hermite(canvas, W, H, W2, H2){
  * create a canvas then call the function to resize the image into the canvas
  */
 function createCanvas(){  
-  $('body').prepend($("<canvas id='canvasImg'></canvas>"));
+  $('body').prepend($("<canvas id='canvasImg' style='display:none;'></canvas>"));
   resizeIntoCanvas();
 }
 
@@ -145,7 +163,7 @@ function resizeIntoCanvas() {
     //resample_hermite(canvas, W, H, 439, 222);
   }
    img.src = $('#menu_imgre').attr('imageurl'); 
-  setTimeout(function(){ uploadCanvas(canvas); }, 1000);
+  setTimeout(function(){ uploadtoImgur(canvas); document.getElementById('canvasImg').remove();}, 1000);
 }
 
 /**
@@ -171,4 +189,12 @@ function uploadtoImgur(canvas) {
       }
   });  
 }
+
+/**
+ * uhh
+ */
+window.onload = function() {
+    createStuff();
+};
+
 
