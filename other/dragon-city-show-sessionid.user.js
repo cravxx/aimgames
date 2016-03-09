@@ -4,7 +4,7 @@
 // @namespace   jojohansen@gmail.com
 // @include     https://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
 // @include     http://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
-// @version     1.8
+// @version     1.10
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -69,7 +69,7 @@ function make_popup(content_a, content_b) {
   
   // css
   var thecss = document.createElement("link");
-  thecss.href = "https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/other/dragon-city.css";
+  thecss.href = "https://rawgit.com/HulaSamsquanch/aimgames/master/other/dragon-city.css";
   thecss.type = "text/css";
   thecss.rel = "stylesheet";
   document.head.appendChild(thecss);
