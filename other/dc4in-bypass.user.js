@@ -4,13 +4,14 @@
 // @namespace   hansen-i-nate@gmail.com
 // @match       http://*.dc4in.com/*
 // @match       https://*.dc4in.com/*
-// @version     1.0
+// @version     1.1
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 "use strict";
 
-$('#loading').html('<fieldset><legend><span class="label label-primary">Result</span></legend><h4><span class="label label-success">Successfully</span></h4><h4><div id="result"></div></h4></fieldset>');
+//$('#loading').html('<fieldset><legend><span class="label label-primary">Result</span></legend><h4><span class="label label-success">Successfully</span></h4><h4><div id="result"></div></h4></fieldset>');
+$('#adfly').children()[0].onclick = "Submit();"
 
 window.start = window.finish;
 window.error = window.finish;
