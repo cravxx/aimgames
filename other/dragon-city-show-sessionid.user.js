@@ -4,7 +4,7 @@
 // @namespace   jojohansen@gmail.com
 // @include     https://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
 // @include     http://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
-// @version     1.7
+// @version     1.8
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -113,7 +113,9 @@ function make_popup(content_a, content_b) {
   article.appendChild(area);
   card.appendChild(article);
   
-  document.body.insertBefore(card, document.body.firstChild);
+  //document.body.insertBefore(card, document.body.firstChild);
+  
+  document.getElementsByClassName('top-bar')[0].appendChild(card);
   
 }
 
