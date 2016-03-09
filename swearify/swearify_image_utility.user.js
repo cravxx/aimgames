@@ -10,14 +10,6 @@
 /**
  * a rewrite of the Image Reuploader userscript
  *
- * unsure of whether to go for jQuery or raw javascript as I would like it to be near universal for
- * any website.
- *
- * going with jquery would require a type of system that detects if the site has jQuery and modifies
- * functions accordingly, it just seems too complicated. 
- *
- * currenly traces of jQuery exist within the code, I'll work on removing them for now.
- *
  */
 
 /**
@@ -140,9 +132,12 @@ function resample_hermite(canvas, W, H, W2, H2){
 /**
  * create a canvas then call the function to resize the image into the canvas
  */
-function createCanvas(){  
-  $('body').prepend($("<canvas id='canvasImg' style='display:none;'></canvas>"));
-  resizeIntoCanvas();
+function createCanvas(){
+    var bodyCanvas = document.createElement('canvas');
+    bodyCanvas.id = 'canvasImg';
+    bodyCanvas.style = 'display:none;';
+    document.body.appendChild(bodyCanvas);
+    resizeIntoCanvas();  
 }
 
 /**
@@ -171,7 +166,7 @@ function resizeIntoCanvas() {
     //resize manually
     //resample_hermite(canvas, W, H, 439, 222);
   }
-   img.src = $('#menu_imgre').attr('imageurl'); 
+   img.src = document.getElementById('menu_imgre').getAttribute('imageurl'); 
   setTimeout(function(){ uploadtoImgur(canvas); document.getElementById('canvasImg').remove();}, 1000);
 }
 
@@ -179,54 +174,28 @@ function resizeIntoCanvas() {
  * this uploads the canvas passed to it
  */
 function uploadtoImgur(canvas) {
-  console.log('attempting to upload');
-  $.ajax({
-      url: 'https://api.imgur.com/3/image',
-      type: 'post',
-      headers: {
-        Authorization: 'Client-ID d8b88dd7493540b'
-      },
-      data: {
-        image:  canvas.toDataURL().split(',')[1],
-        type: 'base64'
-      },
-      dataType: 'json',
-      success: function(response) {
-          if(response.success) {
-              alert(response.data.link);
-          }
-      }
-  });  
+     console.log('attempting to upload');    
+    
+    var fd = new FormData(); 
+    fd.append("image", canvas.toDataURL().split(',')[1]); // Append the file
+    fd.append("type", 'base64');
+    var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+    xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+    xhr.onload = function() {
+        var link = JSON.parse(xhr.responseText).data.link;
+        alert(link);
+    }
+    // Ok, I don't handle the errors. An exercice for the reader.
+    xhr.setRequestHeader('Authorization', 'Client-ID d8b88dd7493540b');
+    /* And now, we send the formdata */
+    xhr.send(fd);
 }
-
-/**
- * http://stackoverflow.com/questions/14521108/dynamically-load-js-inside-js
- */
-var loadJS = function(url, implementationCode, location){
-    //url is URL of external file, implementationCode is the code
-    //to be called from the file, location is the location to 
-    //insert the <script> element
-
-    var scriptTag = document.createElement('script');
-    scriptTag.src = url;
-
-    scriptTag.onload = implementationCode;
-    scriptTag.onreadystatechange = implementationCode;
-
-    location.appendChild(scriptTag);
-};
 
 /**
  * uhh
  */
-window.onload = function() {    
-    if (typeof jQuery === 'undefined') {
-        console.log('no jquery: load and call');      
-        loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js', createStuff, document.body);
-    } else {
-        console.log('jquery exists: normal : ^ )');
-        createStuff();
-    }    
+window.onload = function() {      
+    createStuff();
 };
 
 
