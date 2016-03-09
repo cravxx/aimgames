@@ -115,7 +115,7 @@ function make_popup(content_a, content_b) {
   
   //document.body.insertBefore(card, document.body.firstChild);
   
-  document.getElementsByClassName('top-bar')[0].appendChild(card);
+  document.getElementsByClassName('top-bar')[0].insertBefore(card, document.getElementsByClassName('top-bar')[0].firstChild);
   
 }
 
