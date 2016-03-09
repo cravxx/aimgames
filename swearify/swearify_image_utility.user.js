@@ -5,7 +5,7 @@
 // @include     https://*
 // @version     alpha.1.1
 // @grant       none
-// ==/UserScript
+// ==/UserScript==
 
 /**
  * a rewrite of the Image Reuploader userscript
