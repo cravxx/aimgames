@@ -10,6 +10,11 @@ Rebuild of Swearify in jQuery, developed in both Chrome AND Firefox. Features in
 - Special text effects
 - __CHROME ONLY__ Take a screenshot right from your chatbox!
 
+#Swearify Image Utility
+_Quickly get an image ready for use in the chatbox!_
+- Context menu integration
+- Proper scaling + retains transparency
+
 #Swearify
 _Big swearing, big emoticons, big memes, big fun._
 - Bypass AIM's swearing filter
@@ -23,8 +28,3 @@ _Big swearing, big emoticons, big memes, big fun._
 - Greek text messages
 - Balloon text messages
 - A _secret_ mode you'll never discover...
-
-#Image Reuploader
-_Quickly get an image ready for use in the chatbox!_
-- Context menu integration
-- Uploads to Imgur and returns a direct link to a 90px by 90px image
