@@ -306,88 +306,82 @@ function addRefreshButton() {
   b.appendChild(s);
 }
 
-var prevChatHTML;
-/**
- * Checks if the chatbox HTML has changed
- * yes, this function is chrome-safe
- */
-function checkChatboxChanged() {
-  if (prevChatHTML !== undefined) {
-    if (chatboxElement.innerHTML !== prevChatHTML) { //chat has changed
-      annoyingPrick();
-      // looks bad
-      //reorganizeTimestamps();
-      checkDubs();
-    }
-  } else { //first run
+var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+var observer = new MutationObserver(function(mutations, observer) {
+    // fired when a mutation occurs
+    //chat has changed
     annoyingPrick();
+    // looks bad
     //reorganizeTimestamps();
     checkDubs();
-  }
-  prevChatHTML = chatboxElement.innerHTML;
-}
+});
+
+// define what element should be observed by the observer
+// and what types of mutations trigger the callback
+observer.observe(document, {
+    subtree: true,
+    attributes: false,
+    childList: true,
+    characterData: true,
+    attributeOldValue: false,
+    characterDataOldValue: false
+});
 
 var chatboxFrame;
-function go() {
   
-  // chatbox++ logo
-  if (document.getElementById('i_logo') !== null) //null in chatbox frame; not undefined, keep note
-    document.getElementById('i_logo').src = 'http://i.imgur.com/LjuijqL.png';
+// chatbox++ logo
+if ($('#i_logo').length > 0) //null in chatbox frame; not undefined, keep note
+    $('#i_logo').prop('src', 'http://i.imgur.com/LjuijqL.png');
+
+// init vars
+if ($('#frame_chatbox').length > 0) { //running in forum
+    // ribbon is only here since we don't need it in big chat
+  chatboxFrame = $('#frame_chatbox')[0].contentWindow.document;
+  chatboxElement = $(chatboxFrame).find('#chatbox');
+  messages = chatboxElement.children();
+  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
   
-  // init vars
-  if (document.getElementById('frame_chatbox') !== null) { //running in forum
-  	  // ribbon is only here since we don't need it in big chat
-	  chatboxFrame = document.getElementById('frame_chatbox').contentWindow.document;
-	  chatboxElement = chatboxFrame.getElementById('chatbox');
-	  messages = chatboxElement.children;
-	  oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
-	  
-	  // init elements
-	  boxElement = document.createElement('div'); //box element that holds the new msg ribbon
-	  boxElement.className = 'box'; //not element.class
-	  boxElement.style = 'position: fixed;left: 1%;top: 2%;';
-	  ribbonElement = document.createElement('div'); //new msg ribbon
-	  ribbonElement.className = 'ribbon'; //not element.class
-	  ribbonText = document.createElement('span'); //new msg string (X new msgs)
-	  ribbonElement.appendChild(ribbonText);
-	  
-	  // inject our css
-	  injectCSS(ribbonCSS);
-	  
-	  // make an empty div where the box will go
-	  document.body.appendChild(boxElement);
-	  
-	  // get the count of new msgs and apply dubs etc
-	  setInterval(function() {
-	  	makeBox();
-	  	checkChatboxChanged();
-	  }, 1000); //too slow? too fast?
-	  // dang it. this one runs too quickly. a timeout wouldn't work either
-	  /*document.getElementById('submit_button').addEventListener('click', function() {
-	        things();
-	  }, false);*/
-	  
-	  ////KEEPS BOX AT THE TOP OF THE SCREEN
-	  window.addEventListener('scroll', function() {
-	    remBox();
-	    //make the box scroll with the screen
-	    var box = document.getElementById('box'),
-	    scroll = getScrollTop();    
-	
-	    if (box !== null) {
-	      if (scroll <= 28) {
-	        box.style.top = "30px";
-	      } else {
-	        box.style.top = (scroll + 2) + "px";
-	      }
-	    }
-	  }, false);
-	  
-	  addRefreshButton();
-  } else { //running in bchat
-	  throw "big chat is not supported by chatbox++, sorry";
-  }
+  chatboxFrame = $('#frame_chatbox')[0]
+  
+  // init elements
+  var boxHTML = '<div class="box" style="position: fixed;left: 1%;top: 2%;"></div>'
+  
+  ribbonElement = document.createElement('div'); //new msg ribbon
+  ribbonElement.className = 'ribbon'; //not element.class
+  ribbonText = document.createElement('span'); //new msg string (X new msgs)
+  ribbonElement.appendChild(ribbonText);
+  
+  // inject our css
+  injectCSS(ribbonCSS);
+  
+  // make an empty div where the box will go
+  boxElement = $(document.body).append(boxHTML);
+  
+  // get the count of new msgs and apply dubs etc
+  setInterval(function() {
+  	makeBox();
+  }, 1000); //too slow? too fast?
+  
+  ////KEEPS BOX AT THE TOP OF THE SCREEN
+  $(document).scroll(function() {
+    remBox();
+    //make the box scroll with the screen
+    var box = $('#box'),
+    scroll = getScrollTop();    
+
+    if (box.length > 0) {
+      if (scroll <= 28) {
+        box.prop('style', "top: 30px;");
+      } else {
+        box.prop('style', "top: " + (scroll + 2) + "px;");
+      }
+    }
+  });
+  
+  addRefreshButton();
+} else { //running in bchat (frame)
+  return;
 }
 
-window.addEventListener('load', go, false);
 // += works too
