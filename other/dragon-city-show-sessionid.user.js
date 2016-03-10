@@ -4,7 +4,7 @@
 // @namespace   jojohansen@gmail.com
 // @include     https://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
 // @include     http://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
-// @version     1.10
+// @version     1.11
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -76,6 +76,9 @@ function make_popup(content_a, content_b) {
   
   // the card
   
+  var card_holder = document.createElement('div');
+  card_holder.className = 'card-holder';
+  
   var card = document.createElement('div');
   card.className = 'card';
   
@@ -112,10 +115,11 @@ function make_popup(content_a, content_b) {
   area.appendChild(p2);
   article.appendChild(area);
   card.appendChild(article);
+  card_holder.appendChild(card);
   
-  //document.body.insertBefore(card, document.body.firstChild);
+  //document.body.insertBefore(card_holder, document.body.firstChild);
   
-  document.getElementsByClassName('top-bar')[0].insertBefore(card, document.getElementsByClassName('top-bar')[0].firstChild);
+  document.getElementsByClassName('top-bar')[0].insertBefore(card_holder, document.getElementsByClassName('top-bar')[0].firstChild);
   
 }
 
