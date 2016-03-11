@@ -24,22 +24,20 @@ if(!loaded) {
   }
 }
 
-window.addEventListener('load', function() {
-  loaded = true;
-  console.log(clips_stopped + " clips stopped!");
-  if(clips_stopped == 1 && poster.length > 0){ // not in a preview page and audio is in a spoiler
-      window.alert(clips_stopped + " clips stopped!\nThe URL for the clip is: " + document.getElementsByTagName("audio")[0].currentSrc + "\nThe asshole cunt dickbag motherfucker is: " + poster[0]);
-  } else if(clips_stopped > 1 && poster.length > 0) { // not in a preview page and audio is in a spoiler
-    var asshole_dickbag_cunt_motherfucker = '';
-    for (var i in poster) { // add every dickbag motherfucker to the list
-      asshole_dickbag_cunt_motherfucker += poster[mute];
-      if (i != poster.length)
-        asshole_dickbag_cunt_motherfucker += ', '; // make it look shiny
-    }
-    window.alert(clips_stopped + " clips stopped!\nThe URL for the first clip is: " + document.getElementsByTagName("audio")[0].currentSrc + "\nThe asshole cunt dickbag motherfuckers are: " + asshole_dickbag_cunt_motherfucker);
-  } else if(clips_stopped > 1){ // in a preview page or audio isn't in a spoiler
-      window.alert(clips_stopped + " clips stopped! Couldn't automatically identify the asshat.");
-  }else{
-    //what
-  }
-}, false);
+loaded = true;
+console.log(clips_stopped + " clips stopped!");
+if(clips_stopped == 1 && poster.length > 0){ // not in a preview page and audio is in a spoiler
+  window.alert(clips_stopped + " clips stopped!\nThe URL for the clip is: " + document.getElementsByTagName("audio")[0].currentSrc + "\nThe asshole cunt dickbag motherfucker is: " + poster[0]);
+} else if(clips_stopped > 1 && poster.length > 0) { // not in a preview page and audio is in a spoiler
+var asshole_dickbag_cunt_motherfucker = '';
+for (var i in poster) { // add every dickbag motherfucker to the list
+  asshole_dickbag_cunt_motherfucker += poster[mute];
+  if (i != poster.length)
+	asshole_dickbag_cunt_motherfucker += ', '; // make it look shiny
+}
+window.alert(clips_stopped + " clips stopped!\nThe URL for the first clip is: " + document.getElementsByTagName("audio")[0].currentSrc + "\nThe asshole cunt dickbag motherfuckers are: " + asshole_dickbag_cunt_motherfucker);
+} else if(clips_stopped > 1){ // in a preview page or audio isn't in a spoiler
+  window.alert(clips_stopped + " clips stopped! Couldn't automatically identify the asshat.");
+}else{
+//what
+}
