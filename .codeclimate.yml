@@ -1,0 +1,20 @@
+engines:
+  duplication:
+    enabled: true
+  fixme:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+#ratings:
+#  paths:
+#  - app/**
+#  - lib/**
+#  - "**.rb"
+#  - "**.go"
+exclude_paths:
+- bin/*
+- build/*
+- *.md
+- *.yml
