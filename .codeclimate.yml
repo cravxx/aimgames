@@ -11,14 +11,15 @@ engines:
 #    enabled: true
 #  markdownlint:
 #    enabled: true
-#ratings:
-#  paths:
-#  - app/**
-#  - lib/**
-#  - "**.rb"
-#  - "**.go"
+ratings:
+  paths:
+  - "**.user.js"
+  - "**.js"
+  - "**.css"
+  - "**.sh"
+  - "**.bat"
 exclude_paths:
 - bin/*
 - build/*
 - "**.md"
-- "**.yml"
+#- "**.yml"
