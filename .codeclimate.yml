@@ -7,6 +7,10 @@ engines:
     enabled: true
   csslint:
     enabled: true
+#  shellcheck:
+#    enabled: true
+#  markdownlint:
+#    enabled: true
 #ratings:
 #  paths:
 #  - app/**
