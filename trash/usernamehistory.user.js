@@ -54,21 +54,19 @@ function getTextNodesIn(node, includeWhitespaceNodes) {
   return textNodes;
 }
 
-window.addEventListener('load', function() {/*shit goes down in here*/
-  var array = getTextNodesIn(document);
-  for (var i = 0; i < array.length; i++) {
-    for (var x = 0; x < values(names).length; x++){
-      //console.log(values(names)[x][values(names)[x].length - 1]);
-      if (array[i].nodeValue === values(names)[x][values(names)[x].length - 1]) {
-        //console.log('success');
-        for(var y = 0; y < values(names)[x].length - 1; y++){
-          if(y < values(names)[x].length - 2){
-            array[i].parentNode.title += values(names)[x][y] + ', ';
-          }else{
-            array[i].parentNode.title += values(names)[x][y];
-          }
-        }
-      }
-    }
+var array = getTextNodesIn(document);
+for (var i = 0; i < array.length; i++) {
+for (var x = 0; x < values(names).length; x++){
+  //console.log(values(names)[x][values(names)[x].length - 1]);
+  if (array[i].nodeValue === values(names)[x][values(names)[x].length - 1]) {
+	//console.log('success');
+	for(var y = 0; y < values(names)[x].length - 1; y++){
+	  if(y < values(names)[x].length - 2){
+		array[i].parentNode.title += values(names)[x][y] + ', ';
+	  }else{
+		array[i].parentNode.title += values(names)[x][y];
+	  }
+	}
   }
-}, false);
+}
+}

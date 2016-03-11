@@ -94,13 +94,11 @@ var child_node;
     }
   }
 
-  window.addEventListener('load', function() { /* shit goes down in here */
-    setInterval(function() {
-      for (var t = 0; t < getAllElementsWithAttribute('toRemove').length; t++) {
-        if (getAllElementsWithAttribute('toRemove')[t].getAttribute('toRemove') == 'true') {
-          hideThisShit(getAllElementsWithAttribute('toRemove')[t]);
-        }
-      }
-    }, 1000);
-  }, false);
+  setInterval(function() {
+    for (var t = 0; t < getAllElementsWithAttribute('toRemove').length; t++) {
+  	if (getAllElementsWithAttribute('toRemove')[t].getAttribute('toRemove') == 'true') {
+  	  hideThisShit(getAllElementsWithAttribute('toRemove')[t]);
+  	}
+    }
+  }, 1000);
 })();

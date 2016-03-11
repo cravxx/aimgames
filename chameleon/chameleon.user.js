@@ -185,22 +185,21 @@ function whatdo(wew){
    document.getElementById('message') .style.color = color_array[counter];
 }
 
-window.addEventListener('load', function() {
-   createSelectBox();
+createSelectBox();
 
-   if (getCookie('chameleon_color_style') === "") {
-      setCookie('chameleon_color_style', color_hex['normal'], 1);
-    } else{
-      document.getElementById('selectCha').value = capitalizeFirstLetter(getCookie('chameleon_color_style'));
-    }
-    //console.log(getCookie('chameleon_color_style'));
-    for (var all = 0; all < color_hex[getCookie('chameleon_color_style')].length; all++) { ////load normal at first
-        color_array[all] = values(color_hex[getCookie('chameleon_color_style')])[all];
-        //console.log("only once pls");
-    }
+if (getCookie('chameleon_color_style') === "") {
+  setCookie('chameleon_color_style', color_hex['normal'], 1);
+} else{
+  document.getElementById('selectCha').value = capitalizeFirstLetter(getCookie('chameleon_color_style'));
+}
+//console.log(getCookie('chameleon_color_style'));
+for (var all = 0; all < color_hex[getCookie('chameleon_color_style')].length; all++) { ////load normal at first
+	color_array[all] = values(color_hex[getCookie('chameleon_color_style')])[all];
+	//console.log("only once pls");
+}
 
-    document.getElementById("labelCha").style.cssText = "font-size: 10px; color: white; margin-right: 8px; margin-left: 5px;";
-    document.getElementById("labelCha").innerHTML = color_hex[getCookie('chameleon_color_style')].length;
+document.getElementById("labelCha").style.cssText = "font-size: 10px; color: white; margin-right: 8px; margin-left: 5px;";
+document.getElementById("labelCha").innerHTML = color_hex[getCookie('chameleon_color_style')].length;
 
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
   if (window.location.pathname.length <= 1) {
@@ -256,4 +255,3 @@ if (document.getElementById('frame_chatbox') !== null || document.getElementById
     }, false);
   }
 }
-}, false);
