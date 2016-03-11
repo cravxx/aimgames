@@ -1,10 +1,25 @@
 engines:
   duplication:
     enabled: true
+    config:
+      languages:
+      - javascript
   fixme:
     enabled: true
+    config:
+      strings:
+      - FIXME
+      - XXX
+      - TODO
+      - todo
   eslint:
     enabled: true
+    config:
+      extensions:
+      - .es6
+      - .js
+      - .user.js
+      - .jsx
   csslint:
     enabled: true
 #  shellcheck:
@@ -22,4 +37,4 @@ exclude_paths:
 - bin/*
 - build/*
 - "**.md"
-#- "**.yml"
+- "**.yml"
