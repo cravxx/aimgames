@@ -14,6 +14,7 @@ _For compilation..._
 View [the wiki](https://github.com/HulaSamsquanch/aimgames/wiki/) for more information.
 
 ## Compiling
+
 Successfully tested and working under Unix and Windows.
 
 1. Install the lastest version of the [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -22,9 +23,11 @@ Successfully tested and working under Unix and Windows.
 1. Your compiled file(s) should be available in the `bin/` folder.
 
 ### `instructions.txt` Syntax
+
 `linesToKeep [number]`  
 `[compiled file location] [source file location]`  
 linesToKeep is not required but it is recommended.
 
 ### Planned features
+
 - Automatic compiling through Travis CI (partially finished)
