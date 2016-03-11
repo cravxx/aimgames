@@ -39,3 +39,5 @@ exclude_paths:
 - build/*
 #- "**.md"
 - "**.yml"
+- swearify/swearifyVar.js
+- "swearify/jquery.caret.1.02.min.js"
