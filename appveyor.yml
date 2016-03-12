@@ -1,6 +1,6 @@
 # Test against this version of Node.js
 environment:
-  nodejs_version: "0.10"
+  nodejs_version: "0.12.7"
   access_token:
    secure: G8waKkParfgirZh3PKxylzY7tRDL4expH+CRtNjsh3FpKrfnzPld2nYsn+FQtn07
 
@@ -33,13 +33,13 @@ on_success:
  - git config --global user.email "bbbbbbenes@outlook.com.br"
  - git config --global user.name "Appveyor Automated Build"
  - cmd: For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
- - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
+ - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a:%%b)
 # Bug: when someone commits multiple times too fast, the build will fail - enabling rolling builds may fix this
  - git checkout master
  - git add bin/*
- - git commit -m "Automated Appveyor build at %mydate%_%mytime% [skip ci]"
+ - git commit -m "Automated Appveyor build at %mydate%, %mytime% [skip ci]"
 # beautify
- - esformatter -i '**.user.js'
+ - esformatter -i **.user.js
  - git add **.user.js
- - git commit -m "Automated code formatting at %mydate%_%mytime% [skip ci]"
+ - git commit -m "Automated code formatting at %mydate%, %mytime% [skip ci]"
  - git push origin master
