@@ -1,8 +1,6 @@
 # Test against this version of Node.js
 environment:
   nodejs_version: "0.10"
-  access_token:
-   secure: G8waKkParfgirZh3PKxylzY7tRDL4expH+CRtNjsh3FpKrfnzPld2nYsn+FQtn07
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -18,6 +16,10 @@ build_script:
  - cmd: SET tempath=%PATH%
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
  - build.bat
+
+environment:
+  access_token:
+   secure: G8waKkParfgirZh3PKxylzY7tRDL4expH+CRtNjsh3FpKrfnzPld2nYsn+FQtn07
 
 skip_commits:
   # Regex for matching commit message
