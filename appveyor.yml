@@ -1,3 +1,14 @@
+# Test against this version of Node.js
+environment:
+  nodejs_version: "0.10"
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install -g esformatter
+
 # Appveyor doesn"t have JDK 8 by default in PATH so we must set it
 
 build_script: 
@@ -25,8 +36,12 @@ on_success:
  - git config --global user.name "Appveyor Automated Build"
  - cmd: For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
  - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
-# Bug: when someone commits multiple times too fast, the build will fail
+# Bug: when someone commits multiple times too fast, the build will fail - enabling rolling builds may fix this
  - git checkout master
  - git add bin/*
  - git commit -m "Automated Appveyor build at %mydate%_%mytime% [skip ci]"
+# beautify
+ - esformatter -i '**.user.js'
+ - git add **.user.js
+ - git commit -m "Automated code formatting at %mydate%_%mytime% [skip ci]"
  - git push origin master
