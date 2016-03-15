@@ -4,9 +4,14 @@
 // @namespace   by-mc-passer@gmail.com
 // @match       http://linkshrink.net/*
 // @match       https://linkshrink.net/*
-// @version     1.0
+// @version     1.1
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
-document.location.href = $('#skip').find('.bt').attr('href');
+var _goto = $('#skip').find('.bt').attr('href');
+delete window.document.referrer;
+window.document.__defineGetter__('referrer', function () {
+	return _goto;
+});
+document.location.href = _goto;
