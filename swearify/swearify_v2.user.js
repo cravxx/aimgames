@@ -146,40 +146,7 @@ function initEmotesAsClickable(smilie_code, indiv) {
 /**
  * add in the new options to the dropdown menu in the smilie window
  */
-function appendOptions() {              
-    /**
-     * add a checkbox to toggle back and forth from the normal action of the window (close after
-     * selecting a smilie) to *not* closing right away
-     */
-    $('#smilies_categ').append($('<label id="autocloselbl">Window auto-close<input type="checkbox" id="autoclosechk"></label>'));    
-
-    /**
-     * get the box
-     */
-    var chkboxClose = $('#autoclosechk');
-
-    /**
-     * find existing valueu
-     */
-    if (Cookies.get('CB_smilie_autoclose') === '1') $(chkboxClose).prop('checked', true);
-    else $(chkboxClose).prop('checked', false);
-    
-    /**
-     * change actions
-     */
-    $(chkboxClose).change(function() {
-        if (!$(chkboxClose).prop('checked')) {
-            $(chkboxClose).prop('checked', true);     
-            Cookies.set('CB_smilie_autoclose', '1');            
-        } else {
-            $(chkboxClose).prop('checked', false);    
-            Cookies.set('CB_smilie_autoclose', '0');
-        }
-    }); 
-    
-    /**
-     * original use of this function
-     */
+function appendOptions() {
     $.each(smilieOptions, function(key, value) {
         if(key == 5)
             $('[name="categ"]').append($('<option disabled>', { value : key }).text(value));            
@@ -396,10 +363,10 @@ function addSmilie(i) {
     $(table).append(
       $('<tbody></tbody>')    
     );
-    var tbody = $(table).find('tbody')[0];
-    $(tbody).append(
-      $('<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>')
-    );
+    var tbody = $(table).find('tbody')[0];                 
+	
+	$(tbody).append($('<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>'));
+ 
     var across = 0;
     var down = 0;
     if (i == 1) {
