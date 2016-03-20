@@ -1323,6 +1323,30 @@ var emoticon_3 = {
     ],
     idubbbzangry: [
         ':idubbbzangry:', 'http://i.imgur.com/2CxFaP2s.png', 'ANGRY IDUBBA'
+    ],
+    deadasheck: [
+        ':deadas:', 'http://i.imgur.com/9Lp7eOks.png', 'DEAD AS HECK'     
+    ],
+    smuganimeface: [
+        ':smuganimeface:', 'http://i.imgur.com/lq6Hr1Is.png', 'SMUG ANIME FACE'
+    ],
+    markscared: [
+        ':markisscared:', 'http://i.imgur.com/yQ1UOPWs.png', 'MARK PLS'
+    ],
+    upthebum: [
+        ':upthebum:', 'http://i.imgur.com/MljlRwis.png', 'UP. THE. BUN.'
+    ],
+    natureis: [
+        ':natureis:', 'http://i.imgur.com/L0xeDjxs.jpg', 'STUPID'
+    ],
+    idubbbzcreep: [
+        ':idubbbzcreep:', 'http://i.imgur.com/YKQWhBrs.png', 'CREEP'    
+    ],
+    thruthewindow: [
+        ':thruthewindow:', 'http://i.imgur.com/aXfvexQs.png', 'THRU'    
+    ],
+    jezexpand: [
+        ':jezexpand:', 'http://i.imgur.com/844zFy7s.png', 'EXPAND'    
     ]
 };
 
@@ -1416,6 +1440,6 @@ var maymay = {
         'toa', 'toa' //'[img]http://i61.tinypic.com/cmjk6.png[/img]'
     ],        
     blaze: [
-        'blaze', 'https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0', 'B-B-B-B-B-BAKA SENPAIIII'
+        'blaze', '[img]https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0[/img]'
     ],
 };
