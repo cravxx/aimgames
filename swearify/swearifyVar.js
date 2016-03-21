@@ -1355,7 +1355,7 @@ var emoticon_3 = {
         ':keithsmug:', 'http://i.imgur.com/SsbElqL.png', 'KEITH SMUG'
     ],
     justpumpkin: [
-        ':justpumpkin:', 'http://i.imgur.com/L4aTCIk.png', 'JUST'    
+        ':justpumpkin:', 'http://i.imgur.com/rCHAtAm.png', 'JUST'    
     ],
     keithsly: [
         ':keithsly:', 'http://i.imgur.com/aNWbK0Y.png', 'DAMN KEITH'
@@ -1367,7 +1367,7 @@ var emoticon_3 = {
         ':matthiss:', 'http://i.imgur.com/MQF1PNv.png', 'MATT PLS'
     ],
     keithyis: [
-        ':keithyis:', 'http://i.imgur.com/iyc44rX.png', 'KEITH PLS'    
+        ':keithyis:', 'http://i.imgur.com/q46W30r.png', 'KEITH PLS'    
     ],
     foryou: [
         ':foryou:', 'http://i.imgur.com/aKXedbD.png', '...FOR YOU'    
