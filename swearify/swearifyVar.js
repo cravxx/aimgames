@@ -946,10 +946,7 @@ var emoticon_2 = {
     ],
     pennsneak: [
         ':pennsneak:', 'https://i.imgur.com/mRR9F8X.png', 'THE TRASH IS YOUR DESTINATION'
-    ],
-    aerooreo: [
-        'aero', 'https://i.imgur.com/cN9Ssfd.png', 'THAT KIKE JEW WITH NO SENSE OF HUMOR'
-    ],
+    ],   
     trashuniverse: [
         ':trashuniverse:', 'https://i.imgur.com/6lORTmC.jpg', 'NEXT STOP: THE TRASH'
     ],
@@ -1370,13 +1367,10 @@ var emoticon_3 = {
         ':matthiss:', 'http://i.imgur.com/MQF1PNv.png', 'MATT PLS'
     ],
     keithyis: [
-        ':keithyis:', 'http://i.imgur.com/8he9AxA.png', 'KEITH PLS'    
+        ':keithyis:', 'http://i.imgur.com/iyc44rX.png', 'KEITH PLS'    
     ],
     foryou: [
         ':foryou:', 'http://i.imgur.com/aKXedbD.png', '...FOR YOU'    
-    ],
-    kushsanic: [
-        ':kushsanic:', 'http://i.imgur.com/ErZqhWR.png', 'SANICK'
     ],
     sslip: [
         ':sslip:', 'http://i.imgur.com/69USKNV.png', 'TFW SPONGE SLIP'    
@@ -1475,4 +1469,7 @@ var maymay = {
     blaze: [
         'blaze', '[img]https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0[/img]'
     ],
+    aero: [
+        'aero', 'https://i.imgur.com/cN9Ssfd.png'
+    ]
 };
