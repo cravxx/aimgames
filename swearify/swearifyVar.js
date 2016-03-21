@@ -2,7 +2,7 @@
  * the swears
  */
 var swears = [
-    'sex', '494', 'mdx'
+    'sex', '494', 'mdx', ':3'
 ];
 
 /** the emoticons
@@ -1347,6 +1347,39 @@ var emoticon_3 = {
     ],
     jezexpand: [
         ':jezexpand:', 'http://i.imgur.com/844zFy7s.png', 'EXPAND'    
+    ],
+    stacheman: [
+        ':stacheman:', 'http://i.imgur.com/tvF6hV9.png', 'Stache MAN'
+    ],
+    keithlook: [
+        ':keithlook:', 'http://i.imgur.com/1hghDYS.png', 'KEITH'
+    ],
+    keithsmug: [
+        ':keithsmug:', 'http://i.imgur.com/SsbElqL.png', 'KEITH SMUG'
+    ],
+    justpumpkin: [
+        ':justpumpkin:', 'http://i.imgur.com/L4aTCIk.png', 'JUST'    
+    ],
+    keithsly: [
+        ':keithsly:', 'http://i.imgur.com/aNWbK0Y.png', 'DAMN KEITH'
+    ],
+    keitho: [
+        ':keitho:', 'http://i.imgur.com/Oruafqd.png', 'BACK AT IT'
+    ],
+    matthiss: [
+        ':matthiss:', 'http://i.imgur.com/MQF1PNv.png', 'MATT PLS'
+    ],
+    keithyis: [
+        ':keithyis:', 'http://i.imgur.com/8he9AxA.png', 'KEITH PLS'    
+    ],
+    foryou: [
+        ':foryou:', 'http://i.imgur.com/aKXedbD.png', '...FOR YOU'    
+    ],
+    kushsanic: [
+        ':kushsanic:', 'http://i.imgur.com/ErZqhWR.png', 'SANICK'
+    ],
+    sslip: [
+        ':sslip:', 'http://i.imgur.com/69USKNV.png', 'TFW SPONGE SLIP'    
     ]
 };
 
