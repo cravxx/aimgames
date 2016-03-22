@@ -1374,6 +1374,24 @@ var emoticon_3 = {
     ],
     sslip: [
         ':sslip:', 'http://i.imgur.com/69USKNV.png', 'TFW SPONGE SLIP'    
+    ],
+    berial: [
+        ':berial:', 'http://i.imgur.com/i7M0ieM.png', 'berial'
+    ],
+    tongue: [
+        ':tongue:', 'http://i.imgur.com/pZyHNjZ.png', 'tongue'
+    ],
+    kid: [
+        ':kid:', 'http://i.imgur.com/JB0T52t.png', 'kid'    
+    ],
+    waiter: [
+        ':waiter:', 'http://i.imgur.com/YmMDWT3.png', 'waiter'    
+    ],
+    foxy: [
+        ':foxy:' , 'http://i.imgur.com/ZvQVwAe.png', 'foxy sly'
+    ],
+    man: [
+        ':man:', 'http://i.imgur.com/irXU7Pg.png,   'man'
     ]
 };
 
