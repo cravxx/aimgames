@@ -1391,7 +1391,7 @@ var emoticon_3 = {
         ':foxy:' , 'http://i.imgur.com/ZvQVwAe.png', 'foxy sly'
     ],
     man: [
-        ':man:', 'http://i.imgur.com/irXU7Pg.png',   'man'
+        ':man:', 'http://i.imgur.com/irXU7Pg.png', 'man'
     ]
 };
 
@@ -1488,6 +1488,6 @@ var maymay = {
         'blaze', '[img]https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0[/img]'
     ],
     aero: [
-        'aero', 'https://i.imgur.com/cN9Ssfd.png'
+        'aero', '[img]https://i.imgur.com/cN9Ssfd.png[/img]'
     ]
 };
