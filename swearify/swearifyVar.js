@@ -1,4 +1,4 @@
-/**
+﻿/**
  * the swears
  */
 var swears = [
@@ -1391,7 +1391,7 @@ var emoticon_3 = {
         ':foxy:' , 'http://i.imgur.com/ZvQVwAe.png', 'foxy sly'
     ],
     man: [
-        ':man:', 'http://i.imgur.com/irXU7Pg.png,   'man'
+        ':man:', 'http://i.imgur.com/irXU7Pg.png',   'man'
     ]
 };
 
