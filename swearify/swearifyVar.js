@@ -1,8 +1,8 @@
-/**
+﻿/**
  * the swears
  */
 var swears = [
-    'sex', '494', 'mdx'
+    'sex', '494', 'mdx', ':3'
 ];
 
 /** the emoticons
@@ -946,10 +946,7 @@ var emoticon_2 = {
     ],
     pennsneak: [
         ':pennsneak:', 'https://i.imgur.com/mRR9F8X.png', 'THE TRASH IS YOUR DESTINATION'
-    ],
-    aerooreo: [
-        'aero', 'https://i.imgur.com/cN9Ssfd.png', 'THAT KIKE JEW WITH NO SENSE OF HUMOR'
-    ],
+    ],   
     trashuniverse: [
         ':trashuniverse:', 'https://i.imgur.com/6lORTmC.jpg', 'NEXT STOP: THE TRASH'
     ],
@@ -1323,6 +1320,78 @@ var emoticon_3 = {
     ],
     idubbbzangry: [
         ':idubbbzangry:', 'http://i.imgur.com/2CxFaP2s.png', 'ANGRY IDUBBA'
+    ],
+    deadasheck: [
+        ':deadas:', 'http://i.imgur.com/9Lp7eOks.png', 'DEAD AS HECK'     
+    ],
+    smuganimeface: [
+        ':smuganimeface:', 'http://i.imgur.com/lq6Hr1Is.png', 'SMUG ANIME FACE'
+    ],
+    markscared: [
+        ':markisscared:', 'http://i.imgur.com/yQ1UOPWs.png', 'MARK PLS'
+    ],
+    upthebum: [
+        ':upthebum:', 'http://i.imgur.com/MljlRwis.png', 'UP. THE. BUN.'
+    ],
+    natureis: [
+        ':natureis:', 'http://i.imgur.com/L0xeDjxs.jpg', 'STUPID'
+    ],
+    idubbbzcreep: [
+        ':idubbbzcreep:', 'http://i.imgur.com/YKQWhBrs.png', 'CREEP'    
+    ],
+    thruthewindow: [
+        ':thruthewindow:', 'http://i.imgur.com/aXfvexQs.png', 'THRU'    
+    ],
+    jezexpand: [
+        ':jezexpand:', 'http://i.imgur.com/844zFy7s.png', 'EXPAND'    
+    ],
+    stacheman: [
+        ':stacheman:', 'http://i.imgur.com/tvF6hV9.png', 'Stache MAN'
+    ],
+    keithlook: [
+        ':keithlook:', 'http://i.imgur.com/1hghDYS.png', 'KEITH'
+    ],
+    keithsmug: [
+        ':keithsmug:', 'http://i.imgur.com/SsbElqL.png', 'KEITH SMUG'
+    ],
+    justpumpkin: [
+        ':justpumpkin:', 'http://i.imgur.com/rCHAtAm.png', 'JUST'    
+    ],
+    keithsly: [
+        ':keithsly:', 'http://i.imgur.com/aNWbK0Y.png', 'DAMN KEITH'
+    ],
+    keitho: [
+        ':keitho:', 'http://i.imgur.com/Oruafqd.png', 'BACK AT IT'
+    ],
+    matthiss: [
+        ':matthiss:', 'http://i.imgur.com/MQF1PNv.png', 'MATT PLS'
+    ],
+    keithyis: [
+        ':keithyis:', 'http://i.imgur.com/q46W30r.png', 'KEITH PLS'    
+    ],
+    foryou: [
+        ':foryou:', 'http://i.imgur.com/aKXedbD.png', '...FOR YOU'    
+    ],
+    sslip: [
+        ':sslip:', 'http://i.imgur.com/69USKNV.png', 'TFW SPONGE SLIP'    
+    ],
+    berial: [
+        ':berial:', 'http://i.imgur.com/i7M0ieM.png', 'berial'
+    ],
+    tongue: [
+        ':tongue:', 'http://i.imgur.com/pZyHNjZ.png', 'tongue'
+    ],
+    kid: [
+        ':kid:', 'http://i.imgur.com/JB0T52t.png', 'kid'    
+    ],
+    waiter: [
+        ':waiter:', 'http://i.imgur.com/YmMDWT3.png', 'waiter'    
+    ],
+    foxy: [
+        ':foxy:' , 'http://i.imgur.com/ZvQVwAe.png', 'foxy sly'
+    ],
+    man: [
+        ':man:', 'http://i.imgur.com/irXU7Pg.png',   'man'
     ]
 };
 
@@ -1416,6 +1485,9 @@ var maymay = {
         'toa', 'toa' //'[img]http://i61.tinypic.com/cmjk6.png[/img]'
     ],        
     blaze: [
-        'blaze', 'https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0', 'B-B-B-B-B-BAKA SENPAIIII'
+        'blaze', '[img]https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0[/img]'
     ],
+    aero: [
+        'aero', 'https://i.imgur.com/cN9Ssfd.png'
+    ]
 };
