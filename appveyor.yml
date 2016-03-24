@@ -24,9 +24,21 @@ on_success:
  - git config --global user.email "bbbbbbenes@outlook.com.br"
  - git config --global user.name "Appveyor Automated Build"
  - cmd: For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
- - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
+ - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a:%%b)
 # Bug: when someone commits multiple times too fast, the build will fail
  - git checkout master
  - git add bin/*
- - git commit -m "Automated Appveyor build at %mydate%_%mytime% [skip ci]"
+# add custom files (to be beautified) here. unfortunately idk how to read them from the build.bat
+# so you'll have to add them twice...
+ - git add alive/alive.user.js
+ - git add alive/chatboxplusplus.user.js
+ - git add chameleon/chameleon.user.js
+ - git add chameleon/chameleon_random.user.js
+ - git add chameleon/chameleon_vampire.user.js
+ - git add other/accountassist.user.js
+ - git add other/ratebot.user.js
+ - git add swearify/imagereuploader.user.js
+ - git add swearify/swearify.user.js
+#
+ - git commit -m "Automated Appveyor build at %mydate%, %mytime% [skip ci]"
  - git push origin master
