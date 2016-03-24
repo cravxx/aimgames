@@ -34,22 +34,22 @@ document.getElementById("cpass").value = "entershift"; ///
 document.getElementById("fname").value = "snoop"; // name obv
 document.getElementById("lname").value = "dogg"; ///
 
-document.getElementById("email").value = "fuck" + Math.round(Math.random()*99999) + "@shit.com"; // email that doesnt need to be verified
+document.getElementById("email").value = "fuck" + Math.round(Math.random() * 99999) + "@shit.com"; // email that doesnt need to be verified
 
 // random acc button
 var formPost = document.createElement('button');
 formPost.textContent = "Create random account";
 formPost.style = 'font-family: Verdana;font-style: italic;font-weight: bold;';
 formPost.onclick = function() {
-	var i = Math.round(Math.random()*99999);
+    var i = Math.round(Math.random() * 99999);
 
-	document.getElementById('user').value = 'chrishansen' + i;
-	document.getElementById('pass').value = 'a';
-	document.getElementById('cpass').value = 'a';
-	document.getElementById('fname').value = 'a';
-	document.getElementById('lname').value = 'a';
-	document.getElementById('email').value = 'ac' + i + '@hansen.com';
+    document.getElementById('user').value = 'chrishansen' + i;
+    document.getElementById('pass').value = 'a';
+    document.getElementById('cpass').value = 'a';
+    document.getElementById('fname').value = 'a';
+    document.getElementById('lname').value = 'a';
+    document.getElementById('email').value = 'ac' + i + '@hansen.com';
 
-	document.getElementsByName('reg')[0].submit();
+    document.getElementsByName('reg')[0].submit();
 };
 document.getElementsByName('reg')[0].appendChild(formPost);
