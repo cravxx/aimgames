@@ -1392,6 +1392,18 @@ var emoticon_3 = {
     ],
     man: [
         ':man:', 'http://i.imgur.com/irXU7Pg.png', 'man'
+    ],
+    easter: [
+        ':easter:', 'http://i.imgur.com/o4K6clk.png', 'easter'
+    ],
+    faceofprogress: [
+        ':faceofprogress:', 'http://i.imgur.com/56ysibX.png', 'eyes'
+    ],
+    eyes: [
+        ':eyes:', 'http://i.imgur.com/dmsUo5F.png', 'eyes'
+    ],
+    lars: [
+        ':lars:', 'http://i.imgur.com/VlbXo1m.png', 'lars'    
     ]
 };
 
@@ -1489,5 +1501,11 @@ var maymay = {
     ],
     aero: [
         'aero', '[img]https://i.imgur.com/cN9Ssfd.png[/img]'
+    ],
+
+    afterburn: [
+        'afterburn', 'afffffffterburn'    
     ]
+
+
 };
