@@ -1470,6 +1470,9 @@ var maymay = {
     lenny: [
         '!lenny', '( ͡° ͜ʖ ͡°)'
     ],    
+    sadlenny: [
+        '!sadlenny', '( ?� ?? ?�)'
+    ],
     rekt: [
         'rekt', '[size=19][font=impact][blur][b][color=red]☑ REKT[/color][/b][/blur][/font][/size]'
     ],    
