@@ -20,9 +20,15 @@ javac br/com/chrishansen/aimgames/builder/*.java || exit 1
 jar cvfe AddUserscriptLines.jar br.com.chrishansen.aimgames.builder.AddUserscriptLines br/com/chrishansen/aimgames/builder/AddUserscriptLines.class || exit 1
 #pack IncrementBuildNumber
 jar cvfe IncrementBuildNumber.jar br.com.chrishansen.aimgames.builder.IncrementBuildNumber br/com/chrishansen/aimgames/builder/IncrementBuildNumber.class || exit 1
+#pack beautify stuff
+jar cvfe BeautifyScript.jar br.com.chrishansen.aimgames.builder.BeautifyScript br/com/chrishansen/aimgames/builder/BeautifyScript.class || exit 1
 
 mv AddUserscriptLines.jar ../AddUserscriptLines.jar
 mv IncrementBuildNumber.jar ../IncrementBuildNumber.jar
+mv BeautifyScript.jar ../BeautifyScript.jar
+mkdir ../libraries
+mv libraries/beautifier.js ../libraries/beautifier.js
+
 cd ..
 
 #build scripts
