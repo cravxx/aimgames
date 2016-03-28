@@ -1471,7 +1471,7 @@ var maymay = {
         '!lenny', '( ͡° ͜ʖ ͡°)'
     ],    
     sadlenny: [
-        '!sadlenny', '( ?� ?? ?�)'
+        '!sadlenny', '( ͡° ʖ̯ ͡°)'
     ],
     rekt: [
         'rekt', '[size=19][font=impact][blur][b][color=red]☑ REKT[/color][/b][/blur][/font][/size]'
