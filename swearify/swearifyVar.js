@@ -1386,10 +1386,10 @@ var emoticon_3 = {
     ],
     waiter: [
         ':waiter:', 'http://i.imgur.com/YmMDWT3.png', 'waiter'    
-    ],
+    ],/*
     foxy: [
         ':foxy:' , 'http://i.imgur.com/ZvQVwAe.png', 'foxy sly'
-    ],
+    ],*/
     man: [
         ':man:', 'http://i.imgur.com/irXU7Pg.png', 'man'
     ],
