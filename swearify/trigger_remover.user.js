@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
 // @include     https://aimgames.forummotion.com/*
-// @version     1.2
+// @version     1.2.1
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
 // @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
@@ -27,8 +27,7 @@ window.addEventListener('load', function()
             str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
             str = str.replace(/\s{2,}/g, " ");
             /*remove duplicate letters "poooiii" */
-            str = str.replace(/[^\w\s]|(.)(?=\1)/gi, "");
-            console.log(str);
+            str = str.replace(/[^\w\s]|(.)(?=\1)/gi, "");            
 
             if (str.regexIndexOf(/\poi\b/gi) != -1 || str.regexIndexOf(/\p\soi\b/gi) != -1 || str.regexIndexOf(/\po\si\b/gi) != -1 || str.regexIndexOf(/\p\so\si\b/gi) != -1)
             {
