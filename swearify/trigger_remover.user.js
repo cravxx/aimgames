@@ -1,7 +1,13 @@
 // ==UserScript==
 // @name        Trigger Remover
-// @namespace   triggeryourshit
-// @version     1.6.9
+// @description Detrigger your shit.
+// @namespace   samsquanchhunter14@gmail.com
+// @include     http://aimgames.forummotion.com/*
+// @include     https://aimgames.forummotion.com/*
+// @version     1.1
+// @license     MIT License (Expat); opensource.org/licenses/MIT
+// @homepage    https://github.com/HulaSamsquanch/aimgames
+// @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
 // @grant       none
 // ==/UserScript==
 
