@@ -13,7 +13,6 @@
 
 var chatbox = document.getElementById('chatbox');
 var aTags = chatbox.getElementsByTagName('span');
-var searchText = 'poi';
 var found;
 
 window.addEventListener('load', function () {
