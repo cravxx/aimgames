@@ -20,7 +20,8 @@ window.addEventListener('load', function () {
   observeDOM( document.getElementById('chatbox') ,function(){ 
       for (var i = 0; i < aTags.length; i++) {
       //console.log('fuck' + aTags.length);
-      if (aTags[i].textContent.regexIndexOf(searchText) != -1) {
+          var str = aTags[i].textContent.replace(/\s{2,}/g," ");
+      if (str.regexIndexOf(/\poi\b/gi) != -1) {
         found = aTags[i];
       }
       if(found){
