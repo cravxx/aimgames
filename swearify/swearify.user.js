@@ -1321,6 +1321,9 @@ var emoticon_5 = {
     ],
     anime6: [
         ':purebliss:', 'http://i.imgur.com/iGiMwxv.jpg', 'PURE BLISS'
+    ],
+    khaled: [
+        ':anotherone:', 'https://i.imgur.com/0LLtMxe.gif', 'AND ANOTHER ONE... AND ANOTHER ONE... AND ANOTHER ONE...'
     ]
 };
 var emoticon_3 = {
@@ -2142,19 +2145,19 @@ var maymay = {
         'minty', '[img]http://i60.tinypic.com/2hzkc5y.png[/img][blur][b][color=#98FF98] MINTY[/color][/b][/blur]'
     ],
     lenny: [
-        ':lenny:', '( ͡° ͜ʖ ͡°)'
+        ':lenny:', '( Í¡Â° ÍÊ Í¡Â°)'
     ],
     dongers: [
-        ':raise:', 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ'
+        ':raise:', 'ã½à¼¼àºÙÍàºà¼½ï¾ raise your dongers ã½à¼¼àºÙÍàºà¼½ï¾'
     ],
     hamster: [
-        ':hamster:', '(•ω•)'
+        ':hamster:', '(â¢Ïâ¢)'
     ],
     greeneggs: [
-        ':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( ͡° ʖ̯ ͡°)[/size]'
+        ':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( Í¡Â° ÊÌ¯ Í¡Â°)[/size]'
     ],
     rekt: [
-        ':rekt:', '[size=19][font=impact][blur][b][color=red]�? Not REKT ☑ REKT ☑ REKTangle ☑ SHREKT ☑ REKT-it Ralph ☑ Total REKTall ☑ The Lord of the REKT ☑ The Usual SusREKTs ☑ North by NorthREKT ☑ REKT to the Future ☑ Once Upon a Time in the REKT ☑ The Good, the Bad, and the REKT ☑ LawREKT of Arabia ☑ Tyrannosaurus REKT ☑ eREKTile dysfunction [/color][/b][/blur][/font][/size]'
+        ':rekt:', '[size=19][font=impact][blur][b][color=red]â? Not REKT â REKT â REKTangle â SHREKT â REKT-it Ralph â Total REKTall â The Lord of the REKT â The Usual SusREKTs â North by NorthREKT â REKT to the Future â Once Upon a Time in the REKT â The Good, the Bad, and the REKT â LawREKT of Arabia â Tyrannosaurus REKT â eREKTile dysfunction [/color][/b][/blur][/font][/size]'
     ],
     danked: [
         ':danked:', '[color=red][b](USER WAS BANNED FOR THIS DANK)[/b][/color]'
@@ -2169,7 +2172,7 @@ var maymay = {
         ':ohshi:', '[b][font=Comic Sans MS][color=#665203]O[/color][color=#6B5304]O[/color][color=#715405]O[/color][color=#765506]O[/color][color=#7C5708]H[/color] [color=#87590B]S[/color][color=#765109]H[/color][color=#664808]I[/color][color=#563F06]I[/color][color=#463605]I[/color][color=#362D03]T[/color][/font][/b]'
     ],
     ieatass: [
-        ':ieat:', '[i]ケツを食ベる[/i]'
+        ':ieat:', '[i]ã±ããé£ãã[/i]'
     ],
     olaf: [
         ':olaf:', '[b][font=Courier New][size=16][color=#3BED44]h[/color][color=#1137CE]e[/color][color=#6D2645]l[/color][color=#4B20D2]o[/color] [color=#BEF7E8]m[/color][color=#66D74E]y[/color] [color=#950C47]n[/color][color=#9F65A4]a[/color][color=#196650]m[/color][color=#88DA22]e[/color] [color=#BD7B33]i[/color][color=#ED8A9F]s[/color] [color=#4BD338]o[/color][color=#6B6743]l[/color][color=#47D647]a[/color][color=#5D1908]f[/color][/size][/font][/b]'
@@ -2193,70 +2196,70 @@ var maymay = {
         'murica', '[b][font=Comic Sans MS][color=#FF0000]M[/color][color=#FF5555]U[/color][color=#FFAAAA]R[/color][color=#FFFFFF]I[/color][color=#AAAAFF]C[/color][color=#5555FF]A[/color][/font][/b]'
     ],
     lenny2: [
-        ':lenny2:', '( ͡ຈ╭͜ʖ╮͡ຈ )'
+        ':lenny2:', '( Í¡àºâ­ÍÊâ®Í¡àº )'
     ],
     lenny3: [
-        ':sadlenny:', '( ͡ಠ ʖ̯ ͡ಠ)'
+        ':sadlenny:', '( Í¡à²  ÊÌ¯ Í¡à² )'
     ],
     lenny4: [
-        ':lenny4:', '( ͡~ ͜ʖ ͡~)'
+        ':lenny4:', '( Í¡~ ÍÊ Í¡~)'
     ],
     lenny5: [
-        ':lennywink:', '( ͡~ ͜ʖ ͡°)'
+        ':lennywink:', '( Í¡~ ÍÊ Í¡Â°)'
     ],
     lenny6: [
-        ':lenny6:', '( ͠° ͟ʖ ͡°)'
+        ':lenny6:', '( Í Â° ÍÊ Í¡Â°)'
     ],
     lenny7: [
-        ':lenny7:', '( ͡ʘ╭͜ʖ╮͡ʘ)'
+        ':lenny7:', '( Í¡Êâ­ÍÊâ®Í¡Ê)'
     ],
     lenny8: [
-        ':eyebrowlenny:', '( �?סּ ͜ʖ͡סּ)'
+        ':eyebrowlenny:', '( Í?×¡Ö¼ ÍÊÍ¡×¡Ö¼)'
     ],
     lenny9: [
-        ':lenny9:', '( ͡ᵔ ͜ʖ ͡ᵔ )'
+        ':lenny9:', '( Í¡áµ ÍÊ Í¡áµ )'
     ],
     lenny10: [
-        ':lenny10:', '( ͡^ ͜ʖ ͡^ )'
+        ':lenny10:', '( Í¡^ ÍÊ Í¡^ )'
     ],
     lenny11: [
-        ':dongbill:', '[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]'
+        ':dongbill:', '[Ì²Ì$Ì²Ì(Ì²Ì Í¡Â° ÍÊ Í¡Â°Ì²Ì)Ì²Ì$Ì²Ì]'
     ],
     lenny12: [
-        ':lenny12:', '( ͡ຈ ͜ʖ ͡ຈ)'
+        ':lenny12:', '( Í¡àº ÍÊ Í¡àº)'
     ],
     lenny13: [
-        ':lenny13:', '( ͡° ʖ̯ ͡°)'
+        ':lenny13:', '( Í¡Â° ÊÌ¯ Í¡Â°)'
     ],
     lenny14: [
-        ':lenny14:', '( ͡ ͜ʖ ͡ )'
+        ':lenny14:', '( Í¡ ÍÊ Í¡ )'
     ],
     lenny15: [
-        ':lennypoint:', '(☞ ͡° ͜ʖ ͡°)☞'
+        ':lennypoint:', '(â Í¡Â° ÍÊ Í¡Â°)â'
     ],
     lenny16: [
-        ':lennyrun:', 'ᕕ( ͡° ͜ʖ ͡° )ᕗ'
+        ':lennyrun:', 'á( Í¡Â° ÍÊ Í¡Â° )á'
     ],
     lenny17: [
-        ':lenny17:', '( ͡°╭͜ʖ╮͡° )'
+        ':lenny17:', '( Í¡Â°â­ÍÊâ®Í¡Â° )'
     ],
     lenny18: [
-        ':lennygroup:', '( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ͡°) ͜ʖ ͡°)ʖ ͡°)ʖ ͡°)'
+        ':lennygroup:', '( Í¡Â° ÍÊ ( Í¡Â° ÍÊ ( Í¡Â° ÍÊ ( Í¡Â° ÍÊ Í¡Â°) ÍÊ Í¡Â°)Ê Í¡Â°)Ê Í¡Â°)'
     ],
     lenny19: [
-        ':lennygive:', '(�?� ͡° ͜ʖ ͡°)�?�'
+        ':lennygive:', '(ã?¤ Í¡Â° ÍÊ Í¡Â°)ã?¤'
     ],
     lenny20: [
-        ':lenny20:', '( ͡⚆ ͜ʖ ͡⚆)'
+        ':lenny20:', '( Í¡â ÍÊ Í¡â)'
     ],
     lenny21: [
-        ':lenny21:', '¯_( ͠° ͟ʖ °͠ )_/¯'
+        ':lenny21:', 'Â¯_( Í Â° ÍÊ Â°Í  )_/Â¯'
     ],
     lenny22: [
-        ':lenny22:', '(▀ ͜ʖ ͡°)'
+        ':lenny22:', '(â ÍÊ Í¡Â°)'
     ],
     raise2: [
-        ':raiseordie:', 'ヽ༼ຈل͜ຈ༽ﾉ гคเรє �?г ๔เє ヽ༼ຈل͜ຈ༽ﾉ'
+        ':raiseordie:', 'ã½à¼¼àºÙÍàºà¼½ï¾ Ð³à¸à¹à¸£Ñ à¹?Ð³ à¹à¹Ñ ã½à¼¼àºÙÍàºà¼½ï¾'
     ],
     nyan: [
         ':nyan:', '~=[,,_,,]:3'
@@ -2268,25 +2271,25 @@ var maymay = {
         ':seed:', '[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU\'VE DONE GERMINATES WITHIN YOU[/b][/color]'
     ],
     sniper: [
-        ':sniper:', '▄︻̷̿┻̿�?�?一'
+        ':sniper:', 'âï¸»Ì·Ì¿â»Ì¿â?â?ä¸'
     ],
     notgivinashit: [
-        ':notgivinash:', '¯_(ツ)_/¯'
+        ':notgivinash:', 'Â¯_(ã)_/Â¯'
     ],
     ameno: [
-        ':ameno:', '༼ �?� ◕_◕ ༽�?�'
+        ':ameno:', 'à¼¼ ã?¤ â_â à¼½ã?¤'
     ],
     brickwall: [
-        ':brickwall:', '┬┴┬┴┤(･_├┬┴┬┴'
+        ':brickwall:', 'â¬â´â¬â´â¤(ï½¥_ââ¬â´â¬â´'
     ],
     mac10: [
-        ':mac10:', '�?╦╦�?─'
+        ':mac10:', 'â?â¦â¦â?â'
     ],
     faceroll: [
         ':faceroll:', '(._.) ( l: ) ( .-. ) ( :l ) (._.)'
     ],
     tablefix: [
-        ':tablefix:', '┬──┬ ノ( ゜-゜ノ)'
+        ':tablefix:', 'â¬âââ¬ ã( ã-ãã)'
     ],
     wellmemed: [
         ':memed', '[IMG]http://i58.tinypic.com/2s8o4g8.png[/IMG]'
@@ -2304,10 +2307,10 @@ var maymay = {
         ':abuse:', '[img]http://i.imgur.com/cAxpwdm.gif[/img]'
     ],
     square: [
-        'Square', '□'
+        'Square', 'â¡'
     ],
     mindlessretard: [
-        ':mindlessretard:', 'ຈل͜ຈ ɪ ᴄᴛʀʟ ᴠ ᴛʜɪɴɢs ɪɴᴛ�? ᴄʜᴀᴛ ʙᴇᴄᴀᴜsᴇ ɪ ᴀ�? ᴀ �?ɪɴᴅʟᴇss ʀᴇᴛᴀʀᴅ ຈل͜ຈ'
+        ':mindlessretard:', 'àºÙÍàº Éª á´á´ÊÊ á´  á´ÊÉªÉ´É¢s ÉªÉ´á´á´? á´Êá´á´ Êá´á´á´á´sá´ Éª á´á´? á´ á´?ÉªÉ´á´Êá´ss Êá´á´á´Êá´ àºÙÍàº'
     ]
 };
 ///////EXTRA FILTERING CODE
@@ -2729,42 +2732,42 @@ function leet_post() {
 function balloon_() {
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/balloon /i, '');
-    new_msg = new_msg.replace(/a/gi, '�?');
-    new_msg = new_msg.replace(/b/gi, 'ⓑ');
-    new_msg = new_msg.replace(/c/gi, 'ⓒ');
-    new_msg = new_msg.replace(/d/gi, 'ⓓ');
-    new_msg = new_msg.replace(/e/gi, 'ⓔ');
-    new_msg = new_msg.replace(/f/gi, 'ⓕ');
-    new_msg = new_msg.replace(/g/gi, 'ⓖ');
-    new_msg = new_msg.replace(/h/gi, 'ⓗ');
-    new_msg = new_msg.replace(/i/gi, 'ⓘ');
-    new_msg = new_msg.replace(/j/gi, 'ⓙ');
-    new_msg = new_msg.replace(/k/gi, 'ⓚ');
-    new_msg = new_msg.replace(/l/gi, 'ⓛ');
-    new_msg = new_msg.replace(/m/gi, 'ⓜ');
-    new_msg = new_msg.replace(/n/gi, '�?');
-    new_msg = new_msg.replace(/o/gi, 'ⓞ');
-    new_msg = new_msg.replace(/p/gi, 'ⓟ');
-    new_msg = new_msg.replace(/q/gi, 'ⓠ');
-    new_msg = new_msg.replace(/r/gi, 'ⓡ');
-    new_msg = new_msg.replace(/s/gi, 'ⓢ');
-    new_msg = new_msg.replace(/t/gi, 'ⓣ');
-    new_msg = new_msg.replace(/u/gi, 'ⓤ');
-    new_msg = new_msg.replace(/v/gi, 'ⓥ');
-    new_msg = new_msg.replace(/w/gi, 'ⓦ');
-    new_msg = new_msg.replace(/x/gi, 'ⓧ');
-    new_msg = new_msg.replace(/y/gi, 'ⓨ');
-    new_msg = new_msg.replace(/z/gi, 'ⓩ');
-    new_msg = new_msg.replace(/1/gi, '⓵');
-    new_msg = new_msg.replace(/2/gi, '⓶');
-    new_msg = new_msg.replace(/3/gi, '⓷');
-    new_msg = new_msg.replace(/4/gi, '⓸');
-    new_msg = new_msg.replace(/5/gi, '⓹');
-    new_msg = new_msg.replace(/6/gi, '⓺');
-    new_msg = new_msg.replace(/7/gi, '⓻');
-    new_msg = new_msg.replace(/8/gi, '⓼');
-    new_msg = new_msg.replace(/9/gi, '⓽');
-    new_msg = new_msg.replace(/0/gi, '⓪');
+    new_msg = new_msg.replace(/a/gi, 'â?');
+    new_msg = new_msg.replace(/b/gi, 'â');
+    new_msg = new_msg.replace(/c/gi, 'â');
+    new_msg = new_msg.replace(/d/gi, 'â');
+    new_msg = new_msg.replace(/e/gi, 'â');
+    new_msg = new_msg.replace(/f/gi, 'â');
+    new_msg = new_msg.replace(/g/gi, 'â');
+    new_msg = new_msg.replace(/h/gi, 'â');
+    new_msg = new_msg.replace(/i/gi, 'â');
+    new_msg = new_msg.replace(/j/gi, 'â');
+    new_msg = new_msg.replace(/k/gi, 'â');
+    new_msg = new_msg.replace(/l/gi, 'â');
+    new_msg = new_msg.replace(/m/gi, 'â');
+    new_msg = new_msg.replace(/n/gi, 'â?');
+    new_msg = new_msg.replace(/o/gi, 'â');
+    new_msg = new_msg.replace(/p/gi, 'â');
+    new_msg = new_msg.replace(/q/gi, 'â ');
+    new_msg = new_msg.replace(/r/gi, 'â¡');
+    new_msg = new_msg.replace(/s/gi, 'â¢');
+    new_msg = new_msg.replace(/t/gi, 'â£');
+    new_msg = new_msg.replace(/u/gi, 'â¤');
+    new_msg = new_msg.replace(/v/gi, 'â¥');
+    new_msg = new_msg.replace(/w/gi, 'â¦');
+    new_msg = new_msg.replace(/x/gi, 'â§');
+    new_msg = new_msg.replace(/y/gi, 'â¨');
+    new_msg = new_msg.replace(/z/gi, 'â©');
+    new_msg = new_msg.replace(/1/gi, 'âµ');
+    new_msg = new_msg.replace(/2/gi, 'â¶');
+    new_msg = new_msg.replace(/3/gi, 'â·');
+    new_msg = new_msg.replace(/4/gi, 'â¸');
+    new_msg = new_msg.replace(/5/gi, 'â¹');
+    new_msg = new_msg.replace(/6/gi, 'âº');
+    new_msg = new_msg.replace(/7/gi, 'â»');
+    new_msg = new_msg.replace(/8/gi, 'â¼');
+    new_msg = new_msg.replace(/9/gi, 'â½');
+    new_msg = new_msg.replace(/0/gi, 'âª');
     document.getElementById('message').value = new_msg;
 }
 
@@ -2806,42 +2809,42 @@ function balloon_post() {
         var index_num = old_msg.regexIndexOf(/\/balloon /i);
         if (index_num === 0) {
             var new_msg = msg_ray[i].replace(/\/balloon /i, '');
-            new_msg = new_msg.replace(/a/gi, '�?');
-            new_msg = new_msg.replace(/b/gi, 'ⓑ');
-            new_msg = new_msg.replace(/c/gi, 'ⓒ');
-            new_msg = new_msg.replace(/d/gi, 'ⓓ');
-            new_msg = new_msg.replace(/e/gi, 'ⓔ');
-            new_msg = new_msg.replace(/f/gi, 'ⓕ');
-            new_msg = new_msg.replace(/g/gi, 'ⓖ');
-            new_msg = new_msg.replace(/h/gi, 'ⓗ');
-            new_msg = new_msg.replace(/i/gi, 'ⓘ');
-            new_msg = new_msg.replace(/j/gi, 'ⓙ');
-            new_msg = new_msg.replace(/k/gi, 'ⓚ');
-            new_msg = new_msg.replace(/l/gi, 'ⓛ');
-            new_msg = new_msg.replace(/m/gi, 'ⓜ');
-            new_msg = new_msg.replace(/n/gi, '�?');
-            new_msg = new_msg.replace(/o/gi, 'ⓞ');
-            new_msg = new_msg.replace(/p/gi, 'ⓟ');
-            new_msg = new_msg.replace(/q/gi, 'ⓠ');
-            new_msg = new_msg.replace(/r/gi, 'ⓡ');
-            new_msg = new_msg.replace(/s/gi, 'ⓢ');
-            new_msg = new_msg.replace(/t/gi, 'ⓣ');
-            new_msg = new_msg.replace(/u/gi, 'ⓤ');
-            new_msg = new_msg.replace(/v/gi, 'ⓥ');
-            new_msg = new_msg.replace(/w/gi, 'ⓦ');
-            new_msg = new_msg.replace(/x/gi, 'ⓧ');
-            new_msg = new_msg.replace(/y/gi, 'ⓨ');
-            new_msg = new_msg.replace(/z/gi, 'ⓩ');
-            new_msg = new_msg.replace(/1/gi, '⓵');
-            new_msg = new_msg.replace(/2/gi, '⓶');
-            new_msg = new_msg.replace(/3/gi, '⓷');
-            new_msg = new_msg.replace(/4/gi, '⓸');
-            new_msg = new_msg.replace(/5/gi, '⓹');
-            new_msg = new_msg.replace(/6/gi, '⓺');
-            new_msg = new_msg.replace(/7/gi, '⓻');
-            new_msg = new_msg.replace(/8/gi, '⓼');
-            new_msg = new_msg.replace(/9/gi, '⓽');
-            new_msg = new_msg.replace(/0/gi, '⓪');
+            new_msg = new_msg.replace(/a/gi, 'â?');
+            new_msg = new_msg.replace(/b/gi, 'â');
+            new_msg = new_msg.replace(/c/gi, 'â');
+            new_msg = new_msg.replace(/d/gi, 'â');
+            new_msg = new_msg.replace(/e/gi, 'â');
+            new_msg = new_msg.replace(/f/gi, 'â');
+            new_msg = new_msg.replace(/g/gi, 'â');
+            new_msg = new_msg.replace(/h/gi, 'â');
+            new_msg = new_msg.replace(/i/gi, 'â');
+            new_msg = new_msg.replace(/j/gi, 'â');
+            new_msg = new_msg.replace(/k/gi, 'â');
+            new_msg = new_msg.replace(/l/gi, 'â');
+            new_msg = new_msg.replace(/m/gi, 'â');
+            new_msg = new_msg.replace(/n/gi, 'â?');
+            new_msg = new_msg.replace(/o/gi, 'â');
+            new_msg = new_msg.replace(/p/gi, 'â');
+            new_msg = new_msg.replace(/q/gi, 'â ');
+            new_msg = new_msg.replace(/r/gi, 'â¡');
+            new_msg = new_msg.replace(/s/gi, 'â¢');
+            new_msg = new_msg.replace(/t/gi, 'â£');
+            new_msg = new_msg.replace(/u/gi, 'â¤');
+            new_msg = new_msg.replace(/v/gi, 'â¥');
+            new_msg = new_msg.replace(/w/gi, 'â¦');
+            new_msg = new_msg.replace(/x/gi, 'â§');
+            new_msg = new_msg.replace(/y/gi, 'â¨');
+            new_msg = new_msg.replace(/z/gi, 'â©');
+            new_msg = new_msg.replace(/1/gi, 'âµ');
+            new_msg = new_msg.replace(/2/gi, 'â¶');
+            new_msg = new_msg.replace(/3/gi, 'â·');
+            new_msg = new_msg.replace(/4/gi, 'â¸');
+            new_msg = new_msg.replace(/5/gi, 'â¹');
+            new_msg = new_msg.replace(/6/gi, 'âº');
+            new_msg = new_msg.replace(/7/gi, 'â»');
+            new_msg = new_msg.replace(/8/gi, 'â¼');
+            new_msg = new_msg.replace(/9/gi, 'â½');
+            new_msg = new_msg.replace(/0/gi, 'âª');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -2855,42 +2858,42 @@ function balloon_post() {
 function braille_() {
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/braille /i, '');
-    new_msg = new_msg.replace(/a/gi, '�?');
-    new_msg = new_msg.replace(/b/gi, '⠃');
-    new_msg = new_msg.replace(/c/gi, '⠉');
-    new_msg = new_msg.replace(/d/gi, '⠙');
-    new_msg = new_msg.replace(/e/gi, '⠑');
-    new_msg = new_msg.replace(/f/gi, '⠋');
-    new_msg = new_msg.replace(/g/gi, '⠛');
-    new_msg = new_msg.replace(/h/gi, '⠓');
-    new_msg = new_msg.replace(/i/gi, '⠊');
-    new_msg = new_msg.replace(/j/gi, '⠚');
-    new_msg = new_msg.replace(/k/gi, '⠅');
-    new_msg = new_msg.replace(/l/gi, '⠇');
-    new_msg = new_msg.replace(/m/gi, '�?');
-    new_msg = new_msg.replace(/n/gi, '�?');
-    new_msg = new_msg.replace(/o/gi, '⠕');
-    new_msg = new_msg.replace(/p/gi, '�?');
-    new_msg = new_msg.replace(/q/gi, '⠟');
-    new_msg = new_msg.replace(/r/gi, '⠗');
-    new_msg = new_msg.replace(/s/gi, '⠎');
-    new_msg = new_msg.replace(/t/gi, '⠞');
-    new_msg = new_msg.replace(/u/gi, '⠥');
-    new_msg = new_msg.replace(/v/gi, '⠧');
-    new_msg = new_msg.replace(/w/gi, '⠺');
-    new_msg = new_msg.replace(/x/gi, '⠭');
-    new_msg = new_msg.replace(/y/gi, '⠽');
-    new_msg = new_msg.replace(/z/gi, '⠵');
-    new_msg = new_msg.replace(/1/gi, '⠼�?');
-    new_msg = new_msg.replace(/2/gi, '⠼⠃');
-    new_msg = new_msg.replace(/3/gi, '⠼⠉');
-    new_msg = new_msg.replace(/4/gi, '⠼⠙');
-    new_msg = new_msg.replace(/5/gi, '⠼⠑');
-    new_msg = new_msg.replace(/6/gi, '⠼⠋');
-    new_msg = new_msg.replace(/7/gi, '⠼⠛');
-    new_msg = new_msg.replace(/8/gi, '⠼⠓');
-    new_msg = new_msg.replace(/9/gi, '⠼⠊');
-    new_msg = new_msg.replace(/0/gi, '⠼⠚');
+    new_msg = new_msg.replace(/a/gi, 'â ?');
+    new_msg = new_msg.replace(/b/gi, 'â ');
+    new_msg = new_msg.replace(/c/gi, 'â ');
+    new_msg = new_msg.replace(/d/gi, 'â ');
+    new_msg = new_msg.replace(/e/gi, 'â ');
+    new_msg = new_msg.replace(/f/gi, 'â ');
+    new_msg = new_msg.replace(/g/gi, 'â ');
+    new_msg = new_msg.replace(/h/gi, 'â ');
+    new_msg = new_msg.replace(/i/gi, 'â ');
+    new_msg = new_msg.replace(/j/gi, 'â ');
+    new_msg = new_msg.replace(/k/gi, 'â ');
+    new_msg = new_msg.replace(/l/gi, 'â ');
+    new_msg = new_msg.replace(/m/gi, 'â ?');
+    new_msg = new_msg.replace(/n/gi, 'â ?');
+    new_msg = new_msg.replace(/o/gi, 'â ');
+    new_msg = new_msg.replace(/p/gi, 'â ?');
+    new_msg = new_msg.replace(/q/gi, 'â ');
+    new_msg = new_msg.replace(/r/gi, 'â ');
+    new_msg = new_msg.replace(/s/gi, 'â ');
+    new_msg = new_msg.replace(/t/gi, 'â ');
+    new_msg = new_msg.replace(/u/gi, 'â ¥');
+    new_msg = new_msg.replace(/v/gi, 'â §');
+    new_msg = new_msg.replace(/w/gi, 'â º');
+    new_msg = new_msg.replace(/x/gi, 'â ­');
+    new_msg = new_msg.replace(/y/gi, 'â ½');
+    new_msg = new_msg.replace(/z/gi, 'â µ');
+    new_msg = new_msg.replace(/1/gi, 'â ¼â ?');
+    new_msg = new_msg.replace(/2/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/3/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/4/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/5/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/6/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/7/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/8/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/9/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/0/gi, 'â ¼â ');
     document.getElementById('message').value = new_msg;
 }
 
@@ -2902,7 +2905,7 @@ function inject_braille() {
     the_body.setAttribute('class', 'fontbutton');
     where.insertBefore(the_body, chil_where[0]);
     where.getElementsByTagName('td')[0].innerHTML =
-        '<input name="braille" id="format-braille" class="format-message" type="checkbox"><label id="click_area_braille" title="Braille" style="cursor:pointer;">⠃</label>';
+        '<input name="braille" id="format-braille" class="format-message" type="checkbox"><label id="click_area_braille" title="Braille" style="cursor:pointer;">â </label>';
     var what = document.getElementById('click_area_braille');
     var whot = document.getElementById('format-braille');
     if (getCookie('CB_braille') === '1') whot.checked = true;
@@ -2932,42 +2935,42 @@ function braille_post() {
         var index_num = old_msg.regexIndexOf(/\/braille /i);
         if (index_num === 0) {
             var new_msg = msg_ray[i].replace(/\/braille /i, '');
-            new_msg = new_msg.replace(/a/gi, '�?');
-            new_msg = new_msg.replace(/b/gi, '⠃');
-            new_msg = new_msg.replace(/c/gi, '⠉');
-            new_msg = new_msg.replace(/d/gi, '⠙');
-            new_msg = new_msg.replace(/e/gi, '⠑');
-            new_msg = new_msg.replace(/f/gi, '⠋');
-            new_msg = new_msg.replace(/g/gi, '⠛');
-            new_msg = new_msg.replace(/h/gi, '⠓');
-            new_msg = new_msg.replace(/i/gi, '⠊');
-            new_msg = new_msg.replace(/j/gi, '⠚');
-            new_msg = new_msg.replace(/k/gi, '⠅');
-            new_msg = new_msg.replace(/l/gi, '⠇');
-            new_msg = new_msg.replace(/m/gi, '�?');
-            new_msg = new_msg.replace(/n/gi, '�?');
-            new_msg = new_msg.replace(/o/gi, '⠕');
-            new_msg = new_msg.replace(/p/gi, '�?');
-            new_msg = new_msg.replace(/q/gi, '⠟');
-            new_msg = new_msg.replace(/r/gi, '⠗');
-            new_msg = new_msg.replace(/s/gi, '⠎');
-            new_msg = new_msg.replace(/t/gi, '⠞');
-            new_msg = new_msg.replace(/u/gi, '⠥');
-            new_msg = new_msg.replace(/v/gi, '⠧');
-            new_msg = new_msg.replace(/w/gi, '⠺');
-            new_msg = new_msg.replace(/x/gi, '⠭');
-            new_msg = new_msg.replace(/y/gi, '⠽');
-            new_msg = new_msg.replace(/z/gi, '⠵');
-            new_msg = new_msg.replace(/1/gi, '⠼�?');
-            new_msg = new_msg.replace(/2/gi, '⠼⠃');
-            new_msg = new_msg.replace(/3/gi, '⠼⠉');
-            new_msg = new_msg.replace(/4/gi, '⠼⠙');
-            new_msg = new_msg.replace(/5/gi, '⠼⠑');
-            new_msg = new_msg.replace(/6/gi, '⠼⠋');
-            new_msg = new_msg.replace(/7/gi, '⠼⠛');
-            new_msg = new_msg.replace(/8/gi, '⠼⠓');
-            new_msg = new_msg.replace(/9/gi, '⠼⠊');
-            new_msg = new_msg.replace(/0/gi, '⠼⠚');
+            new_msg = new_msg.replace(/a/gi, 'â ?');
+            new_msg = new_msg.replace(/b/gi, 'â ');
+            new_msg = new_msg.replace(/c/gi, 'â ');
+            new_msg = new_msg.replace(/d/gi, 'â ');
+            new_msg = new_msg.replace(/e/gi, 'â ');
+            new_msg = new_msg.replace(/f/gi, 'â ');
+            new_msg = new_msg.replace(/g/gi, 'â ');
+            new_msg = new_msg.replace(/h/gi, 'â ');
+            new_msg = new_msg.replace(/i/gi, 'â ');
+            new_msg = new_msg.replace(/j/gi, 'â ');
+            new_msg = new_msg.replace(/k/gi, 'â ');
+            new_msg = new_msg.replace(/l/gi, 'â ');
+            new_msg = new_msg.replace(/m/gi, 'â ?');
+            new_msg = new_msg.replace(/n/gi, 'â ?');
+            new_msg = new_msg.replace(/o/gi, 'â ');
+            new_msg = new_msg.replace(/p/gi, 'â ?');
+            new_msg = new_msg.replace(/q/gi, 'â ');
+            new_msg = new_msg.replace(/r/gi, 'â ');
+            new_msg = new_msg.replace(/s/gi, 'â ');
+            new_msg = new_msg.replace(/t/gi, 'â ');
+            new_msg = new_msg.replace(/u/gi, 'â ¥');
+            new_msg = new_msg.replace(/v/gi, 'â §');
+            new_msg = new_msg.replace(/w/gi, 'â º');
+            new_msg = new_msg.replace(/x/gi, 'â ­');
+            new_msg = new_msg.replace(/y/gi, 'â ½');
+            new_msg = new_msg.replace(/z/gi, 'â µ');
+            new_msg = new_msg.replace(/1/gi, 'â ¼â ?');
+            new_msg = new_msg.replace(/2/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/3/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/4/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/5/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/6/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/7/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/8/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/9/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/0/gi, 'â ¼â ');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -2981,32 +2984,32 @@ function braille_post() {
 function greek_() {
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/greek /i, '');
-    new_msg = new_msg.replace(/a/gi, 'α');
-    new_msg = new_msg.replace(/b/gi, 'β');
-    new_msg = new_msg.replace(/c/gi, 'ς');
-    new_msg = new_msg.replace(/d/gi, 'δ');
-    new_msg = new_msg.replace(/e/gi, 'ε');
-    new_msg = new_msg.replace(/f/gi, 'ƒ');
+    new_msg = new_msg.replace(/a/gi, 'Î±');
+    new_msg = new_msg.replace(/b/gi, 'Î²');
+    new_msg = new_msg.replace(/c/gi, 'Ï');
+    new_msg = new_msg.replace(/d/gi, 'Î´');
+    new_msg = new_msg.replace(/e/gi, 'Îµ');
+    new_msg = new_msg.replace(/f/gi, 'Æ');
     new_msg = new_msg.replace(/g/gi, 'g');
-    new_msg = new_msg.replace(/h/gi, 'н');
-    new_msg = new_msg.replace(/i/gi, 'ι');
+    new_msg = new_msg.replace(/h/gi, 'Ð½');
+    new_msg = new_msg.replace(/i/gi, 'Î¹');
     new_msg = new_msg.replace(/j/gi, 'j');
-    new_msg = new_msg.replace(/k/gi, 'κ');
-    new_msg = new_msg.replace(/l/gi, 'ℓ');
-    new_msg = new_msg.replace(/m/gi, 'м');
-    new_msg = new_msg.replace(/n/gi, 'η');
-    new_msg = new_msg.replace(/o/gi, 'ο');
-    new_msg = new_msg.replace(/p/gi, '�?');
-    new_msg = new_msg.replace(/q/gi, 'φ');
-    new_msg = new_msg.replace(/r/gi, '�?');
+    new_msg = new_msg.replace(/k/gi, 'Îº');
+    new_msg = new_msg.replace(/l/gi, 'â');
+    new_msg = new_msg.replace(/m/gi, 'Ð¼');
+    new_msg = new_msg.replace(/n/gi, 'Î·');
+    new_msg = new_msg.replace(/o/gi, 'Î¿');
+    new_msg = new_msg.replace(/p/gi, 'Ï?');
+    new_msg = new_msg.replace(/q/gi, 'Ï');
+    new_msg = new_msg.replace(/r/gi, 'Ñ?');
     new_msg = new_msg.replace(/s/gi, 's');
-    new_msg = new_msg.replace(/t/gi, 'τ');
-    new_msg = new_msg.replace(/u/gi, 'μ');
+    new_msg = new_msg.replace(/t/gi, 'Ï');
+    new_msg = new_msg.replace(/u/gi, 'Î¼');
     new_msg = new_msg.replace(/v/gi, 'v');
-    new_msg = new_msg.replace(/w/gi, 'ω');
-    new_msg = new_msg.replace(/x/gi, 'χ');
-    new_msg = new_msg.replace(/y/gi, 'λ');
-    new_msg = new_msg.replace(/z/gi, 'ζ');
+    new_msg = new_msg.replace(/w/gi, 'Ï');
+    new_msg = new_msg.replace(/x/gi, 'Ï');
+    new_msg = new_msg.replace(/y/gi, 'Î»');
+    new_msg = new_msg.replace(/z/gi, 'Î¶');
     document.getElementById('message').value = new_msg;
 }
 
@@ -3048,32 +3051,32 @@ function greek_post() {
         var index_num = old_msg.regexIndexOf(/\/greek /i);
         if (index_num === 0) {
             var new_msg = msg_ray[i].replace(/\/greek /i, '');
-            new_msg = new_msg.replace(/a/gi, 'α');
-            new_msg = new_msg.replace(/b/gi, 'β');
-            new_msg = new_msg.replace(/c/gi, 'ς');
-            new_msg = new_msg.replace(/d/gi, 'δ');
-            new_msg = new_msg.replace(/e/gi, 'ε');
-            new_msg = new_msg.replace(/f/gi, 'ƒ');
+            new_msg = new_msg.replace(/a/gi, 'Î±');
+            new_msg = new_msg.replace(/b/gi, 'Î²');
+            new_msg = new_msg.replace(/c/gi, 'Ï');
+            new_msg = new_msg.replace(/d/gi, 'Î´');
+            new_msg = new_msg.replace(/e/gi, 'Îµ');
+            new_msg = new_msg.replace(/f/gi, 'Æ');
             new_msg = new_msg.replace(/g/gi, 'g');
-            new_msg = new_msg.replace(/h/gi, 'н');
-            new_msg = new_msg.replace(/i/gi, 'ι');
+            new_msg = new_msg.replace(/h/gi, 'Ð½');
+            new_msg = new_msg.replace(/i/gi, 'Î¹');
             new_msg = new_msg.replace(/j/gi, 'j');
-            new_msg = new_msg.replace(/k/gi, 'κ');
-            new_msg = new_msg.replace(/l/gi, 'ℓ');
-            new_msg = new_msg.replace(/m/gi, 'м');
-            new_msg = new_msg.replace(/n/gi, 'η');
-            new_msg = new_msg.replace(/o/gi, 'ο');
-            new_msg = new_msg.replace(/p/gi, '�?');
-            new_msg = new_msg.replace(/q/gi, 'φ');
-            new_msg = new_msg.replace(/r/gi, '�?');
+            new_msg = new_msg.replace(/k/gi, 'Îº');
+            new_msg = new_msg.replace(/l/gi, 'â');
+            new_msg = new_msg.replace(/m/gi, 'Ð¼');
+            new_msg = new_msg.replace(/n/gi, 'Î·');
+            new_msg = new_msg.replace(/o/gi, 'Î¿');
+            new_msg = new_msg.replace(/p/gi, 'Ï?');
+            new_msg = new_msg.replace(/q/gi, 'Ï');
+            new_msg = new_msg.replace(/r/gi, 'Ñ?');
             new_msg = new_msg.replace(/s/gi, 's');
-            new_msg = new_msg.replace(/t/gi, 'τ');
-            new_msg = new_msg.replace(/u/gi, 'μ');
+            new_msg = new_msg.replace(/t/gi, 'Ï');
+            new_msg = new_msg.replace(/u/gi, 'Î¼');
             new_msg = new_msg.replace(/v/gi, 'v');
-            new_msg = new_msg.replace(/w/gi, 'ω');
-            new_msg = new_msg.replace(/x/gi, 'χ');
-            new_msg = new_msg.replace(/y/gi, 'λ');
-            new_msg = new_msg.replace(/z/gi, 'ζ');
+            new_msg = new_msg.replace(/w/gi, 'Ï');
+            new_msg = new_msg.replace(/x/gi, 'Ï');
+            new_msg = new_msg.replace(/y/gi, 'Î»');
+            new_msg = new_msg.replace(/z/gi, 'Î¶');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -3088,32 +3091,32 @@ function greek_post() {
 function smallcaps_() {
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/smc /i, ''); //this is not necessary but the fucks i could give do not exist
-    new_msg = new_msg.replace(/a/gi, 'ᴀ');
-    new_msg = new_msg.replace(/b/gi, 'ʙ');
-    new_msg = new_msg.replace(/c/gi, 'ᴄ');
-    new_msg = new_msg.replace(/d/gi, 'ᴅ');
-    new_msg = new_msg.replace(/e/gi, 'ᴇ');
-    new_msg = new_msg.replace(/f/gi, 'ғ');
-    new_msg = new_msg.replace(/g/gi, 'ɢ');
-    new_msg = new_msg.replace(/h/gi, 'ʜ');
-    new_msg = new_msg.replace(/i/gi, 'ɪ');
-    new_msg = new_msg.replace(/j/gi, 'ᴊ');
-    new_msg = new_msg.replace(/k/gi, 'ᴋ');
-    new_msg = new_msg.replace(/l/gi, 'ʟ');
-    new_msg = new_msg.replace(/m/gi, '�?');
-    new_msg = new_msg.replace(/n/gi, 'ɴ');
-    new_msg = new_msg.replace(/o/gi, '�?');
-    new_msg = new_msg.replace(/p/gi, 'ᴘ');
-    new_msg = new_msg.replace(/q/gi, 'ǫ');
-    new_msg = new_msg.replace(/r/gi, 'ʀ');
+    new_msg = new_msg.replace(/a/gi, 'á´');
+    new_msg = new_msg.replace(/b/gi, 'Ê');
+    new_msg = new_msg.replace(/c/gi, 'á´');
+    new_msg = new_msg.replace(/d/gi, 'á´');
+    new_msg = new_msg.replace(/e/gi, 'á´');
+    new_msg = new_msg.replace(/f/gi, 'Ò');
+    new_msg = new_msg.replace(/g/gi, 'É¢');
+    new_msg = new_msg.replace(/h/gi, 'Ê');
+    new_msg = new_msg.replace(/i/gi, 'Éª');
+    new_msg = new_msg.replace(/j/gi, 'á´');
+    new_msg = new_msg.replace(/k/gi, 'á´');
+    new_msg = new_msg.replace(/l/gi, 'Ê');
+    new_msg = new_msg.replace(/m/gi, 'á´?');
+    new_msg = new_msg.replace(/n/gi, 'É´');
+    new_msg = new_msg.replace(/o/gi, 'á´?');
+    new_msg = new_msg.replace(/p/gi, 'á´');
+    new_msg = new_msg.replace(/q/gi, 'Ç«');
+    new_msg = new_msg.replace(/r/gi, 'Ê');
     new_msg = new_msg.replace(/s/gi, 's');
-    new_msg = new_msg.replace(/t/gi, 'ᴛ');
-    new_msg = new_msg.replace(/u/gi, 'ᴜ');
-    new_msg = new_msg.replace(/v/gi, 'ᴠ');
-    new_msg = new_msg.replace(/w/gi, 'ᴡ');
+    new_msg = new_msg.replace(/t/gi, 'á´');
+    new_msg = new_msg.replace(/u/gi, 'á´');
+    new_msg = new_msg.replace(/v/gi, 'á´ ');
+    new_msg = new_msg.replace(/w/gi, 'á´¡');
     new_msg = new_msg.replace(/x/gi, 'x');
-    new_msg = new_msg.replace(/y/gi, '�?');
-    new_msg = new_msg.replace(/z/gi, 'ᴢ');
+    new_msg = new_msg.replace(/y/gi, 'Ê?');
+    new_msg = new_msg.replace(/z/gi, 'á´¢');
     document.getElementById('message').value = new_msg;
 }
 
@@ -3155,32 +3158,32 @@ function smallcaps_post() {
         var index_num = old_msg.regexIndexOf(/\/smc /i);
         if (index_num === 0) {
             var new_msg = msg_ray[i].replace(/\/smc /i, '');
-            new_msg = new_msg.replace(/a/gi, 'ᴀ');
-            new_msg = new_msg.replace(/b/gi, 'ʙ');
-            new_msg = new_msg.replace(/c/gi, 'ᴄ');
-            new_msg = new_msg.replace(/d/gi, 'ᴅ');
-            new_msg = new_msg.replace(/e/gi, 'ᴇ');
-            new_msg = new_msg.replace(/f/gi, 'ғ');
-            new_msg = new_msg.replace(/g/gi, 'ɢ');
-            new_msg = new_msg.replace(/h/gi, 'ʜ');
-            new_msg = new_msg.replace(/i/gi, 'ɪ');
-            new_msg = new_msg.replace(/j/gi, 'ᴊ');
-            new_msg = new_msg.replace(/k/gi, 'ᴋ');
-            new_msg = new_msg.replace(/l/gi, 'ʟ');
-            new_msg = new_msg.replace(/m/gi, '�?');
-            new_msg = new_msg.replace(/n/gi, 'ɴ');
-            new_msg = new_msg.replace(/o/gi, '�?');
-            new_msg = new_msg.replace(/p/gi, 'ᴘ');
-            new_msg = new_msg.replace(/q/gi, 'ǫ');
-            new_msg = new_msg.replace(/r/gi, 'ʀ');
+            new_msg = new_msg.replace(/a/gi, 'á´');
+            new_msg = new_msg.replace(/b/gi, 'Ê');
+            new_msg = new_msg.replace(/c/gi, 'á´');
+            new_msg = new_msg.replace(/d/gi, 'á´');
+            new_msg = new_msg.replace(/e/gi, 'á´');
+            new_msg = new_msg.replace(/f/gi, 'Ò');
+            new_msg = new_msg.replace(/g/gi, 'É¢');
+            new_msg = new_msg.replace(/h/gi, 'Ê');
+            new_msg = new_msg.replace(/i/gi, 'Éª');
+            new_msg = new_msg.replace(/j/gi, 'á´');
+            new_msg = new_msg.replace(/k/gi, 'á´');
+            new_msg = new_msg.replace(/l/gi, 'Ê');
+            new_msg = new_msg.replace(/m/gi, 'á´?');
+            new_msg = new_msg.replace(/n/gi, 'É´');
+            new_msg = new_msg.replace(/o/gi, 'á´?');
+            new_msg = new_msg.replace(/p/gi, 'á´');
+            new_msg = new_msg.replace(/q/gi, 'Ç«');
+            new_msg = new_msg.replace(/r/gi, 'Ê');
             new_msg = new_msg.replace(/s/gi, 's');
-            new_msg = new_msg.replace(/t/gi, 'ᴛ');
-            new_msg = new_msg.replace(/u/gi, 'ᴜ');
-            new_msg = new_msg.replace(/v/gi, 'ᴠ');
-            new_msg = new_msg.replace(/w/gi, 'ᴡ');
+            new_msg = new_msg.replace(/t/gi, 'á´');
+            new_msg = new_msg.replace(/u/gi, 'á´');
+            new_msg = new_msg.replace(/v/gi, 'á´ ');
+            new_msg = new_msg.replace(/w/gi, 'á´¡');
             new_msg = new_msg.replace(/x/gi, 'x');
-            new_msg = new_msg.replace(/y/gi, '�?');
-            new_msg = new_msg.replace(/z/gi, 'ᴢ');
+            new_msg = new_msg.replace(/y/gi, 'Ê?');
+            new_msg = new_msg.replace(/z/gi, 'á´¢');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
