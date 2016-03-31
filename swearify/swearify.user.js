@@ -2145,16 +2145,16 @@ var maymay = {
         'minty', '[img]http://i60.tinypic.com/2hzkc5y.png[/img][blur][b][color=#98FF98] MINTY[/color][/b][/blur]'
     ],
     lenny: [
-        ':lenny:', '( Í¡Â° ÍÊ Í¡Â°)'
+        ':lenny:', '( �?¡Â° �?Ê �?¡Â°)'
     ],
     dongers: [
-        ':raise:', 'ã½à¼¼àºÙÍàºà¼½ï¾ raise your dongers ã½à¼¼àºÙÍàºà¼½ï¾'
+        ':raise:', 'ã½à¼¼àºÙ�?àºà¼½ï¾ raise your dongers ã½à¼¼àºÙ�?àºà¼½ï¾'
     ],
     hamster: [
-        ':hamster:', '(â¢Ïâ¢)'
+        ':hamster:', '(â¢�?â¢)'
     ],
     greeneggs: [
-        ':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( Í¡Â° ÊÌ¯ Í¡Â°)[/size]'
+        ':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( �?¡Â° ÊÌ¯ �?¡Â°)[/size]'
     ],
     rekt: [
         ':rekt:', '[size=19][font=impact][blur][b][color=red]â? Not REKT â REKT â REKTangle â SHREKT â REKT-it Ralph â Total REKTall â The Lord of the REKT â The Usual SusREKTs â North by NorthREKT â REKT to the Future â Once Upon a Time in the REKT â The Good, the Bad, and the REKT â LawREKT of Arabia â Tyrannosaurus REKT â eREKTile dysfunction [/color][/b][/blur][/font][/size]'
@@ -2196,70 +2196,70 @@ var maymay = {
         'murica', '[b][font=Comic Sans MS][color=#FF0000]M[/color][color=#FF5555]U[/color][color=#FFAAAA]R[/color][color=#FFFFFF]I[/color][color=#AAAAFF]C[/color][color=#5555FF]A[/color][/font][/b]'
     ],
     lenny2: [
-        ':lenny2:', '( Í¡àºâ­ÍÊâ®Í¡àº )'
+        ':lenny2:', '( �?¡àºâ­�?Êâ®�?¡àº )'
     ],
     lenny3: [
-        ':sadlenny:', '( Í¡à²  ÊÌ¯ Í¡à² )'
+        ':sadlenny:', '( �?¡à²  ÊÌ¯ �?¡à² )'
     ],
     lenny4: [
-        ':lenny4:', '( Í¡~ ÍÊ Í¡~)'
+        ':lenny4:', '( �?¡~ �?Ê �?¡~)'
     ],
     lenny5: [
-        ':lennywink:', '( Í¡~ ÍÊ Í¡Â°)'
+        ':lennywink:', '( �?¡~ �?Ê �?¡Â°)'
     ],
     lenny6: [
-        ':lenny6:', '( Í Â° ÍÊ Í¡Â°)'
+        ':lenny6:', '( �? Â° �?Ê �?¡Â°)'
     ],
     lenny7: [
-        ':lenny7:', '( Í¡Êâ­ÍÊâ®Í¡Ê)'
+        ':lenny7:', '( �?¡Êâ­�?Êâ®�?¡Ê)'
     ],
     lenny8: [
-        ':eyebrowlenny:', '( Í?×¡Ö¼ ÍÊÍ¡×¡Ö¼)'
+        ':eyebrowlenny:', '( �??×¡Ö¼ �?Ê�?¡×¡Ö¼)'
     ],
     lenny9: [
-        ':lenny9:', '( Í¡áµ ÍÊ Í¡áµ )'
+        ':lenny9:', '( �?¡áµ �?Ê �?¡áµ )'
     ],
     lenny10: [
-        ':lenny10:', '( Í¡^ ÍÊ Í¡^ )'
+        ':lenny10:', '( �?¡^ �?Ê �?¡^ )'
     ],
     lenny11: [
-        ':dongbill:', '[Ì²Ì$Ì²Ì(Ì²Ì Í¡Â° ÍÊ Í¡Â°Ì²Ì)Ì²Ì$Ì²Ì]'
+        ':dongbill:', '[Ì²Ì$Ì²Ì(Ì²Ì �?¡Â° �?Ê �?¡Â°Ì²Ì)Ì²Ì$Ì²Ì]'
     ],
     lenny12: [
-        ':lenny12:', '( Í¡àº ÍÊ Í¡àº)'
+        ':lenny12:', '( �?¡àº �?Ê �?¡àº)'
     ],
     lenny13: [
-        ':lenny13:', '( Í¡Â° ÊÌ¯ Í¡Â°)'
+        ':lenny13:', '( �?¡Â° ÊÌ¯ �?¡Â°)'
     ],
     lenny14: [
-        ':lenny14:', '( Í¡ ÍÊ Í¡ )'
+        ':lenny14:', '( �?¡ �?Ê �?¡ )'
     ],
     lenny15: [
-        ':lennypoint:', '(â Í¡Â° ÍÊ Í¡Â°)â'
+        ':lennypoint:', '(â �?¡Â° �?Ê �?¡Â°)â'
     ],
     lenny16: [
-        ':lennyrun:', 'á( Í¡Â° ÍÊ Í¡Â° )á'
+        ':lennyrun:', 'á( �?¡Â° �?Ê �?¡Â° )á'
     ],
     lenny17: [
-        ':lenny17:', '( Í¡Â°â­ÍÊâ®Í¡Â° )'
+        ':lenny17:', '( �?¡Â°â­�?Êâ®�?¡Â° )'
     ],
     lenny18: [
-        ':lennygroup:', '( Í¡Â° ÍÊ ( Í¡Â° ÍÊ ( Í¡Â° ÍÊ ( Í¡Â° ÍÊ Í¡Â°) ÍÊ Í¡Â°)Ê Í¡Â°)Ê Í¡Â°)'
+        ':lennygroup:', '( �?¡Â° �?Ê ( �?¡Â° �?Ê ( �?¡Â° �?Ê ( �?¡Â° �?Ê �?¡Â°) �?Ê �?¡Â°)Ê �?¡Â°)Ê �?¡Â°)'
     ],
     lenny19: [
-        ':lennygive:', '(ã?¤ Í¡Â° ÍÊ Í¡Â°)ã?¤'
+        ':lennygive:', '(ã?¤ �?¡Â° �?Ê �?¡Â°)ã?¤'
     ],
     lenny20: [
-        ':lenny20:', '( Í¡â ÍÊ Í¡â)'
+        ':lenny20:', '( �?¡â �?Ê �?¡â)'
     ],
     lenny21: [
-        ':lenny21:', 'Â¯_( Í Â° ÍÊ Â°Í  )_/Â¯'
+        ':lenny21:', 'Â¯_( �? Â° �?Ê Â°�?  )_/Â¯'
     ],
     lenny22: [
-        ':lenny22:', '(â ÍÊ Í¡Â°)'
+        ':lenny22:', '(â �?Ê �?¡Â°)'
     ],
     raise2: [
-        ':raiseordie:', 'ã½à¼¼àºÙÍàºà¼½ï¾ Ð³à¸à¹à¸£Ñ à¹?Ð³ à¹à¹Ñ ã½à¼¼àºÙÍàºà¼½ï¾'
+        ':raiseordie:', 'ã½à¼¼àºÙ�?àºà¼½ï¾ �?³à¸à¹à¸£Ñ à¹?�?³ à¹à¹Ñ ã½à¼¼àºÙ�?àºà¼½ï¾'
     ],
     nyan: [
         ':nyan:', '~=[,,_,,]:3'
@@ -2310,7 +2310,7 @@ var maymay = {
         'Square', 'â¡'
     ],
     mindlessretard: [
-        ':mindlessretard:', 'àºÙÍàº Éª á´á´ÊÊ á´  á´ÊÉªÉ´É¢s ÉªÉ´á´á´? á´Êá´á´ Êá´á´á´á´sá´ Éª á´á´? á´ á´?ÉªÉ´á´Êá´ss Êá´á´á´Êá´ àºÙÍàº'
+        ':mindlessretard:', 'àºÙ�?àº Éª á´á´ÊÊ á´  á´ÊÉªÉ´É¢s ÉªÉ´á´á´? á´Êá´á´ Êá´á´á´á´sá´ Éª á´á´? á´ á´?ÉªÉ´á´Êá´ss Êá´á´á´Êá´ àºÙ�?àº'
     ]
 };
 ///////EXTRA FILTERING CODE
@@ -2986,28 +2986,28 @@ function greek_() {
     var new_msg = old_msg.replace(/\/greek /i, '');
     new_msg = new_msg.replace(/a/gi, 'Î±');
     new_msg = new_msg.replace(/b/gi, 'Î²');
-    new_msg = new_msg.replace(/c/gi, 'Ï');
+    new_msg = new_msg.replace(/c/gi, '�?');
     new_msg = new_msg.replace(/d/gi, 'Î´');
     new_msg = new_msg.replace(/e/gi, 'Îµ');
     new_msg = new_msg.replace(/f/gi, 'Æ');
     new_msg = new_msg.replace(/g/gi, 'g');
-    new_msg = new_msg.replace(/h/gi, 'Ð½');
+    new_msg = new_msg.replace(/h/gi, '�?½');
     new_msg = new_msg.replace(/i/gi, 'Î¹');
     new_msg = new_msg.replace(/j/gi, 'j');
     new_msg = new_msg.replace(/k/gi, 'Îº');
     new_msg = new_msg.replace(/l/gi, 'â');
-    new_msg = new_msg.replace(/m/gi, 'Ð¼');
+    new_msg = new_msg.replace(/m/gi, '�?¼');
     new_msg = new_msg.replace(/n/gi, 'Î·');
     new_msg = new_msg.replace(/o/gi, 'Î¿');
-    new_msg = new_msg.replace(/p/gi, 'Ï?');
-    new_msg = new_msg.replace(/q/gi, 'Ï');
+    new_msg = new_msg.replace(/p/gi, '�??');
+    new_msg = new_msg.replace(/q/gi, '�?');
     new_msg = new_msg.replace(/r/gi, 'Ñ?');
     new_msg = new_msg.replace(/s/gi, 's');
-    new_msg = new_msg.replace(/t/gi, 'Ï');
+    new_msg = new_msg.replace(/t/gi, '�?');
     new_msg = new_msg.replace(/u/gi, 'Î¼');
     new_msg = new_msg.replace(/v/gi, 'v');
-    new_msg = new_msg.replace(/w/gi, 'Ï');
-    new_msg = new_msg.replace(/x/gi, 'Ï');
+    new_msg = new_msg.replace(/w/gi, '�?');
+    new_msg = new_msg.replace(/x/gi, '�?');
     new_msg = new_msg.replace(/y/gi, 'Î»');
     new_msg = new_msg.replace(/z/gi, 'Î¶');
     document.getElementById('message').value = new_msg;
@@ -3053,28 +3053,28 @@ function greek_post() {
             var new_msg = msg_ray[i].replace(/\/greek /i, '');
             new_msg = new_msg.replace(/a/gi, 'Î±');
             new_msg = new_msg.replace(/b/gi, 'Î²');
-            new_msg = new_msg.replace(/c/gi, 'Ï');
+            new_msg = new_msg.replace(/c/gi, '�?');
             new_msg = new_msg.replace(/d/gi, 'Î´');
             new_msg = new_msg.replace(/e/gi, 'Îµ');
             new_msg = new_msg.replace(/f/gi, 'Æ');
             new_msg = new_msg.replace(/g/gi, 'g');
-            new_msg = new_msg.replace(/h/gi, 'Ð½');
+            new_msg = new_msg.replace(/h/gi, '�?½');
             new_msg = new_msg.replace(/i/gi, 'Î¹');
             new_msg = new_msg.replace(/j/gi, 'j');
             new_msg = new_msg.replace(/k/gi, 'Îº');
             new_msg = new_msg.replace(/l/gi, 'â');
-            new_msg = new_msg.replace(/m/gi, 'Ð¼');
+            new_msg = new_msg.replace(/m/gi, '�?¼');
             new_msg = new_msg.replace(/n/gi, 'Î·');
             new_msg = new_msg.replace(/o/gi, 'Î¿');
-            new_msg = new_msg.replace(/p/gi, 'Ï?');
-            new_msg = new_msg.replace(/q/gi, 'Ï');
+            new_msg = new_msg.replace(/p/gi, '�??');
+            new_msg = new_msg.replace(/q/gi, '�?');
             new_msg = new_msg.replace(/r/gi, 'Ñ?');
             new_msg = new_msg.replace(/s/gi, 's');
-            new_msg = new_msg.replace(/t/gi, 'Ï');
+            new_msg = new_msg.replace(/t/gi, '�?');
             new_msg = new_msg.replace(/u/gi, 'Î¼');
             new_msg = new_msg.replace(/v/gi, 'v');
-            new_msg = new_msg.replace(/w/gi, 'Ï');
-            new_msg = new_msg.replace(/x/gi, 'Ï');
+            new_msg = new_msg.replace(/w/gi, '�?');
+            new_msg = new_msg.replace(/x/gi, '�?');
             new_msg = new_msg.replace(/y/gi, 'Î»');
             new_msg = new_msg.replace(/z/gi, 'Î¶');
             msg_ray[i] = new_msg;
