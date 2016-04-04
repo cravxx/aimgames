@@ -444,8 +444,8 @@ var emoticon_1 = {
     nervous: [
         ':nervous:', 'http://i60.tinypic.com/ae1n5y.png', 'nervous'
     ],
-    escalation: [
-        ':escalation:', 'http://i59.tinypic.com/148pzl2.png', 'escalation'
+    quickly: [
+        ':quickly:', 'http://i59.tinypic.com/148pzl2.png', 'quickly'
     ],
     terror: [
         ':terror:', 'http://i58.tinypic.com/2uqoo0k.png', 'terror'
@@ -1225,9 +1225,6 @@ var emoticon_3 = {
     anime3: [
         ':anime3:', 'http://i.imgur.com/jdutcGfs.png', 'ANIME 3'
     ],
-    lowresman: [
-        ':lowresman:', 'http://i.imgur.com/rLLnJ09s.png', 'LOW RES MAN'
-    ],
     anime4: [
         ':anime4:', 'http://i.imgur.com/TL3QgbDs.png', 'ANIME 4'
     ],
@@ -1236,27 +1233,12 @@ var emoticon_3 = {
     ],
     raccoony: [
         ':raccoony:', 'http://i.imgur.com/6qX0rC4s.png', 'RACCOON '
-    ],
-    kidwithstache: [
-        ':kidwstache:', 'http://i.imgur.com/D3qLanbs.png', 'A KID WITH A STACHE'
-    ],
-    letmeslip: [
-        ':hereletmeslip:', 'http://i.imgur.com/CYh5jj0s.png', 'HERE LET ME SLIP'
-    ],
+    ],    
     idubbbzstretch: [
         ':idubbbzstretch:', 'http://i.imgur.com/gm6GAMPs.png', "THAT IEBUZ "
     ],
-    idubbbzthink: [
-        ':idubbbzthink:',  'http://i.imgur.com/nKZa0kss.png', "I DUBB DINK"
-    ],
     idubbbzdevil: [
         ':idubbbzdevil:', 'http://i.imgur.com/1w6doWTs.png', "IDUBBZ DEVIL"
-    ],
-    idubbbzhey: [
-        ':idubbbzhey:', 'http://i.imgur.com/QtBGpkus.png', 'IDUBBZ HEEEEEY'
-    ],
-    idubbbzpls: [
-        ":idubbbzpls:", 'http://i.imgur.com/F2QAmhrs.png', "IDUBBBZ PLEASEEEEE"
     ],
     jeremydisgust: [
         ':jeremydisgust:', 'http://i.imgur.com/h56MGYhs.png', 'jeremy disgust'
@@ -1276,20 +1258,8 @@ var emoticon_3 = {
     jeremyhate: [
         ':jeremyhate:', 'http://i.imgur.com/NDGt0z6s.png', "jeremy HATE"
     ],
-    ooo: [
-        ':ooo:', 'http://i.imgur.com/peTTExYs.png', 'OOOOO'
-    ],
-    business: [
-        ':business:', 'http://i.imgur.com/vu6WR8ks.png', 'BUSINESS'
-    ],
     idubbbzcool: [
         ':idubbbzcool:', 'http://i.imgur.com/jw7NdkRs.png', "IDBUUB COOL"
-    ],
-    idubbbzwillow: [
-        ':idubbbzwillow:','http://i.imgur.com/2ujtEa1s.png', 'WILLOW'
-    ],
-    idubbbzconfused: [
-        ':idubbbzconfused:', 'http://i.imgur.com/ilF0YsCs.png', 'IDUBBUZ CONFUSED'
     ],
     idubbbzlips: [
         ':idubbbzlips:', 'http://i.imgur.com/jnJUi2ls.png', 'IDUBBZBBZ LIPS'
@@ -1309,12 +1279,6 @@ var emoticon_3 = {
     idubbbzsuprise: [
         ':idubbbzsuprise:', 'http://i.imgur.com/J6YxZnK.png', 'idUBBBZ SUPRISEEE'    
     ],
-    idubbbzoculus1: [
-        ':idubbbzoculus1:', 'http://i.imgur.com/BiRMDGEs.png', 'IDUBBBBBBBBB'    
-    ],
-    idubbbzoculus2: [
-        ':idubbbzoculus2:', 'http://i.imgur.com/BvEIQeis.png', 'IIDUUDBBD'
-    ],
     idubbbzunpleased: [
         ':idubbbzunpleased:', 'http://i.imgur.com/9DvMLtD.png', 'ASJAI IDUBBSBSS'
     ],
@@ -1326,9 +1290,6 @@ var emoticon_3 = {
     ],
     smuganimeface: [
         ':smuganimeface:', 'http://i.imgur.com/lq6Hr1Is.png', 'SMUG ANIME FACE'
-    ],
-    markscared: [
-        ':markisscared:', 'http://i.imgur.com/yQ1UOPWs.png', 'MARK PLS'
     ],
     upthebum: [
         ':upthebum:', 'http://i.imgur.com/MljlRwis.png', 'UP. THE. BUN.'
@@ -1404,6 +1365,12 @@ var emoticon_3 = {
     ],
     lars: [
         ':lars:', 'http://i.imgur.com/VlbXo1m.png', 'lars'    
+    ],
+    meximod: [
+    	':meximod:', 'http://i.imgur.com/TjvnWb9.png', 'MEXIMOD'
+    ],
+    smugass: [
+    	':smugass:', 'http://i.imgur.com/L69XTz5.jpg', 'SMUGASS'
     ]
 };
 
@@ -1497,7 +1464,7 @@ var maymay = {
      */
 
     toa: [
-        'toa', 'toa' //'[img]http://i61.tinypic.com/cmjk6.png[/img]'
+        'toa', '[img]http://i.imgur.com/ZIUdtUw.png[/img]'
     ],        
     blaze: [
         'blaze', '[img]https://static-cdn.jtvnw.net/emoticons/v1/39567/1.0[/img]'
@@ -1509,6 +1476,4 @@ var maymay = {
     afterburn: [
         'afterburn', 'afffffffterburn'    
     ]
-
-
 };
