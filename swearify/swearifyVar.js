@@ -1347,10 +1347,7 @@ var emoticon_3 = {
     ],
     waiter: [
         ':waiter:', 'http://i.imgur.com/YmMDWT3.png', 'waiter'    
-    ],/*
-    foxy: [
-        ':foxy:' , 'http://i.imgur.com/ZvQVwAe.png', 'foxy sly'
-    ],*/
+    ],
     man: [
         ':man:', 'http://i.imgur.com/irXU7Pg.png', 'man'
     ],
@@ -1371,6 +1368,18 @@ var emoticon_3 = {
     ],
     smugass: [
     	':smugass:', 'http://i.imgur.com/L69XTz5.jpg', 'SMUGASS'
+    ],
+    breaddick: [
+        ':breaddick:', 'http://i.imgur.com/0OYbMFW.png', 'DICK OF BREAD'
+    ],
+    rblook: [
+        ':rblook:', 'http://i.imgur.com/Anbrdu5.png', 'REVIW BRAH'
+    ],
+    corruption1: [
+        ':corruption1:', 'http://i.imgur.com/Jjfx62X.png', 'CORRUPTION VINESAICE'
+    ],
+    hack: [
+        ':hack:', 'http://i.imgur.com/sB3nPl0.png', 'HACK BLASTARD'
     ]
 };
 
