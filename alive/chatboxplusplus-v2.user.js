@@ -1,11 +1,13 @@
 // ==UserScript==
-// @name        OH GOD
-// @description OH GOD I'M DOING IT AGAIN
+// @name        Chatbox++ 2.0
+// @description IT WORKS
 // @namespace   GOD@HELP.ME
 // @include     http://aimgames.forummotion.com/
-// @version     FUCKING CHRIST.2
+// @version     beta.5
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
+// @homepage    https://github.com/HulaSamsquanch/aimgames
+// @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
 // ==/UserScript==
 
 // JQuery chatbox frame document
