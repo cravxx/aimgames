@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.3.3
+// @version     beta.3.4
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -130,7 +130,7 @@ IDEAS:
     /**
      * my replacement for the insert_chatboxsmilies() function in en.js
      */
-    function initEmotesAsClickable(smilie_code, indiv) {
+    function initEmotesAsClickable(smilieLink, smilieCode, indiv) {
         $(indiv).click(function() {
             /**
              * on click, get the parent window (the chatbox) and put the smilie code into the message box
@@ -146,7 +146,7 @@ IDEAS:
                     msgBoxSplitBefore = msgBox.val().substr(0, $(msgBox).val().length);
                     msgBoxSplitAfter = '';
                 }
-                msgBox.val(msgBoxSplitBefore + ' ' + imgTag[0] + smilie_code + imgTag[1] + ' ' + msgBoxSplitAfter);
+                msgBox.val(msgBoxSplitBefore + ' ' + smilieCode + ' ' + msgBoxSplitAfter);
             }
             if (parent) {
                 var postBox = parent.$('textarea')[1];
@@ -160,7 +160,7 @@ IDEAS:
                 postBoxSplitBefore = postBoxVal.substr(0, postBoxVal.length);
                 postBoxSplitAfter = '';
 
-                postBox.value = postBoxSplitBefore + ' ' + postImgTag[0] + smilie_code + postImgTag[1] + ' ' + postBoxSplitAfter;
+                postBox.value = postBoxSplitBefore + ' ' + postImgTag[0] + smilieLink + postImgTag[1] + ' ' + postBoxSplitAfter;
             }
         });
         /**
@@ -491,7 +491,7 @@ IDEAS:
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
                 $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
-                initEmotesAsClickable(value[1], indiv);
+                initEmotesAsClickable(value[1], value[0], indiv);
                 across++;
                 if (across >= windowWidth) {
                     across = 0;
@@ -506,7 +506,7 @@ IDEAS:
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
                 $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
-                initEmotesAsClickable(value[1], indiv);
+                initEmotesAsClickable(value[1], value[0], indiv);
                 across++;
                 if (across >= windowWidth) {
                     across = 0;
@@ -521,7 +521,7 @@ IDEAS:
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
                 $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
-                initEmotesAsClickable(value[1], indiv);
+                initEmotesAsClickable(value[1], value[0], indiv);
                 across++;
                 if (across >= windowWidth) {
                     across = 0;
@@ -536,7 +536,7 @@ IDEAS:
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
                 $(indiv).append($(smilieHtml(quote + item + quote, twitch_e[index], item)));
-                initEmotesAsClickable(item, indiv);
+                initEmotesAsClickable(twitch_e[index], item, indiv);
                 across++;
                 if (across >= windowWidth) {
                     across = 0;
@@ -554,7 +554,7 @@ IDEAS:
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
                 $(indiv).append($(smilieHtml(value[1], value[1], value[0])));
-                initEmotesAsClickable(value[0], indiv);
+                initEmotesAsClickable(value[1], value[1], indiv);
                 across++;
                 if (across >= windowWidth) {
                     across = 0;
