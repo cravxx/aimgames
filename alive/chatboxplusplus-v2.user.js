@@ -81,14 +81,17 @@ var css = {
 }`
 };
 
-function checkForNewMessages() {
+function getNewMessages() {
   //c$.find('.chatbox_row_1.clearfix');
   //c$.find('.chatbox_row_1.clearfix');
   
   //or
   
-  oldMsgs = newMsgs;
   newMsgs = c$.find('#chatbox').children() - oldMsgs;
+}
+
+function resetNewMessages() {
+    oldMsgs = newMsgs;
 }
 
 var oldMsgs = 0;
@@ -129,18 +132,23 @@ function makeBox() {
   console.log('is at cbox - ' + (getScroll() > 1400) + ' new msgs - ' + newMsgs);
     
   if (getScroll() <= 1400) { //are we not at cbox (doesnt work in bchat, may bug in different resolutions) --- 1700 w/ console 1400 otherwise
+    getNewMessages(); //TODO put this in the mutationobserver
     if (newMsgs > 0) {
       if (newMsgs === 1)
         boxText.text('1 new msg');
       else
         boxText.text(newMsgs + ' new msgs');
       //show ribbon
-    } else {
+      theBox.toggleClass('invisibox', false);
+    } else { // there are no new messages or the archive is eating them
       //hide ribbon
+      theBox.toggleClass('invisibox', true);
     }
   } else {
-    //update msg count
+    // refresh msg count to 0
+    resetNewMessages();
     //hide ribbon
+    theBox.toggleClass('invisibox', true);
   }
 }
 
