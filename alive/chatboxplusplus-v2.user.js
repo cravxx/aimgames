@@ -87,7 +87,7 @@ function getNewMessages() {
   
   //or
   
-  newMsgs = c$.find('#chatbox').children() - oldMsgs;
+  newMsgs = chat.children().length - oldMsgs;
 }
 
 function resetNewMessages() {
