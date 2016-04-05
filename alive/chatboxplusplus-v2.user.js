@@ -86,13 +86,11 @@ function getNewMessages() {
   //c$.find('.chatbox_row_1.clearfix');
   
   //or
-  var tNewMsgs = chat.children().length - oldMsgs;
-  if (tNewMsgs > oldMsgs)
-    newMsgs = tNewMsgs;
+  newMsgs = chat.children().length - oldMsgs;
 }
 
-function resetNewMessages() {
-    oldMsgs = newMsgs;
+function resetNewMessages() { //TODO make this less crap possibly?
+    oldMsgs = chat.children().length; // was newMsgs... just noticed how shit my code is....
 }
 
 var oldMsgs = 0;
