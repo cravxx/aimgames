@@ -8,14 +8,14 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.3.3
+// @version     beta.3.4
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
 // @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
 // @grant       none
-// ==/UserScript==	
-/* SWEARIFY 2.0 
+// ==/UserScript==
+/* SWEARIFY 2.0
 - even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads it's own.
 
 'TO IMPLEMENT' LIST
@@ -28,15 +28,13 @@
 
 IDEAS:
     -   Slide the text effect buttons to the left and right instead of the sharp show/hide
-        this could be accomplished by wrapping elements with the class name '.hider' in a div and calling .slide or .animate 
-    
-    -   Possibly use prototype.js for... stuff? 
+        this could be accomplished by wrapping elements with the class name '.hider' in a div and calling .slide or .animate
+
+    -   Possibly use prototype.js for... stuff?
 
     -   Count total messages and characters typed (NSA pls)
 
-    -   Smilie window:  1. default window that opens up has a search bar, automagic update list (don't load the images, obviously)
-
-    -   A dedicated .css file 
+    -   A dedicated .css file
 
     -   Hashtag system? start or end a message with a hash tag and that message will get sent to my site. Clicking on the hash tag directs to a page where
         a list of the messages posted with that hashtag will be shown. Probably requires php.
@@ -52,7 +50,7 @@ IDEAS:
     var cssChat = 'overflow-x: hidden; left:141px;';
     var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;height: 100%;line-height: 200%;';
-    var cssImage = 'padding-top: 1px;'
+    var cssImage = 'padding-top: 1px;';
 
     var postButtonNum = 0;
 
@@ -73,7 +71,8 @@ IDEAS:
         "3": "Swearify 3",
         "4": "Twitch",
         "5": "---------",
-        "6": "Memes"
+        "6": "Memes",
+        "7": "Search"
     };
 
     var smilieBase = '<a href="javascript:void(0)" class="emotes"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
@@ -233,7 +232,7 @@ IDEAS:
                 filteringMethod = 1;
 
             /**
-             * what to do if the message has a link 
+             * what to do if the message has a link
              */
             if (httpLink > 0 || wwwLink > 0 || httpsLink > 0) {
                 var which = 0;
@@ -352,7 +351,7 @@ IDEAS:
         var buttons = [
             "CB_random",
             "CB_rainbow"
-        ]
+        ];
 
         for (var i = 0; i < buttons.length; i++) {
             if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') {
@@ -464,6 +463,69 @@ IDEAS:
             g = d.getElementsByTagName('body')[0],
             x = w.innerWidth || e.clientWidth || g.clientWidth;
         return x;
+    }
+
+    function searchResults(searchTerm) {
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
+        var massiveResults = [];
+        var massiveResultsTemp = [];
+
+        if(searchTerm.length > 0){
+            $.each(massiveObj, function(name, value) {
+                if (value[0].regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
+                    console.log(searchTerm + ' ' + value[0]);
+                    massiveResults.push({name: name, value1: value[0], value2: value[1]});
+                }
+            });
+            $.each(twitch_c, function(index, item) {
+                if (item.regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
+                    console.log(searchTerm + ' ' + item);
+                    massiveResults.push({name: item, value1: item, value2: twitch_e[index]});
+                }
+            });
+        }
+        console.log(JSON.stringify(massiveResults) + "\n" + massiveResults.length);
+
+        return massiveResults;
+    }
+
+    function showEmoticonArray(massiveArray, windowWidth){
+
+        var table;
+        //var windowWidth = 1;
+
+        if (!$('table')[2]) {
+            table = $('table')[0];
+        } else {
+            table = $('table')[2];
+        }
+        $(table).empty();
+
+        $(table).append(
+            $('<tbody></tbody>')
+        );
+        var tbody = $(table).find('tbody')[0];
+
+        var across = 0;
+        var down = 0;
+        $.each(massiveArray, function(index, item) {
+            $(tbody).append($('<tr></tr>'));
+            var row = $(tbody).find('tr')[down];
+            $(row).append('<td></td>');
+            var indiv = $(row).find('td')[across];
+            $(indiv).append($(smilieHtml(quote + item.value1 + quote, massiveArray[index].value2, item.name)));
+            initEmotesAsClickable(massiveArray[index].value2, item.value1, indiv);
+            across++;
+            if (across >= windowWidth) {
+                across = 0;
+                down++;
+            }
+        });
+    }
+
+    function memeSearcher() {
+        var tbody = $('td')[1];
+        $(tbody).prepend($('<input id="memeSearch">'));
     }
 
     function addSmilie(i, windowWidth) {
@@ -687,11 +749,19 @@ IDEAS:
                The separator goes here, hence +1
             */
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=5&mode=smilies_frame') {
+                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
                 addSmilie(6, Math.floor(wX() / 130) - 1);
                 window.onresize = function(event) {
                     addSmilie(6, Math.floor(wX() / 130) - 1);
                 };
+            }
+
+            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=7&mode=smilies' ||
+                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=7&mode=smilies_frame') {
+                memeSearcher();
+                $('#memeSearch').on('input', function() {
+                    showEmoticonArray(searchResults(this.value), Math.floor(wX() / 130) - 1);
+                });
             }
             if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
                 window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' ||
