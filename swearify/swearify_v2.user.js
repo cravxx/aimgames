@@ -75,9 +75,6 @@ IDEAS:
         "7": "Search"
     };
 
-    var smilieBase = '<a href="javascript:void(0)" class="emotes"><img title=\'_title\' src=\'_link\' alt=\'_title\' border=\'0\'></a>';
-    var quote = '\'';
-
     var specialCode = ['/exit', '/away', '/abs', '[code]'];
     var filteringCode = ['[b][/b]', '.'];
     var linkCode = ['http://', 'www.', 'https://'];
@@ -110,7 +107,40 @@ IDEAS:
         // Replace the old smilie image with a new one
     }
 
-    /** ROUGH HACK
+    /**
+     * ROUGH HACK
+     * sets some css for the reply /post so controls are visible
+     * what the fuck ip
+     */
+    function postPage() {
+        var clear = '';
+        var hide = 'display:none;';
+        if (getCookie('post_condition') == '1') {
+            postButtonNum = 1;
+            $('#text_edit').css('cssText', hide);
+            $('#html_edit').css('cssText', clear);
+        } else {
+            postButtonNum = 0;
+            $('#text_edit').css('cssText', clear);
+            $('#html_edit').css('cssText', hide);
+        }
+        $('#text_editor_cmd_switchmode').click(function() {
+            if (postButtonNum === 0) {
+                setCookie('post_condition', '1', 1);
+                postButtonNum = 1;
+                $('#text_edit').css('cssText', hide);
+                $('#html_edit').css('cssText', clear);
+            } else if (postButtonNum == 1) {
+                setCookie('post_condition', '0', 1);
+                postButtonNum = 0;
+                $('#text_edit').css('cssText', clear);
+                $('#html_edit').css('cssText', hide);
+            }
+        });
+    }
+
+    /**
+     * ROUGH HACK
      * sets some css for the buttons, especially for the hide button
      */
     function buttonCss() {
@@ -124,7 +154,6 @@ IDEAS:
         $('#click_area_hide').css('cssText', cssHide);
         $('.swearIcons').css('cssText', cssImage);
     }
-
 
     /**
      * my replacement for the insert_chatboxsmilies() function in en.js
@@ -171,6 +200,48 @@ IDEAS:
     }
 
     /**
+     * this returns a string of html based off smilieBase with inserted variables
+     */
+    function smilieHtml(title, link, text) {
+        return `<a href="javascript:void(0)" class="emotes"><img title="${title}" src="${link}" alt="${title}" border="0"></a>`;
+    }
+
+    /**
+     * returns what post box is available
+     */
+    function getPostMode() {
+        if ($('textarea')[1] === undefined)
+            return 0;
+        return 1;
+    }
+
+    /**
+     * check what buttons are selected and prevent a button from being clicked (return false) if it will interfere
+     */
+    function checkCheckedButtons(buttonCookie) {
+        var buttons = [
+            "CB_random",
+            "CB_rainbow"
+        ];
+
+        for (var i = 0; i < buttons.length; i++) {
+            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') {
+                window.alert("You can't do that! You already have " + buttons[i] + " selected!");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * add a text box in the window
+     */
+    function addSearchBox() {
+        var tbody = $('td')[1];
+        $(tbody).prepend($('<input id="emoteSearchBox">'));
+    }
+
+    /**
      * add in the new options to the dropdown menu in the smilie window
      */
     function appendOptions() {
@@ -187,14 +258,15 @@ IDEAS:
     }
 
     /**
-     * this returns a string of html based off smilieBase with inserted variables
+     * this is pretty arbitrary but it works
      */
-    function smilieHtml(smilie_code, smilie_url, smilie_text) {
-        var smilieComplete = smilieBase;
-        smilieComplete = smilieComplete.replace(new RegExp('_smilie', 'gi'), smilie_code);
-        smilieComplete = smilieComplete.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
-        smilieComplete = smilieComplete.replace(new RegExp('_link', 'gi'), smilie_url);
-        return smilieComplete;
+    function fitEmotesOnScreen() {
+        var w = window,
+            d = document,
+            e = d.documentElement,
+            g = d.getElementsByTagName('body')[0],
+            x = w.innerWidth || e.clientWidth || g.clientWidth;
+        return Math.floor(x / 130) - 1;
     }
 
     /**
@@ -261,13 +333,6 @@ IDEAS:
             }
             $('#message').val(oldMsg.replace(new RegExp(item, "gi"), newMsg));
         });
-    }
-
-    function getPostMode() {
-        if ($('textarea')[1] === undefined) {
-            return 0;
-        }
-        return 1;
     }
 
     function emoticonPost() {
@@ -341,25 +406,6 @@ IDEAS:
         if ($("#message").val().indexOf('>') === 0) {
             $("#message").val(greenText[0] + $("#message").val() + greenText[1]);
         }
-    }
-
-    /**
-     *      begin button functions
-     */
-
-    function checkCheckedButtons(buttonCookie) {
-        var buttons = [
-            "CB_random",
-            "CB_rainbow"
-        ];
-
-        for (var i = 0; i < buttons.length; i++) {
-            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') {
-                window.alert("You can't do that! You already have " + buttons[i] + " selected!");
-                return false;
-            }
-        }
-        return true;
     }
 
     /**
@@ -456,44 +502,40 @@ IDEAS:
         });
     }
 
-    function wX() {
-        var w = window,
-            d = document,
-            e = d.documentElement,
-            g = d.getElementsByTagName('body')[0],
-            x = w.innerWidth || e.clientWidth || g.clientWidth;
-        return x;
-    }
-
-    function searchResults(searchTerm) {
+    function search(searchTerm) {
         var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
         var massiveResults = [];
         var massiveResultsTemp = [];
 
-        if(searchTerm.length > 0){
+        if (searchTerm.length > 0) {
             $.each(massiveObj, function(name, value) {
                 if (value[0].regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
-                    console.log(searchTerm + ' ' + value[0]);
-                    massiveResults.push({name: name, value1: value[0], value2: value[1]});
+                    massiveResults.push({
+                        name: name,
+                        value1: value[0],
+                        value2: value[1]
+                    });
                 }
             });
             $.each(twitch_c, function(index, item) {
                 if (item.regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
-                    console.log(searchTerm + ' ' + item);
-                    massiveResults.push({name: item, value1: item, value2: twitch_e[index]});
+                    massiveResults.push({
+                        name: item,
+                        value1: item,
+                        value2: twitch_e[index]
+                    });
                 }
             });
         }
-        console.log(JSON.stringify(massiveResults) + "\n" + massiveResults.length);
 
         return massiveResults;
     }
 
-    function showEmoticonArray(massiveArray, windowWidth){
-
+    function displayResults(massiveArray, windowWidth) {
         var table;
-        //var windowWidth = 1;
-
+        /**
+         * use a different table if one isn't available
+         */
         if (!$('table')[2]) {
             table = $('table')[0];
         } else {
@@ -513,7 +555,7 @@ IDEAS:
             var row = $(tbody).find('tr')[down];
             $(row).append('<td></td>');
             var indiv = $(row).find('td')[across];
-            $(indiv).append($(smilieHtml(quote + item.value1 + quote, massiveArray[index].value2, item.name)));
+            $(indiv).append($(smilieHtml(item.value1, massiveArray[index].value2, item.name)));
             initEmotesAsClickable(massiveArray[index].value2, item.value1, indiv);
             across++;
             if (across >= windowWidth) {
@@ -523,14 +565,11 @@ IDEAS:
         });
     }
 
-    function memeSearcher() {
-        var tbody = $('td')[1];
-        $(tbody).prepend($('<input id="memeSearch">'));
-    }
-
-    function addSmilie(i, windowWidth) {
+    function displaySmilies(i, windowWidth) {
         var table;
-
+        /**
+         * use a different table if one isn't available
+         */
         if (!$('table')[2]) {
             table = $('table')[0];
             windowWidth = 1;
@@ -552,7 +591,7 @@ IDEAS:
                 var row = $(tbody).find('tr')[down];
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
-                $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+                $(indiv).append($(smilieHtml(value[0], value[1], value[2])));
                 initEmotesAsClickable(value[1], value[0], indiv);
                 across++;
                 if (across >= windowWidth) {
@@ -567,7 +606,7 @@ IDEAS:
                 var row = $(tbody).find('tr')[down];
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
-                $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+                $(indiv).append($(smilieHtml(value[0], value[1], value[2])));
                 initEmotesAsClickable(value[1], value[0], indiv);
                 across++;
                 if (across >= windowWidth) {
@@ -582,7 +621,7 @@ IDEAS:
                 var row = $(tbody).find('tr')[down];
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
-                $(indiv).append($(smilieHtml(quote + value[0] + quote, value[1], value[2])));
+                $(indiv).append($(smilieHtml(value[0], value[1], value[2])));
                 initEmotesAsClickable(value[1], value[0], indiv);
                 across++;
                 if (across >= windowWidth) {
@@ -597,8 +636,8 @@ IDEAS:
                 var row = $(tbody).find('tr')[down];
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
-                $(indiv).append($(smilieHtml(quote + item + quote, twitch_e[index], item)));
-                initEmotesAsClickable(twitch_e[index], ' '+item+' ', indiv);
+                $(indiv).append($(smilieHtml(item, twitch_e[index], item)));
+                initEmotesAsClickable(twitch_e[index], ' ' + item + ' ', indiv);
                 across++;
                 if (across >= windowWidth) {
                     across = 0;
@@ -607,8 +646,8 @@ IDEAS:
             });
         }
         /*
-	       The separator goes here, hence +1
-	    */
+           The separator goes here, hence +1
+        */
         if (i == 6) {
             $.each(maymay, function(name, value) {
                 $(tbody).append($('<tr></tr>'));
@@ -662,33 +701,6 @@ IDEAS:
         });
     }
 
-    function postPage() {
-        var clear = '';
-        var hide = 'display:none;';
-        if (getCookie('post_condition') == '1') {
-            postButtonNum = 1;
-            $('#text_edit').css('cssText', hide);
-            $('#html_edit').css('cssText', clear);
-        } else {
-            postButtonNum = 0;
-            $('#text_edit').css('cssText', clear);
-            $('#html_edit').css('cssText', hide);
-        }
-        $('#text_editor_cmd_switchmode').click(function() {
-            if (postButtonNum === 0) {
-                setCookie('post_condition', '1', 1);
-                postButtonNum = 1;
-                $('#text_edit').css('cssText', hide);
-                $('#html_edit').css('cssText', clear);
-            } else if (postButtonNum == 1) {
-                setCookie('post_condition', '0', 1);
-                postButtonNum = 0;
-                $('#text_edit').css('cssText', clear);
-                $('#html_edit').css('cssText', hide);
-            }
-        });
-    }
-
     /**
      * this will run after every enter and insert keypress in the message box
      */
@@ -719,30 +731,30 @@ IDEAS:
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
                 window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
                 console.log("done");
-                addSmilie(1, Math.floor(wX() / 130) - 1);
+                displaySmilies(1, fitEmotesOnScreen());
                 window.onresize = function(event) {
-                    addSmilie(1, Math.floor(wX() / 130) - 1);
+                    displaySmilies(1, fitEmotesOnScreen());
                 };
             }
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies' ||
                 window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=2&mode=smilies_frame') {
-                addSmilie(2, Math.floor(wX() / 130) - 1);
+                displaySmilies(2, fitEmotesOnScreen());
                 window.onresize = function(event) {
-                    addSmilie(2, Math.floor(wX() / 130) - 1);
+                    displaySmilies(2, fitEmotesOnScreen());
                 };
             }
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies' ||
                 window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=3&mode=smilies_frame') {
-                addSmilie(3, Math.floor(wX() / 130) - 1);
+                displaySmilies(3, fitEmotesOnScreen());
                 window.onresize = function(event) {
-                    addSmilie(3, Math.floor(wX() / 130) - 1);
+                    displaySmilies(3, fitEmotesOnScreen());
                 };
             }
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies' ||
                 window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=4&mode=smilies_frame') {
-                addSmilie(4, Math.floor(wX() / 130) - 1);
+                displaySmilies(4, fitEmotesOnScreen());
                 window.onresize = function(event) {
-                    addSmilie(4, Math.floor(wX() / 130) - 1);
+                    displaySmilies(4, fitEmotesOnScreen());
                 };
             }
             /*
@@ -750,17 +762,17 @@ IDEAS:
             */
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
                 window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
-                addSmilie(6, Math.floor(wX() / 130) - 1);
+                displaySmilies(6, fitEmotesOnScreen());
                 window.onresize = function(event) {
-                    addSmilie(6, Math.floor(wX() / 130) - 1);
+                    displaySmilies(6, fitEmotesOnScreen());
                 };
             }
 
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=7&mode=smilies' ||
                 window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=7&mode=smilies_frame') {
-                memeSearcher();
-                $('#memeSearch').on('input', function() {
-                    showEmoticonArray(searchResults(this.value), Math.floor(wX() / 130) - 1);
+                addSearchBox();
+                $('#emoteSearchBox').on('input', function() {
+                    displayResults(search(this.value), fitEmotesOnScreen());
                 });
             }
             if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
