@@ -45,7 +45,7 @@ IDEAS:
 
 (function() {
 
-	    "use strict";
+    "use strict";
 
 	var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
 	var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;';
