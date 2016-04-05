@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.3.4
+// @version     beta.3.3
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -554,7 +554,7 @@ IDEAS:
                 $(row).append('<td></td>');
                 var indiv = $(row).find('td')[across];
                 $(indiv).append($(smilieHtml(value[1], value[1], value[0])));
-                initEmotesAsClickable(value[1], value[1], indiv);
+                initEmotesAsClickable(value[1], value[0], indiv);
                 across++;
                 if (across >= windowWidth) {
                     across = 0;
