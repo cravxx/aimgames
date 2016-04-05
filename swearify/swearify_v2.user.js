@@ -8,13 +8,13 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.3.1
+// @version     beta.3.2
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
 // @supportURL  https://github.com/HulaSamsquanch/aimgames/issues
 // @grant       none
-// ==/UserScript==
+// ==/UserScript==	
 
 /* SWEARIFY 2.0 
 - even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads it's own.
@@ -54,9 +54,19 @@ IDEAS:
 	var cssChat = 'overflow-x: hidden; left:141px;';
 	var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
 	var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;height: 100%;line-height: 200%;';
-	var cssImage = 'padding-top: 1px;'
+	var cssImage = 'padding-top: 1px;'	
+	
+  var postButtonNum = 0;
 
 	var imgTag = [ '[img]', '[/img]' ];
+	
+	/*
+	 * use an html tag so there can be a title
+	 */
+	var postImgTag = [
+    '<img title=\'posted by swearify\' src=\'', '\'</img>'
+  ];
+	
 	var greenText = [ '[color=#789922]', '[/color]' ];
 
 	var smilieOptions = { 
@@ -137,7 +147,7 @@ IDEAS:
 	            msgBoxSplitBefore = msgBox.val().substr(0,$(msgBox).val().length);
 	            msgBoxSplitAfter = '';
 	        }        
-	        msgBox.val(msgBoxSplitBefore + smilie_code + msgBoxSplitAfter);        
+	        msgBox.val(msgBoxSplitBefore +  ' ' + smilie_code +  ' ' + msgBoxSplitAfter);        
 	    });
 	    /**
 	     * fixes the bug where smilies are added more than once
@@ -236,6 +246,33 @@ IDEAS:
 	    });  
 	}
 
+	function getPostMode(){
+		if($('textarea')[1] === undefined){
+			return 0;
+		}
+		return 1;
+	}
+	
+	function emoticonPost() {
+	    var oldMsg;
+	    var newMsg;		
+		var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
+		
+		$.each(massiveObj, function(name, value) {
+			oldMsg = $('textarea')[getPostMode()].value;			
+			if (oldMsg.regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
+				$('textarea')[getPostMode()].value = oldMsg.replace(new RegExp(value[0], 'gi'), postImgTag[0] + value[1] +  postImgTag[1]);
+			}
+		});
+		
+		$.each(twitch_c, function(index, item) {
+			oldMsg = $('textarea')[getPostMode()].value;			
+			if (oldMsg.regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
+				$('textarea')[getPostMode()].value = oldMsg.replace(new RegExp('\\b' + item + '\\b', 'g'), postImgTag[0] + twitch_e[index] + postImgTag[1]);
+			}
+		});    
+  	}
+	
 	function emoticon() {
 	    var newMsg;
 	    var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
@@ -254,6 +291,15 @@ IDEAS:
 	        }
 	    });
 	}
+	
+	function memePost() {
+	    $.each(maymay, function(name, value) {
+	      if ($('textarea')[getPostMode()].value.regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
+        	var newMsg = $('textarea')[getPostMode()].value.replace(new RegExp(value[0], 'gi'), value[1]);
+	       	$('textarea')[getPostMode()].value = newMsg;
+	      }
+	    });    
+	}
 
 	function meme() {
 	    $.each(maymay, function(name, value) {
@@ -264,6 +310,16 @@ IDEAS:
 	    });    
 	}
 
+	function greentextPost() {
+	    var msgArray = $('textarea')[getPostMode()].value.split('\n');
+	    for (var i = 0; i < msgArray.length; i++) {
+	        if (msgArray[i].indexOf('>') === 0) {
+	            msgArray[i] = greenText[0] + msgArray[i] + greenText[1];
+	            $('textarea')[getPostMode()].value = msgArray.join('<br>');
+	        }
+	    }
+  	}
+	
 	function greentext() {    
 	    if ($("#message").val().indexOf('>') === 0) {
 	        $("#message").val(greenText[0] + $("#message").val() + greenText[1]);
@@ -513,9 +569,36 @@ IDEAS:
 	        takeScreenshot();
 	    });
 	}
-
+	
+	function postPage() {
+	    var clear = '';
+	    var hide = 'display:none;';
+	    if (getCookie('post_condition') == '1') {
+	        postButtonNum = 1;
+	        $('#text_edit').css('cssText', hide);
+		  	$('#html_edit').css('cssText', clear);
+	    } else {
+	        postButtonNum = 0;
+	        $('#text_edit').css('cssText', clear);
+		  	$('#html_edit').css('cssText', hide);
+	    }
+	    $('#text_editor_cmd_switchmode').click( function() {
+	        if (postButtonNum === 0) {
+	            setCookie('post_condition', '1', 1);
+	            postButtonNum = 1;
+	            $('#text_edit').css('cssText', hide);
+			  	$('#html_edit').css('cssText', clear);
+	        } else if (postButtonNum == 1) {
+	            setCookie('post_condition', '0', 1);
+	            postButtonNum = 0;
+	            $('#text_edit').css('cssText', clear);
+		      	$('#html_edit').css('cssText', hide);
+	        }
+	    });
+  	}
+	
 	/**
-	 * this will run after every keypress
+	 * this will run after every enter and insert keypress in the message box
 	 */
 	function run() {
 	    swear();
@@ -524,6 +607,15 @@ IDEAS:
 	    greentext();  
 	    if (Cookies.get('CB_rainbow') === '1') rainbow();
 	    if (Cookies.get('CB_random') === '1') random();    
+	}
+	
+	/**
+	 * this will run after every enter keypress in the texteditor
+	 */
+	function runPost() {
+		emoticonPost();
+		greentextPost();
+		memePost();
 	}
 
 	/**
@@ -572,7 +664,7 @@ IDEAS:
 			  window.location.href === 'http://aimgames.forummotion.com/chatbox' || 
 			  window.location.href === 'http://aimgames.forummotion.com/') {
 				addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
-	            addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
+      			addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
 				editCss();                   
 				/**/
 				addHider();
@@ -595,6 +687,13 @@ IDEAS:
 				$('#message').on('keydown', function(e) {
 				  if (e.which === 13 || e.which === 45) run();
 				});
+			} else {
+				if (window.location.href.indexOf('aimgames.forummotion.com/post') != -1) postPage();
+				
+				/**/
+				$('textarea').on('keydown', function(e) {
+				  if (e.which === 13) runPost();
+				});				
 			}		
 		});  
 	});
