@@ -86,8 +86,9 @@ function getNewMessages() {
   //c$.find('.chatbox_row_1.clearfix');
   
   //or
-  
-  newMsgs = chat.children().length - oldMsgs;
+  var tNewMsgs = chat.children().length - oldMsgs;
+  if (tNewMsgs > oldMsgs)
+    newMsgs = tNewMsgs;
 }
 
 function resetNewMessages() {
@@ -130,9 +131,10 @@ function getScroll() { //// http://stackoverflow.com/questions/6691558/how-do-i-
 function makeBox() {
   
   console.log('is at cbox - ' + (getScroll() > 1400) + ' new msgs - ' + newMsgs);
-    
+  
+  getNewMessages(); //TODO put this in the mutationobserver
+  
   if (getScroll() <= 1400) { //are we not at cbox (doesnt work in bchat, may bug in different resolutions) --- 1700 w/ console 1400 otherwise
-    getNewMessages(); //TODO put this in the mutationobserver
     if (newMsgs > 0) {
       if (newMsgs === 1)
         boxText.text('1 new msg');
