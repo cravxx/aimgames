@@ -511,9 +511,6 @@ IDEAS:
         var massiveResults = [];
         var massiveResultsTemp = [];
 
-        /**
-         * by default, say nothing. tack on notifs if required.
-         */
         $('#emoticonNotif').text('');
 
         if (searchTerm.length > 0) {
@@ -797,8 +794,17 @@ IDEAS:
             if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
                 window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
                 addSearchBox();
-                $('#emoteSearchBox').on('input', function() {
-                    displayResults(search(this.value), fitEmotesOnScreen());
+
+                /*
+                 * add in a keyup timer so, say, if you type A S S H O L E the search method doesn't try to search for A, AS, ASS, etc.
+                 */
+                var timeAmongUs;
+                $('#emoteSearchBox').on('keyup', function() {
+                    if (timeAmongUs) clearTimeout(timeAmongUs)
+                    var passItDown = this.value;
+                    timeAmongUs = setTimeout(function() {
+                        displayResults(search(passItDown), fitEmotesOnScreen());
+                    }, 250);
                 });
             }
             if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
