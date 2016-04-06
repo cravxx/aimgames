@@ -99,7 +99,7 @@ IDEAS:
         // Replace the old smilie image with a new one
     }
 
-    function hijackEmoticonButton(){
+    function hijackEmoticonButton() {
         $("#divsmilies").click(function(event) {
             var scrX = (event.screenX - 270);
             var scrY = (event.screenY - 380);
@@ -245,7 +245,9 @@ IDEAS:
      */
     function addSearchBox() {
         var tbody = $('td')[1];
-        $(tbody).prepend($('<label style="font-size: 13px; font-weight: 900;">Swear Search ™</label><input id="emoteSearchBox" style="margin: 15px;">'));
+        $(tbody).css('background', 'linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("http://daffeinatek.byethost32.com/lastfm/resources/lighthole.gif")');
+        $(tbody).css('background-size', '100%');
+        $(tbody).prepend($('<label style="font-size: 13px; font-weight: 900;">Swear Search ™</label><input id="emoteSearchBox" style="margin: 15px;border-color: black;">'));
     }
 
     /**
