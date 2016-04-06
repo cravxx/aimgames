@@ -59,13 +59,12 @@ IDEAS:
     var greenText = ['[color=#789922]', '[/color]'];
 
     var smilieOptions = {
-        "1": "Swearify 1",
-        "2": "Swearify 2",
-        "3": "Swearify 3",
-        "4": "Twitch",
-        "5": "---------",
-        "6": "Memes",
-        "7": "Search"
+        '1': 'Swearify 1',
+        '2': 'Swearify 2',
+        '3': 'Swearify 3',
+        '4': 'Twitch',
+        '5': 'Memes',
+        '6': 'Search'
     };
 
     var specialCode = ['/exit', '/away', '/abs', '[code]'];
@@ -98,6 +97,14 @@ IDEAS:
         // Remove the spacer to the left of the "Message" label
         $('[src="http://illiweb.com/fa/subsilver/wysiwyg/smilie.gif"]').attr('src', 'http://i.imgur.com/47NbRiV.gif');
         // Replace the old smilie image with a new one
+    }
+
+    function hijackEmoticonButton(){
+        $("#divsmilies").click(function(event) {
+            var scrX = (event.screenX - 270);
+            var scrY = (event.screenY - 380);
+            window.open('/post?categ=6&mode=smilies', 'chatbox_smilies', 'toolbar=no,menubar=no,personalbar=no,width=350,height=300,scrollbars=yes,resizable=yes,left=' + scrX + ',top=' + scrY);
+        });
     }
 
     /**
@@ -238,7 +245,7 @@ IDEAS:
      */
     function addSearchBox() {
         var tbody = $('td')[1];
-        $(tbody).prepend($('<input id="emoteSearchBox">'));
+        $(tbody).prepend($('<label style="font-size: 13px; font-weight: 900;">Swear Search ™</label><input id="emoteSearchBox" style="margin: 15px;">'));
     }
 
     /**
@@ -246,14 +253,9 @@ IDEAS:
      */
     function appendOptions() {
         $.each(smilieOptions, function(key, value) {
-            if (key == 5)
-                $('[name="categ"]').append($('<option disabled>', {
-                    value: key
-                }).text(value));
-            else
-                $('[name="categ"]').append($('<option>', {
-                    value: key
-                }).text(value));
+            $('[name="categ"]').append($('<option>', {
+                value: key
+            }).text(value));
         });
     }
 
@@ -350,7 +352,7 @@ IDEAS:
         $.each(twitch_c, function(index, item) {
             oldMsg = $('textarea')[getPostMode()].value;
             if (oldMsg.regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp('\\b' + item + '\\b', 'g'), postImgTag(twitch_e[index]);
+                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp('\\b' + item + '\\b', 'g'), postImgTag(twitch_e[index]));
             }
         });
     }
@@ -644,10 +646,8 @@ IDEAS:
                 }
             });
         }
-        /*
-           The separator goes here, hence +1
-        */
-        if (i == 6) {
+
+        if (i == 5) {
             $.each(maymay, function(name, value) {
                 $(tbody).append($('<tr></tr>'));
                 var row = $(tbody).find('tr')[down];
@@ -703,7 +703,7 @@ IDEAS:
     /**
      * this will run after every enter and insert keypress in the message box
      */
-    function run() {
+    function runChat() {
         swear();
         emoticon();
         meme();
@@ -756,19 +756,15 @@ IDEAS:
                     displaySmilies(4, fitEmotesOnScreen());
                 };
             }
-            /*
-               The separator goes here, hence +1
-            */
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
-                displaySmilies(6, fitEmotesOnScreen());
+            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies' ||
+                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=5&mode=smilies_frame') {
+                displaySmilies(5, fitEmotesOnScreen());
                 window.onresize = function(event) {
-                    displaySmilies(6, fitEmotesOnScreen());
+                    displaySmilies(5, fitEmotesOnScreen());
                 };
             }
-
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=7&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=7&mode=smilies_frame') {
+            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
+                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
                 addSearchBox();
                 $('#emoteSearchBox').on('input', function() {
                     displayResults(search(this.value), fitEmotesOnScreen());
@@ -792,6 +788,9 @@ IDEAS:
                 /**/
                 buttonCss();
 
+                /**/
+                hijackEmoticonButton();
+
                 /* screenshot feature only works in chrome, so I'll add an if statement
                  */
                 if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
@@ -802,7 +801,7 @@ IDEAS:
 
                 /**/
                 $('#message').on('keydown', function(e) {
-                    if (e.which === 13 || e.which === 45) run();
+                    if (e.which === 13 || e.which === 45) runChat();
                 });
             } else {
                 if (window.location.href.indexOf('aimgames.forummotion.com/post') != -1) postPage();
