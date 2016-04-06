@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.3.5
+// @version     beta.3.6
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -247,7 +247,7 @@ IDEAS:
         var tbody = $('td')[1];
         $(tbody).css('background', 'linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("http://daffeinatek.byethost32.com/lastfm/resources/lighthole.gif")');
         $(tbody).css('background-size', '100%');
-        $(tbody).prepend($('<label style="font-size: 13px; font-weight: 900;">Swear Search ™</label><input id="emoteSearchBox" style="margin: 15px;border-color: black;">'));
+        $(tbody).prepend($('<label style="font-size: 13px; font-weight: 900;">Swear Search ™</label><input id="emoteSearchBox" style="margin: 15px;border-color: black;"><label id="emoticonNotif" style="font-size: 9px;color: red;display: block;margin-bottom: 15px;font-weight: 600;">search something, shitmongrel</label>'));
     }
 
     /**
@@ -511,25 +511,54 @@ IDEAS:
         var massiveResults = [];
         var massiveResultsTemp = [];
 
+        /**
+         * by default, say nothing. tack on notifs if required.
+         */
+        $('#emoticonNotif').text('');
+
         if (searchTerm.length > 0) {
             $.each(massiveObj, function(name, value) {
                 if (value[0].regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
-                    massiveResults.push({
-                        name: name,
-                        value1: value[0],
-                        value2: value[1]
-                    });
+                    if (massiveResults.length >= 104) {
+                        /*
+                         * if there's >= 104 elements, BREAK OUT
+                         */
+                        $('#emoticonNotif').text('too many results, capped at 104');
+                        return false;
+                    } else {
+                        /*
+                         * if not, push another one. and another one. and another one.
+                         */
+                        massiveResults.push({
+                            name: name,
+                            value1: value[0],
+                            value2: value[1]
+                        });
+                    }
                 }
             });
             $.each(twitch_c, function(index, item) {
                 if (item.regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
-                    massiveResults.push({
-                        name: item,
-                        value1: item,
-                        value2: twitch_e[index]
-                    });
+                    if (massiveResults.length >= 104) {
+                        /*
+                         * if there's >= 104 elements, BREAK OUT
+                         */
+                        $('#emoticonNotif').text('too many results, capped at 104');
+                        return false;
+                    } else {
+                        /*
+                         * if not, push another one. and another one. and another one.
+                         */
+                        massiveResults.push({
+                            name: item,
+                            value1: item,
+                            value2: twitch_e[index]
+                        });
+                    }
                 }
             });
+        } else {
+            $('#emoticonNotif').text('search something, shitmongrel');
         }
         return massiveResults;
     }
