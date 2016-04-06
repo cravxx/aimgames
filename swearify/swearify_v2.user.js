@@ -56,13 +56,6 @@ IDEAS:
 
     var imgTag = ['[img]', '[/img]'];
 
-    /*
-     * use an html tag so there can be a title
-     */
-    var postImgTag = [
-        '<img title=\'posted by swearify\' src=\'', '\'</img>'
-    ];
-
     var greenText = ['[color=#789922]', '[/color]'];
 
     var smilieOptions = {
@@ -188,7 +181,7 @@ IDEAS:
                 postBoxSplitBefore = postBoxVal.substr(0, postBoxVal.length);
                 postBoxSplitAfter = '';
 
-                postBox.value = postBoxSplitBefore + postImgTag[0] + smilieLink + postImgTag[1] + postBoxSplitAfter;
+                postBox.value = postBoxSplitBefore + postImgTag(smilieLink) + postBoxSplitAfter;
             }
         });
         /**
@@ -204,6 +197,13 @@ IDEAS:
      */
     function smilieHtml(title, link, text) {
         return `<a href="javascript:void(0)" class="emotes"><img title="${title}" src="${link}" alt="${title}" border="0"></a>`;
+    }
+
+    /**
+     * this returns a post img tag
+     */
+    function postImgTag(link) {
+        return `<img title="posted by swearify" src="${link}"></img>`;
     }
 
     /**
@@ -226,7 +226,7 @@ IDEAS:
 
         for (var i = 0; i < buttons.length; i++) {
             if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') {
-                window.alert("You can't do that! You already have " + buttons[i] + " selected!");
+                window.alert(`You can't do that! You already have ${buttons[i]} selected!`);
                 return false;
             }
         }
@@ -343,14 +343,14 @@ IDEAS:
         $.each(massiveObj, function(name, value) {
             oldMsg = $('textarea')[getPostMode()].value;
             if (oldMsg.regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp(value[0], 'gi'), postImgTag[0] + value[1] + postImgTag[1]);
+                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp(value[0], 'gi'), postImgTag(value[1]));
             }
         });
 
         $.each(twitch_c, function(index, item) {
             oldMsg = $('textarea')[getPostMode()].value;
             if (oldMsg.regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp('\\b' + item + '\\b', 'g'), postImgTag[0] + twitch_e[index] + postImgTag[1]);
+                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp('\\b' + item + '\\b', 'g'), postImgTag(twitch_e[index]);
             }
         });
     }
