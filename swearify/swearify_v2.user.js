@@ -220,8 +220,8 @@ IDEAS:
      */
     function checkCheckedButtons(buttonCookie) {
         var buttons = [
-            "CB_random",
-            "CB_rainbow"
+            'CB_random',
+            'CB_rainbow'
         ];
 
         for (var i = 0; i < buttons.length; i++) {
@@ -331,7 +331,7 @@ IDEAS:
                     newMsg = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
                 }
             }
-            $('#message').val(oldMsg.replace(new RegExp(item, "gi"), newMsg));
+            $('#message').val(oldMsg.replace(new RegExp(item, 'gi'), newMsg));
         });
     }
 
@@ -360,16 +360,16 @@ IDEAS:
         var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
 
         $.each(massiveObj, function(name, value) {
-            if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                newMsg = $("#message").val().replace(new RegExp(value[0], 'gi'), imgTag[0] + value[1] + imgTag[1]);
+            if ($('#message').val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
+                newMsg = $('#message').val().replace(new RegExp(value[0], 'gi'), imgTag[0] + value[1] + imgTag[1]);
                 $('#message').val(newMsg);
             }
         });
 
         $.each(twitch_c, function(index, item) {
-            if ($("#message").val().regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-                newMsg = $("#message").val().replace(new RegExp('\\b' + item + '\\b', 'g'), imgTag[0] + twitch_e[index] + imgTag[1]);
-                $("#message").val(newMsg);
+            if ($('#message').val().regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
+                newMsg = $('#message').val().replace(new RegExp('\\b' + item + '\\b', 'g'), imgTag[0] + twitch_e[index] + imgTag[1]);
+                $('#message').val(newMsg);
             }
         });
     }
@@ -385,8 +385,8 @@ IDEAS:
 
     function meme() {
         $.each(maymay, function(name, value) {
-            if ($("#message").val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                var newMsg = $("#message").val().replace(new RegExp(value[0], 'gi'), value[1]);
+            if ($('#message').val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
+                var newMsg = $('#message').val().replace(new RegExp(value[0], 'gi'), value[1]);
                 $('#message').val(newMsg);
             }
         });
@@ -403,8 +403,8 @@ IDEAS:
     }
 
     function greentext() {
-        if ($("#message").val().indexOf('>') === 0) {
-            $("#message").val(greenText[0] + $("#message").val() + greenText[1]);
+        if ($('#message').val().indexOf('>') === 0) {
+            $('#message').val(greenText[0] + $("#message").val() + greenText[1]);
         }
     }
 
@@ -412,9 +412,9 @@ IDEAS:
      * This button will hide and show the rest of the buttons on click
      */
     function addHider() {
-        var where = $(".text-styles tr")[0];
+        var where = $('.text-styles tr')[0];
 
-        $(where).prepend($("<td id='hide_button' class='fontbutton'></td>"));
+        $(where).prepend($('<td id="hide_button" class="fontbutton"></td>'));
 
         var whereTd = $(where).find('td');
         $(whereTd[0]).append(
@@ -422,7 +422,7 @@ IDEAS:
         );
 
         $('#click_area_hide').click(function() {
-            if (!$('.hider').is(":visible")) {
+            if (!$('.hider').is(':visible')) {
                 $('.hider').show();
                 $('#click_area_hide').text('>');
                 Cookies.set('CB_hide', '0');
@@ -439,9 +439,9 @@ IDEAS:
     }
 
     function addRainbow() {
-        var where = $(".text-styles tr")[0];
+        var where = $('.text-styles tr')[0];
 
-        $(where).prepend($("<td id='rainbow_button' class='fontbutton hider'></td>"));
+        $(where).prepend($('<td id="rainbow_button" class="fontbutton hider"></td>'));
 
         var whereTd = $(where).find('td');
         $(whereTd[0]).append(
@@ -469,13 +469,13 @@ IDEAS:
     }
 
     function random() {
-        $("#message").val(randomText($("#message").val()));
+        $('#message').val(randomText($('#message').val()));
     }
 
     function addRandom() {
-        var where = $(".text-styles tr")[0];
+        var where = $('.text-styles tr')[0];
 
-        $(where).prepend($("<td id='random_button' class='fontbutton hider'></td>"));
+        $(where).prepend($('<td id="random_button" class="fontbutton hider"></td>'));
 
         var whereTd = $(where).find('td');
         $(whereTd[0]).append(
@@ -527,7 +527,6 @@ IDEAS:
                 }
             });
         }
-
         return massiveResults;
     }
 
@@ -671,16 +670,16 @@ IDEAS:
     function takeScreenshot() {
         html2canvas(document.body, {
             onrendered: function(canvas) {
-                var dataURL = canvas.toDataURL("image/png");
+                var dataURL = canvas.toDataURL('image/png');
                 $('<div></div>').dialog({
                     modal: true,
-                    title: "View Screenshot",
+                    title: 'View Screenshot',
                     open: function() {
-                        $(this).html('<a target=\'_blank\' href=' + dataURL + '>Click to Open</a>');
+                        $(this).html(`<a target='_blank' href='${dataURL}'>Click to Open</a>`);
                     },
                     buttons: {
                         Ok: function() {
-                            $(this).dialog("close");
+                            $(this).dialog('close');
                         }
                     },
                     close: function(event, ui) {
