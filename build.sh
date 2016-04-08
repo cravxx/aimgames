@@ -36,6 +36,7 @@ cd ..
 #Argument 1 is the file that will be output, argument 2 is the file that will be input, argument 3 is the number of lines to be kept from the start of the file.
 #../ means "go back one folder"
 sh compile.sh ../bin/swearify.compiled.user.js "../swearify/swearify.user.js" 15 || exit 1
+sh compile.sh ../bin/swearify_v2.compiled.user.js "../swearify/swearify_v2.user.js" 17 || exit 1
 sh compile.sh ../bin/alive.compiled.user.js "../alive/alive.user.js" 8 || exit 1
 sh compile.sh ../bin/chatboxplusplus.compiled.user.js "../alive/chatboxplusplus.user.js" 9 || exit 1
 sh compile.sh ../bin/chameleon.compiled.user.js "../chameleon/chameleon.user.js" 11 || exit 1
@@ -44,6 +45,7 @@ sh compile.sh ../bin/chameleon_vampire.compiled.user.js "../chameleon/chameleon_
 sh compile.sh ../bin/accountassist.compiled.user.js "../other/accountassist.user.js" 11 || exit 1
 sh compile.sh ../bin/ratebot.compiled.user.js "../other/ratebot.user.js" 9 || exit 1
 sh compile.sh ../bin/imagereuploader.compiled.user.js "../swearify/imagereuploader.user.js" 9 || exit 1
+sh compile.sh ../bin/swearify_image_utility.compiled.user.js "../swearify/swearify_image_utility.user.js" 8 || exit 1
 sh increment.sh || exit 1
 
 #return to home
