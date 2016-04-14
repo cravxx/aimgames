@@ -30,15 +30,17 @@ on_success:
  - git add bin/*
 # add custom files (to be beautified) here. unfortunately idk how to read them from the build.bat
 # so you'll have to add them twice...
- - git add alive/alive.user.js
- - git add alive/chatboxplusplus.user.js
- - git add chameleon/chameleon.user.js
- - git add chameleon/chameleon_random.user.js
- - git add chameleon/chameleon_vampire.user.js
- - git add other/accountassist.user.js
- - git add other/ratebot.user.js
- - git add swearify/imagereuploader.user.js
- - git add swearify/swearify.user.js
+#
+# TODO: the beautify script is causing issue #71
+# - git add alive/alive.user.js
+# - git add alive/chatboxplusplus.user.js
+# - git add chameleon/chameleon.user.js
+# - git add chameleon/chameleon_random.user.js
+# - git add chameleon/chameleon_vampire.user.js
+# - git add other/accountassist.user.js
+# - git add other/ratebot.user.js
+# - git add swearify/imagereuploader.user.js
+# - git add swearify/swearify.user.js
 #
  - git commit -m "Automated Appveyor build at %mydate%, %mytime% [skip ci]"
  - git push origin master
