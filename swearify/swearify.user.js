@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     un.support.ed.but.rafa.still.uses.it
+// @version     un.support.ed.2
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1260,7 +1260,7 @@ var emoticon_5 = {
         ':idubbbzstretch:', 'http://i.imgur.com/gm6GAMPs.png', "THAT IEBUZ "
     ],
     idubbbzthink: [
-        ':idubbbzthink:', 'http://i.imgur.com/nKZa0kss.png', "I DUBB DINK"
+        ':idubbbzthink:',  'http://i.imgur.com/nKZa0kss.png', "I DUBB DINK"
     ],
     idubbbzdevil: [
         ':idubbbzdevil:', 'http://i.imgur.com/1w6doWTs.png', "IDUBBZ DEVIL"
@@ -1299,7 +1299,7 @@ var emoticon_5 = {
         ':idubbbzcool:', 'http://i.imgur.com/jw7NdkRs.png', "IDBUUB COOL"
     ],
     idubbbzwillow: [
-        ':idubbbzwillow:', 'http://i.imgur.com/2ujtEa1s.png', 'WILLOW'
+        ':idubbbzwillow:','http://i.imgur.com/2ujtEa1s.png', 'WILLOW'
     ],
     idubbbzconfused: [
         ':idubbbzconfused:', 'http://i.imgur.com/ilF0YsCs.png', 'IDUBBUZ CONFUSED'
@@ -1321,9 +1321,6 @@ var emoticon_5 = {
     ],
     anime6: [
         ':purebliss:', 'http://i.imgur.com/iGiMwxv.jpg', 'PURE BLISS'
-    ],
-    khaled: [
-        ':anotherone:', 'https://i.imgur.com/0LLtMxe.gif', 'AND ANOTHER ONE... AND ANOTHER ONE... AND ANOTHER ONE...'
     ]
 };
 var emoticon_3 = {
@@ -2145,19 +2142,19 @@ var maymay = {
         'minty', '[img]http://i60.tinypic.com/2hzkc5y.png[/img][blur][b][color=#98FF98] MINTY[/color][/b][/blur]'
     ],
     lenny: [
-        ':lenny:', '( �?¡Â° �?Ê �?¡Â°)'
+        ':lenny:', '( ͡° ͜ʖ ͡°)'
     ],
     dongers: [
-        ':raise:', 'ã½à¼¼àºÙ�?àºà¼½ï¾ raise your dongers ã½à¼¼àºÙ�?àºà¼½ï¾'
+        ':raise:', 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ'
     ],
     hamster: [
-        ':hamster:', '(â¢�?â¢)'
+        ':hamster:', '(•ω•)'
     ],
     greeneggs: [
-        ':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( �?¡Â° ÊÌ¯ �?¡Â°)[/size]'
+        ':geggs:', '[b][color=green]GREEN EGGS[/color][/b] [size=10][i]And[/i][/size] [size=16][b][i][color=black][u]THOUGHTS OF SUICIDE[/u][/color][/i][/b][/size] [size=14]( ͡° ʖ̯ ͡°)[/size]'
     ],
     rekt: [
-        ':rekt:', '[size=19][font=impact][blur][b][color=red]â? Not REKT â REKT â REKTangle â SHREKT â REKT-it Ralph â Total REKTall â The Lord of the REKT â The Usual SusREKTs â North by NorthREKT â REKT to the Future â Once Upon a Time in the REKT â The Good, the Bad, and the REKT â LawREKT of Arabia â Tyrannosaurus REKT â eREKTile dysfunction [/color][/b][/blur][/font][/size]'
+        ':rekt:', '[size=19][font=impact][blur][b][color=red]☐ Not REKT ☑ REKT ☑ REKTangle ☑ SHREKT ☑ REKT-it Ralph ☑ Total REKTall ☑ The Lord of the REKT ☑ The Usual SusREKTs ☑ North by NorthREKT ☑ REKT to the Future ☑ Once Upon a Time in the REKT ☑ The Good, the Bad, and the REKT ☑ LawREKT of Arabia ☑ Tyrannosaurus REKT ☑ eREKTile dysfunction [/color][/b][/blur][/font][/size]'
     ],
     danked: [
         ':danked:', '[color=red][b](USER WAS BANNED FOR THIS DANK)[/b][/color]'
@@ -2172,7 +2169,7 @@ var maymay = {
         ':ohshi:', '[b][font=Comic Sans MS][color=#665203]O[/color][color=#6B5304]O[/color][color=#715405]O[/color][color=#765506]O[/color][color=#7C5708]H[/color] [color=#87590B]S[/color][color=#765109]H[/color][color=#664808]I[/color][color=#563F06]I[/color][color=#463605]I[/color][color=#362D03]T[/color][/font][/b]'
     ],
     ieatass: [
-        ':ieat:', '[i]ã±ããé£ãã[/i]'
+        ':ieat:', '[i]ケツを食ベる[/i]'
     ],
     olaf: [
         ':olaf:', '[b][font=Courier New][size=16][color=#3BED44]h[/color][color=#1137CE]e[/color][color=#6D2645]l[/color][color=#4B20D2]o[/color] [color=#BEF7E8]m[/color][color=#66D74E]y[/color] [color=#950C47]n[/color][color=#9F65A4]a[/color][color=#196650]m[/color][color=#88DA22]e[/color] [color=#BD7B33]i[/color][color=#ED8A9F]s[/color] [color=#4BD338]o[/color][color=#6B6743]l[/color][color=#47D647]a[/color][color=#5D1908]f[/color][/size][/font][/b]'
@@ -2196,70 +2193,70 @@ var maymay = {
         'murica', '[b][font=Comic Sans MS][color=#FF0000]M[/color][color=#FF5555]U[/color][color=#FFAAAA]R[/color][color=#FFFFFF]I[/color][color=#AAAAFF]C[/color][color=#5555FF]A[/color][/font][/b]'
     ],
     lenny2: [
-        ':lenny2:', '( �?¡àºâ­�?Êâ®�?¡àº )'
+        ':lenny2:', '( ͡ຈ╭͜ʖ╮͡ຈ )'
     ],
     lenny3: [
-        ':sadlenny:', '( �?¡à²  ÊÌ¯ �?¡à² )'
+        ':sadlenny:', '( ͡ಠ ʖ̯ ͡ಠ)'
     ],
     lenny4: [
-        ':lenny4:', '( �?¡~ �?Ê �?¡~)'
+        ':lenny4:', '( ͡~ ͜ʖ ͡~)'
     ],
     lenny5: [
-        ':lennywink:', '( �?¡~ �?Ê �?¡Â°)'
+        ':lennywink:', '( ͡~ ͜ʖ ͡°)'
     ],
     lenny6: [
-        ':lenny6:', '( �? Â° �?Ê �?¡Â°)'
+        ':lenny6:', '( ͠° ͟ʖ ͡°)'
     ],
     lenny7: [
-        ':lenny7:', '( �?¡Êâ­�?Êâ®�?¡Ê)'
+        ':lenny7:', '( ͡ʘ╭͜ʖ╮͡ʘ)'
     ],
     lenny8: [
-        ':eyebrowlenny:', '( �??×¡Ö¼ �?Ê�?¡×¡Ö¼)'
+        ':eyebrowlenny:', '( ͝סּ ͜ʖ͡סּ)'
     ],
     lenny9: [
-        ':lenny9:', '( �?¡áµ �?Ê �?¡áµ )'
+        ':lenny9:', '( ͡ᵔ ͜ʖ ͡ᵔ )'
     ],
     lenny10: [
-        ':lenny10:', '( �?¡^ �?Ê �?¡^ )'
+        ':lenny10:', '( ͡^ ͜ʖ ͡^ )'
     ],
     lenny11: [
-        ':dongbill:', '[Ì²Ì$Ì²Ì(Ì²Ì �?¡Â° �?Ê �?¡Â°Ì²Ì)Ì²Ì$Ì²Ì]'
+        ':dongbill:', '[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]'
     ],
     lenny12: [
-        ':lenny12:', '( �?¡àº �?Ê �?¡àº)'
+        ':lenny12:', '( ͡ຈ ͜ʖ ͡ຈ)'
     ],
     lenny13: [
-        ':lenny13:', '( �?¡Â° ÊÌ¯ �?¡Â°)'
+        ':lenny13:', '( ͡° ʖ̯ ͡°)'
     ],
     lenny14: [
-        ':lenny14:', '( �?¡ �?Ê �?¡ )'
+        ':lenny14:', '( ͡ ͜ʖ ͡ )'
     ],
     lenny15: [
-        ':lennypoint:', '(â �?¡Â° �?Ê �?¡Â°)â'
+        ':lennypoint:', '(☞ ͡° ͜ʖ ͡°)☞'
     ],
     lenny16: [
-        ':lennyrun:', 'á( �?¡Â° �?Ê �?¡Â° )á'
+        ':lennyrun:', 'ᕕ( ͡° ͜ʖ ͡° )ᕗ'
     ],
     lenny17: [
-        ':lenny17:', '( �?¡Â°â­�?Êâ®�?¡Â° )'
+        ':lenny17:', '( ͡°╭͜ʖ╮͡° )'
     ],
     lenny18: [
-        ':lennygroup:', '( �?¡Â° �?Ê ( �?¡Â° �?Ê ( �?¡Â° �?Ê ( �?¡Â° �?Ê �?¡Â°) �?Ê �?¡Â°)Ê �?¡Â°)Ê �?¡Â°)'
+        ':lennygroup:', '( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ͡°) ͜ʖ ͡°)ʖ ͡°)ʖ ͡°)'
     ],
     lenny19: [
-        ':lennygive:', '(ã?¤ �?¡Â° �?Ê �?¡Â°)ã?¤'
+        ':lennygive:', '(つ ͡° ͜ʖ ͡°)つ'
     ],
     lenny20: [
-        ':lenny20:', '( �?¡â �?Ê �?¡â)'
+        ':lenny20:', '( ͡⚆ ͜ʖ ͡⚆)'
     ],
     lenny21: [
-        ':lenny21:', 'Â¯_( �? Â° �?Ê Â°�?  )_/Â¯'
+        ':lenny21:', '¯_( ͠° ͟ʖ °͠ )_/¯'
     ],
     lenny22: [
-        ':lenny22:', '(â �?Ê �?¡Â°)'
+        ':lenny22:', '(▀ ͜ʖ ͡°)'
     ],
     raise2: [
-        ':raiseordie:', 'ã½à¼¼àºÙ�?àºà¼½ï¾ �?³à¸à¹à¸£Ñ à¹?�?³ à¹à¹Ñ ã½à¼¼àºÙ�?àºà¼½ï¾'
+        ':raiseordie:', 'ヽ༼ຈل͜ຈ༽ﾉ гคเรє ๏г ๔เє ヽ༼ຈل͜ຈ༽ﾉ'
     ],
     nyan: [
         ':nyan:', '~=[,,_,,]:3'
@@ -2271,25 +2268,25 @@ var maymay = {
         ':seed:', '[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU\'VE DONE GERMINATES WITHIN YOU[/b][/color]'
     ],
     sniper: [
-        ':sniper:', 'âï¸»Ì·Ì¿â»Ì¿â?â?ä¸'
+        ':sniper:', '▄︻̷̿┻̿═━一'
     ],
     notgivinashit: [
-        ':notgivinash:', 'Â¯_(ã)_/Â¯'
+        ':notgivinash:', '¯_(ツ)_/¯'
     ],
     ameno: [
-        ':ameno:', 'à¼¼ ã?¤ â_â à¼½ã?¤'
+        ':ameno:', '༼ つ ◕_◕ ༽つ'
     ],
     brickwall: [
-        ':brickwall:', 'â¬â´â¬â´â¤(ï½¥_ââ¬â´â¬â´'
+        ':brickwall:', '┬┴┬┴┤(･_├┬┴┬┴'
     ],
     mac10: [
-        ':mac10:', 'â?â¦â¦â?â'
+        ':mac10:', '⌐╦╦═─'
     ],
     faceroll: [
         ':faceroll:', '(._.) ( l: ) ( .-. ) ( :l ) (._.)'
     ],
     tablefix: [
-        ':tablefix:', 'â¬âââ¬ ã( ã-ãã)'
+        ':tablefix:', '┬──┬ ノ( ゜-゜ノ)'
     ],
     wellmemed: [
         ':memed', '[IMG]http://i58.tinypic.com/2s8o4g8.png[/IMG]'
@@ -2307,10 +2304,10 @@ var maymay = {
         ':abuse:', '[img]http://i.imgur.com/cAxpwdm.gif[/img]'
     ],
     square: [
-        'Square', 'â¡'
+        'Square', '□'
     ],
     mindlessretard: [
-        ':mindlessretard:', 'àºÙ�?àº Éª á´á´ÊÊ á´  á´ÊÉªÉ´É¢s ÉªÉ´á´á´? á´Êá´á´ Êá´á´á´á´sá´ Éª á´á´? á´ á´?ÉªÉ´á´Êá´ss Êá´á´á´Êá´ àºÙ�?àº'
+        ':mindlessretard:', 'ຈل͜ຈ ɪ ᴄᴛʀʟ ᴠ ᴛʜɪɴɢs ɪɴᴛᴏ ᴄʜᴀᴛ ʙᴇᴄᴀᴜsᴇ ɪ ᴀᴍ ᴀ ᴍɪɴᴅʟᴇss ʀᴇᴛᴀʀᴅ ຈل͜ຈ'
     ]
 };
 ///////EXTRA FILTERING CODE
@@ -2372,20 +2369,25 @@ var refined_loc = '';
 var cssTd = '';
 
 ///////UTILS
-function setCookie(name, value, days) {
+function setCookie(name, value, days)
+{
     var expires = '';
-    if (days) {
+    if (days)
+    {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = '; expires=' + date.toGMTString();
-    } else expires = '';
+    }
+    else expires = '';
     document.cookie = name + '=' + value + expires + '; path=/';
 }
 
-function getCookie(c_name) {
+function getCookie(c_name)
+{
     var name = c_name + '=';
     var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
+    for (var i = 0; i < ca.length; i++)
+    {
         var c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1);
         if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
@@ -2393,18 +2395,22 @@ function getCookie(c_name) {
     return '';
 }
 
-function values(o) {
-    return Object.keys(o).map(function(k) {
+function values(o)
+{
+    return Object.keys(o).map(function(k)
+    {
         return o[k];
     });
 }
 // ////////http://stackoverflow.com/questions/7306669/how-to-get-all-properties-values-of-a-javascript-object-without-knowing-the-key
 
-String.prototype.regexIndexOf = function(regex, startpos) {
+String.prototype.regexIndexOf = function(regex, startpos)
+{
     var indexOf = this.substring(startpos || 0).search(regex);
     return indexOf >= 0 ? indexOf + (startpos || 0) : indexOf;
 };
-String.prototype.regexLastIndexOf = function(regex, startpos) {
+String.prototype.regexLastIndexOf = function(regex, startpos)
+{
     regex = regex.global ? regex : new RegExp(regex.source, 'g' + (regex.ignoreCase ? 'i' : '') + (regex.multiLine ? 'm' : ''));
     if (typeof startpos == 'undefined')
         startpos = this.length;
@@ -2413,7 +2419,8 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
     var stringToWorkWith = this.substring(0, startpos + 1);
     var lastIndexOf = -1;
     var nextStop = 0;
-    while ((result = regex.exec(stringToWorkWith)) !== null) {
+    while ((result = regex.exec(stringToWorkWith)) !== null)
+    {
         lastIndexOf = result.index;
         regex.lastIndex = ++nextStop;
     }
@@ -2422,60 +2429,73 @@ String.prototype.regexLastIndexOf = function(regex, startpos) {
 /////////////////////
 /////////////////////MANAGES THE CUSTOM SMILIE SYSTEM
 
-function emoticon_() {
+function emoticon_()
+{
     var i;
     var old_msg;
     var index_num;
     var new_msg;
-    for (i = 0; i < Object.keys(emoticon_1).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_1).length; i++)
+    {
         old_msg = document.getElementById('message').value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], 'gi'), img_tag[0] + values(emoticon_1)[i][1] +
                 img_tag[1]);
             document.getElementById('message').value = new_msg;
         }
     }
-    for (i = 0; i < Object.keys(emoticon_2).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_2).length; i++)
+    {
         old_msg = document.getElementById('message').value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], 'gi'), img_tag[0] + values(emoticon_2)[i][1] +
                 img_tag[1]);
             document.getElementById('message').value = new_msg;
         }
     }
-    for (i = 0; i < Object.keys(emoticon_3).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_3).length; i++)
+    {
         old_msg = document.getElementById('message').value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], 'gi'), img_tag[0] + values(emoticon_3)[i][1] +
                 img_tag[1]);
             document.getElementById('message').value = new_msg;
         }
     }
-    for (i = 0; i < Object.keys(emoticon_4).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_4).length; i++)
+    {
         old_msg = document.getElementById('message').value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_4)[i][0], 'gi'), img_tag[0] + values(emoticon_4)[i][1] +
                 img_tag[1]);
             document.getElementById('message').value = new_msg;
         }
     }
-    for (i = 0; i < twitch_e.length; i++) {
+    for (i = 0; i < twitch_e.length; i++)
+    {
         old_msg = document.getElementById('message').value;
         index_num = old_msg.regexIndexOf(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'), img_tag[0] + twitch_e[i] +
                 img_tag[1]);
             document.getElementById('message').value = new_msg;
         }
     }
-    for (i = 0; i < Object.keys(emoticon_5).length; i++) {
+  for (i = 0; i < Object.keys(emoticon_5).length; i++)
+    {
         old_msg = document.getElementById('message').value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_5)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_5)[i][0], 'gi'), img_tag[0] + values(emoticon_5)[i][1] +
                 img_tag[1]);
             document.getElementById('message').value = new_msg;
@@ -2483,18 +2503,21 @@ function emoticon_() {
     }
 }
 
-function emoticon_post() {
+function emoticon_post()
+{
     var i;
     var old_msg;
     var index_num;
     var new_msg;
-    for (i = 0; i < Object.keys(emoticon_1).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_1).length; i++)
+    {
         old_msg = '';
         if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
             0].value;
         else old_msg = document.getElementsByTagName('textarea')[1].value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_1)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_1)[i][0], 'gi'), post_img_tag[0] + values(emoticon_1)[i][1] +
                 post_img_tag[1]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -2502,13 +2525,15 @@ function emoticon_post() {
             else document.getElementsByTagName('textarea')[1].value = new_msg;
         }
     }
-    for (i = 0; i < Object.keys(emoticon_2).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_2).length; i++)
+    {
         old_msg = '';
         if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
             0].value;
         else old_msg = document.getElementsByTagName('textarea')[1].value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_2)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_2)[i][0], 'gi'), post_img_tag[0] + values(emoticon_2)[i][1] +
                 post_img_tag[1]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -2516,13 +2541,15 @@ function emoticon_post() {
             else document.getElementsByTagName('textarea')[1].value = new_msg;
         }
     }
-    for (i = 0; i < Object.keys(emoticon_3).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_3).length; i++)
+    {
         old_msg = '';
         if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
             0].value;
         else old_msg = document.getElementsByTagName('textarea')[1].value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_3)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_3)[i][0], 'gi'), post_img_tag[0] + values(emoticon_3)[i][1] +
                 post_img_tag[1]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -2530,13 +2557,15 @@ function emoticon_post() {
             else document.getElementsByTagName('textarea')[1].value = new_msg;
         }
     }
-    for (i = 0; i < Object.keys(emoticon_4).length; i++) {
+    for (i = 0; i < Object.keys(emoticon_4).length; i++)
+    {
         old_msg = '';
         if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
             0].value;
         else old_msg = document.getElementsByTagName('textarea')[1].value;
         index_num = old_msg.regexIndexOf(new RegExp(values(emoticon_4)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(emoticon_4)[i][0], 'gi'), post_img_tag[0] + values(emoticon_4)[i][1] +
                 post_img_tag[1]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -2544,13 +2573,15 @@ function emoticon_post() {
             else document.getElementsByTagName('textarea')[1].value = new_msg;
         }
     }
-    for (i = 0; i < twitch_e.length; i++) {
+    for (i = 0; i < twitch_e.length; i++)
+    {
         old_msg = '';
         if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
             0].value;
         else old_msg = document.getElementsByTagName('textarea')[1].value;
         index_num = old_msg.regexIndexOf(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp('\\b' + twitch_c[i] + '\\b', 'g'), post_img_tag[0] + twitch_e[i] +
                 post_img_tag[1]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -2562,29 +2593,35 @@ function emoticon_post() {
 /////////////////////
 /////////////////////MANAGES THE MAY MAY SYSTEM
 
-function maymay_() {
+function maymay_()
+{
     var i;
     var old_msg;
     var index_num;
     var new_msg;
-    for (i = 0; i < Object.keys(maymay).length; i++) {
+    for (i = 0; i < Object.keys(maymay).length; i++)
+    {
         old_msg = document.getElementById('message').value;
         index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], 'gi'), img_tag[0] + values(maymay)[i][1]);
             document.getElementById('message').value = new_msg;
         }
     }
 }
 
-function maymay_post() {
-    for (var i = 0; i < Object.keys(maymay).length; i++) {
+function maymay_post()
+{
+    for (var i = 0; i < Object.keys(maymay).length; i++)
+    {
         var old_msg = '';
         if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[
             0].value;
         else old_msg = document.getElementsByTagName('textarea')[1].value;
         var index_num = old_msg.regexIndexOf(new RegExp(values(maymay)[i][0], 'gi'));
-        if (index_num >= 0) {
+        if (index_num >= 0)
+        {
             var new_msg = old_msg.replace(new RegExp(values(maymay)[i][0], 'gi'), values(maymay)[i][1]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 new_msg;
@@ -2595,24 +2632,29 @@ function maymay_post() {
 /////////////////////
 ///////////////////// MANAGES THE EMULATION OF GREENTEXT
 
-function greentext_() {
+function greentext_()
+{
     var old_msg = document.getElementById('message').value;
     var index_num = old_msg.indexOf('>');
     var index_num2 = old_msg.indexOf('/greentext');
-    if (index_num === 0 || index_num2 === 0) {
+    if (index_num === 0 || index_num2 === 0)
+    {
         var new_msg = color_code[0] + old_msg + color_code[1];
         document.getElementById('message').value = new_msg;
     }
 }
 
-function greentext_post() {
+function greentext_post()
+{
     var old_msg = '';
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = msg_ray[i].indexOf('>');
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             msg_ray[i] = color_code[0] + msg_ray[i] + color_code[1];
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -2623,7 +2665,8 @@ function greentext_post() {
 /////////////////////
 /////////////////////LEET TEXT
 
-function leet_() {
+function leet_()
+{
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/leet /i, '');
     new_msg = new_msg.replace(/a/gi, '4');
@@ -2655,7 +2698,8 @@ function leet_() {
     document.getElementById('message').value = new_msg;
 }
 
-function inject_leet() {
+function inject_leet()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -2671,12 +2715,16 @@ function inject_leet() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_leet', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_leet', '0', 1);
@@ -2684,14 +2732,17 @@ function inject_leet() {
     });
 }
 
-function leet_post() {
+function leet_post()
+{
     var old_msg = ''; // this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/leet /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             var new_msg = msg_ray[i].replace(/\/leet /i, '');
             new_msg = new_msg.replace(/a/gi, '4');
             new_msg = new_msg.replace(/b/gi, '|3');
@@ -2729,49 +2780,51 @@ function leet_post() {
 //////////////////////
 /////////////////////BALLOON TEXT
 
-function balloon_() {
+function balloon_()
+{
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/balloon /i, '');
-    new_msg = new_msg.replace(/a/gi, 'â?');
-    new_msg = new_msg.replace(/b/gi, 'â');
-    new_msg = new_msg.replace(/c/gi, 'â');
-    new_msg = new_msg.replace(/d/gi, 'â');
-    new_msg = new_msg.replace(/e/gi, 'â');
-    new_msg = new_msg.replace(/f/gi, 'â');
-    new_msg = new_msg.replace(/g/gi, 'â');
-    new_msg = new_msg.replace(/h/gi, 'â');
-    new_msg = new_msg.replace(/i/gi, 'â');
-    new_msg = new_msg.replace(/j/gi, 'â');
-    new_msg = new_msg.replace(/k/gi, 'â');
-    new_msg = new_msg.replace(/l/gi, 'â');
-    new_msg = new_msg.replace(/m/gi, 'â');
-    new_msg = new_msg.replace(/n/gi, 'â?');
-    new_msg = new_msg.replace(/o/gi, 'â');
-    new_msg = new_msg.replace(/p/gi, 'â');
-    new_msg = new_msg.replace(/q/gi, 'â ');
-    new_msg = new_msg.replace(/r/gi, 'â¡');
-    new_msg = new_msg.replace(/s/gi, 'â¢');
-    new_msg = new_msg.replace(/t/gi, 'â£');
-    new_msg = new_msg.replace(/u/gi, 'â¤');
-    new_msg = new_msg.replace(/v/gi, 'â¥');
-    new_msg = new_msg.replace(/w/gi, 'â¦');
-    new_msg = new_msg.replace(/x/gi, 'â§');
-    new_msg = new_msg.replace(/y/gi, 'â¨');
-    new_msg = new_msg.replace(/z/gi, 'â©');
-    new_msg = new_msg.replace(/1/gi, 'âµ');
-    new_msg = new_msg.replace(/2/gi, 'â¶');
-    new_msg = new_msg.replace(/3/gi, 'â·');
-    new_msg = new_msg.replace(/4/gi, 'â¸');
-    new_msg = new_msg.replace(/5/gi, 'â¹');
-    new_msg = new_msg.replace(/6/gi, 'âº');
-    new_msg = new_msg.replace(/7/gi, 'â»');
-    new_msg = new_msg.replace(/8/gi, 'â¼');
-    new_msg = new_msg.replace(/9/gi, 'â½');
-    new_msg = new_msg.replace(/0/gi, 'âª');
+    new_msg = new_msg.replace(/a/gi, 'ⓐ');
+    new_msg = new_msg.replace(/b/gi, 'ⓑ');
+    new_msg = new_msg.replace(/c/gi, 'ⓒ');
+    new_msg = new_msg.replace(/d/gi, 'ⓓ');
+    new_msg = new_msg.replace(/e/gi, 'ⓔ');
+    new_msg = new_msg.replace(/f/gi, 'ⓕ');
+    new_msg = new_msg.replace(/g/gi, 'ⓖ');
+    new_msg = new_msg.replace(/h/gi, 'ⓗ');
+    new_msg = new_msg.replace(/i/gi, 'ⓘ');
+    new_msg = new_msg.replace(/j/gi, 'ⓙ');
+    new_msg = new_msg.replace(/k/gi, 'ⓚ');
+    new_msg = new_msg.replace(/l/gi, 'ⓛ');
+    new_msg = new_msg.replace(/m/gi, 'ⓜ');
+    new_msg = new_msg.replace(/n/gi, 'ⓝ');
+    new_msg = new_msg.replace(/o/gi, 'ⓞ');
+    new_msg = new_msg.replace(/p/gi, 'ⓟ');
+    new_msg = new_msg.replace(/q/gi, 'ⓠ');
+    new_msg = new_msg.replace(/r/gi, 'ⓡ');
+    new_msg = new_msg.replace(/s/gi, 'ⓢ');
+    new_msg = new_msg.replace(/t/gi, 'ⓣ');
+    new_msg = new_msg.replace(/u/gi, 'ⓤ');
+    new_msg = new_msg.replace(/v/gi, 'ⓥ');
+    new_msg = new_msg.replace(/w/gi, 'ⓦ');
+    new_msg = new_msg.replace(/x/gi, 'ⓧ');
+    new_msg = new_msg.replace(/y/gi, 'ⓨ');
+    new_msg = new_msg.replace(/z/gi, 'ⓩ');
+    new_msg = new_msg.replace(/1/gi, '⓵');
+    new_msg = new_msg.replace(/2/gi, '⓶');
+    new_msg = new_msg.replace(/3/gi, '⓷');
+    new_msg = new_msg.replace(/4/gi, '⓸');
+    new_msg = new_msg.replace(/5/gi, '⓹');
+    new_msg = new_msg.replace(/6/gi, '⓺');
+    new_msg = new_msg.replace(/7/gi, '⓻');
+    new_msg = new_msg.replace(/8/gi, '⓼');
+    new_msg = new_msg.replace(/9/gi, '⓽');
+    new_msg = new_msg.replace(/0/gi, '⓪');
     document.getElementById('message').value = new_msg;
 }
 
-function inject_balloon() {
+function inject_balloon()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -2787,12 +2840,16 @@ function inject_balloon() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_balloon', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_balloon', '0', 1);
@@ -2800,51 +2857,54 @@ function inject_balloon() {
     });
 }
 
-function balloon_post() {
+function balloon_post()
+{
     var old_msg = ''; // this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/balloon /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             var new_msg = msg_ray[i].replace(/\/balloon /i, '');
-            new_msg = new_msg.replace(/a/gi, 'â?');
-            new_msg = new_msg.replace(/b/gi, 'â');
-            new_msg = new_msg.replace(/c/gi, 'â');
-            new_msg = new_msg.replace(/d/gi, 'â');
-            new_msg = new_msg.replace(/e/gi, 'â');
-            new_msg = new_msg.replace(/f/gi, 'â');
-            new_msg = new_msg.replace(/g/gi, 'â');
-            new_msg = new_msg.replace(/h/gi, 'â');
-            new_msg = new_msg.replace(/i/gi, 'â');
-            new_msg = new_msg.replace(/j/gi, 'â');
-            new_msg = new_msg.replace(/k/gi, 'â');
-            new_msg = new_msg.replace(/l/gi, 'â');
-            new_msg = new_msg.replace(/m/gi, 'â');
-            new_msg = new_msg.replace(/n/gi, 'â?');
-            new_msg = new_msg.replace(/o/gi, 'â');
-            new_msg = new_msg.replace(/p/gi, 'â');
-            new_msg = new_msg.replace(/q/gi, 'â ');
-            new_msg = new_msg.replace(/r/gi, 'â¡');
-            new_msg = new_msg.replace(/s/gi, 'â¢');
-            new_msg = new_msg.replace(/t/gi, 'â£');
-            new_msg = new_msg.replace(/u/gi, 'â¤');
-            new_msg = new_msg.replace(/v/gi, 'â¥');
-            new_msg = new_msg.replace(/w/gi, 'â¦');
-            new_msg = new_msg.replace(/x/gi, 'â§');
-            new_msg = new_msg.replace(/y/gi, 'â¨');
-            new_msg = new_msg.replace(/z/gi, 'â©');
-            new_msg = new_msg.replace(/1/gi, 'âµ');
-            new_msg = new_msg.replace(/2/gi, 'â¶');
-            new_msg = new_msg.replace(/3/gi, 'â·');
-            new_msg = new_msg.replace(/4/gi, 'â¸');
-            new_msg = new_msg.replace(/5/gi, 'â¹');
-            new_msg = new_msg.replace(/6/gi, 'âº');
-            new_msg = new_msg.replace(/7/gi, 'â»');
-            new_msg = new_msg.replace(/8/gi, 'â¼');
-            new_msg = new_msg.replace(/9/gi, 'â½');
-            new_msg = new_msg.replace(/0/gi, 'âª');
+            new_msg = new_msg.replace(/a/gi, 'ⓐ');
+            new_msg = new_msg.replace(/b/gi, 'ⓑ');
+            new_msg = new_msg.replace(/c/gi, 'ⓒ');
+            new_msg = new_msg.replace(/d/gi, 'ⓓ');
+            new_msg = new_msg.replace(/e/gi, 'ⓔ');
+            new_msg = new_msg.replace(/f/gi, 'ⓕ');
+            new_msg = new_msg.replace(/g/gi, 'ⓖ');
+            new_msg = new_msg.replace(/h/gi, 'ⓗ');
+            new_msg = new_msg.replace(/i/gi, 'ⓘ');
+            new_msg = new_msg.replace(/j/gi, 'ⓙ');
+            new_msg = new_msg.replace(/k/gi, 'ⓚ');
+            new_msg = new_msg.replace(/l/gi, 'ⓛ');
+            new_msg = new_msg.replace(/m/gi, 'ⓜ');
+            new_msg = new_msg.replace(/n/gi, 'ⓝ');
+            new_msg = new_msg.replace(/o/gi, 'ⓞ');
+            new_msg = new_msg.replace(/p/gi, 'ⓟ');
+            new_msg = new_msg.replace(/q/gi, 'ⓠ');
+            new_msg = new_msg.replace(/r/gi, 'ⓡ');
+            new_msg = new_msg.replace(/s/gi, 'ⓢ');
+            new_msg = new_msg.replace(/t/gi, 'ⓣ');
+            new_msg = new_msg.replace(/u/gi, 'ⓤ');
+            new_msg = new_msg.replace(/v/gi, 'ⓥ');
+            new_msg = new_msg.replace(/w/gi, 'ⓦ');
+            new_msg = new_msg.replace(/x/gi, 'ⓧ');
+            new_msg = new_msg.replace(/y/gi, 'ⓨ');
+            new_msg = new_msg.replace(/z/gi, 'ⓩ');
+            new_msg = new_msg.replace(/1/gi, '⓵');
+            new_msg = new_msg.replace(/2/gi, '⓶');
+            new_msg = new_msg.replace(/3/gi, '⓷');
+            new_msg = new_msg.replace(/4/gi, '⓸');
+            new_msg = new_msg.replace(/5/gi, '⓹');
+            new_msg = new_msg.replace(/6/gi, '⓺');
+            new_msg = new_msg.replace(/7/gi, '⓻');
+            new_msg = new_msg.replace(/8/gi, '⓼');
+            new_msg = new_msg.replace(/9/gi, '⓽');
+            new_msg = new_msg.replace(/0/gi, '⓪');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -2855,49 +2915,51 @@ function balloon_post() {
 //////////////////////
 /////////////////////BRAILLE TEXT
 
-function braille_() {
+function braille_()
+{
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/braille /i, '');
-    new_msg = new_msg.replace(/a/gi, 'â ?');
-    new_msg = new_msg.replace(/b/gi, 'â ');
-    new_msg = new_msg.replace(/c/gi, 'â ');
-    new_msg = new_msg.replace(/d/gi, 'â ');
-    new_msg = new_msg.replace(/e/gi, 'â ');
-    new_msg = new_msg.replace(/f/gi, 'â ');
-    new_msg = new_msg.replace(/g/gi, 'â ');
-    new_msg = new_msg.replace(/h/gi, 'â ');
-    new_msg = new_msg.replace(/i/gi, 'â ');
-    new_msg = new_msg.replace(/j/gi, 'â ');
-    new_msg = new_msg.replace(/k/gi, 'â ');
-    new_msg = new_msg.replace(/l/gi, 'â ');
-    new_msg = new_msg.replace(/m/gi, 'â ?');
-    new_msg = new_msg.replace(/n/gi, 'â ?');
-    new_msg = new_msg.replace(/o/gi, 'â ');
-    new_msg = new_msg.replace(/p/gi, 'â ?');
-    new_msg = new_msg.replace(/q/gi, 'â ');
-    new_msg = new_msg.replace(/r/gi, 'â ');
-    new_msg = new_msg.replace(/s/gi, 'â ');
-    new_msg = new_msg.replace(/t/gi, 'â ');
-    new_msg = new_msg.replace(/u/gi, 'â ¥');
-    new_msg = new_msg.replace(/v/gi, 'â §');
-    new_msg = new_msg.replace(/w/gi, 'â º');
-    new_msg = new_msg.replace(/x/gi, 'â ­');
-    new_msg = new_msg.replace(/y/gi, 'â ½');
-    new_msg = new_msg.replace(/z/gi, 'â µ');
-    new_msg = new_msg.replace(/1/gi, 'â ¼â ?');
-    new_msg = new_msg.replace(/2/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/3/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/4/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/5/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/6/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/7/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/8/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/9/gi, 'â ¼â ');
-    new_msg = new_msg.replace(/0/gi, 'â ¼â ');
+    new_msg = new_msg.replace(/a/gi, '⠁');
+    new_msg = new_msg.replace(/b/gi, '⠃');
+    new_msg = new_msg.replace(/c/gi, '⠉');
+    new_msg = new_msg.replace(/d/gi, '⠙');
+    new_msg = new_msg.replace(/e/gi, '⠑');
+    new_msg = new_msg.replace(/f/gi, '⠋');
+    new_msg = new_msg.replace(/g/gi, '⠛');
+    new_msg = new_msg.replace(/h/gi, '⠓');
+    new_msg = new_msg.replace(/i/gi, '⠊');
+    new_msg = new_msg.replace(/j/gi, '⠚');
+    new_msg = new_msg.replace(/k/gi, '⠅');
+    new_msg = new_msg.replace(/l/gi, '⠇');
+    new_msg = new_msg.replace(/m/gi, '⠍');
+    new_msg = new_msg.replace(/n/gi, '⠝');
+    new_msg = new_msg.replace(/o/gi, '⠕');
+    new_msg = new_msg.replace(/p/gi, '⠏');
+    new_msg = new_msg.replace(/q/gi, '⠟');
+    new_msg = new_msg.replace(/r/gi, '⠗');
+    new_msg = new_msg.replace(/s/gi, '⠎');
+    new_msg = new_msg.replace(/t/gi, '⠞');
+    new_msg = new_msg.replace(/u/gi, '⠥');
+    new_msg = new_msg.replace(/v/gi, '⠧');
+    new_msg = new_msg.replace(/w/gi, '⠺');
+    new_msg = new_msg.replace(/x/gi, '⠭');
+    new_msg = new_msg.replace(/y/gi, '⠽');
+    new_msg = new_msg.replace(/z/gi, '⠵');
+    new_msg = new_msg.replace(/1/gi, '⠼⠁');
+    new_msg = new_msg.replace(/2/gi, '⠼⠃');
+    new_msg = new_msg.replace(/3/gi, '⠼⠉');
+    new_msg = new_msg.replace(/4/gi, '⠼⠙');
+    new_msg = new_msg.replace(/5/gi, '⠼⠑');
+    new_msg = new_msg.replace(/6/gi, '⠼⠋');
+    new_msg = new_msg.replace(/7/gi, '⠼⠛');
+    new_msg = new_msg.replace(/8/gi, '⠼⠓');
+    new_msg = new_msg.replace(/9/gi, '⠼⠊');
+    new_msg = new_msg.replace(/0/gi, '⠼⠚');
     document.getElementById('message').value = new_msg;
 }
 
-function inject_braille() {
+function inject_braille()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -2905,7 +2967,7 @@ function inject_braille() {
     the_body.setAttribute('class', 'fontbutton');
     where.insertBefore(the_body, chil_where[0]);
     where.getElementsByTagName('td')[0].innerHTML =
-        '<input name="braille" id="format-braille" class="format-message" type="checkbox"><label id="click_area_braille" title="Braille" style="cursor:pointer;">â </label>';
+        '<input name="braille" id="format-braille" class="format-message" type="checkbox"><label id="click_area_braille" title="Braille" style="cursor:pointer;">⠃</label>';
     var what = document.getElementById('click_area_braille');
     var whot = document.getElementById('format-braille');
     if (getCookie('CB_braille') === '1') whot.checked = true;
@@ -2913,12 +2975,16 @@ function inject_braille() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_braille', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_braille', '0', 1);
@@ -2926,51 +2992,54 @@ function inject_braille() {
     });
 }
 
-function braille_post() {
+function braille_post()
+{
     var old_msg = ''; // this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/braille /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             var new_msg = msg_ray[i].replace(/\/braille /i, '');
-            new_msg = new_msg.replace(/a/gi, 'â ?');
-            new_msg = new_msg.replace(/b/gi, 'â ');
-            new_msg = new_msg.replace(/c/gi, 'â ');
-            new_msg = new_msg.replace(/d/gi, 'â ');
-            new_msg = new_msg.replace(/e/gi, 'â ');
-            new_msg = new_msg.replace(/f/gi, 'â ');
-            new_msg = new_msg.replace(/g/gi, 'â ');
-            new_msg = new_msg.replace(/h/gi, 'â ');
-            new_msg = new_msg.replace(/i/gi, 'â ');
-            new_msg = new_msg.replace(/j/gi, 'â ');
-            new_msg = new_msg.replace(/k/gi, 'â ');
-            new_msg = new_msg.replace(/l/gi, 'â ');
-            new_msg = new_msg.replace(/m/gi, 'â ?');
-            new_msg = new_msg.replace(/n/gi, 'â ?');
-            new_msg = new_msg.replace(/o/gi, 'â ');
-            new_msg = new_msg.replace(/p/gi, 'â ?');
-            new_msg = new_msg.replace(/q/gi, 'â ');
-            new_msg = new_msg.replace(/r/gi, 'â ');
-            new_msg = new_msg.replace(/s/gi, 'â ');
-            new_msg = new_msg.replace(/t/gi, 'â ');
-            new_msg = new_msg.replace(/u/gi, 'â ¥');
-            new_msg = new_msg.replace(/v/gi, 'â §');
-            new_msg = new_msg.replace(/w/gi, 'â º');
-            new_msg = new_msg.replace(/x/gi, 'â ­');
-            new_msg = new_msg.replace(/y/gi, 'â ½');
-            new_msg = new_msg.replace(/z/gi, 'â µ');
-            new_msg = new_msg.replace(/1/gi, 'â ¼â ?');
-            new_msg = new_msg.replace(/2/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/3/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/4/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/5/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/6/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/7/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/8/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/9/gi, 'â ¼â ');
-            new_msg = new_msg.replace(/0/gi, 'â ¼â ');
+            new_msg = new_msg.replace(/a/gi, '⠁');
+            new_msg = new_msg.replace(/b/gi, '⠃');
+            new_msg = new_msg.replace(/c/gi, '⠉');
+            new_msg = new_msg.replace(/d/gi, '⠙');
+            new_msg = new_msg.replace(/e/gi, '⠑');
+            new_msg = new_msg.replace(/f/gi, '⠋');
+            new_msg = new_msg.replace(/g/gi, '⠛');
+            new_msg = new_msg.replace(/h/gi, '⠓');
+            new_msg = new_msg.replace(/i/gi, '⠊');
+            new_msg = new_msg.replace(/j/gi, '⠚');
+            new_msg = new_msg.replace(/k/gi, '⠅');
+            new_msg = new_msg.replace(/l/gi, '⠇');
+            new_msg = new_msg.replace(/m/gi, '⠍');
+            new_msg = new_msg.replace(/n/gi, '⠝');
+            new_msg = new_msg.replace(/o/gi, '⠕');
+            new_msg = new_msg.replace(/p/gi, '⠏');
+            new_msg = new_msg.replace(/q/gi, '⠟');
+            new_msg = new_msg.replace(/r/gi, '⠗');
+            new_msg = new_msg.replace(/s/gi, '⠎');
+            new_msg = new_msg.replace(/t/gi, '⠞');
+            new_msg = new_msg.replace(/u/gi, '⠥');
+            new_msg = new_msg.replace(/v/gi, '⠧');
+            new_msg = new_msg.replace(/w/gi, '⠺');
+            new_msg = new_msg.replace(/x/gi, '⠭');
+            new_msg = new_msg.replace(/y/gi, '⠽');
+            new_msg = new_msg.replace(/z/gi, '⠵');
+            new_msg = new_msg.replace(/1/gi, '⠼⠁');
+            new_msg = new_msg.replace(/2/gi, '⠼⠃');
+            new_msg = new_msg.replace(/3/gi, '⠼⠉');
+            new_msg = new_msg.replace(/4/gi, '⠼⠙');
+            new_msg = new_msg.replace(/5/gi, '⠼⠑');
+            new_msg = new_msg.replace(/6/gi, '⠼⠋');
+            new_msg = new_msg.replace(/7/gi, '⠼⠛');
+            new_msg = new_msg.replace(/8/gi, '⠼⠓');
+            new_msg = new_msg.replace(/9/gi, '⠼⠊');
+            new_msg = new_msg.replace(/0/gi, '⠼⠚');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -2981,39 +3050,41 @@ function braille_post() {
 //////////////////////
 /////////////////////GREEKIFIED TEXT
 
-function greek_() {
+function greek_()
+{
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/greek /i, '');
-    new_msg = new_msg.replace(/a/gi, 'Î±');
-    new_msg = new_msg.replace(/b/gi, 'Î²');
-    new_msg = new_msg.replace(/c/gi, '�?');
-    new_msg = new_msg.replace(/d/gi, 'Î´');
-    new_msg = new_msg.replace(/e/gi, 'Îµ');
-    new_msg = new_msg.replace(/f/gi, 'Æ');
+    new_msg = new_msg.replace(/a/gi, 'α');
+    new_msg = new_msg.replace(/b/gi, 'β');
+    new_msg = new_msg.replace(/c/gi, 'ς');
+    new_msg = new_msg.replace(/d/gi, 'δ');
+    new_msg = new_msg.replace(/e/gi, 'ε');
+    new_msg = new_msg.replace(/f/gi, 'ƒ');
     new_msg = new_msg.replace(/g/gi, 'g');
-    new_msg = new_msg.replace(/h/gi, '�?½');
-    new_msg = new_msg.replace(/i/gi, 'Î¹');
+    new_msg = new_msg.replace(/h/gi, 'н');
+    new_msg = new_msg.replace(/i/gi, 'ι');
     new_msg = new_msg.replace(/j/gi, 'j');
-    new_msg = new_msg.replace(/k/gi, 'Îº');
-    new_msg = new_msg.replace(/l/gi, 'â');
-    new_msg = new_msg.replace(/m/gi, '�?¼');
-    new_msg = new_msg.replace(/n/gi, 'Î·');
-    new_msg = new_msg.replace(/o/gi, 'Î¿');
-    new_msg = new_msg.replace(/p/gi, '�??');
-    new_msg = new_msg.replace(/q/gi, '�?');
-    new_msg = new_msg.replace(/r/gi, 'Ñ?');
+    new_msg = new_msg.replace(/k/gi, 'κ');
+    new_msg = new_msg.replace(/l/gi, 'ℓ');
+    new_msg = new_msg.replace(/m/gi, 'м');
+    new_msg = new_msg.replace(/n/gi, 'η');
+    new_msg = new_msg.replace(/o/gi, 'ο');
+    new_msg = new_msg.replace(/p/gi, 'ρ');
+    new_msg = new_msg.replace(/q/gi, 'φ');
+    new_msg = new_msg.replace(/r/gi, 'я');
     new_msg = new_msg.replace(/s/gi, 's');
-    new_msg = new_msg.replace(/t/gi, '�?');
-    new_msg = new_msg.replace(/u/gi, 'Î¼');
+    new_msg = new_msg.replace(/t/gi, 'τ');
+    new_msg = new_msg.replace(/u/gi, 'μ');
     new_msg = new_msg.replace(/v/gi, 'v');
-    new_msg = new_msg.replace(/w/gi, '�?');
-    new_msg = new_msg.replace(/x/gi, '�?');
-    new_msg = new_msg.replace(/y/gi, 'Î»');
-    new_msg = new_msg.replace(/z/gi, 'Î¶');
+    new_msg = new_msg.replace(/w/gi, 'ω');
+    new_msg = new_msg.replace(/x/gi, 'χ');
+    new_msg = new_msg.replace(/y/gi, 'λ');
+    new_msg = new_msg.replace(/z/gi, 'ζ');
     document.getElementById('message').value = new_msg;
 }
 
-function inject_greek() {
+function inject_greek()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -3029,12 +3100,16 @@ function inject_greek() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_greek', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_greek', '0', 1);
@@ -3042,41 +3117,44 @@ function inject_greek() {
     });
 }
 
-function greek_post() {
+function greek_post()
+{
     var old_msg = ''; // this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/greek /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             var new_msg = msg_ray[i].replace(/\/greek /i, '');
-            new_msg = new_msg.replace(/a/gi, 'Î±');
-            new_msg = new_msg.replace(/b/gi, 'Î²');
-            new_msg = new_msg.replace(/c/gi, '�?');
-            new_msg = new_msg.replace(/d/gi, 'Î´');
-            new_msg = new_msg.replace(/e/gi, 'Îµ');
-            new_msg = new_msg.replace(/f/gi, 'Æ');
+            new_msg = new_msg.replace(/a/gi, 'α');
+            new_msg = new_msg.replace(/b/gi, 'β');
+            new_msg = new_msg.replace(/c/gi, 'ς');
+            new_msg = new_msg.replace(/d/gi, 'δ');
+            new_msg = new_msg.replace(/e/gi, 'ε');
+            new_msg = new_msg.replace(/f/gi, 'ƒ');
             new_msg = new_msg.replace(/g/gi, 'g');
-            new_msg = new_msg.replace(/h/gi, '�?½');
-            new_msg = new_msg.replace(/i/gi, 'Î¹');
+            new_msg = new_msg.replace(/h/gi, 'н');
+            new_msg = new_msg.replace(/i/gi, 'ι');
             new_msg = new_msg.replace(/j/gi, 'j');
-            new_msg = new_msg.replace(/k/gi, 'Îº');
-            new_msg = new_msg.replace(/l/gi, 'â');
-            new_msg = new_msg.replace(/m/gi, '�?¼');
-            new_msg = new_msg.replace(/n/gi, 'Î·');
-            new_msg = new_msg.replace(/o/gi, 'Î¿');
-            new_msg = new_msg.replace(/p/gi, '�??');
-            new_msg = new_msg.replace(/q/gi, '�?');
-            new_msg = new_msg.replace(/r/gi, 'Ñ?');
+            new_msg = new_msg.replace(/k/gi, 'κ');
+            new_msg = new_msg.replace(/l/gi, 'ℓ');
+            new_msg = new_msg.replace(/m/gi, 'м');
+            new_msg = new_msg.replace(/n/gi, 'η');
+            new_msg = new_msg.replace(/o/gi, 'ο');
+            new_msg = new_msg.replace(/p/gi, 'ρ');
+            new_msg = new_msg.replace(/q/gi, 'φ');
+            new_msg = new_msg.replace(/r/gi, 'я');
             new_msg = new_msg.replace(/s/gi, 's');
-            new_msg = new_msg.replace(/t/gi, '�?');
-            new_msg = new_msg.replace(/u/gi, 'Î¼');
+            new_msg = new_msg.replace(/t/gi, 'τ');
+            new_msg = new_msg.replace(/u/gi, 'μ');
             new_msg = new_msg.replace(/v/gi, 'v');
-            new_msg = new_msg.replace(/w/gi, '�?');
-            new_msg = new_msg.replace(/x/gi, '�?');
-            new_msg = new_msg.replace(/y/gi, 'Î»');
-            new_msg = new_msg.replace(/z/gi, 'Î¶');
+            new_msg = new_msg.replace(/w/gi, 'ω');
+            new_msg = new_msg.replace(/x/gi, 'χ');
+            new_msg = new_msg.replace(/y/gi, 'λ');
+            new_msg = new_msg.replace(/z/gi, 'ζ');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -3088,39 +3166,41 @@ function greek_post() {
 /////////////////////
 /////////////////////SMALL CAPS TEXT
 
-function smallcaps_() {
+function smallcaps_()
+{
     var old_msg = document.getElementById('message').value;
     var new_msg = old_msg.replace(/\/smc /i, ''); //this is not necessary but the fucks i could give do not exist
-    new_msg = new_msg.replace(/a/gi, 'á´');
-    new_msg = new_msg.replace(/b/gi, 'Ê');
-    new_msg = new_msg.replace(/c/gi, 'á´');
-    new_msg = new_msg.replace(/d/gi, 'á´');
-    new_msg = new_msg.replace(/e/gi, 'á´');
-    new_msg = new_msg.replace(/f/gi, 'Ò');
-    new_msg = new_msg.replace(/g/gi, 'É¢');
-    new_msg = new_msg.replace(/h/gi, 'Ê');
-    new_msg = new_msg.replace(/i/gi, 'Éª');
-    new_msg = new_msg.replace(/j/gi, 'á´');
-    new_msg = new_msg.replace(/k/gi, 'á´');
-    new_msg = new_msg.replace(/l/gi, 'Ê');
-    new_msg = new_msg.replace(/m/gi, 'á´?');
-    new_msg = new_msg.replace(/n/gi, 'É´');
-    new_msg = new_msg.replace(/o/gi, 'á´?');
-    new_msg = new_msg.replace(/p/gi, 'á´');
-    new_msg = new_msg.replace(/q/gi, 'Ç«');
-    new_msg = new_msg.replace(/r/gi, 'Ê');
+    new_msg = new_msg.replace(/a/gi, 'ᴀ');
+    new_msg = new_msg.replace(/b/gi, 'ʙ');
+    new_msg = new_msg.replace(/c/gi, 'ᴄ');
+    new_msg = new_msg.replace(/d/gi, 'ᴅ');
+    new_msg = new_msg.replace(/e/gi, 'ᴇ');
+    new_msg = new_msg.replace(/f/gi, 'ғ');
+    new_msg = new_msg.replace(/g/gi, 'ɢ');
+    new_msg = new_msg.replace(/h/gi, 'ʜ');
+    new_msg = new_msg.replace(/i/gi, 'ɪ');
+    new_msg = new_msg.replace(/j/gi, 'ᴊ');
+    new_msg = new_msg.replace(/k/gi, 'ᴋ');
+    new_msg = new_msg.replace(/l/gi, 'ʟ');
+    new_msg = new_msg.replace(/m/gi, 'ᴍ');
+    new_msg = new_msg.replace(/n/gi, 'ɴ');
+    new_msg = new_msg.replace(/o/gi, 'ᴏ');
+    new_msg = new_msg.replace(/p/gi, 'ᴘ');
+    new_msg = new_msg.replace(/q/gi, 'ǫ');
+    new_msg = new_msg.replace(/r/gi, 'ʀ');
     new_msg = new_msg.replace(/s/gi, 's');
-    new_msg = new_msg.replace(/t/gi, 'á´');
-    new_msg = new_msg.replace(/u/gi, 'á´');
-    new_msg = new_msg.replace(/v/gi, 'á´ ');
-    new_msg = new_msg.replace(/w/gi, 'á´¡');
+    new_msg = new_msg.replace(/t/gi, 'ᴛ');
+    new_msg = new_msg.replace(/u/gi, 'ᴜ');
+    new_msg = new_msg.replace(/v/gi, 'ᴠ');
+    new_msg = new_msg.replace(/w/gi, 'ᴡ');
     new_msg = new_msg.replace(/x/gi, 'x');
-    new_msg = new_msg.replace(/y/gi, 'Ê?');
-    new_msg = new_msg.replace(/z/gi, 'á´¢');
+    new_msg = new_msg.replace(/y/gi, 'ʏ');
+    new_msg = new_msg.replace(/z/gi, 'ᴢ');
     document.getElementById('message').value = new_msg;
 }
 
-function inject_smallcaps() {
+function inject_smallcaps()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -3136,12 +3216,16 @@ function inject_smallcaps() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_smallcaps', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_smallcaps', '0', 1);
@@ -3149,41 +3233,44 @@ function inject_smallcaps() {
     });
 }
 
-function smallcaps_post() {
+function smallcaps_post()
+{
     var old_msg = ''; // this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/smc /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             var new_msg = msg_ray[i].replace(/\/smc /i, '');
-            new_msg = new_msg.replace(/a/gi, 'á´');
-            new_msg = new_msg.replace(/b/gi, 'Ê');
-            new_msg = new_msg.replace(/c/gi, 'á´');
-            new_msg = new_msg.replace(/d/gi, 'á´');
-            new_msg = new_msg.replace(/e/gi, 'á´');
-            new_msg = new_msg.replace(/f/gi, 'Ò');
-            new_msg = new_msg.replace(/g/gi, 'É¢');
-            new_msg = new_msg.replace(/h/gi, 'Ê');
-            new_msg = new_msg.replace(/i/gi, 'Éª');
-            new_msg = new_msg.replace(/j/gi, 'á´');
-            new_msg = new_msg.replace(/k/gi, 'á´');
-            new_msg = new_msg.replace(/l/gi, 'Ê');
-            new_msg = new_msg.replace(/m/gi, 'á´?');
-            new_msg = new_msg.replace(/n/gi, 'É´');
-            new_msg = new_msg.replace(/o/gi, 'á´?');
-            new_msg = new_msg.replace(/p/gi, 'á´');
-            new_msg = new_msg.replace(/q/gi, 'Ç«');
-            new_msg = new_msg.replace(/r/gi, 'Ê');
+            new_msg = new_msg.replace(/a/gi, 'ᴀ');
+            new_msg = new_msg.replace(/b/gi, 'ʙ');
+            new_msg = new_msg.replace(/c/gi, 'ᴄ');
+            new_msg = new_msg.replace(/d/gi, 'ᴅ');
+            new_msg = new_msg.replace(/e/gi, 'ᴇ');
+            new_msg = new_msg.replace(/f/gi, 'ғ');
+            new_msg = new_msg.replace(/g/gi, 'ɢ');
+            new_msg = new_msg.replace(/h/gi, 'ʜ');
+            new_msg = new_msg.replace(/i/gi, 'ɪ');
+            new_msg = new_msg.replace(/j/gi, 'ᴊ');
+            new_msg = new_msg.replace(/k/gi, 'ᴋ');
+            new_msg = new_msg.replace(/l/gi, 'ʟ');
+            new_msg = new_msg.replace(/m/gi, 'ᴍ');
+            new_msg = new_msg.replace(/n/gi, 'ɴ');
+            new_msg = new_msg.replace(/o/gi, 'ᴏ');
+            new_msg = new_msg.replace(/p/gi, 'ᴘ');
+            new_msg = new_msg.replace(/q/gi, 'ǫ');
+            new_msg = new_msg.replace(/r/gi, 'ʀ');
             new_msg = new_msg.replace(/s/gi, 's');
-            new_msg = new_msg.replace(/t/gi, 'á´');
-            new_msg = new_msg.replace(/u/gi, 'á´');
-            new_msg = new_msg.replace(/v/gi, 'á´ ');
-            new_msg = new_msg.replace(/w/gi, 'á´¡');
+            new_msg = new_msg.replace(/t/gi, 'ᴛ');
+            new_msg = new_msg.replace(/u/gi, 'ᴜ');
+            new_msg = new_msg.replace(/v/gi, 'ᴠ');
+            new_msg = new_msg.replace(/w/gi, 'ᴡ');
             new_msg = new_msg.replace(/x/gi, 'x');
-            new_msg = new_msg.replace(/y/gi, 'Ê?');
-            new_msg = new_msg.replace(/z/gi, 'á´¢');
+            new_msg = new_msg.replace(/y/gi, 'ʏ');
+            new_msg = new_msg.replace(/z/gi, 'ᴢ');
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
                 msg_ray.join('<br />');
@@ -3194,7 +3281,8 @@ function smallcaps_post() {
 //////////////////////
 /////////////////////MORSE CODE
 
-function morse_() {
+function morse_()
+{
     var new_msg = document.getElementById('message').value;
     new_msg = new_msg.replace(/a/gi, '.-//');
     new_msg = new_msg.replace(/b/gi, '-...//');
@@ -3225,7 +3313,8 @@ function morse_() {
     document.getElementById('message').value = new_msg;
 }
 
-function inject_morse() {
+function inject_morse()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -3241,12 +3330,16 @@ function inject_morse() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_morse', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_morse', '0', 1);
@@ -3254,14 +3347,17 @@ function inject_morse() {
     });
 }
 
-function morse_post() {
+function morse_post()
+{
     var old_msg = ''; // this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/mc /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             var new_msg = msg_ray[i].replace(/\/mc /i, '');
             new_msg = new_msg.replace(/a/gi, '.-//');
             new_msg = new_msg.replace(/b/gi, '-...//');
@@ -3315,42 +3411,54 @@ function morse_post() {
 //////////////////////
 ////////////////////// SEKRIT CHAT M0D3
 
-Math.irandom = function(min, max) {
+Math.irandom = function(min, max)
+{
     "use strict";
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-function sekrit_() {
+function sekrit_()
+{
     var old_msg = document.getElementById('message').value;
     var index_num = old_msg.regexIndexOf(/\/s /i);
-    if (index_num === 0) {
+    if (index_num === 0)
+    {
         var new_msg = old_msg.replace(/\/s /i, '');
-        try {
+        try
+        {
             for (i = 0; i < new_msg.match(/\./gi).length; i++)
                 if (Math.random() > 0.9)
                     new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
             new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
-        } catch (e) { /* there are no dots in our message */ }
+        }
+        catch (e)
+        { /* there are no dots in our message */ }
         for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], 'gi'), values(replacements)[i]);
         document.getElementById('message').value = new_msg;
     }
 }
 
-function sekrit_post() {
+function sekrit_post()
+{
     var old_msg = ''; // this may not be necessary i'm not 100% sure
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/s /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             var new_msg = old_msg.replace(/\/s /i, '');
-            try {
+            try
+            {
                 for (i = 0; i < new_msg.match(/\./gi).length; i++)
                     if (Math.random() > 0.9)
                         new_msg = new_msg.replace(/\./, endings[Math.irandom(0, endings.length)]); // here we use a temp . to prevent mass dupes
                 new_msg = new_msg.replace(/\[dot\]/gi, '.'); // and here we fix the .
-            } catch (e) { /* there are no dots in our message */ }
+            }
+            catch (e)
+            { /* there are no dots in our message */ }
             for (i = 0; i < Object.keys(replacements).length; i++) new_msg = new_msg.replace(new RegExp(Object.keys(replacements)[i], 'gi'), values(replacements)[i]);
             msg_ray[i] = new_msg;
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -3361,13 +3469,15 @@ function sekrit_post() {
 }
 ///////////////////// MANAGES THE RAINBOW TEXT SYSTEM
 
-function rainbow_() {
+function rainbow_()
+{
     var old_msg = document.getElementById('message').value;
     new_msg = rainbowText(old_msg);
     document.getElementById('message').value = new_msg;
 }
 
-function inject_rainbow() {
+function inject_rainbow()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -3383,12 +3493,16 @@ function inject_rainbow() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_rainbow', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_rainbow', '0', 1);
@@ -3396,14 +3510,17 @@ function inject_rainbow() {
     });
 }
 
-function rainbow_post() {
+function rainbow_post()
+{
     var old_msg = '';
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/rb /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             msg_ray[i] = msg_ray[i].replace(/\/rb /i, '');
             msg_ray[i] = rainbowText(msg_ray[i]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -3415,13 +3532,15 @@ function rainbow_post() {
 /////////////////////
 /////////////////////RANDOM CHARACTER COLOR
 
-function random_() {
+function random_()
+{
     var old_msg = document.getElementById('message').value;
     new_msg = randomText(old_msg);
     document.getElementById('message').value = new_msg;
 }
 
-function inject_random() {
+function inject_random()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -3437,12 +3556,16 @@ function inject_random() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_random', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_random', '0', 1);
@@ -3450,14 +3573,17 @@ function inject_random() {
     });
 }
 
-function random_post() {
+function random_post()
+{
     var old_msg = '';
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/rn /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             msg_ray[i] = msg_ray[i].replace(/\/rn /i, '');
             msg_ray[i] = randomText(msg_ray[i]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -3469,13 +3595,15 @@ function random_post() {
 /////////////////////
 ////////////////////GRADIENT MSG COLOR
 
-function gradient_() {
+function gradient_()
+{
     var old_msg = document.getElementById('message').value;
     var new_msg = gradientText(old_msg);
     document.getElementById('message').value = new_msg;
 }
 
-function inject_gradient() {
+function inject_gradient()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -3491,12 +3619,16 @@ function inject_gradient() {
     var clicked_css =
         'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var not_clicked_css = '';
-    what.addEventListener('click', function() {
-        if (!whot.checked) {
+    what.addEventListener('click', function()
+    {
+        if (!whot.checked)
+        {
             whot.checked = true;
             whot.style.cssText = clicked_css;
             setCookie('CB_gradient', '1', 1);
-        } else {
+        }
+        else
+        {
             whot.checked = false;
             whot.style.cssText = not_clicked_css;
             setCookie('CB_gradient', '0', 1);
@@ -3504,14 +3636,17 @@ function inject_gradient() {
     });
 }
 
-function gradient_post() {
+function gradient_post()
+{
     var old_msg = '';
     if (document.getElementsByTagName('textarea')[1] === undefined) old_msg = document.getElementsByTagName('textarea')[0].value;
     else old_msg = document.getElementsByTagName('textarea')[1].value;
     var msg_ray = old_msg.split('\n');
-    for (var i = 0; i < msg_ray.length; i++) {
+    for (var i = 0; i < msg_ray.length; i++)
+    {
         var index_num = old_msg.regexIndexOf(/\/gd /i);
-        if (index_num === 0) {
+        if (index_num === 0)
+        {
             msg_ray[i] = msg_ray[i].replace(/\/gd /i, '');
             msg_ray[i] = gradientText(msg_ray[i]);
             if (document.getElementsByTagName('textarea')[1] === undefined) document.getElementsByTagName('textarea')[0].value =
@@ -3524,7 +3659,8 @@ function gradient_post() {
 /////////////////////MANAGES THE EDITING OF CSS
 
 var num_buttons = 9; ///
-function edit_css() {
+function edit_css()
+{
     document.getElementById('chatbox_messenger_form').getElementsByTagName('label')[4 + num_buttons].style.cssText = cssMsg;
     // / CSS for label that says "Message:" .. +1 for every new button
     document.getElementById('chatbox_messenger_form').getElementsByTagName('label')[4 + num_buttons].innerHTML = 'MESSAGE:';
@@ -3549,7 +3685,8 @@ function edit_css() {
 /////////////////////
 /////////////////////INJECTS THE FUCKING SMILIES INTO WINDOW
 
-function the_base(smilie_code, smilie_url, smilie_text) {
+function the_base(smilie_code, smilie_url, smilie_text)
+{
     var change_this = td_base;
     change_this = change_this.replace(new RegExp('_smilie', 'gi'), smilie_code);
     change_this = change_this.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
@@ -3557,22 +3694,27 @@ function the_base(smilie_code, smilie_url, smilie_text) {
     return change_this;
 }
 
-function preloader(image_url) {
+function preloader(image_url)
+{
     temp_image = new Image();
     temp_image.src = image_url;
 }
 
 
-function manageScreen() {
-    for (var i = 260; i < window.screen.availWidth; i += 130) {
+function manageScreen()
+{
+    for (var i = 260; i < window.screen.availWidth; i += 130)
+    {
         console.log(i);
-        if (wX() < i && wX() > i - 130) {
+        if (wX() < i && wX() > i - 130)
+        {
             window.innerWidth = i;
         }
     }
 }
 
-function wX() {
+function wX()
+{
     var w = window,
         d = document,
         e = d.documentElement,
@@ -3582,7 +3724,8 @@ function wX() {
 }
 
 
-function wY() {
+function wY()
+{
     var w = window,
         d = document,
         e = d.documentElement,
@@ -3592,7 +3735,8 @@ function wY() {
 }
 
 
-function inject_smilie(i, wWidth) {
+function inject_smilie(i, wWidth)
+{
     var get_place = document.getElementsByTagName('table')[2];
     var the_body = document.createElement('tbody');
     get_place.appendChild(the_body);
@@ -3601,10 +3745,13 @@ function inject_smilie(i, wWidth) {
     var coconut = 0;
     var x;
     var the_tr;
-    if (i == 1) {
-        for (x = 0; x < Object.keys(emoticon_1).length; x++) {
+    if (i == 1)
+    {
+        for (x = 0; x < Object.keys(emoticon_1).length; x++)
+        {
             // console.log(counter + " " + coconut + " " + x);
-            if (counter == wWidth) {
+            if (counter == wWidth)
+            {
                 counter = 0;
                 coconut++;
                 the_tr = document.createElement('tr');
@@ -3615,10 +3762,14 @@ function inject_smilie(i, wWidth) {
             get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_1)[x][0] + quote, values(emoticon_1)[x][1], values(emoticon_1)[x][2]);
             counter++;
         }
-    } else if (i == 2) {
-        for (x = 0; x < Object.keys(emoticon_2).length; x++) {
+    }
+    else if (i == 2)
+    {
+        for (x = 0; x < Object.keys(emoticon_2).length; x++)
+        {
             // console.log(counter + " " + coconut + " " + x);
-            if (counter == wWidth) {
+            if (counter == wWidth)
+            {
                 counter = 0;
                 coconut++;
                 the_tr = document.createElement('tr');
@@ -3629,10 +3780,14 @@ function inject_smilie(i, wWidth) {
             get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_2)[x][0] + quote, values(emoticon_2)[x][1], values(emoticon_2)[x][2]);
             counter++;
         }
-    } else if (i == 3) {
-        for (x = 0; x < Object.keys(emoticon_3).length; x++) {
+    }
+    else if (i == 3)
+    {
+        for (x = 0; x < Object.keys(emoticon_3).length; x++)
+        {
             // console.log(counter + " " + coconut + " " + x);
-            if (counter == wWidth) {
+            if (counter == wWidth)
+            {
                 counter = 0;
                 coconut++;
                 the_tr = document.createElement('tr');
@@ -3643,10 +3798,14 @@ function inject_smilie(i, wWidth) {
             get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_3)[x][0] + quote, values(emoticon_3)[x][1], values(emoticon_3)[x][2]);
             counter++;
         }
-    } else if (i == 4) {
-        for (x = 0; x < Object.keys(emoticon_4).length; x++) {
+    }
+    else if (i == 4)
+    {
+        for (x = 0; x < Object.keys(emoticon_4).length; x++)
+        {
             // console.log(counter + " " + coconut + " " + x);
-            if (counter == wWidth) {
+            if (counter == wWidth)
+            {
                 counter = 0;
                 coconut++;
                 the_tr = document.createElement('tr');
@@ -3657,10 +3816,14 @@ function inject_smilie(i, wWidth) {
             get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + values(emoticon_4)[x][0] + quote, values(emoticon_4)[x][1], values(emoticon_4)[x][2]);
             counter++;
         }
-    } else if (i == 5) {
-        for (x = 0; x < twitch_e.length; x++) {
+    }
+    else if (i == 5)
+    {
+        for (x = 0; x < twitch_e.length; x++)
+        {
             // console.log(counter + " " + coconut + " " + x);
-            if (counter == wWidth) {
+            if (counter == wWidth)
+            {
                 counter = 0;
                 coconut++;
                 the_tr = document.createElement('tr');
@@ -3671,10 +3834,14 @@ function inject_smilie(i, wWidth) {
             get_place.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[coconut].getElementsByTagName('td')[counter].innerHTML = the_base(quote + twitch_c[x] + quote, twitch_e[x], '');
             counter++;
         }
-    } else if (i == 6) {
-        for (x = 0; x < Object.keys(emoticon_5).length; x++) {
+    }
+    else if (i == 6)
+    {
+        for (x = 0; x < Object.keys(emoticon_5).length; x++)
+        {
             // console.log(counter + " " + coconut + " " + x);
-            if (counter == wWidth) {
+            if (counter == wWidth)
+            {
                 counter = 0;
                 coconut++;
                 the_tr = document.createElement('tr');
@@ -3688,7 +3855,8 @@ function inject_smilie(i, wWidth) {
     }
 }
 
-function inject_spacer() {
+function inject_spacer()
+{
     var where = document.getElementById('chatbox_messenger_form').getElementsByTagName('table')[1].getElementsByTagName('tr')[0];
     var chil_where = where.children;
     var the_body = document.createElement('td');
@@ -3696,10 +3864,12 @@ function inject_spacer() {
     where.insertBefore(the_body, chil_where[0]);
 }
 
-function inject_css_url(url) {
+function inject_css_url(url)
+{
     var head;
     head = document.getElementsByTagName('head')[0];
-    if (!head) {
+    if (!head)
+    {
         return;
     }
     var gstyle = document.createElement('link');
@@ -3711,26 +3881,34 @@ function inject_css_url(url) {
 /////////////////////
 /////////////////////FIX POST PAGE CSS
 
-function post_page_editor() {
+function post_page_editor()
+{
     var clear = '';
     var hide = 'display:none;';
-    if (getCookie('post_condition') == '1') {
+    if (getCookie('post_condition') == '1')
+    {
         post_button_num = 1;
         document.getElementById('text_edit').style.cssText = hide;
         document.getElementById('html_edit').style.cssText = clear;
-    } else {
+    }
+    else
+    {
         post_button_num = 0;
         document.getElementById('text_edit').style.cssText = clear;
         document.getElementById('html_edit').style.cssText = hide;
     }
-    document.getElementById('text_editor_cmd_switchmode').addEventListener('click', function() {
+    document.getElementById('text_editor_cmd_switchmode').addEventListener('click', function()
+    {
         // console.log("it changed" + post_button_num);
-        if (post_button_num === 0) {
+        if (post_button_num === 0)
+        {
             setCookie('post_condition', '1', 1);
             post_button_num = 1;
             document.getElementById('text_edit').style.cssText = hide;
             document.getElementById('html_edit').style.cssText = clear;
-        } else if (post_button_num == 1) {
+        }
+        else if (post_button_num == 1)
+        {
             setCookie('post_condition', '0', 1);
             post_button_num = 0;
             document.getElementById('text_edit').style.cssText = clear;
@@ -3741,7 +3919,8 @@ function post_page_editor() {
 /////////////////////
 /////////////////////RUNS SCRIPT
 
-function debugg() {
+function debugg()
+{
     var smilie_count_1 = Object.keys(emoticon_1).length;
     var smilie_count_2 = Object.keys(emoticon_2).length;
     var smilie_count_3 = Object.keys(emoticon_3).length;
@@ -3751,22 +3930,28 @@ function debugg() {
     var total_smilies = smilie_count_1 + smilie_count_2 + smilie_count_3 + smilie_count_4 + smilie_count_5;
     var meme_count = Object.keys(maymay).length;
 
-    if (smilie_count_1 > 200) {
+    if (smilie_count_1 > 200)
+    {
         console.log('warning, exceeded smilie count by ' + (smilie_count_1 - 200) + ' in window 1');
     }
-    if (smilie_count_2 > 200) {
+    if (smilie_count_2 > 200)
+    {
         console.log('warning, exceeded smilie count by ' + (smilie_count_2 - 200) + ' in window 2');
     }
-    if (smilie_count_3 > 200) {
+    if (smilie_count_3 > 200)
+    {
         console.log('warning, exceeded smilie count by ' + (smilie_count_3 - 200) + ' in window 3');
     }
-    if (smilie_count_4 > 200) {
+    if (smilie_count_4 > 200)
+    {
         console.log('warning, exceeded smilie count by ' + (smilie_count_4 - 200) + ' in window 4');
     }
-    if (smilie_count_5 > 200) {
+    if (smilie_count_5 > 200)
+    {
         console.log('warning, exceeded smilie count by ' + (smilie_count_5 - 200) + ' in window 5');
     }
-    if (smilie_count_6 > 200) {
+    if (smilie_count_6 > 200)
+    {
         console.log('warning, exceeded smilie count by ' + (smilie_count_6 - 200) + ' in window 5');
     }
     console.log('window 1 | ' + smilie_count_1 + '\n' + 'window 2 | ' + smilie_count_2 + '\n' + 'window 3 | ' + smilie_count_3 + '\n' + 'window 4 | ' + smilie_count_4 + '\n' + 'window 5 | ' + smilie_count_5 + '\n' + 'window 6 | ' + smilie_count_6 + '\n' + 'smilie total ' + total_smilies + '\n' + "meme total " + meme_count);
@@ -3778,66 +3963,80 @@ function debugg() {
     /////////////// window 5 - Swearify 3
 }
 
-window.addEventListener('load', function() { /* shit goes down in here */
+window.addEventListener('load', function()
+{ /* shit goes down in here */
     if (is.ie() || is.safari() || is.opera()) alert('This browser is unsupported by Swearify.');
-    else {
+    else
+    {
         var get_place = '';
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies') {
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies')
+        {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
                 get_place.innerText = "";
             inject_smilie(1, Math.floor(wX() / 130) - 1);
-            window.onresize = function(event) {
+            window.onresize = function(event)
+            {
                 manageScreen();
                 inject_smilie(1, Math.floor(wX() / 130) - 1);
             };
         }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies') {
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies')
+        {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
                 get_place.innerText = "";
             inject_smilie(2, Math.floor(wX() / 130) - 1);
-            window.onresize = function(event) {
+            window.onresize = function(event)
+            {
                 manageScreen();
                 inject_smilie(2, Math.floor(wX() / 130) - 1);
             };
         }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies') {
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies')
+        {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
                 get_place.innerText = "";
             inject_smilie(3, Math.floor(wX() / 130) - 1);
-            window.onresize = function(event) {
+            window.onresize = function(event)
+            {
                 manageScreen();
                 inject_smilie(3, Math.floor(wX() / 130) - 1);
             };
         }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies') {
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies')
+        {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
                 get_place.innerText = "";
             inject_smilie(4, Math.floor(wX() / 130) - 1);
-            window.onresize = function(event) {
+            window.onresize = function(event)
+            {
                 manageScreen();
                 inject_smilie(4, Math.floor(wX() / 130) - 1);
             };
         }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies') {
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies')
+        {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerHTML !== '')
                 get_place.innerHTML = "";
             inject_smilie(5, Math.floor(wX() / 130) - 1);
-            window.onresize = function(event) {
+            window.onresize = function(event)
+            {
                 manageScreen();
                 inject_smilie(5, Math.floor(wX() / 130) - 1);
             };
         }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies') {
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies')
+        {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
                 get_place.innerText = "";
             inject_smilie(6, Math.floor(wX() / 130) - 1);
-            window.onresize = function(event) {
+            window.onresize = function(event)
+            {
                 manageScreen();
                 inject_smilie(6, Math.floor(wX() / 130) - 1);
             };
@@ -3846,7 +4045,8 @@ window.addEventListener('load', function() { /* shit goes down in here */
             'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' || window.location.href ===
             'http://aimgames.forummotion.com/chatbox/index.forum?archives' || window.location.href ===
             'http://aimgames.forummotion.com/chatbox' || window.location.href ===
-            'http://aimgames.forummotion.com/') {
+            'http://aimgames.forummotion.com/')
+        {
             inject_spacer();
             //////
             inject_gradient();
@@ -3862,19 +4062,24 @@ window.addEventListener('load', function() { /* shit goes down in here */
             inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
             inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/index.css');
             edit_css();
-            document.getElementById('submit_button').addEventListener('click', function() {
+            document.getElementById('submit_button').addEventListener('click', function()  {
                 run_();
             }, false);
             $(document).on('keydown', function(e) {
-                if (e.which === 13 || e.which === 45) run_();
+              if (e.which === 13 || e.which === 45) run_();
             });
-        } else {
+        }
+        else
+        {
             if (window.location.href === 'http://aimgames.forummotion.com/post') post_page_editor();
-            if (typeof document.getElementsByTagName('textarea')[1] === 'undefined') { // //PREVIEWs
+            if (typeof document.getElementsByTagName('textarea')[1] === 'undefined')
+            { // //PREVIEWs
                 // PAGE
                 loc = document.getElementById('parent_editor_simple').getElementsByClassName('row2')[0];
                 refined_loc = document.getElementById('parent_editor_simple').getElementsByClassName('row2')[0];
-            } else {
+            }
+            else
+            {
                 loc = document.getElementById('quick_reply').getElementsByClassName('row2')[1];
                 cssTd = 'padding-top:5px;';
                 var new_td = document.createElement('td');
@@ -3883,21 +4088,24 @@ window.addEventListener('load', function() { /* shit goes down in here */
             }
             var element = document.createElement('label');
             refined_loc.appendChild(element).style.cssText = cssLabel;
-            setInterval(function() {
+            setInterval(function()
+            {
                 var area = document.getElementsByTagName('textarea')[0]; // //this
                 // is
                 // preview
                 // window
                 // shit
                 if (typeof document.getElementsByTagName('textarea')[1] === 'object') area.value = document.getElementsByTagName('textarea')[1].value;
-                if (typeof area !== 'undefined') Countable.once(area, function(counter) {
+                if (typeof area !== 'undefined') Countable.once(area, function(counter)
+                {
                     if (loc.getElementsByTagName('label')[0].innerHTML != values(counter)[4] + ' characters') loc.getElementsByTagName('label')[0].innerHTML = values(counter)[4] + ' characters';
                     if (values(counter)[4] > 63500) element.style.cssText += 'color:red;';
                     else if (values(counter)[4] < 63500) element.style.cssText = cssLabel;
                 });
             }, 3000);
             // ////////
-            $(document).on('keydown', function(e) {
+            $(document).on('keydown', function(e)
+            {
                 if (e.which === 13) run_post();
             });
         }
@@ -3905,8 +4113,10 @@ window.addEventListener('load', function() { /* shit goes down in here */
     debugg(); // get info and shit
 }, false);
 
-function run_() {
-    if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1') {
+function run_()
+{
+    if (getCookie('CB_rainbow') !== '1' && getCookie('CB_random') !== '1' && getCookie('CB_gradient') !== '1' && getCookie('CB_greek') !== '1' && getCookie('CB_braille') !== '1')
+    {
         emoticon_();
         maymay_();
     }
@@ -3922,7 +4132,8 @@ function run_() {
     if (getCookie('CB_gradient') === '1') gradient_();
 }
 
-function run_post() {
+function run_post()
+{
     smallcaps_post();
     morse_post();
     greek_post();
