@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.4.9
+// @version     beta.5.0
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -816,37 +816,44 @@ IDEAS:
             window.onresize = function(event) {
                 displaySmilies(1, fitEmotesOnScreen());
             };
-        }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies' ||
+        } else if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=2&mode=smilies_frame') {
             displaySmilies(2, fitEmotesOnScreen());
             window.onresize = function(event) {
                 displaySmilies(2, fitEmotesOnScreen());
             };
-        }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies' ||
+        } else if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=3&mode=smilies_frame') {
             displaySmilies(3, fitEmotesOnScreen());
             window.onresize = function(event) {
                 displaySmilies(3, fitEmotesOnScreen());
             };
-        }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies' ||
+        } else if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=4&mode=smilies_frame') {
             displaySmilies(4, fitEmotesOnScreen());
             window.onresize = function(event) {
                 displaySmilies(4, fitEmotesOnScreen());
             };
-        }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies' ||
+        } else if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=5&mode=smilies_frame') {
             displaySmilies(5, fitEmotesOnScreen());
             window.onresize = function(event) {
                 displaySmilies(5, fitEmotesOnScreen());
             };
-        }
-        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
+        } else if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
+            displaySmilies(6, fitEmotesOnScreen());
+            window.onresize = function(event) {
+                displaySmilies(6, fitEmotesOnScreen());
+            };
+        } else if (window.location.href === 'http://aimgames.forummotion.com/post?categ=7&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=7&mode=smilies_frame') {
+            displaySmilies(7, fitEmotesOnScreen());
+            window.onresize = function(event) {
+                displaySmilies(7, fitEmotesOnScreen());
+            };
+        } else if (window.location.href === 'http://aimgames.forummotion.com/post?categ=8&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=8&mode=smilies_frame') {
             addSearchBox();
     
             /*
@@ -860,8 +867,7 @@ IDEAS:
                     displayResults(search(passItDown), fitEmotesOnScreen());
                 }, 250);
             });
-        }
-        if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
+        } else if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
             window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' ||
             window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' ||
             window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' ||
