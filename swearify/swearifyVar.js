@@ -2,7 +2,7 @@
  * the swears
  */
 var swears = [
-    'sex', '494', 'mdx', ':3'
+    'sex', '494', 'mdx', ':3', 'hentai', 'porn'
 ];
 
 /** the emoticons
