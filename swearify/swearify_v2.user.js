@@ -4,11 +4,11 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
 // @include     https://aimgames.forummotion.com/*
-// @require     https://cdn.rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
+// @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/src/js.cookie.js
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-// @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
-// @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.3.6
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
+// @version     beta.4.7
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -16,7 +16,7 @@
 // @grant       none
 // ==/UserScript==
 /* SWEARIFY 2.0
-- even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads it's own.
+- even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads its own.
 
 'TO IMPLEMENT' LIST
 
@@ -25,6 +25,20 @@
     -   Enabled for posting (MOSTLY DONE)
 
     -   Upgraded swear filter
+    
+    -   Redtext
+    
+    -   greek     text
+    -   braille   text
+    -   balloon   text
+    -   leet      text
+    -   morse     text
+    -   smallcaps text
+    -   rainbow   text
+    -   random    text
+    -   gradient  text
+    
+    -   sekrit mode
 
 IDEAS:
     -   Slide the text effect buttons to the left and right instead of the sharp show/hide
@@ -48,7 +62,7 @@ IDEAS:
     var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
     var cssLine = 'color:black;';
     var cssChat = 'overflow-x: hidden; left:141px;';
-    var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    //var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;height: 100%;line-height: 200%;';
     var cssImage = 'padding-top: 1px;';
 
@@ -70,6 +84,16 @@ IDEAS:
     var specialCode = ['/exit', '/away', '/abs', '[code]'];
     var filteringCode = ['[b][/b]', '.'];
     var linkCode = ['http://', 'www.', 'https://'];
+    
+    /** This is populated as makeButtonCookie() is called */
+    var chatButtons = [];
+    
+    /**
+     * Convenience method. Similar in functionality but not identical to String.prototype.includes.
+     */
+    String.prototype.contains = function(search) {
+        return this.indexOf(search) !== -1;
+    };
 
     String.prototype.regexIndexOf = function(regex, startpos) {
         var indexOf = this.substring(startpos || 0).search(regex);
@@ -78,6 +102,10 @@ IDEAS:
 
     function addStylesheet(url) {
         $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', url));
+    }
+    
+    function addStylesheetDirect(text) {
+        $("<style>").prop("type", "text/css").html(text).appendTo("head");
     }
 
     function editCss() {
@@ -223,21 +251,15 @@ IDEAS:
     }
 
     /**
-     * check what buttons are selected and prevent a button from being clicked (return false) if it will interfere
+     * simulate the behaviour of a radio button (uncheck other buttons if they are checked)
      */
-    function checkCheckedButtons(buttonCookie) {
-        var buttons = [
-            'CB_random',
-            'CB_rainbow'
-        ];
-
-        for (var i = 0; i < buttons.length; i++) {
-            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') {
-                window.alert(`You can't do that! You already have ${buttons[i]} selected!`);
-                return false;
+    function uncheckOtherButtons(buttonCookie) {
+        for (var i in chatButtons) { //run through every button
+            if (buttonCookie !== chatButtons[i][0] && Cookies.get(chatButtons[i][0]) === '1') { //we've found a match
+                chatButtons[i][1].prop('checked', false); //uncheck
+                Cookies.set(chatButtons[i][0], '0'); //...and unset the cookie
             }
         }
-        return true;
     }
 
     /**
@@ -282,30 +304,34 @@ IDEAS:
      * obviously this needs upgrading as it's awful
      */
     function swear() {
+        var oldMsg = $('#message').val(); // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        var oldMsgLowercase = oldMsg.toLowerCase();
+        
+        var httpLink = oldMsg.indexOf(linkCode[0]);
+        var wwwLink = oldMsg.indexOf(linkCode[1]);
+        var httpsLink = oldMsg.indexOf(linkCode[2]);
+
+        //is the message a chatbox command?
+        var chatCommand = oldMsg.contains(specialCode[0]) || // /exit command
+                          oldMsg.contains(specialCode[1]) || // /away command
+                          oldMsg.contains(specialCode[2]) || // /abs command
+                          oldMsg.contains(specialCode[3]) // [code] command
+                          ;
+        
+        var filteringMethod = 0;
+
+        /**
+         * if the message is a chatbox command, add . . . to swears instead of [b][/b]
+         */
+        if (chatCommand)
+            filteringMethod = 1;
+        
         $.each(swears, function(index, item) {
             /**
              * define a ton of variables
              */
-            var oldMsg = $('#message').val();
-            var oldMsgLowercase = $('#message').val().toLowerCase();
-            var newMsg = '';
+            var filteredItem = '';
 
-            var httpLink = oldMsg.indexOf(linkCode[0]);
-            var wwwLink = oldMsg.indexOf(linkCode[1]);
-            var httpsLink = oldMsg.indexOf(linkCode[2]);
-
-            var exitCode = oldMsg.indexOf(specialCode[0]);
-            var awayCode = oldMsg.indexOf(specialCode[1]);
-            var absentCode = oldMsg.indexOf(specialCode[2]);
-            var codeCode = oldMsg.indexOf(specialCode[3]);
-
-            var filteringMethod = 0;
-
-            /**
-             * is the message a chatbox command
-             */
-            if (exitCode != -1 || awayCode != -1 || absentCode != -1 || codeCode != -1)
-                filteringMethod = 1;
 
             /**
              * what to do if the message has a link
@@ -322,8 +348,8 @@ IDEAS:
 
                 var before_link = oldMsgLowercase.substr(0, which);
                 var link = oldMsgLowercase.substr(which, oldMsgLowercase.length);
-                if (before_link.indexOf(item) >= 0) {
-                    newMsg = oldMsg.substr(before_link.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
+                if (before_link.contains(item)) {
+                    filteredItem = oldMsg.substr(before_link.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
                 }
             }
 
@@ -332,68 +358,77 @@ IDEAS:
              */
             if (httpLink == -1 && httpsLink == -1 && wwwLink == -1) {
                 if (oldMsgLowercase.indexOf(item) >= 0) {
-                    newMsg = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
+                    filteredItem = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
                 }
             }
-            $('#message').val(oldMsg.replace(new RegExp(item, 'gi'), newMsg));
+            // according to how your code worked previously, this should be perfectly fine.
+            // if it isn't, SHAME ON YOU, KAFF.
+            oldMsg = oldMsg.replace(item, filteredItem);
         });
+        
+        $('#message').val(oldMsg);
     }
 
     function emoticonPost() {
-        var oldMsg;
-        var newMsg;
-        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
+        var oldMsg = $('textarea')[getPostMode()].value; // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
-            oldMsg = $('textarea')[getPostMode()].value;
-            if (oldMsg.regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp(value[0], 'gi'), postImgTag(value[1]));
+            if (oldMsg.contains(value[0])) {
+                oldMsg = oldMsg.replace(value[0], postImgTag(value[1]));
             }
         });
 
         $.each(twitch_c, function(index, item) {
-            oldMsg = $('textarea')[getPostMode()].value;
-            if (oldMsg.regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp('\\b' + item + '\\b', 'g'), postImgTag(twitch_e[index]));
+            if (oldMsg.regexIndexOf(item) !== -1) {
+                oldMsg = oldMsg.replace(item, postImgTag(twitch_e[index]));
             }
         });
+        
+        $('textarea')[getPostMode()].value = oldMsg;
     }
 
     function emoticon() {
-        var newMsg;
-        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
+        var oldMsg = $('#message').val(); // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
-            if ($('#message').val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                newMsg = $('#message').val().replace(new RegExp(value[0], 'gi'), imgTag[0] + value[1] + imgTag[1]);
-                $('#message').val(newMsg);
+            if (oldMsg.contains(value[0])) {
+                oldMsg = oldMsg.replace(value[0], imgTag[0] + value[1] + imgTag[1]);
             }
         });
 
         $.each(twitch_c, function(index, item) {
-            if ($('#message').val().regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-                newMsg = $('#message').val().replace(new RegExp('\\b' + item + '\\b', 'g'), imgTag[0] + twitch_e[index] + imgTag[1]);
-                $('#message').val(newMsg);
+            if (oldMsg.regexIndexOf(item) !== -1) {
+                oldMsg = oldMsg.replace(item, imgTag[0] + twitch_e[index] + imgTag[1]);
             }
         });
+        
+        $('#message').val(oldMsg);
     }
 
+    // TODO: should memes enforce word breaks?
+
     function memePost() {
+        var oldMsg = $('textarea')[getPostMode()].value; // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        
         $.each(maymay, function(name, value) {
-            if ($('textarea')[getPostMode()].value.regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                var newMsg = $('textarea')[getPostMode()].value.replace(new RegExp(value[0], 'gi'), value[1]);
-                $('textarea')[getPostMode()].value = newMsg;
+            if (oldMsg.contains(value[0])) {
+                oldMsg = oldMsg.replace(value[0], value[1]);
             }
         });
+        $('textarea')[getPostMode()].value = oldMsg;
     }
 
     function meme() {
+        var oldMsg = $('#message').val(); // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        
         $.each(maymay, function(name, value) {
-            if ($('#message').val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                var newMsg = $('#message').val().replace(new RegExp(value[0], 'gi'), value[1]);
-                $('#message').val(newMsg);
+            if (oldMsg.contains(value[0])) {
+                oldMsg = oldMsg.replace(value[0], value[1]);
             }
         });
+        $('#message').val(oldMsg);
     }
 
     function greentextPost() {
@@ -437,73 +472,66 @@ IDEAS:
             }
         });
     }
+    
+    /**
+     * Creates a button in the chat
+     * 
+     * name: the unique name of the button
+     * nameStylized: a nifty title for the button
+     * iconURL: a link to the image for the button
+     */
+    function makeButton(name, nameStylized, iconURL) {
+        var where = $('.text-styles tr')[0];
 
+        $(where).prepend($('<td id="' + name + '_button" class="fontbutton hider"></td>'));
+
+        var whereTd = $(where).find('td');
+        $(whereTd[0]).append(
+            $('<input name="' + name + '" id="format-' + name + '" class="format-message" type="checkbox"><label id="click_area_' + name + '" title="' + nameStylized + '" style="cursor:pointer;height: 100%;"><img class="swearIcons" src="' + iconURL + '"></label>')
+        );
+
+        return $('#format-' + name);
+    }
+    
+    /**
+     * Creates and handles the button you create with makeButton()
+     * 
+     * name: same name as makeButton()
+     * buttonElement: the returned value of makeButton()
+     */
+    function makeButtonCookie(name, buttonElement) {
+        if (Cookies.get('CB_' + name) === '1') $(buttonElement).prop('checked', true);
+        else $(buttonElement).prop('checked', false);
+
+        $('#click_area_' + name).click(function() {
+            uncheckOtherButtons('CB_' + name);
+            if (!$(buttonElement).prop('checked')) {
+                $(buttonElement).prop('checked', true);
+                //$(buttonElement).css('cssText', cssClicked);
+                Cookies.set('CB_' + name, '1');
+            } else {
+                $(buttonElement).prop('checked', false);
+                //$(buttonElement).css('cssText', '');
+                Cookies.set('CB_' + name, '0');
+            }
+        });
+        
+        // as per http://stackoverflow.com/a/3826423, this is the fastest way to do it
+        chatButtons[chatButtons.length] = ['CB_' + name, $(buttonElement)];
+    }
+
+    /**
+     * Applies the rainbow effect to the message
+     */
     function rainbow() {
         $('#message').val(rainbowText($('#message').val()));
     }
 
-    function addRainbow() {
-        var where = $('.text-styles tr')[0];
-
-        $(where).prepend($('<td id="rainbow_button" class="fontbutton hider"></td>'));
-
-        var whereTd = $(where).find('td');
-        $(whereTd[0]).append(
-            $('<input name="rainbow" id="format-rainbow" class="format-message" type="checkbox"><label id="click_area_rainbow" title="Rainbow" style="cursor:pointer;height: 100%;"><img class="swearIcons" src="http://i.imgur.com/F69UQGS.png"></label>')
-        );
-
-        var chkboxFormat = $('#format-rainbow');
-
-        if (Cookies.get('CB_rainbow') === '1') $(chkboxFormat).prop('checked', true);
-        else $(chkboxFormat).prop('checked', false);
-
-        $('#click_area_rainbow').click(function() {
-            if (checkCheckedButtons('CB_rainbow')) {
-                if (!$(chkboxFormat).prop('checked')) {
-                    $(chkboxFormat).prop('checked', true);
-                    $(chkboxFormat).css('cssText', cssClicked);
-                    Cookies.set('CB_rainbow', '1');
-                } else {
-                    $(chkboxFormat).prop('checked', false);
-                    $(chkboxFormat).css('cssText', '');
-                    Cookies.set('CB_rainbow', '0');
-                }
-            }
-        });
-    }
-
+    /**
+     * Applies the random-color effect to the message
+     */
     function random() {
         $('#message').val(randomText($('#message').val()));
-    }
-
-    function addRandom() {
-        var where = $('.text-styles tr')[0];
-
-        $(where).prepend($('<td id="random_button" class="fontbutton hider"></td>'));
-
-        var whereTd = $(where).find('td');
-        $(whereTd[0]).append(
-            $('<input name="random" id="format-random" class="format-message" type="checkbox"><label id="click_area_random" title="Random" style="cursor:pointer;height: 100%;"><img class="swearIcons" src="http://i.imgur.com/jHMOnyI.png"></label>')
-        );
-
-        var chkboxFormat = $('#format-random');
-
-        if (Cookies.get('CB_random') === '1') $(chkboxFormat).prop('checked', true);
-        else $(chkboxFormat).prop('checked', false);
-
-        $('#click_area_random').click(function() {
-            if (checkCheckedButtons('CB_random')) {
-                if (!$(chkboxFormat).prop('checked')) {
-                    $(chkboxFormat).prop('checked', true);
-                    $(chkboxFormat).css('cssText', cssClicked);
-                    Cookies.set('CB_random', '1');
-                } else {
-                    $(chkboxFormat).prop('checked', false);
-                    $(chkboxFormat).css('cssText', '');
-                    Cookies.set('CB_random', '0');
-                }
-            }
-        });
     }
 
     function search(searchTerm) {
@@ -514,8 +542,9 @@ IDEAS:
         $('#emoticonNotif').text('');
 
         if (searchTerm.length > 0) {
+            var searchRegExp = new RegExp(searchTerm, 'gi'); //prevent assloads of instantiations
             $.each(massiveObj, function(name, value) {
-                if (value[0].regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
+                if (value[0].regexIndexOf(searchRegExp) >= 0) {
                     if (massiveResults.length >= 104) {
                         /*
                          * if there's >= 104 elements, BREAK OUT
@@ -535,7 +564,7 @@ IDEAS:
                 }
             });
             $.each(twitch_c, function(index, item) {
-                if (item.regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
+                if (item.regexIndexOf(searchRegExp) >= 0) {
                     if (massiveResults.length >= 104) {
                         /*
                          * if there's >= 104 elements, BREAK OUT
@@ -750,104 +779,113 @@ IDEAS:
     }
 
     /**
-     * this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script
+     * this is the main function, where shit goes down and functions are called.
+     * 
      */
-    jQuery(document).ready(function() {
-        $.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
-            appendOptions();
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
-                console.log("done");
+    $.getScript('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
+        appendOptions();
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
+            console.log("done");
+            displaySmilies(1, fitEmotesOnScreen());
+            window.onresize = function(event) {
                 displaySmilies(1, fitEmotesOnScreen());
-                window.onresize = function(event) {
-                    displaySmilies(1, fitEmotesOnScreen());
-                };
-            }
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=2&mode=smilies_frame') {
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=2&mode=smilies_frame') {
+            displaySmilies(2, fitEmotesOnScreen());
+            window.onresize = function(event) {
                 displaySmilies(2, fitEmotesOnScreen());
-                window.onresize = function(event) {
-                    displaySmilies(2, fitEmotesOnScreen());
-                };
-            }
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=3&mode=smilies_frame') {
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=3&mode=smilies_frame') {
+            displaySmilies(3, fitEmotesOnScreen());
+            window.onresize = function(event) {
                 displaySmilies(3, fitEmotesOnScreen());
-                window.onresize = function(event) {
-                    displaySmilies(3, fitEmotesOnScreen());
-                };
-            }
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=4&mode=smilies_frame') {
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=4&mode=smilies_frame') {
+            displaySmilies(4, fitEmotesOnScreen());
+            window.onresize = function(event) {
                 displaySmilies(4, fitEmotesOnScreen());
-                window.onresize = function(event) {
-                    displaySmilies(4, fitEmotesOnScreen());
-                };
-            }
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=5&mode=smilies_frame') {
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=5&mode=smilies_frame') {
+            displaySmilies(5, fitEmotesOnScreen());
+            window.onresize = function(event) {
                 displaySmilies(5, fitEmotesOnScreen());
-                window.onresize = function(event) {
-                    displaySmilies(5, fitEmotesOnScreen());
-                };
-            }
-            if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
-                window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
-                addSearchBox();
-
-                /*
-                 * add in a keyup timer so, say, if you type A S S H O L E the search method doesn't try to search for A, AS, ASS, etc.
-                 */
-                var timeAmongUs;
-                $('#emoteSearchBox').on('keyup', function() {
-                    if (timeAmongUs) clearTimeout(timeAmongUs)
-                    var passItDown = this.value;
-                    timeAmongUs = setTimeout(function() {
-                        displayResults(search(passItDown), fitEmotesOnScreen());
-                    }, 250);
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
+            addSearchBox();
+    
+            /*
+             * add in a keyup timer so, say, if you type A S S H O L E the search method doesn't try to search for A, AS, ASS, etc.
+             */
+            var timeAmongUs;
+            $('#emoteSearchBox').on('keyup', function() {
+                if (timeAmongUs) clearTimeout(timeAmongUs)
+                var passItDown = this.value;
+                timeAmongUs = setTimeout(function() {
+                    displayResults(search(passItDown), fitEmotesOnScreen());
+                }, 250);
+            });
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox' ||
+            window.location.href === 'http://aimgames.forummotion.com/') {
+            addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
+            addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
+            addStylesheetDirect(`
+.format-message + label { /* unchecked chat button */
+    border: 1px solid #AAA;
+    background: #DDD;
+}
+.format-message:checked + label { /* checked chat button */
+    background: #CCC none repeat scroll 0% 0%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+`);
+            editCss();
+            /**/
+            addHider();
+            /**/
+            makeButtonCookie('rainbow', makeButton('rainbow', 'Rainbow', 'http://i.imgur.com/F69UQGS.png'));
+            makeButtonCookie('random', makeButton('random', 'Random', 'http://i.imgur.com/jHMOnyI.png'));
+    
+            /**/
+            buttonCss();
+    
+            /**/
+            hijackEmoticonButton();
+    
+            /* screenshot feature only works in chrome, so I'll add an if statement
+             */
+            if (navigator.userAgent.toLowerCase().contains('chrome')) {
+                $.getScript('http://daffeinatek.byethost32.com/swearify/html2canvas.js', function() {
+                    addScreenshot();
                 });
             }
-            if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
-                window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' ||
-                window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' ||
-                window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' ||
-                window.location.href === 'http://aimgames.forummotion.com/chatbox' ||
-                window.location.href === 'http://aimgames.forummotion.com/') {
-                addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
-                addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
-                editCss();
-                /**/
-                addHider();
-                /**/
-                addRainbow();
-                addRandom();
-
-                /**/
-                buttonCss();
-
-                /**/
-                hijackEmoticonButton();
-
-                /* screenshot feature only works in chrome, so I'll add an if statement
-                 */
-                if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-                    $.getScript('http://daffeinatek.byethost32.com/swearify/html2canvas.js', function() {
-                        addScreenshot();
-                    });
-                }
-
-                /**/
-                $('#message').on('keydown', function(e) {
-                    if (e.which === 13 || e.which === 45) runChat();
-                });
-            } else {
-                if (window.location.href.indexOf('aimgames.forummotion.com/post') != -1) postPage();
-
-                /**/
-                $('textarea').on('keydown', function(e) {
-                    if (e.which === 13) runPost();
-                });
-            }
-        });
+    
+            /**/
+            $('#message').on('keydown', function(e) {
+                if (e.which === 13 || e.which === 45) runChat();
+            });
+        } else {
+            if (window.location.href.contains('aimgames.forummotion.com/post')) postPage();
+    
+            /**/
+            $('textarea').on('keydown', function(e) {
+                if (e.which === 13) runPost();
+            });
+        }
     });
 }());
