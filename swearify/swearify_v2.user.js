@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.5.0
+// @version     beta.5.1
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -807,7 +807,7 @@ IDEAS:
      * this is the main function, where shit goes down and functions are called.
      * 
      */
-    $.getScript('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
+    $.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
         appendOptions();
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
