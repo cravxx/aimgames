@@ -14,111 +14,114 @@ function Rainbow(){"use strict";function e(e){if(e.length<2)throw new Error("Rai
 var ColorList = ["red", "orange", "#E7FF00", "#5CFF00", "lime", "aqua", "#00B9FF", "blue", "purple", "plum", "pink"];
 var LastStr = "";
 
-var jsKeywords = ["in", "of", "if", "for", "while", "finally", "var", "new",
-    "function", "do", "return", "void", "else", "break", "catch",
-    "instanceof", "with", "throw", "case", "default", "try", "this",
-    "switch", "continue", "typeof", "delete", "let", "yield", "const",
-    "export", "super", "debugger", "as", "async", "await"
+var jsKeywords = [[/\bin\b/, "in"], [/\bof\b/, "of"], [/\bif\b/, "if"], [/\bfor\b/, "for"], [/\bwhile\b/, "while"], [/\bfinally\b/, "finally"], [/\bvar\b/, "var"], [/\bnew\b/, "new"],
+    [/\bfunction\b/, "function"], [/\bdo\b/, "do"], [/\breturn\b/, "return"], [/\bvoid\b/, "void"], [/\belse\b/, "else"], [/\bbreak\b/, "break"], [/\bcatch\b/, "catch"],
+    [/\binstanceof\b/, "instanceof"], [/\bwith\b/, "with"], [/\bthrow\b/, "throw"], [/\bcase\b/, "case"], [/\bdefault\b/, "default"], [/\btry\b/, "try"], [/\bthis\b/, "this"],
+    [/\bswitch\b/, "switch"], [/\bcontinue\b/, "continue"], [/\btypeof\b/, "typeof"], [/\bdelete\b/, "delete"], [/\blet\b/, "let"], [/\byield\b/, "yield"], [/\bconst\b/, "const"],
+    [/\bexport\b/, "export"], [/\bsuper\b/, "super"], [/\bdebugger\b/, "debugger"], [/\bas\b/, "as"], [/\basync\b/, "async"], [/\bawait\b/, "await"]
 ];
-var jsLiterals = ["true", "false", "null", "undefined", "NaN", "Infinity", "\+", "\-", "\="];
-var jsBuiltIn = ["eval", "isFinite", "isNaN", "parseFloat", "parseInt",
-    "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent",
-    "escape", "unescape", "Object", "Function", "Boolean", "Error",
-    "EvalError", "InternalError", "RangeError", "ReferenceError",
-    "StopIteration", "SyntaxError", "TypeError", "URIError", "Number",
-    "Math", "Date", "String", "RegExp", "Array", "Float32Array",
-    "Float64Array", "Int16Array", "Int32Array", "Int8Array", "Uint16Array",
-    "Uint32Array", "Uint8Array", "Uint8ClampedArray", "ArrayBuffer",
-    "DataView", "JSON", "Intl", "arguments", "require", "module", "console",
-    "window", "document", "Symbol", "Set", "Map", "WeakSet", "WeakMap",
-    "Proxy", "Reflect", "Promise"
+var jsLiterals = [[/\btrue\b/, "true"], [/\bfalse\b/, "false"], [/\bnull\b/, "null"], [/\bundefined\b/, "undefined"], [/\bNaN\b/, "NaN"], [/\bInfinity\b/, "Infinity"], [/\b\+\b/, "\+"], [/\b\-\b/, "\-"], [/\b\=\b/, "\="]];
+var jsBuiltIn = [[/\beval\b/, "eval"], [/\bisFinite\b/, "isFinite"], [/\bisNaN\b/, "isNaN"], [/\bparseFloat\b/, "parseFloat"], [/\bparseInt\b/, "parseInt"],
+    [/\bdecodeURI\b/, "decodeURI"], [/\bdecodeURIComponent\b/, "decodeURIComponent"], [/\bencodeURI\b/, "encodeURI"], [/\bencodeURIComponent\b/, "encodeURIComponent"],
+    [/\bescape\b/, "escape"], [/\bunescape\b/, "unescape"], [/\bObject\b/, "Object"], [/\bFunction\b/, "Function"], [/\bBoolean\b/, "Boolean"], [/\bError\b/, "Error"],
+    [/\bEvalError\b/, "EvalError"], [/\bInternalError\b/, "InternalError"], [/\bRangeError\b/, "RangeError"], [/\bReferenceError\b/, "ReferenceError"],
+    [/\bStopIteration\b/, "StopIteration"], [/\bSyntaxError\b/, "SyntaxError"], [/\bTypeError\b/, "TypeError"], [/\bURIError\b/, "URIError"], [/\bNumber\b/, "Number"],
+    [/\bMath\b/, "Math"], [/\bDate\b/, "Date"], [/\bString\b/, "String"], [/\bRegExp\b/, "RegExp"], [/\bArray\b/, "Array"], [/\bFloat32Array\b/, "Float32Array"],
+    [/\bFloat64Array\b/, "Float64Array"], [/\bInt16Array\b/, "Int16Array"], [/\bInt32Array\b/, "Int32Array"], [/\bInt8Array\b/, "Int8Array"], [/\bUint16Array\b/, "Uint16Array"],
+    [/\bUint32Array\b/, "Uint32Array"], [/\bUint8Array\b/, "Uint8Array"], [/\bUint8ClampedArray\b/, "Uint8ClampedArray"], [/\bArrayBuffer\b/, "ArrayBuffer"],
+    [/\bDataView\b/, "DataView"], [/\bJSON\b/, "JSON"], [/\bIntl\b/, "Intl"], [/\barguments\b/, "arguments"], [/\brequire\b/, "require"], [/\bmodule\b/, "module"], [/\bconsole\b/, "console"],
+    [/\bwindow\b/, "window"], [/\bdocument\b/, "document"], [/\bSymbol\b/, "Symbol"], [/\bSet\b/, "Set"], [/\bMap\b/, "Map"], [/\bWeakSet\b/, "WeakSet"], [/\bWeakMap\b/, "WeakMap"],
+    [/\bProxy\b/, "Proxy"], [/\bReflect\b/, "Reflect"], [/\bPromise\b/, "Promise"]
 ];
-var javaKeywords = ["false", "synchronized", "int", "abstract", "float", "private",
-    "char", "boolean", "static", "null", "if", "const", "for", "true",
-    "while", "long", "strictfp", "finally", "protected", "import", "native",
-    "final", "void", "enum", "else", "break", "transient", "catch",
-    "instanceof", "byte", "super", "volatile", "case", "assert", "short",
-    "package", "default", "double", "public", "try", "this", "switch",
-    "continue", "throws", "protected", "public", "private"
+var javaKeywords = [[/\bfalse\b/, "false"], [/\bsynchronized\b/, "synchronized"], [/\bint\b/, "int"], [/\babstract\b/, "abstract"], [/\bfloat\b/, "float"], [/\bprivate\b/, "private"],
+    [/\bchar\b/, "char"], [/\bboolean\b/, "boolean"], [/\bstatic\b/, "static"], [/\bnull\b/, "null"], [/\bif\b/, "if"], [/\bconst\b/, "const"], [/\bfor\b/, "for"], [/\btrue\b/, "true"],
+    [/\bwhile\b/, "while"], [/\blong\b/, "long"], [/\bstrictfp\b/, "strictfp"], [/\bfinally\b/, "finally"], [/\bprotected\b/, "protected"], [/\bimport\b/, "import"], [/\bnative\b/, "native"],
+    [/\bfinal\b/, "final"], [/\bvoid\b/, "void"], [/\benum\b/, "enum"], [/\belse\b/, "else"], [/\bbreak\b/, "break"], [/\btransient\b/, "transient"], [/\bcatch\b/, "catch"],
+    [/\binstanceof\b/, "instanceof"], [/\bbyte\b/, "byte"], [/\bsuper\b/, "super"], [/\bvolatile\b/, "volatile"], [/\bcase\b/, "case"], [/\bassert\b/, "assert"], [/\bshort\b/, "short"],
+    [/\bpackage\b/, "package"], [/\bdefault\b/, "default"], [/\bdouble\b/, "double"], [/\bpublic\b/, "public"], [/\btry\b/, "try"], [/\bthis\b/, "this"], [/\bswitch\b/, "switch"],
+    [/\bcontinue\b/, "continue"], [/\bthrows\b/, "throws"], [/\bprotected\b/, "protected"], [/\bpublic\b/, "public"], [/\bprivate\b/, "private"]
 ];
-var vbsKeywords = ["call", "class", "const", "dim", "do", "loop", "erase",
-    "execute", "executeglobal", "exit", "for", "each", "next", "function",
-    "if", "then", "else", "on", "error", "option", "explicit", "new",
-    "private", "property", "let", "get", "public", "randomize", "redim",
-    "rem", "select", "case", "set", "stop", "sub", "while", "wend", "with",
-    "end", "to", "elseif", "is", "or", "xor", "and", "not",
-    "class_initialize", "class_terminate", "default", "preserve", "in",
-    "me", "byval", "byref", "step", "resume", "goto"
+var vbsKeywords = [[/\bcall\b/, "call"], [/\bclass\b/, "class"], [/\bconst\b/, "const"], [/\bdim\b/, "dim"], [/\bdo\b/, "do"], [/\bloop\b/, "loop"], [/\berase\b/, "erase"],
+    [/\bexecute\b/, "execute"], [/\bexecuteglobal\b/, "executeglobal"], [/\bexit\b/, "exit"], [/\bfor\b/, "for"], [/\beach\b/, "each"], [/\bnext\b/, "next"], [/\bfunction\b/, "function"],
+    [/\bif\b/, "if"], [/\bthen\b/, "then"], [/\belse\b/, "else"], [/\bon\b/, "on"], [/\berror\b/, "error"], [/\boption\b/, "option"], [/\bexplicit\b/, "explicit"], [/\bnew\b/, "new"],
+    [/\bprivate\b/, "private"], [/\bproperty\b/, "property"], [/\blet\b/, "let"], [/\bget\b/, "get"], [/\bpublic\b/, "public"], [/\brandomize\b/, "randomize"], [/\bredim\b/, "redim"],
+    [/\brem\b/, "rem"], [/\bselect\b/, "select"], [/\bcase\b/, "case"], [/\bset\b/, "set"], [/\bstop\b/, "stop"], [/\bsub\b/, "sub"], [/\bwhile\b/, "while"], [/\bwend\b/, "wend"], [/\bwith\b/, "with"],
+    [/\bend\b/, "end"], [/\bto\b/, "to"], [/\belseif\b/, "elseif"], [/\bis\b/, "is"], [/\bor\b/, "or"], [/\bxor\b/, "xor"], [/\band\b/, "and"], [/\bnot\b/, "not"],
+    [/\bclass_initialize\b/, "class_initialize"], [/\bclass_terminate\b/, "class_terminate"], [/\bdefault\b/, "default"], [/\bpreserve\b/, "preserve"], [/\bin\b/, "in"],
+    [/\bme\b/, "me"], [/\bbyval\b/, "byval"], [/\bbyref\b/, "byref"], [/\bstep\b/, "step"], [/\bresume\b/, "resume"], [/\bgoto\b/, "goto"]
 ];
-var vbsLiterals = ["lcase", "month", "vartype", "instrrev", "ubound",
-    "setlocale", "getobject", "rgb", "getref", "string", "weekdayname",
-    "rnd", "dateadd", "monthname", "now", "day", "minute", "isarray",
-    "cbool", "round", "formatcurrency", "conversions", "csng", "timevalue",
-    "second", "year", "space", "abs", "clng", "timeserial", "fixs", "len",
-    "asc", "isempty", "maths", "dateserial", "atn", "timer", "isobject",
-    "filter", "weekday", "datevalue", "ccur", "isdate", "instr", "datediff",
-    "formatdatetime", "replace", "isnull", "right", "sgn", "array",
-    "snumeric", "log", "cdbl", "hex", "chr", "lbound", "msgbox", "ucase",
-    "getlocale", "cos", "cdate", "cbyte", "rtrim", "join", "hour", "oct",
-    "typename", "trim", "strcomp", "int", "createobject", "loadpicture",
-    "tan", "formatnumber", "mid", "scriptenginebuildversion",
-    "scriptengine", "split", "scriptengineminorversion", "cint", "sin",
-    "datepart", "ltrim", "sqr", "scriptenginemajorversion", "time",
-    "derived", "eval", "date", "formatpercent", "exp", "inputbox", "left",
-    "ascw", "chrw", "regexp", "server", "response", "request", "cstr",
-    "err", "\+", "\-", "\="
+var vbsLiterals = [[/\blcase\b/, "lcase"], [/\bmonth\b/, "month"], [/\bvartype\b/, "vartype"], [/\binstrrev\b/, "instrrev"], [/\bubound\b/, "ubound"],
+    [/\bsetlocale\b/, "setlocale"], [/\bgetobject\b/, "getobject"], [/\brgb\b/, "rgb"], [/\bgetref\b/, "getref"], [/\bstring\b/, "string"], [/\bweekdayname\b/, "weekdayname"],
+    [/\brnd\b/, "rnd"], [/\bdateadd\b/, "dateadd"], [/\bmonthname\b/, "monthname"], [/\bnow\b/, "now"], [/\bday\b/, "day"], [/\bminute\b/, "minute"], [/\bisarray\b/, "isarray"],
+    [/\bcbool\b/, "cbool"], [/\bround\b/, "round"], [/\bformatcurrency\b/, "formatcurrency"], [/\bconversions\b/, "conversions"], [/\bcsng\b/, "csng"], [/\btimevalue\b/, "timevalue"],
+    [/\bsecond\b/, "second"], [/\byear\b/, "year"], [/\bspace\b/, "space"], [/\babs\b/, "abs"], [/\bclng\b/, "clng"], [/\btimeserial\b/, "timeserial"], [/\bfixs\b/, "fixs"], [/\blen\b/, "len"],
+    [/\basc\b/, "asc"], [/\bisempty\b/, "isempty"], [/\bmaths\b/, "maths"], [/\bdateserial\b/, "dateserial"], [/\batn\b/, "atn"], [/\btimer\b/, "timer"], [/\bisobject\b/, "isobject"],
+    [/\bfilter\b/, "filter"], [/\bweekday\b/, "weekday"], [/\bdatevalue\b/, "datevalue"], [/\bccur\b/, "ccur"], [/\bisdate\b/, "isdate"], [/\binstr\b/, "instr"], [/\bdatediff\b/, "datediff"],
+    [/\bformatdatetime\b/, "formatdatetime"], [/\breplace\b/, "replace"], [/\bisnull\b/, "isnull"], [/\bright\b/, "right"], [/\bsgn\b/, "sgn"], [/\barray\b/, "array"],
+    [/\bsnumeric\b/, "snumeric"], [/\blog\b/, "log"], [/\bcdbl\b/, "cdbl"], [/\bhex\b/, "hex"], [/\bchr\b/, "chr"], [/\blbound\b/, "lbound"], [/\bmsgbox\b/, "msgbox"], [/\bucase\b/, "ucase"],
+    [/\bgetlocale\b/, "getlocale"], [/\bcos\b/, "cos"], [/\bcdate\b/, "cdate"], [/\bcbyte\b/, "cbyte"], [/\brtrim\b/, "rtrim"], [/\bjoin\b/, "join"], [/\bhour\b/, "hour"], [/\boct\b/, "oct"],
+    [/\btypename\b/, "typename"], [/\btrim\b/, "trim"], [/\bstrcomp\b/, "strcomp"], [/\bint\b/, "int"], [/\bcreateobject\b/, "createobject"], [/\bloadpicture\b/, "loadpicture"],
+    [/\btan\b/, "tan"], [/\bformatnumber\b/, "formatnumber"], [/\bmid\b/, "mid"], [/\bscriptenginebuildversion\b/, "scriptenginebuildversion"],
+    [/\bscriptengine\b/, "scriptengine"], [/\bsplit\b/, "split"], [/\bscriptengineminorversion\b/, "scriptengineminorversion"], [/\bcint\b/, "cint"], [/\bsin\b/, "sin"],
+    [/\bdatepart\b/, "datepart"], [/\bltrim\b/, "ltrim"], [/\bsqr\b/, "sqr"], [/\bscriptenginemajorversion\b/, "scriptenginemajorversion"], [/\btime\b/, "time"],
+    [/\bderived\b/, "derived"], [/\beval\b/, "eval"], [/\bdate\b/, "date"], [/\bformatpercent\b/, "formatpercent"], [/\bexp\b/, "exp"], [/\binputbox\b/, "inputbox"], [/\bleft\b/, "left"],
+    [/\bascw\b/, "ascw"], [/\bchrw\b/, "chrw"], [/\bregexp\b/, "regexp"], [/\bserver\b/, "server"], [/\bresponse\b/, "response"], [/\brequest\b/, "request"], [/\bcstr\b/, "cstr"],
+    [/\berr\b/, "err"], [/\b\+\b/, "\+"], [/\b\-\b/, "\-"], [/\b\=\b/, "\="]
 ];
 var vbsBuiltIn = ["true", "false", "null", "nothing", "empty"];
 
 
-function jsText(InStr) {
-	var OutStr = InStr;
-	for (var z = 0; z < jsLiterals.length; z++) {
-		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + jsLiterals[z] + "[/color]");
+function jsText(str) {
+	var outStr = str;
+	var z;
+	for (z in jsLiterals) {
+		outStr = outStr.replace(jsLiterals[z][0], "[color=#CC3366]" + jsLiterals[z][1] + "[/color]");
 	}
-	for (var z = 0; z < jsBuiltIn.length; z++) {
-		OutStr = OutStr.replace(jsBuiltIn[z], "[color=#33FFFF]" + jsBuiltIn[z] + "[/color]");
+	for (z in jsBuiltIn) {
+		outStr = outStr.replace(jsBuiltIn[z][0], "[color=#33FFFF]" + jsBuiltIn[z][1] + "[/color]");
 	}
-	for (var z = 0; z < jsKeywords.length; z++) {
-		OutStr = OutStr.replace(jsKeywords[z], "[color=#FFCC66]" + jsKeywords[z] + "[/color]");
+	for (z in jsKeywords) {
+		outStr = outStr.replace(jsKeywords[z][0], "[color=#FFCC66]" + jsKeywords[z][1] + "[/color]");
 	}
-	return OutStr;
+	return outStr;
 }
 
-function javaText(InStr) {
-	var OutStr = InStr;
-	for (var z = 0; z < javaKeywords.length; z++) {
-		OutStr = OutStr.replace(javaKeywords[z], "[color=#33FFFF]" + javaKeywords[z] + "[/color]");
+function javaText(str) {
+	var outStr = str;
+	var z;
+	for (z in javaKeywords) {
+		outStr = outStr.replace(javaKeywords[z][0], "[color=#33FFFF]" + javaKeywords[z][1] + "[/color]");
 	} //yes, JS literals not java
-	for (var z = 0; z < jsLiterals.length; z++) {
-		OutStr = OutStr.replace(jsLiterals[z], "[color=#CC3366]" + jsLiterals[z] + "[/color]");
+	for (z in jsLiterals) {
+		outStr = outStr.replace(jsLiterals[z][0], "[color=#CC3366]" + jsLiterals[z][1] + "[/color]");
 	}
-	return OutStr;
+	return outStr;
 }
 
-function vbsText(InStr) {
-	var OutStr = InStr;
-	for (var z = 0; z < vbsLiterals.length; z++) {
-		OutStr = OutStr.replace(vbsLiterals[z], "[color=#CC3366]" + vbsLiterals[z] + "[/color]");
+function vbsText(str) {
+	var outStr = str;
+	var z;
+	for (z in vbsLiterals) {
+		outStr = outStr.replace(vbsLiterals[z][0], "[color=#CC3366]" + vbsLiterals[z][1] + "[/color]");
 	}
-	for (var z = 0; z < vbsBuiltIn.length; z++) {
-		OutStr = OutStr.replace(vbsBuiltIn[z], "[color=#33FFFF]" + vbsBuiltIn[z] + "[/color]");
+	for (z in vbsBuiltIn) {
+		outStr = outStr.replace(vbsBuiltIn[z][0], "[color=#33FFFF]" + vbsBuiltIn[z][1] + "[/color]");
 	}
-	for (var z = 0; z < vbsKeywords.length; z++) {
-		OutStr = OutStr.replace(vbsKeywords[z], "[color=#FFCC66]" + vbsKeywords[z] + "[/color]");
+	for (z in vbsKeywords) {
+		outStr = outStr.replace(vbsKeywords[z][0], "[color=#FFCC66]" + vbsKeywords[z][1] + "[/color]");
 	}
-	return OutStr;
+	return outStr;
 }
 
 ///////COOKIE SHIT
 function setCookie(name, value, days) {
+  var expires = '';
   if (days) {
     var date = new Date();
-    var expires = '';
+    expires = '';
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = '; expires=' + date.toGMTString();
-  } 
-  else var expires = '';
+  }
   document.cookie = name + '=' + value + expires + '; path=/';
 }
 
@@ -128,7 +131,7 @@ function getCookie(c_name) {
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
     while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
   }
   return '';
 }
@@ -152,24 +155,24 @@ function isWhitespace(char_) {
 	return false;
 }
 
-function rainbowText(InStr) {
-	var OutStr = "";
+function rainbowText(str) {
+	var outStr = "";
 	var CurrCol = 0;
 	
-	for (var x = 0; x < InStr.length; x++) {
-		if (isWhitespace(InStr.charAt(x))) {
-			OutStr += InStr.charAt(x);
+	for (var x = 0; x < str.length; x++) {
+		if (isWhitespace(str.charAt(x))) {
+			outStr += str.charAt(x);
 		} else {
-			OutStr += "[color="+ColorList[CurrCol]+"]"+InStr.charAt(x)+"[/color]";
+			outStr += "[color="+ColorList[CurrCol]+"]"+str.charAt(x)+"[/color]";
 			CurrCol = (CurrCol+1)%ColorList.length;
 		}
 	}
-	return OutStr;
+	return outStr;
 }
 
-function gradientText(InStr) {
+function gradientText(str) {
 	var start_color = '';
-	if(getCookie('CB_color') == ''){
+	if(getCookie('CB_color') === ''){
 		start_color = randomColor();
 	}else{
 		start_color = getCookie('CB_color');
@@ -186,29 +189,29 @@ function gradientText(InStr) {
   	}
   	s = s.split(',');
 	
-	var OutStr = "";
+	var outStr = "";
 	var CurrCol = 0;
 	
-	for (var x = 0; x < InStr.length; x++) {
-		if (isWhitespace(InStr.charAt(x))) {
-			OutStr += InStr.charAt(x);
+	for (var x = 0; x < str.length; x++) {
+		if (isWhitespace(str.charAt(x))) {
+			outStr += str.charAt(x);
 		} else {
-			OutStr += "[color="+s[CurrCol]+"]"+InStr.charAt(x)+"[/color]";
+			outStr += "[color="+s[CurrCol]+"]"+str.charAt(x)+"[/color]";
 			CurrCol = (CurrCol+1)%7; ///half it tho
 		}
 	}
-	return OutStr;
+	return outStr;
 }
 
-function randomText(InStr) {
-	var OutArr = InStr.split("");
-	var OutStr = ""
-	for (var i = 0; i < OutArr.length; i++) {
-		if(isWhitespace(OutArr[i])){
-			OutStr += OutArr[i];
+function randomText(str) {
+	var outArr = str.split("");
+	var outStr = "";
+	for (var i = 0; i < outArr.length; i++) {
+		if(isWhitespace(outArr[i])){
+			outStr += outArr[i];
 		}else{
-			OutStr += '[color=' + randomColor() + ']' + OutArr[i] + '[/color]';
+			outStr += '[color=' + randomColor() + ']' + outArr[i] + '[/color]';
 		}
 	}
-	return OutStr;
+	return outStr;
 }
