@@ -16,7 +16,7 @@
 // @grant       none
 // ==/UserScript==
 /* SWEARIFY 2.0
-- even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads it's own.
+- even though this script uses jQuery, we do not need to add a '@require' as forumotion already loads its own.
 
 'TO IMPLEMENT' LIST
 
@@ -231,21 +231,21 @@ IDEAS:
     }
 
     /**
-     * check what buttons are selected and prevent a button from being clicked (return false) if it will interfere
+     * simulate the behaviour of a radio button (uncheck other buttons if they are checked)
      */
-    function checkCheckedButtons(buttonCookie) {
+    function uncheckOtherButtons(buttonCookie) {
         var buttons = [
             'CB_random',
             'CB_rainbow'
         ];
 
-        for (var i in buttons) {
-            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') {
-                window.alert(`You can't do that! You already have ${buttons[i]} selected!`);
-                return false;
+        for (var i in buttons) { //run through every button
+            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') { //we've found a match
+                $(buttonElement).prop('checked', false); //uncheck...
+                $(buttonElement).css('cssText', '');
+                Cookies.set('CB_' + name, '0'); //...and unset the cookie!
             }
         }
-        return true;
     }
 
     /**
@@ -479,16 +479,15 @@ IDEAS:
         else $(buttonElement).prop('checked', false);
 
         $('#click_area_' + name).click(function() {
-            if () {
-                if (!$(buttonElement).prop('checked')) {
-                    $(buttonElement).prop('checked', true);
-                    $(buttonElement).css('cssText', cssClicked);
-                    Cookies.set('CB_' + name, '1');
-                } else {
-                    $(buttonElement).prop('checked', false);
-                    $(buttonElement).css('cssText', '');
-                    Cookies.set('CB_' + name, '0');
-                }
+            uncheckOtherButtons('CB_' + name);
+            if (!$(buttonElement).prop('checked')) {
+                $(buttonElement).prop('checked', true);
+                $(buttonElement).css('cssText', cssClicked);
+                Cookies.set('CB_' + name, '1');
+            } else {
+                $(buttonElement).prop('checked', false);
+                $(buttonElement).css('cssText', '');
+                Cookies.set('CB_' + name, '0');
             }
         });
     }
