@@ -753,7 +753,7 @@ IDEAS:
      * this is the main function, where shit goes down and functions are called.
      * 
      */
-    $.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
+    $.getScript('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
         appendOptions();
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
@@ -813,7 +813,7 @@ IDEAS:
             window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' ||
             window.location.href === 'http://aimgames.forummotion.com/chatbox' ||
             window.location.href === 'http://aimgames.forummotion.com/') {
-            addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
+            addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
             addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
             editCss();
             /**/
