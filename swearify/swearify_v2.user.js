@@ -750,102 +750,103 @@ IDEAS:
     }
 
     /**
-     * this is the main function, we have to use jQuery instead of $ because we do not actually load jQuery within this script
+     * this is the main function, where shit goes down and functions are called.
+     * 
      */
-$.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
-    appendOptions();
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
-        window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
-        console.log("done");
-        displaySmilies(1, fitEmotesOnScreen());
-        window.onresize = function(event) {
+    $.getScript('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyVar.js', function() {
+        appendOptions();
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
+            console.log("done");
             displaySmilies(1, fitEmotesOnScreen());
-        };
-    }
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies' ||
-        window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=2&mode=smilies_frame') {
-        displaySmilies(2, fitEmotesOnScreen());
-        window.onresize = function(event) {
+            window.onresize = function(event) {
+                displaySmilies(1, fitEmotesOnScreen());
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=2&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=2&mode=smilies_frame') {
             displaySmilies(2, fitEmotesOnScreen());
-        };
-    }
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies' ||
-        window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=3&mode=smilies_frame') {
-        displaySmilies(3, fitEmotesOnScreen());
-        window.onresize = function(event) {
+            window.onresize = function(event) {
+                displaySmilies(2, fitEmotesOnScreen());
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=3&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=3&mode=smilies_frame') {
             displaySmilies(3, fitEmotesOnScreen());
-        };
-    }
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies' ||
-        window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=4&mode=smilies_frame') {
-        displaySmilies(4, fitEmotesOnScreen());
-        window.onresize = function(event) {
+            window.onresize = function(event) {
+                displaySmilies(3, fitEmotesOnScreen());
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=4&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=4&mode=smilies_frame') {
             displaySmilies(4, fitEmotesOnScreen());
-        };
-    }
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies' ||
-        window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=5&mode=smilies_frame') {
-        displaySmilies(5, fitEmotesOnScreen());
-        window.onresize = function(event) {
+            window.onresize = function(event) {
+                displaySmilies(4, fitEmotesOnScreen());
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=5&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=5&mode=smilies_frame') {
             displaySmilies(5, fitEmotesOnScreen());
-        };
-    }
-    if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
-        window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
-        addSearchBox();
-
-        /*
-         * add in a keyup timer so, say, if you type A S S H O L E the search method doesn't try to search for A, AS, ASS, etc.
-         */
-        var timeAmongUs;
-        $('#emoteSearchBox').on('keyup', function() {
-            if (timeAmongUs) clearTimeout(timeAmongUs)
-            var passItDown = this.value;
-            timeAmongUs = setTimeout(function() {
-                displayResults(search(passItDown), fitEmotesOnScreen());
-            }, 250);
-        });
-    }
-    if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
-        window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' ||
-        window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' ||
-        window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' ||
-        window.location.href === 'http://aimgames.forummotion.com/chatbox' ||
-        window.location.href === 'http://aimgames.forummotion.com/') {
-        addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
-        addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
-        editCss();
-        /**/
-        addHider();
-        /**/
-        makeButtonCookie('rainbow', makeButton('rainbow', 'Rainbow', 'http://i.imgur.com/F69UQGS.png'));
-        makeButtonCookie('random', makeButton('random', 'Random', 'http://i.imgur.com/jHMOnyI.png'));
-
-        /**/
-        buttonCss();
-
-        /**/
-        hijackEmoticonButton();
-
-        /* screenshot feature only works in chrome, so I'll add an if statement
-         */
-        if (navigator.userAgent.toLowerCase().contains('chrome')) {
-            $.getScript('http://daffeinatek.byethost32.com/swearify/html2canvas.js', function() {
-                addScreenshot();
+            window.onresize = function(event) {
+                displaySmilies(5, fitEmotesOnScreen());
+            };
+        }
+        if (window.location.href === 'http://aimgames.forummotion.com/post?categ=6&mode=smilies' ||
+            window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=6&mode=smilies_frame') {
+            addSearchBox();
+    
+            /*
+             * add in a keyup timer so, say, if you type A S S H O L E the search method doesn't try to search for A, AS, ASS, etc.
+             */
+            var timeAmongUs;
+            $('#emoteSearchBox').on('keyup', function() {
+                if (timeAmongUs) clearTimeout(timeAmongUs)
+                var passItDown = this.value;
+                timeAmongUs = setTimeout(function() {
+                    displayResults(search(passItDown), fitEmotesOnScreen());
+                }, 250);
             });
         }
-
-        /**/
-        $('#message').on('keydown', function(e) {
-            if (e.which === 13 || e.which === 45) runChat();
-        });
-    } else {
-        if (window.location.href.contains('aimgames.forummotion.com/post')) postPage();
-
-        /**/
-        $('textarea').on('keydown', function(e) {
-            if (e.which === 13) runPost();
-        });
-    }
-});
+        if (window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?page=front&' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives=1' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox/index.forum?archives' ||
+            window.location.href === 'http://aimgames.forummotion.com/chatbox' ||
+            window.location.href === 'http://aimgames.forummotion.com/') {
+            addStylesheet('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
+            addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
+            editCss();
+            /**/
+            addHider();
+            /**/
+            makeButtonCookie('rainbow', makeButton('rainbow', 'Rainbow', 'http://i.imgur.com/F69UQGS.png'));
+            makeButtonCookie('random', makeButton('random', 'Random', 'http://i.imgur.com/jHMOnyI.png'));
+    
+            /**/
+            buttonCss();
+    
+            /**/
+            hijackEmoticonButton();
+    
+            /* screenshot feature only works in chrome, so I'll add an if statement
+             */
+            if (navigator.userAgent.toLowerCase().contains('chrome')) {
+                $.getScript('http://daffeinatek.byethost32.com/swearify/html2canvas.js', function() {
+                    addScreenshot();
+                });
+            }
+    
+            /**/
+            $('#message').on('keydown', function(e) {
+                if (e.which === 13 || e.which === 45) runChat();
+            });
+        } else {
+            if (window.location.href.contains('aimgames.forummotion.com/post')) postPage();
+    
+            /**/
+            $('textarea').on('keydown', function(e) {
+                if (e.which === 13) runPost();
+            });
+        }
+    });
 }());
