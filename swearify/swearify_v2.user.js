@@ -85,6 +85,8 @@ IDEAS:
     var filteringCode = ['[b][/b]', '.'];
     var linkCode = ['http://', 'www.', 'https://'];
     
+    /** This is populated as makeButtonCookie() is called */
+    var chatButtons = [];
     
     /**
      * Convenience method. Similar in functionality but not identical to String.prototype.includes.
@@ -251,17 +253,11 @@ IDEAS:
     /**
      * simulate the behaviour of a radio button (uncheck other buttons if they are checked)
      */
-    function uncheckOtherButtons(buttonCookie, buttonElement) {
-        var buttons = [
-            'CB_random',
-            'CB_rainbow'
-        ];
-
-        for (var i in buttons) { //run through every button
-            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') { //we've found a match
-                $(buttonElement).prop('checked', false); //uncheck...
-                //$(buttonElement).css('cssText', '');
-                Cookies.set('CB_' + name, '0'); //...and unset the cookie!
+    function uncheckOtherButtons(buttonCookie) {
+        for (var i in chatButtons) { //run through every button
+            if (buttonCookie !== chatButtons[i][0] && Cookies.get(chatButtons[i][0]) === '1') { //we've found a match
+                chatButtons[i][1].prop('checked', false); //uncheck
+                Cookies.set('CB_' + chatButtons[i][0], '0'); //...and unset the cookie
             }
         }
     }
@@ -508,7 +504,7 @@ IDEAS:
         else $(buttonElement).prop('checked', false);
 
         $('#click_area_' + name).click(function() {
-            uncheckOtherButtons('CB_' + name, buttonElement);
+            uncheckOtherButtons('CB_' + name);
             if (!$(buttonElement).prop('checked')) {
                 $(buttonElement).prop('checked', true);
                 //$(buttonElement).css('cssText', cssClicked);
@@ -519,6 +515,9 @@ IDEAS:
                 Cookies.set('CB_' + name, '0');
             }
         });
+        
+        // as per http://stackoverflow.com/a/3826423, this is the fastest way to do it
+        chatButtons[chatButtons.length] = ['CB_' + name, $(buttonElement)];
     }
 
     /**
