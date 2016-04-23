@@ -5,7 +5,7 @@
 // @include     http://aimgames.forummotion.com/*
 // @include     https://aimgames.forummotion.com/*
 // @require     https://cdn.rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
-// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4memePost/jquery-ui.min.js
+// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @version     beta.4.0
