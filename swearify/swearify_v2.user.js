@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.4.6
+// @version     beta.4.7
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -257,7 +257,7 @@ IDEAS:
         for (var i in chatButtons) { //run through every button
             if (buttonCookie !== chatButtons[i][0] && Cookies.get(chatButtons[i][0]) === '1') { //we've found a match
                 chatButtons[i][1].prop('checked', false); //uncheck
-                Cookies.set('CB_' + chatButtons[i][0], '0'); //...and unset the cookie
+                Cookies.set(chatButtons[i][0], '0'); //...and unset the cookie
             }
         }
     }
