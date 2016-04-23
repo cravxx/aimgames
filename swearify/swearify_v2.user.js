@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.4.5
+// @version     beta.4.6
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -100,6 +100,10 @@ IDEAS:
 
     function addStylesheet(url) {
         $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', url));
+    }
+    
+    function addStylesheetDirect(text) {
+        $("<style>").prop("type", "text/css").html(text).appendTo("head");
     }
 
     function editCss() {
@@ -254,7 +258,7 @@ IDEAS:
         ];
 
         for (var i in buttons) { //run through every button
-            if (buttonCookie !== buttons[i] && ($(buttonElement).prop('checked') || Cookies.get(buttons[i]) === '1')) { //we've found a match
+            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') { //we've found a match
                 $(buttonElement).prop('checked', false); //uncheck...
                 //$(buttonElement).css('cssText', '');
                 Cookies.set('CB_' + name, '0'); //...and unset the cookie!
@@ -841,6 +845,16 @@ IDEAS:
             window.location.href === 'http://aimgames.forummotion.com/') {
             addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
             addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
+            addStylesheetDirect(`
+.format-message + label { /* unchecked chat button */
+    border: 1px solid #AAA;
+    background: #DDD;
+}
+.format-message:checked + label { /* checked chat button */
+    background: #CCC none repeat scroll 0% 0%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+`);
             editCss();
             /**/
             addHider();
