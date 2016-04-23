@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.4.4
+// @version     beta.4.5
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -62,7 +62,7 @@ IDEAS:
     var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
     var cssLine = 'color:black;';
     var cssChat = 'overflow-x: hidden; left:141px;';
-    var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
+    //var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
     var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;height: 100%;line-height: 200%;';
     var cssImage = 'padding-top: 1px;';
 
@@ -254,9 +254,9 @@ IDEAS:
         ];
 
         for (var i in buttons) { //run through every button
-            if (buttonCookie !== buttons[i] && Cookies.get(buttons[i]) === '1') { //we've found a match
+            if (buttonCookie !== buttons[i] && ($(buttonElement).prop('checked') || Cookies.get(buttons[i]) === '1')) { //we've found a match
                 $(buttonElement).prop('checked', false); //uncheck...
-                $(buttonElement).css('cssText', '');
+                //$(buttonElement).css('cssText', '');
                 Cookies.set('CB_' + name, '0'); //...and unset the cookie!
             }
         }
@@ -507,11 +507,11 @@ IDEAS:
             uncheckOtherButtons('CB_' + name, buttonElement);
             if (!$(buttonElement).prop('checked')) {
                 $(buttonElement).prop('checked', true);
-                $(buttonElement).css('cssText', cssClicked);
+                //$(buttonElement).css('cssText', cssClicked);
                 Cookies.set('CB_' + name, '1');
             } else {
                 $(buttonElement).prop('checked', false);
-                $(buttonElement).css('cssText', '');
+                //$(buttonElement).css('cssText', '');
                 Cookies.set('CB_' + name, '0');
             }
         });
