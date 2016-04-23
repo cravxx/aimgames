@@ -2209,6 +2209,9 @@ var maymay = {
     danked: [
         '!dank', '[color=red][b](USER WAS BANNED FOR THIS DANK)[/b][/color]'
     ],
+    ieatass: [
+        ':ieat:', '[i]ケツを食ベる[/i]'
+    ],
     ohshit: [
         '!shit', '[b][font=Comic Sans MS][color=#665203]O[/color][color=#6B5304]O[/color][color=#715405]O[/color][color=#765506]O[/color][color=#7C5708]H[/color] [color=#87590B]S[/color][color=#765109]H[/color][color=#664808]I[/color][color=#563F06]I[/color][color=#463605]I[/color][color=#362D03]T[/color][/font][/b]'
     ],
@@ -2245,7 +2248,7 @@ var maymay = {
         '!sadlenny', '( ͡° ʖ̯ ͡°)'
     ],
     rekt: [
-        'rekt', '[size=19][font=impact][blur][b][color=red]☑ REKT[/color][/b][/blur][/font][/size]'
+        '!rekt', '[size=19][font=impact][blur][b][color=red]☑ REKT[/color][/b][/blur][/font][/size]'
     ],    
     blazed420: [
         '420 blaze it', '[b][font=Comic Sans MS][color=#FF0000]4[/color][color=#FD2A00]2[/color][color=#FC5500]0[/color] [color=#F9AA00]B[/color][color=#F8D400]L[/color][color=#F6FF00]A[/color][color=#CDFF00]Z[/color][color=#A4FF00]E[/color] [color=#52FF00]I[/color][color=#29FF00]T[/color][/font][/b]'
@@ -2279,5 +2282,97 @@ var maymay = {
 
     afterburn: [
         'afterburn', 'afffffffterburn'    
-    ]
+    ],
+    
+    /*
+     * ported from v1
+     */
+    
+    lenny2: [
+        '!wiselenny', '( ͡ຈ╭͜ʖ╮͡ຈ )'
+    ],
+    lenny4: [
+        '!lenny4', '( ͡~ ͜ʖ ͡~)'
+    ],
+    lenny5: [
+        '!lennywink', '( ͡~ ͜ʖ ͡°)'
+    ],
+    lenny6: [
+        '!mehlenny', '( ͠° ͟ʖ ͡°)'
+    ],
+    lenny7: [
+        '!rapelenny', '( ͡ʘ╭͜ʖ╮͡ʘ)'
+    ],
+    lenny8: [
+        '!eyebrowlenny', '( ͝סּ ͜ʖ͡סּ)'
+    ],
+    lenny9: [
+        '!asianlenny', '( ͡ᵔ ͜ʖ ͡ᵔ )'
+    ],
+    lenny10: [
+        '!lenny10', '( ͡^ ͜ʖ ͡^ )'
+    ],
+    lenny11: [
+        '!dongbill', '[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]'
+    ],
+    lenny12: [
+        '!lenny12', '( ͡ຈ ͜ʖ ͡ຈ)'
+    ],
+    lenny13: [
+        '!disappointlenny', '( ͡° ʖ̯ ͡°)'
+    ],
+    lenny14: [
+        '!buggedlenny', '( ͡ ͜ʖ ͡ )'
+    ],
+    lenny15: [
+        '!lennypoint', '(☞ ͡° ͜ʖ ͡°)☞'
+    ],
+    lenny16: [
+        '!lennyrun', 'ᕕ( ͡° ͜ʖ ͡° )ᕗ'
+    ],
+    lenny18: [
+        '!lennygroup', '( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ( ͡° ͜ʖ ͡°) ͜ʖ ͡°)ʖ ͡°)ʖ ͡°)'
+    ],
+    lenny19: [
+        '!lennygive', '(つ ͡° ͜ʖ ͡°)つ'
+    ],
+    lenny20: [
+        '!lenny20', '( ͡⚆ ͜ʖ ͡⚆)'
+    ],
+    lenny21: [
+        '!lennynoshitsgiven', '¯_( ͠° ͟ʖ °͠ )_/¯'
+    ],
+    raise2: [
+        '!raiseordie', 'ヽ༼ຈل͜ຈ༽ﾉ гคเรє ๏г ๔เє ヽ༼ຈل͜ຈ༽ﾉ'
+    ],
+    nyan: [
+        '!nyan', '~=[,,_,,]:3'
+    ],
+    seed: [
+        '!seed', '[color=red][b]EVEN NOW... THE EVIL SEED OF WHAT YOU\'VE DONE GERMINATES WITHIN YOU[/b][/color]'
+    ],
+    sniper: [
+        '!sniper', '▄︻̷̿┻̿═━一'
+    ],
+    notgivinashit: [
+        '!notgivinash', '¯_(ツ)_/¯'
+    ],
+    ameno: [
+        '!ameno', '༼ つ ◕_◕ ༽つ'
+    ],
+    brickwall: [
+        '!brickwall', '┬┴┬┴┤(･_├┬┴┬┴'
+    ],
+    mac10: [
+        '!mac10', '⌐╦╦═─'
+    ],
+    faceroll: [
+        '!faceroll', '(._.) ( l: ) ( .-. ) ( :l ) (._.)'
+    ],
+    tablefix: [
+        '!tablefix', '┬──┬ ノ( ゜-゜ノ)'
+    ],
+    megarekt: [
+        '!megarekt', '[size=19][font=impact][blur][b][color=red]☐ Not REKT ☑ REKT ☑ REKTangle ☑ SHREKT ☑ REKT-it Ralph ☑ Total REKTall ☑ The Lord of the REKT ☑ The Usual SusREKTs ☑ North by NorthREKT ☑ REKT to the Future ☑ Once Upon a Time in the REKT ☑ The Good, the Bad, and the REKT ☑ LawREKT of Arabia ☑ Tyrannosaurus REKT ☑ eREKTile dysfunction [/color][/b][/blur][/font][/size]'
+    ],
 };
