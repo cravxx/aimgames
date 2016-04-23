@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.4.2 (4/20 edition)
+// @version     beta.4.4
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -247,7 +247,7 @@ IDEAS:
     /**
      * simulate the behaviour of a radio button (uncheck other buttons if they are checked)
      */
-    function uncheckOtherButtons(buttonCookie) {
+    function uncheckOtherButtons(buttonCookie, buttonElement) {
         var buttons = [
             'CB_random',
             'CB_rainbow'
@@ -410,7 +410,7 @@ IDEAS:
     // TODO: should memes enforce word breaks?
 
     function memePost() {
-        var oldMsg = $('textarea')[getPostMode()].value;
+        var oldMsg = $('textarea')[getPostMode()].value; // yes, i edit this variable. lick my nipples if you disagree with that decision.
         
         $.each(maymay, function(name, value) {
             if (oldMsg.contains(value[0])) {
@@ -421,6 +421,8 @@ IDEAS:
     }
 
     function meme() {
+        var oldMsg = $('#message').val(); // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        
         $.each(maymay, function(name, value) {
             if (oldMsg.contains(value[0])) {
                 oldMsg = oldMsg.replace(value[0], value[1]);
@@ -502,7 +504,7 @@ IDEAS:
         else $(buttonElement).prop('checked', false);
 
         $('#click_area_' + name).click(function() {
-            uncheckOtherButtons('CB_' + name);
+            uncheckOtherButtons('CB_' + name, buttonElement);
             if (!$(buttonElement).prop('checked')) {
                 $(buttonElement).prop('checked', true);
                 $(buttonElement).css('cssText', cssClicked);
