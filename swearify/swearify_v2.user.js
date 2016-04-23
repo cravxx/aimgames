@@ -5,7 +5,7 @@
 // @include     http://aimgames.forummotion.com/*
 // @include     https://aimgames.forummotion.com/*
 // @require     https://cdn.rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
-// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4memePost/jquery-ui.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
 // @version     beta.3.6
@@ -25,6 +25,20 @@
     -   Enabled for posting (MOSTLY DONE)
 
     -   Upgraded swear filter
+    
+    -   Redtext
+    
+    -   greek     text
+    -   braille   text
+    -   balloon   text
+    -   leet      text
+    -   morse     text
+    -   smallcaps text
+    -   rainbow   text
+    -   random    text
+    -   gradient  text
+    
+    -   sekrit mode
 
 IDEAS:
     -   Slide the text effect buttons to the left and right instead of the sharp show/hide
@@ -393,6 +407,8 @@ IDEAS:
         $('#message').val(oldMsg);
     }
 
+    // TODO: should memes enforce word breaks?
+
     function memePost() {
         var oldMsg = $('textarea')[getPostMode()].value;
         
@@ -521,8 +537,9 @@ IDEAS:
         $('#emoticonNotif').text('');
 
         if (searchTerm.length > 0) {
+            var searchRegExp = new RegExp(searchTerm, 'gi'); //prevent assloads of instantiations
             $.each(massiveObj, function(name, value) {
-                if (value[0].regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
+                if (value[0].regexIndexOf(searchRegExp) >= 0) {
                     if (massiveResults.length >= 104) {
                         /*
                          * if there's >= 104 elements, BREAK OUT
@@ -542,7 +559,7 @@ IDEAS:
                 }
             });
             $.each(twitch_c, function(index, item) {
-                if (item.regexIndexOf(new RegExp(searchTerm, 'gi')) >= 0) {
+                if (item.regexIndexOf(searchRegExp) >= 0) {
                     if (massiveResults.length >= 104) {
                         /*
                          * if there's >= 104 elements, BREAK OUT
