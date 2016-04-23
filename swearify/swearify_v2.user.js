@@ -290,32 +290,34 @@ IDEAS:
      * obviously this needs upgrading as it's awful
      */
     function swear() {
+        var oldMsg = $('#message').val(); // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        var oldMsgLowercase = oldMsg.toLowerCase();
+        
+        var httpLink = oldMsg.indexOf(linkCode[0]);
+        var wwwLink = oldMsg.indexOf(linkCode[1]);
+        var httpsLink = oldMsg.indexOf(linkCode[2]);
+
+        //is the message a chatbox command?
+        var chatCommand = oldMsg.contains(specialCode[0]) || // /exit command
+                          oldMsg.contains(specialCode[1]) || // /away command
+                          oldMsg.contains(specialCode[2]) || // /abs command
+                          oldMsg.contains(specialCode[3]) // [code] command
+                          ;
+        
+        var filteringMethod = 0;
+
+        /**
+         * if the message is a chatbox command, add . . . to swears instead of [b][/b]
+         */
+        if (chatCommand)
+            filteringMethod = 1;
+        
         $.each(swears, function(index, item) {
             /**
              * define a ton of variables
              */
-            var oldMsg = $('#message').val();
-            var oldMsgLowercase = oldMsg.toLowerCase();
-            var newMsg = '';
+            var filteredItem = '';
 
-            var httpLink = oldMsg.indexOf(linkCode[0]);
-            var wwwLink = oldMsg.indexOf(linkCode[1]);
-            var httpsLink = oldMsg.indexOf(linkCode[2]);
-
-            //is the message a chatbox command?
-            var chatCommand = oldMsg.contains(specialCode[0]) || // /exit command
-                              oldMsg.contains(specialCode[1]) || // /away command
-                              oldMsg.contains(specialCode[2]) || // /abs command
-                              oldMsg.contains(specialCode[3]) // [code] command
-                              ;
-            
-            var filteringMethod = 0;
-
-            /**
-             * if the message is a chatbox command, add . . . to swears instead of [b][/b]
-             */
-            if (chatCommand)
-                filteringMethod = 1;
 
             /**
              * what to do if the message has a link
@@ -333,7 +335,7 @@ IDEAS:
                 var before_link = oldMsgLowercase.substr(0, which);
                 var link = oldMsgLowercase.substr(which, oldMsgLowercase.length);
                 if (before_link.contains(item)) {
-                    newMsg = oldMsg.substr(before_link.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
+                    filteredItem = oldMsg.substr(before_link.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
                 }
             }
 
@@ -342,68 +344,73 @@ IDEAS:
              */
             if (httpLink == -1 && httpsLink == -1 && wwwLink == -1) {
                 if (oldMsgLowercase.indexOf(item) >= 0) {
-                    newMsg = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
+                    filteredItem = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
                 }
             }
-            $('#message').val(oldMsg.replace(new RegExp(item, 'gi'), newMsg));
+            // according to how your code worked previously, this should be perfectly fine.
+            // if it isn't, SHAME ON YOU, KAFF.
+            oldMsg = oldMsg.replace(item, filteredItem));
         });
+        
+        $('#message').val(oldMsg);
     }
 
     function emoticonPost() {
-        var oldMsg;
-        var newMsg;
-        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
+        var oldMsg = $('textarea')[getPostMode()].value; // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
-            oldMsg = $('textarea')[getPostMode()].value;
-            if (oldMsg.regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp(value[0], 'gi'), postImgTag(value[1]));
+            if (oldMsg.contains(value[0]))) {
+                oldMsg = oldMsg.replace(value[0], postImgTag(value[1]));
             }
         });
 
         $.each(twitch_c, function(index, item) {
-            oldMsg = $('textarea')[getPostMode()].value;
-            if (oldMsg.regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-                $('textarea')[getPostMode()].value = oldMsg.replace(new RegExp('\\b' + item + '\\b', 'g'), postImgTag(twitch_e[index]));
+            if (oldMsg.regexIndexOf(item) !== -1) {
+                oldMsg = oldMsg.replace(item, postImgTag(twitch_e[index]));
             }
         });
+        
+        $('textarea')[getPostMode()].value = oldMsg;
     }
 
     function emoticon() {
-        var newMsg;
-        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
+        var oldMsg = $('#message').val(); // yes, i edit this variable. lick my nipples if you disagree with that decision.
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
-            if ($('#message').val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                newMsg = $('#message').val().replace(new RegExp(value[0], 'gi'), imgTag[0] + value[1] + imgTag[1]);
-                $('#message').val(newMsg);
+            if (oldMsg.contains(value[0]))) {
+                oldMsg = oldMsg.replace(value[0], imgTag[0] + value[1] + imgTag[1]);
             }
         });
 
         $.each(twitch_c, function(index, item) {
-            if ($('#message').val().regexIndexOf(new RegExp('\\b' + item + '\\b', 'g')) >= 0) {
-                newMsg = $('#message').val().replace(new RegExp('\\b' + item + '\\b', 'g'), imgTag[0] + twitch_e[index] + imgTag[1]);
-                $('#message').val(newMsg);
+            if (oldMsg.regexIndexOf(item) !== -1) {
+                oldMsg = oldMsg.replace(item, imgTag[0] + twitch_e[index] + imgTag[1]);
             }
         });
+        
+        $('#message').val(oldMsg);
     }
 
     function memePost() {
+        var oldMsg = $('textarea')[getPostMode()].value;
+        
         $.each(maymay, function(name, value) {
-            if ($('textarea')[getPostMode()].value.regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                var newMsg = $('textarea')[getPostMode()].value.replace(new RegExp(value[0], 'gi'), value[1]);
-                $('textarea')[getPostMode()].value = newMsg;
+            if (oldMsg.contains(value[0])) {
+                oldMsg = oldMsg.replace(value[0], value[1]);
             }
         });
+        $('textarea')[getPostMode()].value = oldMsg;
     }
 
     function meme() {
         $.each(maymay, function(name, value) {
-            if ($('#message').val().regexIndexOf(new RegExp(value[0], 'gi')) >= 0) {
-                var newMsg = $('#message').val().replace(new RegExp(value[0], 'gi'), value[1]);
-                $('#message').val(newMsg);
+            if (oldMsg.contains(value[0])) {
+                oldMsg = oldMsg.replace(value[0], value[1]);
             }
         });
+        $('#message').val(oldMsg);
     }
 
     function greentextPost() {
