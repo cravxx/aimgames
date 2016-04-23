@@ -38,7 +38,7 @@ move libraries\beautifier.js ..\libraries\beautifier.js
 call compile ..\bin\swearify.compiled.user.js "..\swearify\swearify.user.js" 15
 call compile ..\bin\swearify_v2.compiled.user.js "..\swearify\swearify_v2.user.js" 17
 call compile ..\bin\alive.compiled.user.js "..\alive\alive.user.js" 8
-call compile ..\bin\chatboxplusplus-v2.compiled.user.js "..\alive\chatboxplusplus-v2.user.js" 9
+call compile ..\bin\chatboxplusplus-v2.compiled.user.js "..\alive\chatboxplusplus-v2.user.js" 11
 call compile ..\bin\chameleon.compiled.user.js "..\chameleon\chameleon.user.js" 11
 call compile ..\bin\chameleon_random.compiled.user.js "..\chameleon\chameleon_random.user.js" 8
 call compile ..\bin\chameleon_vampire.compiled.user.js "..\chameleon\chameleon_vampire.user.js" 7
