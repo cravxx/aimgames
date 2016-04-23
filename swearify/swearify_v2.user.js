@@ -4,10 +4,10 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
 // @include     https://aimgames.forummotion.com/*
-// @require     https://cdn.rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
+// @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/src/js.cookie.js
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-// @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
-// @require     https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
+// @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/swearify/jquery.caret.1.02.min.js
+// @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/swearify/textUtils.js
 // @version     beta.4.0
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -363,7 +363,7 @@ IDEAS:
             }
             // according to how your code worked previously, this should be perfectly fine.
             // if it isn't, SHAME ON YOU, KAFF.
-            oldMsg = oldMsg.replace(item, filteredItem));
+            oldMsg = oldMsg.replace(item, filteredItem);
         });
         
         $('#message').val(oldMsg);
