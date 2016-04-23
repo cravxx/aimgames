@@ -374,7 +374,7 @@ IDEAS:
         var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
-            if (oldMsg.contains(value[0]))) {
+            if (oldMsg.contains(value[0])) {
                 oldMsg = oldMsg.replace(value[0], postImgTag(value[1]));
             }
         });
@@ -393,7 +393,7 @@ IDEAS:
         var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
-            if (oldMsg.contains(value[0]))) {
+            if (oldMsg.contains(value[0])) {
                 oldMsg = oldMsg.replace(value[0], imgTag[0] + value[1] + imgTag[1]);
             }
         });
