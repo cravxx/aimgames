@@ -6,9 +6,9 @@
 // @include     https://aimgames.forummotion.com/*
 // @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/src/js.cookie.js
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-// @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/swearify/jquery.caret.1.02.min.js
-// @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/swearify/textUtils.js
-// @version     beta.4.0
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
+// @version     beta.4.2 (4/20 edition)
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
