@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.4.7
+// @version     beta.4.9
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -77,8 +77,10 @@ IDEAS:
         '2': 'Swearify 2',
         '3': 'Swearify 3',
         '4': 'Twitch',
-        '5': 'Memes',
-        '6': 'Search'
+        '5': 'Rage Faces',
+        '6': 'Dongs',
+        '7': 'Memes',
+        '8': 'Search'
     };
 
     var specialCode = ['/exit', '/away', '/abs', '[code]'];
@@ -371,7 +373,7 @@ IDEAS:
 
     function emoticonPost() {
         var oldMsg = $('textarea')[getPostMode()].value; // yes, i edit this variable. lick my nipples if you disagree with that decision.
-        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3, emoticon_ragefaces, emoticon_dongs); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
             if (oldMsg.contains(value[0])) {
@@ -390,7 +392,7 @@ IDEAS:
 
     function emoticon() {
         var oldMsg = $('#message').val(); // yes, i edit this variable. lick my nipples if you disagree with that decision.
-        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3); //this could be made global.
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3, emoticon_ragefaces, emoticon_dongs); //this could be made global.
 
         $.each(massiveObj, function(name, value) {
             if (oldMsg.contains(value[0])) {
@@ -535,7 +537,7 @@ IDEAS:
     }
 
     function search(searchTerm) {
-        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3);
+        var massiveObj = $.extend({}, emoticon_1, emoticon_2, emoticon_3, emoticon_dongs); //rage faces don't go here since they don't have proper codes
         var massiveResults = [];
         var massiveResultsTemp = [];
 
@@ -657,8 +659,7 @@ IDEAS:
                     down++;
                 }
             });
-        }
-        if (i == 2) {
+        } else if (i == 2) {
             $.each(emoticon_2, function(name, value) {
                 $(tbody).append($('<tr></tr>'));
                 var row = $(tbody).find('tr')[down];
@@ -672,8 +673,7 @@ IDEAS:
                     down++;
                 }
             });
-        }
-        if (i == 3) {
+        } else if (i == 3) {
             $.each(emoticon_3, function(name, value) {
                 $(tbody).append($('<tr></tr>'));
                 var row = $(tbody).find('tr')[down];
@@ -687,8 +687,7 @@ IDEAS:
                     down++;
                 }
             });
-        }
-        if (i == 4) {
+        } else if (i == 4) {
             $.each(twitch_c, function(index, item) {
                 $(tbody).append($('<tr></tr>'));
                 var row = $(tbody).find('tr')[down];
@@ -702,9 +701,35 @@ IDEAS:
                     down++;
                 }
             });
-        }
-
-        if (i == 5) {
+        } else if (i == 5) {
+            $.each(emoticon_ragefaces, function(name, value) {
+                $(tbody).append($('<tr></tr>'));
+                var row = $(tbody).find('tr')[down];
+                $(row).append('<td></td>');
+                var indiv = $(row).find('td')[across];
+                $(indiv).append($(smilieHtml(value[0], value[1], value[2])));
+                initEmotesAsClickable(value[1], value[0], indiv);
+                across++;
+                if (across >= windowWidth) {
+                    across = 0;
+                    down++;
+                }
+            });
+        } else if (i == 6) {
+            $.each(emoticon_dongs, function(name, value) {
+                $(tbody).append($('<tr></tr>'));
+                var row = $(tbody).find('tr')[down];
+                $(row).append('<td></td>');
+                var indiv = $(row).find('td')[across];
+                $(indiv).append($(smilieHtml(value[0], value[1], value[2])));
+                initEmotesAsClickable(value[1], value[0], indiv);
+                across++;
+                if (across >= windowWidth) {
+                    across = 0;
+                    down++;
+                }
+            });
+        } else if (i == 7) {
             $.each(maymay, function(name, value) {
                 $(tbody).append($('<tr></tr>'));
                 var row = $(tbody).find('tr')[down];
