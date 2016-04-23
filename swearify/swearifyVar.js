@@ -1383,6 +1383,800 @@ var emoticon_3 = {
         ':hack:', 'http://i.imgur.com/sB3nPl0.png', 'HACK BLASTARD'
     ]
 };
+var emoticon_ragefaces = {
+    memeimgxppLwr1: [
+        ':xppLwr1:', 'http://i.imgur.com/xppLwr1.png', 'meme imgur xppLwr1'
+    ],
+    memeimgQjY2Bpn: [
+        ':QjY2Bpn:', 'http://i.imgur.com/QjY2Bpn.png', 'meme imgur QjY2Bpn'
+    ],
+    memeimgoPrEEfa: [
+        ':oPrEEfa:', 'http://i.imgur.com/oPrEEfa.png', 'meme imgur oPrEEfa'
+    ],
+    memeimgjuRqPrv: [
+        ':juRqPrv:', 'http://i.imgur.com/juRqPrv.png', 'meme imgur juRqPrv'
+    ],
+    memeimg7w6FNiX: [
+        ':7w6FNiX:', 'http://i.imgur.com/7w6FNiX.png', 'meme imgur 7w6FNiX'
+    ],
+    memeimg2Susb2k: [
+        ':2Susb2k:', 'http://i.imgur.com/2Susb2k.png', 'meme imgur 2Susb2k'
+    ],
+    memeimgItonPfe: [
+        ':ItonPfe:', 'http://i.imgur.com/ItonPfe.png', 'meme imgur ItonPfe'
+    ],
+    memeimgGKFAB0b: [
+        ':GKFAB0b:', 'http://i.imgur.com/GKFAB0b.png', 'meme imgur GKFAB0b'
+    ],
+    memeimgbITb9uo: [
+        ':bITb9uo:', 'http://i.imgur.com/bITb9uo.png', 'meme imgur bITb9uo'
+    ],
+    memeimgii6pbtT: [
+        ':ii6pbtT:', 'http://i.imgur.com/ii6pbtT.png', 'meme imgur ii6pbtT'
+    ],
+    memeimguDDZazd: [
+        ':uDDZazd:', 'http://i.imgur.com/uDDZazd.png', 'meme imgur uDDZazd'
+    ],
+    memeimgpD6bnCB: [
+        ':pD6bnCB:', 'http://i.imgur.com/pD6bnCB.png', 'meme imgur pD6bnCB'
+    ],
+    memeimgTrQBlPb: [
+        ':TrQBlPb:', 'http://i.imgur.com/TrQBlPb.png', 'meme imgur TrQBlPb'
+    ],
+    memeimgWkgZHw5: [
+        ':WkgZHw5:', 'http://i.imgur.com/WkgZHw5.png', 'meme imgur WkgZHw5'
+    ],
+    memeimghnhooee: [
+        ':hnhooee:', 'http://i.imgur.com/hnhooee.png', 'meme imgur hnhooee'
+    ],
+    memeimg6jbD6sb: [
+        ':6jbD6sb:', 'http://i.imgur.com/6jbD6sb.png', 'meme imgur 6jbD6sb'
+    ],
+    memeimgg4lozrz: [
+        ':g4lozrz:', 'http://i.imgur.com/g4lozrz.png', 'meme imgur g4lozrz'
+    ],
+    memeimgiRu9fjS: [
+        ':iRu9fjS:', 'http://i.imgur.com/iRu9fjS.png', 'meme imgur iRu9fjS'
+    ],
+    memeimglY64ZMZ: [
+        ':lY64ZMZ:', 'http://i.imgur.com/lY64ZMZ.png', 'meme imgur lY64ZMZ'
+    ],
+    memeimgx30p68v: [
+        ':x30p68v:', 'http://i.imgur.com/x30p68v.png', 'meme imgur x30p68v'
+    ],
+    memeimgl0QIlWK: [
+        ':l0QIlWK:', 'http://i.imgur.com/l0QIlWK.png', 'meme imgur l0QIlWK'
+    ],
+    memeimgXn1YUJx: [
+        ':Xn1YUJx:', 'http://i.imgur.com/Xn1YUJx.png', 'meme imgur Xn1YUJx'
+    ],
+    memeimgIsHR31z: [
+        ':IsHR31z:', 'http://i.imgur.com/IsHR31z.png', 'meme imgur IsHR31z'
+    ],
+    memeimgegGrJ6m: [
+        ':egGrJ6m:', 'http://i.imgur.com/egGrJ6m.png', 'meme imgur egGrJ6m'
+    ],
+    memeimgA0fV5kW: [
+        ':A0fV5kW:', 'http://i.imgur.com/A0fV5kW.png', 'meme imgur A0fV5kW'
+    ],
+    memeimgN1DN7M4: [
+        ':N1DN7M4:', 'http://i.imgur.com/N1DN7M4.png', 'meme imgur N1DN7M4'
+    ],
+    memeimgRts212F: [
+        ':Rts212F:', 'http://i.imgur.com/Rts212F.png', 'meme imgur Rts212F'
+    ],
+    memeimgArdjo5y: [
+        ':Ardjo5y:', 'http://i.imgur.com/Ardjo5y.png', 'meme imgur Ardjo5y'
+    ],
+    memeimgNn6sJfG: [
+        ':Nn6sJfG:', 'http://i.imgur.com/Nn6sJfG.png', 'meme imgur Nn6sJfG'
+    ],
+    memeimgzuoHkyd: [
+        ':zuoHkyd:', 'http://i.imgur.com/zuoHkyd.png', 'meme imgur zuoHkyd'
+    ],
+    memeimgxJ8U6mG: [
+        ':xJ8U6mG:', 'http://i.imgur.com/xJ8U6mG.png', 'meme imgur xJ8U6mG'
+    ],
+    memeimgAka5lH9: [
+        ':Aka5lH9:', 'http://i.imgur.com/Aka5lH9.png', 'meme imgur Aka5lH9'
+    ],
+    memeimg1vn9dzK: [
+        ':1vn9dzK:', 'http://i.imgur.com/1vn9dzK.png', 'meme imgur 1vn9dzK'
+    ],
+    memeimgrkzqqV2: [
+        ':rkzqqV2:', 'http://i.imgur.com/rkzqqV2.png', 'meme imgur rkzqqV2'
+    ],
+    memeimgATaphPm: [
+        ':ATaphPm:', 'http://i.imgur.com/ATaphPm.png', 'meme imgur ATaphPm'
+    ],
+    memeimglPsGEfM: [
+        ':lPsGEfM:', 'http://i.imgur.com/lPsGEfM.png', 'meme imgur lPsGEfM'
+    ],
+    memeimgR3Og7To: [
+        ':R3Og7To:', 'http://i.imgur.com/R3Og7To.png', 'meme imgur R3Og7To'
+    ],
+    memeimgY7SgxjY: [
+        ':Y7SgxjY:', 'http://i.imgur.com/Y7SgxjY.png', 'meme imgur Y7SgxjY'
+    ],
+    memeimgUwwcgFe: [
+        ':UwwcgFe:', 'http://i.imgur.com/UwwcgFe.png', 'meme imgur UwwcgFe'
+    ],
+    memeimgyITYTtg: [
+        ':yITYTtg:', 'http://i.imgur.com/yITYTtg.png', 'meme imgur yITYTtg'
+    ],
+    memeimg1Y2snnS: [
+        ':1Y2snnS:', 'http://i.imgur.com/1Y2snnS.png', 'meme imgur 1Y2snnS'
+    ],
+    memeimgSz7Hn3R: [
+        ':Sz7Hn3R:', 'http://i.imgur.com/Sz7Hn3R.png', 'meme imgur Sz7Hn3R'
+    ],
+    memeimgOOkT7ZV: [
+        ':OOkT7ZV:', 'http://i.imgur.com/OOkT7ZV.png', 'meme imgur OOkT7ZV'
+    ],
+    memeimgt2saUty: [
+        ':t2saUty:', 'http://i.imgur.com/t2saUty.png', 'meme imgur t2saUty'
+    ],
+    memeimgQ1g8NH5: [
+        ':Q1g8NH5:', 'http://i.imgur.com/Q1g8NH5.png', 'meme imgur Q1g8NH5'
+    ],
+    memeimgSZC9l47: [
+        ':SZC9l47:', 'http://i.imgur.com/SZC9l47.png', 'meme imgur SZC9l47'
+    ],
+    memeimgwt1gmL6: [
+        ':wt1gmL6:', 'http://i.imgur.com/wt1gmL6.png', 'meme imgur wt1gmL6'
+    ],
+    memeimgFxzPZJY: [
+        ':FxzPZJY:', 'http://i.imgur.com/FxzPZJY.png', 'meme imgur FxzPZJY'
+    ],
+    memeimgG9l1PRP: [
+        ':G9l1PRP:', 'http://i.imgur.com/G9l1PRP.png', 'meme imgur G9l1PRP'
+    ],
+    memeimg2L8Rdmu: [
+        ':2L8Rdmu:', 'http://i.imgur.com/2L8Rdmu.png', 'meme imgur 2L8Rdmu'
+    ],
+    memeimgrnPX2xe: [
+        ':rnPX2xe:', 'http://i.imgur.com/rnPX2xe.png', 'meme imgur rnPX2xe'
+    ],
+    memeimgVBSuZld: [
+        ':VBSuZld:', 'http://i.imgur.com/VBSuZld.png', 'meme imgur VBSuZld'
+    ],
+    memeimgIWxszQf: [
+        ':IWxszQf:', 'http://i.imgur.com/IWxszQf.png', 'meme imgur IWxszQf'
+    ],
+    memeimgSg0Saij: [
+        ':Sg0Saij:', 'http://i.imgur.com/Sg0Saij.png', 'meme imgur Sg0Saij'
+    ],
+    memeimgbrRG3YD: [
+        ':brRG3YD:', 'http://i.imgur.com/brRG3YD.png', 'meme imgur brRG3YD'
+    ],
+    memeimgQunbdUi: [
+        ':QunbdUi:', 'http://i.imgur.com/QunbdUi.png', 'meme imgur QunbdUi'
+    ],
+    memeimgFOKgseg: [
+        ':FOKgseg:', 'http://i.imgur.com/FOKgseg.png', 'meme imgur FOKgseg'
+    ],
+    memeimgWKgtbOa: [
+        ':WKgtbOa:', 'http://i.imgur.com/WKgtbOa.png', 'meme imgur WKgtbOa'
+    ],
+    memeimgSBBGizf: [
+        ':SBBGizf:', 'http://i.imgur.com/SBBGizf.png', 'meme imgur SBBGizf'
+    ],
+    memeimgl0byEXM: [
+        ':l0byEXM:', 'http://i.imgur.com/l0byEXM.png', 'meme imgur l0byEXM'
+    ],
+    memeimgwLHrhQv: [
+        ':wLHrhQv:', 'http://i.imgur.com/wLHrhQv.png', 'meme imgur wLHrhQv'
+    ],
+    memeimgE2GX6mP: [
+        ':E2GX6mP:', 'http://i.imgur.com/E2GX6mP.png', 'meme imgur E2GX6mP'
+    ],
+    memeimg3KqDIyq: [
+        ':3KqDIyq:', 'http://i.imgur.com/3KqDIyq.png', 'meme imgur 3KqDIyq'
+    ],
+    memeimg11nxWUZ: [
+        ':11nxWUZ:', 'http://i.imgur.com/11nxWUZ.png', 'meme imgur 11nxWUZ'
+    ],
+    memeimgZizp049: [
+        ':Zizp049:', 'http://i.imgur.com/Zizp049.png', 'meme imgur Zizp049'
+    ],
+    memeimgEy24uFx: [
+        ':Ey24uFx:', 'http://i.imgur.com/Ey24uFx.png', 'meme imgur Ey24uFx'
+    ],
+    memeimgBOkcCM0: [
+        ':BOkcCM0:', 'http://i.imgur.com/BOkcCM0.png', 'meme imgur BOkcCM0'
+    ],
+    memeimghvB4G7F: [
+        ':hvB4G7F:', 'http://i.imgur.com/hvB4G7F.png', 'meme imgur hvB4G7F'
+    ],
+    memeimgjliRy0B: [
+        ':jliRy0B:', 'http://i.imgur.com/jliRy0B.png', 'meme imgur jliRy0B'
+    ],
+    memeimgl3wNVVI: [
+        ':l3wNVVI:', 'http://i.imgur.com/l3wNVVI.png', 'meme imgur l3wNVVI'
+    ],
+    memeimgy7sC7r3: [
+        ':y7sC7r3:', 'http://i.imgur.com/y7sC7r3.png', 'meme imgur y7sC7r3'
+    ],
+    memeimgKDhNKqP: [
+        ':KDhNKqP:', 'http://i.imgur.com/KDhNKqP.png', 'meme imgur KDhNKqP'
+    ],
+    memeimg8xByCzL: [
+        ':8xByCzL:', 'http://i.imgur.com/8xByCzL.png', 'meme imgur 8xByCzL'
+    ],
+    memeimgcfQazxC: [
+        ':cfQazxC:', 'http://i.imgur.com/cfQazxC.png', 'meme imgur cfQazxC'
+    ],
+    memeimgJqEU7rK: [
+        ':JqEU7rK:', 'http://i.imgur.com/JqEU7rK.png', 'meme imgur JqEU7rK'
+    ],
+    memeimgEXdFIdi: [
+        ':EXdFIdi:', 'http://i.imgur.com/EXdFIdi.png', 'meme imgur EXdFIdi'
+    ],
+    memeimgl9tmxrL: [
+        ':l9tmxrL:', 'http://i.imgur.com/l9tmxrL.png', 'meme imgur l9tmxrL'
+    ],
+    memeimgCrpPLaC: [
+        ':CrpPLaC:', 'http://i.imgur.com/CrpPLaC.png', 'meme imgur CrpPLaC'
+    ],
+    memeimgI7w01ye: [
+        ':I7w01ye:', 'http://i.imgur.com/I7w01ye.png', 'meme imgur I7w01ye'
+    ],
+    memeimgDFv0ubf: [
+        ':DFv0ubf:', 'http://i.imgur.com/DFv0ubf.png', 'meme imgur DFv0ubf'
+    ],
+    memeimg3tgdZGM: [
+        ':3tgdZGM:', 'http://i.imgur.com/3tgdZGM.png', 'meme imgur 3tgdZGM'
+    ],
+    memeimgGciqbCm: [
+        ':GciqbCm:', 'http://i.imgur.com/GciqbCm.png', 'meme imgur GciqbCm'
+    ],
+    memeimguv36LpH: [
+        ':uv36LpH:', 'http://i.imgur.com/uv36LpH.png', 'meme imgur uv36LpH'
+    ],
+    memeimgTSxMpZd: [
+        ':TSxMpZd:', 'http://i.imgur.com/TSxMpZd.png', 'meme imgur TSxMpZd'
+    ],
+    memeimgs2C2Ws9: [
+        ':s2C2Ws9:', 'http://i.imgur.com/s2C2Ws9.png', 'meme imgur s2C2Ws9'
+    ],
+    memeimgS7cup6f: [
+        ':S7cup6f:', 'http://i.imgur.com/S7cup6f.png', 'meme imgur S7cup6f'
+    ],
+    memeimg3PbuCPo: [
+        ':3PbuCPo:', 'http://i.imgur.com/3PbuCPo.png', 'meme imgur 3PbuCPo'
+    ],
+    memeimg3Z0wQ5A: [
+        ':3Z0wQ5A:', 'http://i.imgur.com/3Z0wQ5A.png', 'meme imgur 3Z0wQ5A'
+    ],
+    memeimggywqYs7: [
+        ':gywqYs7:', 'http://i.imgur.com/gywqYs7.png', 'meme imgur gywqYs7'
+    ],
+    memeimgqodcBza: [
+        ':qodcBza:', 'http://i.imgur.com/qodcBza.png', 'meme imgur qodcBza'
+    ],
+    memeimgW6UbmDR: [
+        ':W6UbmDR:', 'http://i.imgur.com/W6UbmDR.png', 'meme imgur W6UbmDR'
+    ],
+    memeimg0afUP1e: [
+        ':0afUP1e:', 'http://i.imgur.com/0afUP1e.png', 'meme imgur 0afUP1e'
+    ],
+    memeimgjGQwD4d: [
+        ':jGQwD4d:', 'http://i.imgur.com/jGQwD4d.png', 'meme imgur jGQwD4d'
+    ],
+    memeimgiy8UR5G: [
+        ':iy8UR5G:', 'http://i.imgur.com/iy8UR5G.png', 'meme imgur iy8UR5G'
+    ],
+    memeimgvYdD8HM: [
+        ':vYdD8HM:', 'http://i.imgur.com/vYdD8HM.png', 'meme imgur vYdD8HM'
+    ],
+    memeimgFkymxet: [
+        ':Fkymxet:', 'http://i.imgur.com/Fkymxet.png', 'meme imgur Fkymxet'
+    ],
+    memeimg5nmSTPS: [
+        ':5nmSTPS:', 'http://i.imgur.com/5nmSTPS.png', 'meme imgur 5nmSTPS'
+    ],
+    memeimgtr24sdA: [
+        ':tr24sdA:', 'http://i.imgur.com/tr24sdA.png', 'meme imgur tr24sdA'
+    ],
+    memeimgYovZi9M: [
+        ':YovZi9M:', 'http://i.imgur.com/YovZi9M.png', 'meme imgur YovZi9M'
+    ],
+    memeimg75PVeuB: [
+        ':75PVeuB:', 'http://i.imgur.com/75PVeuB.png', 'meme imgur 75PVeuB'
+    ],
+    memeimg9WOKMNC: [
+        ':9WOKMNC:', 'http://i.imgur.com/9WOKMNC.png', 'meme imgur 9WOKMNC'
+    ],
+    memeimgCopRowU: [
+        ':CopRowU:', 'http://i.imgur.com/CopRowU.png', 'meme imgur CopRowU'
+    ],
+    memeimgVPHlPr9: [
+        ':VPHlPr9:', 'http://i.imgur.com/VPHlPr9.png', 'meme imgur VPHlPr9'
+    ],
+    memeimgb2tAWnC: [
+        ':b2tAWnC:', 'http://i.imgur.com/b2tAWnC.png', 'meme imgur b2tAWnC'
+    ],
+    memeimgNn5PrIE: [
+        ':Nn5PrIE:', 'http://i.imgur.com/Nn5PrIE.png', 'meme imgur Nn5PrIE'
+    ],
+    memeimgbhfZhcE: [
+        ':bhfZhcE:', 'http://i.imgur.com/bhfZhcE.png', 'meme imgur bhfZhcE'
+    ],
+    memeimgIYu5D2H: [
+        ':IYu5D2H:', 'http://i.imgur.com/IYu5D2H.png', 'meme imgur IYu5D2H'
+    ],
+    memeimgB5kIIma: [
+        ':B5kIIma:', 'http://i.imgur.com/B5kIIma.png', 'meme imgur B5kIIma'
+    ],
+    memeimgmv2Ze9J: [
+        ':mv2Ze9J:', 'http://i.imgur.com/mv2Ze9J.png', 'meme imgur mv2Ze9J'
+    ],
+    memeimg6RO0ZFt: [
+        ':6RO0ZFt:', 'http://i.imgur.com/6RO0ZFt.png', 'meme imgur 6RO0ZFt'
+    ],
+    memeimglAHzcPh: [
+        ':lAHzcPh:', 'http://i.imgur.com/lAHzcPh.png', 'meme imgur lAHzcPh'
+    ],
+    memeimgq44on0T: [
+        ':q44on0T:', 'http://i.imgur.com/q44on0T.png', 'meme imgur q44on0T'
+    ],
+    memeimgaQtov40: [
+        ':aQtov40:', 'http://i.imgur.com/aQtov40.png', 'meme imgur aQtov40'
+    ],
+    memeimg8nKMfWT: [
+        ':8nKMfWT:', 'http://i.imgur.com/8nKMfWT.png', 'meme imgur 8nKMfWT'
+    ],
+    memeimgGLxKPVn: [
+        ':GLxKPVn:', 'http://i.imgur.com/GLxKPVn.png', 'meme imgur GLxKPVn'
+    ],
+    memeimg0rimDEX: [
+        ':0rimDEX:', 'http://i.imgur.com/0rimDEX.png', 'meme imgur 0rimDEX'
+    ],
+    memeimg5Fcw6xe: [
+        ':5Fcw6xe:', 'http://i.imgur.com/5Fcw6xe.png', 'meme imgur 5Fcw6xe'
+    ],
+    memeimgzLZI7KE: [
+        ':zLZI7KE:', 'http://i.imgur.com/zLZI7KE.png', 'meme imgur zLZI7KE'
+    ],
+    memeimgvAUQeIt: [
+        ':vAUQeIt:', 'http://i.imgur.com/vAUQeIt.png', 'meme imgur vAUQeIt'
+    ],
+    memeimgun9rY9L: [
+        ':un9rY9L:', 'http://i.imgur.com/un9rY9L.png', 'meme imgur un9rY9L'
+    ],
+    memeimgsyXO9Z9: [
+        ':syXO9Z9:', 'http://i.imgur.com/syXO9Z9.png', 'meme imgur syXO9Z9'
+    ],
+    memeimg2bcVj3J: [
+        ':2bcVj3J:', 'http://i.imgur.com/2bcVj3J.png', 'meme imgur 2bcVj3J'
+    ],
+    memeimggKnXpeX: [
+        ':gKnXpeX:', 'http://i.imgur.com/gKnXpeX.png', 'meme imgur gKnXpeX'
+    ],
+    memeimgmyyYs1e: [
+        ':myyYs1e:', 'http://i.imgur.com/myyYs1e.png', 'meme imgur myyYs1e'
+    ],
+    memeimg8umBKBn: [
+        ':8umBKBn:', 'http://i.imgur.com/8umBKBn.png', 'meme imgur 8umBKBn'
+    ],
+    memeimg0uLNqmp: [
+        ':0uLNqmp:', 'http://i.imgur.com/0uLNqmp.png', 'meme imgur 0uLNqmp'
+    ],
+    memeimgrx7ncNt: [
+        ':rx7ncNt:', 'http://i.imgur.com/rx7ncNt.png', 'meme imgur rx7ncNt'
+    ],
+    memeimgDJQlc7V: [
+        ':DJQlc7V:', 'http://i.imgur.com/DJQlc7V.png', 'meme imgur DJQlc7V'
+    ],
+    memeimgbPbXGcK: [
+        ':bPbXGcK:', 'http://i.imgur.com/bPbXGcK.png', 'meme imgur bPbXGcK'
+    ],
+    memeimgWqoiZru: [
+        ':WqoiZru:', 'http://i.imgur.com/WqoiZru.png', 'meme imgur WqoiZru'
+    ],
+    memeimguGEbfPl: [
+        ':uGEbfPl:', 'http://i.imgur.com/uGEbfPl.png', 'meme imgur uGEbfPl'
+    ],
+    memeimgjjQdPWI: [
+        ':jjQdPWI:', 'http://i.imgur.com/jjQdPWI.png', 'meme imgur jjQdPWI'
+    ],
+    memeimgsUoz68B: [
+        ':sUoz68B:', 'http://i.imgur.com/sUoz68B.png', 'meme imgur sUoz68B'
+    ],
+    memeimgYc3qLIz: [
+        ':Yc3qLIz:', 'http://i.imgur.com/Yc3qLIz.png', 'meme imgur Yc3qLIz'
+    ],
+    memeimgu2pXXm2: [
+        ':u2pXXm2:', 'http://i.imgur.com/u2pXXm2.png', 'meme imgur u2pXXm2'
+    ],
+    memeimgTNPlQkY: [
+        ':TNPlQkY:', 'http://i.imgur.com/TNPlQkY.png', 'meme imgur TNPlQkY'
+    ],
+    memeimgODVOjNd: [
+        ':ODVOjNd:', 'http://i.imgur.com/ODVOjNd.png', 'meme imgur ODVOjNd'
+    ],
+    memeimgCKeyNfw: [
+        ':CKeyNfw:', 'http://i.imgur.com/CKeyNfw.png', 'meme imgur CKeyNfw'
+    ],
+    memeimgoPodmhx: [
+        ':oPodmhx:', 'http://i.imgur.com/oPodmhx.png', 'meme imgur oPodmhx'
+    ],
+    memeimg42r8cGu: [
+        ':42r8cGu:', 'http://i.imgur.com/42r8cGu.png', 'meme imgur 42r8cGu'
+    ],
+    memeimgfgV7UtW: [
+        ':fgV7UtW:', 'http://i.imgur.com/fgV7UtW.png', 'meme imgur fgV7UtW'
+    ],
+    memeimgnYZNmTU: [
+        ':nYZNmTU:', 'http://i.imgur.com/nYZNmTU.png', 'meme imgur nYZNmTU'
+    ],
+    memeimgTHe7PwP: [
+        ':THe7PwP:', 'http://i.imgur.com/THe7PwP.png', 'meme imgur THe7PwP'
+    ],
+    memeimgdVbAnHD: [
+        ':dVbAnHD:', 'http://i.imgur.com/dVbAnHD.png', 'meme imgur dVbAnHD'
+    ],
+    memeimgGD7ddfJ: [
+        ':GD7ddfJ:', 'http://i.imgur.com/GD7ddfJ.png', 'meme imgur GD7ddfJ'
+    ],
+    memeimgu8kVP3V: [
+        ':u8kVP3V:', 'http://i.imgur.com/u8kVP3V.png', 'meme imgur u8kVP3V'
+    ],
+    memeimg92MSzyK: [
+        ':92MSzyK:', 'http://i.imgur.com/92MSzyK.png', 'meme imgur 92MSzyK'
+    ],
+    memeimgE8r3hI0: [
+        ':E8r3hI0:', 'http://i.imgur.com/E8r3hI0.png', 'meme imgur E8r3hI0'
+    ],
+    memeimgabAkUGy: [
+        ':abAkUGy:', 'http://i.imgur.com/abAkUGy.png', 'meme imgur abAkUGy'
+    ],
+    memeimghXhgdcj: [
+        ':hXhgdcj:', 'http://i.imgur.com/hXhgdcj.png', 'meme imgur hXhgdcj'
+    ],
+    memeimgn8w8ow7: [
+        ':n8w8ow7:', 'http://i.imgur.com/n8w8ow7.png', 'meme imgur n8w8ow7'
+    ],
+    memeimgKx6Zv1G: [
+        ':Kx6Zv1G:', 'http://i.imgur.com/Kx6Zv1G.png', 'meme imgur Kx6Zv1G'
+    ],
+    memeimgonpH48h: [
+        ':onpH48h:', 'http://i.imgur.com/onpH48h.png', 'meme imgur onpH48h'
+    ],
+    memeimgqTesWtP: [
+        ':qTesWtP:', 'http://i.imgur.com/qTesWtP.png', 'meme imgur qTesWtP'
+    ],
+    memeimgD7dM2Z6: [
+        ':D7dM2Z6:', 'http://i.imgur.com/D7dM2Z6.png', 'meme imgur D7dM2Z6'
+    ],
+    memeimgx4ne7Ag: [
+        ':x4ne7Ag:', 'http://i.imgur.com/x4ne7Ag.png', 'meme imgur x4ne7Ag'
+    ],
+    memeimg3SPmqM8: [
+        ':3SPmqM8:', 'http://i.imgur.com/3SPmqM8.png', 'meme imgur 3SPmqM8'
+    ],
+    memeimg5SfvJvW: [
+        ':5SfvJvW:', 'http://i.imgur.com/5SfvJvW.png', 'meme imgur 5SfvJvW'
+    ],
+    memeimgIUgm06X: [
+        ':IUgm06X:', 'http://i.imgur.com/IUgm06X.png', 'meme imgur IUgm06X'
+    ],
+    memeimg1soYosP: [
+        ':1soYosP:', 'http://i.imgur.com/1soYosP.png', 'meme imgur 1soYosP'
+    ],
+    memeimgw1XDwg0: [
+        ':w1XDwg0:', 'http://i.imgur.com/w1XDwg0.png', 'meme imgur w1XDwg0'
+    ],
+    memeimgXjKswRT: [
+        ':XjKswRT:', 'http://i.imgur.com/XjKswRT.png', 'meme imgur XjKswRT'
+    ],
+    memeimgjEVc70l: [
+        ':jEVc70l:', 'http://i.imgur.com/jEVc70l.png', 'meme imgur jEVc70l'
+    ],
+    memeimg1ZIsf0Q: [
+        ':1ZIsf0Q:', 'http://i.imgur.com/1ZIsf0Q.png', 'meme imgur 1ZIsf0Q'
+    ],
+    memeimgPGF3l3w: [
+        ':PGF3l3w:', 'http://i.imgur.com/PGF3l3w.png', 'meme imgur PGF3l3w'
+    ],
+    memeimgkTTV5jx: [
+        ':kTTV5jx:', 'http://i.imgur.com/kTTV5jx.png', 'meme imgur kTTV5jx'
+    ],
+    memeimgdP0NrkD: [
+        ':dP0NrkD:', 'http://i.imgur.com/dP0NrkD.png', 'meme imgur dP0NrkD'
+    ],
+    memeimgROJ0SCa: [
+        ':ROJ0SCa:', 'http://i.imgur.com/ROJ0SCa.png', 'meme imgur ROJ0SCa'
+    ],
+    memeimg1Egm9Xj: [
+        ':1Egm9Xj:', 'http://i.imgur.com/1Egm9Xj.png', 'meme imgur 1Egm9Xj'
+    ],
+    memeimga6nU1qg: [
+        ':a6nU1qg:', 'http://i.imgur.com/a6nU1qg.png', 'meme imgur a6nU1qg'
+    ],
+    memeimgSsQT04Q: [
+        ':SsQT04Q:', 'http://i.imgur.com/SsQT04Q.png', 'meme imgur SsQT04Q'
+    ],
+    memeimgg7lP95C: [
+        ':g7lP95C:', 'http://i.imgur.com/g7lP95C.png', 'meme imgur g7lP95C'
+    ],
+    memeimgJYnm9VW: [
+        ':JYnm9VW:', 'http://i.imgur.com/JYnm9VW.png', 'meme imgur JYnm9VW'
+    ],
+    memeimgWP6zUVT: [
+        ':WP6zUVT:', 'http://i.imgur.com/WP6zUVT.png', 'meme imgur WP6zUVT'
+    ],
+    memeimglLqHBq7: [
+        ':lLqHBq7:', 'http://i.imgur.com/lLqHBq7.png', 'meme imgur lLqHBq7'
+    ],
+    memeimgvML6uK5: [
+        ':vML6uK5:', 'http://i.imgur.com/vML6uK5.png', 'meme imgur vML6uK5'
+    ],
+    memeimgw3WKzsd: [
+        ':w3WKzsd:', 'http://i.imgur.com/w3WKzsd.png', 'meme imgur w3WKzsd'
+    ],
+    memeimg6lyPJXt: [
+        ':6lyPJXt:', 'http://i.imgur.com/6lyPJXt.png', 'meme imgur 6lyPJXt'
+    ],
+    memeimgJ9OwGFW: [
+        ':J9OwGFW:', 'http://i.imgur.com/J9OwGFW.png', 'meme imgur J9OwGFW'
+    ],
+    memeimggUO0EFw: [
+        ':gUO0EFw:', 'http://i.imgur.com/gUO0EFw.png', 'meme imgur gUO0EFw'
+    ],
+    memeimglUobTLW: [
+        ':lUobTLW:', 'http://i.imgur.com/lUobTLW.png', 'meme imgur lUobTLW'
+    ],
+    memeimgPR2etkb: [
+        ':PR2etkb:', 'http://i.imgur.com/PR2etkb.png', 'meme imgur PR2etkb'
+    ],
+    memeimgrDjdcUQ: [
+        ':rDjdcUQ:', 'http://i.imgur.com/rDjdcUQ.png', 'meme imgur rDjdcUQ'
+    ],
+    memeimgumie84p: [
+        ':umie84p:', 'http://i.imgur.com/umie84p.png', 'meme imgur umie84p'
+    ],
+    memeimgN4kIXm6: [
+        ':N4kIXm6:', 'http://i.imgur.com/N4kIXm6.png', 'meme imgur N4kIXm6'
+    ],
+    memeimg7OREabM: [
+        ':7OREabM:', 'http://i.imgur.com/7OREabM.png', 'meme imgur 7OREabM'
+    ],
+    memeimgAMAxJyB: [
+        ':AMAxJyB:', 'http://i.imgur.com/AMAxJyB.png', 'meme imgur AMAxJyB'
+    ],
+    memeimgPPnOfRX: [
+        ':PPnOfRX:', 'http://i.imgur.com/PPnOfRX.png', 'meme imgur PPnOfRX'
+    ],
+    memeimgPYtY1lB: [
+        ':PYtY1lB:', 'http://i.imgur.com/PYtY1lB.png', 'meme imgur PYtY1lB'
+    ],
+    memeimgDQa5Hqp: [
+        ':DQa5Hqp:', 'http://i.imgur.com/DQa5Hqp.png', 'meme imgur DQa5Hqp'
+    ],
+    memeimg9p0ejrZ: [
+        ':9p0ejrZ:', 'http://i.imgur.com/9p0ejrZ.png', 'meme imgur 9p0ejrZ'
+    ],
+    memeimgkhJK3GM: [
+        ':khJK3GM:', 'http://i.imgur.com/khJK3GM.png', 'meme imgur khJK3GM'
+    ],
+    lool: [
+        ':lool:', 'http://i.imgur.com/uNjx0VR.png', 'lool'
+    ],
+    badumtss: [
+        ':badumtss:', 'http://i.imgur.com/tzdK1B8.png', 'ba dum tss'
+    ],
+    confident: [
+        ':confident:', 'http://i.imgur.com/sFpY0hd.png', 'confident'
+    ],
+    genius: [
+        ':genius:', 'http://i.imgur.com/wOlp4gc.png', 'genius'
+    ],
+    foreverablack: [
+        ':foreverablack:', 'http://i.imgur.com/eYozsXA.png', 'FOREVER A NIGGER'
+    ],
+    ynot: [
+        ':ynot:', 'http://i.imgur.com/dfAkHaT.png', 'ynot'
+    ],
+    plspls: [
+        ':plspls:', 'http://i.imgur.com/jrcH7iN.png', 'plspls'
+    ],
+    megusta: [
+        ':megusta:', 'http://i.imgur.com/WBVqQah.png', 'megusta'
+    ],
+    o: [
+        ':o:', 'http://i.imgur.com/rVrqYxb.png', 'ooooooooooooooooooooooooooooooooooo'
+    ],
+    omgomg: [
+        ':omgomg:', 'http://i.imgur.com/UZ6oybV.png', 'omgomg'
+    ],
+    memercy: [
+        ':mercy:', 'http://i.imgur.com/gg86lM7.png', 'DOES THIS LOOK LIKE THE FACE OF MERCY'
+    ],
+    crymercy: [
+        ':crymercy:', 'http://i.imgur.com/oPf9qaH.png', 'cry mercy'
+    ],
+    holyfuckingshit: [
+        ':holyfuckingsh:', 'http://i.imgur.com/Z4420t0.png', 'holy fucking shit'
+    ],
+    revenge: [
+        ':revenge:', 'http://i.imgur.com/4SGUhMJ.png', 'revenge'
+    ],
+    nowai: [
+        ':nowai:', 'http://i.imgur.com/VSD68iA.png', 'no wai'
+    ],
+    disappoint: [
+        ':disappoint:', 'http://i.imgur.com/IuAhgG9.png', 'disappoint'
+    ],
+    disappointok: [
+        ':disappointok:', 'http://i.imgur.com/cUyHPqs.png', 'disappoint ok'
+    ],
+    actually: [
+        ':actually:', 'http://i.imgur.com/TEZaTei.png', 'actually'
+    ]
+};
+var emoticon_dongs = {
+    imgurdongY21xRGc: [
+        ':dongintensifies:', 'http://i.imgur.com/Y21xRGc.jpg', 'dong intensifies'
+    ],
+    imgurdongfqgiO3C: [
+        ':my3dpenis:', 'http://i.imgur.com/fqgiO3C.jpg', 'my 3d penis'
+    ],
+    imgurdongArbkDMd: [
+        ':expand:', 'http://i.imgur.com/ArbkDMd.jpg', 'expand'
+    ],
+    imgurdongoeNPAcI: [
+        ':expand2:', 'http://i.imgur.com/oeNPAcI.jpg', 'expand 2'
+    ],
+    imgurdongtYAbOEK: [
+        ':expand3:', 'http://i.imgur.com/tYAbOEK.jpg', 'expand 3'
+    ],
+    imgurdongflLSGR0: [
+        ':expand4:', 'http://i.imgur.com/flLSGR0.jpg', 'expand 4'
+    ],
+    imgurdongvuaw4uj: [
+        ':donkeysdongcockreturns:', 'http://i.imgur.com/vuaw4uj.jpg', 'donkey\'s dong cock returns'
+    ],
+    imgurdongWsJjI1E: [
+        ':poopscoop:', 'http://i.imgur.com/WsJjI1E.jpg', 'poop scoop'
+    ],
+    imgurdong7y1PZ44: [
+        ':hugetropicalorgy:', 'http://i.imgur.com/7y1PZ44.jpg', 'huge tropical orgy'
+    ],
+    imgurdongihzpHyH: [
+        ':analassault:', 'http://i.imgur.com/ihzpHyH.jpg', 'anal assault'
+    ],
+    imgurdongfjo5nmC: [
+        ':kirbystripledeluxedong:', 'http://i.imgur.com/fjo5nmC.jpg', 'kirby\'s triple deluxe dong'
+    ],
+    imgurdongxIbjyrV: [
+        ':erectpenis:', 'http://i.imgur.com/xIbjyrV.jpg', 'erect penis'
+    ],
+    imgurdongmRYvJI4: [
+        ':analmassacre:', 'http://i.imgur.com/mRYvJI4.jpg', 'anal massacre'
+    ],
+    imgurdongLQTSFfn: [
+        ':mariopoopsoutsand:', 'http://i.imgur.com/LQTSFfn.jpg', 'mario poops out sand'
+    ],
+    imgurdongme4YY9e: [
+        ':rectalrampage:', 'http://i.imgur.com/me4YY9e.jpg', 'rectal rampage'
+    ],
+    imgurdong0pv0vet: [
+        ':featurelength:', 'http://i.imgur.com/0pv0vet.jpg', 'feature length'
+    ],
+    imgurdongazKA6IF: [
+        ':dickfreeze:', 'http://i.imgur.com/azKA6IF.jpg', 'dick freeze'
+    ],
+    imgurdongOIghJUa: [
+        ':kirbydong:', 'http://i.imgur.com/OIghJUa.jpg', 'kirby dong'
+    ],
+    imgurdongiYMW6J2: [
+        ':ratchetdong:', 'http://i.imgur.com/iYMW6J2.jpg', 'ratchet dong'
+    ],
+    imgurdongtHHKYVp: [
+        ':ratchetdong2:', 'http://i.imgur.com/tHHKYVp.jpg', 'ratchet dong 2'
+    ],
+    imgurdongtTQ4gPh: [
+        ':giantfurrycockblast:', 'http://i.imgur.com/tTQ4gPh.jpg', 'giant furry cock blast'
+    ],
+    imgurdongqzquWaX: [
+        ':legendarynuts:', 'http://i.imgur.com/qzquWaX.jpg', 'legendary nuts'
+    ],
+    imgurdongEpFtLXq: [
+        ':dongstrong:', 'http://i.imgur.com/EpFtLXq.jpg', 'dong strong'
+    ],
+    imgurdongLLG1h6k: [
+        ':uwutm8:', 'http://i.imgur.com/LLG1h6k.jpg', 'u wut m8'
+    ],
+    imgurdongBbshOLd: [
+        ':idiotsheroes:', 'http://i.imgur.com/BbshOLd.jpg', 'idiots heroes'
+    ],
+    imgurdonggZO4oUl: [
+        ':penntrash:', 'http://i.imgur.com/gZO4oUl.jpg', 'penn jilette trash'
+    ],
+    imgurdonglRIdSx8: [
+        ':fuckingcasuals:', 'http://i.imgur.com/lRIdSx8.jpg', 'fucking casuals'
+    ],
+    imgurdong0z3SmD2: [
+        ':cancerdong:', 'http://i.imgur.com/0z3SmD2.jpg', 'cancer dong'
+    ],
+    imgurdongz0ii3nI: [
+        ':minionsdong:', 'http://i.imgur.com/z0ii3nI.jpg', 'minions dong'
+    ], //imgurdongha5rqDd: [':ha5rqDd:', 'http://i.imgur.com/ha5rqDd.jpg', "ha5rqDd"],
+    //imgurdongRWom78Q: [':RWom78Q:', 'http://i.imgur.com/RWom78Q.jpg', "RWom78Q"],
+    imgurdongkv965M0: [
+        ':expansionpak:', 'http://i.imgur.com/kv965M0.jpg', 'expansion pak'
+    ],
+    imgurdongll5mzvy: [
+        ':dongnews:', 'http://i.imgur.com/ll5mzvy.jpg', 'dong news'
+    ],
+    imgurdonggXeBqOI: [
+        ':batdong:', 'http://i.imgur.com/gXeBqOI.jpg', 'bat dong'
+    ],
+    imgurdongoXxMcF0: [
+        ':captainunderdong:', 'http://i.imgur.com/oXxMcF0.jpg', 'captain underdong'
+    ],
+    imgurdongPkC0sSx: [
+        ':batmanrobindong:', 'http://i.imgur.com/PkC0sSx.jpg', 'batman robin dong'
+    ],
+    imgurdongd9o2Idt: [
+        ':fnaf:', 'http://i.imgur.com/d9o2Idt.jpg', 'fnaf rape'
+    ],
+    imgurdong6SXNd6T: [
+        ':wheresthedong:', 'http://i.imgur.com/6SXNd6T.jpg', 'where\'s the dong'
+    ],
+    imgurdongNg8P2Vv: [
+        ':erection:', 'http://i.imgur.com/Ng8P2Vv.jpg', 'erection'
+    ],
+    imgurdongAScga26: [
+        ':erectionrising:', 'http://i.imgur.com/AScga26.jpg', 'erection rising'
+    ],
+    imgurdongRtnXPSc: [
+        ':expand5:', 'http://i.imgur.com/RtnXPSc.jpg', 'expand 5'
+    ],
+    imgurdonguFNPVMN: [
+        ':expand6:', 'http://i.imgur.com/uFNPVMN.jpg', 'expand 6'
+    ],
+    imgurdongITi1XAI: [
+        ':freedankcuntclotcrunch:', 'http://i.imgur.com/ITi1XAI.jpg', 'free dank cunt clot crunch'
+    ],
+    imgurdong2aSBhVZ: [
+        ':ponydong:', 'http://i.imgur.com/2aSBhVZ.jpg', 'pony dong'
+    ],
+    imgurdongak7Is71: [
+        ':dongsquidward:', 'http://i.imgur.com/ak7Is71.jpg', 'dong squidward'
+    ],
+    imgurdongkXYUEc4: [
+        ':suffermore:', 'http://i.imgur.com/kXYUEc4.jpg', 'suffer more'
+    ],
+    imgurdongE1HYLvI: [
+        ':packingabigschlong:', 'http://i.imgur.com/E1HYLvI.jpg', 'packing a big schlong'
+    ],
+    cenasnap: [
+        ':cenasnap:', 'http://i.imgur.com/3OgWxPJ.gif', 'OH SNAP CENA'
+    ],
+    cenaconfused: [
+        ':cenaconfused:', 'http://i.imgur.com/sxlGqjI.gif', 'CONFUSED CENA'
+    ],
+    cenalaugh: [
+        ':cenalaugh:', 'http://i.imgur.com/uiW8eOZ.gif', 'CENA WHEN HE IS TOLD ABOUT DEAD KIDS'
+    ],
+    cenashrink: [
+        ':cenashrink:', 'http://i.imgur.com/B1zcAL4.gif', 'SHRINKING CENA'
+    ],
+    cenacantwrestle: [
+        ':cenacantwrestle:', 'http://i.imgur.com/lxRchNh.gif', 'CENA CAN\'T WRESTLE'
+    ],
+    cenaconfused2: [
+        ':cenaconfused2:', 'http://i.imgur.com/cj4Ri1g.gif', 'CONFUSED CENA 2'
+    ],
+    cenaepilepsy: [
+        ':cenaepilepsy:', 'http://i.imgur.com/UVQDNnV.gif', 'EPILEPSY CENA'
+    ],
+    dongcena: [
+        ':dongcena:', 'http://i.imgur.com/tQgelof.gif', 'IT\'S DONG CENA'
+    ]
+};
 
 /** the memes
  * memes are started with !
