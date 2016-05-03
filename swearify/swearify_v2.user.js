@@ -133,7 +133,7 @@ IDEAS:
         $("#divsmilies").click(function(event) {
             var scrX = (event.screenX - 270);
             var scrY = (event.screenY - 380);
-            window.open('/post?categ=6&mode=smilies', 'chatbox_smilies', 'toolbar=no,menubar=no,personalbar=no,width=350,height=300,scrollbars=yes,resizable=yes,left=' + scrX + ',top=' + scrY);
+            window.open('/post?categ=8&mode=smilies', 'chatbox_smilies', 'toolbar=no,menubar=no,personalbar=no,width=350,height=300,scrollbars=yes,resizable=yes,left=' + scrX + ',top=' + scrY);
         });
     }
 
