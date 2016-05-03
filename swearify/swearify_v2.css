@@ -1,4 +1,5 @@
 #submit_button {
+	text-transform: uppercase;
     font-size: 9px;
     color: #000;
     padding-right: 2px;
@@ -48,6 +49,7 @@
 }
 
 label[for="message"] {
+	text-transform: uppercase;
     font-size: 10px;
     color: white;
     margin-right: 8px;
@@ -56,4 +58,8 @@ label[for="message"] {
 
 td[width="10"] {
     display: none;
+}
+
+img[src="http://illiweb.com/fa/subsilver/wysiwyg/smilie.gif"] {
+	src: "http://i.imgur.com/47NbRiV.gif";
 }

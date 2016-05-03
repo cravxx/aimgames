@@ -112,19 +112,19 @@ IDEAS:
     function editCss() {
         //$('label:contains("Message")').css('cssText', cssMsg);
         // Edit CSS for the Message label
-        $('label:contains("Message")').text('MESSAGE:');
+        //$('label:contains("Message")').text('MESSAGE:');
         // New text for Message label
         //$('#submit_button').css('cssText', cssButton);
-        $('#submit_button').val('SEND');
+        //$('#submit_button').val('SEND');
         // Edit the Send button
         //$('#chatbox_members').css('cssText', cssLine);
         // Recolor the divider
         //$('#chatbox').css('cssText', cssChat);
         // Eliminate chat glitching and prettify the text
-        $('[width="10"]').text('');
-        $('[width="10"]').attr('width', '0px');
+        //$('[width="10"]').text('');
+        //$('[width="10"]').attr('width', '0px');
         // Remove the spacer to the left of the "Message" label
-        $('[src="http://illiweb.com/fa/subsilver/wysiwyg/smilie.gif"]').attr('src', 'http://i.imgur.com/47NbRiV.gif');
+        //$('[src="http://illiweb.com/fa/subsilver/wysiwyg/smilie.gif"]').attr('src', 'http://i.imgur.com/47NbRiV.gif');
         // Replace the old smilie image with a new one
     }
 
