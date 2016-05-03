@@ -875,7 +875,7 @@ IDEAS:
             addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
             addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
 
-            addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyCss.css');
+            addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearify_v2.css');
 
             editCss();
             addHider();
