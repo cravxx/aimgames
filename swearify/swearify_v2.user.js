@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.5.1
+// @version     beta.5.2
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -57,14 +57,13 @@ IDEAS:
 
     "use strict";
 
-    var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
-    var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;';
+    //var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
+    //var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;';
     var cssMsg = 'font-size:10px;color:white; margin-right:8px; margin-left:5px;';
-    var cssLine = 'color:black;';
-    var cssChat = 'overflow-x: hidden; left:141px;';
-    //var cssClicked = 'background: #CCC none repeat scroll 0% 0%;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);';
-    var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;height: 100%;line-height: 200%;';
-    var cssImage = 'padding-top: 1px;';
+    //var cssLine = 'color:black;';
+    //var cssChat = 'overflow-x: hidden; left:141px;';
+    //var cssHide = 'cursor: pointer;width: 10px;background: rgb(85, 85, 85) none repeat scroll 0px 0px;color: rgb(170, 170, 170);font-size: 9px;border: 1px solid rgb(85, 85, 85);-moz-user-select: none;-webkit-user-select: none;height: 100%;line-height: 200%;';
+    //var cssImage = 'padding-top: 1px;';
 
     var postButtonNum = 0;
 
@@ -87,7 +86,9 @@ IDEAS:
     var filteringCode = ['[b][/b]', '.'];
     var linkCode = ['http://', 'www.', 'https://'];
     
-    /** This is populated as makeButtonCookie() is called */
+    /** 
+	 * This is populated as makeButtonCookie() is called
+	 */
     var chatButtons = [];
     
     /**
@@ -115,12 +116,12 @@ IDEAS:
         // Edit CSS for the Message label
         $('label:contains("Message")').text('MESSAGE:');
         // New text for Message label
-        $('#submit_button').css('cssText', cssButton);
+        //$('#submit_button').css('cssText', cssButton);
         $('#submit_button').val('SEND');
         // Edit the Send button
-        $('#chatbox_members').css('cssText', cssLine);
+        //$('#chatbox_members').css('cssText', cssLine);
         // Recolor the divider
-        $('#chatbox').css('cssText', cssChat);
+        //$('#chatbox').css('cssText', cssChat);
         // Eliminate chat glitching and prettify the text
         $('[width="10"]').text('');
         $('[width="10"]').attr('width', '0px');
@@ -181,8 +182,8 @@ IDEAS:
             $('.hider').show();
             $('#click_area_hide').text('>');
         }
-        $('#click_area_hide').css('cssText', cssHide);
-        $('.swearIcons').css('cssText', cssImage);
+        //$('#click_area_hide').css('cssText', cssHide);
+        //$('.swearIcons').css('cssText', cssImage);
     }
 
     /**
@@ -875,30 +876,19 @@ IDEAS:
             window.location.href === 'http://aimgames.forummotion.com/') {
             addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
             addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
-            addStylesheetDirect(`
-.format-message + label { /* unchecked chat button */
-    border: 1px solid #AAA;
-    background: #DDD;
-}
-.format-message:checked + label { /* checked chat button */
-    background: #CCC none repeat scroll 0% 0%;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
-}
-`);
+            addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyCss.css');
+
             editCss();
-            /**/
             addHider();
-            /**/
             makeButtonCookie('rainbow', makeButton('rainbow', 'Rainbow', 'http://i.imgur.com/F69UQGS.png'));
             makeButtonCookie('random', makeButton('random', 'Random', 'http://i.imgur.com/jHMOnyI.png'));
     
-            /**/
             buttonCss();
     
-            /**/
             hijackEmoticonButton();
     
-            /* screenshot feature only works in chrome, so I'll add an if statement
+            /**
+			 * screenshot feature only works in chrome, so I'll add an if statement
              */
             if (navigator.userAgent.toLowerCase().contains('chrome')) {
                 $.getScript('http://daffeinatek.byethost32.com/swearify/html2canvas.js', function() {
@@ -906,14 +896,12 @@ IDEAS:
                 });
             }
     
-            /**/
             $('#message').on('keydown', function(e) {
                 if (e.which === 13 || e.which === 45) runChat();
             });
         } else {
             if (window.location.href.contains('aimgames.forummotion.com/post')) postPage();
     
-            /**/
             $('textarea').on('keydown', function(e) {
                 if (e.which === 13) runPost();
             });
