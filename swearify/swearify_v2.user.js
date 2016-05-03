@@ -48,8 +48,6 @@ IDEAS:
 
     -   Count total messages and characters typed (NSA pls)
 
-    -   A dedicated .css file
-
     -   Hashtag system? start or end a message with a hash tag and that message will get sent to my site. Clicking on the hash tag directs to a page where
         a list of the messages posted with that hashtag will be shown. Probably requires php.
 */
@@ -112,7 +110,7 @@ IDEAS:
     }
 
     function editCss() {
-        $('label:contains("Message")').css('cssText', cssMsg);
+        //$('label:contains("Message")').css('cssText', cssMsg);
         // Edit CSS for the Message label
         $('label:contains("Message")').text('MESSAGE:');
         // New text for Message label
@@ -876,6 +874,7 @@ IDEAS:
             window.location.href === 'http://aimgames.forummotion.com/') {
             addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
             addStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css');
+
             addStylesheet('https://cdn.rawgit.com/HulaSamsquanch/aimgames/master/swearify/swearifyCss.css');
 
             editCss();
