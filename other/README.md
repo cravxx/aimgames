@@ -31,3 +31,4 @@ _I hate ads. You should too._
 * `dragon-city-show-sessionid.user.js` - Made for a friend. Displays Session ID and Facebook ID for Dragon City
 * `tmturbo-track-downloader.user.js` - Directly download Trackmania Turbo tracks. Figure out how to install them yourself
 * `youtube-no-recommended-videos.user.js` - Hides recommended videos from your youtube videos (you might also want to disable annotations)
+* `wikia-bypass.user.js` - Direct externals links for Wikia
