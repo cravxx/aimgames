@@ -24,6 +24,7 @@ _I hate ads. You should too._
 * `linkshrink-bypass.user.js` - No wait times or popups for linkshrink
 * `openload-block-popunder.user.js` - No malware + Instant download for openload.co
 * `uploadshub-anti-ad.user.js` - Anti-anti-adblock for uploadshub
+* `prntsc-redirect` - A tiny script to redirect you to the direct image link in prnt.sc **(will probably break the site's other features)**
 
 ##Misc. scripts
 
