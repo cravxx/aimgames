@@ -18,6 +18,6 @@ function inject_css_url(url) {
     head.appendChild(gstyle);
 }
 
-inject_css_url("https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/ancientAIM.css");
+inject_css_url("https://hulasamsquanch.github.io/aimgames/swearify/ancientAIM.css");
 document.getElementById("i_logo").src = "http://i.imgur.com/l2o5hsj.gif"
 document.getElementsByClassName("bodyline")[0].getElementsByClassName("gen")[0].innerHTML = "The Official Forums of the Gaming Company AIM<br>&nbsp; ";

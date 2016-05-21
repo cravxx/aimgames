@@ -69,7 +69,7 @@ function make_popup(content_a, content_b) {
   
   // css
   var thecss = document.createElement("link");
-  thecss.href = "https://rawgit.com/HulaSamsquanch/aimgames/master/other/dragon-city.css";
+  thecss.href = "https://hulasamsquanch.github.io/aimgames/other/dragon-city.css";
   thecss.type = "text/css";
   thecss.rel = "stylesheet";
   document.head.appendChild(thecss);

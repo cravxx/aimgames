@@ -4059,8 +4059,8 @@ window.addEventListener('load', function()
             inject_leet();
             inject_morse();
             /////
-            inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/78-ltr.css');
-            inject_css_url('https://rawgit.com/HulaSamsquanch/aimgames/master/swearify/index.css');
+            inject_css_url('https://hulasamsquanch.github.io/aimgames/swearify/78-ltr.css');
+            inject_css_url('https://hulasamsquanch.github.io/aimgames/swearify/index.css');
             edit_css();
             document.getElementById('submit_button').addEventListener('click', function()  {
                 run_();
