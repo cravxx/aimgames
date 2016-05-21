@@ -44,3 +44,9 @@ on_success:
 #
  - git commit -m "Automated Appveyor build at %mydate%, %mytime% [skip ci]"
  - git push origin master
+# update gh-pages with master's contents
+# this mirrors the entire branch. possible future feature: only merge wanted files
+# (e.g swearifyVar.js)
+ - git checkout gh-pages
+ - git rebase master
+ - git push origin gh-pages
