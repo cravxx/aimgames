@@ -48,5 +48,6 @@ on_success:
 # this mirrors the entire branch. possible future feature: only merge wanted files
 # (e.g swearifyVar.js)
  - git checkout gh-pages
+ - git status
  - git rebase master
  - git push origin gh-pages
