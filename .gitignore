@@ -6,3 +6,4 @@ build/myincrement.bat
 .*.sw*
 build/AddUserscriptLines.jar
 build/IncrementBuildNumber.jar
+build/BeautifyScript.jar
