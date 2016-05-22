@@ -49,5 +49,6 @@ on_success:
 # (e.g swearifyVar.js)
  - git checkout gh-pages
  - git status
+ - git rm build/src/libraries/beautifier.js
  - git rebase master
  - git push origin gh-pages
