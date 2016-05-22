@@ -4,3 +4,5 @@ build/b.bat
 build/mycompile.bat
 build/myincrement.bat
 .*.sw*
+build/AddUserscriptLines.jar
+build/IncrementBuildNumber.jar
