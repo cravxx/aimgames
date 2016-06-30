@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.3
+// @version     1.4
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -74,7 +74,9 @@ function handleComments(is) {
     const origcontent = cs[i].children[0].textContent;
     if (processComment(origcontent)) {
       let el = cs[i].parentElement.parentElement.parentElement;
-      if (el.className.startsWith('comment-replies-renderer')) { // reply thread (startswith for vve-check workaround)
+      if (el.parentElement.parentElement.className.startsWith('comment-replies-renderer') || // is[is.length-1].parentElement.parentElement.parentElement.parentElement.parentElement
+      el.className.startsWith('comment-replies-renderer') // already in view for whatever reason
+      ) { // reply thread (startswith for vve-check workaround)
         el = cs[i].parentElement.parentElement;
       }
 
