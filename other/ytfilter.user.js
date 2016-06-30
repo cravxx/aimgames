@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.5
+// @version     1.6
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -39,11 +39,14 @@ const blacklistedKeywords = [
   'fat', // cancer
   'kys', // cancer
   'i\'m early', // early cancer
+  'im early', // early cancer
   'this early', // early cancer
-  'like if' // like if watching in {{CURRENT_YEAR}}
+  'like if', // like if watching in {{CURRENT_YEAR}}
+  'notification ' // new variation of the 'first' bullshit
 ];
 const blacklistedRegexes = [
   /\bXD\b/, // cancer
+  /\b\d view\b/i // only [n] view(s)?!?!?
 ];
 const blacklistAllcaps = true;
 
@@ -94,6 +97,9 @@ function handleComments(is) {
       //el.textContent = '<span style="color: aaaaaa;"><i>Comment removed. Be proud!</i></span>'
     }
   }
+  
+  // TODO: handle 'show more' button
+  // document.getElementsByClassName('yt-uix-button yt-uix-button-size-default yt-uix-button-default load-more-button yt-uix-load-more comment-section-renderer-paginator yt-uix-sessionlink')
 }
 
 // set up the mutation observer
