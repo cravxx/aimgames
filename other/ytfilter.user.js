@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.10
+// @version     1.11
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -24,8 +24,6 @@ i.getElementsByClassName('comment-renderer-text')[0] // find what you want
 */
 
 'use strict';
-
-/* globals $: true */
 
 const blacklistedKeywords = [
   'bit.ly', // scams
@@ -100,6 +98,9 @@ function handleNode(csi) {
 
 //if (!$) window.$ = function(a) { return document.querySelectorAll(a) };
 
+
+// old comment observer -- not AJAX-safe
+/*
 function handleComments(is) {
   const cs = is.getElementsByClassName('comment-renderer-text');
   for (let i = 0; i < cs.length; i++) {
@@ -110,8 +111,6 @@ function handleComments(is) {
   // document.getElementsByClassName('yt-uix-button yt-uix-button-size-default yt-uix-button-default load-more-button yt-uix-load-more comment-section-renderer-paginator yt-uix-sessionlink')
 }
 
-// old comment observer -- not AJAX-safe
-/*
 // set up the mutation observer
 const observer = new MutationObserver(function (mutations, me) {
   // `mutations` is an array of mutations that occurred
