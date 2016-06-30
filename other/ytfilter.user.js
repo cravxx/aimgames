@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.4
+// @version     1.5
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -29,6 +29,7 @@ i.getElementsByClassName('comment-renderer-text')[0] // find what you want
 
 const blacklistedKeywords = [
   'bit.ly', // scams
+  'goo.gl', // scams
   'dislike', // WOW 2 MINUTES 5 DISLIKES SUCH MEME
   'first', //  first
   'my channel', // adcunts
@@ -37,7 +38,7 @@ const blacklistedKeywords = [
   'cyka blyat', // cancer
   'fat', // cancer
   'kys', // cancer
-  'I\'m early', // early cancer
+  'i\'m early', // early cancer
   'this early', // early cancer
   'like if' // like if watching in {{CURRENT_YEAR}}
 ];
