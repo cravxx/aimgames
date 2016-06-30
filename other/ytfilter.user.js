@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.0
+// @version     1.2
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -38,7 +38,8 @@ const blacklistedKeywords = [
   'fat', // cancer
   'kys', // cancer
   'I\'m early', // early cancer
-  'this early' // early cancer
+  'this early', // early cancer
+  'like if' // like if watching in {{CURRENT_YEAR}}
 ];
 const blacklistedRegexes = [
   /\bXD\b/, // cancer
@@ -72,7 +73,10 @@ function handleComments(is) {
   for (let i = 0; i < cs.length; i++) {
     const origcontent = cs[i].children[0].textContent;
     if (processComment(origcontent)) {
-      const el = cs[i].parentElement.parentElement.parentElement;
+      let el = cs[i].parentElement.parentElement.parentElement;
+      if (el.className == 'comment-replies-renderer') { // reply thread
+        el = cs[i].parentElement.parentElement;
+      }
 
       while (el.firstChild) {
           el.removeChild(el.firstChild);
