@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.2
+// @version     1.3
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -74,7 +74,7 @@ function handleComments(is) {
     const origcontent = cs[i].children[0].textContent;
     if (processComment(origcontent)) {
       let el = cs[i].parentElement.parentElement.parentElement;
-      if (el.className == 'comment-replies-renderer') { // reply thread
+      if (el.className.startsWith('comment-replies-renderer')) { // reply thread (startswith for vve-check workaround)
         el = cs[i].parentElement.parentElement;
       }
 
