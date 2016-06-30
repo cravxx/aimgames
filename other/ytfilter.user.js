@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.6
+// @version     1.9
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -70,18 +70,14 @@ function processComment(str) {
   return false; // safe
 }
 
-//if (!$) window.$ = function(a) { return document.querySelectorAll(a) };
-
-function handleComments(is) {
-  const cs = is.getElementsByClassName('comment-renderer-text');
-  for (let i = 0; i < cs.length; i++) {
-    const origcontent = cs[i].children[0].textContent;
+function handleNode(csi) {
+    const origcontent = csi.children[0].textContent;
     if (processComment(origcontent)) {
-      let el = cs[i].parentElement.parentElement.parentElement;
+      let el = csi.parentElement.parentElement.parentElement;
       if (el.parentElement.parentElement.className.startsWith('comment-replies-renderer') || // is[is.length-1].parentElement.parentElement.parentElement.parentElement.parentElement
       el.className.startsWith('comment-replies-renderer') // already in view for whatever reason
       ) { // reply thread (startswith for vve-check workaround)
-        el = cs[i].parentElement.parentElement;
+        el = csi.parentElement.parentElement;
       }
 
       while (el.firstChild) {
@@ -96,12 +92,21 @@ function handleComments(is) {
       el.appendChild(asp);
       //el.textContent = '<span style="color: aaaaaa;"><i>Comment removed. Be proud!</i></span>'
     }
+}
+
+//if (!$) window.$ = function(a) { return document.querySelectorAll(a) };
+
+function handleComments(is) {
+  const cs = is.getElementsByClassName('comment-renderer-text');
+  for (let i = 0; i < cs.length; i++) {
+    handleNode(cs[i]);
   }
   
   // TODO: handle 'show more' button
   // document.getElementsByClassName('yt-uix-button yt-uix-button-size-default yt-uix-button-default load-more-button yt-uix-load-more comment-section-renderer-paginator yt-uix-sessionlink')
 }
 
+/*
 // set up the mutation observer
 const observer = new MutationObserver(function (mutations, me) {
   // `mutations` is an array of mutations that occurred
@@ -119,3 +124,30 @@ observer.observe(document, {
   childList: true,
   subtree: true
 });
+*/
+
+// dirty hack to check for an inserted node fromhttp://stackoverflow.com/a/10343915
+
+const stl = document.createElement('style');
+stl.textContent = `
+@keyframes cccnodeInserted {  
+    from {  
+        outline-color: #fff; 
+    }
+    to {  
+        outline-color: #000;
+    }  
+}
+
+.comment-renderer-text {
+    animation-duration: 0.01s;
+    animation-name: cccnodeInserted;
+}
+`;
+document.head.appendChild(stl);
+
+document.addEventListener('animationstart', function(event){
+  if (event.animationName == 'cccnodeInserted'){
+    handleNode(event.target);
+  }
+}, true);
