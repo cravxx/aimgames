@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.9
+// @version     1.10
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -31,7 +31,6 @@ const blacklistedKeywords = [
   'bit.ly', // scams
   'goo.gl', // scams
   'dislike', // WOW 2 MINUTES 5 DISLIKES SUCH MEME
-  'first', //  first
   'my channel', // adcunts
   'turn subtitles', // 7 year olds
   //'😂', // emoji
@@ -42,11 +41,12 @@ const blacklistedKeywords = [
   'im early', // early cancer
   'this early', // early cancer
   'like if', // like if watching in {{CURRENT_YEAR}}
-  'notification ' // new variation of the 'first' bullshit
+  'notification ', // new variation of the 'first' bullshit
 ];
 const blacklistedRegexes = [
   /\bXD\b/, // cancer
-  /\b\d view\b/i // only [n] view(s)?!?!?
+  /\b\d view\b/i, // only [n] view(s)?!?!?
+  /first$/i, // slightly paranoid safe variant of the old 'first' filter
 ];
 const blacklistAllcaps = true;
 
@@ -73,6 +73,7 @@ function processComment(str) {
 function handleNode(csi) {
     const origcontent = csi.children[0].textContent;
     if (processComment(origcontent)) {
+      // grab topmost element to remove
       let el = csi.parentElement.parentElement.parentElement;
       if (el.parentElement.parentElement.className.startsWith('comment-replies-renderer') || // is[is.length-1].parentElement.parentElement.parentElement.parentElement.parentElement
       el.className.startsWith('comment-replies-renderer') // already in view for whatever reason
@@ -80,9 +81,12 @@ function handleNode(csi) {
         el = csi.parentElement.parentElement;
       }
 
+      // remove all child elements
       while (el.firstChild) {
           el.removeChild(el.firstChild);
       }
+      
+      // add the 'Comment removed. Be proud!' text
       const asp = document.createElement('span');
       asp.setAttribute('style', 'color: rgb(170, 170, 170);');
       asp.title = origcontent;
@@ -106,6 +110,7 @@ function handleComments(is) {
   // document.getElementsByClassName('yt-uix-button yt-uix-button-size-default yt-uix-button-default load-more-button yt-uix-load-more comment-section-renderer-paginator yt-uix-sessionlink')
 }
 
+// old comment observer -- not AJAX-safe
 /*
 // set up the mutation observer
 const observer = new MutationObserver(function (mutations, me) {
@@ -126,7 +131,7 @@ observer.observe(document, {
 });
 */
 
-// dirty hack to check for an inserted node fromhttp://stackoverflow.com/a/10343915
+// dirty hack to check for an inserted node from http://stackoverflow.com/a/10343915
 
 const stl = document.createElement('style');
 stl.textContent = `
