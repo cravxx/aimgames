@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.11
+// @version     1.13
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -26,20 +26,30 @@ i.getElementsByClassName('comment-renderer-text')[0] // find what you want
 'use strict';
 
 const blacklistedKeywords = [
+  // advertisements and shit
   'bit.ly', // scams
   'goo.gl', // scams
-  'dislike', // WOW 2 MINUTES 5 DISLIKES SUCH MEME
   'my channel', // adcunts
+  
+  // general cancer
   'turn subtitles', // 7 year olds
   //'😂', // emoji
-  'cyka blyat', // cancer
-  'fat', // cancer
-  'kys', // cancer
-  'i\'m early', // early cancer
-  'im early', // early cancer
-  'this early', // early cancer
-  'like if', // like if watching in {{CURRENT_YEAR}}
-  'notification ', // new variation of the 'first' bullshit
+  'cyka blyat',
+  'fat',
+  'kys',
+  
+  // early cancer
+  'i\'m early',
+  'im early',
+  'this early',
+  'notification', // new variation of the 'first' bullshit
+  
+  // likespam
+  'like if',
+  '1 like', // possibly too broad
+  '1 sub', // possibly too broad
+  '1 comment', // possibly too broad
+  'dislike', // WOW 2 MINUTES 5 DISLIKES SUCH MEME
 ];
 const blacklistedRegexes = [
   /\bXD\b/, // cancer
