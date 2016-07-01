@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.14
+// @version     1.15
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -43,7 +43,6 @@ const blacklistedKeywords = [
   'notification', // new variation of the 'first' bullshit
   
   // likespam
-  'like if',
   '1 like', // possibly too broad
   '1 sub', // possibly too broad
   '1 comment', // possibly too broad
@@ -58,6 +57,9 @@ const blacklistedRegexes = [
   /\bXD\b/,
   /\bfat\b/i,
   /\bkys\b/i,
+  
+  // likespam
+  /\b^like if/i, // doesn't match "it's like if [...]"
 ];
 const blacklistAllcaps = true;
 
