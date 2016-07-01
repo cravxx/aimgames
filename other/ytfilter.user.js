@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.13
+// @version     1.14
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -35,8 +35,6 @@ const blacklistedKeywords = [
   'turn subtitles', // 7 year olds
   //'😂', // emoji
   'cyka blyat',
-  'fat',
-  'kys',
   
   // early cancer
   'i\'m early',
@@ -52,9 +50,14 @@ const blacklistedKeywords = [
   'dislike', // WOW 2 MINUTES 5 DISLIKES SUCH MEME
 ];
 const blacklistedRegexes = [
-  /\bXD\b/, // cancer
+  // early cancer
   /\b\d view\b/i, // only [n] view(s)?!?!?
   /first$/i, // slightly paranoid safe variant of the old 'first' filter
+  
+  // general cancer
+  /\bXD\b/,
+  /\bfat\b/i,
+  /\bkys\b/i,
 ];
 const blacklistAllcaps = true;
 
