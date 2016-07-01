@@ -32,4 +32,5 @@ _I hate ads. You should too._
 * `dragon-city-show-sessionid.user.js` - Made for a friend. Displays Session ID and Facebook ID for Dragon City
 * `tmturbo-track-downloader.user.js` - Directly download Trackmania Turbo tracks. Figure out how to install them yourself
 * `youtube-no-recommended-videos.user.js` - Hides recommended videos from your youtube videos (you might also want to disable annotations)
-* `wikia-bypass.user.js` - Direct externals links for Wikia
+* `wikia-bypass.user.js` - Direct external links for Wikia
+* `ytfilter.user.js` - Comment filter for YouTube comments (and adaptable for other comment sections). Blocks comments in all-uppercase, scam links, people advertising their own channel, things such as 'first', 'I'm so early', 'Last time I was this early [...]', 'Notification squad', meme cancer such as 'fat' and 'kys', among other things.
