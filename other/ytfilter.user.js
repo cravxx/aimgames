@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.15
+// @version     1.16
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -39,6 +39,7 @@ const blacklistedKeywords = [
   // early cancer
   'i\'m early',
   'im early',
+  'i\'m so early',
   'this early',
   'notification', // new variation of the 'first' bullshit
   
