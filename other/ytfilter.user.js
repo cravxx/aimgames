@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.18
+// @version     1.19
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -56,7 +56,7 @@ const blacklistedRegexes = [
   /first$/i, // slightly paranoid safe variant of the old 'first' filter
   
   // general cancer
-  /\b[Xx]D\b/,
+  /\b[Xx]D+\b/,
   /\bfat\b/i,
   /\bkys\b/i,
   
