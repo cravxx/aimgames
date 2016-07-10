@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.19
+// @version     1.21
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -43,6 +43,7 @@ const blacklistedKeywords = [
   'i\'m so early',
   'this early',
   'notification', // new variation of the 'first' bullshit
+  'under 301 club',
   
   // likespam
   '1 like', // possibly too broad
@@ -78,7 +79,7 @@ function processComment(str) {
       return true; // unsafe
     }
   }
-  if (blacklistAllcaps && (str.toUpperCase() === str)) {
+  if (blacklistAllcaps && (str.toUpperCase() === str) && /[A-Z]/.test(str)) { // if string is uppercase and contains at least one letter (/g not needed)
     return true;
   }
 
