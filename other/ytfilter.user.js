@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.21
+// @version     1.22
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -50,6 +50,8 @@ const blacklistedKeywords = [
   '1 sub', // possibly too broad
   '1 comment', // possibly too broad
   'dislike', // WOW 2 MINUTES 5 DISLIKES SUCH MEME
+  'let\'s do the alphabet', // why..
+  'lets do the alphabet', // just why....
 ];
 const blacklistedRegexes = [
   // early cancer
