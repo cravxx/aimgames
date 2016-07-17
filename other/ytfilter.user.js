@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.22
+// @version     1.23
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -29,6 +29,7 @@ const blacklistedKeywords = [
   // advertisements and shit
   'bit.ly', // scams
   'goo.gl', // scams
+  'dl.dropbox.com/s/', //scam
   'my channel', // adcunts
   
   // general cancer
