@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.23
+// @version     1.24
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -37,6 +37,8 @@ const blacklistedKeywords = [
   //'😂', // emoji
   'cyka blyat',
   'insert obligatory ', // metacancer
+  '🅾', // such unicode
+  '🅰', // much cancer
   
   // early cancer
   'i\'m early',
