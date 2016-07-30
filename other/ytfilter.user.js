@@ -4,7 +4,7 @@
 // @namespace   jojo42hansen@gmail.com
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.24
+// @version     1.25
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -39,6 +39,7 @@ const blacklistedKeywords = [
   'insert obligatory ', // metacancer
   '🅾', // such unicode
   '🅰', // much cancer
+  '1051541451431641621571721571511441234567881234567812345678123678326470547', // eaugh
   
   // early cancer
   'i\'m early',
