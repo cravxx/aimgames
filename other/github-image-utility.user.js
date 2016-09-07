@@ -6,7 +6,7 @@
 // @grant       GM_registerMenuCommand
 // @grant       GM_setValue
 // @grant       GM_getValue
-// @require     https://npmcdn.com/github-api/dist/GitHub.bundle.min.js
+// @require     https://unpkg.com/github-api/dist/GitHub.bundle.min.js
 // ==/UserScript==
 'use strict';
 
@@ -94,7 +94,7 @@ function checkImageOrigin(){
 /*if (document.addEventListener)
   document.addEventListener("DOMContentLoaded", */createStuff();//, false);
 
-//https://npmcdn.com/github-api/dist/GitHub.bundle.min.js
+//https://unpkg.com/github-api/dist/GitHub.bundle.min.js
 
 function toDataUrl(src, callback, outputFormat) {
   let img = new Image();
