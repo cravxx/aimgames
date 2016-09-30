@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.4
+// @version     1.5
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -26,7 +26,7 @@ i.getElementsByClassName('comment-renderer-text')[0] // find what you want
 'use strict';
 
 // remove recommended videos
-const vCounts = document.querySelectorAll('.related-list-item-compact-video > .content-wrapper > .content-link > .view-count.stat');
+const vCounts = document.querySelectorAll('.stat.view-count');
 
 for (let i of vCounts) {
   if (i.textContent.startsWith('Recommended') || i.textContent.startsWith('Recomendado')) {
