@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.3
+// @version     1.4
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -170,9 +170,7 @@ observer.observe(document, {
 */
 
 // dirty hack to check for an inserted node from http://stackoverflow.com/a/10343915
-
-const stl = document.createElement('style');
-stl.textContent = `
+GM_addStyle(`
 @keyframes cccnodeInserted {  
     from {  
         outline-color: #fff; 
@@ -186,8 +184,7 @@ stl.textContent = `
     animation-duration: 0.01s;
     animation-name: cccnodeInserted;
 }
-`;
-document.head.appendChild(stl);
+`);
 
 document.addEventListener('animationstart', function(event){
   if (event.animationName == 'cccnodeInserted'){
