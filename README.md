@@ -22,7 +22,7 @@ Successfully tested and working under Unix and Windows.
 1. Run `build.sh` (Unix) or `build.bat` (Windows)
 1. Your compiled file(s) should be available in the `bin/` folder.
 
-### `instructions.txt` Syntax
+### `instructions.txt` Syntax (deprecated)
 
 `linesToKeep [number]`  
 `[compiled file location] [source file location]`  
