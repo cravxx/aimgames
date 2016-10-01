@@ -37,6 +37,10 @@ for (let i of vCounts) {
 // comment CSS fix
 GM_addStyle(`.comment-renderer-text-content > b {
     font-weight: bold;
+}
+/*space after comma for tags*/
+.watch-meta-item .watch-info-tag-list li::after {
+    content: ", ";
 }`);
 
 // comment filter
