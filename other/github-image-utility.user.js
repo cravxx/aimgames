@@ -2,7 +2,7 @@
 // @name        GitHub Image Utility
 // @namespace   samsquanch gets the dong
 // @include     *
-// @version     1.2
+// @version     1.3
 // @grant       GM_registerMenuCommand
 // @grant       GM_setValue
 // @grant       GM_getValue
@@ -102,9 +102,9 @@ function onRightClick(e) {
  */
 function checkImageOrigin_Imgur(){
   //let pageOrigin = window.location.origin;
-  let imageOrigin = document.getElementById('menu_imgold').getAttribute('imageurl');
+  let imageOrigin = document.getElementById('menu_imgold').getAttribute('imageURL');
   
-  console.log(pageOrigin + " " + imageOrigin);
+  console.log(imageOrigin);
   
   uploadImage_Imgur(imageOrigin);
 }
@@ -114,7 +114,7 @@ function checkImageOrigin_Imgur(){
  */
 function checkImageOrigin(){
   let pageOrigin = window.location.origin;
-  let imageOrigin = document.getElementById('menu_imgre').getAttribute('imageurl');
+  let imageOrigin = document.getElementById('menu_imgre').getAttribute('imageURL');
   
   console.log(pageOrigin + " " + imageOrigin);
   
