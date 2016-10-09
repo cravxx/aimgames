@@ -2,7 +2,7 @@
 // @name        GitHub Image Utility
 // @namespace   samsquanch gets the dong
 // @include     *
-// @version     1.0
+// @version     1.2
 // @grant       GM_registerMenuCommand
 // @grant       GM_setValue
 // @grant       GM_getValue
@@ -15,30 +15,31 @@
 // jshint browser:true
 /* globals console:true, window:true, alert:true, GitHub:true,GM_getValue:true, GM_setValue:true, GM_registerMenuCommand:true */
 
-/**
- * some utility functions
+/*
+ * these arent actually used..
  */
-if (!Element.prototype.remove)
-  Element.prototype.remove = function() {
-    this.parentElement.removeChild(this);
-  };
-
-const listRemove = function() {
-  for (let i = this.length - 1; i >= 0; i--) {
-    if (this[i] && this[i].parentElement) {
-      this[i].parentElement.removeChild(this[i]);
-    }
-  }
-};
-if (!NodeList.prototype.remove)
-  NodeList.prototype.remove = listRemove;
-if (!HTMLCollection.prototype.remove)
-  HTMLCollection.prototype.remove = listRemove;
+//if (!Element.prototype.remove)
+//  Element.prototype.remove = function() {
+//    this.parentElement.removeChild(this);
+//  };
+//
+//const listRemove = function() {
+//  for (let i = this.length - 1; i >= 0; i--) {
+//    if (this[i] && this[i].parentElement) {
+//      this[i].parentElement.removeChild(this[i]);
+//    }
+//  }
+//};
+//if (!NodeList.prototype.remove)
+//  NodeList.prototype.remove = listRemove;
+//if (!HTMLCollection.prototype.remove)
+//  HTMLCollection.prototype.remove = listRemove;
 
 /**
  * create the context item
  */
 function createStuff() {
+  // create menu
   document.addEventListener("contextmenu", onRightClick, false);
   let menu;
 
@@ -49,6 +50,8 @@ function createStuff() {
   } else {
     menu = document.getElementsByTagName("menu")[0];
   }
+  
+  // create menu items
   let menuitem = document.createElement("menuitem");
   menuitem.id = "menu_imgre";
   menuitem.label = "Upload to GitHub";
@@ -56,17 +59,24 @@ function createStuff() {
   menu.appendChild(menuitem);
   document.body.appendChild(menu);
 
-  document.querySelector("#userscript-grease #menu_imgre")
+  document.getElementById("menu_imgre")
     .addEventListener("click", checkImageOrigin, false);
+
+  menuitem = document.createElement("menuitem");
+  menuitem.id = "menu_imgold";
+  menuitem.label = "Upload to Imgur";
+  menuitem.icon = "http://i.imgur.com/F2wghzO.png";
+  menu.appendChild(menuitem);
+  document.body.appendChild(menu);
+
+  document.getElementById("menu_imgold")
+    .addEventListener("click", checkImageOrigin_Imgur, false);
 }
 
-function onRightClick(e) {
-  // Executed when user right click on web page body
-  // aEvent.target is the element you right click on
-  document.body.setAttribute("contextmenu", "userscript-grease");
-  let node = e.target;
-  //let link = e.target.getAttribute("imageURL");
-  let item = document.querySelector("#userscript-grease #menu_imgre");
+/**
+ * enable context menu item
+ */
+function _enable(node, item) {
   if (node.localName == "img") {
     item.disabled = false;
     item.setAttribute("imageURL", node.src);
@@ -76,8 +86,31 @@ function onRightClick(e) {
 }
 
 /**
- * if the image is from the same origin, we can place it into a canvas
- * if not, we just upload it to imgur
+ * Executed when user right click on web page body
+ */
+function onRightClick(e) {
+  // aEvent.target is the element you right click on
+  document.body.setAttribute("contextmenu", "userscript-grease");
+  let node = e.target;
+  //let link = e.target.getAttribute("imageURL");
+  _enable(node, document.getElementById("menu_imgre"));
+  _enable(node, document.getElementById("menu_imgold"));
+}
+
+/**
+ * upload it to imgur
+ */
+function checkImageOrigin_Imgur(){
+  //let pageOrigin = window.location.origin;
+  let imageOrigin = document.getElementById('menu_imgold').getAttribute('imageurl');
+  
+  console.log(pageOrigin + " " + imageOrigin);
+  
+  uploadImage_Imgur(imageOrigin);
+}
+
+/**
+ * upload it to github
  */
 function checkImageOrigin(){
   let pageOrigin = window.location.origin;
@@ -120,10 +153,31 @@ function wipeHeader(str) {
   return str.replace(/data:image\/(.*?);base64,/, '');
 }
 
+/////// IMGUR UPLOAD 
+
+function uploadImage_Imgur(dataIn) {
+  console.log('attempting to upload to imgur');    
+  /* */
+
+  var fd = new FormData();
+  fd.append("image", dataIn); // Append the file
+
+  var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+  xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+  xhr.onload = function() {
+      var link = JSON.parse(xhr.responseText).data.link;
+      alert(link);
+  }
+  xhr.onerror = function() { alert('error'); };
+  xhr.setRequestHeader('Authorization', 'Client-ID d8b88dd7493540b'); // imgur key
+  xhr.send(fd);
+}
+
+/////// GITHUB UPLOADING
+
 // basic auth
 
-
-let repo;
+let repo; // only auths once, and only if actually needed so no memory waste
 let authed = false;
 
 function authenticate() {
