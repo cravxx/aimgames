@@ -1,0 +1,132 @@
+{
+  "env": {
+    "node": true, // just in case
+    "es6": true, // let, const, ``...
+    "greasemonkey": true, // GM_addStyle etc
+    "webextensions": true, // just in case
+    "jquery": true, // $('') stuff
+    "browser": true // window and document
+  },
+  "globals": {
+    "PRO_addStyle": true
+  }
+  "settings": {
+      "lodash": {
+          "version": 3
+      }
+  },
+  //"plugins": ["node", "json", "lodash", "classes"],
+  "rules": {
+    "quotes": [
+      "error",
+      "single",
+      "avoid-escape"
+    ],
+    "no-var": "error",
+    "prefer-const": "warn",
+    "strict": [
+      "warn",
+      "global"
+    ],
+    "no-confusing-arrow": "warn",
+    "no-constant-condition": [
+      "warn",
+      {
+        "checkLoops": false
+      }
+    ],
+    "no-warning-comments": "warn",
+    "no-eq-null": "error",
+    "no-else-return": "warn",
+    "dot-notation": "error",
+    "no-mixed-requires": "error",
+    "no-void": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used"
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-sparse-arrays": "error",// blocks ,,,, in arrays
+    "use-isnan": "error",
+    "no-obj-calls": "error", // Some of these objects look as if they could be constructors due their capitalization (such as Math and JSON) but will throw an error if you try to execute them as functions.
+    "class-methods-use-this": "error", //If a class method does not use this, it can safely be made a static function.
+    "valid-typeof": "error", // This rule enforces comparing typeof expressions to valid string literals.
+    "dot-location": [ // Consistency in placing a newline before or after the dot can greatly increase readability.
+      "warn",
+      //"object" // the dot in a member expression should be on the same line as the object portion. 
+      "property" // the dot in a member expression should be on the same line as the property portion.
+    ],
+    "brace-style": [
+      "error", 
+      "1tbs", // one true brace style, if (x) {\n y; \n} else {\n z; \n}
+      {
+        "allowSingleLine": false // disallow if (x) { y; } without any newlines
+      }
+    ],
+    // requires a comma after and on the same line as an array element, object property, or variable declaration
+    "comma-style": [
+      "error", "last"
+    ],
+    "no-extra-label": "warn"
+
+//    // Node.js plugin
+//    "node/no-deprecated-api": "error",
+//    "node/no-missing-require": "error",
+//    // retarded rule
+//    //"node/no-unpublished-require": "error",
+//    // doesnt work properly
+//    //"node/no-unsupported-features": "error",
+//    //"node/shebang": "error",
+//
+//    // JSON plugin
+//    //"json/bad-json": "error",
+//
+//    // Lodash plugin
+//    "lodash/callback-binding": "error",
+//    "lodash/chain-style": ["error", "as-needed"],
+//    "lodash/collection-method-value": "error",
+//    "lodash/collection-return": "error",
+//    "lodash/consistent-compose": ["error", "flow"],
+//    "lodash/identity-shorthand": ["error", "always"],
+//    "lodash/matches-prop-shorthand": ["error", "always"],
+//    "lodash/matches-shorthand": ["error", "always", 3],
+//    "lodash/no-commit": "error",
+//    "lodash/no-double-unwrap": "error",
+//    "lodash/no-extra-args": "error",
+//    "lodash/no-single-chain": "error",
+//    "lodash/path-style": ["error", "string"],
+//    "lodash/prefer-chain": ["error", 3],
+//    "lodash/prefer-compact": "error",
+//    "lodash/prefer-constant": "error",
+//    "lodash/prefer-filter": ["error", 3],
+//    "lodash/prefer-get": ["error", 3],
+//    "lodash/prefer-includes": ["error", {"includeNative": false}],
+//    //"lodash/prefer-lodash-chain": "error",
+//    //"lodash/prefer-lodash-method": "error",
+//    //"lodash/prefer-lodash-typecheck": "error",
+//    "lodash/prefer-map": "error",
+//    "lodash/prefer-matches": ["error", 3],
+//    "lodash/prefer-noop": "error",
+//    "lodash/prefer-reject": ["error", 3],
+//    //"lodash/prefer-startswith": "error",
+//    "lodash/prefer-thru": "error",
+//    "lodash/prefer-times": "error",
+//    "lodash/prefer-wrapper-method": "error",
+//    "lodash/preferred-alias": "error",
+//    "lodash/prop-shorthand": ["error", "always"],
+//    "lodash/unwrap": "error",
+//
+//    // class syntax plugin
+//    "classes/space": "error",
+//    "classes/name": ["error", "class", "method"],
+//    //"classes/constructor" : "error",
+//    "classes/super": "error"
+//    //"classes/style": "error"
+  }
+}
