@@ -15,6 +15,7 @@ engines:
   eslint: #no idea if needs config https://docs.codeclimate.com/docs/eslint
     enabled: true
     config:
+      config: ./.eslintrc.json
       extensions:
       - .es6
       - .js
