@@ -14,6 +14,7 @@ engines:
       - todo
   eslint: #no idea if needs config https://docs.codeclimate.com/docs/eslint
     enabled: true
+    channel: "eslint-3"
     config:
       config: ./.eslintrc.json
       extensions:
