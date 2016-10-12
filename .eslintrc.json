@@ -9,7 +9,7 @@
   },
   "globals": {
     "PRO_addStyle": true
-  }
+  },
   "settings": {
       "lodash": {
           "version": 3
