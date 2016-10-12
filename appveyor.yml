@@ -50,5 +50,7 @@ on_success:
  - git checkout gh-pages
  - git status
  - git rm build/src/libraries/beautifier.js
+ - git rm build/libraries/beautifier.js
+ - git rm build/BeautifyScript.jar || exit 0
  - git rebase master
  - git push origin gh-pages
