@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.6
+// @version     1.8
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -53,11 +53,11 @@ const blacklistedKeywords = [
   
   // general cancer
   'turn subtitles', // 7 year olds
-  //'😂', // emoji
+  //'\ud83d\ude02', // emoji
   'cyka blyat',
   'insert obligatory ', // metacancer
-  '🅾', // such unicode
-  '🅰', // much cancer
+  '\ud83c\udd7e', // such unicode
+  '\ud83c\udd70', // much cancer
   '1051541451431641621571721571511441234567881234567812345678123678326470547', // eaugh
   
   // early cancer
@@ -66,7 +66,6 @@ const blacklistedKeywords = [
   'i\'m so early',
   'this early',
   'notification', // new variation of the 'first' bullshit
-  'under 301 club',
   
   // likespam
   '1 like', // possibly too broad
@@ -80,14 +79,17 @@ const blacklistedRegexes = [
   // early cancer
   /\b\d view\b/i, // only [n] view(s)?!?!?
   /first$/i, // slightly paranoid safe variant of the old 'first' filter
+  /[0-9]+ likes and ([0-9]+|no|zero) views/i, // YUTUB BOOG GUISE?
+  /under [0-9]+ club/i,
   
   // general cancer
   /\b[Xx]D+\b/,
   /\bfat\b/i,
   /\bkys\b/i,
+  /^I have a request/, // siivagunner meme that got stale
   
   // likespam
-  /\b^like if/i, // doesn't match "it's like if [...]"
+  /^like if/i, // doesn't match "it's like if [...]"
 ];
 const blacklistAllcaps = true;
 
