@@ -22,7 +22,8 @@
       "single",
       "avoid-escape"
     ],
-    "no-var": "error",
+    //uncomment this when were actually ready for it
+    //"no-var": "error",
     "prefer-const": "warn",
     "strict": [
       "warn",
