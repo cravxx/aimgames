@@ -47,10 +47,9 @@ on_success:
 # update gh-pages with master's contents
 # this mirrors the entire branch. possible future feature: only merge wanted files
 # (e.g swearifyVar.js)
- - git checkout gh-pages
+ - git checkout gh-pages || git checkout -b gh-pages
  - git status
  - git rm build/src/libraries/beautifier.js
- - git rm -rf build/libraries/ || git reset --hard HEAD
- - git rm build/BeautifyScript.jar || exit 0
+ - git reset --hard HEAD
  - git rebase master
  - git push origin gh-pages
