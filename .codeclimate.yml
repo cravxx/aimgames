@@ -27,7 +27,7 @@ engines:
   shellcheck:
     enabled: true
   markdownlint:
-    enabled: true
+    enabled: false
 ratings:
   paths:
   - "**.user.js"
