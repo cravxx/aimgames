@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.8
+// @version     1.9
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -74,11 +74,15 @@ const blacklistedKeywords = [
   'dislike', // WOW 2 MINUTES 5 DISLIKES SUCH MEME
   'let\'s do the alphabet', // why..
   'lets do the alphabet', // just why....
+  'likes for no reason',
+  'like and in ',
+  'can i get likes',
 ];
 const blacklistedRegexes = [
   // early cancer
   /\b\d view\b/i, // only [n] view(s)?!?!?
   /first$/i, // slightly paranoid safe variant of the old 'first' filter
+  /frist$/i, // literally hitler
   /[0-9]+ likes and ([0-9]+|no|zero) views/i, // YUTUB BOOG GUISE?
   /under [0-9]+ club/i,
   
