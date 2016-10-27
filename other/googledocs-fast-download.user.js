@@ -4,10 +4,10 @@
 // @namespace   trashihansen@gmail.com
 // @match       https://docs.google.com/uc?*export=download*
 // @match       http://docs.google.com/uc?*export=download*
-// @version     1.3
+// @version     1.4
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
-"use strict";
+'use strict';
 
 document.location.href = document.getElementById('uc-download-link').href;

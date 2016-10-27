@@ -22,16 +22,16 @@ window.addEventListener('load', function()
         {
             var str = msgTags[i].textContent;
             /*remove bbcode*/
-            str = str.replace(/\[\/?[^\]]*\]/g, "");
+            str = str.replace(/\[\/?[^\]]*\]/g, '');
             /*remove punctuation*/
-            str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-            str = str.replace(/\s{2,}/g, " ");
+            str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+            str = str.replace(/\s{2,}/g, ' ');
             /*remove duplicate letters "poooiii" */
-            str = str.replace(/[^\w\s]|(.)(?=\1)/gi, "");            
+            str = str.replace(/[^\w\s]|(.)(?=\1)/gi, '');            
 
             if (str.regexIndexOf(/\poi\b/gi) != -1 || str.regexIndexOf(/\p\soi\b/gi) != -1 || str.regexIndexOf(/\po\si\b/gi) != -1 || str.regexIndexOf(/\p\so\si\b/gi) != -1)
             {
-                msgTags[i].textContent = "";
+                msgTags[i].textContent = '';
             }
         }
     });
@@ -70,5 +70,5 @@ var observeDOM = (function()
             obj.addEventListener('DOMNodeInserted', callback, false);
             obj.addEventListener('DOMNodeRemoved', callback, false);
         }
-    }
+    };
 })();

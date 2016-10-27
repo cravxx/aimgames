@@ -8,7 +8,7 @@
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
-// @version     beta.5.4
+// @version     beta.5.5
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // @homepage    https://github.com/HulaSamsquanch/aimgames
@@ -53,7 +53,7 @@ IDEAS:
 */
 (function() {
 
-    "use strict";
+    'use strict';
 
     //var cssChkbox = 'font-size: 9px;color: #DFDFDF;margin-right: 5px;margin-top: 5px;';
     //var cssButton = 'font-size: 9px;color: #000;padding-right: 2px;margin-left: 3px;';
@@ -106,7 +106,7 @@ IDEAS:
     }
     
     function addStylesheetDirect(text) {
-        $("<style>").prop("type", "text/css").html(text).appendTo("head");
+        $('<style>').prop('type', 'text/css').html(text).appendTo('head');
     }
 
     function editCss() {
@@ -129,7 +129,7 @@ IDEAS:
     }
 
     function hijackEmoticonButton() {
-        $("#divsmilies").click(function(event) {
+        $('#divsmilies').click(function(event) {
             var scrX = (event.screenX - 270);
             var scrY = (event.screenY - 380);
             window.open('/post?categ=8&mode=smilies', 'chatbox_smilies', 'toolbar=no,menubar=no,personalbar=no,width=350,height=300,scrollbars=yes,resizable=yes,left=' + scrX + ',top=' + scrY);
@@ -350,7 +350,7 @@ IDEAS:
                 var before_link = oldMsgLowercase.substr(0, which);
                 var link = oldMsgLowercase.substr(which, oldMsgLowercase.length);
                 if (before_link.contains(item)) {
-                    filteredItem = oldMsg.substr(before_link.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
+                    filteredItem = oldMsg.substr(before_link.indexOf(item), item.length).split('').join(filteringCode[filteringMethod]);
                 }
             }
 
@@ -359,7 +359,7 @@ IDEAS:
              */
             if (httpLink == -1 && httpsLink == -1 && wwwLink == -1) {
                 if (oldMsgLowercase.indexOf(item) >= 0) {
-                    filteredItem = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split("").join(filteringCode[filteringMethod]);
+                    filteredItem = oldMsg.substr(oldMsgLowercase.indexOf(item), item.length).split('').join(filteringCode[filteringMethod]);
                 }
             }
             // according to how your code worked previously, this should be perfectly fine.
@@ -444,7 +444,7 @@ IDEAS:
 
     function greentext() {
         if ($('#message').val().indexOf('>') === 0) {
-            $('#message').val(greenText[0] + $("#message").val() + greenText[1]);
+            $('#message').val(greenText[0] + $('#message').val() + greenText[1]);
         }
     }
 
@@ -810,7 +810,7 @@ IDEAS:
         appendOptions();
         if (window.location.href === 'http://aimgames.forummotion.com/post?categ=1&mode=smilies' ||
             window.location.href === 'http://aimgames.forummotion.com/smilies.forum?categ=1&mode=smilies_frame') {
-            console.log("done");
+            console.log('done');
             displaySmilies(1, fitEmotesOnScreen());
             window.onresize = function(event) {
                 displaySmilies(1, fitEmotesOnScreen());
@@ -860,7 +860,7 @@ IDEAS:
              */
             var timeAmongUs;
             $('#emoteSearchBox').on('keyup', function() {
-                if (timeAmongUs) clearTimeout(timeAmongUs)
+                if (timeAmongUs) clearTimeout(timeAmongUs);
                 var passItDown = this.value;
                 timeAmongUs = setTimeout(function() {
                     displayResults(search(passItDown), fitEmotesOnScreen());

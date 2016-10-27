@@ -4,7 +4,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     https://aimgames.forummotion.com/*
 // @include     http://aimgames.forummotion.com/*
-// @version     4.fine.6.1.frostbiting.1453002991.8
+// @version     4.fine.6.1.frostbiting.1453002991.9
 // @grant       none
 // @icon        http://i.imgur.com/jCJgorp.gif
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -18,7 +18,7 @@ function values(o) {
 
 ////// TOOLBOX
 function ayyliumLanguage(n) {
-    var nybHexString = "0123456789ABCDEF";
+    var nybHexString = '0123456789ABCDEF';
     return String(nybHexString.substr((n >> 4) & 0x0F, 1)) + nybHexString.substr(n & 0x0F, 1);
 }
 
@@ -64,9 +64,9 @@ var color_array = []; ///main array what we want gets moved into
 var color_hex = {
     normal: createRainbow(128, 127, 0.3, 0.3, 0.3, 0, 2, 4, 32),
     ///trippy needs work
-    trippy: ["#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff"],
-    patriotic: ["#ff0000", "#ffffff", "#0000ff"],
-    warm: ["#ff3300", "#0033cc", "#00cc00", "#ffcc00", "#cc00cc", "#6600ff", "#00ffff"],
+    trippy: ['#ff3300', '#0033cc', '#00cc00', '#ffcc00', '#cc00cc', '#6600ff', '#00ffff'],
+    patriotic: ['#ff0000', '#ffffff', '#0000ff'],
+    warm: ['#ff3300', '#0033cc', '#00cc00', '#ffcc00', '#cc00cc', '#6600ff', '#00ffff'],
     light: createRainbow(200, 55, 0.3, 0.3, 0.3, 0, 2, 4, 32),
     different: createRainbow(128, 127, 0.1, 0.2, 0.3, 0, 2, 4, 27),
     yellow: createRainbow(128, 127, 0.3, 0.3, 0.46, 1.8, 1.8, 3.18, 22),
@@ -112,24 +112,24 @@ function getCookie(c_name) {
 ///////
 
 function returnOption(text) {
-    var option = document.createElement("option");
+    var option = document.createElement('option');
     option.text = text;
-    option.style.dir = "rtl";
-    option.style.paddingRight = "4px";
+    option.style.dir = 'rtl';
+    option.style.paddingRight = '4px';
     return option;
 }
 
 function createSelectBox() {
-    var new_td = document.createElement("td");
-    new_td.id = "Cha";
-    new_td.style.paddingRight = "5px";
+    var new_td = document.createElement('td');
+    new_td.id = 'Cha';
+    new_td.style.paddingRight = '5px';
 
-    document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].insertBefore(
+    document.getElementById('chatbox_messenger_form').getElementsByTagName('tr')[0].insertBefore(
         new_td,
-        document.getElementById("chatbox_messenger_form").getElementsByTagName("tr")[0].childNodes[0]
+        document.getElementById('chatbox_messenger_form').getElementsByTagName('tr')[0].childNodes[0]
     );
 
-    var gen_location = document.getElementById("Cha");
+    var gen_location = document.getElementById('Cha');
 
     label = document.createElement('label');
     label.id = 'labelCha';
@@ -173,7 +173,7 @@ function whatdo(wew) {
         color_array[all] = dunwan[all];
     }
 
-    document.getElementById("labelCha").textContent = dunwan.length;
+    document.getElementById('labelCha').textContent = dunwan.length;
 
     setCookie('chameleon_counter', counter, 1);
     setCookie('CB_color', color_array[counter], 1);
@@ -184,8 +184,8 @@ function whatdo(wew) {
 
 createSelectBox();
 
-if (getCookie('chameleon_color_style') === "") {
-    setCookie('chameleon_color_style', color_hex['normal'], 1);
+if (getCookie('chameleon_color_style') === '') {
+    setCookie('chameleon_color_style', color_hex.normal, 1);
 } else {
     document.getElementById('selectCha').value = capitalizeFirstLetter(getCookie('chameleon_color_style'));
 }
@@ -195,8 +195,8 @@ for (var all = 0; all < color_hex[getCookie('chameleon_color_style')].length; al
     //console.log("only once pls");
 }
 
-document.getElementById("labelCha").style.cssText = "font-size: 10px; color: white; margin-right: 8px; margin-left: 5px;";
-document.getElementById("labelCha").innerHTML = color_hex[getCookie('chameleon_color_style')].length;
+document.getElementById('labelCha').style.cssText = 'font-size: 10px; color: white; margin-right: 8px; margin-left: 5px;';
+document.getElementById('labelCha').innerHTML = color_hex[getCookie('chameleon_color_style')].length;
 
 if (document.getElementById('frame_chatbox') !== null || document.getElementById('message') !== null) {
     if (window.location.pathname.length <= 1) {

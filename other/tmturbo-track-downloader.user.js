@@ -4,11 +4,11 @@
 // @namespace   jsthehansen@gmail.com
 // @include     https://players.turbo.trackmania.com/pc/maps/*
 // @include     http://players.turbo.trackmania.com/pc/maps/*
-// @version     1.0
+// @version     1.1
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
-"use strict";
+'use strict';
 
 var permalink = document.getElementById('page_permalink').value;
 permalink = permalink.substring(permalink.indexOf('/pc/maps/') + '/pc/maps/'.length);

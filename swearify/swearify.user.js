@@ -3,7 +3,7 @@
 // @description Adds a number of enhancements to your experience on AIM games.
 // @namespace   kaffeinition@gmail.com
 // @include     http://aimgames.forummotion.com/*
-// @version     un.support.ed.2
+// @version     un.support.ed.3
 // @grant       none
 // @icon        http://i.imgur.com/HlEs1B4.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
@@ -1210,7 +1210,7 @@ var emoticon_2 = {
         ':noodbro:', 'http://i.imgur.com/MRF9GGC.png', 'NOOD BRO'
     ],
     boratjew: [
-        ":boratjew:", 'http://i.imgur.com/aX2p3Xbs.png', 'BORAT FACE WHEN HE SEES A JEW'
+        ':boratjew:', 'http://i.imgur.com/aX2p3Xbs.png', 'BORAT FACE WHEN HE SEES A JEW'
     ],
     alsuprise: [
         ':alsuprise:', 'http://i.imgur.com/kaTMjgV.png', 'THE AL J SUPRISE'
@@ -1227,7 +1227,7 @@ var emoticon_2 = {
 };
 var emoticon_5 = {
     strangeant: [
-        ':strangeant:', 'http://i.imgur.com/Zka5Ztas.png', "A STRANGE ANDUNNY FANTANU"
+        ':strangeant:', 'http://i.imgur.com/Zka5Ztas.png', 'A STRANGE ANDUNNY FANTANU'
     ],
     anime1: [
         ':anime1:', 'http://i.imgur.com/5Ss4qUys.png', 'ANIME 1'
@@ -1257,37 +1257,37 @@ var emoticon_5 = {
         ':hereletmeslip:', 'http://i.imgur.com/CYh5jj0s.png', 'HERE LET ME SLIP'
     ],
     idubbbzstretch: [
-        ':idubbbzstretch:', 'http://i.imgur.com/gm6GAMPs.png', "THAT IEBUZ "
+        ':idubbbzstretch:', 'http://i.imgur.com/gm6GAMPs.png', 'THAT IEBUZ '
     ],
     idubbbzthink: [
-        ':idubbbzthink:',  'http://i.imgur.com/nKZa0kss.png', "I DUBB DINK"
+        ':idubbbzthink:',  'http://i.imgur.com/nKZa0kss.png', 'I DUBB DINK'
     ],
     idubbbzdevil: [
-        ':idubbbzdevil:', 'http://i.imgur.com/1w6doWTs.png', "IDUBBZ DEVIL"
+        ':idubbbzdevil:', 'http://i.imgur.com/1w6doWTs.png', 'IDUBBZ DEVIL'
     ],
     idubbbzhey: [
         ':idubbbzhey:', 'http://i.imgur.com/QtBGpkus.png', 'IDUBBZ HEEEEEY'
     ],
     idubbbzpls: [
-        ":idubbbzpls:", 'http://i.imgur.com/F2QAmhrs.png', "IDUBBBZ PLEASEEEEE"
+        ':idubbbzpls:', 'http://i.imgur.com/F2QAmhrs.png', 'IDUBBBZ PLEASEEEEE'
     ],
     jeremydisgust: [
         ':jeremydisgust:', 'http://i.imgur.com/h56MGYhs.png', 'jeremy disgust'
     ],
     mark: [
-        ':mark:', 'http://i.imgur.com/q20ZR0Us.png', "mark."
+        ':mark:', 'http://i.imgur.com/q20ZR0Us.png', 'mark.'
     ],
     jeremyface: [
-        ':jeremyface:', 'http://i.imgur.com/X2gnbuas.png', "jeremyface"
+        ':jeremyface:', 'http://i.imgur.com/X2gnbuas.png', 'jeremyface'
     ],
     angrycook: [
-        ':angrycook:', 'http://i.imgur.com/PEgXZovs.png', "angrycook"
+        ':angrycook:', 'http://i.imgur.com/PEgXZovs.png', 'angrycook'
     ],
     haveathink: [
         ':haveathink:', 'http://i.imgur.com/7MimKcqs.png', 'have a think mang'
     ],
     jeremyhate: [
-        ':jeremyhate:', 'http://i.imgur.com/NDGt0z6s.png', "jeremy HATE"
+        ':jeremyhate:', 'http://i.imgur.com/NDGt0z6s.png', 'jeremy HATE'
     ],
     ooo: [
         ':ooo:', 'http://i.imgur.com/peTTExYs.png', 'OOOOO'
@@ -1296,7 +1296,7 @@ var emoticon_5 = {
         ':business:', 'http://i.imgur.com/vu6WR8ks.png', 'BUSINESS'
     ],
     idubbbzcool: [
-        ':idubbbzcool:', 'http://i.imgur.com/jw7NdkRs.png', "IDBUUB COOL"
+        ':idubbbzcool:', 'http://i.imgur.com/jw7NdkRs.png', 'IDBUUB COOL'
     ],
     idubbbzwillow: [
         ':idubbbzwillow:','http://i.imgur.com/2ujtEa1s.png', 'WILLOW'
@@ -3413,7 +3413,7 @@ function morse_post()
 
 Math.irandom = function(min, max)
 {
-    "use strict";
+    'use strict';
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
@@ -3679,7 +3679,7 @@ function edit_css()
     // making it nonvisible. +1 for every new button
     document.getElementsByClassName('cattitle')[0].style.paddingLeft = '4px';
     // // Move over the title "Chatbox" a bit
-    document.getElementById("divsmilies").getElementsByTagName("img")[0].src = "http://i.imgur.com/47NbRiV.gif";
+    document.getElementById('divsmilies').getElementsByTagName('img')[0].src = 'http://i.imgur.com/47NbRiV.gif';
     // // Replace the old smilie image on the button with a new one
 }
 /////////////////////
@@ -3689,7 +3689,7 @@ function the_base(smilie_code, smilie_url, smilie_text)
 {
     var change_this = td_base;
     change_this = change_this.replace(new RegExp('_smilie', 'gi'), smilie_code);
-    change_this = change_this.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + " " + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
+    change_this = change_this.replace(new RegExp('_title', 'gi'), smilie_text + '&#13;' + ' ' + smilie_code.substr(1, smilie_code.length - 2)); // //could be smilie_text
     change_this = change_this.replace(new RegExp('_link', 'gi'), smilie_url);
     return change_this;
 }
@@ -3954,7 +3954,7 @@ function debugg()
     {
         console.log('warning, exceeded smilie count by ' + (smilie_count_6 - 200) + ' in window 5');
     }
-    console.log('window 1 | ' + smilie_count_1 + '\n' + 'window 2 | ' + smilie_count_2 + '\n' + 'window 3 | ' + smilie_count_3 + '\n' + 'window 4 | ' + smilie_count_4 + '\n' + 'window 5 | ' + smilie_count_5 + '\n' + 'window 6 | ' + smilie_count_6 + '\n' + 'smilie total ' + total_smilies + '\n' + "meme total " + meme_count);
+    console.log('window 1 | ' + smilie_count_1 + '\n' + 'window 2 | ' + smilie_count_2 + '\n' + 'window 3 | ' + smilie_count_3 + '\n' + 'window 4 | ' + smilie_count_4 + '\n' + 'window 5 | ' + smilie_count_5 + '\n' + 'window 6 | ' + smilie_count_6 + '\n' + 'smilie total ' + total_smilies + '\n' + 'meme total ' + meme_count);
     /////////////// window 1 - Swearify 1
     /////////////// window 2 - Swearify 2
     /////////////// window 3 - Twitch Emoticons
@@ -3973,7 +3973,7 @@ window.addEventListener('load', function()
         {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
-                get_place.innerText = "";
+                get_place.innerText = '';
             inject_smilie(1, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -3985,7 +3985,7 @@ window.addEventListener('load', function()
         {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
-                get_place.innerText = "";
+                get_place.innerText = '';
             inject_smilie(2, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -3997,7 +3997,7 @@ window.addEventListener('load', function()
         {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
-                get_place.innerText = "";
+                get_place.innerText = '';
             inject_smilie(3, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -4009,7 +4009,7 @@ window.addEventListener('load', function()
         {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
-                get_place.innerText = "";
+                get_place.innerText = '';
             inject_smilie(4, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -4021,7 +4021,7 @@ window.addEventListener('load', function()
         {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerHTML !== '')
-                get_place.innerHTML = "";
+                get_place.innerHTML = '';
             inject_smilie(5, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {
@@ -4033,7 +4033,7 @@ window.addEventListener('load', function()
         {
             get_place = document.getElementsByTagName('table')[2];
             if (get_place.innerText !== '')
-                get_place.innerText = "";
+                get_place.innerText = '';
             inject_smilie(6, Math.floor(wX() / 130) - 1);
             window.onresize = function(event)
             {

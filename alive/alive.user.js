@@ -2,24 +2,24 @@
 // @name        Alive
 // @namespace   kaff_is_one_grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1.04
+// @version     1.05
 // @grant       none
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
 // ==/UserScript==
 
-var cssStyle = "position: fixed;top: 0;right: 0;background-color: #1D1D1D;border-radius: 5px;width: 400px;height: 100px;opacity: .9;";
+var cssStyle = 'position: fixed;top: 0;right: 0;background-color: #1D1D1D;border-radius: 5px;width: 400px;height: 100px;opacity: .9;';
 
-var cssStyleText = "font-weight: bold;font-size: 11px;color: #FFF;position: relative;padding-left: 9px;bottom: 4px;";
+var cssStyleText = 'font-weight: bold;font-size: 11px;color: #FFF;position: relative;padding-left: 9px;bottom: 4px;';
 
-var cssStyleContent = "font-family: monospace;display: block;padding-left: 60px;position: relative;";
+var cssStyleContent = 'font-family: monospace;display: block;padding-left: 60px;position: relative;';
 
-var first = document.getElementsByClassName("forumline")[7].getElementsByClassName("row1")[2].getElementsByTagName("a");
+var first = document.getElementsByClassName('forumline')[7].getElementsByClassName('row1')[2].getElementsByTagName('a');
 
-var username = "Big Jilm";
+var username = 'Big Jilm';
 
 var usr_ray = [];
 
-var msg_ray = ["num 1", "num 2", "num 3", "num 4"];
+var msg_ray = ['num 1', 'num 2', 'num 3', 'num 4'];
 
 var online = false;
 
@@ -32,9 +32,9 @@ function check_text() {
         }
     });
     if (online) {
-        return "online!";
+        return 'online!';
     } else {
-        return "hidden or not online";
+        return 'hidden or not online';
     }
 }
 
@@ -49,7 +49,7 @@ function displayOverlay() {
     check_elem();
 
     $.each(msg_ray, function(index, value) {
-        document.getElementById("overcontent").getElementsByClassName("alert")[index].innerHTML = value + "<br/>";
+        document.getElementById('overcontent').getElementsByClassName('alert')[index].innerHTML = value + '<br/>';
     });
 
 
@@ -77,15 +77,15 @@ function addEvent(element, eventName, fn) {
 function load() {
     var over_div = document.body;
     over_div.appendChild(document.createElement('div')).innerHTML = "<table id='overlay'><tbody><tr><td><row1 id='header'></row1><row2 id='overcontent'><inner class='alert'></inner><inner class='alert'></inner><inner class='alert'></inner><inner class='alert'></inner><textb id='thebox'></textb></row2></td></tr></tbody></table>";
-    document.getElementById("header").innerHTML = "Alive";
-    document.getElementById("overlay").style.cssText = cssStyle;
-    document.getElementById("header").style.cssText = cssStyleText;
-    document.getElementById("overcontent").style.cssText = cssStyleContent;
-    var element = document.createElement("input");
-    element.setAttribute("type", text);
-    element.setAttribute("value", text);
-    element.setAttribute("name", text);
-    var foo = document.getElementById("thebox");
+    document.getElementById('header').innerHTML = 'Alive';
+    document.getElementById('overlay').style.cssText = cssStyle;
+    document.getElementById('header').style.cssText = cssStyleText;
+    document.getElementById('overcontent').style.cssText = cssStyleContent;
+    var element = document.createElement('input');
+    element.setAttribute('type', text);
+    element.setAttribute('value', text);
+    element.setAttribute('name', text);
+    var foo = document.getElementById('thebox');
     foo.appendChild(element);
 }
 

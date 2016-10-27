@@ -2,7 +2,7 @@
 // @name        GitHub Image Utility
 // @namespace   samsquanch gets the dong
 // @include     *
-// @version     1.3
+// @version     1.4
 // @grant       GM_registerMenuCommand
 // @grant       GM_setValue
 // @grant       GM_getValue
@@ -40,46 +40,46 @@
  */
 function createStuff() {
   // create menu
-  document.addEventListener("contextmenu", onRightClick, false);
+  document.addEventListener('contextmenu', onRightClick, false);
   let menu;
 
-  if (document.getElementsByTagName("menu").length === 0) {
-    menu = document.createElement("menu");
-    menu.id = "userscript-grease";
-    menu.type = "context";
+  if (document.getElementsByTagName('menu').length === 0) {
+    menu = document.createElement('menu');
+    menu.id = 'userscript-grease';
+    menu.type = 'context';
   } else {
-    menu = document.getElementsByTagName("menu")[0];
+    menu = document.getElementsByTagName('menu')[0];
   }
   
   // create menu items
-  let menuitem = document.createElement("menuitem");
-  menuitem.id = "menu_imgre";
-  menuitem.label = "Upload to GitHub";
-  menuitem.icon = "http://i.imgur.com/F2wghzO.png";
+  let menuitem = document.createElement('menuitem');
+  menuitem.id = 'menu_imgre';
+  menuitem.label = 'Upload to GitHub';
+  menuitem.icon = 'http://i.imgur.com/F2wghzO.png';
   menu.appendChild(menuitem);
   document.body.appendChild(menu);
 
-  document.getElementById("menu_imgre")
-    .addEventListener("click", checkImageOrigin, false);
+  document.getElementById('menu_imgre')
+    .addEventListener('click', checkImageOrigin, false);
 
-  menuitem = document.createElement("menuitem");
-  menuitem.id = "menu_imgold";
-  menuitem.label = "Upload to Imgur";
-  menuitem.icon = "http://i.imgur.com/F2wghzO.png";
+  menuitem = document.createElement('menuitem');
+  menuitem.id = 'menu_imgold';
+  menuitem.label = 'Upload to Imgur';
+  menuitem.icon = 'http://i.imgur.com/F2wghzO.png';
   menu.appendChild(menuitem);
   document.body.appendChild(menu);
 
-  document.getElementById("menu_imgold")
-    .addEventListener("click", checkImageOrigin_Imgur, false);
+  document.getElementById('menu_imgold')
+    .addEventListener('click', checkImageOrigin_Imgur, false);
 }
 
 /**
  * enable context menu item
  */
 function _enable(node, item) {
-  if (node.localName == "img") {
+  if (node.localName == 'img') {
     item.disabled = false;
-    item.setAttribute("imageURL", node.src);
+    item.setAttribute('imageURL', node.src);
   } else {
     item.disabled = true;
   }
@@ -90,11 +90,11 @@ function _enable(node, item) {
  */
 function onRightClick(e) {
   // aEvent.target is the element you right click on
-  document.body.setAttribute("contextmenu", "userscript-grease");
-  let node = e.target;
+  document.body.setAttribute('contextmenu', 'userscript-grease');
+  const node = e.target;
   //let link = e.target.getAttribute("imageURL");
-  _enable(node, document.getElementById("menu_imgre"));
-  _enable(node, document.getElementById("menu_imgold"));
+  _enable(node, document.getElementById('menu_imgre'));
+  _enable(node, document.getElementById('menu_imgold'));
 }
 
 /**
@@ -102,7 +102,7 @@ function onRightClick(e) {
  */
 function checkImageOrigin_Imgur(){
   //let pageOrigin = window.location.origin;
-  let imageOrigin = document.getElementById('menu_imgold').getAttribute('imageURL');
+  const imageOrigin = document.getElementById('menu_imgold').getAttribute('imageURL');
   
   console.log(imageOrigin);
   
@@ -113,10 +113,10 @@ function checkImageOrigin_Imgur(){
  * upload it to github
  */
 function checkImageOrigin(){
-  let pageOrigin = window.location.origin;
-  let imageOrigin = document.getElementById('menu_imgre').getAttribute('imageURL');
+  const pageOrigin = window.location.origin;
+  const imageOrigin = document.getElementById('menu_imgre').getAttribute('imageURL');
   
-  console.log(pageOrigin + " " + imageOrigin);
+  console.log(pageOrigin + ' ' + imageOrigin);
   
   uploadImage(pageOrigin, imageOrigin);
 }
@@ -130,11 +130,11 @@ function checkImageOrigin(){
 //https://unpkg.com/github-api/dist/GitHub.bundle.min.js
 
 function toDataUrl(src, callback, outputFormat) {
-  let img = new Image();
+  const img = new Image();
   img.crossOrigin = 'Anonymous';
   img.onload = function() {
-  let canvas = document.createElement('canvas'); // was 'CANVAS'
-  let ctx = canvas.getContext('2d');
+  const canvas = document.createElement('canvas'); // was 'CANVAS'
+  const ctx = canvas.getContext('2d');
   let dataURL;
   canvas.height = this.height;
   canvas.width = this.width;
@@ -144,7 +144,7 @@ function toDataUrl(src, callback, outputFormat) {
   };
   img.src = src;
   if (img.complete || img.complete === undefined) {
-    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
     img.src = src;
   }
 }
@@ -160,14 +160,14 @@ function uploadImage_Imgur(dataIn) {
   /* */
 
   var fd = new FormData();
-  fd.append("image", dataIn); // Append the file
+  fd.append('image', dataIn); // Append the file
 
   var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
-  xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+  xhr.open('POST', 'https://api.imgur.com/3/image.json'); // Boooom!
   xhr.onload = function() {
       var link = JSON.parse(xhr.responseText).data.link;
       alert(link);
-  }
+  };
   xhr.onerror = function() { alert('error'); };
   xhr.setRequestHeader('Authorization', 'Client-ID d8b88dd7493540b'); // imgur key
   xhr.send(fd);
@@ -191,13 +191,13 @@ function authenticate() {
 }
 
 function getUrlPath(url) {
-  let spl = url.split('/');
+  const spl = url.split('/');
   return spl[spl.length - 1];
 }
 
 function write(url, callback) { // callback(error, result, request)
   authenticate();
-  let tpath = 'uploads/' + getUrlPath(url);
+  const tpath = 'uploads/' + getUrlPath(url);
   toDataUrl(url, function(b64) {
     console.log('sending file (length ' + b64.length + ')');
     repo.writeFile('gh-pages', tpath, wipeHeader(b64), 'Auto-uploaded image at ' + new Date().toString(), {encode:false}, function(error, result, request) {
@@ -216,15 +216,15 @@ function uploadImage(page, image) {
   });
 }
 
-GM_registerMenuCommand("Set GitHub username", function() {
-  let val = window.prompt("Set GitHub username\nWarning: will be stored in plain text", GM_getValue('gh_username'));
+GM_registerMenuCommand('Set GitHub username', function() {
+  const val = window.prompt('Set GitHub username\nWarning: will be stored in plain text', GM_getValue('gh_username'));
   if (val !== null) {
     GM_setValue('gh_username', val);
   }
 });
 
-GM_registerMenuCommand("Set GitHub password", function() {
-  let val = window.prompt("Set GitHub password\nWarning: will be stored in plain text", GM_getValue('gh_pword'));
+GM_registerMenuCommand('Set GitHub password', function() {
+  const val = window.prompt('Set GitHub password\nWarning: will be stored in plain text', GM_getValue('gh_pword'));
   if (val !== null) {
     GM_setValue('gh_pword', val);
   }

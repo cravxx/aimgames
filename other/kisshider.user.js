@@ -4,7 +4,7 @@
 // @description Ad auto-hider for kissanime.to
 // @include     http://kissanime.to/*
 // @include     https://kissanime.to/*
-// @version     0.0.1
+// @version     0.0.2
 // @grant       none
 // ==/UserScript==
 (function () {
@@ -18,6 +18,6 @@
   remove(document.getElementById('adsIfrme10'));
   remove(document.getElementById('adsIfrme11'));
   for (var i = 0; i < document.getElementsByClassName('divCloseBut').length; i++) {
-    remove(document.getElementsByClassName('divCloseBut') [i])
+    remove(document.getElementsByClassName('divCloseBut') [i]);
   }
 }());

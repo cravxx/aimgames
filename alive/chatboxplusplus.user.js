@@ -3,7 +3,7 @@
 // @description Adds a number of 'universal' enhancements for the AIM Games chatbox. Warning: This script is still in active development and may contain bugs!
 // @namespace   the_thrasher@gmail.com
 // @include     http://aimgames.forummotion.com/
-// @version     1.42
+// @version     1.43
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -40,25 +40,25 @@ function msgTimestamp(msgDOM) {
  */
 function isDubs(strg) {
     strg = strg.substring(6, 8); // HH:MM:SS format
-    if (strg == "11")
+    if (strg == '11')
         return true;
-    if (strg == "22")
+    if (strg == '22')
         return true;
-    if (strg == "33")
+    if (strg == '33')
         return true;
-    if (strg == "44")
+    if (strg == '44')
         return true;
-    if (strg == "55")
+    if (strg == '55')
         return true;
-    if (strg == "66")
+    if (strg == '66')
         return true;
-    if (strg == "77")
+    if (strg == '77')
         return true;
-    if (strg == "88")
+    if (strg == '88')
         return true;
-    if (strg == "99")
+    if (strg == '99')
         return true;
-    if (strg == "00")
+    if (strg == '00')
         return true;
     return false;
 }
@@ -82,7 +82,7 @@ function checkDubs() {
     for (var i = 0; i < messages.length; i++) { //DON'T DO A FOREACH (VAR X IN Y) IN HTMLCOLLECTIONS IT WILL THROW AN ERROR
         if (isDubs(msgTimestamp(messages[i]))) {
             var dubsSpan = document.createElement('span');
-            dubsSpan.style = "color: red; text-align: right; display: block; float: right;";
+            dubsSpan.style = 'color: red; text-align: right; display: block; float: right;';
             dubsSpan.innerHTML = ' CHECK \'EM';
             messages[i].appendChild(dubsSpan);
         }
@@ -346,10 +346,10 @@ if ($('#frame_chatbox').length > 0) { //running in forum
     messages = chatboxElement.children();
     oldMessagesAmount = 1; //workaround for "you are disconnected" "1 new msg" bug (proper fix in other branch)
 
-    chatboxFrame = $('#frame_chatbox')[0]
+    chatboxFrame = $('#frame_chatbox')[0];
 
     // init elements
-    var boxHTML = '<div class="box" style="position: fixed;left: 1%;top: 2%;"></div>'
+    var boxHTML = '<div class="box" style="position: fixed;left: 1%;top: 2%;"></div>';
 
     ribbonElement = document.createElement('div'); //new msg ribbon
     ribbonElement.className = 'ribbon'; //not element.class
@@ -376,9 +376,9 @@ if ($('#frame_chatbox').length > 0) { //running in forum
 
         if (box.length > 0) {
             if (scroll <= 28) {
-                box.prop('style', "top: 30px;");
+                box.prop('style', 'top: 30px;');
             } else {
-                box.prop('style', "top: " + (scroll + 2) + "px;");
+                box.prop('style', 'top: ' + (scroll + 2) + 'px;');
             }
         }
     });

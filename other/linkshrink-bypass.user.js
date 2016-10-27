@@ -4,7 +4,7 @@
 // @namespace   by-mc-passer@gmail.com
 // @match       http://linkshrink.net/*
 // @match       https://linkshrink.net/*
-// @version     1.6
+// @version     1.7
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -19,8 +19,8 @@ for (var i in a) {
 }*/
 
 // auto show skip ad and click (setting location.href doesn't work since referer is required)
-$("#skip").show();
-$("#pause").hide();
+$('#skip').show();
+$('#pause').hide();
 // using click() invokes the eventlistener, so we have to outsmart it
 //$('#skip').find('.bt')[0].click();
 

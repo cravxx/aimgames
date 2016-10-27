@@ -4,11 +4,11 @@
 // @namespace   hansen-i-nate@gmail.com
 // @match       http://*.dc4in.com/*
 // @match       https://*.dc4in.com/*
-// @version     1.3
+// @version     1.4
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
-"use strict";
+'use strict';
 
 // remove bad button
 //$('#adfly').children()[0].remove();

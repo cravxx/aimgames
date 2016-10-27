@@ -4,11 +4,11 @@
 // @namespace   hansen-i-nate24214@gmail.com
 // @match       http://*.wikia.com/*
 // @match       https://*.wikia.com/*
-// @version     1.0
+// @version     1.1
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
-"use strict";
+'use strict';
 
 // remove click listeners for this external links
-$('.external.text.exitstitial').off("click");
+$('.external.text.exitstitial').off('click');

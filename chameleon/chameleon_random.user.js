@@ -3,7 +3,7 @@
 // @description Auto color formatting for the chatbox.
 // @namespace   too much grease
 // @include     http://aimgames.forummotion.com/*
-// @version     1
+// @version     1.1
 // @grant       none
 // ==/UserScript==
 // randomColor by David Merfield under the MIT license
@@ -50,7 +50,7 @@
         var hueRange = getHueRange(options.hue),
             hue = randomWithin(hueRange);
         if (hue < 0) {
-            hue = 360 + hue
+            hue = 360 + hue;
         }
         return hue;
     }
@@ -143,7 +143,7 @@
             if (colorDictionary[colorInput]) {
                 var color = colorDictionary[colorInput];
                 if (color.hueRange) {
-                    return color.hueRange
+                    return color.hueRange;
                 }
             }
         }
@@ -184,9 +184,9 @@
 
         function componentToHex(c) {
             var hex = c.toString(16);
-            return hex.length == 1 ? "0" + hex : hex;
+            return hex.length == 1 ? '0' + hex : hex;
         }
-        var hex = "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
+        var hex = '#' + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
         return hex;
     }
 
@@ -284,10 +284,10 @@
     function HSVtoRGB(hsv) {
         var h = hsv[0];
         if (h === 0) {
-            h = 1
+            h = 1;
         }
         if (h === 360) {
-            h = 359
+            h = 359;
         }
         h = h / 360;
         var s = hsv[1] / 100,

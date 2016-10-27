@@ -6,10 +6,10 @@
  */
 'use strict';
 
-let bloks = document.getElementsByClassName('groupLeftBlock');
+const bloks = document.getElementsByClassName('groupLeftBlock');
 
 function leaveGroupPrompt(groupId, groupName) {
-  let leaveURL = processURL + '?action=leaveGroup&groupId=' + groupId + '&sessionID=' + escape( $('sessionID').value );
+  const leaveURL = processURL + '?action=leaveGroup&groupId=' + groupId + '&sessionID=' + escape( $('sessionID').value );
 
   window.open(leaveURL);
 }

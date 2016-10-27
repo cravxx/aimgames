@@ -1198,7 +1198,7 @@ var emoticon_2 = {
         ':noodbro:', 'http://i.imgur.com/MRF9GGC.png', 'NOOD BRO'
     ],
     boratjew: [
-        ":boratjew:", 'http://i.imgur.com/aX2p3Xbs.png', 'BORAT FACE WHEN HE SEES A JEW'
+        ':boratjew:', 'http://i.imgur.com/aX2p3Xbs.png', 'BORAT FACE WHEN HE SEES A JEW'
     ],
     alsuprise: [
         ':alsuprise:', 'http://i.imgur.com/kaTMjgV.png', 'THE AL J SUPRISE'
@@ -1215,7 +1215,7 @@ var emoticon_2 = {
 };
 var emoticon_3 = {
     strangeant: [
-        ':strangeant:', 'http://i.imgur.com/Zka5Ztas.png', "A STRANGE ANDUNNY FANTANU"
+        ':strangeant:', 'http://i.imgur.com/Zka5Ztas.png', 'A STRANGE ANDUNNY FANTANU'
     ],
     anime1: [
         ':anime1:', 'http://i.imgur.com/5Ss4qUys.png', 'ANIME 1'
@@ -1236,10 +1236,10 @@ var emoticon_3 = {
         ':raccoony:', 'http://i.imgur.com/6qX0rC4s.png', 'RACCOON '
     ],    
     idubbbzstretch: [
-        ':idubbbzstretch:', 'http://i.imgur.com/gm6GAMPs.png', "THAT IEBUZ "
+        ':idubbbzstretch:', 'http://i.imgur.com/gm6GAMPs.png', 'THAT IEBUZ '
     ],
     idubbbzdevil: [
-        ':idubbbzdevil:', 'http://i.imgur.com/1w6doWTs.png', "IDUBBZ DEVIL"
+        ':idubbbzdevil:', 'http://i.imgur.com/1w6doWTs.png', 'IDUBBZ DEVIL'
     ],
     jeremydisgust: [
         ':jeremydisgust:', 'http://i.imgur.com/h56MGYhs.png', 'jeremy disgust'
@@ -1248,19 +1248,19 @@ var emoticon_3 = {
         ':jeff:', 'http://i.imgur.com/q20ZR0Us.png', "IT'S JEFF NOT MARK YOU GAY RETARD."
     ],
     jeremyface: [
-        ':jeremyface:', 'http://i.imgur.com/X2gnbuas.png', "jeremyface"
+        ':jeremyface:', 'http://i.imgur.com/X2gnbuas.png', 'jeremyface'
     ],
     angrycook: [
-        ':angrycook:', 'http://i.imgur.com/PEgXZovs.png', "angrycook"
+        ':angrycook:', 'http://i.imgur.com/PEgXZovs.png', 'angrycook'
     ],
     haveathink: [
         ':haveathink:', 'http://i.imgur.com/7MimKcqs.png', 'have a think mang'
     ],
     jeremyhate: [
-        ':jeremyhate:', 'http://i.imgur.com/NDGt0z6s.png', "jeremy HATE"
+        ':jeremyhate:', 'http://i.imgur.com/NDGt0z6s.png', 'jeremy HATE'
     ],
     idubbbzcool: [
-        ':idubbbzcool:', 'http://i.imgur.com/jw7NdkRs.png', "IDBUUB COOL"
+        ':idubbbzcool:', 'http://i.imgur.com/jw7NdkRs.png', 'IDBUUB COOL'
     ],
     idubbbzlips: [
         ':idubbbzlips:', 'http://i.imgur.com/jnJUi2ls.png', 'IDUBBZBBZ LIPS'

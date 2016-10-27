@@ -4,11 +4,11 @@
 // @namespace   jojohansen@gmail.com
 // @include     https://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
 // @include     http://dc-canvas.socialpointgames.com/dragoncity/web/fb/*
-// @version     1.11
+// @version     1.12
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
-"use strict";
+'use strict';
 
 // this script runs in the frame, since the parent can't access it
 // and no, no jQuery
@@ -68,10 +68,10 @@ function make_popup(content_a, content_b) {
   </div>*/
   
   // css
-  var thecss = document.createElement("link");
-  thecss.href = "https://hulasamsquanch.github.io/aimgames/other/dragon-city.css";
-  thecss.type = "text/css";
-  thecss.rel = "stylesheet";
+  var thecss = document.createElement('link');
+  thecss.href = 'https://hulasamsquanch.github.io/aimgames/other/dragon-city.css';
+  thecss.type = 'text/css';
+  thecss.rel = 'stylesheet';
   document.head.appendChild(thecss);
   
   // the card

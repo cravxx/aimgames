@@ -2,7 +2,7 @@
 // @name        Swearify Image Utility
 // @namespace   samsquanchhunter
 // @include     *
-// @version     alpha.1.3
+// @version     alpha.1.4
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @grant       none
 // ==/UserScript==
@@ -17,49 +17,49 @@
  */
 Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
-}
+};
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     for (var i = this.length - 1; i >= 0; i--) {
         if (this[i] && this[i].parentElement) {
             this[i].parentElement.removeChild(this[i]);
         }
     }
-}
+};
 
 /**
  * create the context item
  */
 function createStuff() {
-    document.addEventListener("contextmenu", onRightClick, false);
+    document.addEventListener('contextmenu', onRightClick, false);
 
-    if (document.getElementsByTagName("menu").length === 0) {
-        var menu = document.createElement("menu");
-        menu.id = "userscript-grease";
-        menu.type = "context";
+    if (document.getElementsByTagName('menu').length === 0) {
+        var menu = document.createElement('menu');
+        menu.id = 'userscript-grease';
+        menu.type = 'context';
     } else {
-        menu = document.getElementsByTagName("menu")[0];
+        menu = document.getElementsByTagName('menu')[0];
     }
-    var menuitem = document.createElement("menuitem");
-    menuitem.id = "menu_imgre";
-    menuitem.label = "Resize and Upload";
-    menuitem.icon = "http://i.imgur.com/F2wghzO.png";
+    var menuitem = document.createElement('menuitem');
+    menuitem.id = 'menu_imgre';
+    menuitem.label = 'Resize and Upload';
+    menuitem.icon = 'http://i.imgur.com/F2wghzO.png';
     menu.appendChild(menuitem);
     document.body.appendChild(menu);
 
-    document.querySelector("#userscript-grease #menu_imgre")
-        .addEventListener("click", checkImageOrigin, false);
+    document.querySelector('#userscript-grease #menu_imgre')
+        .addEventListener('click', checkImageOrigin, false);
 }
 
 function onRightClick(e) {
     // Executed when user right click on web page body
     // aEvent.target is the element you right click on
-    document.body.setAttribute("contextmenu", "userscript-grease");
+    document.body.setAttribute('contextmenu', 'userscript-grease');
     var node = e.target;
-    link = e.target.getAttribute("imageURL");
-    var item = document.querySelector("#userscript-grease #menu_imgre");
-    if (node.localName == "img") {
+    link = e.target.getAttribute('imageURL');
+    var item = document.querySelector('#userscript-grease #menu_imgre');
+    if (node.localName == 'img') {
         item.disabled = false;
-        item.setAttribute("imageURL", node.src);
+        item.setAttribute('imageURL', node.src);
     } else {
         item.disabled = true;
     }
@@ -73,7 +73,7 @@ function checkImageOrigin(){
     var pageOrigin = window.location.origin;
     var imageOrigin = document.getElementById('menu_imgre').getAttribute('imageurl');
     
-    console.log(pageOrigin + " " + imageOrigin);
+    console.log(pageOrigin + ' ' + imageOrigin);
     
     createCanvas();
 }
@@ -85,8 +85,8 @@ function resample_hermite(canvas, W, H, W2, H2) {
     var time1 = Date.now();
     W2 = Math.round(W2);
     H2 = Math.round(H2);
-    var img = canvas.getContext("2d").getImageData(0, 0, W, H);
-    var img2 = canvas.getContext("2d").getImageData(0, 0, W2, H2);
+    var img = canvas.getContext('2d').getImageData(0, 0, W, H);
+    var img2 = canvas.getContext('2d').getImageData(0, 0, W2, H2);
     var data = img.data;
     var data2 = img2.data;
     var ratio_w = W / W2;
@@ -105,7 +105,7 @@ function resample_hermite(canvas, W, H, W2, H2) {
             for (var yy = Math.floor(j * ratio_h); yy < (j + 1) * ratio_h; yy++) {
                 var dy = Math.abs(center_y - (yy + 0.5)) / ratio_h_half;
                 var center_x = (i + 0.5) * ratio_w;
-                var w0 = dy * dy //pre-calc part of w
+                var w0 = dy * dy; //pre-calc part of w
                 for (var xx = Math.floor(i * ratio_w); xx < (i + 1) * ratio_w; xx++) {
                     var dx = Math.abs(center_x - (xx + 0.5)) / ratio_w_half;
                     var w = Math.sqrt(w0 + dx * dx);
@@ -134,11 +134,11 @@ function resample_hermite(canvas, W, H, W2, H2) {
             data2[x2 + 3] = gx_a / weights_alpha;
         }
     }
-    console.log("hermite = " + (Math.round(Date.now() - time1) / 1000) + " s");
-    canvas.getContext("2d").clearRect(0, 0, Math.max(W, W2), Math.max(H, H2));
+    console.log('hermite = ' + (Math.round(Date.now() - time1) / 1000) + ' s');
+    canvas.getContext('2d').clearRect(0, 0, Math.max(W, W2), Math.max(H, H2));
     canvas.width = W2;
     canvas.height = H2;
-    canvas.getContext("2d").putImageData(img2, 0, 0);
+    canvas.getContext('2d').putImageData(img2, 0, 0);
 }
 
 /**
@@ -158,10 +158,10 @@ function createCanvas() {
  */
 function resizeIntoCanvas() {
     var canvas = document.getElementById('canvasImg');
-    var ctx = canvas.getContext("2d");
+    var ctx = canvas.getContext('2d');
 
     var img = new Image();    
-    img.crossOrigin = "Anonymous"; //cors support
+    img.crossOrigin = 'Anonymous'; //cors support
     img.onload = function() {
         var W = img.width;
         var H = img.height;
@@ -177,7 +177,7 @@ function resizeIntoCanvas() {
 
         //resize manually
         //resample_hermite(canvas, W, H, 439, 222);
-    }
+    };
     var str = document.getElementById('menu_imgre').getAttribute('imageurl');    
     console.log(str);
     
@@ -213,14 +213,14 @@ function uploadImagetoImgur(dataIn) {
     /* */
 
     var fd = new FormData();
-    fd.append("image", dataIn); // Append the file
+    fd.append('image', dataIn); // Append the file
     
     var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
-    xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+    xhr.open('POST', 'https://api.imgur.com/3/image.json'); // Boooom!
     xhr.onload = function() {
         var link = JSON.parse(xhr.responseText).data.link;
         alert(link);
-    }
+    };
     xhr.onerror = function() { alert('error'); };
     xhr.setRequestHeader('Authorization', 'Client-ID d8b88dd7493540b');
     xhr.send(fd);
@@ -234,15 +234,15 @@ function uploadCanvastoImgur(dataIn) {
     /* */
 
     var fd = new FormData();
-    fd.append("image", dataIn.toDataURL().split(',')[1]); // Append the file
-    fd.append("type", 'base64');
+    fd.append('image', dataIn.toDataURL().split(',')[1]); // Append the file
+    fd.append('type', 'base64');
     
     var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
-    xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+    xhr.open('POST', 'https://api.imgur.com/3/image.json'); // Boooom!
     xhr.onload = function() {
         var link = JSON.parse(xhr.responseText).data.link;
         alert(link);
-    }
+    };
     xhr.onerror = function() { alert('error'); };
     xhr.setRequestHeader('Authorization', 'Client-ID d8b88dd7493540b');
     xhr.send(fd);
@@ -252,7 +252,7 @@ function uploadCanvastoImgur(dataIn) {
  * uhh
  */
 if (document.addEventListener)
-  document.addEventListener("DOMContentLoaded", createStuff(), false);
+  document.addEventListener('DOMContentLoaded', createStuff(), false);
 
 
 
