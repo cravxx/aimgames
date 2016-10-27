@@ -3,7 +3,7 @@
 // @namespace   samsquanchhunter14@gmail.com
 // @include     http://aimgames.forummotion.com/*
 // @include     https://aimgames.forummotion.com/*
-// @version     1
+// @version     2
 // @grant       none
 // ==/UserScript==
 
@@ -18,6 +18,6 @@ function inject_css_url(url) {
     head.appendChild(gstyle);
 }
 
-inject_css_url("https://hulasamsquanch.github.io/aimgames/swearify/ancientAIM.css");
-document.getElementById("i_logo").src = "http://i.imgur.com/l2o5hsj.gif"
-document.getElementsByClassName("bodyline")[0].getElementsByClassName("gen")[0].innerHTML = "The Official Forums of the Gaming Company AIM<br>&nbsp; ";
+inject_css_url('https://hulasamsquanch.github.io/aimgames/swearify/ancientAIM.css');
+document.getElementById('i_logo').src = 'http://i.imgur.com/l2o5hsj.gif';
+document.getElementsByClassName('bodyline')[0].getElementsByClassName('gen')[0].innerHTML = 'The Official Forums of the Gaming Company AIM<br>&nbsp; ';
