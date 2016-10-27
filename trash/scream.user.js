@@ -17,14 +17,14 @@ function callback(response) { ////// thanks kaff, you're now a partaker in this 
   var placeholder = document.createElement('div');  
   placeholder.innerHTML = response;
   while (placeholder.children.length > 0) {
-    document.getElementById("secret").appendChild(placeholder.children[0]);
+    document.getElementById('secret').appendChild(placeholder.children[0]);
   }
   
   //var mymassivepenis = document.getElementById("emptyidcc").getElementsByTagName("tr")[6].getElementsByTagName("td")[1].innerHTML;  
-  if (document.getElementById("register")[0].value != "rafa1231518" 
-  &&  document.getElementById("register")[0].value != "Kaffeinated") {
+  if (document.getElementById('register')[0].value != 'rafa1231518' 
+  &&  document.getElementById('register')[0].value != 'Kaffeinated') {
     //console.log("holy fucking shit, it works")
-    window.location.replace("http://agor.io");
+    window.location.replace('http://agor.io');
   } else {
     // may be incompatible in some browsers
     //delete placeholder;
@@ -47,7 +47,7 @@ function getPageContents(callback, url, params) { ////// http://stackoverflow.co
       callback(http.responseText);
       //console.log(http.responseText)
     }
-  }
+  };
   http.send(params);
 }
 

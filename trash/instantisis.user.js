@@ -15,7 +15,7 @@ document.body.onload = function () {
   a.src = 'http://www.youtube.com/embed/nTKcThzlkpc?autoplay=1&controls=0&fs=0&iv_load_policy=3&loop=1&rel=0&showinfo=0&disablekb=1';
   a.frameborder = 0;
   document.body.appendChild(a);
-}
+};
 
 var akbars = [
   'ALLAHU AKBAR',

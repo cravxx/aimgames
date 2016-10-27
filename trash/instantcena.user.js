@@ -461,7 +461,7 @@ var hisname = new Audio('http://music.djmazadownload.com/music/WWE/John%20Cena%2
 document.body.onload = function() {
 	for (var i in document.getElementsByTagName('img'))
 	  document.getElementsByTagName('img')[i].src = cenas[Math.round(Math.random() * cenas.length)];
-}
+};
 //for (var i in document.getElementsByTagName('img'))
 //	console.log(document.getElementsByTagName('img')[i].src);
 
@@ -469,4 +469,4 @@ document.body.onload = function() {
 document.onclick = function() {
   if (Math.random() * 100 >= 99)
 	  hisname.play();
-}
+};

