@@ -28,7 +28,7 @@ i.getElementsByClassName('comment-renderer-text')[0] // find what you want
 // remove recommended videos
 const vCounts = document.querySelectorAll('.stat.view-count');
 
-for (const i of vCounts) {
+for (let i of vCounts) {
   if (i.textContent.startsWith('Recommended') || i.textContent.startsWith('Recomendado')) {
     i.parentNode.parentNode.parentNode.parentNode.removeChild(i.parentNode.parentNode.parentNode); //delete the video
   }
