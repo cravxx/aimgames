@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
-// @version     0.5
+// @version     0.7
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -42,13 +42,16 @@ const styleMin = style
 // add style to the beginning of every post
 const textArea = document.getElementById('text_editor_textarea');
 if (textArea) {
-  textArea.value = styleMin + '\n' + textArea.value;
+  if (!textArea.value || textArea.value[0] !== '<') {
+    textArea.value = styleMin + '\n' + textArea.value;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.which == 13) { // key is 'enter'
+      textArea.value = textArea.value
+        .replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>')
+        .replace(/`([^]+?)`/g, '<samp>$1</samp>');
+    }
+  }, false);
 }
 
-window.jQuery(document).on('keydown', function(e) {
-  if (e.which == 13) { // key is 'enter'
-    textArea.value = textArea.value
-      .replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>')
-      .replace(/`([^]+?)`/g, '<samp>$1</samp>');
-  }
-});
