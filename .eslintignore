@@ -1,0 +1,8 @@
+# /node_modules/* and /bower_components/* ignored by default
+
+**/node_modules/**
+bin/**
+build/**
+**.compiled.user.js
+**.min.js
+trash/**
