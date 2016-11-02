@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.11
+// @version     1.12
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -84,7 +84,8 @@ const blacklistedRegexes = [
   /first$/i, // slightly paranoid safe variant of the old 'first' filter
   /frist$/i, // literally hitler
   /[0-9]+ likes and ([0-9]+|no|zero) views/i, // YUTUB BOOG GUISE?
-  /under [0-9]+ club/i,
+  /under [0-9]+ (club|views)/i,
+  /^[A-Za-z]$/, // match single-word comments. don't use \w+ because it'd match any letter in any language
   
   // general cancer
   /\b[Xx]D+\b/,
