@@ -1,0 +1,14 @@
+{
+  "strict": "global",
+  "node": true,
+  "esnext": true,
+  "unused": "vars",
+  "bitwise": false,
+  "evil": true,
+  "varstmt": true,
+  "unused": "vars",
+ // "quotmark": "single"
+  "globals": {
+  	"GM_info": true,"GM_deleteValue": true,"GM_getValue": true,"GM_listValues": true,"GM_setValue": true,"GM_getResourceText": true,"GM_getResourceURL": true,"GM_addStyle": true,"GM_log": true,"GM_openInTab": true,"GM_registerMenuCommand": true,"GM_setClipboard": true,"GM_xmlhttpRequest": true,"unsafeWindow": true
+  }
+} 
