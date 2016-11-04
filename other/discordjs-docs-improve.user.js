@@ -6,7 +6,7 @@
 // @include     https://hydrabolt.github.io/discord.js/#!/docs/*
 // @include     http://discord.js.org/#!/docs/*
 // @include     https://discord.js.org/#!/docs/*
-// @version     1.8
+// @version     1.9
 // @grant       GM_openInTab
 // @grant       GM_addStyle
 // ==/UserScript==
