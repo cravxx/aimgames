@@ -3,7 +3,8 @@
 // @namespace   this is a string of text whose convention is, interestingly, to be an email address
 // @description Improves page navigation for the Discord.js 9.X.X docs.
 // @include     http://hydrabolt.github.io/discord.js/#!/docs/*
-// @version     1.7
+// @include     http://discord.js.org/#!/docs/*
+// @version     1.8
 // @grant       GM_openInTab
 // @grant       GM_addStyle
 // ==/UserScript==
@@ -24,12 +25,12 @@ function detectButton(e) {
     } else {
       sectionTitle = 'file/' + sectionTitle;
     }
-    console.log('opening: ' + 'http://hydrabolt.github.io/discord.js/#!/docs/tag/master/' + sectionTitle + '/' + this.textContent);
+    console.log('opening: ' + 'http://discord.js.org/#!/docs/tag/master/' + sectionTitle + '/' + this.textContent);
     
     if (typeof GM_openInTab !== 'undefined')
-      GM_openInTab('http://hydrabolt.github.io/discord.js/#!/docs/tag/master/' + sectionTitle + '/' + this.textContent); // pass second argument as 'true' to activate the opened tab
+      GM_openInTab('http://discord.js.org/#!/docs/tag/master/' + sectionTitle + '/' + this.textContent); // pass second argument as 'true' to activate the opened tab
     else
-      window.open('http://hydrabolt.github.io/discord.js/#!/docs/tag/master/' + sectionTitle + '/' + this.textContent, '_newtab'); // _empty in chrome i think?
+      window.open('http://discord.js.org/#!/docs/tag/master/' + sectionTitle + '/' + this.textContent, '_newtab'); // _empty in chrome i think?
   }
 }
 
