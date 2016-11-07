@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
-// @version     0.7
+// @version     0.8
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -49,9 +49,17 @@ if (textArea) {
   document.addEventListener('keydown', function(e) {
     if (e.which == 13) { // key is 'enter'
       textArea.value = textArea.value
-        .replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>')
-        .replace(/`([^]+?)`/g, '<samp>$1</samp>');
+        .replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
+        .replace(/`([^]+?)`/g, '<samp>$1</samp>'); // inline code
     }
   }, false);
 }
 
+// 'link to this post' shortcut
+const opt = $('.post-options');
+for (let i = 0, il = opt.length; i < il; i++) {
+	let id = opt[i].querySelector('img').id;
+	id = id.substring(id.lastIndexOf('_') + 1);
+	//console.log(id);
+	$(opt[i]).prepend('<a style="font-size: 60%; font-style: italic; text-align: center;" href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>')
+}
