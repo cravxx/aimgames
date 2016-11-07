@@ -4,7 +4,7 @@
 // @namespace   notareal@em.ail
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.12
+// @version     1.14
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -146,6 +146,36 @@ function handleNode(csi) {
     }
 }
 
+// convert vid titles to titlecase if theyre uppercase
+
+const lowers = [/\sA\s/g, /\sAn\s/g, /\sThe\s/g, /\sAnd\s/g, /\sBut\s/g, /\sOr\s/g, /\sFor\s/g, /\sNor\s/g, /\sAs\s/g, /\sAt\s/g, 
+  /\sBy\s/g, /\sFor\s/g, /\sFrom\s/g, /\sIn\s/g, /\sInto\s/g, /\sNear\s/g, /\sOf\s/g, /\sOn\s/g, /\sOnto\s/g, /\sTo\s/g, /\sWith\s/g];
+const lowered = ['a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'as', 'at', 
+  'by', 'for', 'from', 'in', 'into', 'near', 'of', 'on', 'onto', 'to', 'with'];
+const lowersLen = lowers.length;
+
+const uppers  = ['ID', 'TV'];
+
+function titleCase(str) {
+  str = str.replace(/([^\W_]+[^\s-]*) */g, function(txt) {
+    return (uppers.indexOf(txt) != -1) ? txt : (txt[0].toUpperCase() + txt.substr(1).toLowerCase());
+  });
+
+  // Certain minor words should be left lowercase unless  they are the first -- or last words in the string -- TODO: why the last words as well?
+
+  for (let i = 0; i < lowersLen; i++) {
+    str = str.replace(lowers[i], lowered[i]);
+  }
+
+  return str;
+}
+
+function handleCase(el) {
+  if (el.textContent.toUpperCase() === el.textContent) {
+    el.textContent = titleCase(el.textContent);
+  }
+}
+
 //if (!$) window.$ = function(a) { return document.querySelectorAll(a) };
 
 
@@ -195,10 +225,26 @@ GM_addStyle(`
     animation-duration: 0.01s;
     animation-name: cccnodeInserted;
 }
+
+@keyframes cccvideoTitle {  
+    from {  
+        outline-color: #fff; 
+    }
+    to {  
+        outline-color: #000;
+    }  
+}
+
+.yt-lockup-title > a {
+    animation-duration: 0.01s;
+    animation-name: cccvideoTitle;
+}
 `);
 
 document.addEventListener('animationstart', function(event){
   if (event.animationName == 'cccnodeInserted'){
     handleNode(event.target);
+  } else if (event.animationName == 'cccvideoTitle') {
+    handleCase(event.target);
   }
 }, true);
