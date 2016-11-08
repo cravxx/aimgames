@@ -4,7 +4,8 @@
 // @namespace   notareal@em.ail
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
-// @version     0.9
+// @include     http://aimgames.forummotion.com/t*
+// @version     0.10
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -65,7 +66,7 @@ if (textArea) {
 }
 
 // 'link to this post' shortcut
-const opt = $('.post-options');
+const opt = document.getElementsByClassName('post-options');
 for (let i = 0, il = opt.length; i < il; i++) {
 	let id = opt[i].querySelector('img').id;
 	id = id.substring(id.lastIndexOf('_') + 1);
