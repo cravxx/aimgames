@@ -4,12 +4,21 @@
 // @namespace   notareal@em.ail
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
-// @version     0.8
-// @grant       GM_addStyle
+// @version     0.9
+// @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
 'use strict';
+
+// GM_addStyle polyfill. Since @grant none allows us to directly interact with `window`,
+// let's avoid using the greasemonkey crap unless necessary
+function GM_addStyle(css) {
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.textContent = css;
+    document.head.appendChild(style);
+}
 
 // custom code styles
 const style = `<style type="text/css">
