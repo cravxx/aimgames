@@ -6,7 +6,7 @@
 // @include     http://amx.*.xyz/*
 // @include     https://www.animmex.net/*
 // @include     http://www.animmex.net/*
-// @version     1.1
+// @version     1.2
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -19,14 +19,10 @@ function addStyle(css) {
   const style = document.createElement('style');
   style.type = 'text/css';
   
-  if (style.textContent) {
+  try {
     style.textContent = css;
-  } else if (style.innerHTML) {
+  } catch(e) {
     style.innerHTML = css;
-  }/* else if (style.innerText) {
-    style.innerText = css;
-  }*/ else {
-    return;
   }
   
   head.appendChild(style);
@@ -35,7 +31,7 @@ function addStyle(css) {
 
 // only has effect under amx.*.xyz
 addStyle(`
-.video-js {
+.video-js, #video_1 {
     width: 100% !important;
     height: 100% !important;
 }
