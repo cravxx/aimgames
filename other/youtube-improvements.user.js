@@ -6,7 +6,7 @@
 // @include     http://www.youtube.com/feed/subscriptions/
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.16
+// @version     1.17
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -170,7 +170,7 @@ function titleCase(str) {
   // Certain minor words should be left lowercase unless  they are the first -- or last words in the string -- TODO: why the last words as well?
 
   for (let i = 0; i < lowersLen; i++) {
-    str = str.replace(lowers[i], lowered[i]);
+    str = str.replace(lowers[i], ' ' + lowered[i] + ' ');
   }
 
   return str;
