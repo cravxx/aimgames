@@ -3,10 +3,17 @@
 // @description Improves posting on AIM. Adds partial markdown support and other fun stuff.
 // @namespace   notareal@em.ail
 // @require     http://codemirror.net/lib/codemirror.js
+// @require     http://codemirror.net/mode/css/css.js
+// @require     http://codemirror.net/mode/xml/xml.js
+// @require     http://codemirror.net/mode/vbscript/vbscript.js
+// @require     http://codemirror.net/mode/javascript/javascript.js
+// @require     http://codemirror.net/mode/htmlmixed/htmlmixed.js
+// @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcode/bbcode.js
+// @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcodemixed/bbcodemixed.js
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
-// @version     0.11
+// @version     0.16
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -14,7 +21,7 @@
 // not yet: lets work around it until we really have to @grant something
 // @require     https://code.jquery.com/jquery-3.1.1.min.js
 
-// @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcodemixed/bbcodemixed.js
+
 
 'use strict';
 
@@ -398,6 +405,222 @@ samp {
 }
 </style>`;
 
+const buttons = [
+{
+  id: 'text_editor_cmd_bold',
+  accesskey: 'b',
+  src: 'https://illiweb.com/fa/wysiwyg/text_bold.png',
+  tag: 'b'
+},
+{
+  id: 'text_editor_cmd_italic',
+  accesskey: 'i',
+  src: 'https://illiweb.com/fa/wysiwyg/text_italic.png',
+  tag: 'i'
+},
+{
+  id: 'text_editor_cmd_underline',
+  accesskey: 'u',
+  src: 'https://illiweb.com/fa/wysiwyg/text_underline.png',
+  tag: 'u'
+},
+{
+  id: 'text_editor_cmd_strikethrough',
+  accesskey: 'x',
+  src: 'https://illiweb.com/fa/wysiwyg/text_strikethrough.png',
+  tag: 'strike'
+},
+
+'https://illiweb.com/fa/wysiwyg/separator.png',
+
+{
+  id: 'text_editor_cmd_justifyleft',
+  accesskey: 'm',
+  src: 'https://illiweb.com/fa/wysiwyg/text_align_left.png',
+  tag: 'left'
+},
+{
+  id: 'text_editor_cmd_justifycenter',
+  accesskey: 't',
+  src: 'https://illiweb.com/fa/wysiwyg/text_align_center.png',
+  tag: 'center'
+},
+{
+  id: 'text_editor_cmd_justifyright',
+  accesskey: 'g',
+  src: 'https://illiweb.com/fa/wysiwyg/text_align_right.png',
+  tag: 'right'
+},
+{
+  id: 'text_editor_cmd_justifyfull',
+  accesskey: 'jt',
+  src: 'https://illiweb.com/fa/wysiwyg/text_align_justify.png',
+},
+
+'https://illiweb.com/fa/wysiwyg/separator.png',
+
+{
+  id: 'text_editor_cmd_insertunorderedlist',
+  accesskey: 'l',
+  src: 'https://illiweb.com/fa/wysiwyg/text_list_bullets.png',
+  tag: 'list'
+},
+{
+  id: 'text_editor_cmd_insertorderedlist',
+  accesskey: 'o',
+  src: 'https://illiweb.com/fa/wysiwyg/text_list_numbers.png',
+  tag: 'list'
+},
+{
+  id: 'text_editor_cmd_inserthorizontalrule',
+  accesskey: '',
+  src: 'https://illiweb.com/fa/wysiwyg/text_horizontalrule.png',
+  tag: 'hr'
+},
+
+'https://illiweb.com/fa/wysiwyg/separator.png',
+
+{
+  id: 'text_editor_cmd_wrap0_quote',
+  accesskey: 'q',
+  src: 'https://illiweb.com/fa/wysiwyg/comments.png',
+  tag: 'quote'
+},
+{
+  id: 'text_editor_cmd_wrap0_code',
+  accesskey: 'c',
+  src: 'https://illiweb.com/fa/wysiwyg/page_white_code.png',
+  tag: 'code'
+},
+
+'https://illiweb.com/fa/wysiwyg/separator.png',
+
+{
+  id: 'bbcodewimg',
+  accesskey: 'p',
+  src: 'https://illiweb.com/fa/wysiwyg/picture.png',
+  tag: 'img'
+},
+{
+  id: 'addbbcode16',
+  accesskey: 'w',
+  src: 'https://illiweb.com/fa/wysiwyg/link.png',
+  tag: 'url'
+},
+
+];
+
+const toggledBBcodes = {};
+
+function insertTextAtCursor(editor, text) {
+  const doc = editor.getDoc();
+  const cursor = doc.getCursor();
+  doc.replaceRange(text, cursor);
+}
+
+function createButtons(editor) {
+  const mast = document.createElement('span');
+  
+  buttons.forEach(function(e, i) {
+    if (typeof e == 'string') {
+      // add a separator!
+      const el = document.createElement('img');
+      el.src = e;
+      el.style = 'vertical-align:middle';
+      mast.appendChild(el);
+    } else {
+      // add a button!
+      const id = e.id;
+      const btn = createButton(id, e.src, e.accesskey, '');
+      if (e.dontToggle) {
+        btn.onclick = () => {
+          insertTextAtCursor(editor, '[' + e.tag + ']');
+        };
+      } else {
+        btn.onclick = () => {
+          if (toggledBBcodes[id]) {
+            toggledBBcodes[id] = false;
+            insertTextAtCursor(editor, '[/' + e.tag + ']');
+          } else {
+            toggledBBcodes[id] = true;
+            insertTextAtCursor(editor, '[' + e.tag + ']');
+          }
+        };
+      }
+      mast.appendChild(btn);
+    }
+    // append breaker
+    mast.appendChild(document.createTextNode('\u00A0'));
+  });
+  
+  return mast;
+}
+
+function createButton(id, img, accesskey, title/*, onclick*/) {
+  /*<button class="button2" ondblclick="helpline('b')" type="button" id="text_editor_cmd_bold" accesskey="b" title="">
+    <img src="https://illiweb.com/fa/wysiwyg/text_bold.png" alt="">
+  </button>&nbsp;*/
+  
+  const btn = document.createElement('button');
+  btn.accesskey = accesskey;
+  btn.type = 'button';
+  btn.id = id;
+  btn.title = title;
+  btn.className = 'button2';
+  //btn.onclick = onclick;
+  
+  // internal image
+  const tImg = document.createElement('img');
+  tImg.src = img;
+  
+  btn.appendChild(tImg);
+    
+  return btn;
+}
+
+GM_addStyle(`
+
+/* clear default bbcode buttons */
+#text_edit, #html_edit, #text_editor_cmd_switchmode, #format-buttons > img, #format-buttons > wbr {
+  display: none !important;
+}
+#format-buttons {
+  padding-bottom: 5px;
+}
+
+`);
+
+function loadCodeMirror(org) {
+  // add new cm editor
+  const editor = CodeMirror.fromTextArea(org, {
+    mode           : "bbcodemixed",
+    tabSize        : 2,
+    indentUnit     : 2,
+    indentWithTabs : false,
+    lineNumbers    : true,
+    lineWrapping   : true,
+    scrollbarStyle : "native",
+    autofocus      : true,
+  });
+  editor.setSize(700, 250);
+  
+  const bbControls = document.getElementById('text_editor_controls');
+  if (bbControls) {
+    const fmtButtons = document.getElementById('format-buttons');
+    
+    // this is now done thru CSS
+    
+    //// hide all children
+    //for (let i = 0, len = fmtButtons.children.length; i < len; i++) {
+    //  fmtButtons.children[i].style.display = 'none';
+    //}
+    //// slight padding
+    //fmtButtons.style.paddingBottom = '5px';
+    
+    fmtButtons.appendChild(createButtons(editor));
+  }
+}
+
 const styleMin = style
   .replace(/^\s+/gm, '') // remove whitespace
   .replace(/(\r\n|\n)/g, '') // remove newlines
@@ -428,28 +651,32 @@ for (let i = 0, il = opt.length; i < il; i++) {
 	$(opt[i]).prepend('<a style="font-size: 60%; font-style: italic; text-align: center;" href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>')
 }
 
-window.addEventListener('load', () => { // the event listener here gives the editor time to load b4 we trash it
-  // remove default editor
-  const cl = document.getElementsByClassName('sceditor-container');
-  if (cl && cl[0]) cl[0].remove(); // TODO see https://github.com/baivong/Userscript/blob/master/Forumotion/removeSCEditorCodeMirror.user.js
-  else console.log('cl is ' + cl);
+if (window.$.sceditor) {
+  console.log('sceditor');
+  delete $.sceditor;
+  //try {
+  //  $("#text_editor_textarea").height(450).sceditor("instance").destroy();
+  //} catch (e) {
+  //  console.error(e);
+  //}
+  loadCodeMirror(document.getElementById('text_editor_textarea'));
+} else if (window.editor) {
+  console.log('cmeditor');
+  editor.toTextArea();
+  loadCodeMirror(document.getElementById('text_editor_textarea'));
+} else {
+  console.log('?? editor');
+  window.addEventListener('load', () => { // the event listener here gives the editor time to load b4 we trash it
+    // remove default editor
+    const cl = document.getElementsByClassName('sceditor-container');
+    if (cl && cl[0]) cl[0].remove(); // TODO see https://github.com/baivong/Userscript/blob/master/Forumotion/removeSCEditorCodeMirror.user.js
+    else console.log('cl is ' + cl);
 
-  // restore original editor (invisible)
-  const org = document.getElementById('text_editor_textarea');
-  if (org) {
-    org.display = '';
-
-    // add new cm editor
-    const editor = CodeMirror.fromTextArea(org, {
-      //mode           : "bbcodemixed",
-      tabSize        : 2,
-      indentUnit     : 2,
-      indentWithTabs : false,
-      lineNumbers    : true,
-      lineWrapping   : true,
-      scrollbarStyle : "native",
-      autofocus      : true,
-    });
-    editor.setSize(700, 250);
-  } else console.log('org is ' + org);
-});
+    // restore original editor (invisible)
+    const org = document.getElementById('text_editor_textarea');
+    if (org) {
+      org.display = '';
+      loadCodeMirror(org);
+    } else console.log('org is ' + org);
+  });
+}
