@@ -6,7 +6,7 @@
 // @include     http://www.youtube.com/feed/subscriptions/
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.17
+// @version     1.18
 // @grant       GM_addStyle
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -33,6 +33,8 @@ const blacklistedKeywords = [
   'bit.ly', // scams
   'goo.gl', // scams
   'dl.dropbox.com/s/', //scam
+  'disq.us', // scam
+  'adf.ly', // just in case
   'my channel', // adcunts
 
   // general cancer
