@@ -2,10 +2,11 @@
 // @name        GitHub Image Utility
 // @namespace   samsquanch gets the dong
 // @include     *
-// @version     1.5
+// @version     1.6
 // @grant       GM_registerMenuCommand
 // @grant       GM_setValue
 // @grant       GM_getValue
+// @grant       GM_xmlhttpRequest
 // @require     https://unpkg.com/github-api/dist/GitHub.bundle.min.js
 // ==/UserScript==
 'use strict';
@@ -15,14 +16,14 @@
 // jshint browser:true
 /* globals console:true, window:true, alert:true, GitHub:true,GM_getValue:true, GM_setValue:true, GM_registerMenuCommand:true */
 
+let menu_imgre; // needs to be up here before the call to createStuff, or else we get caught in the temporal dead zone
+let menu_imgold;
+
 /**
  * load it up
  */
 if (document.body) // we don't want to run this in a document such as a text file
   createStuff();
-
-let menu_imgre;
-let menu_imgold;
 
 /**
  * create the context item
@@ -119,7 +120,7 @@ function uploadImage_Imgur(dataIn) {
   const xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
   xhr.open('POST', 'https://api.imgur.com/3/image.json'); // Boooom!
   xhr.onload = function() {
-    alert(JSON.parse(xhr.responseText).data.link);
+    alert(JSON.parse(xhr.responseText).data.link || xhr.responseText);
   };
   xhr.onerror = function() { alert('error'); };
   xhr.setRequestHeader('Authorization', 'Client-ID d8b88dd7493540b'); // imgur key
@@ -135,24 +136,53 @@ function wipeHeader(str) {
 }
 
 function toDataUrl(src, callback, outputFormat) {
-  const img = new Image();
-  img.crossOrigin = 'Anonymous';
-  img.onload = function() {
-    const canvas = document.createElement('canvas'); // was 'CANVAS'
-    const ctx = canvas.getContext('2d');
-    let dataURL;
-    canvas.height = this.height;
-    canvas.width = this.width;
-    ctx.drawImage(this, 0, 0);
-    dataURL = canvas.toDataURL(outputFormat);
-    callback(dataURL);
-  };
-  // dunno what all this does, probably onload trickery
-  img.src = src;
-  if (img.complete || img.complete === undefined) {
-    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-    img.src = src;
+  // since we can't do CORS otherwise, we have to use GM_xmlhttpRequest
+  GM_xmlhttpRequest({
+    method: "GET",
+    url: src,
+    headers: {
+      //"User-Agent": "Mozilla/5.0",    // If not specified, navigator.userAgent will be used.
+      //"Accept": "text/xml"            // If not specified, browser defaults will be used.
+    },
+    overrideMimeType: 'plain/text; charset=x-user-defined',
+    onload: function(response) {
+      const text = response.responseText;
+      const len = text.length;
+      const arr = new Uint8Array(len);
+
+      for(let i = 0; i < len; i++) {
+        arr[i] = text.charCodeAt(i) & 0xFF;
+      }
+  
+      const b64encoded = btoa(String.fromCharCode.apply(null, arr));
+      callback(b64encoded);
+    }
+  });
+  
+
+  /*const xhr = new XMLHttpRequest();
+  xhr.open('GET', src, true);
+
+  xhr.responseType = 'arraybuffer';
+
+  xhr.onload = function(e) {
+    if (this.status != 200) {
+      console.error(this.status);
+      return;
+    }
+    
+    const uInt8Array = new Uint8Array(this.response); // Note:not xhr.responseText
+
+    for (let i = 0, len = uInt8Array.length; i < len; i++) {
+      uInt8Array[i] = this.response[i];
+    }
+
+    //var byte3 = uInt8Array[4]; // byte at offset 4
+    const b64encoded = btoa(String.fromCharCode.apply(null, u8));
+    callback(b64encoded);
   }
+
+  xhr.send();*/
 }
 
 // basic auth
@@ -180,7 +210,7 @@ function write(url, callback) { // callback(error, result, request)
   const tpath = 'uploads/' + getUrlPath(url);
   toDataUrl(url, function(b64) {
     console.log('sending file (length ' + b64.length + ')');
-    repo.writeFile('gh-pages', tpath, wipeHeader(b64), 'Auto-uploaded image at ' + new Date().toString(), {encode:false}, function(error, result, request) {
+    repo.writeFile('gh-pages', tpath, b64, 'Auto-uploaded image at ' + new Date().toString(), {encode:false}, function(error, result, request) {
       callback(tpath, error, result, request);
     });
   });
