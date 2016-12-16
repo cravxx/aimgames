@@ -13,7 +13,7 @@
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
-// @version     0.16
+// @version     0.17
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -588,6 +588,10 @@ GM_addStyle(`
   padding-bottom: 5px;
 }
 
+/*anotha padding fix*/
+#quick_reply > table > tbody > tr > td > .CodeMirror {
+  margin-top: 5px;
+}
 `);
 
 function loadCodeMirror(org) {
@@ -618,6 +622,12 @@ function loadCodeMirror(org) {
     //fmtButtons.style.paddingBottom = '5px';
     
     fmtButtons.appendChild(createButtons(editor));
+  } else {
+    let previewDetect = document.getElementById('text_editor_textarea');
+    if (previewDetect) {
+      previewDetect = previewDetect.parentElement;
+      previewDetect.insertBefore(createButtons(editor), previewDetect.firstChild);
+    }
   }
 }
 
