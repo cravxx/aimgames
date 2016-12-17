@@ -276,9 +276,8 @@
     transform: rotate(360deg);
   }
 }
-`);
 
-GM_addStyle(`/* BASICS */
+/* BASICS */
 
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
