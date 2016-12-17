@@ -11,11 +11,12 @@
 // @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcode/bbcode.js
 // @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcodemixed/bbcodemixed.js
 // @require     https://github.com/enyo/opentip/raw/master/downloads/opentip-native.js
+// @require     https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/editorbuttons.js
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/
-// @version     0.20
+// @version     0.23
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -27,6 +28,9 @@
 
 'use strict';
 
+// TODO: this...
+//const buttons = _hansen.buttons;
+
 // GM_addStyle polyfill. Since @grant none allows us to directly interact with `window`,
 // let's avoid using the greasemonkey crap unless necessary
 function GM_addStyle(css) {
@@ -36,6 +40,7 @@ function GM_addStyle(css) {
     document.head.appendChild(style);
 }
 
+// i cant make this remote for some reason... gah
 GM_addStyle(`.opentip-container,
 .opentip-container * {
   -webkit-box-sizing: border-box;
@@ -687,111 +692,6 @@ samp {
 }
 </style>`;
 
-const buttons = [
-{
-  id: 'text_editor_cmd_bold',
-  accesskey: 'b',
-  src: 'https://illiweb.com/fa/wysiwyg/text_bold.png',
-  tag: 'b'
-},
-{
-  id: 'text_editor_cmd_italic',
-  accesskey: 'i',
-  src: 'https://illiweb.com/fa/wysiwyg/text_italic.png',
-  tag: 'i'
-},
-{
-  id: 'text_editor_cmd_underline',
-  accesskey: 'u',
-  src: 'https://illiweb.com/fa/wysiwyg/text_underline.png',
-  tag: 'u'
-},
-{
-  id: 'text_editor_cmd_strikethrough',
-  accesskey: 'x',
-  src: 'https://illiweb.com/fa/wysiwyg/text_strikethrough.png',
-  tag: 'strike'
-},
-
-'https://illiweb.com/fa/wysiwyg/separator.png',
-
-{
-  id: 'text_editor_cmd_justifyleft',
-  accesskey: 'm',
-  src: 'https://illiweb.com/fa/wysiwyg/text_align_left.png',
-  tag: 'left'
-},
-{
-  id: 'text_editor_cmd_justifycenter',
-  accesskey: 't',
-  src: 'https://illiweb.com/fa/wysiwyg/text_align_center.png',
-  tag: 'center'
-},
-{
-  id: 'text_editor_cmd_justifyright',
-  accesskey: 'g',
-  src: 'https://illiweb.com/fa/wysiwyg/text_align_right.png',
-  tag: 'right'
-},
-{
-  id: 'text_editor_cmd_justifyfull',
-  accesskey: 'jt',
-  src: 'https://illiweb.com/fa/wysiwyg/text_align_justify.png',
-},
-
-'https://illiweb.com/fa/wysiwyg/separator.png',
-
-{
-  id: 'text_editor_cmd_insertunorderedlist',
-  accesskey: 'l',
-  src: 'https://illiweb.com/fa/wysiwyg/text_list_bullets.png',
-  tag: 'list'
-},
-{
-  id: 'text_editor_cmd_insertorderedlist',
-  accesskey: 'o',
-  src: 'https://illiweb.com/fa/wysiwyg/text_list_numbers.png',
-  tag: 'list'
-},
-{
-  id: 'text_editor_cmd_inserthorizontalrule',
-  accesskey: '',
-  src: 'https://illiweb.com/fa/wysiwyg/text_horizontalrule.png',
-  tag: 'hr'
-},
-
-'https://illiweb.com/fa/wysiwyg/separator.png',
-
-{
-  id: 'text_editor_cmd_wrap0_quote',
-  accesskey: 'q',
-  src: 'https://illiweb.com/fa/wysiwyg/comments.png',
-  tag: 'quote'
-},
-{
-  id: 'text_editor_cmd_wrap0_code',
-  accesskey: 'c',
-  src: 'https://illiweb.com/fa/wysiwyg/page_white_code.png',
-  tag: 'code'
-},
-
-'https://illiweb.com/fa/wysiwyg/separator.png',
-
-{
-  id: 'bbcodewimg',
-  accesskey: 'p',
-  src: 'https://illiweb.com/fa/wysiwyg/picture.png',
-  tag: 'img'
-},
-{
-  id: 'addbbcode16',
-  accesskey: 'w',
-  src: 'https://illiweb.com/fa/wysiwyg/link.png',
-  tag: 'url'
-},
-
-];
-
 const toggledBBcodes = {};
 
 function insertTextAtCursor(editor, text) {
@@ -881,7 +781,7 @@ GM_addStyle(`
 }
 
 /*makes my name be rainbow-y*/
-.gensmall[href="/u2548"] > span > strong{
+[href="/u2548"] > span > strong{
     animation: hansencolorRotate 6s linear 0s infinite;
 }
 
@@ -996,6 +896,17 @@ GM_addStyle(`
   
   /*could remove i suppose?*/
   font-size: 60%;
+}
+
+/*tiny fix for bottom categories bar*/
+.catBottom {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/*hide the text-footer at the bottom of the screen*/
+#page-footer {
+  display:none;
 }
 `);
 
