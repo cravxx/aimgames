@@ -22,7 +22,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.35
+// @version     0.38
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -42,7 +42,8 @@ function v(a){var b="";Array.slice(a.getElementById("profile-advanced-details").
 "$1: -<br>$2: ")}var w=-1,x=null,y=null;function z(a,b,c,d){return function(){y&&(clearTimeout(y),y=null);y=setTimeout(function(){w===b&&x?(a.a(x),a.show()):(a.a("Loading..."),a.show(),$.get(c,function(c){c=(new DOMParser).parseFromString(c,"text/html");c=d(c);a.a(c);x=c;w=b;console.log("Load was performed.")}))},1E3)}}function A(a){return function(){y&&(clearTimeout(y),y=null);a.b()}}function B(a){return function(){y&&(clearTimeout(y),y=null);a.b()}}
 for(var C=document.querySelectorAll('a[href^="/u"]'),D=0,E=C.length;D<E;D++){var F=D,G=C[D],H=new Opentip(G,{g:null,c:"mouseleave",style:"dark"});G.addEventListener("mouseover",z(H,F,G.href,v));G.addEventListener("mouseleave",A(H));G.addEventListener("mouseout",B(H))}
 function I(a){a=a.querySelector("tr.post > td:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1)");if(null===a)return"(N/A)";a=a.textContent;return 500>a.length?a:a.substr(0,500)}
-for(var J=document.querySelectorAll("a.topictitle"),K=0,E=J.length;K<E;K++){var L=K+C.length,M=J[K],N=new Opentip(M,{g:null,c:"mouseleave",style:"dark"});M.addEventListener("mouseover",z(N,L,M.href,I));M.addEventListener("mouseleave",A(N));M.addEventListener("mouseout",B(N))}var O=document.querySelectorAll(".codebox:not(.spoiler)");function P(a){return a.replace(/\&lt;/g,"<").replace(/\&gt;/g,">").replace(/\&nbsp;/g,"").replace(/\&amp;/g,"&").replace(/<br>/g,"\r\n")}
+for(var J=document.querySelectorAll("a.topictitle"),K=0,E=J.length;K<E;K++){var L=K+C.length,M=J[K],N=new Opentip(M,{g:null,c:"mouseleave",style:"dark"});M.addEventListener("mouseover",z(N,L,M.href,I));M.addEventListener("mouseleave",A(N));M.addEventListener("mouseout",B(N))}var O=document.querySelectorAll(".codebox:not(.spoiler)");
+function P(a){return a.replace(/\&lt;/g,"<").replace(/\&gt;/g,">").replace(/\&nbsp;/g,"").replace(/\&amp;/g,"&").replace(/<br>/g,"\r\n").replace(/<span class=\"token [a-z]+\"( spellcheck=\"true\")?>/g,"").replace(/<\/span>/g,"")}
 for(var Q={content:void 0},R=0,E=O.length;R<E;Q={content:Q.content},R++){var S=O[R].children[0];Q.content=O[R].children[1].children[0];if(Q.content){var T=document.createElement("a");T.appendChild(document.createTextNode(" Select All"));T.setAttribute("class","genmed hansenAnc");T.addEventListener("click",function(a){return function(){var b=a.content;if(document.selection){var c=document.body.createTextRange();c.moveToElementText(b);c.select()}else window.getSelection&&(c=document.createRange(),c.selectNode(b),
 window.getSelection().addRange(c))}}(Q));S.appendChild(T);var U=document.createElement("a");U.appendChild(document.createTextNode(" Copy"));U.setAttribute("class","genmed hansenAnc");U.addEventListener("click",function(a){return function(){try{GM_setClipboard(P(a.content.innerHTML))}catch(b){GM_setClipboard(a.content.textContent)}}}(Q));S.appendChild(U)}}
-function V(){try{for(var a=document.getElementsByClassName("cont_code"),b=0,c=a.length;b<c;b++){if(!a[b]){console.log("undef:"+b);setTimeout(V,200);break}a[b].innerHTML=Prism.u(P(a[b].innerHTML),Prism.languages.java)}}catch(d){console.error(d),console.error(d.toString())}}V();
+function V(){try{for(var a=document.getElementsByClassName("cont_code"),b=0,c=a.length;b<c;b++){if(!a[b]){console.log("undef:"+b);setTimeout(V,200);break}a[b].innerHTML=Prism.u(P(a[b].innerHTML),Prism.languages.java)}}catch(d){console.error(d),console.error(d.toString())}}window.addEventListener("load",function(){V()},!1);
