@@ -13,18 +13,21 @@
 // @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcodemixed/bbcodemixed.js
 // @require     https://github.com/enyo/opentip/raw/master/downloads/opentip-native.js
 // @require     https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/editorbuttons.js
+// @require     https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.js
 // @resource    codemirrorBaseCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-base.css
 // @resource    codemirrorThemeCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-theme.css
+// @resource    prismCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.css
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.27
+// @version     0.35
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
 // @grant       GM_getResourceText
+// @grant       GM_setClipboard
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
@@ -58,6 +61,7 @@ GM_log(GM_info);
 // i cant make this remote for some reason... gah
 GM_addStyle(GM_getResourceText('codemirrorBaseCSS'));
 GM_addStyle(GM_getResourceText('codemirrorThemeCSS'));
+GM_addStyle(GM_getResourceText('prismCSS'));
 
 // custom code styles
 const style = `<style type="text/css">
@@ -200,9 +204,10 @@ GM_addStyle(`
 }
 
 
-/*
-.i_icon_quote {
-}*/
+/*slight padding below post buttons for tidiness*/
+.post-options {
+  padding-bottom: 2.5px;
+}
 /*hovering over post buttons*/
 .post-options > a:hover {
   background-color: #fbfbfb !important;
@@ -302,6 +307,39 @@ GM_addStyle(`
 /*hide the text-footer at the bottom of the screen*/
 #page-footer {
   display:none;
+}
+
+/*utility class for links*/
+.hansenAnc {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+/*no underline*/
+.hansenAnc:hover {
+  text-decoration: none !important;
+}
+
+/*legacy syntax highlighting CSS*/
+.code {
+  color: #eee;
+}
+.hansen-literal {
+  color: #CC3366 !important;
+}
+.hansen-keyword {
+  color: #33FFFF !important;
+}
+
+/*prismjs 'bug' fix*/
+/*.language-java {*/
+.cont_code {
+  white-space: pre !important;
+}
+/*style fix*/
+/*.code {*/
+.code:not(.spoiler) {
+  background: #272822 !important;
 }
 `);
 
@@ -539,3 +577,137 @@ for (let i = 0, len = topicLinks.length; i < len; i++) {
   topic.addEventListener("mouseleave", createMouseLeaveFunc(tooltip));
   topic.addEventListener("mouseout", createMouseOutFunc(tooltip));
 }
+
+// codebox select all/copy buttons
+
+const codeboxes = document.querySelectorAll('.codebox:not(.spoiler)');
+
+function cleanHTML(text) {
+  return text.replace(/\&lt;/g, '<').replace(/\&gt;/g, '>').replace(/\&nbsp;/g, '').replace(/\&amp;/g, '&').replace(/<br>/g, '\r\n');
+}
+
+function selectText(container) {
+  if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(container);
+    range.select();
+  } else if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(container);
+    window.getSelection().addRange(range);
+  }
+}
+
+for (let i = 0, len = codeboxes.length; i < len; i++) {
+  const header = codeboxes[i].children[0];
+  const content = codeboxes[i].children[1].children[0];
+  
+  if (!content) continue; // if we're not working with a real codebox, just in case
+  
+  const selectAll = document.createElement('a');
+  selectAll.appendChild(document.createTextNode(' Select All'));
+  selectAll.setAttribute('class', 'genmed hansenAnc');
+  selectAll.addEventListener("click", () => {
+    selectText(content);
+  });
+  
+  header.appendChild(selectAll);
+  
+  const copy = document.createElement('a');
+  copy.appendChild(document.createTextNode(' Copy'));
+  copy.setAttribute('class', 'genmed hansenAnc');
+  copy.addEventListener("click", () => {
+    try {
+      GM_setClipboard(cleanHTML(content.innerHTML));
+    } catch (e) {
+      GM_setClipboard(content.textContent);
+    }
+  });
+  
+  header.appendChild(copy);
+}
+
+// syntax highlighting inside code boxes
+// WARNING: EXTREMELY HACKY
+
+function syntaxHighlight() {
+  try {
+    // legacy syntax highlighting code, unnecessary since prism supports web workers
+
+    /*
+    const jsLiterals = [
+      [/\btrue\b/g, 'true'], [/\bfalse\b/g, 'false'], [/\bnull\b/g, 'null'], [/\bundefined\b/g, 'undefined'], [/\bNaN\b/g, 'NaN'], [/\bInfinity\b/g, 'Infinity'], [/\b\+\b/g, '\+'], [/\b\-\b/g, '\-'], [/\b\=\b/g, '\=']
+    ];
+    const javaKeywords = [
+      [/\bfalse\b/g, 'false'], [/\bsynchronized\b/g, 'synchronized'], [/\bint\b/g, 'int'], [/\babstract\b/g, 'abstract'], [/\bfloat\b/g, 'float'], [/\bprivate\b/g, 'private'],
+      [/\bchar\b/g, 'char'], [/\bboolean\b/g, 'boolean'], [/\bstatic\b/g, 'static'], [/\bnull\b/g, 'null'], [/\bif\b/g, 'if'], [/\bconst\b/g, 'const'], [/\bfor\b/g, 'for'], [/\btrue\b/g, 'true'],
+      [/\bwhile\b/g, 'while'], [/\blong\b/g, 'long'], [/\bstrictfp\b/g, 'strictfp'], [/\bfinally\b/g, 'finally'], [/\bprotected\b/g, 'protected'], [/\bimport\b/g, 'import'], [/\bnative\b/g, 'native'],
+      [/\bfinal\b/g, 'final'], [/\bvoid\b/g, 'void'], [/\benum\b/g, 'enum'], [/\belse\b/g, 'else'], [/\bbreak\b/g, 'break'], [/\btransient\b/g, 'transient'], [/\bcatch\b/g, 'catch'],
+      [/\binstanceof\b/g, 'instanceof'], [/\bbyte\b/g, 'byte'], [/\bsuper\b/g, 'super'], [/\bvolatile\b/g, 'volatile'], [/\bcase\b/g, 'case'], [/\bassert\b/g, 'assert'], [/\bshort\b/g, 'short'],
+      [/\bpackage\b/g, 'package'], [/\bdefault\b/g, 'default'], [/\bdouble\b/g, 'double'], [/\bpublic\b/g, 'public'], [/\btry\b/g, 'try'], [/\bthis\b/g, 'this'], [/\bswitch\b/g, 'switch'],
+      [/\bcontinue\b/g, 'continue'], [/\bthrows\b/g, 'throws'], [/\bprotected\b/g, 'protected'], [/\bprivate\b/g, 'private'],
+      
+      [/\bin\b/g, 'in'], [/\bof\b/g, 'of'], [/\bif\b/g, 'if'], [/\bfor\b/g, 'for'], [/\bwhile\b/g, 'while'], [/\bfinally\b/g, 'finally'], [/\bvar\b/g, 'var'], [/\bnew\b/g, 'new'],
+      [/\bfunction\b/g, 'function'], [/\bdo\b/g, 'do'], [/\breturn\b/g, 'return'], [/\bvoid\b/g, 'void'], [/\belse\b/g, 'else'], [/\bbreak\b/g, 'break'], [/\bcatch\b/g, 'catch'],
+      [/\binstanceof\b/g, 'instanceof'], [/\bwith\b/g, 'with'], [/\bthrow\b/g, 'throw'], [/\bcase\b/g, 'case'], [/\bdefault\b/g, 'default'], [/\btry\b/g, 'try'], [/\bthis\b/g, 'this'],
+      [/\bswitch\b/g, 'switch'], [/\bcontinue\b/g, 'continue'], [/\btypeof\b/g, 'typeof'], [/\bdelete\b/g, 'delete'], [/\blet\b/g, 'let'], [/\byield\b/g, 'yield'], [/\bconst\b/g, 'const'],
+      [/\bexport\b/g, 'export'], [/\bsuper\b/g, 'super'], [/\bdebugger\b/g, 'debugger'], [/\bas\b/g, 'as'], [/\basync\b/g, 'async'], [/\bawait\b/g, 'await']
+    ];
+    
+    const codects = document.getElementsByClassName('cont_code');
+    
+    for (let i = 0, len = codects.length; i < len; i++) {
+      let ht = codects[i].innerHTML; // avoid rebuilding the structure every time!!!
+      for (let j = 0, blen = jsLiterals.length; j < blen; j++) {
+        ht = ht.replace(jsLiterals[j][0], '<span class="hansen-literal">' + jsLiterals[j][1] + '</span>');
+      }
+      for (let j = 0, blen = javaKeywords.length; j < blen; j++) {
+        ht = ht.replace(javaKeywords[j][0], '<span class="hansen-keyword">' + javaKeywords[j][1] + '</span>');
+      }
+      codects[i].innerHTML = ht;
+    }
+    */
+
+
+    const codects = document.getElementsByClassName('cont_code');
+
+    for (let i = 0, len = codects.length; i < len; i++) {
+      if (!codects[i]) { // greasemonkey fucked us, lets wait and try again
+        console.log('undef:' + i);
+        setTimeout(syntaxHighlight, 200);//
+        return;
+      }
+
+      // legacy prism integration code, basically awful
+      
+      /*
+      // create a code element to replace the div TODO is there a better way to do this
+      const d = document.createElement('code');
+      d.setAttribute('class', 'language-java');
+      d.textContent = cleanHTML(codects[i].innerHTML);//no way around this last lil replace
+
+      codects[i].parentNode.insertBefore(d, codects[i]);
+      codects[i].parentNode.removeChild(codects[i]);
+
+      Prism.highlightElement(d, false); // FUCK! async won't work because of too many worker scripts!
+      */
+      
+      codects[i].innerHTML = Prism.highlight(cleanHTML(codects[i].innerHTML), Prism.languages.java);//no way around this parsing/innerhtml
+      
+    }
+
+    //// The code snippet you want to highlight, as a string
+    //var code = "var data = 1;";
+  //
+    //// Returns a highlighted HTML string
+    //var html = Prism.highlight(code, Prism.languages.javascript);
+  } catch(e) {
+    // chromium browsers may die here
+    console.error(e);
+    //console.trace(e);
+    console.error(e.toString());
+    //GM_log(e.toString());
+  }
+}
+
+syntaxHighlight();
