@@ -18,8 +18,9 @@
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
+// @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.25
+// @version     0.27
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -232,6 +233,11 @@ GM_addStyle(`
   display: initial;
   content: 'quote';
 }
+/*show IP button text*/
+.post-options > a[href^="/modcp?mode=ip"]:after {
+  display: initial;
+  content: 'ip';
+}
 /*post buttons*/
 .post-options > a {
   font: 11px Arial, Helvetica, sans-serif;
@@ -269,7 +275,7 @@ GM_addStyle(`
   /*! margin-bottom: 0; */
   /*! margin-top: 100px; */
   
-  transition: all 1s ease;
+  /*transition: all 1s ease;*/
   color: #d0b2b2;
   text-transform: uppercase;
   font-weight: bold;
@@ -402,6 +408,7 @@ for (let i = 0, il = opt.length; i < il; i++) {
 
 // user tooltip system
 
+// parse the user page into a neat block of html
 function readUser(document) {
   const advdet = document.getElementById('profile-advanced-details')
   let mass = '';
@@ -422,66 +429,113 @@ function readUser(document) {
              .replace(/([A-Za-z \/]+): ([A-Za-z \/]+): /g, '$1: -<br>$2: '); // they say second time's the charm... when you don't wanna lookback, i suppose
 }
 
-
-const usrLinks = document.querySelectorAll('a[href^="/u"]');
-let lastLoadedUsr = -1;
-let lastUserData = null;
+let lastLoadedTooltip = -1;
+let lastTooltipData = null;
 let timer = null;
 
-for (let i = 0, len = usrLinks.length; i < len; i++) {
-  
-  const _i = i;
-  const usr = usrLinks[i];
-  const tooltip = new Opentip(usr, { showOn: null, hideOn: 'mouseleave', style: 'dark' });
-
-  // Hide the tooltip on focus so we don't bother the user while editing.
-  usr.addEventListener("mouseover", function() {
+function createMouseOverFunc(tooltip, i, url, parseFunc) {
+  return function() {
     if (timer) {
       clearTimeout(timer);
       timer = null;
     }
     
     timer = setTimeout(function() {
-      if (lastLoadedUsr === _i && lastUserData) { // maybe check if content is empty or add to array of bool? since opentip doesnt unload anything ever
-        tooltip.setContent(lastUserData);
+      if (lastLoadedTooltip === i && lastTooltipData) { // maybe check if content is empty or add to array of bool? since opentip doesnt unload anything ever
+        tooltip.setContent(lastTooltipData);
         tooltip.show(); 
       } else {
-        console.log('mouseover');
+        //console.log('mouseover');
         tooltip.setContent('Loading...');
         tooltip.show(); 
 
-        $.get(usr.href, function(data) {
+        // basically the only reason i'm using jquery right 'ere
+        $.get(url, function(data) {
           //tooltip.setContent(data);
 
+          // new thing that is widely supported in our targeted browsers (i think?)
           const parser=new DOMParser();
           const htmlDoc=parser.parseFromString(data, "text/html");
-          const cont = readUser(htmlDoc);
+          const cont = parseFunc(htmlDoc);
           tooltip.setContent(cont);
-          lastUserData = cont;
-          lastLoadedUsr = _i;
+          lastTooltipData = cont;
+          lastLoadedTooltip = i;
           
           console.log("Load was performed.");
         });
       }
     }, 1000);
     
-  });
-  usr.addEventListener("mouseleave", function() {
+  };
+}
+
+// both funcs hide the tooltip
+function createMouseLeaveFunc(tooltip) {
+  return function() {
     if (timer) {
       clearTimeout(timer);
       timer = null;
     }
     
-    console.log('mouseleave');
+    //console.log('mouseleave');
     tooltip.hide();
-  });
-  usr.addEventListener("mouseout", function() {
+  };
+}
+
+function createMouseOutFunc(tooltip) {
+  return function() {
     if (timer) {
       clearTimeout(timer);
       timer = null;
     }
     
-    console.log('mouseout');
+    //console.log('mouseout');
     tooltip.hide();
-  });
+  };
+}
+
+const usrLinks = document.querySelectorAll('a[href^="/u"]');
+
+for (let i = 0, len = usrLinks.length; i < len; i++) {
+  
+  const _i = i; // static link to `i`, just in case the threading model doesnt behave like i expect it to
+  const usr = usrLinks[i]; // same as above
+  const tooltip = new Opentip(usr, { showOn: null, hideOn: 'mouseleave', style: 'dark' }); // hideOn doesn't actually seem to work very well here...
+
+  usr.addEventListener("mouseover", createMouseOverFunc(tooltip, _i, usr.href, readUser));
+  usr.addEventListener("mouseleave", createMouseLeaveFunc(tooltip));
+  usr.addEventListener("mouseout", createMouseOutFunc(tooltip));
+}
+
+// thread preview tooltip system
+
+function readTopic(document) {
+  // get the first post
+  const op = document.querySelector('tr.post > td:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1)');
+  
+  if (op === null) {
+    return '(N/A)';
+  } else {
+    // trim to fit
+    // only problem with this system is that it's missing line breaks...
+    const txt = op.textContent;
+    if (txt.length<500)
+      return txt/*.replace(/\r\n/g, '<br/>')*/;
+    // else
+    return txt.substr(0, 500)/*.replace(/\r\n/g, '<br/>')*/;
+  }
+}
+
+const topicLinks = document.querySelectorAll('a.topictitle');
+
+for (let i = 0, len = topicLinks.length; i < len; i++) {
+  
+  const _i = i + usrLinks.length;
+  
+  const topic = topicLinks[i]; // same as above
+  const tooltip = new Opentip(topic, { showOn: null, hideOn: 'mouseleave', style: 'dark' }); // hideOn doesn't actually seem to work very well here...
+
+  topic.addEventListener("mouseover", createMouseOverFunc(tooltip, _i, topic.href, readTopic));
+  topic.addEventListener("mouseleave", createMouseLeaveFunc(tooltip));
+  topic.addEventListener("mouseout", createMouseOutFunc(tooltip));
 }
