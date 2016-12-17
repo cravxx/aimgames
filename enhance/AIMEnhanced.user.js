@@ -22,7 +22,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.35
+// @version     0.38
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -583,7 +583,14 @@ for (let i = 0, len = topicLinks.length; i < len; i++) {
 const codeboxes = document.querySelectorAll('.codebox:not(.spoiler)');
 
 function cleanHTML(text) {
-  return text.replace(/\&lt;/g, '<').replace(/\&gt;/g, '>').replace(/\&nbsp;/g, '').replace(/\&amp;/g, '&').replace(/<br>/g, '\r\n');
+  return text
+    .replace(/\&lt;/g, '<') // HTML less-than escape
+    .replace(/\&gt;/g, '>') // ditto, greater-than
+    .replace(/\&nbsp;/g, '') // forumotion does a lot of 'ese
+    .replace(/\&amp;/g, '&') // ampersand
+    .replace(/<br>/g, '\r\n') // forumotion only seems to do line breaks in this style
+    .replace(/<span class=\"token [a-z]+\"( spellcheck=\"true\")?>/g, '') // both this and the one below will remove Prism styles from copied code and shouldn't actually affect the Prism highlighting
+    .replace(/<\/span>/g, '');
 }
 
 function selectText(container) {
@@ -672,6 +679,7 @@ function syntaxHighlight() {
     const codects = document.getElementsByClassName('cont_code');
 
     for (let i = 0, len = codects.length; i < len; i++) {
+      // dirty hack in case the dom is all fucked up
       if (!codects[i]) { // greasemonkey fucked us, lets wait and try again
         console.log('undef:' + i);
         setTimeout(syntaxHighlight, 200);//
@@ -710,4 +718,7 @@ function syntaxHighlight() {
   }
 }
 
-syntaxHighlight();
+// it should run directly just fine, but this will make it run at document-idle which means the dirty hacks don't go into effect
+window.addEventListener('load', function() {
+  syntaxHighlight();
+}, false);
