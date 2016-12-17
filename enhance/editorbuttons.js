@@ -1,6 +1,8 @@
 // bbcode editor button definitions for AIM Enhanced.
 
-const buttons = [
+window._hansen = {};
+
+window._hansen.buttons = [
 {
   id: 'text_editor_cmd_bold',
   accesskey: 'b',
