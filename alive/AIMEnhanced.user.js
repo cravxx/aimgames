@@ -10,10 +10,12 @@
 // @require     http://codemirror.net/mode/htmlmixed/htmlmixed.js
 // @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcode/bbcode.js
 // @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcodemixed/bbcodemixed.js
+// @require     https://github.com/enyo/opentip/raw/master/downloads/opentip-native.js
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
-// @version     0.17
+// @include     http://aimgames.forummotion.com/
+// @version     0.20
 // @grant       none
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
@@ -33,6 +35,286 @@ function GM_addStyle(css) {
     style.textContent = css;
     document.head.appendChild(style);
 }
+
+GM_addStyle(`.opentip-container,
+.opentip-container * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.opentip-container {
+  position: absolute;
+  max-width: 300px;
+  z-index: 100;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  -moz-transition: -moz-transform 1s ease-in-out;
+  -o-transition: -o-transform 1s ease-in-out;
+  -ms-transition: -ms-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: translateX(0) translateY(0);
+  -moz-transform: translateX(0) translateY(0);
+  -o-transform: translateX(0) translateY(0);
+  -ms-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-top.stem-center,
+.opentip-container.ot-fixed.ot-going-to-show.stem-top.stem-center,
+.opentip-container.ot-fixed.ot-hiding.stem-top.stem-center {
+  -webkit-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-top.stem-right,
+.opentip-container.ot-fixed.ot-going-to-show.stem-top.stem-right,
+.opentip-container.ot-fixed.ot-hiding.stem-top.stem-right {
+  -webkit-transform: translateY(-5px) translateX(5px);
+  -moz-transform: translateY(-5px) translateX(5px);
+  -o-transform: translateY(-5px) translateX(5px);
+  -ms-transform: translateY(-5px) translateX(5px);
+  transform: translateY(-5px) translateX(5px);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-middle.stem-right,
+.opentip-container.ot-fixed.ot-going-to-show.stem-middle.stem-right,
+.opentip-container.ot-fixed.ot-hiding.stem-middle.stem-right {
+  -webkit-transform: translateX(5px);
+  -moz-transform: translateX(5px);
+  -o-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  transform: translateX(5px);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-bottom.stem-right,
+.opentip-container.ot-fixed.ot-going-to-show.stem-bottom.stem-right,
+.opentip-container.ot-fixed.ot-hiding.stem-bottom.stem-right {
+  -webkit-transform: translateY(5px) translateX(5px);
+  -moz-transform: translateY(5px) translateX(5px);
+  -o-transform: translateY(5px) translateX(5px);
+  -ms-transform: translateY(5px) translateX(5px);
+  transform: translateY(5px) translateX(5px);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-bottom.stem-center,
+.opentip-container.ot-fixed.ot-going-to-show.stem-bottom.stem-center,
+.opentip-container.ot-fixed.ot-hiding.stem-bottom.stem-center {
+  -webkit-transform: translateY(5px);
+  -moz-transform: translateY(5px);
+  -o-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-bottom.stem-left,
+.opentip-container.ot-fixed.ot-going-to-show.stem-bottom.stem-left,
+.opentip-container.ot-fixed.ot-hiding.stem-bottom.stem-left {
+  -webkit-transform: translateY(5px) translateX(-5px);
+  -moz-transform: translateY(5px) translateX(-5px);
+  -o-transform: translateY(5px) translateX(-5px);
+  -ms-transform: translateY(5px) translateX(-5px);
+  transform: translateY(5px) translateX(-5px);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-middle.stem-left,
+.opentip-container.ot-fixed.ot-going-to-show.stem-middle.stem-left,
+.opentip-container.ot-fixed.ot-hiding.stem-middle.stem-left {
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  transform: translateX(-5px);
+}
+.opentip-container.ot-fixed.ot-hidden.stem-top.stem-left,
+.opentip-container.ot-fixed.ot-going-to-show.stem-top.stem-left,
+.opentip-container.ot-fixed.ot-hiding.stem-top.stem-left {
+  -webkit-transform: translateY(-5px) translateX(-5px);
+  -moz-transform: translateY(-5px) translateX(-5px);
+  -o-transform: translateY(-5px) translateX(-5px);
+  -ms-transform: translateY(-5px) translateX(-5px);
+  transform: translateY(-5px) translateX(-5px);
+}
+.opentip-container.ot-fixed .opentip {
+  pointer-events: auto;
+}
+.opentip-container.ot-hidden {
+  display: none;
+}
+.opentip-container .opentip {
+  position: relative;
+  font-size: 13px;
+  line-height: 120%;
+  padding: 9px 14px;
+  color: #4f4b47;
+  text-shadow: -1px -1px 0px rgba(255,255,255,0.2);
+}
+.opentip-container .opentip .header {
+  margin: 0;
+  padding: 0;
+}
+.opentip-container .opentip .ot-close {
+  pointer-events: auto;
+  display: block;
+  position: absolute;
+  top: -12px;
+  left: 60px;
+  color: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0);
+  text-decoration: none;
+}
+.opentip-container .opentip .ot-close span {
+  display: none;
+}
+.opentip-container .opentip .ot-loading-indicator {
+  display: none;
+}
+.opentip-container.ot-loading .ot-loading-indicator {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  display: block;
+}
+.opentip-container.ot-loading .ot-loading-indicator span {
+  display: block;
+  -webkit-animation: otloading 2s linear infinite;
+  -moz-animation: otloading 2s linear infinite;
+  -o-animation: otloading 2s linear infinite;
+  -ms-animation: otloading 2s linear infinite;
+  animation: otloading 2s linear infinite;
+  text-align: center;
+}
+.opentip-container.style-dark .opentip,
+.opentip-container.style-alert .opentip {
+  color: #f8f8f8;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+}
+.opentip-container.style-glass .opentip {
+  padding: 15px 25px;
+  color: #317cc5;
+  text-shadow: 1px 1px 8px rgba(0,94,153,0.3);
+}
+.opentip-container.ot-hide-effect-fade {
+  -webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  -moz-transition: -moz-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  -o-transition: -o-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  -ms-transition: -ms-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.opentip-container.ot-hide-effect-fade.ot-hiding {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+.opentip-container.ot-show-effect-appear.ot-going-to-show,
+.opentip-container.ot-show-effect-appear.ot-showing {
+  -webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  -moz-transition: -moz-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  -o-transition: -o-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  -ms-transition: -ms-transform 0.5s ease-in-out, opacity 1s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+}
+.opentip-container.ot-show-effect-appear.ot-going-to-show {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+.opentip-container.ot-show-effect-appear.ot-showing {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.opentip-container.ot-show-effect-appear.ot-visible {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+@-moz-keyframes otloading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes otloading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes otloading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes otloading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes otloading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+`);
 
 GM_addStyle(`/* BASICS */
 
@@ -592,6 +874,129 @@ GM_addStyle(`
 #quick_reply > table > tbody > tr > td > .CodeMirror {
   margin-top: 5px;
 }
+
+/*tooltip font*/
+.opentip-container {
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+/*makes my name be rainbow-y*/
+.gensmall[href="/u2548"] > span > strong{
+    animation: hansencolorRotate 6s linear 0s infinite;
+}
+
+@keyframes hansencolorRotate {
+    from {
+        color: rgb(255, 0, 0);
+    }
+    16.6% {
+        color: rgb(255, 0, 255);
+    }
+    33.3% {
+        color: rgb(0, 0, 255);
+    }
+    50% {
+        color: rgb(0, 255, 255);
+    }
+    66.6% {
+        color: rgb(0, 255, 0);
+    }
+    83.3% {
+        color: rgb(255, 255, 0);
+    }
+    to {
+        color: rgb(255, 0, 0);
+    }
+}
+
+
+/*
+.i_icon_quote {
+}*/
+/*hovering over post buttons*/
+.post-options > a:hover {
+  background-color: #fbfbfb !important;
+  
+  background: linear-gradient(to bottom, rgb(201, 31, 31) 0%,rgb(140, 14, 14) 100%) !important;
+  border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
+}
+/*remove default button imgs*/
+.post-options > a > img {
+  display: none;
+}
+/*remove broken multiquote button*/
+.post-options > img {
+  display: none; 
+}
+/*edit button text*/
+.post-options > a[href$="mode=editpost"]:after {
+  display: initial;
+  content: 'edit';
+}
+/*delete button text*/
+.post-options > a[href$="mode=delete"]:after {
+  display: initial;
+  content: 'x';
+}
+/*quote button text*/
+.post-options > a[href$="mode=quote"]:after {
+  display: initial;
+  content: 'quote';
+}
+/*post buttons*/
+.post-options > a {
+  font: 11px Arial, Helvetica, sans-serif;
+  
+  /*! a-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 0 rgba(0,0,0,.1); */
+
+  position: relative;
+  vertical-align: middle;
+  margin: 0 2px 5px 0;
+  background-color: #940b0b;
+  border: solid 3px #272727;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-indent: -900em;
+  color: #333;
+  text-decoration: none;
+  line-height: 100%;
+  white-space: nowrap;
+
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+
+
+  width: 26px;
+  height: 26px;
+  font-size: 90%;
+
+  visibility: initial;
+  display: initial;
+  padding: 2px 5px;
+  text-align: center;
+  font-size: 75%;
+  /*! margin-bottom: 0; */
+  /*! margin-top: 100px; */
+  
+  transition: all 1s ease;
+  color: #d0b2b2;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(to bottom, rgb(163, 22, 22) 0%,rgb(105, 10, 10) 100%);
+  border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
+  /*! border-style: solid; */
+  /*! border-width: 10px; */
+  /*! -webkit-font-smoothing: antialiased; */
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /*could remove i suppose?*/
+  font-size: 60%;
+}
 `);
 
 function loadCodeMirror(org) {
@@ -650,6 +1055,38 @@ if (textArea) {
         .replace(/`([^]+?)`/g, '<samp>$1</samp>'); // inline code
     }
   }, false);
+
+  // load our new editor (replacing the existing one)
+  if (window.$.sceditor) {
+    console.log('sceditor');
+    delete $.sceditor;
+    //try {
+    //  $("#text_editor_textarea").height(450).sceditor("instance").destroy();
+    //} catch (e) {
+    //  console.error(e);
+    //}
+    loadCodeMirror(textArea);
+  } else if (window.editor) {
+    console.log('cmeditor');
+    editor.toTextArea();
+    loadCodeMirror(textArea);
+  } else {
+    console.log('?? editor');
+    window.addEventListener('load', () => { // the event listener here gives the editor time to load b4 we trash it
+      // remove default editor
+      const cl = document.getElementsByClassName('sceditor-container');
+      if (cl && cl[0]) cl[0].remove(); // TODO see https://github.com/baivong/Userscript/blob/master/Forumotion/removeSCEditorCodeMirror.user.js
+      else console.log('cl is ' + cl);
+
+      // restore original editor (invisible)
+      const org = document.getElementById('text_editor_textarea');
+      if (org) {
+        org.display = '';
+        loadCodeMirror(org);
+      } else console.log('org is ' + org);
+    });
+  }
+  
 }
 
 // 'link to this post' shortcut
@@ -658,35 +1095,93 @@ for (let i = 0, il = opt.length; i < il; i++) {
 	let id = opt[i].querySelector('img').id;
 	id = id.substring(id.lastIndexOf('_') + 1);
 	//console.log(id);
-	$(opt[i]).prepend('<a style="font-size: 60%; font-style: italic; text-align: center;" href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>')
+	$(opt[i]).prepend('<a href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>')
 }
 
-if (window.$.sceditor) {
-  console.log('sceditor');
-  delete $.sceditor;
-  //try {
-  //  $("#text_editor_textarea").height(450).sceditor("instance").destroy();
-  //} catch (e) {
-  //  console.error(e);
-  //}
-  loadCodeMirror(document.getElementById('text_editor_textarea'));
-} else if (window.editor) {
-  console.log('cmeditor');
-  editor.toTextArea();
-  loadCodeMirror(document.getElementById('text_editor_textarea'));
-} else {
-  console.log('?? editor');
-  window.addEventListener('load', () => { // the event listener here gives the editor time to load b4 we trash it
-    // remove default editor
-    const cl = document.getElementsByClassName('sceditor-container');
-    if (cl && cl[0]) cl[0].remove(); // TODO see https://github.com/baivong/Userscript/blob/master/Forumotion/removeSCEditorCodeMirror.user.js
-    else console.log('cl is ' + cl);
 
-    // restore original editor (invisible)
-    const org = document.getElementById('text_editor_textarea');
-    if (org) {
-      org.display = '';
-      loadCodeMirror(org);
-    } else console.log('org is ' + org);
+
+// user tooltip system
+
+function readUser(document) {
+  const advdet = document.getElementById('profile-advanced-details')
+  let mass = '';
+
+  Array.slice(advdet.children).forEach((e, i) => {
+    if (e.tagName == 'DL') {
+      mass+=(e.children[0].textContent + e.children[1].textContent) + '\n';
+    }
+  });
+
+  return mass.replace(/Male.*$/m, (document.querySelector('.ajax-profil_parent > .field_uneditable > img') || {alt:'Unknown'}).alt)
+             .replace(/\*/g, '') // remove 'this thing is not optional' thing
+             .replace(/\s*:\s*/gm, ': ') // remove unnecessary whitespace
+             .replace(/Birthday: (....-..-..).*$/m, 'Birthday: $1') // fix birthday format
+             .trim()
+             .replace(/\n/g, '<br>') // turn newlines into breaks
+             .replace(/([A-Za-z \/]+): ([A-Za-z \/]+): /g, '$1: -<br>$2: ') // fixes missing newlines
+             .replace(/([A-Za-z \/]+): ([A-Za-z \/]+): /g, '$1: -<br>$2: '); // they say second time's the charm... when you don't wanna lookback, i suppose
+}
+
+
+const usrLinks = document.querySelectorAll('a[href^="/u"]');
+let lastLoadedUsr = -1;
+let lastUserData = null;
+let timer = null;
+
+for (let i = 0, len = usrLinks.length; i < len; i++) {
+  
+  const _i = i;
+  const usr = usrLinks[i];
+  const tooltip = new Opentip(usr, { showOn: null, hideOn: 'mouseleave', style: 'dark' });
+
+  // Hide the tooltip on focus so we don't bother the user while editing.
+  usr.addEventListener("mouseover", function() {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    
+    timer = setTimeout(function() {
+      if (lastLoadedUsr === _i && lastUserData) { // maybe check if content is empty or add to array of bool? since opentip doesnt unload anything ever
+        tooltip.setContent(lastUserData);
+        tooltip.show(); 
+      } else {
+        console.log('mouseover');
+        tooltip.setContent('Loading...');
+        tooltip.show(); 
+
+        $.get(usr.href, function(data) {
+          //tooltip.setContent(data);
+
+          const parser=new DOMParser();
+          const htmlDoc=parser.parseFromString(data, "text/html");
+          const cont = readUser(htmlDoc);
+          tooltip.setContent(cont);
+          lastUserData = cont;
+          lastLoadedUsr = _i;
+          
+          console.log("Load was performed.");
+        });
+      }
+    }, 1000);
+    
+  });
+  usr.addEventListener("mouseleave", function() {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    
+    console.log('mouseleave');
+    tooltip.hide();
+  });
+  usr.addEventListener("mouseout", function() {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    
+    console.log('mouseout');
+    tooltip.hide();
   });
 }
