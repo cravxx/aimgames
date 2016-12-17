@@ -1,0 +1,20 @@
+// ==UserScript==
+// @name        YouTube Improvements
+// @description Make your youtube experience (slightly) less cancerous.
+// @namespace   notareal@em.ail
+// @include     https://www.youtube.com/feed/subscriptions/
+// @include     http://www.youtube.com/feed/subscriptions/
+// @include     https://www.youtube.com/watch*
+// @include     http://www.youtube.com/watch*
+// @version     1.18
+// @grant       GM_addStyle
+// @license     MIT License (Expat); opensource.org/licenses/MIT
+// ==/UserScript==
+'use strict';var d=this,Symbol;function e(){d.Symbol||(Symbol=g);e=function(){}}var h=0;function g(a){return"jscomp_symbol_"+a+h++}function k(){e();Symbol.iterator||(Symbol.iterator=Symbol("iterator"));k=function(){}}
+function l(){var a=document.querySelectorAll(".stat.view-count");k();if(a[Symbol.iterator])return a[Symbol.iterator]();if(!(a instanceof Array||"string"==typeof a||a instanceof String))throw new TypeError(a+" is not iterable");var c=0;return{next:function(){return c==a.length?{done:!0}:{done:!1,value:a[c++]}}}}
+var m="bit.ly;goo.gl;dl.dropbox.com/s/;disq.us;adf.ly;my channel;turn subtitles;cyka blyat;insert obligatory ;\ud83c\udd7e;\ud83c\udd70;1051541451431641621571721571511441234567881234567812345678123678326470547;i'm early;im early;i'm so early;this early;notification;1 like;1 sub;1 comment;dislike;let's do the alphabet;lets do the alphabet;likes for no reason;like and in ;can i get likes".split(";"),n=[/\b\d view\b/i,/first$/i,/frist$/i,/[0-9]+ likes and ([0-9]+|no|zero) views/i,/under [0-9]+ (club|views)/i,
+/^[A-Za-z]$/,/\b[Xx]D+\b/,/\bfat\b/i,/\bkys\b/i,/^I have a request/,/^like if/i];if(!document.location.href.startsWith("https://www.youtube.com/feed/subscriptions/")){for(var p=l(),q=p.next();!q.done;q=p.next()){var r=q.value;(r.textContent.startsWith("Recommended")||r.textContent.startsWith("Recomendado"))&&r.parentNode.parentNode.parentNode.parentNode.removeChild(r.parentNode.parentNode.parentNode)}GM_addStyle('.comment-renderer-text-content > b {\n      font-weight: bold;\n  }\n  /*space after comma for tags*/\n  .watch-meta-item .watch-info-tag-list li::after {\n      content: ", ";\n  }')}
+var t=[/\sA\s/g,/\sAn\s/g,/\sThe\s/g,/\sAnd\s/g,/\sBut\s/g,/\sOr\s/g,/\sFor\s/g,/\sNor\s/g,/\sAs\s/g,/\sAt\s/g,/\sBy\s/g,/\sFor\s/g,/\sFrom\s/g,/\sIn\s/g,/\sInto\s/g,/\sNear\s/g,/\sOf\s/g,/\sOn\s/g,/\sOnto\s/g,/\sTo\s/g,/\sWith\s/g],u="a an the and but or for nor as at by for from in into near of on onto to with".split(" "),v=t.length,w=["ID","TV"];
+function x(a){a=a.replace(/([^\W_]+[^\s-]*) */g,function(a){return-1!=w.indexOf(a)?a:a[0].toUpperCase()+a.substr(1).toLowerCase()});for(var c=0;c<v;c++)a=a.replace(t[c]," "+u[c]+" ");return a}GM_addStyle("\n@keyframes cccnodeInserted {  \n    from {  \n        outline-color: #fff; \n    }\n    to {  \n        outline-color: #000;\n    }  \n}\n\n.comment-renderer-text {\n    animation-duration: 0.01s;\n    animation-name: cccnodeInserted;\n}\n\n@keyframes cccvideoTitle {  \n    from {  \n        outline-color: #fff; \n    }\n    to {  \n        outline-color: #000;\n    }  \n}\n\n.yt-lockup-title > a {\n    animation-duration: 0.01s;\n    animation-name: cccvideoTitle;\n}\n");
+document.addEventListener("animationstart",function(a){if("cccnodeInserted"==a.animationName){var c=a.target;a=c.children[0].textContent;var b;a:{b=a.toLowerCase();for(var f=0;f<m.length;f++)if(-1<b.indexOf(m[f])){b=!0;break a}for(b=0;b<n.length;b++)if(n[b].test(a)){b=!0;break a}b=a.toUpperCase()===a&&/[A-Z]/.test(a)?!0:!1}if(b){b=c.parentElement.parentElement.parentElement;if(b.parentElement.parentElement.className.startsWith("comment-replies-renderer")||b.className.startsWith("comment-replies-renderer"))b=
+c.parentElement.parentElement;for(;b.firstChild;)b.removeChild(b.firstChild);c=document.createElement("span");c.setAttribute("style","color: rgb(170, 170, 170);");c.title=a;a=document.createElement("i");a.textContent="Comment removed. Be proud!";c.appendChild(a);b.appendChild(c)}}else"cccvideoTitle"==a.animationName&&(a=a.target,a.textContent.toUpperCase()===a.textContent&&(a.textContent=x(a.textContent)))},!0);
