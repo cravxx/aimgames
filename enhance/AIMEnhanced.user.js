@@ -22,7 +22,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.38
+// @version     0.39
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -392,11 +392,12 @@ if (textArea) {
     textArea.value = styleMin + '\n' + textArea.value;
   }
 
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function(e) { // TODO instead of use keydown, grab post button event
     if (e.which == 13) { // key is 'enter'
       textArea.value = textArea.value
         .replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
-        .replace(/`([^]+?)`/g, '<samp>$1</samp>'); // inline code
+        .replace(/`([^]+?)`/g, '<samp>$1</samp>') // inline code
+        .replace(/\[gist\]([^]+?)\[\/gist\]/g, '<iframe src="http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"></iframe>'); // embedded gists
     }
   }, false);
 
