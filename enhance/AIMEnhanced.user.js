@@ -22,7 +22,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.39
+// @version     0.40
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -343,9 +343,11 @@ GM_addStyle(`
 }
 `);
 
+// the codemirror editor
+let editor;
 function loadCodeMirror(org) {
   // add new cm editor
-  const editor = CodeMirror.fromTextArea(org, {
+  editor = CodeMirror.fromTextArea(org, {
     mode           : "bbcodemixed",
     tabSize        : 2,
     indentUnit     : 2,
@@ -380,6 +382,12 @@ function loadCodeMirror(org) {
   }
 }
 
+function processMarkdown(txt) {
+   return txt.replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
+             .replace(/`([^]+?)`/g, '<samp>$1</samp>') // inline code
+             .replace(/\[gist\]([^]+?)\[\/gist\]/g, '<iframe src="http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"></iframe>'); // embedded gists
+}
+
 const styleMin = style
   .replace(/^\s+/gm, '') // remove whitespace
   .replace(/(\r\n|\n)/g, '') // remove newlines
@@ -392,14 +400,23 @@ if (textArea) {
     textArea.value = styleMin + '\n' + textArea.value;
   }
 
-  document.addEventListener('keydown', function(e) { // TODO instead of use keydown, grab post button event
-    if (e.which == 13) { // key is 'enter'
-      textArea.value = textArea.value
-        .replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
-        .replace(/`([^]+?)`/g, '<samp>$1</samp>') // inline code
-        .replace(/\[gist\]([^]+?)\[\/gist\]/g, '<iframe src="http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"></iframe>'); // embedded gists
-    }
-  }, false);
+  const previewButton = document.querySelector('.liteoption[name=preview]');
+  if (previewButton) {
+    previewButton.addEventListener('click', (e) => { // TODO is this kind of event fast enough? seems like it, needs more testin'
+      editor.setValue(processMarkdown(editor.getValue()));
+      console.log('clicked!!!');
+      //e.preventDefault();
+    });
+  }
+  
+  const postButton = document.querySelector('.mainoption[name=post]');
+  if (postButton) {
+    postButton.addEventListener('click', (e) => {
+      editor.setValue(processMarkdown(editor.getValue()));
+      console.log('clicked!!!');
+      //e.preventDefault();
+    });
+  }
 
   // load our new editor (replacing the existing one)
   if (window.$.sceditor) {
