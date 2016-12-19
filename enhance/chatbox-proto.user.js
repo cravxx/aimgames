@@ -18,6 +18,10 @@
 // internal (added) features are prefixed with a _ (underscore)
 // daily reminder that you must explicitly assign a property to `window` for it to be exported from grease to the page
 
+// refer to listen() and initListening() if you want to fuck with the regresh system,
+// get() and refresh() are just the lower-level funcs used by those
+// the 35000ms timeout might be what you seek
+
 var Chatbox = window.Chatbox = function(tid, params) {
   this.tid = tid;
   this.params = params;
@@ -33,7 +37,7 @@ var Chatbox = window.Chatbox = function(tid, params) {
   this.messages = [];
   this.users = [];
   this.listenParams = {};
-  //
+  //add a hansen param so we can tell if the script is working or not at any point
   this._hansen = true;
 };
 function _cloneChatbox(base) {
