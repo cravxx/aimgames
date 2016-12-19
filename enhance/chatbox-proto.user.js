@@ -3,6 +3,10 @@
 
 // there are many other ways of doing this, but i wanted to avoid run-at document-start for this one
 // so instead of preventing the original chatbox proto from loading we simply inject our own after it's done
+// the downside of that is that you MUST use @grant none and it might load a teeny bit slower
+
+// internal (added) features are prefixed with a _ (underscore)
+// daily reminder that you must explicitly assign a property to `window` for it to be exported from grease to the page
 
 var Chatbox = window.Chatbox = function(tid, params) {
   this.tid = tid;
@@ -19,7 +23,34 @@ var Chatbox = window.Chatbox = function(tid, params) {
   this.messages = [];
   this.users = [];
   this.listenParams = {};
+  //
+  this._hansen = true;
 };
+function _cloneChatbox(base) {
+  /*
+  reference model:
+  
+  var chatbox = new Chatbox("<my secret session ID>", {
+    "archives": 0,
+    "avatar": 0
+  });
+  chatbox.userId = 2548;
+  chatbox.connected = false;
+  chatbox.defaultColor = '#dfdfdf';
+  if (document.location.href.indexOf('chatbox', 1) == -1) {
+    $('#divcolor').css('display', 'none');
+    $('#divsmilies').css('display', 'none');
+  }
+  chatbox.init();
+  */
+  
+  var chatbox = window.chatbox = new Chatbox(base.tid, base.params);
+  chatbox.userId = base.userId;
+  chatbox.connected = base.connected;
+  chatbox.defaultColor = base.defaultColor;
+  
+  chatbox.init();
+}
 Chatbox.prototype.init = function(noget) {
   this.get();
   if (this.connected) {
@@ -322,3 +353,5 @@ if (!String.prototype.trim) {
     return this.replace(/^\s+/g, '').replace(/\s+$/g, '');
   }
 }
+
+_cloneChatbox(window.chatbox);
