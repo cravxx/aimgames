@@ -1,3 +1,13 @@
+// ==UserScript==
+// @name        Chatbox Proto
+// @description (for developers)
+// @namespace   notareal@em.ail
+// @include     http://aimgames.forummotion.com/chatbox/*
+// @version     chatbox8-0.1
+// @grant       none
+// @license     MIT License (Expat); opensource.org/licenses/MIT
+// ==/UserScript==
+
 // prototype implementation for the chatbox
 // this allows you to extend and modify features without relying on its inner workings
 
