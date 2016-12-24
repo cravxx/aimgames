@@ -4,7 +4,7 @@
 // @namespace   a@nus.avi
 // @include     http://mods.factorio.com/*
 // @include     https://mods.factorio.com/*
-// @version     1.4
+// @version     1.6
 // @grant       GM_xmlhttpRequest
 // @grant       GM_addStyle
 // ==/UserScript==
@@ -13,13 +13,12 @@
 
 const msg = window.alert.bind(window);//msg function
 
-const tframe = document.createElement('iframe');
-tframe.setAttribute('id', 'tiframe');
-document.body.appendChild(tframe);
+let globalIncrement=0;
 
-function downloadMod(modUrl) {
+function downloadMod(modUrl, callback) {
   if (modUrl.trim().length == 0) {
     msg('Input cannot be empty');
+    callback(false);
   } else {
     const param = 'mod=' + encodeURI(modUrl);
     
@@ -34,12 +33,19 @@ function downloadMod(modUrl) {
         const data = JSON.parse(response.responseText);
         if (data === null) {
           msg('Could not contact API' + ' url: ' + param);
+          callback(false);
         } else if (!data.success) {
           msg('[failed] ' + data.error + ' url: ' + param);
+          callback(false);
         } else if (!data.url) {
           msg('Unexpected error' + ' url: ' + param);
+          callback(false);
         } else {
+          const tframe = document.createElement('iframe');
+          tframe.setAttribute('id', 'tiframe-'+(globalIncrement++));
           tframe.setAttribute('src', data.url);
+          document.body.appendChild(tframe);
+          callback(true);
         }
       }
     });
@@ -61,7 +67,10 @@ function handleNode(f) {
   // years of javascript on top of javascript teaches you this kind of sync-async stuff
   const staticref = f.children[1].firstChild.firstChild.href;
   but1.addEventListener("click", () => {
-    downloadMod(staticref);
+    but4.textContent = 'DOWNLOADING...';
+    downloadMod(staticref, b => {
+      but4.textContent = b?"DOWNLOADED!":"DOWNLOAD FAILED!";
+    });
   }); 
 
   but3.appendChild(but4);
