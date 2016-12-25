@@ -15,7 +15,7 @@ const files = {
   "bbcode.js": "https://raw.githubusercontent.com/rosmanov/CodeMirror-modes/master/bbcode/bbcode.js",
   "bbcodemixed.js": "https://raw.githubusercontent.com/rosmanov/CodeMirror-modes/master/bbcodemixed/bbcodemixed.js",
   "opentip-native.js": "https://raw.githubusercontent.com/enyo/opentip/master/downloads/opentip-native.js",
-  "editorbuttons.js": "https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/editorbuttons.js",
+  "editorbuttons.js": "./enhance/editorbuttons.js",
   "prism.js": "./enhance/prism.js",
 };
 
