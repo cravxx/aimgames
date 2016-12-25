@@ -22,7 +22,7 @@ build_script:
  #- cmd: SET tempath=%PATH%
  - cmd: SET PATH=C:\Program Files\Java\jdk1.8.0\bin;%PATH%
  - build.bat
- - node build\uglify-resource.js
+ - node build\uglify-resources.js
 
 skip_commits:
   # Regex for matching commit message
@@ -42,6 +42,7 @@ on_success:
 # Bug: when someone commits multiple times too fast, the build will fail
  - git checkout master
  - git add bin/*
+ - git add enhance/resources/*
 # add custom files (to be beautified) here. unfortunately idk how to read them from the build.bat
 # so you'll have to add them twice...
 #
