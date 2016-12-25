@@ -1,4 +1,9 @@
 
+environment:
+  nodejs_version: "7.3.0"
+  access_token:
+   secure: wShbQfYcfaf2ZgU8dFgLTVJglCyGiK9/BHWcEbVZ4sU8SqxokPc4pFfl1ZY4qtlO
+
 before_build:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
@@ -19,11 +24,6 @@ build_script:
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
  - build.bat
  - node build\uglify-resource.js
-
-environment:
-  nodejs_version: "7.3.0"
-  access_token:
-   secure: wShbQfYcfaf2ZgU8dFgLTVJglCyGiK9/BHWcEbVZ4sU8SqxokPc4pFfl1ZY4qtlO
 
 skip_commits:
   # Regex for matching commit message
