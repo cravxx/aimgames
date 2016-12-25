@@ -17,6 +17,7 @@ const files = {
   "opentip-native.js": "https://raw.githubusercontent.com/enyo/opentip/master/downloads/opentip-native.js",
   "editorbuttons.js": "./enhance/editorbuttons.js",
   "prism.js": "./enhance/prism.js",
+  "usernamehistory.js": "./enhance/usernamehistory.js",
 };
 
 const keys = Object.keys(files);
