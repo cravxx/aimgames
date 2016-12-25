@@ -1,5 +1,7 @@
 // bbcode editor button definitions for AIM Enhanced.
 
+'use strict';
+
 if (!window._hansen)
   window._hansen = {};
 
