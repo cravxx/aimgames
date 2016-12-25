@@ -4,7 +4,7 @@
 // @namespace   a@nus.avi
 // @include     http://mods.factorio.com/*
 // @include     https://mods.factorio.com/*
-// @version     1.6
+// @version     1.9
 // @grant       GM_xmlhttpRequest
 // @grant       GM_addStyle
 // ==/UserScript==
@@ -80,6 +80,37 @@ function handleNode(f) {
   f.insertBefore(but1, f.children[1]);
 }
 
+function handleThumbnail(el) {
+  const imgsrc = el.children[0].src;
+  // class: gallery-thumbnail
+  function onclick(e) {//allows to remove
+    const outerdiv = document.createElement('div');
+    outerdiv.setAttribute('id', 'fitscren');
+    outerdiv.setAttribute('class', 'h-trans-start');//(implicit) invisible
+    
+    const innerimg = document.createElement('img');
+    innerimg.setAttribute('src', imgsrc.replace(/\.thumb\./, '.'));
+    
+    outerdiv.appendChild(innerimg);
+    document.body.appendChild(outerdiv);
+    setTimeout(() => {
+      outerdiv.setAttribute('class', 'h-trans-end');//fade in
+      
+      function bodyonclick(e) {
+        setTimeout(() => {
+          document.body.removeChild(outerdiv);
+        }, 300);
+        outerdiv.setAttribute('class', 'h-trans-start');//fade out
+        document.body.removeEventListener('click', bodyonclick);
+      }
+
+      document.body.addEventListener('click', bodyonclick);// bodyonclick is here, because otherwise the event dispatches too quickly and the image is removed instantly
+    }, 100);
+    
+  }
+  el.addEventListener('click', onclick);
+}
+
 GM_addStyle(`
 @keyframes cccnodeInserted {  
     from {  
@@ -93,10 +124,68 @@ GM_addStyle(`
     animation-duration: 0.01s;
     animation-name: cccnodeInserted;
 }
+
+@keyframes eeenodeInserted {  
+    from {  
+        outline-color: #fff; 
+    }
+    to {  
+        outline-color: #000;
+    }  
+}
+.gallery-thumbnail {
+    animation-duration: 0.01s;
+    animation-name: eeenodeInserted;
+}
+
+
+/*css fixes*/
+.discussion-pagination-page.active, .discussion-pagination-page.active > a {
+    cursor: default !important;
+    cursor: context-menu !important;
+}
+.tag > span {
+    text-align: center;
+    vertical-align: middle;
+}
+/*fullscreen img display*/
+#fitscren {
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background:#0000004d;
+    background-size: cover;
+    z-index: 90000;
+    transition: all 0.5s ease;
+    /*! transition: visibility 0s ease 300ms; */
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+#fitscren > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 90000;
+}
+.h-trans-start {
+    opacity: 0;
+}
+.h-trans-end {
+    opacity: 1;
+}
 `);
 
 document.addEventListener('animationstart', function(event){
   if (event.animationName == 'cccnodeInserted'){
     handleNode(event.target);
+  } else if (event.animationName == 'eeenodeInserted'){
+    handleThumbnail(event.target);
   }
 }, true);
