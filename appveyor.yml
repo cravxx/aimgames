@@ -1,12 +1,11 @@
 
 environment:
-  nodejs_version: "7.3.0"
   access_token:
    secure: wShbQfYcfaf2ZgU8dFgLTVJglCyGiK9/BHWcEbVZ4sU8SqxokPc4pFfl1ZY4qtlO
 
 before_build:
   # Get the latest stable version of Node.js or io.js
-  - ps: Install-Product node $env:nodejs_version
+  - ps: Install-Product node 7.3.0
   # install modules
   - npm install
   
