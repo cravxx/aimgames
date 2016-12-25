@@ -5,7 +5,7 @@ environment:
 
 before_build:
   # Get the latest stable version of Node.js or io.js
-  - ps: Install-Product node 7.3.0
+  - ps: Install-Product node stable
   # install modules
   - npm install
   
