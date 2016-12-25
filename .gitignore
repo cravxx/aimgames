@@ -7,3 +7,4 @@ build/myincrement.bat
 build/AddUserscriptLines.jar
 build/IncrementBuildNumber.jar
 build/BeautifyScript.jar
+/node_modules/
