@@ -22,13 +22,20 @@ const files = {
 const keys = Object.keys(files);
 function iterate(i, k) {
   
-  console.log(i, k, files[k]);
+  process.stdout.write(''+i+' '+k+' '+files[k]);
 
   const file = fs.createWriteStream("./enhance/resources/" + k);
   const respHandler = (response) => {
     const stream = response.pipe(file);
+    let len = 0;
+    
+    response.on('data', (chunk) => {
+      len += chunk.length;
+    });
     stream.on('finish', () => {
       const result = uglifyJS.minify([ "./enhance/resources/" + k ]);
+      
+      console.log(' saved: ' + (len-result.code.length) + ' bytes (' + Math.floor((result.code.length/len)*100)+ '%)');
       
       fs.writeFile("./enhance/resources/" + k, result.code, err => {
         if (err) console.error(err);
