@@ -1,3 +1,19 @@
+
+environment:
+  nodejs_version: "7.3.0"
+  
+before_build:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+  
+# Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+
 # Appveyor doesn"t have JDK 8 by default in PATH so we must set it
 
 build_script: 
@@ -5,6 +21,7 @@ build_script:
  - cmd: SET tempath=%PATH%
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
  - build.bat
+ - node build\uglify-resource.js
 
 environment:
   access_token:
