@@ -3,17 +3,17 @@
 // @description Improves posting on AIM. Adds partial markdown support and other fun stuff.
 // @namespace   notareal@em.ail
 // @require     https://code.jquery.com/jquery-3.1.1.min.js
-// @require     http://codemirror.net/lib/codemirror.js
-// @require     http://codemirror.net/mode/css/css.js
-// @require     http://codemirror.net/mode/xml/xml.js
-// @require     http://codemirror.net/mode/vbscript/vbscript.js
-// @require     http://codemirror.net/mode/javascript/javascript.js
-// @require     http://codemirror.net/mode/htmlmixed/htmlmixed.js
-// @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcode/bbcode.js
-// @require     https://github.com/rosmanov/CodeMirror-modes/raw/master/bbcodemixed/bbcodemixed.js
-// @require     https://github.com/enyo/opentip/raw/master/downloads/opentip-native.js
-// @require     https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/editorbuttons.js
-// @require     https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/codemirror.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/css.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/xml.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/vbscript.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/javascript.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/htmlmixed.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/bbcode.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/bbcodemixed.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/opentip-native.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/editorbuttons.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/prism.js
 // @resource    codemirrorBaseCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-base.css
 // @resource    codemirrorThemeCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-theme.css
 // @resource    prismCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.css
@@ -22,7 +22,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.40
+// @version     0.44
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -42,9 +42,9 @@
 // https://wiki.greasespot.net/XPCNativeWrapper
 // https://wiki.greasespot.net/Expando_Properties
 
-GM_log(GM_info);
-
 'use strict';
+
+GM_log(GM_info);
 
 // TODO: this...
 //const buttons = _hansen.buttons;
@@ -341,11 +341,63 @@ GM_addStyle(`
 .code:not(.spoiler) {
   background: #272822 !important;
 }
+
+/* 'image has been scaled to fit screen' msg */
+/*fitimg is an anchor, that works w/ display:block*/
+.h-fitimg {
+	background-color: #231717;
+    padding-left: 5px;
+    padding-right: 5px;
+    /*width: 99.093%;*/
+	cursor: pointer;
+	border: solid 1px #2F2929; /*chrome and shit*/
+	border: solid 1px #2F2929CC; /*modern firefox*/
+    display: block;
+}
+.h-fitimg:hover {
+    text-decoration: none !important;
+}
+/*resize the imgs themselvers*/
+.postbody > div > img {
+  max-width: 100%;
+}
+/**/
+img[src="https://illiweb.com/fa/extremedarkred/navfolder.gif"] {
+	background-image: url('http://i.imgur.com/MCyr6Y1.png');
+	object-position: -20px 20px;
+	background-size: cover;
+  margin-right: 2px;
+}
+
+img[src="https://illiweb.com/fa/extremedarkred/icon_minipost.gif"] {
+  background-image: url('http://i.imgur.com/jat1H4q.png');
+  object-position: -20px 20px;
+  background-size: cover;
+  /*margin-right: 2px;*/
+
+  vertical-align: 0px;
+  margin-right: 0px;
+}
+
+img[src="http://i71.servimg.com/u/f71/14/03/33/42/locked12.gif"] {
+  background-image: url('http://i.imgur.com/DXwHC1o.png'); /*also url('http://i.imgur.com/u3StReB.png');*/
+  object-position: -20px 20px;
+  background-size: cover;
+  margin-right: 2px;
+
+  vertical-align: -1px;
+}
+
 `);
 
 // the codemirror editor
 let editor;
 function loadCodeMirror(org) {
+  // fix the scrolling
+  const _doc = document.documentElement;
+  //const left = (window.pageXOffset || _doc.scrollLeft) - (_doc.clientLeft || 0);
+  const scrollTop = (window.pageYOffset || _doc.scrollTop)  - (_doc.clientTop || 0);
+
   // add new cm editor
   editor = CodeMirror.fromTextArea(org, {
     mode           : "bbcodemixed",
@@ -380,6 +432,10 @@ function loadCodeMirror(org) {
       previewDetect.insertBefore(createButtons(editor), previewDetect.firstChild);
     }
   }
+  
+  window.scrollTo(scrollTop, 0);
+  
+  setTimeout(()=>window.scrollTo(scrollTop, 0), 0);
 }
 
 function processMarkdown(txt) {
@@ -625,6 +681,8 @@ function selectText(container) {
 
 for (let i = 0, len = codeboxes.length; i < len; i++) {
   const header = codeboxes[i].children[0];
+  if (header.firstChild.firstChild.firstChild.tagName=='A') continue; // UH OH! we've accidentally stumbled into a _quote_! that's not gonna work at all! TODO handle quotes without mentions
+  
   const content = codeboxes[i].children[1].children[0];
   
   if (!content) continue; // if we're not working with a real codebox, just in case
@@ -740,3 +798,25 @@ function syntaxHighlight() {
 window.addEventListener('load', function() {
   syntaxHighlight();
 }, false);
+
+// add the thingy for resize images to size and stuff
+const images = document.querySelectorAll('.postbody > div > img');
+
+for (let i = 0, len = images.length; i < len; i++) {
+  if (images[i].clientWidth > 0 && images[i].naturalWidth !== images[i].clientWidth) { // if clientwidth==0 then img is not visible
+    const el = document.createElement('a');
+    el.setAttribute('class', 'h-fitimg');
+    el.setAttribute('href', images[i].src);
+    el.appendChild(document.createTextNode('Image scaled to fit screen. Click to show original size...'));
+    images[i].parentElement.insertBefore(el,images[i]);
+  }
+}
+
+// un-adfly links
+const postLinks = document.querySelectorAll('a[href*="/http"]');
+
+for (let i = 0, len = postLinks.length; i < len; i++) {
+  const realurl = postLinks[i].href.substring(postLinks[i].href.indexOf('/http')+1);
+  postLinks[i].setAttribute('href', realurl);
+  postLinks[i].textContent = realurl;
+}
