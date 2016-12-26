@@ -6,7 +6,7 @@
 // @include     http://www.youtube.com/feed/subscriptions/
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.19
+// @version     1.20
 // @grant       GM_addStyle
 // @grant       GM_setValue
 // @grant       GM_getValue
@@ -193,19 +193,23 @@ function handleCase(el) {
 
 // 
 function handleThumbnail(el) {
-  const vidLink = el.children[0].href;
-  const vidProgress = GM_getValue(vidLink+'_progress');
-  const vidDuration = GM_getValue(vidLink+'_duration');
+  const vidLink = el.children[0].getAttribute('href').replace(/(\&|\&amp;)t=.*/, '');
   
-  if (vidProgress && vidDuration) {
+  const vidProgress = GM_getValue(vidLink+'_progress', null);
+  const vidDuration = GM_getValue(vidLink+'_duration', null);
+  
+  if (vidProgress!==null && vidDuration!==null) {
+    console.log(el);
+    console.log(vidLink);
+    
     const progBack = document.createElement('span');
     progBack.setAttribute('class', 'hansen-resume-playback-background');
     const progFore = document.createElement('span');
     progFore.setAttribute('class', 'hansen-resume-playback-progress-bar');
     progFore.setAttribute('style', 'width:' + Math.floor((vidProgress / vidDuration)*100) + '%;');
     
-    el.appendBefore(el.children[2], progBack);
-    el.appendBefore(el.children[2], progFore);
+    el.insertBefore(progBack, el.children[2]);
+    el.insertBefore(progFore, el.children[2]);
   }
 }
 
@@ -274,7 +278,7 @@ GM_addStyle(`
     }  
 }
 
-.thumb-wrapper {
+.thumb-wrapper, .yt-lockup-thumbnail {
     animation-duration: 0.01s;
     animation-name: cccvideoThumbnail;
 }
@@ -296,7 +300,7 @@ video {
 /*replaces the 'WATCHED' video thing*/
 .hansen-resume-playback-progress-bar {
   background-color: rgb(230, 33, 23);
-  bottom: 0px;
+  /*bottom: 0px;*/
   font-family: Roboto,arial,sans-serif;
   font-size: 13px;
   height: 4px;
@@ -308,15 +312,19 @@ video {
   position: absolute;
   right: 0px;
   text-align: left;
-  top: 90px;
+  /*top: 90px;*/
   transform-origin: 84px 2px;
-  width: 168px;
+  /*width: 168px;*/
   -moz-column-gap: 13px;
+    
+  top: auto;
+  bottom: 0;
+  z-index: 1;/*doesnt need to be 99999 or whatever :)*/
 }
 
 .hansen-resume-playback-background {
   background-color: rgb(238, 238, 238);
-  bottom: 0px;
+  /*bottom: 0px;*/
   font-family: Roboto,arial,sans-serif;
   font-size: 13px;
   height: 4px;
@@ -329,10 +337,14 @@ video {
   position: absolute;
   right: 0px;
   text-align: left;
-  top: 90px;
+  /*top: 90px;*/
   transform-origin: 84px 2px;
-  width: 168px;
+  /*width: 168px;*/
   -moz-column-gap: 13px;
+    
+  width: 100%;
+  top: auto;
+  bottom: 0;
 }
 
 .resume-playback-background, .resume-playback-progress-bar { display:none !important; }
