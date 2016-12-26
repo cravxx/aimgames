@@ -6,8 +6,12 @@
 // @include     http://www.youtube.com/feed/subscriptions/
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.18
+// @version     1.19
 // @grant       GM_addStyle
+// @grant       GM_setValue
+// @grant       GM_getValue
+// @grant       GM_info
+// @grant       GM_listValues
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
 
@@ -184,6 +188,53 @@ function handleCase(el) {
   }
 }
 
+// VID LINK STRUCTURE:
+// /watch?v=_y3jCecdYfk
+
+// 
+function handleThumbnail(el) {
+  const vidLink = el.children[0].href;
+  const vidProgress = GM_getValue(vidLink+'_progress');
+  const vidDuration = GM_getValue(vidLink+'_duration');
+  
+  if (vidProgress && vidDuration) {
+    const progBack = document.createElement('span');
+    progBack.setAttribute('class', 'hansen-resume-playback-background');
+    const progFore = document.createElement('span');
+    progFore.setAttribute('class', 'hansen-resume-playback-progress-bar');
+    progFore.setAttribute('style', 'width:' + Math.floor((vidProgress / vidDuration)*100) + '%;');
+    
+    el.appendBefore(el.children[2], progBack);
+    el.appendBefore(el.children[2], progFore);
+  }
+}
+
+// restore video to loaded time when opening a new one
+function handleVideo(el) {
+  
+  let videoId = window.location.href;
+  const amp = videoId.indexOf('&');
+  videoId = videoId.substring(videoId.indexOf('/watch?v='), amp == -1 ? videoId.length : amp);
+  
+  if(el.currentTime<=1) el.currentTime = GM_getValue(videoId+'_progress', 0);
+  
+  GM_setValue(videoId+'_duration', el.duration);
+  
+  window.addEventListener('beforeunload', function() {
+    GM_setValue(videoId+'_progress', el.currentTime);
+    GM_setValue(videoId+'_duration', el.duration);
+  });
+}
+
+// debug log
+const notifs = document.getElementById('yt-masthead-notifications-button');
+if (notifs !== null) {
+  notifs.addEventListener('click', e=> {
+    e.preventDefault();
+    alert(JSON.stringify(GM_info, null, 2)+'\n'+JSON.stringify(GM_listValues(), null, 2));
+  })
+}
+
 // dirty hack to check for an inserted node from http://stackoverflow.com/a/10343915
 GM_addStyle(`
 @keyframes cccnodeInserted {  
@@ -213,6 +264,78 @@ GM_addStyle(`
     animation-duration: 0.01s;
     animation-name: cccvideoTitle;
 }
+
+@keyframes cccvideoThumbnail {  
+    from {  
+        outline-color: #fff; 
+    }
+    to {  
+        outline-color: #000;
+    }  
+}
+
+.thumb-wrapper {
+    animation-duration: 0.01s;
+    animation-name: cccvideoThumbnail;
+}
+
+@keyframes cccvideoElement {  
+    from {  
+        outline-color: #fff; 
+    }
+    to {  
+        outline-color: #000;
+    }  
+}
+
+video {
+    animation-duration: 0.01s;
+    animation-name: cccvideoElement;
+}
+
+/*replaces the 'WATCHED' video thing*/
+.hansen-resume-playback-progress-bar {
+  background-color: rgb(230, 33, 23);
+  bottom: 0px;
+  font-family: Roboto,arial,sans-serif;
+  font-size: 13px;
+  height: 4px;
+  left: 0px;
+  line-height: 16.1px;
+  list-style-type: none;
+  overflow-wrap: break-word;
+  perspective-origin: 84px 2px;
+  position: absolute;
+  right: 0px;
+  text-align: left;
+  top: 90px;
+  transform-origin: 84px 2px;
+  width: 168px;
+  -moz-column-gap: 13px;
+}
+
+.hansen-resume-playback-background {
+  background-color: rgb(238, 238, 238);
+  bottom: 0px;
+  font-family: Roboto,arial,sans-serif;
+  font-size: 13px;
+  height: 4px;
+  left: 0px;
+  line-height: 16.1px;
+  list-style-type: none;
+  opacity: 0.6;
+  overflow-wrap: break-word;
+  perspective-origin: 84px 2px;
+  position: absolute;
+  right: 0px;
+  text-align: left;
+  top: 90px;
+  transform-origin: 84px 2px;
+  width: 168px;
+  -moz-column-gap: 13px;
+}
+
+.resume-playback-background, .resume-playback-progress-bar { display:none !important; }
 `);
 
 document.addEventListener('animationstart', function(event){
@@ -220,5 +343,9 @@ document.addEventListener('animationstart', function(event){
     handleNode(event.target);
   } else if (event.animationName == 'cccvideoTitle') {
     handleCase(event.target);
+  } else if (event.animationName == 'cccvideoThumbnail') {
+    handleThumbnail(event.target);
+  } else if (event.animationName == 'cccvideoElement') {
+    handleVideo(event.target);
   }
 }, true);
