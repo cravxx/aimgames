@@ -6,7 +6,7 @@
 // @include     http://www.youtube.com/feed/subscriptions/
 // @include     https://www.youtube.com/watch*
 // @include     http://www.youtube.com/watch*
-// @version     1.20
+// @version     1.21
 // @grant       GM_addStyle
 // @grant       GM_setValue
 // @grant       GM_getValue
@@ -214,6 +214,7 @@ function handleThumbnail(el) {
 }
 
 // restore video to loaded time when opening a new one
+let madeInterval = false;
 function handleVideo(el) {
   
   let videoId = window.location.href;
@@ -225,9 +226,33 @@ function handleVideo(el) {
   GM_setValue(videoId+'_duration', el.duration);
   
   window.addEventListener('beforeunload', function() {
-    GM_setValue(videoId+'_progress', el.currentTime);
     GM_setValue(videoId+'_duration', el.duration);
+    
+    if (el.currentTime != el.duration) {
+      GM_setValue(videoId+'_progress', el.currentTime);
+    } else {
+      // we've finished the video, so reset it
+      GM_setValue(videoId+'_progress', 0);      
+    }
   });
+  
+  // onbeforeunload is not brilliantly reliable so let's keep ticking it every 30s
+  if (!madeInterval) {
+    madeInterval = true;
+    setInterval(() => {
+      const prevValue = GM_getValue(videoId+'_progress', false);
+      if (!prevValue || prevValue < el.currentTime) {
+        GM_setValue(videoId+'_progress', el.currentTime);
+
+        if (el.currentTime != el.duration) {
+          GM_setValue(videoId+'_progress', el.currentTime);
+        } else {
+          // we've finished the video, so reset it
+          GM_setValue(videoId+'_progress', 0);      
+        }
+      }
+    }, 30*1000)
+  }
 }
 
 // debug log
