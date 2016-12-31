@@ -6,3 +6,4 @@ build/**
 **.compiled.user.js
 **.min.js
 trash/**
+enhance/resources/**
