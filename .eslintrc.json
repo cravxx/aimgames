@@ -46,7 +46,8 @@
       "error",
       {
         "vars": "all",
-        "args": "after-used"
+        "args": "after-used",
+        "varsIgnorePattern": "\\b(buttons|_replRegex|_replCallback|swearifyLite|usernameHistory|getProcessedStyle|_unsafeWindow|wipeHeader|outputFormat|_REAL_FUNC_|_setTimeout|_setInterval)\\b"
       }
     ],
     "semi": [
