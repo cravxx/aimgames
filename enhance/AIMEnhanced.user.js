@@ -23,7 +23,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.46
+// @version     0.47
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -556,7 +556,9 @@ function readUser(document) {
     
     const username = document.querySelectorAll('.genmed.module-title')[0].textContent.trim().replace(/ \(online\)/, '');
     mass = 'Username history: ' + (usernameHistory[username] || username) + '<br>';
-  } catch(e) {mass='Username history: ' + e + '<br>';}
+  } catch(e) {
+    mass='Username history: ' + e + '<br>';
+  }
 
   Array.slice(advdet.children).forEach((e) => {
     if (e.tagName == 'DL') {
