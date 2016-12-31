@@ -2,10 +2,9 @@
 // @name        memereader
 // @namespace   wemes
 // @description cant think of anything snarky to write here
-// @version     0.2
+// @version     0.3
 // @include     http://g.e-hentai.org/*
-// @include     http://search.hentai.ms/*
-// @include     http://manga.hentai.ms/*
+// @include     http://*.hentai.ms/*
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_xmlhttpRequest
@@ -13,21 +12,24 @@
 // @grant       unsafeWindow
 // ==/UserScript==
 
-const url = window.location.href;
+let url = window.location.href;
 
 function getHentaiMsMangaId(url) {
+  let _back_url = url;
   if (/\/[0-9]+$/.test(url)) { // is read page
     url = url.match(/.*(\/manga)?\/(.*?)\/[0-9]+$/)[2];
     if (!url) {
-      alert('FUCK! url is ' + url);
-      throw 'FUCK! url is ' + url;
+      alert('FUCK! url is ' + _back_url);
+      throw 'FUCK! url is ' + _back_url;
     }
     return url;
   } else { // is gallery page
-    url = url.substring(url.lastIndexOf('/') + 1, url.indexOf('&'));
+    let ind = url.indexOf('&');
+    if (ind == -1) ind = url.length;
+    url = url.substring(url.lastIndexOf('/') + 1, ind);
     if (!url) {
-      alert('FUCK! url is ' + url);
-      throw 'FUCK! url is ' + url;
+      alert('FUCK! url is ' + _back_url);
+      throw 'FUCK! url is ' + _back_url;
     }
     return url;
   }
@@ -43,19 +45,19 @@ if (url.startsWith('http://g.e-hentai.org/')) {
     n=n.substr(n.indexOf('/s/')+3);
     const lastindex = n.lastIndexOf('?');
     return Number(n.substring(n.indexOf('-')+1, lastindex == -1 ? n.length : lastindex));
-  };
+  }
   
   const insertNote = function() {
     if (document.getElementById('weeeeeeeeeeee') === null) {
       const el = document.createElement('h1');
       el.setAttribute('style', 'color: #b1b10d;font-weight: normal;');
-      el.setAttribute('id', 'weeeeeeeeeeee');
+      el.setAttribute('id', 'weeeeeeeeeeee')
       el.textContent = 'You have been redirected to where you last left off :lenny:';
 
       const tit = document.getElementById('i1');
       tit.insertBefore(el, tit.firstChild);
     }
-  };
+  }
   
   /**
    * redirects to page at pageNumber
@@ -65,10 +67,10 @@ if (url.startsWith('http://g.e-hentai.org/')) {
     const pageUrl = '?p=' + (Math.floor(pageNumber / 40)); // pageNumber / 40 entries per page. page numbers for e-h start at 0
 
     GM_xmlhttpRequest({
-      method: 'GET',
+      method: "GET",
       url: albumUrl + pageUrl,
       onload: function(response) {
-        const doc = new DOMParser().parseFromString(response.responseText, 'text/html');
+        const doc = new DOMParser().parseFromString(response.responseText, "text/html");
 
         const correctPageUrl = doc.querySelector('.gdtm:nth-child(' + pageNumber + ')').firstChild.firstChild.href;
         if (correctPageUrl) {
@@ -79,7 +81,7 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       }
     });
 
-  };
+  }
 
   /**
    * call callback with page at pageNumber
@@ -90,10 +92,10 @@ if (url.startsWith('http://g.e-hentai.org/')) {
     const pageUrl = '?p=' + (Math.floor(pageNumber / 40)); // pageNumber / 40 entries per page. page numbers for e-h start at 0
 
     GM_xmlhttpRequest({
-      method: 'GET',
+      method: "GET",
       url: albumUrl + pageUrl,
       onload: function(response) {
-        const doc = new DOMParser().parseFromString(response.responseText, 'text/html');
+        const doc = new DOMParser().parseFromString(response.responseText, "text/html");
 
         const correctPageUrl = doc.querySelector('.gdtm:nth-child(' + pageNumber + ')').firstChild.firstChild.href;
         if (correctPageUrl) {
@@ -104,10 +106,10 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       }
     });
 
-  };
+  }
   
-  const _url = url.substring(url.indexOf('/g/')+3);
-  const _urlb = url.substring(url.indexOf('/s/')+3);
+  let _url = url.substring(url.indexOf('/g/')+3);
+  let _urlb = url.substring(url.indexOf('/s/')+3);
 
   // unique comic id
   const comicId = (
@@ -165,7 +167,7 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
       td.setAttribute('class', 'tc');
-      td.textContent = 'jump to page:';
+      td.textContent = 'jump to page:'
       tr.appendChild(td);
 
       const td2 = document.createElement('td');
@@ -195,7 +197,7 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       href=href.substring(0, href.indexOf('/'));
       const val = GM_getValue(href + '_read', 0);
       const total = GM_getValue(href + '_total', 0);
-      console.log('reading mainpage', href, val, total);
+      console.log('reading mainpage', href, val, total)
       if (val > 0) {
         if (val == total) {
           resultTitles[i].textContent = '<<F>> ' + resultTitles[i].textContent;
@@ -235,6 +237,9 @@ if (url.startsWith('http://search.hentai.ms/')) {
     // end related items
   } else {
     // not related items
+    
+    // TODO ---- i dont think ive made it show the page progress here
+    
     GM_addStyle(`
 .pagination_number[href="http://search.hentai.ms/?tag=-"] {
     padding: 5px;
@@ -262,9 +267,7 @@ td[width="425px"] > .pagination {
   
 }
 
-// TODO free.hentai.ms and manga.hentai.ms are the same thing but different links and not interchangeable
-
-if (url.startsWith('http://manga.hentai.ms/manga/') && /\/[0-9]+$/.test(url)) { // the actual read pages
+if (url.indexOf('.hentai.ms/manga/') > -1 && /\/[0-9]+$/.test(url)) { // the actual read pages
   const mangaId = getHentaiMsMangaId(url);
   
   const pageNumber = GM_getValue(mangaId + '_read', 0);
@@ -286,7 +289,7 @@ if (url.startsWith('http://manga.hentai.ms/manga/') && /\/[0-9]+$/.test(url)) { 
   } else if (currentPage < pageNumber) {
     window.location.href = pageNumber;
   }
-} else if (url.startsWith('http://manga.hentai.ms/manga/')) {//hentai.ms gallery view (not read pages)
+} else if (url.indexOf('.hentai.ms/manga/') > -1) {//hentai.ms gallery view (not read pages)
   const mangaId = getHentaiMsMangaId(url);
   
   const pageNumber = GM_getValue(mangaId + '_read', 0);
@@ -352,4 +355,33 @@ div.index_box:nth-child(4) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-ch
     transform: translateY(-43.6%);
 }*/
 `);
+} else if (url.indexOf('.hentai.ms/') > -1) { // misc search/browse pages
+  const searchItems = document.querySelectorAll('#search_gallery_item[width="216px"] > a'); // this is an invalid and awful selector, but will work
+  
+  for (let i = 0, len = searchItems.length; i < len; i++) {
+    const mangaId = getHentaiMsMangaId(searchItems[i].href);
+    
+    const pageNumber = GM_getValue(mangaId + '_read', 0);
+    const pageAmount = GM_getValue(mangaId + '_size', 0);
+    console.log('getting', mangaId + '_read', mangaId + '_size', pageNumber, pageAmount);
+    
+    if (pageNumber > 0) {
+      let it = (searchItems[i].childNodes[3] || searchItems[i].lastChild.childNodes[0]);
+      it.nodeValue = '<<' + pageNumber + '/' + pageAmount + '>> ' + it.nodeValue;
+    }
+  }
+  
+  GM_addStyle(`
+a[href="http://manga.hentai.ms/?random=ok"] {
+  margin-left: 5px;
+}
+
+td[width="425px"] > center > .pagination {
+  display: flex;
+}
+
+td[width="425px"] > center > .pagination > .pagination_number {
+  flex-grow: 1;
+}
+`)
 }
