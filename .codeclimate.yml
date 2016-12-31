@@ -23,7 +23,7 @@ engines:
       - .user.js
       - .jsx
   csslint: #seems to be working
-    enabled: true
+    enabled: false #it's shit!
   shellcheck:
     enabled: true
   markdownlint:
