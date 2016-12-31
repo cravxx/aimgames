@@ -5,7 +5,7 @@ engines:
       languages:
       - javascript
   fixme: #seems to be working
-    enabled: true
+    enabled: false #eslint already does this
     config:
       strings:
       - FIXME
