@@ -49,7 +49,7 @@ _document_addEventListener('DOMContentLoaded', e => {
       document.body.removeChild(document.body.firstChild);
     }
     for (let i = 0; i < first.length; i++) {
-      if (first[i].parentElement) first[i].parentElement.removeChild(first[i])
+      if (first[i].parentElement) first[i].parentElement.removeChild(first[i]);
     }
     const el = document.createElement('img');
     el.src=str;
@@ -95,7 +95,7 @@ function toDataUrl(url, callback) {
     var reader = new FileReader();
     reader.onloadend = function() {
       callback(reader.result);
-    }
+    };
     reader.readAsDataURL(xhr.response);
   };
   xhr.open('GET', url);

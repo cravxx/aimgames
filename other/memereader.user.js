@@ -13,7 +13,7 @@
 // @grant       unsafeWindow
 // ==/UserScript==
 
-let url = window.location.href;
+const url = window.location.href;
 
 function getHentaiMsMangaId(url) {
   if (/\/[0-9]+$/.test(url)) { // is read page
@@ -43,19 +43,19 @@ if (url.startsWith('http://g.e-hentai.org/')) {
     n=n.substr(n.indexOf('/s/')+3);
     const lastindex = n.lastIndexOf('?');
     return Number(n.substring(n.indexOf('-')+1, lastindex == -1 ? n.length : lastindex));
-  }
+  };
   
   const insertNote = function() {
     if (document.getElementById('weeeeeeeeeeee') === null) {
       const el = document.createElement('h1');
       el.setAttribute('style', 'color: #b1b10d;font-weight: normal;');
-      el.setAttribute('id', 'weeeeeeeeeeee')
+      el.setAttribute('id', 'weeeeeeeeeeee');
       el.textContent = 'You have been redirected to where you last left off :lenny:';
 
       const tit = document.getElementById('i1');
       tit.insertBefore(el, tit.firstChild);
     }
-  }
+  };
   
   /**
    * redirects to page at pageNumber
@@ -65,10 +65,10 @@ if (url.startsWith('http://g.e-hentai.org/')) {
     const pageUrl = '?p=' + (Math.floor(pageNumber / 40)); // pageNumber / 40 entries per page. page numbers for e-h start at 0
 
     GM_xmlhttpRequest({
-      method: "GET",
+      method: 'GET',
       url: albumUrl + pageUrl,
       onload: function(response) {
-        const doc = new DOMParser().parseFromString(response.responseText, "text/html");
+        const doc = new DOMParser().parseFromString(response.responseText, 'text/html');
 
         const correctPageUrl = doc.querySelector('.gdtm:nth-child(' + pageNumber + ')').firstChild.firstChild.href;
         if (correctPageUrl) {
@@ -79,7 +79,7 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       }
     });
 
-  }
+  };
 
   /**
    * call callback with page at pageNumber
@@ -90,10 +90,10 @@ if (url.startsWith('http://g.e-hentai.org/')) {
     const pageUrl = '?p=' + (Math.floor(pageNumber / 40)); // pageNumber / 40 entries per page. page numbers for e-h start at 0
 
     GM_xmlhttpRequest({
-      method: "GET",
+      method: 'GET',
       url: albumUrl + pageUrl,
       onload: function(response) {
-        const doc = new DOMParser().parseFromString(response.responseText, "text/html");
+        const doc = new DOMParser().parseFromString(response.responseText, 'text/html');
 
         const correctPageUrl = doc.querySelector('.gdtm:nth-child(' + pageNumber + ')').firstChild.firstChild.href;
         if (correctPageUrl) {
@@ -104,10 +104,10 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       }
     });
 
-  }
+  };
   
-  let _url = url.substring(url.indexOf('/g/')+3);
-  let _urlb = url.substring(url.indexOf('/s/')+3);
+  const _url = url.substring(url.indexOf('/g/')+3);
+  const _urlb = url.substring(url.indexOf('/s/')+3);
 
   // unique comic id
   const comicId = (
@@ -165,7 +165,7 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
       td.setAttribute('class', 'tc');
-      td.textContent = 'jump to page:'
+      td.textContent = 'jump to page:';
       tr.appendChild(td);
 
       const td2 = document.createElement('td');
@@ -195,7 +195,7 @@ if (url.startsWith('http://g.e-hentai.org/')) {
       href=href.substring(0, href.indexOf('/'));
       const val = GM_getValue(href + '_read', 0);
       const total = GM_getValue(href + '_total', 0);
-      console.log('reading mainpage', href, val, total)
+      console.log('reading mainpage', href, val, total);
       if (val > 0) {
         if (val == total) {
           resultTitles[i].textContent = '<<F>> ' + resultTitles[i].textContent;

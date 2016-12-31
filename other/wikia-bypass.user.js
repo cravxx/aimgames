@@ -15,22 +15,22 @@
 // document-start w/ timeout or document-end???
 'use strict';
 
-const css = "#WikiaMainContent{width: 100%;}table.nowraplinks.collapsible{width: 100%;}";
-if (typeof GM_addStyle != "undefined") {
+const css = '#WikiaMainContent{width: 100%;}table.nowraplinks.collapsible{width: 100%;}';
+if (typeof GM_addStyle != 'undefined') {
 	GM_addStyle(css);
-} else if (typeof PRO_addStyle != "undefined") {
+} else if (typeof PRO_addStyle != 'undefined') {
 	PRO_addStyle(css);
-} else if (typeof addStyle != "undefined") {
+} else if (typeof addStyle != 'undefined') {
 	addStyle(css);
 } else {
-	var node = document.createElement("style");
-	node.type = "text/css";
+	var node = document.createElement('style');
+	node.type = 'text/css';
 	node.appendChild(document.createTextNode(css));
-	var head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
+	var head = document.head || document.getElementsByTagName('head')[0] || document.documentElement;
 	head.appendChild(node);
 }
 
 
 //setTimeout(function() { // remove click listeners for this external links
-	$('.external.text.exitstitial').off("click");
+	$('.external.text.exitstitial').off('click');
 //}, 1500); // wait a bit because ????

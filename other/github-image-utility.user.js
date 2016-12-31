@@ -138,7 +138,7 @@ function wipeHeader(str) {
 function toDataUrl(src, callback, outputFormat) {
   // since we can't do CORS otherwise, we have to use GM_xmlhttpRequest
   GM_xmlhttpRequest({
-    method: "GET",
+    method: 'GET',
     url: src,
     headers: {
       //"User-Agent": "Mozilla/5.0",    // If not specified, navigator.userAgent will be used.

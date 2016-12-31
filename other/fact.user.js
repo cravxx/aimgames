@@ -27,7 +27,7 @@ function downloadMod(modUrl, callback) {
       url: 'http://solus.site/factorio/api.php',
       data: param,
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       onload: function(response) {
         const data = JSON.parse(response.responseText);
@@ -66,10 +66,10 @@ function handleNode(f) {
 
   // years of javascript on top of javascript teaches you this kind of sync-async stuff
   const staticref = f.children[1].firstChild.firstChild.href;
-  but1.addEventListener("click", () => {
+  but1.addEventListener('click', () => {
     but4.textContent = 'DOWNLOADING...';
     downloadMod(staticref, b => {
-      but4.textContent = b?"DOWNLOADED!":"DOWNLOAD FAILED!";
+      but4.textContent = b?'DOWNLOADED!':'DOWNLOAD FAILED!';
     });
   }); 
 

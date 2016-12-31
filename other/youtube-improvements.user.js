@@ -141,7 +141,7 @@ if (!document.location.href.startsWith('https://www.youtube.com/feed/subscriptio
   // remove recommended videos
   const vCounts = document.querySelectorAll('.stat.view-count');
 
-  for (let i of vCounts) {
+  for (const i of vCounts) {
     if (i.textContent.startsWith('Recommended') || i.textContent.startsWith('Recomendado')) {
       i.parentNode.parentNode.parentNode.parentNode.removeChild(i.parentNode.parentNode.parentNode); //delete the video
     }
@@ -251,7 +251,7 @@ function handleVideo(el) {
           GM_setValue(videoId+'_progress', 0);      
         }
       }
-    }, 30*1000)
+    }, 30*1000);
   }
 }
 
@@ -261,7 +261,7 @@ if (notifs !== null) {
   notifs.addEventListener('click', e=> {
     e.preventDefault();
     alert(JSON.stringify(GM_info, null, 2)+'\n'+JSON.stringify(GM_listValues(), null, 2));
-  })
+  });
 }
 
 // dirty hack to check for an inserted node from http://stackoverflow.com/a/10343915
