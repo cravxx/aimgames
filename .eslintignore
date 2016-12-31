@@ -7,3 +7,27 @@ build/**
 **.min.js
 trash/**
 enhance/resources/**
+enhance/prism.js
+
+# intentionally left as-is
+
+enhance/chatbox-proto.user.js
+
+# ignored for obsoletion purposes
+
+alive/alive.user.js
+alive/chatboxplusplus-v2.user.js
+alive/chatboxplusplus.user.js
+alive/elementremover.user.js
+chameleon/chameleon_random.user.js
+chameleon/chameleon_vampire.user.js
+chameleon/chameleon.user.js
+other/accountassist.user.js
+other/discordjs-docs-improve.user.js
+other/HRK-bypass.user.js
+other/kisshider.user.js
+other/ratebot.user.js
+other/steam-degrouper.js
+swearify/**
+visual/classicaim.user.js
+visual/mango.user.js
