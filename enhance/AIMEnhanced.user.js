@@ -14,6 +14,7 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/opentip-native.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/editorbuttons.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/prism.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/usernamehistory.js
 // @resource    codemirrorBaseCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-base.css
 // @resource    codemirrorThemeCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-theme.css
 // @resource    prismCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.css
@@ -22,7 +23,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.44
+// @version     0.46
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -97,7 +98,7 @@ function insertTextAtCursor(editor, text) {
 function createButtons(editor) {
   const mast = document.createElement('span');
   
-  buttons.forEach(function(e, i) {
+  buttons.forEach(function(e) {
     if (typeof e == 'string') {
       // add a separator!
       const el = document.createElement('img');
@@ -361,7 +362,8 @@ GM_addStyle(`
 .postbody > div > img {
   max-width: 100%;
 }
-/**/
+
+/*remastered icons*/
 img[src="https://illiweb.com/fa/extremedarkred/navfolder.gif"] {
 	background-image: url('http://i.imgur.com/MCyr6Y1.png');
 	object-position: -20px 20px;
@@ -388,26 +390,46 @@ img[src="http://i71.servimg.com/u/f71/14/03/33/42/locked12.gif"] {
   vertical-align: -1px;
 }
 
+img[src="https://illiweb.com/fa/extremedarkred/icon_minipost_new.gif"] {
+    background-image: url('http://i.imgur.com/JLJvZpG.png');
+    object-position: -20px 20px;
+    background-size: cover;
+    /*margin-right: 2px;*/
+
+    vertical-align: 0px;
+    margin-right: 0px;
+}
+
+img[title][src="http://i59.servimg.com/u/f59/14/03/33/42/catego12.png"] {
+    background-image: url('http://i.imgur.com/DumidY4.png');
+    object-position: -40px 20px;
+    background-size: cover;
+    /*margin-right: 2px;*/
+
+    vertical-align: 0px;
+    margin-right: 0px;
+}
+
+/*category title spacing fix*/
+.cattitle {
+    padding-left: 2px;
+}
 `);
 
 // the codemirror editor
 let editor;
 function loadCodeMirror(org) {
-  // fix the scrolling
-  const _doc = document.documentElement;
-  //const left = (window.pageXOffset || _doc.scrollLeft) - (_doc.clientLeft || 0);
-  const scrollTop = (window.pageYOffset || _doc.scrollTop)  - (_doc.clientTop || 0);
 
   // add new cm editor
   editor = CodeMirror.fromTextArea(org, {
-    mode           : 'bbcodemixed',
+    mode           : "bbcodemixed",
     tabSize        : 2,
     indentUnit     : 2,
     indentWithTabs : false,
     lineNumbers    : true,
     lineWrapping   : true,
-    scrollbarStyle : 'native',
-    autofocus      : true,
+    scrollbarStyle : "native",
+    autofocus      : false,
   });
   editor.setSize(700, 250);
   
@@ -433,15 +455,6 @@ function loadCodeMirror(org) {
     }
   }
   
-  window.scrollTo(scrollTop, 0);
-  
-  setTimeout(()=>window.scrollTo(scrollTop, 0), 0);
-}
-
-function processMarkdown(txt) {
-   return txt.replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
-             .replace(/`([^]+?)`/g, '<samp>$1</samp>') // inline code
-             .replace(/\[gist\]([^]+?)\[\/gist\]/g, '<iframe src="http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"></iframe>'); // embedded gists
 }
 
 const styleMin = style
@@ -449,16 +462,26 @@ const styleMin = style
   .replace(/(\r\n|\n)/g, '') // remove newlines
   .replace(/\/\*([^]+?)\*\//g, ''); // remove comments
 
+function processMarkdown(txt) {
+  if (!txt || txt[0] !== '<') {
+    txt = styleMin + '\n' + txt;
+  }
+
+   return txt.replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
+             .replace(/`([^]+?)`/g, '<samp>$1</samp>') // inline code
+             .replace(/\[gist\]([^]+?)\[\/gist\]/g, '<iframe src="http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"></iframe>'); // embedded gists
+}
+
 // add style to the beginning of every post
 const textArea = document.getElementById('text_editor_textarea');
 if (textArea) {
-  if (!textArea.value || textArea.value[0] !== '<') {
-    textArea.value = styleMin + '\n' + textArea.value;
-  }
+  //if (!textArea.value || textArea.value[0] !== '<') {
+  //  textArea.value = styleMin + '\n' + textArea.value;
+  //}
 
   const previewButton = document.querySelector('.liteoption[name=preview]');
   if (previewButton) {
-    previewButton.addEventListener('click', (e) => { // TODO is this kind of event fast enough? seems like it, needs more testin'
+    previewButton.addEventListener('click', () => { // TODO is this kind of event fast enough? seems like it, needs more testin'
       editor.setValue(processMarkdown(editor.getValue()));
       console.log('clicked!!!');
       //e.preventDefault();
@@ -467,7 +490,7 @@ if (textArea) {
   
   const postButton = document.querySelector('.mainoption[name=post]');
   if (postButton) {
-    postButton.addEventListener('click', (e) => {
+    postButton.addEventListener('click', () => {
       editor.setValue(processMarkdown(editor.getValue()));
       console.log('clicked!!!');
       //e.preventDefault();
@@ -513,7 +536,7 @@ for (let i = 0, il = opt.length; i < il; i++) {
 	let id = opt[i].querySelector('img').id;
 	id = id.substring(id.lastIndexOf('_') + 1);
 	//console.log(id);
-	$(opt[i]).prepend('<a href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>');
+	$(opt[i]).prepend('<a href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>')
 }
 
 
@@ -522,10 +545,20 @@ for (let i = 0, il = opt.length; i < il; i++) {
 
 // parse the user page into a neat block of html
 function readUser(document) {
-  const advdet = document.getElementById('profile-advanced-details');
+  const advdet = document.getElementById('profile-advanced-details')
   let mass = '';
+  
+  try {
+    //console.log(''+JSON.stringify(window._hansen));
+    //console.log(''+JSON.stringify(buttons));
+    //console.log(''+JSON.stringify(typeof usernameHistory));
+    // conclusion from the above debugging: window_hansen works but does not export to unsafeWindow; scope works but the cache requires a few refreshes to reset
+    
+    const username = document.querySelectorAll('.genmed.module-title')[0].textContent.trim().replace(/ \(online\)/, '');
+    mass = 'Username history: ' + (usernameHistory[username] || username) + '<br>';
+  } catch(e) {mass='Username history: ' + e + '<br>'}
 
-  Array.slice(advdet.children).forEach((e, i) => {
+  Array.slice(advdet.children).forEach((e) => {
     if (e.tagName == 'DL') {
       mass+=(e.children[0].textContent + e.children[1].textContent) + '\n';
     }
@@ -567,13 +600,13 @@ function createMouseOverFunc(tooltip, i, url, parseFunc) {
 
           // new thing that is widely supported in our targeted browsers (i think?)
           const parser=new DOMParser();
-          const htmlDoc=parser.parseFromString(data, 'text/html');
+          const htmlDoc=parser.parseFromString(data, "text/html");
           const cont = parseFunc(htmlDoc);
           tooltip.setContent(cont);
           lastTooltipData = cont;
           lastLoadedTooltip = i;
           
-          console.log('Load was performed.');
+          console.log("Load was performed.");
         });
       }
     }, 1000);
@@ -614,9 +647,9 @@ for (let i = 0, len = usrLinks.length; i < len; i++) {
   const usr = usrLinks[i]; // same as above
   const tooltip = new Opentip(usr, { showOn: null, hideOn: 'mouseleave', style: 'dark' }); // hideOn doesn't actually seem to work very well here...
 
-  usr.addEventListener('mouseover', createMouseOverFunc(tooltip, _i, usr.href, readUser));
-  usr.addEventListener('mouseleave', createMouseLeaveFunc(tooltip));
-  usr.addEventListener('mouseout', createMouseOutFunc(tooltip));
+  usr.addEventListener("mouseover", createMouseOverFunc(tooltip, _i, usr.href, readUser));
+  usr.addEventListener("mouseleave", createMouseLeaveFunc(tooltip));
+  usr.addEventListener("mouseout", createMouseOutFunc(tooltip));
 }
 
 // thread preview tooltip system
@@ -627,15 +660,15 @@ function readTopic(document) {
   
   if (op === null) {
     return '(N/A)';
-  } else {
-    // trim to fit
-    // only problem with this system is that it's missing line breaks...
-    const txt = op.textContent;
-    if (txt.length<500)
-      return txt/*.replace(/\r\n/g, '<br/>')*/;
-    // else
-    return txt.substr(0, 500)/*.replace(/\r\n/g, '<br/>')*/;
-  }
+  } // else
+  
+  // trim to fit
+  // only problem with this system is that it's missing line breaks...
+  const txt = op.textContent;
+  if (txt.length<500)
+    return txt/*.replace(/\r\n/g, '<br/>')*/;
+  // else
+  return txt.substr(0, 500)/*.replace(/\r\n/g, '<br/>')*/;
 }
 
 const topicLinks = document.querySelectorAll('a.topictitle');
@@ -647,9 +680,9 @@ for (let i = 0, len = topicLinks.length; i < len; i++) {
   const topic = topicLinks[i]; // same as above
   const tooltip = new Opentip(topic, { showOn: null, hideOn: 'mouseleave', style: 'dark' }); // hideOn doesn't actually seem to work very well here...
 
-  topic.addEventListener('mouseover', createMouseOverFunc(tooltip, _i, topic.href, readTopic));
-  topic.addEventListener('mouseleave', createMouseLeaveFunc(tooltip));
-  topic.addEventListener('mouseout', createMouseOutFunc(tooltip));
+  topic.addEventListener("mouseover", createMouseOverFunc(tooltip, _i, topic.href, readTopic));
+  topic.addEventListener("mouseleave", createMouseLeaveFunc(tooltip));
+  topic.addEventListener("mouseout", createMouseOutFunc(tooltip));
 }
 
 // codebox select all/copy buttons
@@ -690,7 +723,7 @@ for (let i = 0, len = codeboxes.length; i < len; i++) {
   const selectAll = document.createElement('a');
   selectAll.appendChild(document.createTextNode(' Select All'));
   selectAll.setAttribute('class', 'genmed hansenAnc');
-  selectAll.addEventListener('click', () => {
+  selectAll.addEventListener("click", () => {
     selectText(content);
   });
   
@@ -699,7 +732,7 @@ for (let i = 0, len = codeboxes.length; i < len; i++) {
   const copy = document.createElement('a');
   copy.appendChild(document.createTextNode(' Copy'));
   copy.setAttribute('class', 'genmed hansenAnc');
-  copy.addEventListener('click', () => {
+  copy.addEventListener("click", () => {
     try {
       GM_setClipboard(cleanHTML(content.innerHTML));
     } catch (e) {
