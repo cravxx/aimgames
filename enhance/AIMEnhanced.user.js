@@ -422,13 +422,13 @@ function loadCodeMirror(org) {
 
   // add new cm editor
   editor = CodeMirror.fromTextArea(org, {
-    mode           : "bbcodemixed",
+    mode           : 'bbcodemixed',
     tabSize        : 2,
     indentUnit     : 2,
     indentWithTabs : false,
     lineNumbers    : true,
     lineWrapping   : true,
-    scrollbarStyle : "native",
+    scrollbarStyle : 'native',
     autofocus      : false,
   });
   editor.setSize(700, 250);
@@ -536,7 +536,7 @@ for (let i = 0, il = opt.length; i < il; i++) {
 	let id = opt[i].querySelector('img').id;
 	id = id.substring(id.lastIndexOf('_') + 1);
 	//console.log(id);
-	$(opt[i]).prepend('<a href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>')
+	$(opt[i]).prepend('<a href="' + document.location.origin + document.location.pathname + '#' + id + '">Link to this post</a>');
 }
 
 
@@ -545,7 +545,7 @@ for (let i = 0, il = opt.length; i < il; i++) {
 
 // parse the user page into a neat block of html
 function readUser(document) {
-  const advdet = document.getElementById('profile-advanced-details')
+  const advdet = document.getElementById('profile-advanced-details');
   let mass = '';
   
   try {
@@ -556,7 +556,7 @@ function readUser(document) {
     
     const username = document.querySelectorAll('.genmed.module-title')[0].textContent.trim().replace(/ \(online\)/, '');
     mass = 'Username history: ' + (usernameHistory[username] || username) + '<br>';
-  } catch(e) {mass='Username history: ' + e + '<br>'}
+  } catch(e) {mass='Username history: ' + e + '<br>';}
 
   Array.slice(advdet.children).forEach((e) => {
     if (e.tagName == 'DL') {
@@ -600,13 +600,13 @@ function createMouseOverFunc(tooltip, i, url, parseFunc) {
 
           // new thing that is widely supported in our targeted browsers (i think?)
           const parser=new DOMParser();
-          const htmlDoc=parser.parseFromString(data, "text/html");
+          const htmlDoc=parser.parseFromString(data, 'text/html');
           const cont = parseFunc(htmlDoc);
           tooltip.setContent(cont);
           lastTooltipData = cont;
           lastLoadedTooltip = i;
           
-          console.log("Load was performed.");
+          console.log('Load was performed.');
         });
       }
     }, 1000);
@@ -647,9 +647,9 @@ for (let i = 0, len = usrLinks.length; i < len; i++) {
   const usr = usrLinks[i]; // same as above
   const tooltip = new Opentip(usr, { showOn: null, hideOn: 'mouseleave', style: 'dark' }); // hideOn doesn't actually seem to work very well here...
 
-  usr.addEventListener("mouseover", createMouseOverFunc(tooltip, _i, usr.href, readUser));
-  usr.addEventListener("mouseleave", createMouseLeaveFunc(tooltip));
-  usr.addEventListener("mouseout", createMouseOutFunc(tooltip));
+  usr.addEventListener('mouseover', createMouseOverFunc(tooltip, _i, usr.href, readUser));
+  usr.addEventListener('mouseleave', createMouseLeaveFunc(tooltip));
+  usr.addEventListener('mouseout', createMouseOutFunc(tooltip));
 }
 
 // thread preview tooltip system
@@ -680,9 +680,9 @@ for (let i = 0, len = topicLinks.length; i < len; i++) {
   const topic = topicLinks[i]; // same as above
   const tooltip = new Opentip(topic, { showOn: null, hideOn: 'mouseleave', style: 'dark' }); // hideOn doesn't actually seem to work very well here...
 
-  topic.addEventListener("mouseover", createMouseOverFunc(tooltip, _i, topic.href, readTopic));
-  topic.addEventListener("mouseleave", createMouseLeaveFunc(tooltip));
-  topic.addEventListener("mouseout", createMouseOutFunc(tooltip));
+  topic.addEventListener('mouseover', createMouseOverFunc(tooltip, _i, topic.href, readTopic));
+  topic.addEventListener('mouseleave', createMouseLeaveFunc(tooltip));
+  topic.addEventListener('mouseout', createMouseOutFunc(tooltip));
 }
 
 // codebox select all/copy buttons
@@ -723,7 +723,7 @@ for (let i = 0, len = codeboxes.length; i < len; i++) {
   const selectAll = document.createElement('a');
   selectAll.appendChild(document.createTextNode(' Select All'));
   selectAll.setAttribute('class', 'genmed hansenAnc');
-  selectAll.addEventListener("click", () => {
+  selectAll.addEventListener('click', () => {
     selectText(content);
   });
   
@@ -732,7 +732,7 @@ for (let i = 0, len = codeboxes.length; i < len; i++) {
   const copy = document.createElement('a');
   copy.appendChild(document.createTextNode(' Copy'));
   copy.setAttribute('class', 'genmed hansenAnc');
-  copy.addEventListener("click", () => {
+  copy.addEventListener('click', () => {
     try {
       GM_setClipboard(cleanHTML(content.innerHTML));
     } catch (e) {
