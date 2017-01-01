@@ -15,6 +15,7 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/editorbuttons.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/prism.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/usernamehistory.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/swearifyLite.js
 // @resource    codemirrorBaseCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-base.css
 // @resource    codemirrorThemeCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-theme.css
 // @resource    prismCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.css
@@ -23,7 +24,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.47
+// @version     0.49
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -420,6 +421,8 @@ img[title][src="http://i59.servimg.com/u/f59/14/03/33/42/catego12.png"] {
 let editor;
 function loadCodeMirror(org) {
 
+  org.value = undoMarkdown(org.value);
+  
   // add new cm editor
   editor = CodeMirror.fromTextArea(org, {
     mode           : 'bbcodemixed',
@@ -432,7 +435,7 @@ function loadCodeMirror(org) {
     autofocus      : false,
   });
   editor.setSize(700, 250);
-  
+    
   const bbControls = document.getElementById('text_editor_controls');
   if (bbControls) {
     const fmtButtons = document.getElementById('format-buttons');
@@ -463,13 +466,22 @@ const styleMin = style
   .replace(/\/\*([^]+?)\*\//g, ''); // remove comments
 
 function processMarkdown(txt) {
+  txt = (window._hansen ? window._hansen.swearifyLite : swearifyLite)(txt);
+  
   if (!txt || txt[0] !== '<') {
-    txt = styleMin + '\n' + txt;
+    txt = styleMin + txt;
   }
 
    return txt.replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
              .replace(/`([^]+?)`/g, '<samp>$1</samp>') // inline code
              .replace(/\[gist\]([^]+?)\[\/gist\]/g, '<iframe src="http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"></iframe>'); // embedded gists
+}
+
+function undoMarkdown(txt) {
+  return txt.replace(styleMin, '')
+           .replace(/<(\/)?pre>/g, '[$1cd]')
+           .replace(/<\/?samp>/g, '`')
+           .replace(/<iframe src="http:\/\/rafa1231518\.github\.io\/nfmm-addons\/embed\.html?loc=(.*?)" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"><\/iframe>/g, '[gist]$1[/gist]');
 }
 
 // add style to the beginning of every post
@@ -838,7 +850,7 @@ window.addEventListener('load', function() {
 const images = document.querySelectorAll('.postbody > div > img');
 
 for (let i = 0, len = images.length; i < len; i++) {
-  if (images[i].clientWidth > 0 && images[i].naturalWidth !== images[i].clientWidth) { // if clientwidth==0 then img is not visible
+  if (images[i].clientWidth > 0 && images[i].naturalWidth !== images[i].clientWidth && images[i].naturalWidth > 1321) { // if clientwidth==0 then img is not visible
     const el = document.createElement('a');
     el.setAttribute('class', 'h-fitimg');
     el.setAttribute('href', images[i].src);
