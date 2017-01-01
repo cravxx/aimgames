@@ -865,5 +865,5 @@ const _replCallback = window._hansen._replCallback = function(str, $1) {
 
 // 12.766ms
 const swearifyLite = window._hansen.swearifyLite = function(str) {
-  return str.replace(mergedRegexes, replCallback);
+  return str.replace(_replRegex, _replCallback);
 };
