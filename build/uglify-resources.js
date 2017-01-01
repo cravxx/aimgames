@@ -18,6 +18,7 @@ const files = {
   "editorbuttons.js": "./enhance/editorbuttons.js",
   "prism.js": "./enhance/prism.js",
   "usernamehistory.js": "./enhance/usernamehistory.js",
+  "swearifyLite.js": "./enhance/swearifyLite.js",
 };
 
 const keys = Object.keys(files);
