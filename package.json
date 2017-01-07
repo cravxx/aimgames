@@ -19,5 +19,11 @@
   "scripts": {
     "test": "grunt bleedTheFreak"
   },
-  "droneVersion": "7.upright.5.1.kaoliangs.1457204914.7"
+  "droneVersion": "7.upright.5.1.kaoliangs.1457204914.7",
+  "dependencies": {
+    "autoprefixer": "^6.6.1",
+    "clean-css": "github:jakubpawlowicz/clean-css",
+    "postcss": "^5.2.8",
+    "uglify-js": "^2.7.5"
+  }
 }
