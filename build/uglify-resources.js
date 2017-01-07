@@ -2,6 +2,12 @@
 
 const fs = require('fs');
 const uglifyJS = require('uglify-js');
+const CleanCSS = new require('clean-css')({
+  advanced: true,
+  aggressiveMerging: true,
+  keepSpecialComments: 0,
+  
+});
 const http = require('http');
 const https = require('https');
 
@@ -19,6 +25,9 @@ const files = {
   "prism.js": "./enhance/prism.js",
   "usernamehistory.js": "./enhance/usernamehistory.js",
   "swearifyLite.js": "./enhance/swearifyLite.js",
+  "prism.css": "./enhance/prism.css",
+  "codemirror-base.css": "./enhance/codemirror-base.css",
+  "codemirror-theme.css": "./enhance/codemirror-theme.css"
 };
 
 const keys = Object.keys(files);
@@ -35,17 +44,23 @@ function iterate(i, k) {
       len += chunk.length;
     });
     stream.on('finish', () => {
-      const result = uglifyJS.minify([ "./enhance/resources/" + k ]);
-      
-      console.log(' saved: ' + (len-result.code.length) + ' bytes (' + Math.floor((result.code.length/len)*100)+ '%)');
-      
-      fs.writeFile("./enhance/resources/" + k, result.code, err => {
-        if (err) console.error(err);
+      if (k.endsWith('.js')) {
         
-        if (++i < keys.length) {
-          iterate(i, keys[i]);
-        }
-      })
+        const result = uglifyJS.minify([ "./enhance/resources/" + k ]);
+      
+        console.log(' saved: ' + (len-result.code.length) + ' bytes (' + Math.floor((result.code.length/len)*100)+ '%)');
+        
+        fs.writeFile("./enhance/resources/" + k, result.code, err => {
+          if (err) console.error(err);
+          
+          if (++i < keys.length) {
+            iterate(i, keys[i]);
+          }
+        });
+        
+      } else if (k.endsWith('.css')) {
+        fs.writeFileSync("./enhance/resources/" + k, CleanCSS.minify(fs.readFileSync("./enhance/resources/" + k, 'utf8').styles);
+      }
       
     });
   }
