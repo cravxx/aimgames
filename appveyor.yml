@@ -23,6 +23,7 @@ build_script:
  - cmd: SET PATH=C:\Program Files\Java\jdk1.8.0\bin;%PATH%
  - build.bat
  - node build\uglify-resources.js
+ - node build\prefix-css.js
 
 skip_commits:
   # Regex for matching commit message
