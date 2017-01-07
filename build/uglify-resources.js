@@ -2,12 +2,7 @@
 
 const fs = require('fs');
 const uglifyJS = require('uglify-js');
-const CleanCSS = new require('clean-css')({
-  advanced: true,
-  aggressiveMerging: true,
-  keepSpecialComments: 0,
-  
-});
+const CleanCSS = require('clean-css');
 const http = require('http');
 const https = require('https');
 
@@ -59,7 +54,12 @@ function iterate(i, k) {
         });
         
       } else if (k.endsWith('.css')) {
-        fs.writeFileSync("./enhance/resources/" + k, CleanCSS.minify(fs.readFileSync("./enhance/resources/" + k, 'utf8').styles);
+        const mincss = new CleanCSS().minify(fs.readFileSync("./enhance/resources/" + k, 'utf8')).styles;
+        fs.writeFileSync("./enhance/resources/" + k, mincss);
+        
+        if (++i < keys.length) {
+          iterate(i, keys[i]);
+        }
       }
       
     });
