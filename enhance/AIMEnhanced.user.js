@@ -191,7 +191,32 @@ samp {
 
 /*makes my name be rainbow-y*/
 [href="/u2548"] > span > strong{
-    animation: hansencolorRotate 6s linear 0s infinite;
+    -webkit-animation: hansencolorRotate 6s linear 0s infinite;
+            animation: hansencolorRotate 6s linear 0s infinite;
+}
+
+@-webkit-keyframes hansencolorRotate {
+    from {
+        color: rgb(255, 0, 0);
+    }
+    16.6% {
+        color: rgb(255, 0, 255);
+    }
+    33.3% {
+        color: rgb(0, 0, 255);
+    }
+    50% {
+        color: rgb(0, 255, 255);
+    }
+    66.6% {
+        color: rgb(0, 255, 0);
+    }
+    83.3% {
+        color: rgb(255, 255, 0);
+    }
+    to {
+        color: rgb(255, 0, 0);
+    }
 }
 
 @keyframes hansencolorRotate {
@@ -227,8 +252,12 @@ samp {
 .post-options > a:hover {
   background-color: #fbfbfb !important;
   
+  background: -webkit-linear-gradient(top, rgb(201, 31, 31) 0%,rgb(140, 14, 14) 100%) !important;
+  
   background: linear-gradient(to bottom, rgb(201, 31, 31) 0%,rgb(140, 14, 14) 100%) !important;
-  border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
+  -o-border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
+     border-image: -webkit-linear-gradient(top, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
+     border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
 }
 /*remove default button imgs*/
 .post-options > a > img {
@@ -277,9 +306,6 @@ samp {
   text-decoration: none;
   line-height: 100%;
   white-space: nowrap;
-
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
   border-radius: 0px;
 
 
@@ -299,8 +325,11 @@ samp {
   color: #d0b2b2;
   text-transform: uppercase;
   font-weight: bold;
+  background: -webkit-linear-gradient(top, rgb(163, 22, 22) 0%,rgb(105, 10, 10) 100%);
   background: linear-gradient(to bottom, rgb(163, 22, 22) 0%,rgb(105, 10, 10) 100%);
-  border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
+  -o-border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
+     border-image: -webkit-linear-gradient(top, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
+     border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
   /*! border-style: solid; */
   /*! border-width: 10px; */
   /*! -webkit-font-smoothing: antialiased; */
@@ -380,14 +409,16 @@ samp {
 /*remastered icons*/
 img[src="https://illiweb.com/fa/extremedarkred/navfolder.gif"] {
 	background-image: url('http://i.imgur.com/MCyr6Y1.png');
-	object-position: -20px 20px;
+	-o-object-position: -20px 20px;
+	   object-position: -20px 20px;
 	background-size: cover;
   margin-right: 2px;
 }
 
 img[src="https://illiweb.com/fa/extremedarkred/icon_minipost.gif"] {
   background-image: url('http://i.imgur.com/jat1H4q.png');
-  object-position: -20px 20px;
+  -o-object-position: -20px 20px;
+     object-position: -20px 20px;
   background-size: cover;
   /*margin-right: 2px;*/
 
@@ -397,7 +428,8 @@ img[src="https://illiweb.com/fa/extremedarkred/icon_minipost.gif"] {
 
 img[src="http://i71.servimg.com/u/f71/14/03/33/42/locked12.gif"] {
   background-image: url('http://i.imgur.com/DXwHC1o.png'); /*also url('http://i.imgur.com/u3StReB.png');*/
-  object-position: -20px 20px;
+  -o-object-position: -20px 20px;
+     object-position: -20px 20px;
   background-size: cover;
   margin-right: 2px;
 
@@ -406,7 +438,8 @@ img[src="http://i71.servimg.com/u/f71/14/03/33/42/locked12.gif"] {
 
 img[src="https://illiweb.com/fa/extremedarkred/icon_minipost_new.gif"] {
     background-image: url('http://i.imgur.com/JLJvZpG.png');
-    object-position: -20px 20px;
+    -o-object-position: -20px 20px;
+       object-position: -20px 20px;
     background-size: cover;
     /*margin-right: 2px;*/
 
@@ -416,7 +449,8 @@ img[src="https://illiweb.com/fa/extremedarkred/icon_minipost_new.gif"] {
 
 img[title][src="http://i59.servimg.com/u/f59/14/03/33/42/catego12.png"] {
     background-image: url('http://i.imgur.com/DumidY4.png');
-    object-position: -40px 20px;
+    -o-object-position: -40px 20px;
+       object-position: -40px 20px;
     background-size: cover;
     /*margin-right: 2px;*/
 
@@ -443,8 +477,7 @@ img[title][src="http://i59.servimg.com/u/f59/14/03/33/42/catego12.png"] {
 /*bbcode button gradient bg*/
 button.button2, input.button2 {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d3d3d3+7,efefef+100 */
-  background: rgb(255,255,255) !important; /* Old browsers */
-  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(211,211,211,1) 7%, rgba(239,239,239,1) 100%) !important; /* FF3.6-15 */
+  background: rgb(255,255,255) !important; /* Old browsers */ /* FF3.6-15 */
   background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 7%,rgba(239,239,239,1) 100%) !important; /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 7%,rgba(239,239,239,1) 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ) !important; /* IE6-9 */
@@ -467,9 +500,6 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   
   background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   
   display: inline;
@@ -508,9 +538,6 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   
   background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   
   display: inline;
@@ -541,9 +568,6 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   
   background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   
   display: inline;
@@ -574,9 +598,6 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   
   background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   
   display: inline;
@@ -606,9 +627,6 @@ a[href^="skype:"]:after {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   
   background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   
   display: inline;
@@ -639,9 +657,6 @@ td > a[href^="https://www.facebook.com/"]:after {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   
   background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   
   display: inline;
@@ -671,9 +686,6 @@ td > a[href^="https://twitter.com/"]:after {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
   
   background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
   
   display: inline;
