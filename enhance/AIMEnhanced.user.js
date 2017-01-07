@@ -24,14 +24,30 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.49
+// @version     0.53
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
 // @grant       GM_getResourceText
 // @grant       GM_setClipboard
+// @grant       unsafeWindow
 // @license     MIT License (Expat); opensource.org/licenses/MIT
+// @noframes
 // ==/UserScript==
+
+/*
+
+Please add the following lines to your ad blocker's filter list
+
+||illiweb.com/rsc/48/frm/SCEditor/src/instance-sceditor.js$important
+||illiweb.com/rsc/48/frm/SCEditor/src/sceditor-commands.js$important
+||illiweb.com/rsc/48/frm/SCEditor/src/sceditor-commands-bbcode.js$important
+||illiweb.com/rsc/48/frm/SCEditor/src/sceditor-custom-bbcode.js$important
+||illiweb.com/rsc/48/frm/SCEditor/src/jquery.sceditor.js$important
+||illiweb.com/rsc/48/frm/SCEditor/src/plugins/bbcode.js$important
+||aimgames.forummotion.com/13840.js$important
+
+*/
 
 // TODO: getResourceURL
 // https://wiki.greasespot.net/Metadata_Block#.40resource
@@ -64,29 +80,6 @@ GM_log(GM_info);
 GM_addStyle(GM_getResourceText('codemirrorBaseCSS'));
 GM_addStyle(GM_getResourceText('codemirrorThemeCSS'));
 GM_addStyle(GM_getResourceText('prismCSS'));
-
-// custom code styles
-const style = `<style type="text/css">
-pre {
-    max-height: 200px;
-    overflow: auto;
-    /**/
-    color: #ff6913;
-    font-family: Courier,"Courier New","Source Code Pro",monospace;
-    font-size: 11px;
-    /* box */
-    background-color: #000;
-    border: solid 1px #1c1c1c;
-    margin: 0;
-    /* possibly? */
-    margin-left: 60px;
-}
-/* inline code, shit that isnt deprecated in html5 */
-samp {
-    color: #ff6913;
-    font-family: Courier,"Courier New","Source Code Pro",monospace;
-}
-</style>`;
 
 const toggledBBcodes = {};
 
@@ -157,6 +150,26 @@ function createButton(id, img, accesskey, title/*, onclick*/) {
 }
 
 GM_addStyle(`
+
+pre {
+    max-height: 200px;
+    overflow: auto;
+    /**/
+    color: #ff6913;
+    font-family: Courier,"Courier New","Source Code Pro",monospace;
+    font-size: 11px;
+    /* box */
+    background-color: #000;
+    border: solid 1px #1c1c1c;
+    margin: 0;
+    /* possibly? */
+    margin-left: 60px;
+}
+/* inline code, shit that isnt deprecated in html5 */
+samp {
+    color: #ff6913;
+    font-family: Courier,"Courier New","Source Code Pro",monospace;
+}
 
 /* clear default bbcode buttons */
 #text_edit, #html_edit, #text_editor_cmd_switchmode, #format-buttons > img, #format-buttons > wbr {
@@ -415,6 +428,270 @@ img[title][src="http://i59.servimg.com/u/f59/14/03/33/42/catego12.png"] {
 .cattitle {
     padding-left: 2px;
 }
+
+/*post header size fix*/
+.post > td:last-child > table > tbody > tr:first-child {
+	height: 23px;
+}
+.post-options > a {
+	line-height: 18px;
+}
+.inline-code {
+  display: inline !important;
+}
+
+/*bbcode button gradient bg*/
+button.button2, input.button2 {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d3d3d3+7,efefef+100 */
+  background: rgb(255,255,255) !important; /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(211,211,211,1) 7%, rgba(239,239,239,1) 100%) !important; /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 7%,rgba(239,239,239,1) 100%) !important; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 7%,rgba(239,239,239,1) 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ) !important; /* IE6-9 */
+}
+
+/*
+user status and contact buttons in pure css
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/*TODO*/
+td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after {
+  color: #eee;
+  content: "ONLINE";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 16px 5px 16px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 3px;
+  margin-left: 0;
+}
+/*
+td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
+  content: "meta";
+  display: block;
+}*/
+
+.i_icon_pm, .i_icon_online, [title="Send e-mail"], img[src="http://hitsk.in/t/15/83/39/i_icon_www.png"], td[valign="middle"] > a[href^="https://m.facebook.com/"], td[valign="middle"] > a[href^="https://mobile.twitter.com/"], img[src="http://hitsk.in/t/15/83/39/i_icon_skype.png"], img[src="https://illiweb.com/fa/subsilver/icon_fb.gif"], img[src="https://illiweb.com/fa/subsilver/icon_twitter.gif"] {
+  display:none;
+}
+
+[title="Send private message"]:after {
+  color: #eee;
+  content: "PM";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 9.5px 5px 9.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+[href^="/profile?mode=email&"]:after {
+  color: #eee;
+  content: "EMAIL";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+[title="Visit poster's website"]:after {
+  color: #eee;
+  content: "WEBSITE";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+a[href^="skype:"]:after {
+  color: #eee;
+  content: "SKYPE";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+td > a[href^="https://www.facebook.com/"]:after {
+  color: #eee;
+  content: "FACEBOOK";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+td > a[href^="https://twitter.com/"]:after {
+  color: #eee;
+  content: "TWITTER";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -o-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -ms-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: -moz-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
 `);
 
 // the codemirror editor
@@ -460,28 +737,18 @@ function loadCodeMirror(org) {
   
 }
 
-const styleMin = style
-  .replace(/^\s+/gm, '') // remove whitespace
-  .replace(/(\r\n|\n)/g, '') // remove newlines
-  .replace(/\/\*([^]+?)\*\//g, ''); // remove comments
-
 function processMarkdown(txt) {
   txt = (window._hansen ? window._hansen.swearifyLite : swearifyLite)(txt);
   
-  if (!txt || txt[0] !== '<') {
-    txt = styleMin + txt;
-  }
-
-   return txt.replace(/\[cd\]([^]+?)\[\/cd\]/g, '<pre>$1</pre>') // code block
-             .replace(/`([^]+?)`/g, '<samp>$1</samp>') // inline code
-             .replace(/\[gist\]([^]+?)\[\/gist\]/g, '<iframe src="http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"></iframe>'); // embedded gists
+  return txt.replace(/\[cd\]([^]+?)\[\/cd\]/g, '[code]$1[/code]') // code block
+            .replace(/`([^]+?)`/g, '[code]Inline: $1[/code]') // inline code
+            .replace(/\[gist\]([^]+?)\[\/gist\]/g, '[url]http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1[/url]'); // embedded gists
 }
 
 function undoMarkdown(txt) {
-  return txt.replace(styleMin, '')
-           .replace(/<(\/)?pre>/g, '[$1cd]')
-           .replace(/<\/?samp>/g, '`')
-           .replace(/<iframe src="http:\/\/rafa1231518\.github\.io\/nfmm-addons\/embed\.html?loc=(.*?)" name="aframe1" scrolling="auto" frameborder="no" align="left" width="100%"><\/iframe>/g, '[gist]$1[/gist]');
+  return txt.replace(/\[code]Inline: (.*?)\[\/code]/g, '`$1`')
+            .replace(/\[(\/)?code]/g, '[$1cd]')
+            .replace(/\[url]http:\/\/rafa1231518\.github\.io\/nfmm-addons\/embed\.html?loc=(.*?)\[\/url]/g, '[gist]$1[/gist]');
 }
 
 // add style to the beginning of every post
@@ -508,37 +775,17 @@ if (textArea) {
       //e.preventDefault();
     });
   }
-
+  
+  console.log(!!unsafeWindow.$.sceditor, !!unsafeWindow.editor, !!unsafeWindow.$, !!window.$, !!window.$.sceditor, !!window.editor);
+  
+  unsafeWindow.$.sceditor = exportFunction(() => {}, unsafeWindow.$);
   // load our new editor (replacing the existing one)
-  if (window.$.sceditor) {
-    console.log('sceditor');
-    delete $.sceditor;
-    //try {
-    //  $("#text_editor_textarea").height(450).sceditor("instance").destroy();
-    //} catch (e) {
-    //  console.error(e);
-    //}
-    loadCodeMirror(textArea);
-  } else if (window.editor) {
-    console.log('cmeditor');
-    editor.toTextArea();
-    loadCodeMirror(textArea);
-  } else {
-    console.log('?? editor');
-    window.addEventListener('load', () => { // the event listener here gives the editor time to load b4 we trash it
-      // remove default editor
-      const cl = document.getElementsByClassName('sceditor-container');
-      if (cl && cl[0]) cl[0].remove(); // TODO see https://github.com/baivong/Userscript/blob/master/Forumotion/removeSCEditorCodeMirror.user.js
-      else console.log('cl is ' + cl);
-
-      // restore original editor (invisible)
-      const org = document.getElementById('text_editor_textarea');
-      if (org) {
-        //org.style.display = '';
-        loadCodeMirror(org);
-      } else console.log('org is ' + org);
-    });
-  }
+  
+  const org = document.getElementById('text_editor_textarea');
+  if (org) {
+    //org.style.display = '';
+    loadCodeMirror(org);
+  } else console.log('org is ' + org);
   
 }
 
@@ -802,11 +1049,22 @@ function syntaxHighlight() {
     const codects = document.getElementsByClassName('cont_code');
 
     for (let i = 0, len = codects.length; i < len; i++) {
+      const code = codects[i];
+      
       // dirty hack in case the dom is all fucked up
-      if (!codects[i]) { // greasemonkey fucked us, lets wait and try again
+      if (!code) { // greasemonkey fucked us, lets wait and try again
         console.log('undef:' + i);
         setTimeout(syntaxHighlight, 200);//
         return;
+      }
+      
+      if (code.childNodes[0].nodeValue.startsWith('Inline: ')) {
+        // hey look, inline code! let's give it the attrs so the CSS knows what to do!
+        code.setAttribute('class', 'cont_code inline-code');
+        code.parentNode.setAttribute('class', 'code inline-code');
+        code.parentNode.parentNode.setAttribute('class', 'codebox inline-code');
+        code.parentNode.parentNode.firstChild.setAttribute('class', 'invisible');
+        code.childNodes[0].nodeValue = code.childNodes[0].nodeValue.substring(8); // 'Inline: '.length
       }
 
       // legacy prism integration code, basically awful
@@ -823,7 +1081,7 @@ function syntaxHighlight() {
       Prism.highlightElement(d, false); // FUCK! async won't work because of too many worker scripts!
       */
       
-      codects[i].innerHTML = Prism.highlight(cleanHTML(codects[i].innerHTML), Prism.languages.java);//no way around this parsing/innerhtml
+      code.innerHTML = Prism.highlight(cleanHTML(code.innerHTML), Prism.languages.java);//no way around this parsing/innerhtml
       
     }
 
@@ -866,4 +1124,10 @@ for (let i = 0, len = postLinks.length; i < len; i++) {
   const realurl = postLinks[i].href.substring(postLinks[i].href.indexOf('/http')+1);
   postLinks[i].setAttribute('href', realurl);
   postLinks[i].textContent = realurl;
+}
+
+// selector to help out the CSS
+const onlineUsers = document.getElementsByClassName('i_icon_online');
+for (let i = 0, len = onlineUsers.length; i < len; i++) {
+  onlineUsers[i].parentElement.setAttribute('class', 'user-is-online')
 }
