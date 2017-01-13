@@ -24,7 +24,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.53
+// @version     0.54
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
