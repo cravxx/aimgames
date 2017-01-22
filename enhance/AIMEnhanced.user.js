@@ -754,7 +754,7 @@ function processMarkdown(txt) {
   
   return txt.replace(/\[cd\]([^]+?)\[\/cd\]/g, '[code]$1[/code]') // code block
             .replace(/`([^]+?)`/g, '[code]Inline: $1[/code]') // inline code
-            .replace(/\[gist\]([^]+?)\[\/gist\]/g, '[url]http://rafa1231518.github.io/nfmm-addons/embed.html?loc=$1[/url]'); // embedded gists
+            .replace(/\[gist\]([^]+?)\[\/gist\]/g, '[url]http://fallk.github.io/nfmm-addons/embed.html?loc=$1[/url]'); // embedded gists
 }
 
 function undoMarkdown(txt) {
