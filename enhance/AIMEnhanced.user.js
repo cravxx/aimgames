@@ -24,7 +24,7 @@
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/
-// @version     0.54
+// @version     0.56
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -523,7 +523,7 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
   display: block;
 }*/
 
-.i_icon_pm, .i_icon_online, [title="Send e-mail"], img[src="http://hitsk.in/t/15/83/39/i_icon_www.png"], td[valign="middle"] > a[href^="https://m.facebook.com/"], td[valign="middle"] > a[href^="https://mobile.twitter.com/"], img[src="http://hitsk.in/t/15/83/39/i_icon_skype.png"], img[src="https://illiweb.com/fa/subsilver/icon_fb.gif"], img[src="https://illiweb.com/fa/subsilver/icon_twitter.gif"] {
+.i_icon_pm, .i_icon_online, [title="Send e-mail"], img[src="http://hitsk.in/t/15/83/39/i_icon_www.png"], td[valign="middle"] > a[href^="https://m.facebook.com/"], td[valign="middle"] > a[href^="https://mobile.twitter.com/"], img[src="http://hitsk.in/t/15/83/39/i_icon_skype.png"], img[src="https://illiweb.com/fa/subsilver/icon_fb.gif"], img[src="https://illiweb.com/fa/subsilver/icon_twitter.gif"], img[src="http://hitsk.in/t/15/83/39/i_icon_aim.png"], img[src="http://hitsk.in/t/15/83/39/i_icon_msnm.png"] {
   display:none;
 }
 
@@ -704,6 +704,180 @@ td > a[href^="https://twitter.com/"]:after {
   margin-left: 0;
 }
 
+td > a[href^="http://edit.yahoo.com/"]:after {
+  color: #eee;
+  content: "YAHOO";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+td > a[href^="aim:goim?screenname="]:after {
+  color: #eee;
+  content: "AIM";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+td > a[href^="msnim:chat?contact="]:after {
+  color: #eee;
+  content: "MSN";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/*td > a[title="View user profile"]:after {
+  color: #eee;
+  content: "PROFILE";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*//*
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*//*
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}*/
+
+td > a[href^="http://www.icq.com/people/"]:after {
+  color: #eee;
+  content: "ICQ";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
+td > a[href^="https://pinterest.com/"]:after {
+  color: #eee;
+  content: "PINTEREST";
+  font-family: 'Open Sans', Arial, sans-serif;;
+  
+  /*font-weight: bold;*/
+  letter-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  
+  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
+  
+  display: inline;
+  
+  height: 25px !important;
+  width: 70px !important;
+  
+  vertical-align: 0%;
+  padding: 4.5px 8.5px 5px 8.5px;
+  text-align: center;
+  border: 1px solid #555555;
+  /*line-height: 200%;*/
+  border-radius: 4px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
+
 `);
 
 // the codemirror editor
@@ -760,7 +934,7 @@ function processMarkdown(txt) {
 function undoMarkdown(txt) {
   return txt.replace(/\[code]Inline: (.*?)\[\/code]/g, '`$1`')
             .replace(/\[(\/)?code]/g, '[$1cd]')
-            .replace(/\[url]http:\/\/rafa1231518\.github\.io\/nfmm-addons\/embed\.html?loc=(.*?)\[\/url]/g, '[gist]$1[/gist]');
+            .replace(/\[url]http:\/\/fallk\.github\.io\/nfmm-addons\/embed\.html?loc=(.*?)\[\/url]/g, '[gist]$1[/gist]');
 }
 
 // add style to the beginning of every post
