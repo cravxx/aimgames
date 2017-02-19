@@ -1,3 +1,9 @@
+//https://www.npmjs.com/package/spelling
+//https://github.com/asahaf/spelling/tree/master/dictionaries
+//https://wzrd.in/standalone/spelling@latest
+//enhance/res/spelling.js
+
+
 &nbsp;
 
 // delet this
