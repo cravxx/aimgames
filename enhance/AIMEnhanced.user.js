@@ -16,6 +16,7 @@
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/prism.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/usernamehistory.js
 // @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/swearifyLite.js
+// @require     https://raw.githubusercontent.com/less/less.js/3.x/dist/less.min.js
 // @resource    codemirrorBaseCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-base.css
 // @resource    codemirrorThemeCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-theme.css
 // @resource    prismCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.css
@@ -23,8 +24,9 @@
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
+// @include     http://aimgames.forummotion.com/u*
 // @include     http://aimgames.forummotion.com/
-// @version     0.56
+// @version     0.63
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
@@ -49,7 +51,7 @@ Please add the following lines to your ad blocker's filter list
 
 */
 
-// TODO: getResourceURL
+// INFO: getResourceURL
 // https://wiki.greasespot.net/Metadata_Block#.40resource
 // https://wiki.greasespot.net/GM_getResourceText
 
@@ -64,11 +66,12 @@ Please add the following lines to your ad blocker's filter list
 
 GM_log(GM_info);
 
-// TODO: this...
+//GM_log(Object.keys(this));
+//GM_log(Object.keys(window));
+
 //const buttons = _hansen.buttons;
 
-// GM_addStyle polyfill. Since @grant none allows us to directly interact with `window`,
-// let's avoid using the greasemonkey crap unless necessary
+// INFO: GM_addStyle polyfill.
 //function GM_addStyle(css) {
 //    const style = document.createElement('style');
 //    style.type = 'text/css';
@@ -76,10 +79,23 @@ GM_log(GM_info);
 //    document.head.appendChild(style);
 //}
 
-// i cant make this remote for some reason... gah
+// NOTE: I can't make this remote
 GM_addStyle(GM_getResourceText('codemirrorBaseCSS'));
 GM_addStyle(GM_getResourceText('codemirrorThemeCSS'));
 GM_addStyle(GM_getResourceText('prismCSS'));
+
+/**
+ * Compile Less CSS code and add it to the page using GM_addStyle
+ */
+function addLess(string) {
+  less.render(string, function(e, output) {
+    if (e) {
+      alert('Error compiling Less: ' + e);
+    } else {
+      GM_addStyle(output.css);
+    }
+  });
+}
 
 const toggledBBcodes = {};
 
@@ -149,14 +165,17 @@ function createButton(id, img, accesskey, title/*, onclick*/) {
   return btn;
 }
 
-GM_addStyle(`
+addLess(`
+/*less*/
+
+@monofonts: Courier,"Courier New","Source Code Pro",monospace;
 
 pre {
     max-height: 200px;
     overflow: auto;
     /**/
     color: #ff6913;
-    font-family: Courier,"Courier New","Source Code Pro",monospace;
+    font-family: @monofonts;
     font-size: 11px;
     /* box */
     background-color: #000;
@@ -168,7 +187,7 @@ pre {
 /* inline code, shit that isnt deprecated in html5 */
 samp {
     color: #ff6913;
-    font-family: Courier,"Courier New","Source Code Pro",monospace;
+    font-family: @monofonts;
 }
 
 /* clear default bbcode buttons */
@@ -191,155 +210,142 @@ samp {
 
 /*makes my name be rainbow-y*/
 [href="/u2548"] > span > strong{
-    -webkit-animation: hansencolorRotate 6s linear 0s infinite;
-            animation: hansencolorRotate 6s linear 0s infinite;
+  -webkit-animation: hansencolorRotate 6s linear 0s infinite;
+          animation: hansencolorRotate 6s linear 0s infinite;
+}
+
+/* function declaration here means it won't parse the nesting stuff */
+.hansen-color-setup() {
+  from {
+    color: rgb(255, 0, 0);
+  }
+  16.6% {
+    color: rgb(255, 0, 255);
+  }
+  33.3% {
+    color: rgb(0, 0, 255);
+  }
+  50% {
+    color: rgb(0, 255, 255);
+  }
+  66.6% {
+    color: rgb(0, 255, 0);
+  }
+  83.3% {
+    color: rgb(255, 255, 0);
+  }
+  to {
+    color: rgb(255, 0, 0);
+  }
 }
 
 @-webkit-keyframes hansencolorRotate {
-    from {
-        color: rgb(255, 0, 0);
-    }
-    16.6% {
-        color: rgb(255, 0, 255);
-    }
-    33.3% {
-        color: rgb(0, 0, 255);
-    }
-    50% {
-        color: rgb(0, 255, 255);
-    }
-    66.6% {
-        color: rgb(0, 255, 0);
-    }
-    83.3% {
-        color: rgb(255, 255, 0);
-    }
-    to {
-        color: rgb(255, 0, 0);
-    }
+  .hansen-color-setup;
 }
 
 @keyframes hansencolorRotate {
-    from {
-        color: rgb(255, 0, 0);
-    }
-    16.6% {
-        color: rgb(255, 0, 255);
-    }
-    33.3% {
-        color: rgb(0, 0, 255);
-    }
-    50% {
-        color: rgb(0, 255, 255);
-    }
-    66.6% {
-        color: rgb(0, 255, 0);
-    }
-    83.3% {
-        color: rgb(255, 255, 0);
-    }
-    to {
-        color: rgb(255, 0, 0);
-    }
+  .hansen-color-setup;
 }
 
+.hansen-post-options-button(@content) {
+  display: initial;
+  content: @content;
+}
 
 /*slight padding below post buttons for tidiness*/
 .post-options {
   padding-bottom: 2.5px;
-}
-/*hovering over post buttons*/
-.post-options > a:hover {
-  background-color: #fbfbfb !important;
-  
-  background: -webkit-linear-gradient(top, rgb(201, 31, 31) 0%,rgb(140, 14, 14) 100%) !important;
-  
-  background: linear-gradient(to bottom, rgb(201, 31, 31) 0%,rgb(140, 14, 14) 100%) !important;
-  -o-border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
-     border-image: -webkit-linear-gradient(top, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
-     border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
-}
-/*remove default button imgs*/
-.post-options > a > img {
-  display: none;
-}
-/*remove broken multiquote button*/
-.post-options > img {
-  display: none; 
-}
-/*edit button text*/
-.post-options > a[href$="mode=editpost"]:after {
-  display: initial;
-  content: 'edit';
-}
-/*delete button text*/
-.post-options > a[href$="mode=delete"]:after {
-  display: initial;
-  content: 'x';
-}
-/*quote button text*/
-.post-options > a[href$="mode=quote"]:after {
-  display: initial;
-  content: 'quote';
-}
-/*show IP button text*/
-.post-options > a[href^="/modcp?mode=ip"]:after {
-  display: initial;
-  content: 'ip';
-}
-/*post buttons*/
-.post-options > a {
-  font: 11px Arial, Helvetica, sans-serif;
-  
-  /*! a-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 0 rgba(0,0,0,.1); */
 
-  position: relative;
-  vertical-align: middle;
-  margin: 0 2px 5px 0;
-  background-color: #940b0b;
-  border: solid 3px #272727;
+  > a {
+    line-height: 18px;
+  }
+  /*hovering over post buttons*/
+  > a:hover {
+    background-color: #fbfbfb !important;
+    
+    background: -webkit-linear-gradient(top, rgb(201, 31, 31) 0%,rgb(140, 14, 14) 100%) !important;
+    
+    background: linear-gradient(to bottom, rgb(201, 31, 31) 0%,rgb(140, 14, 14) 100%) !important;
+    -o-border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
+       border-image: -webkit-linear-gradient(top, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
+       border-image: linear-gradient(to bottom, rgb(47, 47, 47) 0%,rgb(87, 87, 87) 100%) 1 !important;
+  }
+  /*remove default button imgs*/
+  > a > img,
+  /*remove broken multiquote button*/
+  > img {
+    display: none;
+  }
 
-  background-repeat: no-repeat;
-  background-position: center center;
-  text-indent: -900em;
-  color: #333;
-  text-decoration: none;
-  line-height: 100%;
-  white-space: nowrap;
-  border-radius: 0px;
+  /*post buttons*/
+  > a {
+    font: 11px Arial, Helvetica, sans-serif;
+    
+    /*! a-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 0 rgba(0,0,0,.1); */
 
+    position: relative;
+    vertical-align: middle;
+    margin: 0 2px 5px 0;
+    background-color: #940b0b;
+    border: solid 3px #272727;
 
-  width: 26px;
-  height: 26px;
-  font-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-indent: -900em;
+    color: #333;
+    text-decoration: none;
+    line-height: 100%;
+    white-space: nowrap;
+    border-radius: 0px;
 
-  visibility: initial;
-  display: initial;
-  padding: 2px 5px;
-  text-align: center;
-  font-size: 75%;
-  /*! margin-bottom: 0; */
-  /*! margin-top: 100px; */
-  
-  /*transition: all 1s ease;*/
-  color: #d0b2b2;
-  text-transform: uppercase;
-  font-weight: bold;
-  background: -webkit-linear-gradient(top, rgb(163, 22, 22) 0%,rgb(105, 10, 10) 100%);
-  background: linear-gradient(to bottom, rgb(163, 22, 22) 0%,rgb(105, 10, 10) 100%);
-  -o-border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
-     border-image: -webkit-linear-gradient(top, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
-     border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
-  /*! border-style: solid; */
-  /*! border-width: 10px; */
-  /*! -webkit-font-smoothing: antialiased; */
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-  /*could remove i suppose?*/
-  font-size: 60%;
+    width: 26px;
+    height: 26px;
+    font-size: 90%;
+
+    visibility: initial;
+    display: initial;
+    padding: 2px 5px;
+    text-align: center;
+    font-size: 75%;
+    /*! margin-bottom: 0; */
+    /*! margin-top: 100px; */
+    
+    /*transition: all 1s ease;*/
+    color: #d0b2b2;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: -webkit-linear-gradient(top, rgb(163, 22, 22) 0%,rgb(105, 10, 10) 100%);
+    background: linear-gradient(to bottom, rgb(163, 22, 22) 0%,rgb(105, 10, 10) 100%);
+    -o-border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
+       border-image: -webkit-linear-gradient(top, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
+       border-image: linear-gradient(to bottom, rgb(20, 20, 20) 0%,rgb(62, 62, 62) 100%) 1;
+    /*! border-style: solid; */
+    /*! border-width: 10px; */
+    /*! -webkit-font-smoothing: antialiased; */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /*could remove i suppose?*/
+    font-size: 60%;
+  }
+  /*edit button text*/
+  > a[href$="mode=editpost"]:after {
+    .hansen-post-options-button('edit');
+  }
+  /*delete button text*/
+  > a[href$="mode=delete"]:after {
+    .hansen-post-options-button('x');
+  }
+  /*quote button text*/
+  > a[href$="mode=quote"]:after {
+    .hansen-post-options-button('quote');
+  }
+  /*show IP button text*/
+  > a[href^="/modcp?mode=ip"]:after {
+    .hansen-post-options-button('ip');
+  }
 }
 
 /*tiny fix for bottom categories bar*/
@@ -358,10 +364,11 @@ samp {
   cursor: pointer;
   font-weight: bold;
   text-decoration: none;
-}
-/*no underline*/
-.hansenAnc:hover {
-  text-decoration: none !important;
+
+  /*no underline*/
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 
 /*legacy syntax highlighting CSS*/
@@ -390,16 +397,16 @@ samp {
 /*fitimg is an anchor, that works w/ display:block*/
 .h-fitimg {
 	background-color: #231717;
-    padding-left: 5px;
-    padding-right: 5px;
-    /*width: 99.093%;*/
+  padding-left: 5px;
+  padding-right: 5px;
+  /*width: 99.093%;*/
 	cursor: pointer;
 	border: solid 1px #2F2929; /*chrome and shit*/
 	border: solid 1px #2F2929CC; /*modern firefox*/
-    display: block;
-}
-.h-fitimg:hover {
+  display: block;
+  &:hover {
     text-decoration: none !important;
+  }
 }
 /*resize the imgs themselvers*/
 .postbody > div > img {
@@ -407,68 +414,58 @@ samp {
 }
 
 /*remastered icons*/
+.hansen-remastered-icon(@image, @offx: -40px, @offy: -40px) {
+  background-image: url(@image);
+  -o-object-position: @offx @offy;
+     object-position: @offx @offy;
+  background-size: cover;
+}
+
 img[src="https://illiweb.com/fa/extremedarkred/navfolder.gif"] {
-	background-image: url('http://i.imgur.com/MCyr6Y1.png');
-	-o-object-position: -20px 20px;
-	   object-position: -20px 20px;
-	background-size: cover;
+	.hansen-remastered-icon('http://i.imgur.com/MCyr6Y1.png');
   margin-right: 2px;
 }
 
 img[src="https://illiweb.com/fa/extremedarkred/icon_minipost.gif"] {
-  background-image: url('http://i.imgur.com/jat1H4q.png');
-  -o-object-position: -20px 20px;
-     object-position: -20px 20px;
-  background-size: cover;
-  /*margin-right: 2px;*/
-
+  .hansen-remastered-icon('http://i.imgur.com/jat1H4q.png');
   vertical-align: 0px;
   margin-right: 0px;
 }
 
 img[src="http://i71.servimg.com/u/f71/14/03/33/42/locked12.gif"] {
-  background-image: url('http://i.imgur.com/DXwHC1o.png'); /*also url('http://i.imgur.com/u3StReB.png');*/
-  -o-object-position: -20px 20px;
-     object-position: -20px 20px;
-  background-size: cover;
+  .hansen-remastered-icon('http://i.imgur.com/DXwHC1o.png'); /*also url('http://i.imgur.com/u3StReB.png');*/
   margin-right: 2px;
-
   vertical-align: -1px;
 }
 
 img[src="https://illiweb.com/fa/extremedarkred/icon_minipost_new.gif"] {
-    background-image: url('http://i.imgur.com/JLJvZpG.png');
-    -o-object-position: -20px 20px;
-       object-position: -20px 20px;
-    background-size: cover;
-    /*margin-right: 2px;*/
-
-    vertical-align: 0px;
-    margin-right: 0px;
+  .hansen-remastered-icon('http://i.imgur.com/JLJvZpG.png');
+  vertical-align: 0px;
+  margin-right: 0px;
 }
 
 img[title][src="http://i59.servimg.com/u/f59/14/03/33/42/catego12.png"] {
-    background-image: url('http://i.imgur.com/DumidY4.png');
-    -o-object-position: -40px 20px;
-       object-position: -40px 20px;
-    background-size: cover;
-    /*margin-right: 2px;*/
+  .hansen-remastered-icon('http://i.imgur.com/DumidY4.png');
+  vertical-align: 0px;
+  margin-right: 0px;
+}
 
-    vertical-align: 0px;
-    margin-right: 0px;
+img[src="http://i71.servimg.com/u/f71/14/03/33/42/folder10.png"] {
+  .hansen-remastered-icon('http://i.imgur.com/HdY6NFK.png');
+  margin-right: 2px;
+  width: 16px;
+  height: 15px;
+  vertical-align: -3px;
 }
 
 /*category title spacing fix*/
 .cattitle {
-    padding-left: 2px;
+  padding-left: 2px;
 }
 
 /*post header size fix*/
 .post > td:last-child > table > tbody > tr:first-child {
 	height: 23px;
-}
-.post-options > a {
-	line-height: 18px;
 }
 .inline-code {
   display: inline !important;
@@ -481,6 +478,13 @@ button.button2, input.button2 {
   background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 7%,rgba(239,239,239,1) 100%) !important; /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 7%,rgba(239,239,239,1) 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ) !important; /* IE6-9 */
+
+  &:hover {
+    background: #f00 !important;
+    background: -webkit-linear-gradient(top, #ffffff 0%, #f39595 7%, #fce4e4 100%) !important;
+    background: linear-gradient(to bottom, #ffffff 0%, #f39595 7%, #fce4e4 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fce4e4', GradientType=0) !important;
+  }
 }
 
 /*
@@ -488,35 +492,7 @@ user status and contact buttons in pure css
 */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-/*TODO*/
-td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after {
-  color: #eee;
-  content: "ONLINE";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 16px 5px 16px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 3px;
-  margin-left: 0;
-}
+
 /*
 td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
   content: "meta";
@@ -524,13 +500,13 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
 }*/
 
 .i_icon_pm, .i_icon_online, [title="Send e-mail"], img[src="http://hitsk.in/t/15/83/39/i_icon_www.png"], td[valign="middle"] > a[href^="https://m.facebook.com/"], td[valign="middle"] > a[href^="https://mobile.twitter.com/"], img[src="http://hitsk.in/t/15/83/39/i_icon_skype.png"], img[src="https://illiweb.com/fa/subsilver/icon_fb.gif"], img[src="https://illiweb.com/fa/subsilver/icon_twitter.gif"], img[src="http://hitsk.in/t/15/83/39/i_icon_aim.png"], img[src="http://hitsk.in/t/15/83/39/i_icon_msnm.png"] {
-  display:none;
+  display: none;
 }
 
-[title="Send private message"]:after {
+.hansen-base-profile-button {
   color: #eee;
-  content: "PM";
-  font-family: 'Open Sans', Arial, sans-serif;;
+  content: "FIX ME";
+  font-family: 'Open Sans', Arial, sans-serif;
   
   /*font-weight: bold;*/
   letter-spacing: 0px;
@@ -546,7 +522,7 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
   width: 70px !important;
   
   vertical-align: 0%;
-  padding: 4.5px 9.5px 5px 9.5px;
+  padding: 4.5px 8.5px 5px 8.5px;
   text-align: center;
   border: 1px solid #555555;
   /*line-height: 200%;*/
@@ -554,330 +530,196 @@ td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online::after(2) {
   
   margin-right: 0;
   margin-left: 0;
+}
+
+td.row2.messaging.gensmall > table > tbody > tr > td.user-is-online:after {
+  .hansen-base-profile-button;
+  content: "ONLINE";
+  padding: 4.5px 16px 5px 16px;
+}
+
+[title="Send private message"]:after {
+  .hansen-base-profile-button;
+  content: "PM";
+  padding: 4.5px 9.5px 5px 9.5px;
 }
 
 
 [href^="/profile?mode=email&"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "EMAIL";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 
 [title="Visit poster's website"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "WEBSITE";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 a[href^="skype:"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "SKYPE";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 
 td > a[href^="https://www.facebook.com/"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "FACEBOOK";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 td > a[href^="https://twitter.com/"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "TWITTER";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 td > a[href^="http://edit.yahoo.com/"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "YAHOO";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 td > a[href^="aim:goim?screenname="]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "AIM";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 td > a[href^="msnim:chat?contact="]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "MSN";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 /*td > a[title="View user profile"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "PROFILE";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*//*
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*//*
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }*/
 
 td > a[href^="http://www.icq.com/people/"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "ICQ";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
 td > a[href^="https://pinterest.com/"]:after {
-  color: #eee;
+  .hansen-base-profile-button;
   content: "PINTEREST";
-  font-family: 'Open Sans', Arial, sans-serif;;
-  
-  /*font-weight: bold;*/
-  letter-spacing: 0px;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  
-  background: -webkit-linear-gradient(top, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(39, 39, 39) 42%, rgb(11, 11, 11) 96%);
-  
-  display: inline;
-  
-  height: 25px !important;
-  width: 70px !important;
-  
-  vertical-align: 0%;
-  padding: 4.5px 8.5px 5px 8.5px;
-  text-align: center;
-  border: 1px solid #555555;
-  /*line-height: 200%;*/
-  border-radius: 4px;
-  
-  margin-right: 0;
-  margin-left: 0;
 }
 
+.ajax-profil_edit {
+  left: -10px !important;
+}
+
+.three-col > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) {
+  /* merge the header rows in the profile */
+  > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) {
+    position: relative !important;
+
+    > tr:last-child {
+      position: absolute !important;
+      bottom: 0 !important;
+      /*height: 0;
+      max-height: 0;
+      min-height: 0;
+      float: right;*/
+      width: 100% !important;
+      > td {
+        float: right !important;
+      }
+    }
+  }
+
+  /* main page footer spacing fix */
+  > table:nth-child(18) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(3) {
+    width: 11.27px;
+  }
+}
+
+/* pure CSS submit/preview buttons */
+input[type="submit"] {
+  background-color: #0e0e0e;
+  border-bottom-color: rgb(204, 204, 204);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: rgb(204, 204, 204);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: rgb(204, 204, 204);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgb(204, 204, 204);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  font-family: Verdana,sans-serif;
+  font-size: 11px;
+  /*height: 34px;*/
+  outline-color: rgb(33, 33, 33);
+  padding-bottom: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 1px;
+  perspective-origin: 38px 17px;
+  text-decoration-color: white;
+  text-emphasis-color: white;
+  transform-origin: 38px 17px;
+  /*vertical-align: middle;*/
+  white-space: nowrap;
+  /*width: 76px;*/
+  -moz-column-gap: 14px;
+  -moz-column-rule-color: white;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-color: white;
+  transition: all 0.1s;
+  border-color: #3b3b3b;
+
+  &:hover {
+    background-color: #777;
+    border-bottom-color: rgb(173, 173, 173);
+    border-left-color: rgb(173, 173, 173);
+    border-right-color: rgb(173, 173, 173);
+    border-top-color: rgb(173, 173, 173);
+  }
+}
+
+/* pure-css separator icon */
+img[src="https://illiweb.com/fa/wysiwyg/separator.png"] {
+  vertical-align: middle;
+  -o-object-position: -40px 20px;
+  object-position: -40px 20px;
+  background: #9c9c9c;
+  height: 21px;
+  padding: 0;
+  margin: 0;
+  -webkit-clip-path: polygon(60% 0, 60% 100%, 40% 100%, 40% 0);
+          clip-path: polygon(60% 0, 60% 100%, 40% 100%, 40% 0);
+}
+
+/* 'remastered' header icon */
+
+#i_icon_mini_index {
+  display: none;
+}
+img[src="http://i71.servimg.com/u/f71/14/03/33/42/clock10.png"] {
+  .hansen-remastered-icon('http://i.imgur.com/D5QPEOL.png');
+}
+
+/* remastered main icon */
+#i_logo {
+  .hansen-remastered-icon('http://i.imgur.com/qifhFyz.png', -9999px, -9999px);
+}
+
+/* fix nav links not changing color on hover */
+a.nav:hover {
+  color: #cf0000;
+}
+
+/*better table header font*/
+th[nowrap="nowrap"] {
+  font-family: Helvetica,Arial,sans-serif;
+}
 `);
 
 // the codemirror editor
@@ -1149,11 +991,11 @@ function cleanHTML(text) {
 
 function selectText(container) {
   if (document.selection) {
-    var range = document.body.createTextRange();
+    const range = document.body.createTextRange();
     range.moveToElementText(container);
     range.select();
   } else if (window.getSelection) {
-    var range = document.createRange();
+    const range = document.createRange();
     range.selectNode(container);
     window.getSelection().addRange(range);
   }
@@ -1170,7 +1012,7 @@ for (let i = 0, len = codeboxes.length; i < len; i++) {
   const selectAll = document.createElement('a');
   selectAll.appendChild(document.createTextNode(' Select All'));
   selectAll.setAttribute('class', 'genmed hansenAnc');
-  selectAll.addEventListener('click', () => {
+  selectAll.addEventListener('click', () => { // jshint ignore:line
     selectText(content);
   });
   
@@ -1179,7 +1021,7 @@ for (let i = 0, len = codeboxes.length; i < len; i++) {
   const copy = document.createElement('a');
   copy.appendChild(document.createTextNode(' Copy'));
   copy.setAttribute('class', 'genmed hansenAnc');
-  copy.addEventListener('click', () => {
+  copy.addEventListener('click', () => { // jshint ignore:line
     try {
       GM_setClipboard(cleanHTML(content.innerHTML));
     } catch (e) {
@@ -1315,5 +1157,40 @@ for (let i = 0, len = postLinks.length; i < len; i++) {
 // selector to help out the CSS
 const onlineUsers = document.getElementsByClassName('i_icon_online');
 for (let i = 0, len = onlineUsers.length; i < len; i++) {
-  onlineUsers[i].parentElement.setAttribute('class', 'user-is-online')
+  onlineUsers[i].parentElement.setAttribute('class', 'user-is-online');
+}
+
+// root forum stuff
+if (document.location.pathname == '/') {
+  // add nbsp to birthdays
+  const sel = document.querySelector('table.forumline:nth-child(13) > tbody:nth-child(1) > tr:nth-child(5) > td:nth-child(1) > span:nth-child(1)');
+  const nbsp = '\u00a0';
+  for (let i = 0, len = sel.childNodes.length; i < len; i++) {
+    const n = sel.childNodes[i];
+    if (n.nodeType == 3 && n.nodeValue[0] == ' ') {
+      //console.log(n);
+      n.nodeValue = nbsp + n.nodeValue.substring(1);
+    }
+  }
+
+  // replace ' : ' with ': '
+  const nodes = document.querySelectorAll('table.forumline:nth-child(13) > tbody > tr > td > .gensmall');
+  for (let i = 0, len = nodes.length; i < len; i++) {
+    for (let j = 0, alen = nodes[i].childNodes.length; j < alen; j++) {
+      const n = nodes[i].childNodes[j];
+      if (n.nodeType == 3 && n.nodeValue.indexOf(' : ') > -1) {
+        n.nodeValue = n.nodeValue.replace(/ +: +/, ': ');
+      }
+    }
+  }
+
+  // trim large post numbers with 'k'
+  const numbers = document.querySelectorAll('.row2 > .gensmall'); //('table.forumline > tbody:nth-child(1) > tr > td:nth-child(4) > span:nth-child(1)');
+  for (let i = 0, len = numbers.length; i < len; i++) {
+    const n = numbers[i].childNodes[0];
+    const bn = n.nodeValue;
+    if (bn.length >= 4) {
+      n.nodeValue = bn.substring(0, bn.length - 3) + 'k';
+    }
+  }
 }
