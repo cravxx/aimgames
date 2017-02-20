@@ -3,13 +3,20 @@
 **sleazyProxy.js** exposes to `window.aw` a javascript proxy that, when you try to access a missing property in,
 returns the closest match. The return value, if it is an object, also gets proxied, thus allowing you to keep the chain going.
 
-**sleazyCatcher.js** (not available yet) automatically try-catches every function or block, so your program's flow is never
+**sleazyCatcher.js** automatically try-catches every function or block, so your program's flow is never
 interrupted by a silly error! It even provides error logging that's probably better than whatever IE gives you.
 
 ## Examples
 `aw.Au.p.c.n` is exactly the same as `window.Audio.prototype.constructor.name` (Yes, exactly!)
 
 `aw.Mat.m.a(!0, [1, 2, 3, 4])` is exactly the same as `window.Math.max.apply(null, [1, 2, 3, 4])`
+
+### SleazyCatcher Example
+SleazyCatcher exports `window.steamroll`, `window.func` and `window.f`. Give them any function as a parameter and SleazyCatcher
+will execute them, _the safe way_. Use `steamroll.noConflict()` to remove conflicting global variables, or
+`steamroll.fullUninstall` to trash _everything!_
+
+NB: SleazyCatcher requires the [steamroller library](https://github.com/fallk/the-catch-on-the-river-try/blob/master/dist/steamroller.min.js ) to be installed to work.
 
 ## Pros
 * Short code
