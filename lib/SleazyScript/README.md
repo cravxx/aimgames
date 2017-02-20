@@ -8,6 +8,7 @@ interrupted by a silly error! It even provides error logging that's probably bet
 
 ## Examples
 `aw.Au.p.c.n` is exactly the same as `window.Audio.prototype.constructor.name` (Yes, exactly!)
+
 `aw.Mat.m.a(!0, [1, 2, 3, 4])` is exactly the same as `window.Math.max.apply(null, [1, 2, 3, 4])`
 
 ## Pros
