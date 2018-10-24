@@ -12,8 +12,41 @@
 // @grant       GM_getValue
 // @grant       GM_info
 // @grant       GM_listValues
+// @grant       GM_deleteValue
 // @license     MIT License (Expat); opensource.org/licenses/MIT
 // ==/UserScript==
+
+/*
+globals GM_addStyle,GM_setValue,GM_getValue,GM_info,GM_listValues,console
+*/
+
+'use strict';
+
+// side-by-side caching
+function newGetValue(str, def) {
+    let i = localStorage.getItem('hs#' + str);
+    if (i !== null) {
+        GM_setValue(str, i);
+        return i;
+    }
+    return GM_getValue(str, def);
+}
+function newSetValue(str, val) {
+    localStorage.setItem('hs#' + str, val);
+    GM_setValue(str, val);
+    return val;
+}
+/*function newListValues() {
+  const allValues = Object.keys(localStorage).filter(e => e.startsWith('hs#')).map(e => e.slice('hs#'.length)); // get hansen keys and remove hansen_ prefix
+  GM_listValues().forEach(e => {
+    if (allValues.indexOf(e) == -1) allValues.push(e);
+  });
+  return allValues;
+}
+function newDeleteValue(str) {
+  localStorage.removeItem('hs#' + str);
+  GM_deleteValue(str);
+}*/
 
 /**
 
@@ -108,16 +141,11 @@ function processComment(str) {
   return false; // safe
 }
 
-function handleNode(csi) {
-  const origcontent = csi.children[0].textContent;
+function handleCommentText(csi) {
+  const origcontent = csi.textContent;
   if (processComment(origcontent)) {
     // grab topmost element to remove
     let el = csi.parentElement.parentElement.parentElement;
-    if (el.parentElement.parentElement.className.startsWith('comment-replies-renderer') || // is[is.length-1].parentElement.parentElement.parentElement.parentElement.parentElement
-        el.className.startsWith('comment-replies-renderer') // already in view for whatever reason
-       ) { // reply thread (startswith for vve-check workaround)
-      el = csi.parentElement.parentElement;
-    }
 
     // remove all child elements
     while (el.firstChild) {
@@ -126,6 +154,7 @@ function handleNode(csi) {
 
     // add the 'Comment removed. Be proud!' text
     const asp = document.createElement('span');
+    asp.setAttribute('data-hansen-originalContent', origcontent);
     asp.setAttribute('style', 'color: rgb(170, 170, 170);');
     asp.title = origcontent;
     const it = document.createElement('i');
@@ -139,30 +168,20 @@ function handleNode(csi) {
 if (!document.location.href.startsWith('https://www.youtube.com/feed/subscriptions/')) { // isn't the sub box
 
   // remove recommended videos
-  const vCounts = document.querySelectorAll('.stat.view-count');
+  const vCounts = document.querySelectorAll('ytd-video-meta-block > #metadata > #metadata-line');
 
   for (let i of vCounts) {
-    if (i.textContent.startsWith('Recommended') || i.textContent.startsWith('Recomendado')) {
-      i.parentNode.parentNode.parentNode.parentNode.removeChild(i.parentNode.parentNode.parentNode); //delete the video
+    if (i.textContent.includes('Recommended') || i.textContent.includes('Recomendado')) {
+      i.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(i.parentNode.parentNode.parentNode.parentNode.parentNode); //delete the video
     }
   }
-
-  // comment CSS fix
-  GM_addStyle(`.comment-renderer-text-content > b {
-      font-weight: bold;
-  }
-  /*space after comma for tags*/
-  .watch-meta-item .watch-info-tag-list li::after {
-      content: ", ";
-  }`);
-
 }
 
 // convert vid titles to titlecase if theyre uppercase
 
-const lowers = [/\sA\s/g, /\sAn\s/g, /\sThe\s/g, /\sAnd\s/g, /\sBut\s/g, /\sOr\s/g, /\sFor\s/g, /\sNor\s/g, /\sAs\s/g, /\sAt\s/g, 
+const lowers = [/\sA\s/g, /\sAn\s/g, /\sThe\s/g, /\sAnd\s/g, /\sBut\s/g, /\sOr\s/g, /\sFor\s/g, /\sNor\s/g, /\sAs\s/g, /\sAt\s/g,
   /\sBy\s/g, /\sFor\s/g, /\sFrom\s/g, /\sIn\s/g, /\sInto\s/g, /\sNear\s/g, /\sOf\s/g, /\sOn\s/g, /\sOnto\s/g, /\sTo\s/g, /\sWith\s/g];
-const lowered = ['a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'as', 'at', 
+const lowered = ['a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'as', 'at',
   'by', 'for', 'from', 'in', 'into', 'near', 'of', 'on', 'onto', 'to', 'with'];
 const lowersLen = lowers.length;
 
@@ -191,23 +210,28 @@ function handleCase(el) {
 // VID LINK STRUCTURE:
 // /watch?v=_y3jCecdYfk
 
-// 
+//
 function handleThumbnail(el) {
-  const vidLink = el.children[0].getAttribute('href').replace(/(\&|\&amp;)t=.*/, '');
-  
-  const vidProgress = GM_getValue(vidLink+'_progress', null);
-  const vidDuration = GM_getValue(vidLink+'_duration', null);
-  
+  let vidLink = el.children[0].getAttribute('href').replace(/(\&|\&amp;)t=.*/, '');
+  vidLink = vidLink.slice(vidLink.indexOf('?v=') + '?v='.length); // futureproofing
+
+  const vidProgress = newGetValue(vidLink+'#p', null);
+  const vidDuration = newGetValue(vidLink+'#d', null);
+
+  console.log('detected thumb', el.toString(), vidLink, vidProgress, vidDuration);
+
   if (vidProgress!==null && vidDuration!==null) {
     console.log(el);
     console.log(vidLink);
-    
+
     const progBack = document.createElement('span');
     progBack.setAttribute('class', 'hansen-resume-playback-background');
     const progFore = document.createElement('span');
     progFore.setAttribute('class', 'hansen-resume-playback-progress-bar');
     progFore.setAttribute('style', 'width:' + Math.floor((vidProgress / vidDuration)*100) + '%;');
-    
+    progFore.setAttribute('data-hansen-vidProgress', vidProgress);
+    progFore.setAttribute('data-hansen-vidDuration', vidDuration);
+
     el.insertBefore(progBack, el.children[2]);
     el.insertBefore(progFore, el.children[2]);
   }
@@ -216,42 +240,35 @@ function handleThumbnail(el) {
 // restore video to loaded time when opening a new one
 let madeInterval = false;
 function handleVideo(el) {
-  
+
   let videoId = window.location.href;
   const amp = videoId.indexOf('&');
-  videoId = videoId.substring(videoId.indexOf('/watch?v='), amp == -1 ? videoId.length : amp);
-  
-  if(el.currentTime<=1) el.currentTime = GM_getValue(videoId+'_progress', 0);
-  
-  GM_setValue(videoId+'_duration', el.duration);
-  
-  window.addEventListener('beforeunload', function() {
-    GM_setValue(videoId+'_duration', el.duration);
-    
-    if (el.currentTime != el.duration) {
-      GM_setValue(videoId+'_progress', el.currentTime);
-    } else {
-      // we've finished the video, so reset it
-      GM_setValue(videoId+'_progress', 0);      
+  videoId = videoId.substring(videoId.indexOf('/watch?v=')+'/watch?v='.length, amp == -1 ? videoId.length : amp);
+
+  if (el.currentTime <= 1) el.currentTime = newGetValue(videoId+'#p', 0);
+
+  if (el.duration && !isNaN(el.duration)) newSetValue(videoId+'#d', el.duration);
+
+  console.log('detected video', el, videoId);
+
+  function updateValue() {
+    const prevValue = newGetValue(videoId+'#p', false);
+    if (!prevValue || isNaN(prevValue) || prevValue < el.currentTime) {
+      newSetValue(videoId+'#p', el.currentTime);
     }
-  });
-  
+    //
+    const prevDuration = newGetValue(videoId+'#d', null);
+    if (!prevDuration || isNaN(prevDuration)) {
+      newSetValue(videoId+'#d', el.duration);
+    }
+  }
+
+  window.addEventListener('beforeunload', updateValue);
+
   // onbeforeunload is not brilliantly reliable so let's keep ticking it every 30s
   if (!madeInterval) {
     madeInterval = true;
-    setInterval(() => {
-      const prevValue = GM_getValue(videoId+'_progress', false);
-      if (!prevValue || prevValue < el.currentTime) {
-        GM_setValue(videoId+'_progress', el.currentTime);
-
-        if (el.currentTime != el.duration) {
-          GM_setValue(videoId+'_progress', el.currentTime);
-        } else {
-          // we've finished the video, so reset it
-          GM_setValue(videoId+'_progress', 0);      
-        }
-      }
-    }, 30*1000);
+    setInterval(updateValue, 30*1000);
   }
 }
 
@@ -266,55 +283,55 @@ if (notifs !== null) {
 
 // dirty hack to check for an inserted node from http://stackoverflow.com/a/10343915
 GM_addStyle(`
-@keyframes cccnodeInserted {  
-    from {  
-        outline-color: #fff; 
+@keyframes ccccommentText {
+    from {
+        outline-color: #fff;
     }
-    to {  
+    to {
         outline-color: #000;
-    }  
+    }
 }
 
-.comment-renderer-text {
+#content-text.ytd-comment-renderer {
     animation-duration: 0.01s;
-    animation-name: cccnodeInserted;
+    animation-name: ccccommentText;
 }
 
-@keyframes cccvideoTitle {  
-    from {  
-        outline-color: #fff; 
+@keyframes cccvideoTitle {
+    from {
+        outline-color: #fff;
     }
-    to {  
+    to {
         outline-color: #000;
-    }  
+    }
 }
 
-.yt-lockup-title > a {
+#video-title {
     animation-duration: 0.01s;
     animation-name: cccvideoTitle;
 }
 
-@keyframes cccvideoThumbnail {  
-    from {  
-        outline-color: #fff; 
+@keyframes cccvideoThumbnail {
+    from {
+        outline-color: #fff;
     }
-    to {  
+    to {
         outline-color: #000;
-    }  
+    }
 }
 
-.thumb-wrapper, .yt-lockup-thumbnail {
+ytd-thumbnail {
     animation-duration: 0.01s;
     animation-name: cccvideoThumbnail;
 }
 
-@keyframes cccvideoElement {  
-    from {  
-        outline-color: #fff; 
+@keyframes cccvideoElement {
+    from {
+        outline-color: #fff;
     }
-    to {  
+    to {
         outline-color: #000;
-    }  
+    }
 }
 
 video {
@@ -324,7 +341,7 @@ video {
 
 /*replaces the 'WATCHED' video thing*/
 .hansen-resume-playback-progress-bar {
-  background-color: rgb(230, 33, 23);
+  background-color: green;
   /*bottom: 0px;*/
   font-family: Roboto,arial,sans-serif;
   font-size: 13px;
@@ -341,9 +358,9 @@ video {
   transform-origin: 84px 2px;
   /*width: 168px;*/
   -moz-column-gap: 13px;
-    
+
   top: auto;
-  bottom: 0;
+bottom: 4px;
   z-index: 1;/*doesnt need to be 99999 or whatever :)*/
 }
 
@@ -366,18 +383,23 @@ video {
   transform-origin: 84px 2px;
   /*width: 168px;*/
   -moz-column-gap: 13px;
-    
+
   width: 100%;
   top: auto;
-  bottom: 0;
+  bottom: 4px;
 }
 
-.resume-playback-background, .resume-playback-progress-bar { display:none !important; }
+.html5-video-player, #player, #player-container, #player-theater-container, .html5-video-container > video {
+    height: calc(100vh - 55px) !important;
+    min-height: calc(100vh - 55px) !important;
+    width: 100vw !important;
+    left: 0 !important;
+}
 `);
 
 document.addEventListener('animationstart', function(event){
-  if (event.animationName == 'cccnodeInserted'){
-    handleNode(event.target);
+  if (event.animationName == 'ccccommentText'){
+    handleCommentText(event.target);
   } else if (event.animationName == 'cccvideoTitle') {
     handleCase(event.target);
   } else if (event.animationName == 'cccvideoThumbnail') {
