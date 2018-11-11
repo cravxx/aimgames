@@ -1,0 +1,6 @@
+{
+    "env": {
+        // fix /* exported */ comments
+        "node": false
+    }
+}
