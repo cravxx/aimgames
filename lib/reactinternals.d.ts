@@ -94,4 +94,4 @@ interface ReactInternals {
   React: any;
 }
 
-declare const makeReactInternals: (rootId: string, providedOptions = reactInternalsDefaultOptions) => ReactInternals;
+declare const makeReactInternals: (rootElement: string | Element, providedOptions = reactInternalsDefaultOptions) => ReactInternals;
