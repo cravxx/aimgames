@@ -1,4 +1,5 @@
-engines:
+version: '2'
+plugins:
   duplication: #seems to be working
     enabled: false
     config:
@@ -14,7 +15,7 @@ engines:
       - todo
   eslint: #no idea if needs config https://docs.codeclimate.com/docs/eslint
     enabled: true
-    channel: "eslint-3"
+    channel: 'eslint-3'
     config:
       config: ./.eslintrc.json
       extensions:
@@ -28,18 +29,16 @@ engines:
     enabled: true
   markdownlint:
     enabled: false
-ratings:
-  paths:
-  - "**.user.js"
-  - "**.js"
-  - "**.css"
-  - "**.sh"
-  - "**.bat"
-  - "**.md"
-exclude_paths:
-- bin/*
-- build/*
-#- "**.md"
-- "**.yml"
-- swearify/swearifyVar.js
-- "swearify/jquery.caret.1.02.min.js"
+
+exclude_patterns:
+- '**.min.js'
+- '**/*.min.js'
+- '*.min.js'
+
+checks:
+  file-lines:
+    enabled: false
+  method-count:
+    enabled: false
+  method-lines:
+    enabled: false
