@@ -1,4 +1,4 @@
-# [![animated gif of a tumbleweed](https://i.imgur.com/1WhhtdH.gif)](https://i.imgur.com/1WhhtdH.gif) Scripts for AIM Games (not quite what it used to be) [![Build status](https://ci.appveyor.com/api/projects/status/d3wcdbxowut925bk/branch/master?svg=true)](https://ci.appveyor.com/project/uwx/aimgames/branch/master
+# [![animated gif of a tumbleweed](https://i.imgur.com/1WhhtdH.gif)](https://i.imgur.com/1WhhtdH.gif) Scripts for AIM Games (not quite what it used to be) [![Build status](https://ci.appveyor.com/api/projects/status/d3wcdbxowut925bk/branch/master?svg=true)](https://ci.appveyor.com/project/uwx/aimgames/branch/master)
 This repository contains some userscripts, most of which have not been updated in a _very, very_ long time.
 
 We have [a wiki](https://github.com/HulaSamsquanch/aimgames/wiki/), although it's not up to date either.
