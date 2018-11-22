@@ -34,6 +34,11 @@ exclude_patterns:
 - '**.min.js'
 - '**/*.min.js'
 - '*.min.js'
+# not fixable
+- 'lib/reactinternals.js'
+- 'lib/multimap.js'
+# abandoned
+- 'aimgames'
 
 checks:
   file-lines:
