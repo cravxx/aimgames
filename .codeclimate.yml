@@ -41,6 +41,9 @@ exclude_patterns:
 - 'aimgames'
 
 checks:
+  method-complexity:
+    config:
+      threshold: 15
   file-lines:
     enabled: false
   method-count:
