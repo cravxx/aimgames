@@ -6,8 +6,8 @@
 // @include     https://aimgames.forummotion.com/*
 // @require     https://raw.githubusercontent.com/js-cookie/js-cookie/master/src/js.cookie.js
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/jquery.caret.1.02.min.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/swearify/textUtils.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/swearify/jquery.caret.1.02.min.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/swearify/textUtils.js
 // @version     beta.5.5
 // @icon        http://i.imgur.com/MnWNRBL.png
 // @license     MIT License (Expat); opensource.org/licenses/MIT
