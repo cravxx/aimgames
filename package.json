@@ -5,30 +5,54 @@
   "email": "samsquanchhunter14@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "0.4.1",
-    "grunt-cli": "0.1.9",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-uglify": "^0.11.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "jshint": "^2.8.0"
+    "eslint": "^5.9.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/HulaSamsquanch/aimgames.git"
   },
   "scripts": {
-    "test": "grunt bleedTheFreak"
+    "lint": "eslint . || exit 0"
   },
   "droneVersion": "7.upright.5.1.kaoliangs.1457204914.7",
   "dependencies": {
-    "autoprefixer": "^6.6.1",
-    "clean-css": "github:jakubpawlowicz/clean-css",
-    "jsdiff": "^1.1.1",
-    "postcss": "^5.2.8",
-    "uglify-js": "^2.7.5"
+    "autoprefixer": "^9.3.1",
+    "clean-css": "^4.2.1",
+    "fast-glob": "^2.2.4",
+    "fsxt": "^11.1.1",
+    "postcss": "^7.0.6",
+    "strip-json-comments": "^2.0.1",
+    "uglify-js": "^3.4.9"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions"
+    "Android > 0",
+    "Baidu > 0",
+    "BlackBerry > 0",
+    "Chrome > 0",
+    "ChromeAndroid > 0",
+    "Edge > 0",
+    "Electron > 0",
+    "Explorer > 0",
+    "ExplorerMobile > 0",
+    "Firefox > 0",
+    "FirefoxAndroid > 0",
+    "iOS > 0",
+    "Opera > 0",
+    "OperaMini > 0",
+    "OperaMobile > 0",
+    "QQAndroid > 0",
+    "Safari > 0",
+    "Samsung > 0",
+    "UCAndroid > 0",
+    "node 10",
+    "node 9",
+    "node 8",
+    "node 7",
+    "node 6",
+    "node 5",
+    "node 4",
+    "node 0.10",
+    "node 0.12",
+    "current node"
   ]
 }

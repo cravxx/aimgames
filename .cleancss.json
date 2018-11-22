@@ -1,0 +1,5 @@
+// see build/prefix-css.js for information
+// https://www.npmjs.com/package/clean-css
+{
+  "level": 2
+}
