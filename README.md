@@ -5,10 +5,9 @@ We have [a wiki](https://github.com/cravxx/aimgames/wiki/), although it's not up
 
 So long, and thanks for all the memes
 
-[![Github Issues](http://githubbadges.herokuapp.com/cravxx/aimgames/issues.svg)](https://github.com/cravxx/aimgames/issues) [![Pending Pull Requests](http://githubbadges.herokuapp.com/cravxx/aimgames/pulls.svg)](https://github.com/cravxx/aimgames/pulls)
 [![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
-[![Code Climate](https://img.shields.io/codeclimate/github/cravxx/aimgames.svg)](https://codeclimate.com/github/cravxx/aimgames)
-[![Issue Count](https://codeclimate.com/github/cravxx/aimgames/badges/issue_count.svg)](https://codeclimate.com/github/cravxx/aimgames)
+[![Code Climate](https://img.shields.io/codeclimate/github/HulaSamsquanch/aimgames.svg)](https://codeclimate.com/github/HulaSamsquanch/aimgames)
+[![Issue Count](https://codeclimate.com/github/HulaSamsquanch/aimgames/badges/issue_count.svg)](https://codeclimate.com/github/HulaSamsquanch/aimgames)
 
 ### Stuff that is in here
 
