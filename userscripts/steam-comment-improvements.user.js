@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Steam Comment Improvements
 // @namespace    hansen-i-nate
-// @version      0.1
+// @version      0.2
 // @description  advanced steam trash removal
 // @author       You
 // @include      https://steamcommunity.com/*
@@ -29,6 +29,7 @@ function run() {
         removeComment(el, text);
       }
     } catch (e) {
+      console.error('Steam Comment Improvements', e);
       //debugger;
     }
   }
@@ -64,6 +65,8 @@ for (const thread of Object.values(g_rgCommentThreads)) {
   fastPatch(thread, 'DoTransitionToNewPosts', patched);
 }
 
+run();
+
 function fastPatch(obj, key, { before, instead, after }) {
   const existing = instead || obj[key];
   obj[key] = function(...args) {
@@ -89,4 +92,10 @@ function fastPatch(obj, key, { before, instead, after }) {
     }
     return retval;
   };
+}
+
+// Steam Community link unremover (Displays real link after 'LINK REMOVED' text)
+var a = document.getElementsByClassName('bb_removedlink');
+for (var i = 0, len = a.length; i < len; i++) {
+  a[i].firstChild.nodeValue += ' <' + a[i].nextSibling.firstChild.nodeValue + '>';
 }
