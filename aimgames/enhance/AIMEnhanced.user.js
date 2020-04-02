@@ -3,30 +3,36 @@
 // @description Improves posting on AIM. Adds partial markdown support and other fun stuff.
 // @namespace   notareal@em.ail
 // @require     https://code.jquery.com/jquery-3.1.1.min.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/codemirror.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/css.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/xml.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/vbscript.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/javascript.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/htmlmixed.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/bbcode.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/bbcodemixed.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/opentip-native.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/editorbuttons.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/prism.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/usernamehistory.js
-// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/aimgames/enhance/resources/swearifyLite.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/codemirror.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/css.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/xml.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/vbscript.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/javascript.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/htmlmixed.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/bbcode.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/bbcodemixed.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/opentip-native.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/editorbuttons.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/prism.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/usernamehistory.js
+// @require     https://raw.githubusercontent.com/HulaSamsquanch/aimgames/master/enhance/resources/swearifyLite.js
 // @require     https://raw.githubusercontent.com/less/less.js/3.x/dist/less.min.js
-// @resource    codemirrorBaseCSS https://github.com/HulaSamsquanch/aimgames/raw/master/aimgames/enhance/codemirror-base.css
-// @resource    codemirrorThemeCSS https://github.com/HulaSamsquanch/aimgames/raw/master/aimgames/enhance/codemirror-theme.css
-// @resource    prismCSS https://github.com/HulaSamsquanch/aimgames/raw/master/aimgames/enhance/prism.css
+// @resource    codemirrorBaseCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-base.css
+// @resource    codemirrorThemeCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/codemirror-theme.css
+// @resource    prismCSS https://github.com/HulaSamsquanch/aimgames/raw/master/enhance/prism.css
 // @include     http://aimgames.forummotion.com/post
 // @include     http://aimgames.forummotion.com/post*
 // @include     http://aimgames.forummotion.com/t*
 // @include     http://aimgames.forummotion.com/f*
 // @include     http://aimgames.forummotion.com/u*
 // @include     http://aimgames.forummotion.com/
-// @version     0.63
+// @include     https://aimgames.forummotion.com/post
+// @include     https://aimgames.forummotion.com/post*
+// @include     https://aimgames.forummotion.com/t*
+// @include     https://aimgames.forummotion.com/f*
+// @include     https://aimgames.forummotion.com/u*
+// @include     https://aimgames.forummotion.com/
+// @version     0.64
 // @grant       GM_addStyle
 // @grant       GM_log
 // @grant       GM_info
