@@ -1,4 +1,4 @@
-Copyright (c) 2015-2020 Kaffeinated, rafa1231518
+Copyright (c) 2015-2020 Kaffeinated, uwx
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
