@@ -197,7 +197,7 @@ function authenticate() {
     username: GM_getValue('gh_username'),
     password: GM_getValue('gh_pword')
   });
-  repo = gh.getRepo('rafa1231518', 'nfmm-addons'); // change it to what you want
+  repo = gh.getRepo('uwx', 'nfmm-addons'); // change it to what you want
 }
 
 function getUrlPath(url) {
@@ -219,7 +219,7 @@ function write(url, callback) { // callback(error, result, request)
 function uploadImage_GitHub(page, image) {
   write(image, function(tpath, error, result, request) {
     if (!error) {
-      alert('Uploaded to https://github.com/rafa1231518/nfmm-addons/raw/gh-pages/' + tpath);
+      alert('Uploaded to https://github.com/uwx/nfmm-addons/raw/gh-pages/' + tpath);
     } else {
       alert('done: ' + (error ? JSON.stringify(error) : result ? result : JSON.stringify(request)));
     }
